@@ -1,6 +1,5 @@
 import { ImageRepository } from '@architect-io/arc-oci';
 import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import EnvironmentV1 from '../environments/v1/index.ts';
 import { Pipeline } from '../pipeline/index.ts';
@@ -99,7 +98,6 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
       await pipeline
         .apply({
           providerStore: command_helper.providerStore,
-          cwd: path.resolve('./.terraform'),
           logger,
         })
         .then(async () => {

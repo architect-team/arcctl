@@ -1,9 +1,12 @@
+import { deepMerge } from 'std/collections/deep_merge.ts';
+import * as path from 'std/path/mod.ts';
+import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
+import { DebuggableDeploymentSchemaV2 } from './deployment.ts';
 import { parseExpressionRefs } from './expressions.ts';
-import { ProbeSchema } from './probe.ts';
 
 export default class ComponentV2 extends Component {
   /**
@@ -53,28 +56,7 @@ export default class ComponentV2 extends Component {
    */
   deployments?: Record<
     string,
-    {
-      description?: string;
-      image: string;
-      command?: string | string[];
-      entrypoint?: string | string[];
-      environment?: Record<string, string>;
-      cpu?: number | string;
-      memory?: string;
-      labels?: Record<string, string>;
-      probes?: {
-        liveness?: ProbeSchema;
-      };
-      autoscaling?: {
-        cpu?: number | string;
-        memory?: string;
-      };
-      volumes?: Record<string, {
-        host_path: string;
-        mount_path: string;
-        digest?: string;
-      }>;
-    }
+    DebuggableDeploymentSchemaV2
   >;
 
   /**
@@ -241,6 +223,65 @@ export default class ComponentV2 extends Component {
         this.deployments || {},
       )
     ) {
+      const volume_node_ids: string[] = [];
+      const volume_mounts: ResourceInputs['deployment']['volume_mounts'] = [];
+
+      let volumes = deployment_config.volumes || {};
+      if (context.component.debug && deployment_config.debug?.volumes) {
+        volumes = deepMerge(
+          volumes,
+          deployment_config.debug.volumes as any,
+        );
+      }
+      for (const [volumeKey, volumeConfig] of Object.entries(volumes)) {
+        const volume_node = new CloudNode({
+          name: `${deployment_key}-${volumeKey}`,
+          component: context.component.name,
+          environment: context.environment,
+          inputs: {
+            type: 'volume',
+            name: CloudNode.genResourceId({
+              name: `${deployment_key}-${volumeKey}`,
+              component: context.component.name,
+              environment: context.environment,
+            }),
+            hostPath: volumeConfig.host_path ? path.join(context.component.source, volumeConfig.host_path) : undefined,
+          },
+        });
+
+        volume_mounts.push({
+          volume: `\${{ ${volume_node.id}.id }}`,
+          mount_path: volumeConfig.mount_path!,
+          readonly: false,
+        });
+
+        graph.insertNodes(volume_node);
+        volume_node_ids.push(volume_node.id);
+      }
+
+      const image = context.component.debug && deployment_config.debug?.image
+        ? deployment_config.debug.image
+        : deployment_config.image;
+      const command = context.component.debug && deployment_config.debug?.command
+        ? deployment_config.debug.command as string | string[]
+        : deployment_config.command;
+      const entrypoint = context.component.debug && deployment_config.debug?.entrypoint
+        ? deployment_config.debug.entrypoint as string | string[]
+        : deployment_config.entrypoint;
+
+      const environment = context.component.debug && deployment_config.debug?.environment
+        ? deepMerge(deployment_config.environment || {}, deployment_config.debug.environment)
+        : deployment_config.environment;
+      const cpu = context.component.debug && deployment_config.debug?.cpu
+        ? deployment_config.debug.cpu
+        : deployment_config.cpu;
+      const memory = context.component.debug && deployment_config.debug?.memory
+        ? deployment_config.debug.memory
+        : deployment_config.memory;
+      const liveness = context.component.debug && deployment_config.debug?.probes?.liveness
+        ? deployment_config.debug.probes.liveness
+        : deployment_config.probes?.liveness;
+
       const deployment_node = new CloudNode({
         name: deployment_key,
         component: context.component.name,
@@ -252,23 +293,29 @@ export default class ComponentV2 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          image: deployment_config.image,
-          ...(deployment_config.command ? { command: deployment_config.command } : {}),
-          ...(deployment_config.entrypoint ? { entrypoint: deployment_config.entrypoint } : {}),
-          ...(deployment_config.environment ? { environment: deployment_config.environment } : {}),
-          ...(deployment_config.cpu ? { cpu: deployment_config.cpu as number } : {}),
-          ...(deployment_config.memory ? { memory: deployment_config.memory } : {}),
-          ...(deployment_config.probes
-            ? {
-              ...(deployment_config.probes.liveness ? { liveness: deployment_config.probes.liveness } : {}),
-            }
-            : {}),
-          volume_mounts: [],
+          image,
+          ...(environment ? { environment } : {}),
+          ...(command ? { command } : {}),
+          ...(entrypoint ? { entrypoint } : {}),
+          ...(cpu ? { cpu: Number(cpu) } : {}),
+          ...(memory ? { memory } : {}),
+          ...(liveness ? { liveness } : {}),
+          volume_mounts,
           replicas: 1,
         },
       });
 
       graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, deployment_node));
+
+      for (const volume of volume_node_ids) {
+        graph.insertEdges(
+          new CloudEdge({
+            required: true,
+            from: deployment_node.id,
+            to: volume,
+          }),
+        );
+      }
     }
 
     return graph;
@@ -407,11 +454,13 @@ export default class ComponentV2 extends Component {
 
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
-        volumeConfig.digest = await volumeBuildFn({
-          host_path: volumeConfig.host_path,
-          volume_name: volumeName,
-          deployment_name: deploymentName,
-        });
+        if (volumeConfig.host_path) {
+          volumeConfig.digest = await volumeBuildFn({
+            host_path: volumeConfig.host_path,
+            volume_name: volumeName,
+            deployment_name: deploymentName,
+          });
+        }
       }
     }
 

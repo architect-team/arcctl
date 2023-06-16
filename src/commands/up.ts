@@ -1,6 +1,7 @@
 import { ImageRepository } from '@architect-io/arc-oci';
 import cliSpinners from 'cli-spinners';
 import { existsSync } from 'std/fs/exists.ts';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { parseEnvironment } from '../environments/index.ts';
@@ -43,7 +44,9 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   const environment = await parseEnvironment({});
 
   for (let tag_or_path of components) {
+    let componentPath: string | undefined;
     if (existsSync(tag_or_path)) {
+      componentPath = path.join(Deno.cwd(), tag_or_path);
       tag_or_path = await command_helper.componentStore.add(tag_or_path);
     }
 
@@ -51,6 +54,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     await command_helper.componentStore.getComponentConfig(tag_or_path);
     environment.addComponent({
       image: imageRepository,
+      path: componentPath,
     });
   }
 

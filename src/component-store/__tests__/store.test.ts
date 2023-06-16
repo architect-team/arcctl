@@ -1,13 +1,13 @@
+import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
+import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
+import * as path from 'std/path/mod.ts';
+import { assertEquals, assertRejects } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
+import { assertSpyCall, assertSpyCalls, stub } from 'std/testing/mock.ts';
+import tar from 'tar';
 import { Component } from '../../components/index.ts';
 import { parseComponent } from '../../components/parser.ts';
 import { ComponentStore } from '../store.ts';
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
-import * as path from 'std/path/mod.ts';
-import { assertEquals, assertRejects } from 'std/testing/asserts.ts';
-import { assertSpyCall, assertSpyCalls, stub } from 'std/testing/mock.ts';
-import { describe, it } from 'std/testing/bdd.ts';
-import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
-import tar from 'tar';
 
 const DEFAULT_REGISTRY = 'registry.architect.io';
 
@@ -39,7 +39,7 @@ describe(
       mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
 
       const component_id = await store.add('/component/architect.yml');
-      assertEquals(component_id.length, 64);
+      assertEquals(component_id.length, 12);
 
       // Make sure what got stored is the same as what we put in
       const original_config = await parseComponent('/component/architect.yml');
@@ -165,13 +165,13 @@ describe(
         switch (file) {
           case details.config_path: {
             return Promise.resolve({
-              digest: 'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
+              digest: 'sha256:bb3eb5374dc0',
               size: 127,
             });
           }
           case path.join(tmp_dir, 'files-layer.tgz'): {
             return Promise.resolve({
-              digest: 'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
+              digest: 'sha256:7df640a85896',
               size: 300,
             });
           }
@@ -198,7 +198,7 @@ describe(
       assertSpyCalls(mockUpload, 2);
       assertSpyCall(mockUpload, 0, {
         args: [
-          path.join(tmp_store, 'f24572215a3fbb037dcf66fd4c923dbfb8e8672d7f5673cde24d337fffcbbf6f', 'architect.json'),
+          path.join(tmp_store, 'f24572215a3f', 'architect.json'),
         ],
       });
       assertSpyCall(mockUpload, 1, {
@@ -210,13 +210,13 @@ describe(
         args: [
           {
             config: {
-              digest: 'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
+              digest: 'sha256:bb3eb5374dc0',
               mediaType: 'application/vnd.architect.component.config.v1+json',
               size: 127,
             },
             layers: [
               {
-                digest: 'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
+                digest: 'sha256:7df640a85896',
                 mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
                 size: 300,
               },
@@ -255,13 +255,13 @@ describe(
       const mockGetManifestFn = () => {
         return Promise.resolve({
           config: {
-            digest: 'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
+            digest: 'sha256:bb3eb5374dc0',
             mediaType: 'application/vnd.architect.component.config.v1+json',
             size: 127,
           },
           layers: [
             {
-              digest: 'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
+              digest: 'sha256:7df640a85896',
               mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
               size: 300,
             },
@@ -287,7 +287,7 @@ describe(
 
       assertSpyCall(mockStoreAdd, 0, {
         args: [
-          path.join(tmp_store, 'bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6', 'architect.json'),
+          path.join(tmp_store, 'bb3eb5374dc0', 'architect.json'),
         ],
       });
     });

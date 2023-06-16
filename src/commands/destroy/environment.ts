@@ -1,6 +1,5 @@
 import cliSpinners from 'cli-spinners';
 import { Confirm, Select } from 'cliffy/prompt/mod.ts';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
@@ -61,7 +60,6 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     .apply({
       providerStore: command_helper.providerStore,
       logger: logger,
-      cwd: path.resolve('./.terraform'),
     })
     .then(async () => {
       await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);

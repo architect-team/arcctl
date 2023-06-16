@@ -4,6 +4,14 @@
   "definitions": {
     "PodInputs": {
       "additionalProperties": false,
+      "properties": {
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
       "type": "object"
     }
   }

@@ -228,6 +228,7 @@ export class ComponentStore {
    */
   async pull(ref_string: string, media_type: string = MEDIA_TYPES.OCI_MANIFEST): Promise<void> {
     const repository = new ImageRepository<Component>(ref_string, this.default_registry);
+    console.log(repository);
     const manifest = await repository.getManifest(media_type);
 
     if (manifest.layers.length <= 0) {

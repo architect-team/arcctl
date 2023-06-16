@@ -7089,6 +7089,152 @@
           ],
           "type": "object"
         },
+        "variables": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "arcctlAccount": {
+                "type": "string"
+              },
+              "cronjob": {
+                "type": "string"
+              },
+              "database": {
+                "type": "string"
+              },
+              "databaseSchema": {
+                "type": "string"
+              },
+              "databaseSize": {
+                "type": "string"
+              },
+              "databaseType": {
+                "type": "string"
+              },
+              "databaseUser": {
+                "type": "string"
+              },
+              "databaseVersion": {
+                "type": "string"
+              },
+              "deployment": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "dnsRecord": {
+                "type": "string"
+              },
+              "dnsZone": {
+                "type": "string"
+              },
+              "dockerBuild": {
+                "type": "string"
+              },
+              "helmChart": {
+                "type": "string"
+              },
+              "ingressRule": {
+                "type": "string"
+              },
+              "kubernetesCluster": {
+                "type": "string"
+              },
+              "kubernetesVersion": {
+                "type": "string"
+              },
+              "loadBalancer": {
+                "type": "string"
+              },
+              "loadBalancerType": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "node": {
+                "type": "string"
+              },
+              "nodeSize": {
+                "type": "string"
+              },
+              "pod": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "secret": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              },
+              "task": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "arcctlAccount",
+                  "cronjob",
+                  "database",
+                  "databaseSchema",
+                  "databaseSize",
+                  "databaseType",
+                  "databaseUser",
+                  "databaseVersion",
+                  "deployment",
+                  "dnsRecord",
+                  "dnsZone",
+                  "dockerBuild",
+                  "helmChart",
+                  "ingressRule",
+                  "kubernetesCluster",
+                  "kubernetesVersion",
+                  "loadBalancer",
+                  "loadBalancerType",
+                  "namespace",
+                  "node",
+                  "nodeSize",
+                  "pod",
+                  "region",
+                  "secret",
+                  "service",
+                  "task",
+                  "volume",
+                  "vpc",
+                  "string",
+                  "number",
+                  "boolean"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              },
+              "volume": {
+                "type": "string"
+              },
+              "vpc": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          },
+          "description": "Variables whose values will be prompted for when creating the datacenter",
+          "type": "object"
+        },
         "version": {
           "const": "v1",
           "type": "string"

@@ -8,19 +8,15 @@ import { LogsOptions } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
-import { DockerInspectionResults } from '../types.ts';
-import { DockerPodService } from './pod.ts';
+import { DockerInspectionResults, DockerPsItem } from '../types.ts';
 
 export class DockerDeploymentService extends CrudResourceService<'deployment', DockerCredentials> {
-  podService: DockerPodService;
-
   public constructor(accountName: string, credentials: DockerCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.podService = new DockerPodService(accountName, credentials, providerStore);
   }
 
   private async inspect(id: string): Promise<DockerInspectionResults | undefined> {
-    const { stdout } = await exec('docker', { args: ['inspect', id] });
+    const { stdout } = await exec('docker', { args: ['inspect', id.replaceAll('/', '--')] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     return rawContents.length > 0 ? rawContents[0] : undefined;
   }
@@ -30,29 +26,51 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     return listRes.rows.find((row) => row.id === id);
   }
 
+  private async getPods(
+    labels: Record<string, string>,
+  ): Promise<DockerInspectionResults[]> {
+    const args = ['ps', '--format', 'json'];
+
+    labels['io.architect'] = 'arcctl';
+    for (const [key, value] of Object.entries(labels)) {
+      let contents = key;
+      if (value) {
+        contents += `=${value}`;
+      }
+
+      args.push('--filter', `label=${contents}`);
+    }
+
+    const { stdout } = await exec('docker', { args });
+    const rows = stdout.includes('\n') ? stdout.split('\n').filter((row) => Boolean(row)) : [stdout];
+    const rawOutput: DockerPsItem[] = JSON.parse(`[${rows.join(',')}]`);
+
+    return Promise.all(rawOutput.map(async (row) => {
+      const res = await this.inspect(row.Names);
+      return res!;
+    }));
+  }
+
   async list(
     filterOptions?: Partial<ResourceOutputs['deployment']> | undefined,
     _pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
-    const res = await this.podService.list({
-      labels: {
-        ...filterOptions?.labels,
-        'io.architect': 'arcctl',
-        'io.architect.arcctl.deployment': '',
-      },
+    const res = await this.getPods({
+      ...filterOptions?.labels,
+      'io.architect': 'arcctl',
+      'io.architect.arcctl.deployment': '',
     });
 
     return {
-      total: res.total,
-      rows: res.rows.map((row) => ({
-        id: row.labels?.['io.architect.arcctl.deployment'] || 'unknown',
-        labels: row.labels,
+      total: res.length,
+      rows: res.map((row) => ({
+        id: row.Config?.Labels?.['io.architect.arcctl.deployment'] || 'unknown',
+        labels: row.Config?.Labels,
       })),
     };
   }
 
   logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
-    console.log('logs', id, options);
     const args = ['logs', id.replaceAll('/', '--')];
 
     if (options?.follow) {

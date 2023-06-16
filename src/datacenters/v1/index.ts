@@ -3,7 +3,7 @@ import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
 import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
-import { Datacenter, DatacenterSecretsConfig } from '../datacenter.ts';
+import { Datacenter, DatacenterSecretsConfig, ParsedVariablesType, VariablesMetadata } from '../datacenter.ts';
 
 /**
  * @discriminator type
@@ -40,6 +40,11 @@ export default class DatacenterV1 extends Datacenter {
      */
     namespace?: string;
   };
+
+  /**
+   * Variables whose values will be prompted for when creating the datacenter
+   */
+  variables?: { [key: string]: VariablesMetadata };
 
   /**
    * Create resources that live and die with the lifecycle of the datacenter
@@ -119,7 +124,7 @@ export default class DatacenterV1 extends Datacenter {
   private replaceDatacenterResourceRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?resources\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?resources\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, resource_id, resource_key) => {
           const resource = this.resources?.[resource_id];
           if (!resource) {
@@ -148,7 +153,7 @@ export default class DatacenterV1 extends Datacenter {
   private replaceDatacenterAccountRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?accounts\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?accounts\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, account_id, resource_key) => {
           const account = this.accounts?.[account_id];
           if (!account) {
@@ -182,7 +187,7 @@ export default class DatacenterV1 extends Datacenter {
   ): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?environment\.resources\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?environment\.resources\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, resource_id, resource_key) => {
           const resource = this.environment?.resources?.[resource_id];
           if (!resource) {
@@ -217,7 +222,7 @@ export default class DatacenterV1 extends Datacenter {
   ): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?environment\.accounts\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?environment\.accounts\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, account_id, resource_key) => {
           const account = this.environment?.accounts?.[account_id];
           if (!account) {
@@ -245,7 +250,80 @@ export default class DatacenterV1 extends Datacenter {
   }
 
   private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
-    return JSON.parse(JSON.stringify(contents).replace(/\${{\s?environment\.name\s?}}/g, environmentName));
+    return JSON.parse(JSON.stringify(contents).replace(/\${{\s*?environment\.name\s*?}}/g, environmentName));
+  }
+
+  public getVariables(): ParsedVariablesType {
+    if (!this.variables) {
+      return {};
+    }
+
+    // Parse/stringify to deep copy the object.
+    // Don't want dependant_variables metadata key to end up in the json dumped datacenter
+    const variables: ParsedVariablesType = JSON.parse(JSON.stringify(this.variables));
+    const variable_names = new Set(Object.keys(variables));
+    const variable_regex = /\${{\s*?variables\.([\w-]+)\s*?}}/;
+
+    for (const [variable_name, variable_metadata] of Object.entries(variables)) {
+      for (const [metadata_key, metadata_value] of Object.entries(variable_metadata)) {
+        if (typeof metadata_value === 'string' && variable_regex.test(metadata_value)) {
+          const match = metadata_value.match(variable_regex);
+          if (match && match.length > 1) {
+            if (!variables[variable_name].dependant_variables) {
+              variables[variable_name].dependant_variables = [];
+            }
+
+            const variable_value = match[1];
+            if (!variable_names.has(variable_value)) {
+              throw new Error(
+                `Variable reference '${metadata_key}: ${metadata_value}' references variable '${variable_value}' that does not exist.`,
+              );
+            }
+
+            variables[variable_name].dependant_variables?.push({
+              key: metadata_key as keyof VariablesMetadata,
+              value: match[1],
+            });
+          }
+        }
+      }
+    }
+
+    return variables;
+  }
+
+  /**
+   * Replaces all `${{ variables.VAR_NAME }}` references with their values.
+   * The stored datacenter json will no longer contain `${{ variables.VAR_NAME }}`
+   * references and will just contain the inputted values.
+   */
+  public setVariableValues(variables: Record<string, string | boolean | number | undefined>) {
+    function replace_variable_values(obj: Record<string, unknown>) {
+      for (const [key, value] of Object.entries(obj)) {
+        if (typeof value === 'object') {
+          replace_variable_values(value as Record<string, unknown>);
+        } else if (typeof value === 'string') {
+          obj[key] = value.replace(
+            /\${{\s*?variables\.([\w-]+)\s*?}}/g,
+            (_full_ref, variable_name) => {
+              const variable_value = variables[variable_name];
+              if (variable_value === undefined) {
+                throw Error(`Variable ${variable_name} has no value`);
+              }
+              return variable_value as string;
+            },
+          );
+        }
+      }
+    }
+
+    replace_variable_values(this.resources || {});
+    replace_variable_values(this.accounts || {});
+    replace_variable_values(this.environment || {});
+
+    for (const [variable_name, variable_metadata] of Object.entries(this.variables || {})) {
+      variable_metadata.value = variables[variable_name];
+    }
   }
 
   public enrichGraph(graph: CloudGraph, environmentName?: string): Promise<CloudGraph> {
@@ -339,7 +417,7 @@ export default class DatacenterV1 extends Datacenter {
           ): T =>
             JSON.parse(
               JSON.stringify(contents)
-                .replace(/\${{\s?this\.resources\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, resource_id, resource_key) => {
+                .replace(/\${{\s*?this\.resources\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, resource_id, resource_key) => {
                   const resource = resources?.[resource_id];
                   if (!resource) {
                     throw new Error(`Invalid expression: ${full_ref}`);
@@ -361,7 +439,7 @@ export default class DatacenterV1 extends Datacenter {
 
                   return `\${{ ${target_node_id}.${resource_key} }}`;
                 })
-                .replace(/\${{\s?this\.accounts\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, account_id, resource_key) => {
+                .replace(/\${{\s*?this\.accounts\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, account_id, resource_key) => {
                   const account = accounts?.[account_id];
                   if (!account) {
                     throw new Error(`Invalid expression: ${full_ref}`);
@@ -384,7 +462,7 @@ export default class DatacenterV1 extends Datacenter {
                   return `\${{ ${target_node_id}.${resource_key} }}`;
                 })
                 .replace(
-                  /\${{\s?this\.(\S+)\s?}}/g,
+                  /\${{\s*?this\.(\S+)\s*?}}/g,
                   (_, node_key: string) => {
                     return this.getNestedValue(node, node_key.split('.'));
                   },
@@ -401,6 +479,7 @@ export default class DatacenterV1 extends Datacenter {
               component: node.component,
               environment: environmentName,
             });
+
             graph.insertNodes(
               new CloudNode({
                 name: newResourceName,
@@ -429,7 +508,7 @@ export default class DatacenterV1 extends Datacenter {
                             hook_node_id,
                             JSON.parse(
                               JSON.stringify(resource_config).replace(
-                                /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                                /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
                                 (_, key: string) => {
                                   graph.insertEdges(
                                     new CloudEdge({
@@ -491,7 +570,7 @@ export default class DatacenterV1 extends Datacenter {
                             hook_node_id,
                             JSON.parse(
                               JSON.stringify(account_config).replace(
-                                /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                                /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
                                 (_, key: string) => {
                                   graph.insertEdges(
                                     new CloudEdge({

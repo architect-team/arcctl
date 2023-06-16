@@ -81,7 +81,7 @@ async function destroy_resource_action(
     name: type,
     type: type,
     inputs: {
-      type: type,
+      type: type as any,
       account: account.name,
     },
     outputs: {

@@ -57,7 +57,7 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
     filterOptions?: Partial<ResourceOutputs['vpc']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['vpc']>> {
-    const regions = await new AwsRegionService(this.credentials).list();
+    const regions = await new AwsRegionService(this.accountName, this.credentials, this.providerStore).list();
 
     const res: PagingResponse<ResourceOutputs['vpc']> = {
       total: 0,

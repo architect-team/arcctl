@@ -1,7 +1,7 @@
 import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
-type BuildOptions = {} & GlobalOptions;
+type BuildOptions = GlobalOptions;
 
 const PushCommand = BaseCommand()
   .description('Push a component up to the registry')

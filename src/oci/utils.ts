@@ -1,4 +1,5 @@
 import { createHash } from 'https://deno.land/std@0.80.0/hash/mod.ts';
+import * as iter from 'https://deno.land/x/iter/mod.ts';
 
 interface BinaryData {
   digest: string;
@@ -11,7 +12,7 @@ export const fileToBinaryData = async (file: string): Promise<BinaryData> => {
   const file_contents = await Deno.open(
     new URL(file, import.meta.url),
   );
-  for await (const chunk of Deno.iter(file_contents)) {
+  for await (const chunk of iter(file_contents)) {
     hash.update(chunk);
   }
 

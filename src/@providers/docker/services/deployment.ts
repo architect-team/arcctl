@@ -1,4 +1,5 @@
 import { Subscriber } from 'rxjs';
+import { mergeReadableStreams } from 'std/streams/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
@@ -51,6 +52,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
   }
 
   logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
+    console.log('logs', id, options);
     const args = ['logs', id.replaceAll('/', '--')];
 
     if (options?.follow) {
@@ -67,7 +69,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args,
     });
     const child = cmd.spawn();
-    return child.stdout;
+    return mergeReadableStreams(child.stdout, child.stderr);
   }
 
   async create(

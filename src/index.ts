@@ -6,6 +6,7 @@ export * from './components/index.ts';
 export * from './datacenters/index.ts';
 export * from './environments/index.ts';
 export * from './pipeline/index.ts';
+export * from './plugins/index.ts';
 export { default as PluginManager } from './plugins/plugin-manager.ts';
 export * from './terraform/index.ts';
 export { default as CloudCtlConfig } from './utils/config.ts';

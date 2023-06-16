@@ -19,16 +19,23 @@ resources:
         count: 3
         nodeSize: t2.medium
 
+accounts:
+  cluster:
+    name: do-personal-cluster
+    provider: kubernetes
+    credentials:
+      configPath: ${{ resources.cluster.configPath }}
+
 environment:
   resources:
     namespace:
       type: namespace
-      account: ${{ resources.cluster.account }}
+      account: ${{ accounts.cluster.id }}
       name: ${{ environment.name }}
     nginx-ingress-controller:
       type: helmChart
       name: ${{ environment.name }}-ingress-nginx
-      account: ${{ resources.cluster.account }}
+      account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
@@ -68,5 +75,5 @@ environment:
           content: ${{ this.outputs.loadBalancerHostname }}
       registry: nginx
       namespace: ${{ environment.resources.namespace.id }}
-    - account: ${{ resources.cluster.account }}
+    - account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}

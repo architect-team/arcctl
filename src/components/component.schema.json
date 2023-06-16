@@ -2890,6 +2890,9 @@
                 "additionalProperties": {
                   "additionalProperties": false,
                   "properties": {
+                    "digest": {
+                      "type": "string"
+                    },
                     "host_path": {
                       "type": "string"
                     },

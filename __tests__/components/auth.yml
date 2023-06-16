@@ -2,7 +2,7 @@ version: v2
 
 databases:
   kratos:
-    type: postgres:13
+    type: postgres:15
     migrate:
       image: oryd/kratos:v0.13.0
       entrypoint: [""]

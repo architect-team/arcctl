@@ -2339,6 +2339,39 @@
                           "if": {
                             "properties": {
                               "type": {
+                                "const": "pod",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "labels": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "type": "object"
+                              },
+                              "type": {
+                                "const": "pod",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
                                 "properties": {},
                                 "type": "object"
                               }
@@ -2744,6 +2777,7 @@
                             "kubernetesCluster",
                             "loadBalancer",
                             "namespace",
+                            "pod",
                             "secret",
                             "service",
                             "task",
@@ -2938,6 +2972,10 @@
                       },
                       {
                         "const": "namespace",
+                        "type": "string"
+                      },
+                      {
+                        "const": "pod",
                         "type": "string"
                       },
                       {
@@ -3819,6 +3857,7 @@
                           "namespace",
                           "node",
                           "nodeSize",
+                          "pod",
                           "region",
                           "secret",
                           "service",
@@ -5465,6 +5504,39 @@
                     "if": {
                       "properties": {
                         "type": {
+                          "const": "pod",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "labels": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "type": "object"
+                        },
+                        "type": {
+                          "const": "pod",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
                           "properties": {},
                           "type": "object"
                         }
@@ -5870,6 +5942,7 @@
                       "kubernetesCluster",
                       "loadBalancer",
                       "namespace",
+                      "pod",
                       "secret",
                       "service",
                       "task",
@@ -7467,6 +7540,39 @@
                 "if": {
                   "properties": {
                     "type": {
+                      "const": "pod",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "labels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "type": {
+                      "const": "pod",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
                       "properties": {},
                       "type": "object"
                     }
@@ -7872,6 +7978,7 @@
                   "kubernetesCluster",
                   "loadBalancer",
                   "namespace",
+                  "pod",
                   "secret",
                   "service",
                   "task",
@@ -7976,6 +8083,9 @@
               "nodeSize": {
                 "type": "string"
               },
+              "pod": {
+                "type": "string"
+              },
               "provider": {
                 "type": "string"
               },
@@ -8014,6 +8124,7 @@
                   "namespace",
                   "node",
                   "nodeSize",
+                  "pod",
                   "region",
                   "secret",
                   "service",

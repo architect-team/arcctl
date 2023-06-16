@@ -70,7 +70,7 @@ export default class PluginManager {
     );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);
-    // if (!existsSync(executablePath)) { // TODO: comment about why this was changed - related to https://github.com/denoland/deno_std/issues/1216
+    // if (!existsSync(executablePath)) { // TODO: comment about why this was changed - related to https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
       await PluginUtils.downloadFile(binary.url, downloadedFilePath, binary.sha256);
       await PluginUtils.extractFile(downloadedFilePath, versionPath, binary.bundleType);
       try {

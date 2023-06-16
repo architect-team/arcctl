@@ -1,16 +1,25 @@
-import AdmZip from 'adm-zip';
-import tar from 'tar';
-import { PluginArchitecture, PluginBinary, PluginBundleType, PluginPlatform } from './plugin-types.ts';
+import AdmZip from "adm-zip";
+import tar from "tar";
+import {
+  PluginArchitecture,
+  PluginBinary,
+  PluginBundleType,
+  PluginPlatform,
+} from "./plugin-types.ts";
 
 export default class PluginUtils {
   static downloadFile(
     url: string,
     location: string,
-    sha256: string,
   ): Promise<void> {
     return fetch(url).then(async (response) => {
-      const file = await Deno.create(location);
-      await response.body?.pipeTo(file.writable);
+      // TODO: replace with the following when file.writable is implemented - https://github.com/denoland/node_shims/blob/094b9cfa50aac59e7b113816ddd8bbda40493194/packages/shim-deno/src/deno/stable/classes/FsFile.ts#L65
+      // const file = await Deno.create(location);
+      // await response.body?.pipeTo(file.writable);
+
+      const data = new Uint8Array(await response.arrayBuffer());
+      const file = Deno.createSync(location);
+      file.writeSync(data);
     });
   }
 

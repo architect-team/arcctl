@@ -34,17 +34,17 @@ const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipel
 
       step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
 
-      if (
-        step.equals(previousStep) &&
-        previousStep.status.state === 'complete'
-      ) {
-        step.action = 'no-op';
-        step.status.state = 'complete';
-        step.state = previousStep.state;
-        step.outputs = previousStep.outputs;
-        nextPipeline.insertSteps(step);
-        done = false;
-      }
+      // if (
+      //   step.equals(previousStep) &&
+      //   previousStep.status.state === 'complete'
+      // ) {
+      //   step.action = 'no-op';
+      //   step.status.state = 'complete';
+      //   step.state = previousStep.state;
+      //   step.outputs = previousStep.outputs;
+      //   nextPipeline.insertSteps(step);
+      //   done = false;
+      // }
     }
   } while (!done);
 

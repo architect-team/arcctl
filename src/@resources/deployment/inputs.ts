@@ -115,6 +115,7 @@ type Container = {
   volume_mounts: Array<{
     volume: string;
     mount_path: string;
+    digest?: string;
     readonly: boolean;
   }>;
 

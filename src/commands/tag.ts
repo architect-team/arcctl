@@ -1,7 +1,7 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
-import { ImageRepository } from '@architect-io/arc-oci';
 import * as path from 'std/path/mod.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { exec } from '../utils/command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 const TagCommand = BaseCommand()
   .description('Tag a component and its associated build artifacts')

@@ -1,5 +1,14 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import {
+  Component,
+  DockerBuildFn,
+  DockerPushFn,
+  DockerTagFn,
+  GraphContext,
+  VolumeBuildFn,
+  VolumePushFn,
+  VolumeTagFn,
+} from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { parseExpressionRefs } from './expressions.ts';
@@ -223,6 +232,34 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
+  private getDeploymentVolumes(
+    tag: string,
+    deployment_name: string,
+    volumes: Record<string, {
+      host_path: string;
+      mount_path: string;
+      digest?: string;
+    }>,
+  ): {
+    name: string;
+    mount_path: string;
+    digest: string;
+    readonly: boolean;
+  }[] {
+    const deployment_volumes = [];
+    const [repo_name, repo_tag] = tag.split(':');
+    for (const [volume_key, volume_config] of Object.entries(volumes)) {
+      deployment_volumes.push({
+        name: volume_key,
+        volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
+        mount_path: volume_config.mount_path,
+        digest: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
+        readonly: true,
+      });
+    }
+    return deployment_volumes;
+  }
+
   private addDeploymentsToGraph(
     graph: CloudGraph,
     context: GraphContext,
@@ -254,7 +291,11 @@ export default class ComponentV2 extends Component {
               ...(deployment_config.probes.liveness ? { liveness: deployment_config.probes.liveness } : {}),
             }
             : {}),
-          volume_mounts: [],
+          volume_mounts: this.getDeploymentVolumes(
+            context.component.source,
+            deployment_key,
+            deployment_config.volumes || {},
+          ),
           replicas: 1,
         },
       });
@@ -409,20 +450,40 @@ export default class ComponentV2 extends Component {
     return this;
   }
 
-  public async tag(tagFn: DockerTagFn): Promise<Component> {
+  public async tag(tagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       if (buildConfig.image) {
         this.builds![buildName].image = await tagFn(buildConfig.image, buildName);
       }
     }
 
+    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
+      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+        if (volumeConfig.digest) {
+          deploymentConfig.volumes![volumeName].digest = await volumeTagFn(
+            volumeConfig.digest,
+            deploymentName,
+            volumeName,
+          );
+        }
+      }
+    }
+
     return this;
   }
 
-  public async push(pushFn: DockerPushFn): Promise<Component> {
+  public async push(pushFn: DockerPushFn, volumePushFn: VolumePushFn): Promise<Component> {
     for (const buildConfig of Object.values(this.builds || {})) {
       if (buildConfig.image) {
         await pushFn(buildConfig.image);
+      }
+    }
+
+    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
+      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+        if (volumeConfig.digest) {
+          await volumePushFn(deploymentName, volumeName, volumeConfig.digest);
+        }
       }
     }
 

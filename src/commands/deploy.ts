@@ -1,4 +1,4 @@
-import { ImageRepository } from '@architect-io/arc-oci';
+import { ImageRepository } from '../oci/index.ts';
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';

@@ -2,6 +2,7 @@ import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
+import { PersistentVolumeClaim } from '../.gen/providers/kubernetes/persistent-volume-claim/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 
 export class KubernetesDeploymentModule extends ResourceModule<'deployment', KubernetesCredentials> {
@@ -12,6 +13,27 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
     super(scope, options);
 
     const normalizedName = this.inputs?.name.replace(/\//g, '--') || 'unknown';
+
+    const volumeClaims: Record<string, PersistentVolumeClaim> = {};
+
+    for (const volume_mount of this.inputs?.volume_mounts || []) {
+      const name = `volume-${volume_mount.volume.split('-').pop()}`;
+      volumeClaims[volume_mount.volume] = new PersistentVolumeClaim(this, `${name}-claim`, {
+        metadata: {
+          name: `${volume_mount.volume}`,
+          namespace: this.inputs?.namespace,
+        },
+        waitUntilBound: false,
+        spec: {
+          accessModes: ['ReadWriteOnce'],
+          resources: {
+            requests: {
+              storage: '500Mi',
+            },
+          },
+        },
+      });
+    }
 
     this.deployment = new Deployment(this, 'deployment', {
       metadata: {
@@ -36,6 +58,42 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
             },
           },
           spec: {
+            initContainer: this.inputs?.volume_mounts?.map((volume) => {
+              const [repo, tag] = (volume.digest || '').split(':');
+              const repoParts = repo.split('/');
+              repoParts.splice(1, 0, 'v2');
+              const fullRepo = repoParts.join('/');
+
+              const manifest_url = `${fullRepo}/manifests/${tag}`;
+              return {
+                name: `${normalizedName}-volume-${volume.volume.split('-').pop()}`,
+                image: 'cydrive/volume:latest',
+                env: [
+                  {
+                    name: 'MANIFEST_URL',
+                    value: manifest_url,
+                  },
+                  {
+                    name: 'OUTPUT_DIR',
+                    value: volume.mount_path,
+                  },
+                ],
+                volumeMount: [
+                  {
+                    name: volume.volume,
+                    mountPath: volume.mount_path,
+                  },
+                ],
+              };
+            }),
+            volume: this.inputs?.volume_mounts?.map((volume) => {
+              return {
+                name: volume.volume,
+                persistentVolumeClaim: {
+                  claimName: volumeClaims[volume.volume].metadata.name,
+                },
+              };
+            }),
             container: [
               {
                 name: normalizedName,
@@ -47,10 +105,6 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
                   name: key,
                   value: String(value),
                 })),
-                volumeMount: this.inputs?.volume_mounts?.map((mount) => ({
-                  name: mount.volume,
-                  mountPath: mount.mount_path,
-                })),
                 resources: {
                   requests: {
                     ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),
@@ -61,6 +115,12 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
                     ...(this.inputs?.memory ? { memory: this.inputs.memory } : {}),
                   },
                 },
+                volumeMount: (this.inputs?.volume_mounts || []).map((volume) => {
+                  return {
+                    name: volume.volume,
+                    mountPath: volume.mount_path,
+                  };
+                }),
               },
               ...(this.inputs?.sidecars?.map((container, index) => ({
                 name: `${normalizedName}-sidecar-${index}`,
@@ -70,9 +130,9 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
                   name: key,
                   value: String(value),
                 })),
-                volumeMount: container.volume_mounts.map((mount) => ({
-                  name: mount.volume,
-                  mountPath: mount.mount_path,
+                volumeMount: container.volume_mounts.map((volume) => ({
+                  name: volume.volume,
+                  mountPath: volume.mount_path,
                 })),
                 resources: {
                   requests: {

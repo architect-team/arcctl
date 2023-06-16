@@ -1,13 +1,13 @@
-import { Component } from '../../components/index.ts';
-import { parseComponent } from '../../components/parser.ts';
-import { ComponentStore } from '../store.ts';
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
+import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import * as path from 'std/path/mod.ts';
 import { assertEquals, assertRejects } from 'std/testing/asserts.ts';
-import { assertSpyCall, assertSpyCalls, stub } from 'std/testing/mock.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
+import { assertSpyCall, assertSpyCalls, stub } from 'std/testing/mock.ts';
 import tar from 'tar';
+import { Component } from '../../components/index.ts';
+import { parseComponent } from '../../components/parser.ts';
+import { ImageManifest, ImageRepository } from '../../oci/index.ts';
+import { ComponentStore } from '../store.ts';
 
 const DEFAULT_REGISTRY = 'registry.architect.io';
 

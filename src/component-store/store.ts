@@ -1,16 +1,24 @@
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
-import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
+import { Buffer } from 'https://deno.land/std@0.153.0/node/buffer.ts';
+import * as crypto from 'https://deno.land/std@0.153.0/node/crypto.ts';
+import { copy } from 'std/fs/copy.ts';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import tar from 'tar';
 import { Component } from '../components/component.ts';
 import { parseComponent } from '../components/parser.ts';
+import { ImageManifest, ImageRepository } from '../oci/index.ts';
 import { ComponentStoreDB } from './db.ts';
 
 const CACHE_DB_FILENAME = 'component.db.json';
 
 enum MEDIA_TYPES {
   OCI_MANIFEST = 'application/vnd.oci.image.manifest.v1+json',
+}
+
+interface BinaryData {
+  digest: string;
+  size: number;
+  data: Buffer;
 }
 
 class MissingComponentRef extends Error {
@@ -85,7 +93,7 @@ export class ComponentStore {
     try {
       const { component } = await this.getCachedComponentDetails(image);
       return component;
-    } catch {
+    } catch (ex) {
       const raw_config = await image.getConfig(MEDIA_TYPES.OCI_MANIFEST);
       return parseComponent(raw_config);
     }
@@ -111,6 +119,37 @@ export class ComponentStore {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     Deno.writeTextFileSync(path.join(new_path, 'architect.json'), component_contents);
+    return artifact_id;
+  }
+
+  /**
+   * Adds a volume to the component cache.
+   *
+   * @returns {string} - ID of the newly cached artifacts
+   */
+  async addVolume(host_path: string): Promise<string> {
+    const hash = crypto
+      .createHash('sha256');
+    const directories = [host_path];
+    while (directories.length > 0) {
+      const directory = directories.pop() || '';
+      const dir = Deno.readDir(directory);
+      for await (const entry of dir) {
+        if (entry.isDirectory) {
+          directories.push(path.join(directory, entry.name));
+        }
+        const stats = await Deno.stat(path.join(directory, entry.name));
+        hash.update(`${entry.name}${stats.mtime}${stats.size}`);
+      }
+    }
+    const artifact_id = hash
+      .setEncoding('utf-8')
+      .digest('hex') as string;
+    const new_path = path.join(this.cache_dir, artifact_id);
+    if (!existsSync(new_path)) {
+      Deno.mkdirSync(new_path, { recursive: true });
+    }
+    await copy(host_path, new_path, { overwrite: true });
     return artifact_id;
   }
 
@@ -178,6 +217,39 @@ export class ComponentStore {
   }
 
   /**
+   * Create a new reference from the src image to the target ref. This only creates a pointer in the cache DB.
+   *
+   * @param {string} src_ref_or_id - A reference to the source image
+   * @param {string} dest_ref - A target reference tag to apply to the image
+   */
+  tagVolume(src_ref_or_id: string, dest_ref: string): void {
+    const dest_match = new ImageRepository(dest_ref, this.default_registry);
+
+    // Ensure the destination repository is in the DB
+    this.db[dest_match.repository] = this.db[dest_match.repository] || {};
+
+    if (/^[\dA-Fa-f]{64}/.test(src_ref_or_id)) {
+      // If the input is an image ID, look for it in the filesystem
+      const src_path = path.join(this.cache_dir, src_ref_or_id);
+      if (!existsSync(src_path)) {
+        throw new MissingComponentRef(src_ref_or_id);
+      }
+
+      this.db[dest_match.repository][dest_ref] = `./${src_ref_or_id}`;
+    } else {
+      // If the src is an existing tag, create a new pointer in the DB
+      const src_match = new ImageRepository(src_ref_or_id, this.default_registry);
+      if (!this.db[src_match.repository] || !this.db[src_match.repository][src_ref_or_id]) {
+        throw new MissingComponentRef(src_ref_or_id);
+      }
+
+      this.db[dest_match.repository][dest_ref] = this.db[src_match.repository][src_ref_or_id];
+    }
+
+    this.save();
+  }
+
+  /**
    * Push the component from the local cache to the remote registry corresponding with the tag
    *
    * @param {string} ref_string - The component tag to push
@@ -220,6 +292,56 @@ export class ComponentStore {
     };
 
     await repository.uploadManifest(manifest);
+  }
+
+  /**
+   * Push the component from the local cache to the remote registry corresponding with the tag
+   *
+   * @param {string} ref_string - The component tag to push
+   */
+  async pushVolume(
+    component_ref_string: string,
+    ref_string: string,
+    tag: string,
+    tar_directory?: string,
+  ): Promise<void> {
+    const component_repository = new ImageRepository(component_ref_string, this.default_registry);
+    const volume_repository = new ImageRepository(tag, this.default_registry);
+    await volume_repository.checkForOciSupport();
+
+    const { component, config_path } = await this.getCachedComponentDetails(component_repository);
+
+    // Upload the component config
+    Deno.writeTextFileSync(config_path, JSON.stringify(component));
+    const config_blob = await volume_repository.uploadBlob(config_path);
+    // Upload the component directory contents
+    if (!tar_directory) {
+      tar_directory = Deno.makeTempDirSync();
+    }
+    const tar_filepath = path.join(tar_directory, 'files-layer.tgz');
+
+    await tar.create({ gzip: true, file: tar_filepath, cwd: path.join(this.cache_dir, ref_string) }, ['./']);
+    const files_blob = await volume_repository.uploadBlob(tar_filepath);
+
+    // Create and upload the manifest
+    const manifest: ImageManifest = {
+      schemaVersion: 2,
+      mediaType: MEDIA_TYPES.OCI_MANIFEST,
+      config: {
+        mediaType: 'application/vnd.architect.component.config.v1+json',
+        digest: config_blob.digest,
+        size: config_blob.size,
+      },
+      layers: [
+        {
+          mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
+          digest: files_blob.digest,
+          size: files_blob.size,
+        },
+      ],
+    };
+
+    await volume_repository.uploadManifest(manifest);
   }
 
   /**

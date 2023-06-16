@@ -10,7 +10,8 @@ import { TraefikCredentials } from '../credentials.ts';
 import { TraefikFormattedIngressRule } from '../types.ts';
 import { TraefikTaskService } from '../utils.ts';
 
-const FILE_SUFFIX = '-ingress-rule.yml';
+const ROUTER_SUFFIX = '-ing';
+const FILE_SUFFIX = ROUTER_SUFFIX + '.yml';
 const MOUNT_PATH = '/etc/traefik/';
 
 export class TraefikIngressRuleService extends CrudResourceService<'ingressRule', TraefikCredentials> {
@@ -122,21 +123,26 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       yaml.dump({
         http: {
           routers: {
-            [normalizedId]: {
+            [normalizedId + ROUTER_SUFFIX]: {
               rule: rules.join(' && '),
               service: inputs.service,
             },
           },
         },
-      }),
+      } as TraefikFormattedIngressRule),
     );
+
+    let urlPath = inputs.path || '/';
+    if (!urlPath.endsWith('/')) {
+      urlPath += '/';
+    }
 
     return {
       id: normalizedId,
       host,
       port: 80,
-      path: inputs.path || '/',
-      url: `http://${host}${inputs.path || '/'}`,
+      path: urlPath,
+      url: `http://${host}${urlPath}`,
       loadBalancerHostname: '127.0.0.1',
     };
   }
@@ -189,12 +195,17 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
 
+    let urlPath = inputs.path || '/';
+    if (!urlPath.endsWith('/')) {
+      urlPath += '/';
+    }
+
     return {
       id: normalizedId,
       host,
       port: 80,
-      path: inputs.path || '/',
-      url: `http://${host}${inputs.path || '/'}`,
+      path: urlPath,
+      url: `http://${host}${urlPath}`,
       loadBalancerHostname: '127.0.0.1',
     };
   }

@@ -10,7 +10,8 @@ import { TraefikCredentials } from '../credentials.ts';
 import { TraefikFormattedService } from '../types.ts';
 import { TraefikTaskService } from '../utils.ts';
 
-const FILE_SUFFIX = '-service.yml';
+const ROUTER_SUFFIX = '-svc';
+const FILE_SUFFIX = ROUTER_SUFFIX + '.yml';
 const MOUNT_PATH = '/etc/traefik/';
 
 export class TraefikServiceService extends CrudResourceService<'service', TraefikCredentials> {
@@ -85,7 +86,8 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
   }
 
   async create(subscriber: Subscriber<string>, inputs: ResourceInputs['service']): Promise<ResourceOutputs['service']> {
-    const normalizedId = inputs.name.replaceAll('/', '--');
+    const serviceName = inputs.name.replaceAll('/', '--');
+    const routerName = serviceName + ROUTER_SUFFIX;
 
     const normalizedTargetDeployment = inputs.target_deployment.replaceAll('/', '--');
     let url = `${inputs.target_protocol || 'http'}://${normalizedTargetDeployment}:${inputs.target_port}`;
@@ -96,13 +98,13 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     const entry: TraefikFormattedService = {
       http: {
         routers: {
-          [normalizedId]: {
-            rule: 'Host(\\\`' + normalizedId + '\\\`)',
-            service: normalizedId,
+          [routerName]: {
+            rule: 'Host(\\\`' + serviceName + '\\\`)',
+            service: serviceName,
           },
         },
         services: {
-          [normalizedId]: {
+          [serviceName]: {
             loadBalancer: {
               servers: [{
                 url,
@@ -113,13 +115,13 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       },
     };
 
-    await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(entry));
+    await this.taskService.writeFile(path.join(MOUNT_PATH, serviceName + FILE_SUFFIX), yaml.dump(entry));
     return {
-      id: normalizedId,
-      host: normalizedId,
+      id: serviceName,
+      host: serviceName,
       port: 80,
       protocol: 'http',
-      url: `http://${normalizedId}`,
+      url: `http://${serviceName}`,
     };
   }
 
@@ -130,19 +132,23 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
   ): Promise<ResourceOutputs['service']> {
     const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
     const existingConfig = yaml.load(contents) as TraefikFormattedService;
-    const previousName = Object.keys(existingConfig.http.routers)[0];
-    const previousServers = existingConfig.http.services[previousName].loadBalancer.servers;
-    const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
+
+    const previousServiceName = Object.keys(existingConfig.http.services)[0];
+    const previousServers = existingConfig.http.services[previousServiceName].loadBalancer.servers;
+
+    const newServiceName = inputs.name?.replaceAll('/', '--') || previousServiceName;
+    const newRouterName = newServiceName + ROUTER_SUFFIX;
+
     const newEntry: TraefikFormattedService = {
       http: {
         routers: {
-          [normalizedId]: {
-            rule: 'Host(\\\`' + normalizedId + '\\\`)',
-            service: normalizedId,
+          [newRouterName]: {
+            rule: 'Host(\\\`' + newServiceName + '\\\`)',
+            service: newServiceName,
           },
         },
         services: {
-          [normalizedId]: {
+          [newServiceName]: {
             loadBalancer: {
               servers: inputs.target_port && inputs.target_deployment
                 ? [{
@@ -155,20 +161,20 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       },
     };
 
-    if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
+    if (inputs.name && inputs.name.replaceAll('/', '--') !== previousServiceName) {
       subscriber.next('Removing old service');
-      await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
+      await this.taskService.deleteFile(path.join(MOUNT_PATH, previousServiceName + FILE_SUFFIX));
       subscriber.next('Registering new service');
     }
 
-    await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
+    await this.taskService.writeFile(path.join(MOUNT_PATH, newServiceName + FILE_SUFFIX), yaml.dump(newEntry));
 
     return {
-      id: normalizedId,
-      host: normalizedId,
+      id: newServiceName,
+      host: newServiceName,
       port: 80,
       protocol: 'http',
-      url: `http://${normalizedId}`,
+      url: `http://${newServiceName}`,
     };
   }
 

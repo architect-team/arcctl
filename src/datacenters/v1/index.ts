@@ -616,10 +616,16 @@ export default class DatacenterV1 extends Datacenter {
                   graph,
                   environmentName,
                   node.id,
-                  replaceHookExpressions(hookResources, hookAccounts, node.name, node.id, deepMerge(node.inputs, {
-                    ...hookData,
-                    account: node.inputs.account || hookData.account,
-                  }) as any),
+                  replaceHookExpressions(
+                    hookResources,
+                    hookAccounts,
+                    node.name,
+                    node.id,
+                    deepMerge(node.inputs, {
+                      ...hookData,
+                      account: node.inputs.account || hookData.account,
+                    }) as any,
+                  ),
                 ),
               ),
             ),

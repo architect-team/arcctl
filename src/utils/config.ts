@@ -1,5 +1,5 @@
-import * as path from 'std/path/mod.ts';
 import { home_dir } from 'deps';
+import * as path from 'std/path/mod.ts';
 
 export default class CloudCtlConfig {
   private static dev: boolean;
@@ -19,7 +19,7 @@ export default class CloudCtlConfig {
     if (this.configDirectory) {
       return this.configDirectory;
     }
-    throw Error('No config directory configured');
+    throw Error('No config directory configured'); // TODO: why do we error here and not just create it?
   }
 
   public static getTerraformDirectory(): string {

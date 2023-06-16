@@ -9,5 +9,7 @@ export * from './pipeline/index.ts';
 export * from './terraform/index.ts';
 
 import CloudCtlConfig from './utils/config.ts';
-
 export default CloudCtlConfig;
+
+import PluginManager from './plugins/plugin-manager.ts';
+export default PluginManager;

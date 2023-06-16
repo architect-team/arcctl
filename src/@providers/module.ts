@@ -41,7 +41,7 @@ export abstract class ResourceModule<T extends ResourceType, C extends ProviderC
     return [type, id].join('.');
   }
 
-  abstract genImports(resourceId: string): Promise<Record<string, string>>;
+  abstract genImports(resourceId: string, credentials?: C): Promise<Record<string, string>>;
 
   abstract getDisplayNames(): Record<string, string>;
 }

@@ -78,7 +78,6 @@ async function build_action(options: BuildOptions, context_file: string): Promis
         console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);
         const [tagName, tagVersion] = tag.split(':');
         const volumeTag = `${tagName}/${deploymentName}/volume/${volumeName}:${tagVersion}`;
-        console.log(volumeTag);
         return volumeTag;
       });
 

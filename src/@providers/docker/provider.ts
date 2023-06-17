@@ -6,22 +6,7 @@ import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
 import { DockerTaskService } from './services/task.ts';
 import { DockerVolumeService } from './services/volume.ts';
-
-type DockerInfo = {
-  ID: string;
-  Containers: number;
-  ContainersRunning: number;
-  ContainersPaused: number;
-  ContainersStopped: number;
-  Images: number;
-  Driver: string;
-  OSType: string;
-  Architecture: string;
-  NCPU: number;
-  MemTotal: number;
-  DockerRootDir: string;
-  ServerVersion: string;
-};
+import { DockerInfo } from './types.ts';
 
 export default class DockerProvider extends Provider<DockerCredentials> {
   readonly type = 'docker';
@@ -37,7 +22,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
   };
 
   public async testCredentials(): Promise<boolean> {
-    const { stdout } = await exec('docker', { args: ['info'] });
+    const { stdout } = await exec('docker', { args: ['info', '--format=json'] });
     const info = JSON.parse(stdout) as DockerInfo;
     return Boolean(info.ServerVersion);
   }

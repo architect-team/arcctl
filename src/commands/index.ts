@@ -7,6 +7,7 @@ import DestroyCommands from './destroy/index.ts';
 import GetCommands from './get/index.ts';
 import GraphCommand from './graph.ts';
 import ListCommands from './list/index.ts';
+import LogsCommand from './logs.ts';
 import PruneAccountsCommand from './prune.ts';
 import PushCommand from './push.ts';
 import RemoveCommands from './remove/index.ts';
@@ -27,7 +28,8 @@ export default async function arcctl() {
     .command('get', GetCommands)
     .command('list', ListCommands.alias('ls'))
     .command('remove', RemoveCommands.alias('rm'))
-    .command('update', UpdateCommands);
+    .command('update', UpdateCommands)
+    .command('logs', LogsCommand);
 
   // Print help when empty command is executed
   const finalCommand = command.reset().action(() => {

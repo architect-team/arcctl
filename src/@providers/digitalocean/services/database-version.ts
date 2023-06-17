@@ -27,7 +27,7 @@ export class DigitaloceanDatabaseVersionService extends ResourceService<'databas
     } = await this.client.database.listDatabaseOptions();
     const versions: ResourceOutputs['databaseVersion'][] = [];
     for (const [database_name, database_options] of Object.entries(options)) {
-      if (database_name.toLowerCase() !== filterOptions?.databaseType) {
+      if (filterOptions?.databaseType && database_name.toLowerCase() !== filterOptions.databaseType) {
         continue;
       }
       for (const version of database_options.versions) {

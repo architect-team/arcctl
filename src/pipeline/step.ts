@@ -138,8 +138,8 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           this.outputs = res.outputs;
 
           // Progogate the account if one was not specified
-          if (this.outputs && !this.outputs.account) {
-            this.outputs.account = this.inputs?.account;
+          if (this.outputs && !(this.outputs as any).account) {
+            (this.outputs as any).account = this.inputs?.account;
           }
           subscriber.next(this);
         },

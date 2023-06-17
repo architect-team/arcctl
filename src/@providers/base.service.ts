@@ -33,6 +33,11 @@ export type ApplyOutputs<T extends ResourceType> = {
   outputs?: ResourceOutputs[T];
 };
 
+export type LogsOptions = {
+  follow?: boolean;
+  tail?: number;
+};
+
 export abstract class ResourceService<T extends ResourceType, C extends ProviderCredentials> {
   public constructor(protected accountName: string, protected credentials: C, protected providerStore: ProviderStore) {}
 
@@ -48,6 +53,10 @@ export abstract class ResourceService<T extends ResourceType, C extends Provider
     filterOptions?: Partial<ResourceOutputs[T]>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs[T]>>;
+
+  logs(_id: string, _options?: LogsOptions): ReadableStream<Uint8Array> | undefined {
+    return undefined;
+  }
 }
 
 export abstract class WritableResourceService<

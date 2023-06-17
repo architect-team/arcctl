@@ -241,6 +241,7 @@ export default class ComponentV2 extends Component {
       digest?: string;
     }>,
   ): {
+    volume: string;
     name: string;
     mount_path: string;
     digest: string;

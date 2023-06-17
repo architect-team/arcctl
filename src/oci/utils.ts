@@ -1,5 +1,4 @@
 import { createHash } from 'https://deno.land/std@0.80.0/hash/mod.ts';
-import * as iter from 'https://deno.land/x/iter/mod.ts';
 
 interface BinaryData {
   digest: string;
@@ -8,19 +7,11 @@ interface BinaryData {
 }
 
 export const fileToBinaryData = async (file: string): Promise<BinaryData> => {
-  const hash = createHash('sha256');
-  const file_contents = await Deno.open(
-    new URL(file, import.meta.url),
-  );
-  for await (const chunk of iter(file_contents)) {
-    hash.update(chunk);
-  }
-
-  const data = await Deno.readFile(file);
+  const file_contents = await Deno.readFile(file);
   return {
-    digest: 'sha256:' + createHash('sha256').update(data.buffer).toString('hex'),
-    size: data.byteLength,
-    data: (new TextDecoder()).decode(data),
+    digest: 'sha256:' + createHash('sha256').update(file_contents.buffer).toString('hex'),
+    size: file_contents.byteLength,
+    data: (new TextDecoder()).decode(file_contents),
   };
 };
 

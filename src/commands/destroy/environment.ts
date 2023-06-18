@@ -38,7 +38,7 @@ async function destroy_environment_action(options: DestroyResourceOptons, name: 
     }
   }
 
-  const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+  const lastPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
 
   const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph());
   const pipeline = Pipeline.plan({
@@ -70,8 +70,7 @@ async function destroy_environment_action(options: DestroyResourceOptons, name: 
       cwd: path.resolve('./.terraform'),
     })
     .then(async () => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-      await command_helper.environmentStore.remove(environmentRecord.name);
+      await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);
       console.log('Environment destroyed successfully');

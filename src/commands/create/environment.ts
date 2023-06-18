@@ -74,12 +74,13 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
         cwd: path.resolve(path.join('./.terraform', datacenterRecord.name)),
       })
       .then(async () => {
-        await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-        await command_helper.environmentStore.save({
-          datacenter: datacenterRecord.name,
-          name: name,
-          config: environment,
-        });
+        await command_helper.saveEnvironment(
+          datacenterRecord.name,
+          name,
+          datacenterRecord.config,
+          environment!,
+          pipeline,
+        );
         command_helper.renderPipeline(pipeline, { clear: !options.verbose });
         clearInterval(interval);
         console.log('Environment created successfully');

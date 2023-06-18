@@ -72,9 +72,8 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     .then(async () => {
       // Remove all the environments backed by this datacenter
       for (const env of datacenterEnvs) {
-        await command_helper.environmentStore.remove(env.name);
+        await command_helper.removeEnvironment(datacenterRecord.config, env);
       }
-
       await command_helper.removeDatacenter(datacenterRecord);
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);

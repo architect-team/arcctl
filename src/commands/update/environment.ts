@@ -47,13 +47,10 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, name);
   targetGraph.validate();
 
-  let startingPipeline = new Pipeline();
-  if (environmentRecord?.datacenter) {
-    const startingDatacenter = await command_helper.datacenterStore.get(environmentRecord.datacenter);
-    if (startingDatacenter) {
-      startingPipeline = await command_helper.getPipelineForDatacenter(startingDatacenter);
-    }
-  }
+  const startingDatacenter = (await command_helper.datacenterStore.get(environmentRecord!.datacenter))!;
+  startingDatacenter.config.enrichGraph(targetGraph, name);
+
+  const startingPipeline = await command_helper.getPipelineForEnvironment(environmentRecord!);
 
   const pipeline = Pipeline.plan({
     before: startingPipeline,
@@ -84,12 +81,13 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
       logger,
     })
     .then(async () => {
-      await command_helper.saveDatacenter(targetDatacenter.name, targetDatacenter.config, pipeline);
-      await command_helper.environmentStore.save({
-        name: name,
-        datacenter: targetDatacenter.name,
-        config: targetEnvironment,
-      });
+      await command_helper.saveEnvironment(
+        environmentRecord!.datacenter,
+        name,
+        startingDatacenter.config,
+        targetEnvironment!,
+        pipeline,
+      );
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);
       console.log('Environment updated successfully');

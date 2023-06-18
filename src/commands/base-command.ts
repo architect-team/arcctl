@@ -18,7 +18,7 @@ import {
   ParsedVariablesMetadata,
   ParsedVariablesType,
 } from '../datacenters/index.ts';
-import { EnvironmentStore } from '../environments/index.ts';
+import { Environment, EnvironmentRecord, EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
@@ -58,6 +58,92 @@ export class CommandHelper {
 
   get environmentStore(): EnvironmentStore {
     return new EnvironmentStore(CloudCtlConfig.getConfigDirectory());
+  }
+
+  /**
+   * Store the pipeline in the datacenter secret manager and then log
+   * it to the environment store
+   */
+  public saveEnvironment(
+    datacenterName: string,
+    environmentName: string,
+    datacenter: Datacenter,
+    environment: Environment,
+    pipeline: Pipeline,
+  ): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'create',
+        type: 'secret',
+        name: `${environmentName}-environment-pipeline`,
+        inputs: {
+          type: 'secret',
+          name: 'environment-pipeline',
+          namespace: `${datacenterName}-${environmentName}`,
+          account: datacenter.getSecretsConfig().account,
+          data: JSON.stringify(pipeline),
+        },
+      });
+
+      secretStep
+        .apply({
+          providerStore: this.providerStore,
+        })
+        .subscribe({
+          complete: async () => {
+            if (!secretStep.outputs) {
+              console.error('Something went wrong storing the pipeline');
+              Deno.exit(1);
+            }
+
+            await this.environmentStore.save({
+              name: environmentName,
+              datacenter: datacenterName,
+              config: environment,
+              lastPipeline: {
+                account: datacenter.getSecretsConfig().account,
+                secret: secretStep.outputs.id,
+              },
+            });
+            resolve();
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  public removeEnvironment(datacenter: Datacenter, record: EnvironmentRecord): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'delete',
+        type: 'secret',
+        name: `${record.name}-environment-pipeline`,
+        inputs: {
+          type: 'secret',
+          name: 'environment-pipeline',
+          namespace: `${record.datacenter}-${record.name}`,
+          data: '',
+          account: datacenter.getSecretsConfig().account,
+        },
+        outputs: {
+          id: `${record.datacenter}-${record.name}/environment-pipeline`,
+          data: '',
+        },
+      });
+
+      secretStep
+        .apply({
+          providerStore: this.providerStore,
+        })
+        .subscribe({
+          complete: async () => {
+            await this.environmentStore.remove(record.name);
+            resolve();
+          },
+        });
+    });
   }
 
   /**
@@ -140,6 +226,32 @@ export class CommandHelper {
   }
 
   public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
+    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+    if (!secretAccount) {
+      console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
+      Deno.exit(1);
+    }
+
+    const service = secretAccount.resources.secret;
+    if (!service) {
+      console.error(`The ${secretAccount.type} provider doesn't support secrets`);
+      Deno.exit(1);
+    }
+
+    const secret = await service.get(record.lastPipeline.secret);
+    if (!secret) {
+      return new Pipeline();
+    }
+
+    const rawPipeline = JSON.parse(secret.data);
+
+    return new Pipeline({
+      steps: rawPipeline.steps.map((step: any) => new PipelineStep(step)),
+      edges: rawPipeline.edges.map((edge: any) => new CloudEdge(edge)),
+    });
+  }
+
+  public async getPipelineForEnvironment(record: EnvironmentRecord): Promise<Pipeline> {
     const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
     if (!secretAccount) {
       console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);

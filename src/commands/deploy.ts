@@ -1,8 +1,8 @@
-import { ImageRepository } from '../oci/index.ts';
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import EnvironmentV1 from '../environments/v1/index.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { Pipeline } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
@@ -48,7 +48,8 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
         console.error(`Invalid datacenter associated with environment: ${environmentRecord.datacenter}`);
         Deno.exit(1);
       }
-      const previousPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+
+      const previousPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
 
       const environment = environmentRecord.config ||
         new EnvironmentV1({
@@ -103,12 +104,13 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
           logger,
         })
         .then(async () => {
-          await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-          await command_helper.environmentStore.save({
-            name: environmentRecord.name,
-            datacenter: datacenterRecord.name,
-            config: environment,
-          });
+          await command_helper.saveEnvironment(
+            datacenterRecord.name,
+            environmentRecord.name,
+            datacenterRecord.config,
+            environment,
+            pipeline,
+          );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
             message: `Deploying ${tag} to ${environmentRecord.name}`,

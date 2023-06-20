@@ -10,7 +10,7 @@ resources:
   network:
     type: namespace
     account: docker
-    name: local
+    name: arcctl-local
 
   gateway:
     type: deployment
@@ -44,28 +44,6 @@ accounts:
       account: docker
 
 environment:
-  resources:
-    pg:
-      type: database
-      account: docker
-      name: ${{ environment.name }}-pg
-      databaseType: postgres
-      databaseVersion: '13'
-      databaseSize: n/a
-      vpc: n/a
-      region: n/a
-
-  accounts:
-    pg:
-      name: ${{ environment.name }}-postgres-db
-      provider: postgres
-      credentials:
-        host: ${{ environment.resources.pg.host }}
-        port: ${{ environment.resources.pg.port }}
-        username: ${{ environment.resources.pg.username }}
-        password: ${{ environment.resources.pg.password }}
-        database: architect
-
   hooks:
     - when:
         type: service
@@ -83,4 +61,3 @@ environment:
         image: oryd/kratos-selfservice-ui-node:v0.13.0
       platform: linux/amd64
     - account: docker
-      namespace: ${{ resources.network.id }}

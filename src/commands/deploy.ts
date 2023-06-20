@@ -118,7 +118,13 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
           clearInterval(interval);
         })
         .catch(async (err) => {
-          await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+          await command_helper.saveEnvironment(
+            datacenterRecord.name,
+            environmentRecord.name,
+            datacenterRecord.config,
+            environment,
+            pipeline,
+          );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
             message: `Deploying ${tag} to ${environmentRecord.name}`,

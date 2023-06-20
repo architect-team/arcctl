@@ -94,11 +94,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    console.log("********RUNNING INIT");
     const status = await cmd.status;
-    console.log("********INIT STATUS");
-    console.log(status);
-    console.log("********RAN INIT");
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -233,8 +229,6 @@ export abstract class TerraformResourceService<
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
     const stateFile = path.join(options.cwd, "terraform.tfstate");
-    console.log("********APPLYING");
-    console.log(stateFile);
     const app = new App({
       outdir: options.cwd,
     });
@@ -291,12 +285,7 @@ export abstract class TerraformResourceService<
           startTime,
         },
       });
-      console.log("****RUNNING TFINIT");
-      const init_output = await this.tfInit(options.cwd, stack, options.logger);
-      console.log("****INIT OUTPUT");
-      console.log(new Buffer(init_output.stdout));
-      console.log(new Buffer(init_output.stderr));
-      console.log("****RAN TFINIT");
+      await this.tfInit(options.cwd, stack, options.logger);
     }
 
     subscriber.next({
@@ -307,12 +296,7 @@ export abstract class TerraformResourceService<
       },
     });
 
-    // console.log("****RUNNING TFPLAN");
-    const plan_output = await this.tfPlan(options.cwd, options.logger);
-    // console.log("****PLAN OUTPUT");
-    // console.log(new Buffer(plan_output.stdout));
-    // console.log(new Buffer(plan_output.stderr));
-    // console.log("****RAN TFPLAN");
+    await this.tfPlan(options.cwd, options.logger);
 
     subscriber.next({
       status: {

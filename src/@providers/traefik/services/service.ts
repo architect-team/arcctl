@@ -35,21 +35,44 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
 
     const entry = yaml.load(contents) as TraefikFormattedService;
 
-    let host = '';
-    if (entry.http.routers[id]) {
-      const hostMatches = entry.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
-      if (hostMatches && hostMatches.length > 1) {
-        host = hostMatches[1];
-      }
-    }
+    if (entry.http) {
+      let host = '';
+      if (entry.http.routers[id]) {
+        const hostMatches = entry.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
+        if (hostMatches && hostMatches.length > 1) {
+          host = hostMatches[1];
+        }
 
-    return {
-      id,
-      host,
-      port: 80,
-      protocol: 'http',
-      url: `http://${host}`,
-    };
+        const hostSNIMatches = entry.http.routers[id + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
+        if (hostSNIMatches && hostSNIMatches.length > 1) {
+          host = hostSNIMatches[1];
+        }
+      }
+
+      return {
+        id,
+        host,
+        port: 80,
+        protocol: 'http',
+        url: `http://${host}`,
+      };
+    } else if (entry.tcp) {
+      let host = '';
+      if (entry.tcp.routers[id]) {
+        const hostSNIMatches = entry.tcp.routers[id + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
+        if (hostSNIMatches && hostSNIMatches.length > 1) {
+          host = hostSNIMatches[1];
+        }
+      }
+
+      return {
+        id,
+        host,
+        port: 80,
+        protocol: 'tcp',
+        url: `tcp://${host}`,
+      };
+    }
   }
 
   async list(
@@ -62,21 +85,46 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       const contents = await this.taskService.getContents(filename);
       const config = yaml.load(contents) as TraefikFormattedService;
 
-      let host = '';
-      if (config.http.routers[id]) {
-        const hostMatches = config.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
-        if (hostMatches && hostMatches.length > 1) {
-          host = hostMatches[1];
+      if (config.http) {
+        let host = '';
+        if (config.http.routers[id + ROUTER_SUFFIX]) {
+          const hostMatches = config.http.routers[id + ROUTER_SUFFIX].rule.match(/Host\(`([^\s]+)`\)/);
+          if (hostMatches && hostMatches.length > 1) {
+            host = hostMatches[1];
+          }
+
+          const hostSNIMatches = config.http.routers[id + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
+          if (hostSNIMatches && hostSNIMatches.length > 1) {
+            host = hostSNIMatches[1];
+          }
         }
+
+        return {
+          id,
+          host,
+          port: 80,
+          protocol: 'http',
+          url: `http://${host}`,
+        };
+      } else if (config.tcp) {
+        let host = '';
+        if (config.tcp.routers[id + ROUTER_SUFFIX]) {
+          const hostSNIMatches = config.tcp.routers[id + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
+          if (hostSNIMatches && hostSNIMatches.length > 1) {
+            host = hostSNIMatches[1];
+          }
+        }
+
+        return {
+          id,
+          host,
+          port: 80,
+          protocol: 'tcp',
+          url: `tcp://${host}`,
+        };
       }
 
-      return {
-        id,
-        host,
-        port: 80,
-        protocol: 'http',
-        url: `http://${host}`,
-      };
+      throw new Error(`Invalid service format: ${config}`);
     }));
 
     return {
@@ -89,26 +137,35 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     const serviceName = inputs.name.replaceAll('/', '--');
     const routerName = serviceName + ROUTER_SUFFIX;
 
-    const normalizedTargetDeployment = inputs.target_deployment.replaceAll('/', '--');
-    let url = `${inputs.target_protocol || 'http'}://${normalizedTargetDeployment}:${inputs.target_port}`;
-    if (inputs.external_hostname) {
-      url = inputs.external_hostname;
+    let host = serviceName;
+    if (inputs.dnsZone) {
+      host += '.' + inputs.dnsZone;
     }
 
+    const isNotHttp = inputs.target_protocol && inputs.target_protocol !== 'http';
     const entry: TraefikFormattedService = {
-      http: {
+      [isNotHttp ? 'tcp' : 'http']: {
         routers: {
           [routerName]: {
-            rule: 'Host(\\\`' + serviceName + '\\\`)',
+            rule: isNotHttp ? 'HostSNI(\\\`' + host + '\\\`)' : 'Host(\\\`' + host + '\\\`)',
             service: serviceName,
+            ...(isNotHttp
+              ? {
+                tls: {},
+              }
+              : {}),
           },
         },
         services: {
           [serviceName]: {
             loadBalancer: {
-              servers: [{
-                url,
-              }],
+              servers: (isNotHttp
+                ? [{
+                  address: `${inputs.target_deployment.replaceAll('/', '--')}:${inputs.target_port}`,
+                }]
+                : [{
+                  url: `http://${inputs.target_deployment.replaceAll('/', '--')}:${inputs.target_port}`,
+                }]),
             },
           },
         },
@@ -116,12 +173,25 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     };
 
     await this.taskService.writeFile(path.join(MOUNT_PATH, serviceName + FILE_SUFFIX), yaml.dump(entry));
+    const protocol = inputs.target_protocol || 'http';
+    const port = inputs.port || 80;
+    let url = `${protocol}://`;
+    if (inputs.username) {
+      url += `${inputs.username}:${inputs.password}@`;
+    }
+    url += host;
+    if (port !== 80) {
+      url += `:${port}`;
+    }
+
     return {
       id: serviceName,
-      host: serviceName,
-      port: 80,
-      protocol: 'http',
-      url: `http://${serviceName}`,
+      host,
+      port,
+      protocol,
+      username: inputs.username || '',
+      password: inputs.password || '',
+      url,
     };
   }
 
@@ -132,28 +202,49 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
   ): Promise<ResourceOutputs['service']> {
     const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
     const existingConfig = yaml.load(contents) as TraefikFormattedService;
+    const isNotHttp = inputs.target_protocol && inputs.target_protocol !== 'http';
 
-    const previousServiceName = Object.keys(existingConfig.http.services)[0];
-    const previousServers = existingConfig.http.services[previousServiceName].loadBalancer.servers;
+    let previousServiceName = '';
+    let previousServers: { url?: string; address?: string }[] = [];
+    if (existingConfig.http) {
+      previousServiceName = Object.keys(existingConfig.http.services)[0];
+      previousServers = existingConfig.http.services[previousServiceName].loadBalancer.servers;
+    } else if (existingConfig.tcp) {
+      previousServiceName = Object.keys(existingConfig.tcp.services)[0];
+      previousServers = existingConfig.tcp.services[previousServiceName].loadBalancer.servers;
+    }
 
     const newServiceName = inputs.name?.replaceAll('/', '--') || previousServiceName;
     const newRouterName = newServiceName + ROUTER_SUFFIX;
+    let host = newServiceName;
+    if (inputs.dnsZone) {
+      host += '.' + inputs.dnsZone;
+    }
 
     const newEntry: TraefikFormattedService = {
-      http: {
+      [isNotHttp ? 'tcp' : 'http']: {
         routers: {
           [newRouterName]: {
-            rule: 'Host(\\\`' + newServiceName + '\\\`)',
+            rule: isNotHttp ? 'HostSNI(\\\`' + host + '\\\`)' : 'Host(\\\`' + host + '\\\`)',
             service: newServiceName,
+            ...(isNotHttp
+              ? {
+                tls: {},
+              }
+              : {}),
           },
         },
         services: {
           [newServiceName]: {
             loadBalancer: {
               servers: inputs.target_port && inputs.target_deployment
-                ? [{
-                  url: `http://${inputs.target_deployment.replaceAll('/', '--')}:${inputs.target_port}`,
-                }]
+                ? (isNotHttp
+                  ? [{
+                    address: `${inputs.target_deployment.replaceAll('/', '--')}:${inputs.target_port}`,
+                  }]
+                  : [{
+                    url: `http://${inputs.target_deployment.replaceAll('/', '--')}:${inputs.target_port}`,
+                  }])
                 : previousServers,
             },
           },
@@ -169,12 +260,26 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
 
     await this.taskService.writeFile(path.join(MOUNT_PATH, newServiceName + FILE_SUFFIX), yaml.dump(newEntry));
 
+    const port = 80;
+    const protocol = inputs.target_protocol || 'http';
+    let url = `${protocol}://`;
+    if (inputs.username) {
+      url += `${inputs.username}:${inputs.password}@`;
+    }
+
+    url += host;
+    if (port !== 80) {
+      url += `:${port}`;
+    }
+
     return {
       id: newServiceName,
-      host: newServiceName,
-      port: 80,
-      protocol: 'http',
-      url: `http://${newServiceName}`,
+      host,
+      port,
+      protocol,
+      username: inputs.username || '',
+      password: inputs.password || '',
+      url,
     };
   }
 

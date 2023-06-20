@@ -3122,6 +3122,10 @@
                 "description": "Description of the service",
                 "type": "string"
               },
+              "password": {
+                "description": "Basic auth password",
+                "type": "string"
+              },
               "port": {
                 "description": "Port the service listens on",
                 "type": "number"
@@ -3129,6 +3133,10 @@
               "protocol": {
                 "default": "http",
                 "description": "Protocol the service listens on",
+                "type": "string"
+              },
+              "username": {
+                "description": "Basic auth username",
                 "type": "string"
               }
             },

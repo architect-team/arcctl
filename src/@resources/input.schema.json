@@ -981,6 +981,10 @@
                 "description": "Namespace to put the ingress rule in",
                 "type": "string"
               },
+              "password": {
+                "description": "Basic auth password",
+                "type": "string"
+              },
               "path": {
                 "default": "/",
                 "description": "The path the ingress rule listens on",
@@ -1012,6 +1016,10 @@
               },
               "type": {
                 "const": "ingressRule",
+                "type": "string"
+              },
+              "username": {
+                "description": "Basic auth username",
                 "type": "string"
               }
             },
@@ -1401,6 +1409,10 @@
               "account": {
                 "type": "string"
               },
+              "dnsZone": {
+                "description": "Optional DNS zone to use for listeners",
+                "type": "string"
+              },
               "external_hostname": {
                 "description": "External address to point to",
                 "type": "string"
@@ -1418,6 +1430,10 @@
               },
               "namespace": {
                 "description": "Resource namespace",
+                "type": "string"
+              },
+              "password": {
+                "description": "Basic auth password",
                 "type": "string"
               },
               "port": {
@@ -1439,6 +1455,10 @@
               },
               "type": {
                 "const": "service",
+                "type": "string"
+              },
+              "username": {
+                "description": "Basic auth username",
                 "type": "string"
               }
             },

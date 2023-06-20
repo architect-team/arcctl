@@ -3,10 +3,24 @@ export type TraefikRouter = {
   service: string;
 };
 
-export type TraefikService = {
+export type TraefikTcpRouter = TraefikRouter & {
+  tls: {
+    passthrough?: boolean;
+  };
+};
+
+export type TraefikHttpService = {
   loadBalancer: {
     servers: Array<{
       url: string;
+    }>;
+  };
+};
+
+export type TraefikTcpService = {
+  loadBalancer: {
+    servers: Array<{
+      address: string;
     }>;
   };
 };
@@ -27,7 +41,7 @@ export type TraefikMiddleware = {
 };
 
 export type TraefikFormattedService = {
-  http: {
+  http?: {
     routers: {
       [key: string]: TraefikRouter;
     };
@@ -35,15 +49,34 @@ export type TraefikFormattedService = {
       [key: string]: TraefikMiddleware;
     };
     services: {
-      [key: string]: TraefikService;
+      [key: string]: TraefikHttpService;
+    };
+  };
+  tcp?: {
+    routers: {
+      [key: string]: TraefikTcpRouter;
+    };
+    middlewares?: {
+      [key: string]: TraefikMiddleware;
+    };
+    services: {
+      [key: string]: TraefikTcpService;
     };
   };
 };
 
 export type TraefikFormattedIngressRule = {
-  http: {
+  http?: {
     routers: {
       [key: string]: TraefikRouter;
+    };
+    middlewares?: {
+      [key: string]: TraefikMiddleware;
+    };
+  };
+  tcp?: {
+    routers: {
+      [key: string]: TraefikTcpRouter;
     };
     middlewares?: {
       [key: string]: TraefikMiddleware;

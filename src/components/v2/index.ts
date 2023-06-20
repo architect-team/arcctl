@@ -85,6 +85,16 @@ export default class ComponentV2 extends Component {
        * @default http
        */
       protocol?: string;
+
+      /**
+       * Basic auth username
+       */
+      username?: string;
+
+      /**
+       * Basic auth password
+       */
+      password?: string;
     }
   >;
 
@@ -348,6 +358,8 @@ export default class ComponentV2 extends Component {
             environment: context.environment,
           }),
           target_port: service_config.port,
+          username: service_config.username,
+          password: service_config.password,
         },
       });
 
@@ -402,6 +414,8 @@ export default class ComponentV2 extends Component {
           port: `\${{ ${service_node.id}.port }}`,
           service: `\${{ ${service_node.id}.id }}`,
           protocol: `\${{ ${service_node.id}.protocol }}`,
+          username: `\${{ ${service_node.id}.username }}`,
+          password: `\${{ ${service_node.id}.password }}`,
           internal: ingress_config.internal || false,
         },
       });

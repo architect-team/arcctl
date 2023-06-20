@@ -95,6 +95,7 @@ environment:
     - when:
         type: service
       account: ${{ accounts.gateway.id }}
+      dnsZone: host.docker.internal.nip.io
     - when:
         type: ingressRule
       account: ${{ accounts.gateway.id }}

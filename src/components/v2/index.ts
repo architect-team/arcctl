@@ -81,7 +81,7 @@ export default class ComponentV2 extends Component {
       volumes?: Record<string, {
         host_path: string;
         mount_path: string;
-        digest?: string;
+        image?: string;
       }>;
     }
   >;
@@ -238,13 +238,13 @@ export default class ComponentV2 extends Component {
     volumes: Record<string, {
       host_path: string;
       mount_path: string;
-      digest?: string;
+      image?: string;
     }>,
   ): {
     volume: string;
     name: string;
     mount_path: string;
-    digest: string;
+    image: string;
     readonly: boolean;
   }[] {
     const deployment_volumes = [];
@@ -254,7 +254,7 @@ export default class ComponentV2 extends Component {
         name: volume_key,
         volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
         mount_path: volume_config.mount_path,
-        digest: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
+        image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
         readonly: true,
       });
     }
@@ -440,7 +440,7 @@ export default class ComponentV2 extends Component {
 
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
-        volumeConfig.digest = await volumeBuildFn({
+        volumeConfig.image = await volumeBuildFn({
           host_path: volumeConfig.host_path,
           volume_name: volumeName,
           deployment_name: deploymentName,
@@ -460,9 +460,9 @@ export default class ComponentV2 extends Component {
 
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
-        if (volumeConfig.digest) {
-          deploymentConfig.volumes![volumeName].digest = await volumeTagFn(
-            volumeConfig.digest,
+        if (volumeConfig.image) {
+          deploymentConfig.volumes![volumeName].image = await volumeTagFn(
+            volumeConfig.image,
             deploymentName,
             volumeName,
           );
@@ -482,8 +482,14 @@ export default class ComponentV2 extends Component {
 
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
-        if (volumeConfig.digest) {
-          await volumePushFn(deploymentName, volumeName, volumeConfig.digest);
+        if (volumeConfig.image) {
+          await volumePushFn(
+            deploymentName,
+            volumeName,
+            volumeConfig.image,
+            volumeConfig.host_path,
+            volumeConfig.mount_path,
+          );
         }
       }
     }

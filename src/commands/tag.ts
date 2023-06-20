@@ -25,7 +25,6 @@ async function tag_action(options: GlobalOptions, source: string, target: string
       console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);
       const [tagName, tagVersion] = target.split(':');
       const volumeTag = `${tagName}/${deploymentName}/volume/${volumeName}:${tagVersion}`;
-      console.log(volumeTag);
       return volumeTag;
     });
 

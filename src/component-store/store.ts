@@ -21,6 +21,12 @@ interface BinaryData {
   data: Buffer;
 }
 
+export interface VolumeConfig {
+  component: string;
+  mount_path: string;
+  host_path: string;
+}
+
 class MissingComponentRef extends Error {
   constructor(ref: string) {
     super(`Component not found: ${ref}`);
@@ -217,39 +223,6 @@ export class ComponentStore {
   }
 
   /**
-   * Create a new reference from the src image to the target ref. This only creates a pointer in the cache DB.
-   *
-   * @param {string} src_ref_or_id - A reference to the source image
-   * @param {string} dest_ref - A target reference tag to apply to the image
-   */
-  tagVolume(src_ref_or_id: string, dest_ref: string): void {
-    const dest_match = new ImageRepository(dest_ref, this.default_registry);
-
-    // Ensure the destination repository is in the DB
-    this.db[dest_match.repository] = this.db[dest_match.repository] || {};
-
-    if (/^[\dA-Fa-f]{64}/.test(src_ref_or_id)) {
-      // If the input is an image ID, look for it in the filesystem
-      const src_path = path.join(this.cache_dir, src_ref_or_id);
-      if (!existsSync(src_path)) {
-        throw new MissingComponentRef(src_ref_or_id);
-      }
-
-      this.db[dest_match.repository][dest_ref] = `./${src_ref_or_id}`;
-    } else {
-      // If the src is an existing tag, create a new pointer in the DB
-      const src_match = new ImageRepository(src_ref_or_id, this.default_registry);
-      if (!this.db[src_match.repository] || !this.db[src_match.repository][src_ref_or_id]) {
-        throw new MissingComponentRef(src_ref_or_id);
-      }
-
-      this.db[dest_match.repository][dest_ref] = this.db[src_match.repository][src_ref_or_id];
-    }
-
-    this.save();
-  }
-
-  /**
    * Push the component from the local cache to the remote registry corresponding with the tag
    *
    * @param {string} ref_string - The component tag to push
@@ -295,24 +268,24 @@ export class ComponentStore {
   }
 
   /**
-   * Push the component from the local cache to the remote registry corresponding with the tag
-   *
-   * @param {string} ref_string - The component tag to push
+   * Upload a volume to an OCI Registry
+   * @param config The volume config to be attached to the manifest
+   * @param ref_string The folder to push up as the volume
+   * @param tag The tag to tag it all as
+   * @param tar_directory Directory to store tar files in for intermediate steps
    */
   async pushVolume(
-    component_ref_string: string,
+    config: VolumeConfig,
     ref_string: string,
     tag: string,
     tar_directory?: string,
   ): Promise<void> {
-    const component_repository = new ImageRepository(component_ref_string, this.default_registry);
     const volume_repository = new ImageRepository(tag, this.default_registry);
     await volume_repository.checkForOciSupport();
 
-    const { component, config_path } = await this.getCachedComponentDetails(component_repository);
-
     // Upload the component config
-    Deno.writeTextFileSync(config_path, JSON.stringify(component));
+    const config_path = await Deno.makeTempFile();
+    Deno.writeTextFileSync(config_path, JSON.stringify(config));
     const config_blob = await volume_repository.uploadBlob(config_path);
     // Upload the component directory contents
     if (!tar_directory) {
@@ -328,7 +301,7 @@ export class ComponentStore {
       schemaVersion: 2,
       mediaType: MEDIA_TYPES.OCI_MANIFEST,
       config: {
-        mediaType: 'application/vnd.architect.component.config.v1+json',
+        mediaType: 'application/vnd.architect.volume.config.v1+json',
         digest: config_blob.digest,
         size: config_blob.size,
       },

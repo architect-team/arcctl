@@ -292,6 +292,7 @@ export abstract class TerraformResourceService<
       const init_output = await this.tfInit(options.cwd, stack, options.logger);
       console.log("****INIT OUTPUT");
       console.log(new Buffer(init_output.stdout));
+      console.log(new Buffer(plan_output.stderr));
       console.log("****RAN TFINIT");
     }
 
@@ -307,6 +308,7 @@ export abstract class TerraformResourceService<
     const plan_output = await this.tfPlan(options.cwd, options.logger);
     console.log("****INIT OUTPUT");
     console.log(new Buffer(plan_output.stdout));
+    console.log(new Buffer(plan_output.stderr));
     console.log("****RAN TFPLAN");
 
     subscriber.next({

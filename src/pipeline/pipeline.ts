@@ -1,7 +1,7 @@
-import { SupportedProviders } from '../@providers/supported-providers.ts';
-import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
-import { PipelineStep } from './step.ts';
-import { ApplyOptions } from './types.ts';
+import { SupportedProviders } from "../@providers/supported-providers.ts";
+import { CloudEdge, CloudGraph } from "../cloud-graph/index.ts";
+import { PipelineStep } from "./step.ts";
+import { ApplyOptions } from "./types.ts";
 
 export type PlanOptions = {
   before: Pipeline;
@@ -13,20 +13,29 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
-const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipeline => {
+const setNoopSteps = (
+  previousPipeline: Pipeline,
+  nextPipeline: Pipeline,
+): Pipeline => {
   let done = false;
 
   do {
     done = true;
-    for (let step of nextPipeline.steps.filter((step) => step.action === 'update')) {
-      const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
+    for (
+      let step of nextPipeline.steps.filter((step) => step.action === "update")
+    ) {
+      const previousStep = previousPipeline.steps.find((n) =>
+        n.id.startsWith(step.id)
+      );
 
       if (!previousStep) {
         continue;
       }
 
       const allDependencies = nextPipeline.getDependencies(step.id);
-      const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
+      const completeDependencies = allDependencies.filter((step) =>
+        step.status.state === "complete"
+      );
 
       if (allDependencies.length !== completeDependencies.length) {
         continue;
@@ -36,10 +45,10 @@ const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipel
 
       if (
         step.equals(previousStep) &&
-        previousStep.status.state === 'complete'
+        previousStep.status.state === "complete"
       ) {
-        step.action = 'no-op';
-        step.status.state = 'complete';
+        step.action = "no-op";
+        step.status.state = "complete";
         step.state = previousStep.state;
         step.outputs = previousStep.outputs;
         nextPipeline.insertSteps(step);
@@ -71,7 +80,7 @@ export class Pipeline {
       return new PipelineStep(
         JSON.parse(
           JSON.stringify(step).replace(
-            new RegExp('\\${{\\s?' + sourceId + '\\.(\\S+)\\s?}}', 'g'),
+            new RegExp("\\${{\\s?" + sourceId + "\\.(\\S+)\\s?}}", "g"),
             (_, key) => `\${{ ${targetId}.${key} }}`,
           ),
         ),
@@ -95,17 +104,20 @@ export class Pipeline {
    */
   public replaceRefsWithOutputValues<T>(input: T): T {
     return JSON.parse(
-      JSON.stringify(input).replace(/\${{\s?([^.]+).(\S+)\s?}}/g, (_, step_id, key) => {
-        const step = this.steps.find((s) => s.id === step_id);
-        const outputs = step?.outputs;
-        if (!step || !outputs) {
-          throw new Error(`Missing outputs for ${step_id}`);
-        } else if (!(outputs as any)[key]) {
-          throw new Error(`Invalid key, ${key}, for ${step.type}`);
-        }
+      JSON.stringify(input).replace(
+        /\${{\s?([^.]+).(\S+)\s?}}/g,
+        (_, step_id, key) => {
+          const step = this.steps.find((s) => s.id === step_id);
+          const outputs = step?.outputs;
+          if (!step || !outputs) {
+            throw new Error(`Missing outputs for ${step_id}`);
+          } else if (!(outputs as any)[key]) {
+            throw new Error(`Invalid key, ${key}, for ${step.type}`);
+          }
 
-        return (outputs as any)[key];
-      }),
+          return (outputs as any)[key];
+        },
+      ),
     );
   }
 
@@ -116,13 +128,15 @@ export class Pipeline {
     const availableSteps = this.steps
       .sort(
         (first, second) =>
-          (first.environment || '').localeCompare(second.environment || '') ||
-          (first.component || '').localeCompare(second.component || '') ||
+          (first.environment || "").localeCompare(second.environment || "") ||
+          (first.component || "").localeCompare(second.component || "") ||
           0,
       )
       .filter((step) => {
         const isStepSeen = seenIds.includes(step.id);
-        const hasDeps = this.edges.some((edge) => edge.required && edge.from === step.id && !seenIds.includes(edge.to));
+        const hasDeps = this.edges.some((edge) =>
+          edge.required && edge.from === step.id && !seenIds.includes(edge.to)
+        );
 
         return !isStepSeen && !hasDeps;
       });
@@ -169,7 +183,7 @@ export class Pipeline {
 
   public removeEdge(options: { from?: string; to?: string }): Pipeline {
     if (!options.from && !options.to) {
-      throw new Error('Must specify at least one of: from, to');
+      throw new Error("Must specify at least one of: from, to");
     }
 
     for (const index in this.edges) {
@@ -178,7 +192,8 @@ export class Pipeline {
           options.to &&
           this.edges[index].from === options.from &&
           this.edges[index].to === options.to) ||
-        (options.from && !options.to && this.edges[index].from === options.from) ||
+        (options.from && !options.to &&
+          this.edges[index].from === options.from) ||
         (options.to && !options.from && this.edges[index].to === options.to)
       ) {
         this.edges.splice(Number(index), 1);
@@ -186,7 +201,9 @@ export class Pipeline {
       }
     }
 
-    throw new Error(`No edge found matching options: ${JSON.stringify(options)}`);
+    throw new Error(
+      `No edge found matching options: ${JSON.stringify(options)}`,
+    );
   }
 
   public validate(): void {
@@ -194,20 +211,26 @@ export class Pipeline {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
       } else if (!this.steps.some((n) => n.id === edge.to)) {
-        throw new Error(`${edge.to} is missing from the pipeline, but required by ${edge.from}`);
+        throw new Error(
+          `${edge.to} is missing from the pipeline, but required by ${edge.from}`,
+        );
       }
     }
   }
 
   public getDependencies(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) => step.id !== step_id && this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
+      (step) =>
+        step.id !== step_id &&
+        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
     );
   }
 
   public getDependents(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) => step.id !== step_id && this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
+      (step) =>
+        step.id !== step_id &&
+        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
     );
   }
 
@@ -221,17 +244,22 @@ export class Pipeline {
 
     const replacements: Record<string, string> = {};
     for (const newNode of options.after.nodes) {
-      const previousStep = options.before.steps.find((n) => n.id.startsWith(newNode.id));
+      const previousStep = options.before.steps.find((n) =>
+        n.id.startsWith(newNode.id)
+      );
 
       const oldId = newNode.id;
-      if (!previousStep || previousStep.status.state !== 'complete' || previousStep.action === 'delete') {
+      if (
+        !previousStep || previousStep.status.state !== "complete" ||
+        previousStep.action === "delete"
+      ) {
         const newStep = new PipelineStep({
           ...newNode,
           type: newNode.type,
-          color: 'blue',
-          action: 'create',
+          color: "blue",
+          action: "create",
           status: {
-            state: 'pending',
+            state: "pending",
           },
         });
         pipeline.insertSteps(newStep);
@@ -242,9 +270,9 @@ export class Pipeline {
           type: newNode.type,
           color: previousStep.color,
           state: previousStep.state,
-          action: 'update',
+          action: "update",
           status: {
-            state: 'pending',
+            state: "pending",
           },
         });
         pipeline.insertSteps(newExecutable);
@@ -260,20 +288,24 @@ export class Pipeline {
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
       if (
-        (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' && previousStep.status.state === 'pending') ||
-        (previousStep.action === 'delete' && !previousStep.outputs)
+        (previousStep.action === "delete" &&
+          previousStep.status.state === "complete") ||
+        (previousStep.action === "create" &&
+          previousStep.status.state === "pending") ||
+        (previousStep.action === "delete" && !previousStep.outputs)
       ) {
         continue;
       }
 
-      const newNode = options.after.nodes.find((n) => previousStep.id.startsWith(n.id));
+      const newNode = options.after.nodes.find((n) =>
+        previousStep.id.startsWith(n.id)
+      );
       if (!newNode) {
         const rmStep = new PipelineStep({
           ...previousStep,
-          action: 'delete',
+          action: "delete",
           status: {
-            state: 'pending',
+            state: "pending",
           },
         });
 
@@ -301,12 +333,14 @@ export class Pipeline {
    * Kick off the pipeline
    */
   public async apply(options: ApplyOptions): Promise<void> {
-    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: "arcctl-" });
 
     let step: PipelineStep | undefined;
     while (
       (step = this.getNextStep(
-        ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
+        ...this.steps.filter((n) =>
+          n.status.state === "complete" || n.status.state === "error"
+        ).map((n) => n.id),
       ))
     ) {
       if (!step) {
@@ -315,28 +349,30 @@ export class Pipeline {
 
       if (step.inputs) {
         try {
-          if (step.action !== 'delete') {
+          if (step.action !== "delete") {
             step.inputs = this.replaceRefsWithOutputValues(step.inputs);
           }
         } catch (err: any) {
-          step.status.state = 'error';
+          step.status.state = "error";
           step.status.message = err.message;
           throw err;
         }
       }
 
       // Hijack the arcctl account type to execute w/out a provider
-      if (step.inputs?.type === 'arcctlAccount') {
+      if (step.inputs?.type === "arcctlAccount") {
         if (!Object.keys(SupportedProviders).includes(step.inputs.provider)) {
-          step.status.state = 'error';
-          step.status.message = 'Invalid provider specified';
-          throw new Error(`Invalid provider specified: ${step.inputs.provider}`);
+          step.status.state = "error";
+          step.status.message = "Invalid provider specified";
+          throw new Error(
+            `Invalid provider specified: ${step.inputs.provider}`,
+          );
         }
 
-        if (step.action === 'delete') {
+        if (step.action === "delete") {
           step.status = {
-            state: 'destroying',
-            message: '',
+            state: "destroying",
+            message: "",
             startTime: Date.now(),
             endTime: Date.now(),
           };
@@ -344,14 +380,16 @@ export class Pipeline {
           options.providerStore.deleteProvider(step.inputs.name);
         } else {
           step.status = {
-            state: 'applying',
-            message: '',
+            state: "applying",
+            message: "",
             startTime: Date.now(),
             endTime: Date.now(),
           };
 
           options.providerStore.saveProvider(
-            new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
+            new SupportedProviders[
+              step.inputs.provider as keyof typeof SupportedProviders
+            ](
               step.inputs.name,
               step.inputs.credentials as any,
               options.providerStore,
@@ -367,8 +405,8 @@ export class Pipeline {
         };
 
         step.status = {
-          state: 'complete',
-          message: '',
+          state: "complete",
+          message: "",
           startTime: Date.now(),
           endTime: Date.now(),
         };

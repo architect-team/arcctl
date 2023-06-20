@@ -89,7 +89,10 @@ export abstract class TerraformResourceService<
       );
     }
 
+    console.log("********RUNNING INIT");
     const status = await cmd.status;
+    console.log(cmd.output());
+    console.log("********RAN INIT");
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -129,7 +132,10 @@ export abstract class TerraformResourceService<
       );
     }
 
+    console.log("********RUNNING PLAN");
     const status = await cmd.status;
+    console.log(cmd.output());
+    console.log("********RAN PLAN");
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -169,7 +175,10 @@ export abstract class TerraformResourceService<
       );
     }
 
+    console.log("********RUNNING APPLY");
     const status = await cmd.status;
+    console.log(cmd.output());
+    console.log("********RAN APPLY");
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -256,12 +265,10 @@ export abstract class TerraformResourceService<
 
     let initRan = false;
     if (options.state && "terraform_version" in options.state) {
-      console.log("********WRITING");
       Deno.writeFileSync(
         stateFile,
         new TextEncoder().encode(JSON.stringify(options.state)),
       );
-      console.log("********WROTE STATEFILE");
     } else if (options.state) {
       // State must be imported from an ID
       const imports = await module.genImports(options.state.id);
@@ -284,8 +291,9 @@ export abstract class TerraformResourceService<
           startTime,
         },
       });
-
+      console.log("****RUNNING TFINIT");
       await this.tfInit(options.cwd, stack, options.logger);
+      console.log("****RAN TFINIT");
     }
 
     subscriber.next({
@@ -296,7 +304,9 @@ export abstract class TerraformResourceService<
       },
     });
 
+    console.log("****RUNNING TFPLAN");
     await this.tfPlan(options.cwd, options.logger);
+    console.log("****RAN TFPLAN");
 
     subscriber.next({
       status: {
@@ -306,7 +316,9 @@ export abstract class TerraformResourceService<
       },
     });
 
+    console.log("****RUNNING TFAPPLY");
     const { stderr } = await this.tfApply(options.cwd, options.logger);
+    console.log("****RAN TFAPPLY");
     if (stderr && stderr.length > 0) {
       subscriber.error(new TextDecoder().decode(stderr));
       return;

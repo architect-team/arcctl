@@ -76,6 +76,9 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else {
+      const reader = cmd.stdout.getReader();
+      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     if (cmd.stderr.pipeTo) {
@@ -87,11 +90,13 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else {
+      const reader = cmd.stderr.getReader();
+      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     console.log("********RUNNING INIT");
     const status = await cmd.status;
-    console.log(cmd.output());
     console.log("********RAN INIT");
     return {
       ...status,
@@ -119,6 +124,9 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else {
+      const reader = cmd.stdout.getReader();
+      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     if (cmd.stderr.pipeTo) {
@@ -130,11 +138,13 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else {
+      const reader = cmd.stderr.getReader();
+      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     console.log("********RUNNING PLAN");
     const status = await cmd.status;
-    console.log(cmd.output());
     console.log("********RAN PLAN");
     return {
       ...status,
@@ -162,6 +172,9 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else {
+      const reader = cmd.stdout.getReader();
+      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     if (cmd.stderr.pipeTo) {
@@ -173,11 +186,13 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else {
+      const reader = cmd.stderr.getReader();
+      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     console.log("********RUNNING APPLY");
     const status = await cmd.status;
-    console.log(cmd.output());
     console.log("********RAN APPLY");
     return {
       ...status,

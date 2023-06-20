@@ -76,9 +76,6 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } else {
-      const reader = cmd.stdout.getReader();
-      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     if (cmd.stderr.pipeTo) {
@@ -90,9 +87,6 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } else {
-      const reader = cmd.stderr.getReader();
-      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     console.log("********RUNNING INIT");
@@ -124,9 +118,6 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } else {
-      const reader = cmd.stdout.getReader();
-      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     if (cmd.stderr.pipeTo) {
@@ -138,9 +129,6 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } else {
-      const reader = cmd.stderr.getReader();
-      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     console.log("********RUNNING PLAN");
@@ -172,9 +160,6 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } else {
-      const reader = cmd.stdout.getReader();
-      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     if (cmd.stderr.pipeTo) {
@@ -186,9 +171,6 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } else {
-      const reader = cmd.stderr.getReader();
-      console.log(new TextDecoder().decode((await reader.read()).value));
     }
 
     console.log("********RUNNING APPLY");
@@ -307,7 +289,9 @@ export abstract class TerraformResourceService<
         },
       });
       console.log("****RUNNING TFINIT");
-      await this.tfInit(options.cwd, stack, options.logger);
+      const init_output = await this.tfInit(options.cwd, stack, options.logger);
+      console.log("****INIT OUTPUT");
+      console.log(new Buffer(init_output.stdout));
       console.log("****RAN TFINIT");
     }
 
@@ -320,7 +304,9 @@ export abstract class TerraformResourceService<
     });
 
     console.log("****RUNNING TFPLAN");
-    await this.tfPlan(options.cwd, options.logger);
+    const plan_output = await this.tfPlan(options.cwd, options.logger);
+    console.log("****INIT OUTPUT");
+    console.log(new Buffer(plan_output.stdout));
     console.log("****RAN TFPLAN");
 
     subscriber.next({

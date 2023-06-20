@@ -72,7 +72,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout.pipeTo) {
+    if (cmd.stdout?.pipeTo) {
       cmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -83,7 +83,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    if (cmd.stderr.pipeTo) {
+    if (cmd.stderr?.pipeTo) {
       cmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -112,7 +112,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout.pipeTo) {
+    if (cmd.stdout?.pipeTo) {
       cmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -123,7 +123,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    if (cmd.stderr.pipeTo) {
+    if (cmd.stderr?.pipeTo) {
       cmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -152,7 +152,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout.pipeTo) {
+    if (cmd.stdout?.pipeTo) {
       cmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -163,7 +163,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    if (cmd.stderr.pipeTo) {
+    if (cmd.stderr?.pipeTo) {
       cmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -193,7 +193,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout.pipeTo) {
+    if (cmd.stdout?.pipeTo) {
       cmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
@@ -204,7 +204,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    if (cmd.stderr.pipeTo) {
+    if (cmd.stderr?.pipeTo) {
       cmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {

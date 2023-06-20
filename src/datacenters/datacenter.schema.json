@@ -1786,6 +1786,10 @@
                               "account": {
                                 "type": "string"
                               },
+                              "dnsZone": {
+                                "description": "Optional DNS zone to use for listeners",
+                                "type": "string"
+                              },
                               "external_hostname": {
                                 "description": "External address to point to",
                                 "type": "string"
@@ -1803,6 +1807,10 @@
                               },
                               "namespace": {
                                 "description": "Resource namespace",
+                                "type": "string"
+                              },
+                              "password": {
+                                "description": "Basic auth password",
                                 "type": "string"
                               },
                               "port": {
@@ -1824,6 +1832,10 @@
                               },
                               "type": {
                                 "const": "service",
+                                "type": "string"
+                              },
+                              "username": {
+                                "description": "Basic auth username",
                                 "type": "string"
                               }
                             },
@@ -2339,6 +2351,10 @@
                           {
                             "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                             "type": "string"
+                          },
+                          {
+                            "description": "Optional DNS zone to use for listeners",
+                            "type": "string"
                           }
                         ]
                       },
@@ -2572,6 +2588,18 @@
                       "nodePools": {
                         "additionalProperties": false,
                         "type": "object"
+                      },
+                      "password": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Basic auth password",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "path": {
                         "anyOf": [
@@ -2951,6 +2979,10 @@
                           },
                           {
                             "description": "Username of the user to create",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Basic auth username",
                             "type": "string"
                           }
                         ]
@@ -4696,6 +4728,10 @@
                         "account": {
                           "type": "string"
                         },
+                        "dnsZone": {
+                          "description": "Optional DNS zone to use for listeners",
+                          "type": "string"
+                        },
                         "external_hostname": {
                           "description": "External address to point to",
                           "type": "string"
@@ -4713,6 +4749,10 @@
                         },
                         "namespace": {
                           "description": "Resource namespace",
+                          "type": "string"
+                        },
+                        "password": {
+                          "description": "Basic auth password",
                           "type": "string"
                         },
                         "port": {
@@ -4734,6 +4774,10 @@
                         },
                         "type": {
                           "const": "service",
+                          "type": "string"
+                        },
+                        "username": {
+                          "description": "Basic auth username",
                           "type": "string"
                         }
                       },
@@ -6732,6 +6776,10 @@
                     "account": {
                       "type": "string"
                     },
+                    "dnsZone": {
+                      "description": "Optional DNS zone to use for listeners",
+                      "type": "string"
+                    },
                     "external_hostname": {
                       "description": "External address to point to",
                       "type": "string"
@@ -6749,6 +6797,10 @@
                     },
                     "namespace": {
                       "description": "Resource namespace",
+                      "type": "string"
+                    },
+                    "password": {
+                      "description": "Basic auth password",
                       "type": "string"
                     },
                     "port": {
@@ -6770,6 +6822,10 @@
                     },
                     "type": {
                       "const": "service",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "Basic auth username",
                       "type": "string"
                     }
                   },

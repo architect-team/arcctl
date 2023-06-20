@@ -34,7 +34,13 @@ export type VolumeTagFn = (
 ) => Promise<string>;
 
 export type DockerPushFn = (image: string) => Promise<void>;
-export type VolumePushFn = (deployment_name: string, volume_name: string, image: string) => Promise<void>;
+export type VolumePushFn = (
+  deployment_name: string,
+  volume_name: string,
+  image: string,
+  host_path: string,
+  mount_path: string,
+) => Promise<void>;
 
 export abstract class Component {
   public abstract getDependencies(): string[];

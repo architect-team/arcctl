@@ -2890,10 +2890,10 @@
                 "additionalProperties": {
                   "additionalProperties": false,
                   "properties": {
-                    "digest": {
+                    "host_path": {
                       "type": "string"
                     },
-                    "host_path": {
+                    "image": {
                       "type": "string"
                     },
                     "mount_path": {

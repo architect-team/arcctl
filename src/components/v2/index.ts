@@ -238,7 +238,7 @@ export default class ComponentV2 extends Component {
     volumes: Record<string, {
       host_path: string;
       mount_path: string;
-      digest?: string;
+      image?: string;
     }>,
   ): {
     volume: string;
@@ -483,7 +483,13 @@ export default class ComponentV2 extends Component {
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
         if (volumeConfig.image) {
-          await volumePushFn(deploymentName, volumeName, volumeConfig.image);
+          await volumePushFn(
+            deploymentName,
+            volumeName,
+            volumeConfig.image,
+            volumeConfig.host_path,
+            volumeConfig.mount_path,
+          );
         }
       }
     }

@@ -21,6 +21,12 @@ interface BinaryData {
   data: Buffer;
 }
 
+export interface VolumeConfig {
+  component: string;
+  mount_path: string;
+  host_path: string;
+}
+
 class MissingComponentRef extends Error {
   constructor(ref: string) {
     super(`Component not found: ${ref}`);
@@ -262,24 +268,24 @@ export class ComponentStore {
   }
 
   /**
-   * Push the component from the local cache to the remote registry corresponding with the tag
-   *
-   * @param {string} ref_string - The component tag to push
+   * Upload a volume to an OCI Registry
+   * @param config The volume config to be attached to the manifest
+   * @param ref_string The folder to push up as the volume
+   * @param tag The tag to tag it all as
+   * @param tar_directory Directory to store tar files in for intermediate steps
    */
   async pushVolume(
-    component_ref_string: string,
+    config: VolumeConfig,
     ref_string: string,
     tag: string,
     tar_directory?: string,
   ): Promise<void> {
-    const component_repository = new ImageRepository(component_ref_string, this.default_registry);
     const volume_repository = new ImageRepository(tag, this.default_registry);
     await volume_repository.checkForOciSupport();
 
-    const { component, config_path } = await this.getCachedComponentDetails(component_repository);
-
     // Upload the component config
-    Deno.writeTextFileSync(config_path, JSON.stringify(component));
+    const config_path = await Deno.makeTempFile();
+    Deno.writeTextFileSync(config_path, JSON.stringify(config));
     const config_blob = await volume_repository.uploadBlob(config_path);
     // Upload the component directory contents
     if (!tar_directory) {
@@ -295,7 +301,7 @@ export class ComponentStore {
       schemaVersion: 2,
       mediaType: MEDIA_TYPES.OCI_MANIFEST,
       config: {
-        mediaType: 'application/vnd.architect.component.config.v1+json',
+        mediaType: 'application/vnd.architect.volume.config.v1+json',
         digest: config_blob.digest,
         size: config_blob.size,
       },

@@ -63,7 +63,6 @@ async function build_action(options: BuildOptions, context_file: string): Promis
   });
 
   const digest = await command_helper.componentStore.add(component);
-  console.log(`Digest: ${digest}`);
 
   if (options.tag) {
     for (const tag of options.tag) {

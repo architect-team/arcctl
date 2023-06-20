@@ -217,39 +217,6 @@ export class ComponentStore {
   }
 
   /**
-   * Create a new reference from the src image to the target ref. This only creates a pointer in the cache DB.
-   *
-   * @param {string} src_ref_or_id - A reference to the source image
-   * @param {string} dest_ref - A target reference tag to apply to the image
-   */
-  tagVolume(src_ref_or_id: string, dest_ref: string): void {
-    const dest_match = new ImageRepository(dest_ref, this.default_registry);
-
-    // Ensure the destination repository is in the DB
-    this.db[dest_match.repository] = this.db[dest_match.repository] || {};
-
-    if (/^[\dA-Fa-f]{64}/.test(src_ref_or_id)) {
-      // If the input is an image ID, look for it in the filesystem
-      const src_path = path.join(this.cache_dir, src_ref_or_id);
-      if (!existsSync(src_path)) {
-        throw new MissingComponentRef(src_ref_or_id);
-      }
-
-      this.db[dest_match.repository][dest_ref] = `./${src_ref_or_id}`;
-    } else {
-      // If the src is an existing tag, create a new pointer in the DB
-      const src_match = new ImageRepository(src_ref_or_id, this.default_registry);
-      if (!this.db[src_match.repository] || !this.db[src_match.repository][src_ref_or_id]) {
-        throw new MissingComponentRef(src_ref_or_id);
-      }
-
-      this.db[dest_match.repository][dest_ref] = this.db[src_match.repository][src_ref_or_id];
-    }
-
-    this.save();
-  }
-
-  /**
    * Push the component from the local cache to the remote registry corresponding with the tag
    *
    * @param {string} ref_string - The component tag to push

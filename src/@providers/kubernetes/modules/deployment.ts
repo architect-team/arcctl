@@ -20,7 +20,7 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
       const name = `volume-${volume_mount.volume.split('-').pop()}`;
       volumeClaims[volume_mount.volume] = new PersistentVolumeClaim(this, `${name}-claim`, {
         metadata: {
-          name: `${volume_mount.volume}`,
+          name: volume_mount.volume,
           namespace: this.inputs?.namespace,
         },
         waitUntilBound: false,
@@ -59,7 +59,7 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
           },
           spec: {
             initContainer: this.inputs?.volume_mounts?.map((volume) => {
-              const [repo, tag] = (volume.digest || '').split(':');
+              const [repo, tag] = (volume.image || '').split(':');
               const repoParts = repo.split('/');
               repoParts.splice(1, 0, 'v2');
               const fullRepo = repoParts.join('/');

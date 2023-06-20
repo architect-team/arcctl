@@ -91,6 +91,8 @@ export abstract class TerraformResourceService<
 
     console.log("********RUNNING INIT");
     const status = await cmd.status;
+    console.log("********INIT STATUS");
+    console.log(status);
     console.log("********RAN INIT");
     return {
       ...status,
@@ -131,9 +133,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    console.log("********RUNNING PLAN");
     const status = await cmd.status;
-    console.log("********RAN PLAN");
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -173,9 +173,7 @@ export abstract class TerraformResourceService<
       );
     }
 
-    console.log("********RUNNING APPLY");
     const status = await cmd.status;
-    console.log("********RAN APPLY");
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -304,12 +302,12 @@ export abstract class TerraformResourceService<
       },
     });
 
-    console.log("****RUNNING TFPLAN");
+    // console.log("****RUNNING TFPLAN");
     const plan_output = await this.tfPlan(options.cwd, options.logger);
-    console.log("****INIT OUTPUT");
-    console.log(new Buffer(plan_output.stdout));
-    console.log(new Buffer(plan_output.stderr));
-    console.log("****RAN TFPLAN");
+    // console.log("****PLAN OUTPUT");
+    // console.log(new Buffer(plan_output.stdout));
+    // console.log(new Buffer(plan_output.stderr));
+    // console.log("****RAN TFPLAN");
 
     subscriber.next({
       status: {
@@ -319,9 +317,7 @@ export abstract class TerraformResourceService<
       },
     });
 
-    console.log("****RUNNING TFAPPLY");
     const { stderr } = await this.tfApply(options.cwd, options.logger);
-    console.log("****RAN TFAPPLY");
     if (stderr && stderr.length > 0) {
       subscriber.error(new TextDecoder().decode(stderr));
       return;

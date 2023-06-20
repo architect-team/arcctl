@@ -1,7 +1,7 @@
-import * as path from 'std/path/mod.ts';
-import PluginManager from '../plugins/plugin-manager.ts';
-import { CldCtlTerraformStack } from '../utils/stack.ts';
-import { TerraformPlugin, TerraformVersion } from './plugin.ts';
+import * as path from "std/path/mod.ts";
+import PluginManager from "../plugins/plugin-manager.ts";
+import { CldCtlTerraformStack } from "../utils/stack.ts";
+import { TerraformPlugin, TerraformVersion } from "./plugin.ts";
 
 export class Terraform {
   private plugin: TerraformPlugin;
@@ -10,18 +10,31 @@ export class Terraform {
     this.plugin = plugin;
   }
 
-  public static async generate(pluginDir: string, version: TerraformVersion): Promise<Terraform> {
-    const plugin = await PluginManager.getPlugin(pluginDir, version, TerraformPlugin);
+  public static async generate(
+    pluginDir: string,
+    version: TerraformVersion,
+  ): Promise<Terraform> {
+    const plugin = await PluginManager.getPlugin(
+      pluginDir,
+      version,
+      TerraformPlugin,
+    );
 
     return new Terraform(plugin);
   }
 
   public init(cwd: string, stack: CldCtlTerraformStack): Deno.ChildProcess {
-    const moduleFile = path.join(cwd, 'main.tf.json');
+    console.log("********IN INIT");
+    const moduleFile = path.join(cwd, "main.tf.json");
+    console.log("********MODULE FILE");
+    console.log(moduleFile);
     Deno.mkdirSync(cwd, { recursive: true });
+    console.log("********MADE CWD");
+    console.log(cwd);
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
+    console.log("********WROTE MODULE FILE, INITIALIZING");
 
-    return this.plugin.exec(['init', '-input=false'], {
+    return this.plugin.exec(["init", "-input=false"], {
       stdout: false,
       commandOptions: {
         cwd,
@@ -29,14 +42,18 @@ export class Terraform {
     });
   }
 
-  public plan(cwd: string, outputFile: string, options?: { refresh?: boolean; destroy?: boolean }): Deno.ChildProcess {
-    const args = ['plan', '-input=false', `-out=${outputFile}`];
+  public plan(
+    cwd: string,
+    outputFile: string,
+    options?: { refresh?: boolean; destroy?: boolean },
+  ): Deno.ChildProcess {
+    const args = ["plan", "-input=false", `-out=${outputFile}`];
     if (options?.refresh === false) {
-      args.push('-refresh=false');
+      args.push("-refresh=false");
     }
 
     if (options?.destroy) {
-      args.push('-destroy');
+      args.push("-destroy");
     }
 
     return this.plugin.exec(args, {
@@ -45,14 +62,18 @@ export class Terraform {
     });
   }
 
-  public apply(cwd: string, planFile: string, options?: { refresh?: boolean; destroy?: boolean }): Deno.ChildProcess {
-    const args = ['apply'];
+  public apply(
+    cwd: string,
+    planFile: string,
+    options?: { refresh?: boolean; destroy?: boolean },
+  ): Deno.ChildProcess {
+    const args = ["apply"];
     if (options?.refresh === false) {
-      args.push('-refresh=false');
+      args.push("-refresh=false");
     }
 
     if (options?.destroy) {
-      args.push('-destroy');
+      args.push("-destroy");
     }
 
     args.push(planFile);
@@ -64,21 +85,25 @@ export class Terraform {
   }
 
   public destroy(cwd: string, planFile: string): Deno.ChildProcess {
-    return this.plugin.exec(['destroy', planFile], {
+    return this.plugin.exec(["destroy", planFile], {
       stdout: false,
       commandOptions: { cwd },
     });
   }
 
-  public import(cwd: string, resourceId: string, cloudId: string): Deno.ChildProcess {
-    return this.plugin.exec(['import', resourceId, cloudId], {
+  public import(
+    cwd: string,
+    resourceId: string,
+    cloudId: string,
+  ): Deno.ChildProcess {
+    return this.plugin.exec(["import", resourceId, cloudId], {
       stdout: false,
       commandOptions: { cwd },
     });
   }
 
   public output(cwd: string, id?: string): Deno.ChildProcess {
-    const args = ['output', '-json'];
+    const args = ["output", "-json"];
     if (id) {
       args.push(id);
     }

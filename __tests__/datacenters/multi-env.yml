@@ -7,15 +7,9 @@ resources:
     account: docker
     name: traefik-volume
 
-  network:
-    type: namespace
-    account: docker
-    name: arcctl-local
-
   gateway:
     type: deployment
     name: my-gateway
-    namespace: ${{ resources.network.id }}
     account: docker
     exposed_ports:
       - port: 80
@@ -61,3 +55,4 @@ environment:
         image: oryd/kratos-selfservice-ui-node:v0.13.0
       platform: linux/amd64
     - account: docker
+      namespace: ${{ environment.name }}

@@ -615,11 +615,14 @@ export default class DatacenterV1 extends Datacenter {
                   graph,
                   environmentName,
                   node.id,
-                  replaceHookExpressions(hookResources, hookAccounts, node.name, node.id, {
-                    ...node.inputs,
-                    ...hookData,
-                    account: node.inputs.account || hookData.account,
-                  } as any),
+                  this.replaceEnvironmentNameRefs(
+                    environmentName,
+                    replaceHookExpressions(hookResources, hookAccounts, node.name, node.id, {
+                      ...node.inputs,
+                      ...hookData,
+                      account: node.inputs.account || hookData.account,
+                    } as any),
+                  ),
                 ),
               ),
             ),

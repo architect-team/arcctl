@@ -93,11 +93,10 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
-    const containerName = inputs.name.replaceAll('/', '--');
+    const containerName = [inputs.namespace || '', inputs.name.replaceAll('/', '--')].filter((value) => value).join(
+      '--',
+    );
     const args = ['run', '--detach', '--quiet', '--name', containerName];
-    if (inputs.namespace) {
-      args.push('--network', inputs.namespace);
-    }
 
     if (inputs.environment) {
       for (const [key, value] of Object.entries(inputs.environment)) {

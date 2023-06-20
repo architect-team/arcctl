@@ -6,6 +6,7 @@ import * as path from "std/path/mod.ts";
 import { Logger } from "winston";
 import { ResourceInputs, ResourceType } from "../@resources/index.ts";
 import { createProviderFileConstructor } from "../cdktf-modules/provider-file.ts";
+import { ArchitectPlugin } from "../index.ts";
 import { TerraformVersion } from "../terraform/plugin.ts";
 import { Terraform } from "../terraform/terraform.ts";
 import CloudCtlConfig from "../utils/config.ts";
@@ -53,6 +54,10 @@ export abstract class TerraformResourceService<
     );
 
     return this._terraform;
+  }
+
+  private setTerraformPlugin(plugin: ArchitectPlugin) {
+    this._terraform = new Terraform(plugin);
   }
 
   private async tfInit(

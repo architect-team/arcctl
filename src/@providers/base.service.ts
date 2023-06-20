@@ -1,14 +1,14 @@
-import { Observable } from "rxjs";
+import { Observable, ReadableStream } from "rxjs";
 import { Logger } from "winston";
 import {
   ResourceInputs,
   ResourceOutputs,
   ResourceType,
 } from "../@resources/index.ts";
+import { ArchitectPlugin } from "../index.ts";
 import { PagingOptions, PagingResponse } from "../utils/paging.ts";
 import { ProviderCredentials } from "./credentials.ts";
 import { ProviderStore } from "./store.ts";
-import { ReadableStream } from "rxjs";
 
 export type InputValidators<T extends ResourceType> = {
   [P in keyof ResourceInputs[T]]?: (
@@ -109,4 +109,6 @@ export abstract class WritableResourceService<
   ): Observable<ApplyOutputs<T>>;
 
   abstract destroy(options: ApplyOptions): Observable<ApplyOutputs<T>>;
+
+  abstract setTerraformPlugin(plugin: ArchitectPlugin): void;
 }

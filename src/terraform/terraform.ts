@@ -2,11 +2,12 @@ import * as path from "std/path/mod.ts";
 import PluginManager from "../plugins/plugin-manager.ts";
 import { CldCtlTerraformStack } from "../utils/stack.ts";
 import { TerraformPlugin, TerraformVersion } from "./plugin.ts";
+import { ArchitectPlugin } from "../index.ts";
 
 export class Terraform {
-  private plugin: TerraformPlugin;
+  private plugin: ArchitectPlugin;
 
-  constructor(plugin: TerraformPlugin) {
+  constructor(plugin: ArchitectPlugin) {
     this.plugin = plugin;
   }
 

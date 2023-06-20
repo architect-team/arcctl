@@ -1,12 +1,15 @@
+import k8s from '@kubernetes/client-node';
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
 import { PersistentVolumeClaim } from '../.gen/providers/kubernetes/persistent-volume-claim/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
+import KubernetesUtils from '../utils.ts';
 
 export class KubernetesDeploymentModule extends ResourceModule<'deployment', KubernetesCredentials> {
   private deployment: Deployment;
+  private volumeClaims: Record<string, PersistentVolumeClaim>;
   outputs: ResourceOutputs['deployment'];
 
   constructor(scope: Construct, options: ResourceModuleOptions<'deployment', KubernetesCredentials>) {
@@ -14,11 +17,10 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
 
     const normalizedName = this.inputs?.name.replace(/\//g, '--') || 'unknown';
 
-    const volumeClaims: Record<string, PersistentVolumeClaim> = {};
-
+    this.volumeClaims = {};
     for (const volume_mount of this.inputs?.volume_mounts || []) {
       const name = `volume-${volume_mount.volume.split('-').pop()}`;
-      volumeClaims[volume_mount.volume] = new PersistentVolumeClaim(this, `${name}-claim`, {
+      this.volumeClaims[volume_mount.volume] = new PersistentVolumeClaim(this, `${name}-claim`, {
         metadata: {
           name: volume_mount.volume,
           namespace: this.inputs?.namespace,
@@ -90,7 +92,7 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
               return {
                 name: volume.volume,
                 persistentVolumeClaim: {
-                  claimName: volumeClaims[volume.volume].metadata.name,
+                  claimName: this.volumeClaims[volume.volume].metadata.name,
                 },
               };
             }),
@@ -156,8 +158,20 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
     };
   }
 
-  genImports(resourceId: string): Promise<Record<string, string>> {
+  async genImports(resourceId: string): Promise<Record<string, string>> {
+    const [namespace, name] = resourceId.split('/');
+    const client = KubernetesUtils.getClient(this.credentials, k8s.CoreV1Api);
+    const pods = await client.listNamespacedPod(namespace);
+    const normalizedName = name.replace(/\//g, '--') || 'unknown';
+    const currentPod = pods.body.items.find((pod) => pod.metadata?.labels?.['architect.io/name'] === normalizedName);
+    const volumeIds: Record<string, string> = {};
+    if (currentPod) {
+      currentPod.spec?.volumes?.forEach((volume) => {
+        volumeIds[this.getResourceRef(this.volumeClaims[volume.persistentVolumeClaim?.claimName || ''])] = volume.name;
+      });
+    }
     return Promise.resolve({
+      ...volumeIds,
       [this.getResourceRef(this.deployment)]: resourceId,
     });
   }

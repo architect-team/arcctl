@@ -1,12 +1,19 @@
-import { Observable } from 'rxjs';
-import { Logger } from 'winston';
-import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
-import { PagingOptions, PagingResponse } from '../utils/paging.ts';
-import { ProviderCredentials } from './credentials.ts';
-import { ProviderStore } from './store.ts';
+import { Observable } from "rxjs";
+import { Logger } from "winston";
+import {
+  ResourceInputs,
+  ResourceOutputs,
+  ResourceType,
+} from "../@resources/index.ts";
+import { PagingOptions, PagingResponse } from "../utils/paging.ts";
+import { ProviderCredentials } from "./credentials.ts";
+import { ProviderStore } from "./store.ts";
+import { ReadableStream } from "rxjs";
 
 export type InputValidators<T extends ResourceType> = {
-  [P in keyof ResourceInputs[T]]?: (value: ResourceInputs[T][P]) => string | true;
+  [P in keyof ResourceInputs[T]]?: (
+    value: ResourceInputs[T][P],
+  ) => string | true;
 };
 
 export type ResourcePresets<T extends ResourceType> = Array<{
@@ -25,7 +32,14 @@ export type ApplyOptions<S = any> = {
 export type ApplyOutputs<T extends ResourceType> = {
   state?: any;
   status: {
-    state: 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
+    state:
+      | "pending"
+      | "starting"
+      | "applying"
+      | "destroying"
+      | "complete"
+      | "unknown"
+      | "error";
     message?: string;
     startTime?: number;
     endTime?: number;
@@ -33,8 +47,20 @@ export type ApplyOutputs<T extends ResourceType> = {
   outputs?: ResourceOutputs[T];
 };
 
-export abstract class ResourceService<T extends ResourceType, C extends ProviderCredentials> {
-  public constructor(protected accountName: string, protected credentials: C, protected providerStore: ProviderStore) {}
+export type LogsOptions = {
+  follow?: boolean;
+  tail?: number;
+};
+
+export abstract class ResourceService<
+  T extends ResourceType,
+  C extends ProviderCredentials,
+> {
+  public constructor(
+    protected accountName: string,
+    protected credentials: C,
+    protected providerStore: ProviderStore,
+  ) {}
 
   /**
    * Retrieve the details of an existing resource
@@ -48,6 +74,13 @@ export abstract class ResourceService<T extends ResourceType, C extends Provider
     filterOptions?: Partial<ResourceOutputs[T]>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs[T]>>;
+
+  public logs(
+    _id: string,
+    _options?: LogsOptions,
+  ): ReadableStream<Uint8Array> | undefined {
+    return undefined;
+  }
 }
 
 export abstract class WritableResourceService<
@@ -70,7 +103,10 @@ export abstract class WritableResourceService<
     return {};
   }
 
-  abstract apply(inputs: ResourceInputs[T], options: ApplyOptions): Observable<ApplyOutputs<T>>;
+  abstract apply(
+    inputs: ResourceInputs[T],
+    options: ApplyOptions,
+  ): Observable<ApplyOutputs<T>>;
 
   abstract destroy(options: ApplyOptions): Observable<ApplyOutputs<T>>;
 }

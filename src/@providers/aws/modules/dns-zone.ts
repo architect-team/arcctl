@@ -23,7 +23,10 @@ export class AwsDnsZoneModule extends ResourceModule<'dnsZone', AwsCredentials> 
     };
   }
 
-  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  async genImports(resourceId: string, credentials?: AwsCredentials): Promise<Record<string, string>> {
+    if (!credentials) {
+      throw new Error('Credentials required');
+    }
     let dns_zone_match: ResourceOutputs['dnsZone'] | undefined;
     if (resourceId.includes('.')) {
       // import is required to be in the format specified here - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone#import

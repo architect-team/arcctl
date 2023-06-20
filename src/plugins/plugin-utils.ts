@@ -18,9 +18,7 @@ export default class PluginUtils {
       // await response.body?.pipeTo(file.writable);
 
       const data = new Uint8Array(await response.arrayBuffer());
-      console.log("********WRITING FILE IN PLUGIN UTILS");
       const file = Deno.createSync(location);
-      console.log("********WROTE FILE IN PLUGIN UTILS");
       file.writeSync(data);
     });
   }

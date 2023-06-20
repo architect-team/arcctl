@@ -6,11 +6,18 @@ import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from '
 import logUpdate from 'log-update';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
+import { WritableResourceService } from '../@providers/base.service.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
-import { Datacenter, DatacenterRecord, DatacenterStore } from '../datacenters/index.ts';
+import {
+  Datacenter,
+  DatacenterRecord,
+  DatacenterStore,
+  ParsedVariablesMetadata,
+  ParsedVariablesType,
+} from '../datacenters/index.ts';
 import { EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import CloudCtlConfig from '../utils/config.ts';
@@ -434,8 +441,12 @@ export class CommandHelper {
       console.error('Invalid json schema');
     }
 
-    const validators = provider.resources[resourceType]?.validators;
-    const validator = validators ? (validators as any)[property.name] : undefined;
+    const resource = provider.resources[resourceType];
+    let validator = undefined;
+    if (resource && 'validators' in resource) {
+      const validators = resource.validators;
+      validator = validators ? (validators as any)[property.name] : undefined;
+    }
 
     if (data[property.name]) {
       return data[property.name] as any;
@@ -509,26 +520,31 @@ export class CommandHelper {
   public async promptForAccount(
     options: {
       account?: string;
+      prompt_accounts?: Provider[];
       type?: ResourceType;
       action?: 'list' | 'get' | 'create' | 'update' | 'delete';
       message?: string;
     } = {},
   ): Promise<Provider> {
     const allAccounts = this.providerStore.getProviders();
-    const filteredAccounts: Provider[] = [];
-    for (const p of allAccounts) {
-      if (options.type && p.resources[options.type]) {
-        const service = p.resources[options.type]!;
-        if (
-          !options.action ||
-          options.action in service ||
-          (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
-        ) {
+    let filteredAccounts: Provider[] = [];
+    if (!options.prompt_accounts) {
+      for (const p of allAccounts) {
+        if (options.type && p.resources[options.type]) {
+          const service = p.resources[options.type]!;
+          if (
+            !options.action ||
+            options.action in service ||
+            (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
+          ) {
+            filteredAccounts.push(p);
+          }
+        } else if (!options.type) {
           filteredAccounts.push(p);
         }
-      } else if (!options.type) {
-        filteredAccounts.push(p);
       }
+    } else {
+      filteredAccounts = options.prompt_accounts;
     }
 
     let account;
@@ -626,13 +642,14 @@ export class CommandHelper {
       Deno.exit(1);
     }
 
-    if (service.presets?.length) {
+    const writableService = service as unknown as WritableResourceService<T, Provider>;
+    if (writableService.presets && writableService.presets.length > 0) {
       const result = await Select.prompt({
         message: 'Please select one of our default configurations or customize the creation of your resource.',
-        options: [...service.presets.map((p) => p.display), 'custom'],
+        options: [...writableService.presets.map((p) => p.display), 'custom'],
       });
 
-      let service_preset_values = service.presets.find((p) => p.display === result)?.values;
+      let service_preset_values = writableService.presets.find((p) => p.display === result)?.values;
       if (!service_preset_values || result === 'custom') {
         service_preset_values = {};
       }
@@ -748,5 +765,145 @@ export class CommandHelper {
       }
     }
     Deno.exit(1);
+  }
+
+  /**
+   * Prompts for all variables required by a datacenter.
+   * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
+   * an error is thrown.
+   */
+  public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
+    const variable_inputs: Record<string, unknown> = {};
+    const sorted_vars = this.sortVariables(variables);
+
+    while (sorted_vars.length > 0) {
+      const variable = sorted_vars.shift()!;
+
+      const variable_value = await this.promptForVariableFromMetadata(
+        graph,
+        variable.name,
+        variable.metadata,
+      );
+
+      variable_inputs[variable.name] = variable_value;
+      // Fill in metadata that relied on this variable
+      for (const next_variable of sorted_vars) {
+        if (next_variable.dependencies.has(variable.name)) {
+          const dependency = variables[next_variable.name].dependant_variables?.find((dep) =>
+            dep.value === variable.name
+          )!;
+
+          (next_variable.metadata as Record<string, unknown>)[dependency.key] = variable_value;
+        }
+      }
+    }
+    return variable_inputs;
+  }
+
+  private async promptForVariableFromMetadata(
+    graph: CloudGraph,
+    name: string,
+    metadata: ParsedVariablesMetadata,
+  ): Promise<string | boolean | number | undefined> {
+    const message = `${name}: ${metadata.description}`;
+    if (metadata.type === 'string') {
+      return Input.prompt({ message });
+    } else if (metadata.type === 'boolean') {
+      return Confirm.prompt({ message });
+    } else if (metadata.type === 'number') {
+      return NumberPrompt.prompt({ message });
+    } else if (metadata.type === 'arcctlAccount') {
+      const provider_name = metadata.provider ||
+        (await Select.prompt({
+          message: `What provider will this account connect to?`,
+          options: Object.keys(SupportedProviders),
+        }));
+
+      const existing_accounts = this.providerStore.getProviders().filter((p) => p.type === provider_name);
+      const account = await this.promptForAccount({
+        prompt_accounts: existing_accounts,
+        message: message,
+      });
+      return account.name;
+    } else {
+      // In this case, metadata.type is a non-special-case ResourceInputs key.
+      if (!metadata.arcctlAccount) {
+        throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
+      }
+      const provider = this.providerStore.getProvider(metadata.arcctlAccount);
+      if (!provider) {
+        throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
+      }
+
+      return this.promptForResourceID(graph, provider, {
+        name: name as ResourceType,
+        schema: { description: message } as any,
+      });
+    }
+  }
+
+  /*
+   * Sort ParsedVariablesType into an order that can be prompted for, ensuring variables that
+   * depend on other variables get resolved first. If no valid order exists (e.g., there are cycles),
+   * this raises an error.
+   */
+  protected sortVariables(
+    variables: ParsedVariablesType,
+  ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
+    const variable_graph: Record<string, Set<string>> = {};
+    for (const [variable_name, variable_metadata] of Object.entries(variables)) {
+      const var_dependencies = new Set(
+        variable_metadata.dependant_variables ? variable_metadata.dependant_variables.map((v) => v.value) : [],
+      );
+      variable_graph[variable_name] = var_dependencies;
+    }
+
+    const result: string[] = [];
+    const discovered = new Set<string>();
+    const finished = new Set<string>();
+    for (const var_name of Object.keys(variable_graph)) {
+      if (!finished.has(var_name) && !discovered.has(var_name)) {
+        this.topologicalSort(variable_graph, var_name, discovered, finished, result);
+      }
+    }
+    // We must reverse the topological sort to get the correct ordering - the edges in this
+    // graph are variables the node depends on, so those dependencies must be prompted for first.
+    result.reverse();
+
+    const vars = [];
+    for (const var_name of result) {
+      vars.push({
+        name: var_name,
+        metadata: variables[var_name],
+        dependencies: variable_graph[var_name],
+      });
+    }
+    return vars;
+  }
+
+  /**
+   * Topologically sort the graph, and raise an error if a cycle is detected.
+   */
+  private topologicalSort(
+    graph: Record<string, Set<string>>,
+    node: string,
+    discovered: Set<string>,
+    finished: Set<string>,
+    result: string[],
+  ) {
+    discovered.add(node);
+
+    for (const edge of graph[node]) {
+      if (discovered.has(edge)) {
+        throw Error(`A circular dependency has been found between the variables '${node}' and '${edge}'`);
+      }
+      if (!finished.has(edge)) {
+        this.topologicalSort(graph, edge, discovered, finished, result);
+      }
+    }
+
+    discovered.delete(node);
+    finished.add(node);
+    result.unshift(node);
   }
 }

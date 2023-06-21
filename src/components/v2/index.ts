@@ -123,7 +123,7 @@ export default class ComponentV2 extends Component {
       if (build_config.image) {
         this.deployments = JSON.parse(
           JSON.stringify(this.deployments || {}).replace(
-            new RegExp('\\${{\\s?builds\\.' + build_key + '\\.image\\s?}}', 'g'),
+            new RegExp('\\${{\\s?builds\\.' + build_key + '\\.id\\s?}}', 'g'),
             () => build_config.image!,
           ),
         );

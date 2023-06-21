@@ -1,5 +1,8 @@
 version: v2
 
+dependencies:
+  smtp: architect/smtp
+
 databases:
   kratos:
     type: postgres:15
@@ -16,12 +19,11 @@ databases:
 builds:
   kratos-ui:
     context: ./
-    dockerfile: Dockerfile-dev
+    dockerfile: Dockerfile
+    debug:
+      dockerfile: Dockerfile-dev
 
 deployments:
-  mailslurper:
-    image: oryd/mailslurper:latest-smtps
-
   kratos:
     image: oryd/kratos:v0.13.0
     entrypoint: [""]
@@ -113,9 +115,9 @@ deployments:
               use: code
         courier:
           smtp:
-            connection_uri: smtps://test:test@${{ services.smtps.host }}:${{ services.smtps.port }}/?skip_ssl_verify=true
+            connection_uri: ${{ dependencies.smtp.services.smtp.url }}/?skip_ssl_verify=true
         log:
-          level: trace
+          level: info
           format: text
           leak_sensitive_values: true
         secrets:
@@ -193,14 +195,19 @@ deployments:
       PORT: '4455'
       KRATOS_PUBLIC_URL: ${{ services.kratos-public.url }}
       KRATOS_BROWSER_URL: ${{ ingresses.api.url }}
+    debug:
+      volumes:
+        src:
+          host_path: ./src
+          mount_path: /usr/src/app/src
+        views:
+          host_path: ./views
+          mount_path: /usr/src/app/views
+        public:
+          host_path: ./public
+          mount_path: /usr/src/app/public
 
 services:
-  smtp:
-    deployment: mailslurper
-    port: 4436
-  smtps:
-    deployment: mailslurper
-    port: 4437
   kratos-public:
     deployment: kratos
     port: 4433

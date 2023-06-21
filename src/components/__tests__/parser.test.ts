@@ -40,12 +40,11 @@ describe('Component parser', () => {
     try {
       await parseComponent(raw_obj);
     } catch (errs) {
-      console.log(errs);
-      assertArrayIncludes(errs, [
+      assertArrayIncludes(JSON.parse(errs.message), [
         {
           instancePath: '/services/main',
-          schemaPath: '#/oneOf/0/properties/services/additionalProperties/anyOf/0/additionalProperties',
           keyword: 'additionalProperties',
+          schemaPath: '#/oneOf/0/properties/services/additionalProperties/anyOf/0/additionalProperties',
           params: { additionalProperty: 'bad-key' },
           message: 'must NOT have additional properties',
         },

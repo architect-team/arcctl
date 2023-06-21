@@ -256,6 +256,8 @@ describe('Component Schema: v1', () => {
         path: '/',
         protocol: `\${{ ${service_node.id}.protocol }}`,
         service: `\${{ ${service_node.id}.id }}`,
+        username: `\${{ ${service_node.id}.username }}`,
+        password: `\${{ ${service_node.id}.password }}`,
         port: 80,
         internal: false,
         name: CloudNode.genResourceId({

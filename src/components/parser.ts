@@ -35,7 +35,7 @@ export const parseComponent = async (input: Record<string, unknown> | string): P
   }
 
   if (!component_validator(raw_obj)) {
-    throw new Error(JSON.stringify(component_validator.errors, null, 2));
+    throw JSON.stringify(component_validator.errors, null, 2);
   }
 
   return buildComponent(raw_obj);

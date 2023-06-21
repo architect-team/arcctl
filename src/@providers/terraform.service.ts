@@ -419,9 +419,8 @@ export abstract class TerraformResourceService<
         startTime,
       },
     });
-    console.log("********READING STATEFILE");
+
     const stateFileBuffer = await Deno.readFile(stateFile);
-    console.log("********READ STATEFILE");
     options.state = JSON.parse(new TextDecoder().decode(stateFileBuffer));
 
     const { stdout: rawOutputs } = await this.tfOutput(

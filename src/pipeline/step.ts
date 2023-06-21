@@ -115,6 +115,8 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       if (options.plugin) {
         writableService.setTerraformPlugin(options.plugin);
       }
+      console.log("********WRITABLE SERVICE");
+      console.log(writableService);
       let applyObservable: Observable<ApplyOutputs<any>> | undefined;
 
       if (this.action === "delete") {

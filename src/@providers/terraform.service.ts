@@ -112,10 +112,13 @@ export abstract class TerraformResourceService<
     //   );
     // }
 
+    console.log("********RUNNING INIT");
     let status;
     if (cmd.status) {
       status = await cmd.status;
     } else if (cmd.exitCode) {
+      console.log(typeof cmd);
+      console.log("********AWAITING INIT");
       status = (await cmd).exitCode;
     }
 

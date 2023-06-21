@@ -36,9 +36,29 @@
             ],
             "args": [
                 "deploy",
+                "-v",
                 "-e",
                 "do-env",
-                "architect/auth:latest"
+                "muesch.io/muesch/architect/auth:latest"
+            ],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Push",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "-A",
+                "main.ts"
+            ],
+            "args": [
+                "push",
+                "muesch.io/muesch/architect/auth:latest"
             ],
             "attachSimplePort": 9229,
             "console": "integratedTerminal"

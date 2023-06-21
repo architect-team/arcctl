@@ -27,7 +27,20 @@ export type DockerTagFn = (
   targetName: string,
 ) => Promise<string>;
 
+export type VolumeTagFn = (
+  digest: string,
+  deploymentName: string,
+  volumeName: string,
+) => Promise<string>;
+
 export type DockerPushFn = (image: string) => Promise<void>;
+export type VolumePushFn = (
+  deployment_name: string,
+  volume_name: string,
+  image: string,
+  host_path: string,
+  mount_path: string,
+) => Promise<void>;
 
 export abstract class Component {
   public abstract getDependencies(): string[];
@@ -36,7 +49,7 @@ export abstract class Component {
 
   public abstract build(buildFn: DockerBuildFn, volumeFn: VolumeBuildFn): Promise<Component>;
 
-  public abstract tag(tagFn: DockerTagFn): Promise<Component>;
+  public abstract tag(tagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component>;
 
-  public abstract push(pushFn: DockerPushFn): Promise<Component>;
+  public abstract push(pushFn: DockerPushFn, volumePushFn: VolumePushFn): Promise<Component>;
 }

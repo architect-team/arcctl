@@ -9,6 +9,7 @@ import GraphCommand from './graph.ts';
 import ListCommands from './list/index.ts';
 import LogsCommand from './logs.ts';
 import PruneAccountsCommand from './prune.ts';
+import PushCommand from './push.ts';
 import RemoveCommands from './remove/index.ts';
 import TagCommand from './tag.ts';
 import UpdateCommands from './update/index.ts';
@@ -18,6 +19,7 @@ export default async function arcctl() {
     .command('build', BuildCommand)
     .command('deploy', DeployCommand)
     .command('tag', TagCommand)
+    .command('push', PushCommand)
     .command('prune', PruneAccountsCommand)
     .command('add', AddCommands)
     .command('create', CreateCommands)

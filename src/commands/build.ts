@@ -1,6 +1,6 @@
-import { ImageRepository } from '@architect-io/arc-oci';
 import * as path from 'std/path/mod.ts';
 import { Component, parseComponent } from '../components/index.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
@@ -59,11 +59,10 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     }
     return stdout;
   }, async (options) => {
-    return '';
+    return await command_helper.componentStore.addVolume(options.host_path);
   });
 
   const digest = await command_helper.componentStore.add(component);
-  console.log(`Digest: ${digest}`);
 
   if (options.tag) {
     for (const tag of options.tag) {
@@ -74,6 +73,11 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
         await exec('docker', { args: ['tag', sourceRef, targetRef] });
         return targetRef;
+      }, async (digest: string, deploymentName: string, volumeName: string) => {
+        console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);
+        const [tagName, tagVersion] = tag.split(':');
+        const volumeTag = `${tagName}/${deploymentName}/volume/${volumeName}:${tagVersion}`;
+        return volumeTag;
       });
 
       command_helper.componentStore.tag(digest, tag);

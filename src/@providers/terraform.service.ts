@@ -112,14 +112,10 @@ export abstract class TerraformResourceService<
     //   );
     // }
 
-    console.log("********RUNNING INIT");
-    console.log(typeof cmd);
     let status;
     if (cmd.status) {
-      console.log("********AWAITING INIT STATUS");
       status = await cmd.status;
     } else { // TODO: find out how to best differentiate between deno and execa process types to find out what to await
-      console.log("********AWAITING INIT EXITCODE");
       status = (await cmd).exitCode;
     }
 
@@ -427,7 +423,7 @@ export abstract class TerraformResourceService<
       options.cwd,
       options.logger,
     );
-    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
+    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs)); // TODO: find out why this throws an error
 
     if (!parsedOutputs) {
       subscriber.error(new Error("Failed to retrieve terraform outputs"));

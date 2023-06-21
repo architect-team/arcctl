@@ -38,9 +38,6 @@ export class DigitaloceanVpcService
   public configureTerraformProviders(
     scope: Construct,
   ): TerraformDigitaloceanProvider {
-    console.log("********DO VPC CONFIGURE TF PROVIDERS");
-    console.log(scope);
-    console.log(this.credentials);
     return new TerraformDigitaloceanProvider(scope, "digitalocean", {
       token: this.credentials.token,
     });

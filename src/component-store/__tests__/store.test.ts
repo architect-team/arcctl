@@ -198,7 +198,7 @@ describe(
       assertSpyCalls(mockUpload, 2);
       assertSpyCall(mockUpload, 0, {
         args: [
-          path.join(tmp_store, 'f24572215a3fbb037dcf66fd4c923dbfb8e8672d7f5673cde24d337fffcbbf6f', 'architect.json'),
+          path.join(tmp_store, 'f24572215a3f', 'architect.json'),
         ],
       });
       assertSpyCall(mockUpload, 1, {

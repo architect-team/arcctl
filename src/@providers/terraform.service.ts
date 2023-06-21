@@ -423,6 +423,9 @@ export abstract class TerraformResourceService<
       options.cwd,
       options.logger,
     );
+    console.log("********OUTPUTS");
+    console.log(rawOutputs);
+    console.log(new TextDecoder().decode(rawOutputs));
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs)); // TODO: find out why this throws an error
 
     if (!parsedOutputs) {

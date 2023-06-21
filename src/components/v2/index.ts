@@ -244,7 +244,8 @@ export default class ComponentV2 extends Component {
     volume: string;
     name: string;
     mount_path: string;
-    image: string;
+    remote_image?: string;
+    local_image?: string;
     readonly: boolean;
   }[] {
     const deployment_volumes = [];
@@ -254,7 +255,8 @@ export default class ComponentV2 extends Component {
         name: volume_key,
         volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
         mount_path: volume_config.mount_path,
-        image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
+        local_image: volume_config.image,
+        remote_image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
         readonly: true,
       });
     }

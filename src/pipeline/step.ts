@@ -12,7 +12,6 @@ import {
 } from "../@resources/index.ts";
 import { CloudNode } from "../cloud-graph/index.ts";
 import { ApplyOptions, StepAction, StepColor, StepStatus } from "./types.ts";
-import { TerraformPlugin } from "../terraform/plugin.ts";
 
 export type PipelineStepOptions<T extends ResourceType> = {
   name: string;

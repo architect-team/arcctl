@@ -1,6 +1,5 @@
 import { SupportedProviders } from "../@providers/supported-providers.ts";
 import { CloudEdge, CloudGraph } from "../cloud-graph/index.ts";
-import { TerraformPlugin } from "../terraform/plugin.ts";
 import { PipelineStep } from "./step.ts";
 import { ApplyOptions } from "./types.ts";
 

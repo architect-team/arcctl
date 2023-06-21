@@ -113,12 +113,13 @@ export abstract class TerraformResourceService<
     // }
 
     console.log("********RUNNING INIT");
+    console.log(typeof cmd);
     let status;
     if (cmd.status) {
+      console.log("********AWAITING INIT STATUS");
       status = await cmd.status;
-    } else if (cmd.exitCode) {
-      console.log(typeof cmd);
-      console.log("********AWAITING INIT");
+    } else { // TODO: find out how to best differentiate between deno and execa process types to find out what to await
+      console.log("********AWAITING INIT EXITCODE");
       status = (await cmd).exitCode;
     }
 
@@ -182,7 +183,7 @@ export abstract class TerraformResourceService<
     let status;
     if (cmd.status) {
       status = await cmd.status;
-    } else if (cmd.exitCode) {
+    } else {
       status = (await cmd).exitCode;
     }
 
@@ -246,7 +247,7 @@ export abstract class TerraformResourceService<
     let status;
     if (cmd.status) {
       status = await cmd.status;
-    } else if (cmd.exitCode) {
+    } else {
       status = (await cmd).exitCode;
     }
 
@@ -311,7 +312,7 @@ export abstract class TerraformResourceService<
     let status;
     if (cmd.status) {
       status = await cmd.status;
-    } else if (cmd.exitCode) {
+    } else {
       status = (await cmd).exitCode;
     }
 

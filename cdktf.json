@@ -4,6 +4,7 @@
   "terraformProviders": [
     "kubernetes@~> 2.10.0",
     "aws@~> 4.37.0",
+    "google@~> 4.70.0",
     "http@~> 3.2.0",
     "digitalocean/digitalocean@~> 2.24.0"
   ],

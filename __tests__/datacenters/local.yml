@@ -95,7 +95,7 @@ environment:
     - when:
         type: service
       account: ${{ accounts.gateway.id }}
-      dnsZone: host.docker.internal.nip.io
+      dnsZone: 172.17.0.1.nip.io
     - when:
         type: ingressRule
       account: ${{ accounts.gateway.id }}
@@ -111,7 +111,6 @@ environment:
     - when:
         type: deployment
       environment:
-        HTTP_PROXY: http://host.docker.internal:80
         TRACING_PROVIDER: jaeger
         TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL: ${{ resources.jaeger.id }}:5778/sampling
         TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS: ${{ resources.jaeger.id }}:6831

@@ -169,7 +169,9 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
               service: inputs.service,
               ...(isNotHttp
                 ? {
-                  tls: {},
+                  tls: {
+                    passthrough: true,
+                  },
                 }
                 : {}),
             },
@@ -252,6 +254,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
           [normalizedId]: {
             rule: rules.join(' && '),
             service: inputs.service || previousService,
+            ...(isNotHttp
+              ? {
+                tls: {
+                  passthrough: true,
+                },
+              }
+              : {}),
           },
         },
       },

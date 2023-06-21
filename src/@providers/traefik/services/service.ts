@@ -151,7 +151,9 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
             service: serviceName,
             ...(isNotHttp
               ? {
-                tls: {},
+                tls: {
+                  passthrough: true,
+                },
               }
               : {}),
           },
@@ -180,7 +182,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       url += `${inputs.username}:${inputs.password}@`;
     }
     url += host;
-    if (port !== 80) {
+    if (isNotHttp || port !== 80) {
       url += `:${port}`;
     }
 
@@ -229,7 +231,9 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
             service: newServiceName,
             ...(isNotHttp
               ? {
-                tls: {},
+                tls: {
+                  passthrough: true,
+                },
               }
               : {}),
           },
@@ -268,7 +272,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     }
 
     url += host;
-    if (port !== 80) {
+    if (isNotHttp || port !== 80) {
       url += `:${port}`;
     }
 

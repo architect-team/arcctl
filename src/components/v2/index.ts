@@ -2,7 +2,16 @@ import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import {
+  Component,
+  DockerBuildFn,
+  DockerPushFn,
+  DockerTagFn,
+  GraphContext,
+  VolumeBuildFn,
+  VolumePushFn,
+  VolumeTagFn,
+} from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { DebuggableDeploymentSchemaV2 } from './deployment.ts';
@@ -224,6 +233,35 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
+  private getDeploymentVolumes(
+    tag: string,
+    deployment_name: string,
+    volumes: Record<string, {
+      host_path: string;
+      mount_path: string;
+      image?: string;
+    }>,
+  ): {
+    volume: string;
+    name: string;
+    mount_path: string;
+    image: string;
+    readonly: boolean;
+  }[] {
+    const deployment_volumes = [];
+    const [repo_name, repo_tag] = tag.split(':');
+    for (const [volume_key, volume_config] of Object.entries(volumes)) {
+      deployment_volumes.push({
+        name: volume_key,
+        volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
+        mount_path: volume_config.mount_path,
+        image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
+        readonly: true,
+      });
+    }
+    return deployment_volumes;
+  }
+
   private addDeploymentsToGraph(
     graph: CloudGraph,
     context: GraphContext,
@@ -262,6 +300,7 @@ export default class ComponentV2 extends Component {
         volume_mounts.push({
           volume: `\${{ ${volume_node.id}.id }}`,
           mount_path: volumeConfig.mount_path!,
+          image: volumeConfig.image,
           readonly: false,
         });
 
@@ -467,7 +506,7 @@ export default class ComponentV2 extends Component {
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
         if (volumeConfig.host_path) {
-          volumeConfig.digest = await volumeBuildFn({
+          volumeConfig.image = await volumeBuildFn({
             host_path: volumeConfig.host_path,
             volume_name: volumeName,
             deployment_name: deploymentName,
@@ -479,7 +518,7 @@ export default class ComponentV2 extends Component {
     return this;
   }
 
-  public async tag(tagFn: DockerTagFn): Promise<Component> {
+  public async tag(tagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       if (buildConfig.image) {
         const newTag = await tagFn(buildConfig.image, buildName);
@@ -487,13 +526,39 @@ export default class ComponentV2 extends Component {
       }
     }
 
+    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
+      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+        if (volumeConfig.image) {
+          deploymentConfig.volumes![volumeName].image = await volumeTagFn(
+            volumeConfig.image,
+            deploymentName,
+            volumeName,
+          );
+        }
+      }
+    }
+
     return this;
   }
 
-  public async push(pushFn: DockerPushFn): Promise<Component> {
+  public async push(pushFn: DockerPushFn, volumePushFn: VolumePushFn): Promise<Component> {
     for (const buildConfig of Object.values(this.builds || {})) {
       if (buildConfig.image) {
         await pushFn(buildConfig.image);
+      }
+    }
+
+    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
+      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+        if (volumeConfig.image && volumeConfig.host_path) {
+          await volumePushFn(
+            deploymentName,
+            volumeName,
+            volumeConfig.image,
+            volumeConfig.host_path,
+            volumeConfig.mount_path,
+          );
+        }
       }
     }
 

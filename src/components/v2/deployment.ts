@@ -20,7 +20,7 @@ export type DeploymentSchemaV2 = {
   volumes?: Record<string, {
     host_path?: string;
     mount_path: string;
-    digest?: string;
+    image?: string;
   }>;
 };
 

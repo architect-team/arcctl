@@ -621,7 +621,7 @@ export default class DatacenterV1 extends Datacenter {
                     hookAccounts,
                     node.name,
                     node.id,
-                    deepMerge(node.inputs, {
+                    deepMerge(node.inputs as any, {
                       ...hookData,
                       account: node.inputs.account || hookData.account,
                     }) as any,

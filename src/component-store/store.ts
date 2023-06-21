@@ -1,16 +1,30 @@
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
-import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
+import { Buffer } from 'https://deno.land/std@0.153.0/node/buffer.ts';
+import * as crypto from 'https://deno.land/std@0.153.0/node/crypto.ts';
+import { copy } from 'std/fs/copy.ts';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import tar from 'tar';
 import { Component } from '../components/component.ts';
 import { parseComponent } from '../components/parser.ts';
+import { ImageManifest, ImageRepository } from '../oci/index.ts';
 import { ComponentStoreDB } from './db.ts';
 
 const CACHE_DB_FILENAME = 'component.db.json';
 
 enum MEDIA_TYPES {
   OCI_MANIFEST = 'application/vnd.oci.image.manifest.v1+json',
+}
+
+interface BinaryData {
+  digest: string;
+  size: number;
+  data: Buffer;
+}
+
+export interface VolumeConfig {
+  component: string;
+  mount_path: string;
+  host_path: string;
 }
 
 class MissingComponentRef extends Error {
@@ -85,7 +99,7 @@ export class ComponentStore {
     try {
       const { component } = await this.getCachedComponentDetails(image);
       return component;
-    } catch {
+    } catch (ex) {
       const raw_config = await image.getConfig(MEDIA_TYPES.OCI_MANIFEST);
       return parseComponent(raw_config);
     }
@@ -111,6 +125,37 @@ export class ComponentStore {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     Deno.writeTextFileSync(path.join(new_path, 'architect.json'), component_contents);
+    return artifact_id;
+  }
+
+  /**
+   * Adds a volume to the component cache.
+   *
+   * @returns {string} - ID of the newly cached artifacts
+   */
+  async addVolume(host_path: string): Promise<string> {
+    const hash = crypto
+      .createHash('sha256');
+    const directories = [host_path];
+    while (directories.length > 0) {
+      const directory = directories.pop() || '';
+      const dir = Deno.readDir(directory);
+      for await (const entry of dir) {
+        if (entry.isDirectory) {
+          directories.push(path.join(directory, entry.name));
+        }
+        const stats = await Deno.stat(path.join(directory, entry.name));
+        hash.update(`${entry.name}${stats.mtime}${stats.size}`);
+      }
+    }
+    const artifact_id = hash
+      .setEncoding('utf-8')
+      .digest('hex') as string;
+    const new_path = path.join(this.cache_dir, artifact_id);
+    if (!existsSync(new_path)) {
+      Deno.mkdirSync(new_path, { recursive: true });
+    }
+    await copy(host_path, new_path, { overwrite: true });
     return artifact_id;
   }
 
@@ -220,6 +265,56 @@ export class ComponentStore {
     };
 
     await repository.uploadManifest(manifest);
+  }
+
+  /**
+   * Upload a volume to an OCI Registry
+   * @param config The volume config to be attached to the manifest
+   * @param ref_string The folder to push up as the volume
+   * @param tag The tag to tag it all as
+   * @param tar_directory Directory to store tar files in for intermediate steps
+   */
+  async pushVolume(
+    config: VolumeConfig,
+    ref_string: string,
+    tag: string,
+    tar_directory?: string,
+  ): Promise<void> {
+    const volume_repository = new ImageRepository(tag, this.default_registry);
+    await volume_repository.checkForOciSupport();
+
+    // Upload the component config
+    const config_path = await Deno.makeTempFile();
+    Deno.writeTextFileSync(config_path, JSON.stringify(config));
+    const config_blob = await volume_repository.uploadBlob(config_path);
+    // Upload the component directory contents
+    if (!tar_directory) {
+      tar_directory = Deno.makeTempDirSync();
+    }
+    const tar_filepath = path.join(tar_directory, 'files-layer.tgz');
+
+    await tar.create({ gzip: true, file: tar_filepath, cwd: path.join(this.cache_dir, ref_string) }, ['./']);
+    const files_blob = await volume_repository.uploadBlob(tar_filepath);
+
+    // Create and upload the manifest
+    const manifest: ImageManifest = {
+      schemaVersion: 2,
+      mediaType: MEDIA_TYPES.OCI_MANIFEST,
+      config: {
+        mediaType: 'application/vnd.architect.volume.config.v1+json',
+        digest: config_blob.digest,
+        size: config_blob.size,
+      },
+      layers: [
+        {
+          mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
+          digest: files_blob.digest,
+          size: files_blob.size,
+        },
+      ],
+    };
+
+    await volume_repository.uploadManifest(manifest);
   }
 
   /**

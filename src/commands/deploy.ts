@@ -1,7 +1,7 @@
-import { ImageRepository } from '@architect-io/arc-oci';
 import cliSpinners from 'cli-spinners';
 import winston, { Logger } from 'winston';
 import EnvironmentV1 from '../environments/v1/index.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { Pipeline } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 

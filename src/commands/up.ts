@@ -1,10 +1,10 @@
-import { ImageRepository } from '@architect-io/arc-oci';
 import cliSpinners from 'cli-spinners';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { parseEnvironment } from '../environments/index.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { Pipeline } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { destroyEnvironment } from './destroy/environment.ts';

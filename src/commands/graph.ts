@@ -1,7 +1,7 @@
-import { ImageRepository } from '@architect-io/arc-oci';
 import { CloudGraph } from '../cloud-graph/index.ts';
 import { Datacenter, parseDatacenter } from '../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../environments/index.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type GraphOptions = {
@@ -59,10 +59,10 @@ async function graph_action(options: GraphOptions): Promise<void> {
     umlLines.push(`class "${node.id}" {`);
     for (const [key, value] of Object.entries(node.inputs)) {
       let displayValue = value;
-      if (typeof value === 'object') {
+      if (typeof value === 'object' || Array.isArray(value)) {
         displayValue = JSON.stringify(value);
       }
-      displayValue = value?.toString().includes('\n') ? `CANNOT DISPLAY` : value;
+      displayValue = displayValue?.toString().includes('\n') ? `CANNOT DISPLAY` : displayValue;
       umlLines.push(`  ${key}: ${displayValue}`);
     }
     umlLines.push(`  {method} account ${node.account}`);

@@ -7,6 +7,7 @@ import { KubernetesIngressRuleService } from './services/ingress-rule.ts';
 import { KubernetesNamespaceService } from './services/namespace.ts';
 import { KubernetesPodService } from './services/pod.ts';
 import { KubernetesServiceService } from './services/service.ts';
+import KubernetesUtils from './utils.ts';
 
 export default class KubernetesProvider extends Provider<KubernetesCredentials> {
   readonly type = 'kubernetes';
@@ -23,18 +24,7 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
   };
 
   public async testCredentials(): Promise<boolean> {
-    const kubeConfig = new k8s.KubeConfig();
-    if (this.credentials.configPath) {
-      kubeConfig.loadFromFile(this.credentials.configPath);
-    } else {
-      kubeConfig.loadFromDefault();
-    }
-
-    if (this.credentials.configContext) {
-      kubeConfig.setCurrentContext(this.credentials.configContext);
-    }
-
-    const client = kubeConfig.makeApiClient(k8s.VersionApi);
+    const client = KubernetesUtils.getClient(this.credentials, k8s.VersionApi);
     try {
       const res = await client.getCode();
       return Number(res.body.major) >= 1 && Number(res.body.minor) >= 18;

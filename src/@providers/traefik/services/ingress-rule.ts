@@ -167,6 +167,9 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
             [normalizedId + ROUTER_SUFFIX]: {
               rule: rules.join(' && '),
               service: inputs.service,
+              ...(isNotHttp ? {} : {
+                middlewares: [normalizedId + ROUTER_SUFFIX],
+              }),
               ...(isNotHttp
                 ? {
                   tls: {
@@ -176,6 +179,16 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
                 : {}),
             },
           },
+
+          ...(isNotHttp ? {} : {
+            middlewares: {
+              [normalizedId + ROUTER_SUFFIX]: {
+                headers: {
+                  accessControlAllowOriginList: '*',
+                },
+              },
+            },
+          }),
         },
       } as TraefikFormattedIngressRule),
     );

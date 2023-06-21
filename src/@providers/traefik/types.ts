@@ -1,6 +1,7 @@
 export type TraefikRouter = {
   rule: string;
   service: string;
+  middlewares?: string[];
 };
 
 export type TraefikTcpRouter = TraefikRouter & {

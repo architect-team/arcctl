@@ -513,6 +513,8 @@ export default class ComponentV2 extends Component {
           });
         }
       }
+
+      delete this.deployments?.[deploymentName].debug;
     }
 
     return this;

@@ -261,6 +261,8 @@ export abstract class TerraformResourceService<
     const terraform = await this.getTerraformPlugin();
 
     const cmd = terraform.output(cwd);
+    console.log("********COMMAND");
+    console.log(cmd);
 
     const stdout = new Buffer();
     const stderr = new Buffer();
@@ -274,16 +276,17 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } //else if (cmd.stdout?.pipe) {
-    //   cmd.stdout.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stdout.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
+    } else if (cmd.stdout?.pipe) {
+      console.log("****PIPE STDOUT");
+      cmd.stdout.pipe(
+        new WritableStream({
+          write(chunk) {
+            stdout.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
+    }
 
     if (cmd.stderr?.pipeTo) {
       cmd.stderr.pipeTo(
@@ -294,16 +297,17 @@ export abstract class TerraformResourceService<
           },
         }),
       );
-    } //else if (cmd.stderr?.pipe) {
-    //   cmd.stderr.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stderr.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
+    } else if (cmd.stderr?.pipe) {
+      console.log("****PIPE STDERR");
+      cmd.stderr.pipe(
+        new WritableStream({
+          write(chunk) {
+            stderr.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
+    }
 
     let status;
     if (cmd.status) {

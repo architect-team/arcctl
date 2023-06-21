@@ -81,6 +81,15 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stdout?.pipe) {
+      cmd.stdout.pipe(
+        new WritableStream({
+          write(chunk) {
+            stdout.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
     if (cmd.stderr?.pipeTo) {
@@ -92,9 +101,24 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stderr?.pipe) {
+      cmd.stderr.pipe(
+        new WritableStream({
+          write(chunk) {
+            stderr.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
-    const status = await cmd.status;
+    let status;
+    if (cmd.status) {
+      status = await cmd.status;
+    } else if (cmd.exitCode) {
+      status = (await cmd).exitCode;
+    }
+
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -121,6 +145,15 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stdout?.pipe) {
+      cmd.stdout.pipe(
+        new WritableStream({
+          write(chunk) {
+            stdout.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
     if (cmd.stderr?.pipeTo) {
@@ -132,9 +165,24 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stderr?.pipe) {
+      cmd.stderr.pipe(
+        new WritableStream({
+          write(chunk) {
+            stderr.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
-    const status = await cmd.status;
+    let status;
+    if (cmd.status) {
+      status = await cmd.status;
+    } else if (cmd.exitCode) {
+      status = (await cmd).exitCode;
+    }
+
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -161,6 +209,15 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stdout?.pipe) {
+      cmd.stdout.pipe(
+        new WritableStream({
+          write(chunk) {
+            stdout.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
     if (cmd.stderr?.pipeTo) {
@@ -172,9 +229,24 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stderr?.pipe) {
+      cmd.stderr.pipe(
+        new WritableStream({
+          write(chunk) {
+            stderr.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
-    const status = await cmd.status;
+    let status;
+    if (cmd.status) {
+      status = await cmd.status;
+    } else if (cmd.exitCode) {
+      status = (await cmd).exitCode;
+    }
+
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -202,6 +274,15 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stdout?.pipe) {
+      cmd.stdout.pipe(
+        new WritableStream({
+          write(chunk) {
+            stdout.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
     if (cmd.stderr?.pipeTo) {
@@ -213,9 +294,24 @@ export abstract class TerraformResourceService<
           },
         }),
       );
+    } else if (cmd.stderr?.pipe) {
+      cmd.stderr.pipe(
+        new WritableStream({
+          write(chunk) {
+            stderr.write(chunk);
+            logger?.info(new TextDecoder().decode(chunk));
+          },
+        }),
+      );
     }
 
-    const status = await cmd.status;
+    let status;
+    if (cmd.status) {
+      status = await cmd.status;
+    } else if (cmd.exitCode) {
+      status = (await cmd).exitCode;
+    }
+
     return {
       ...status,
       stdout: stdout.bytes(),

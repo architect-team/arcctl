@@ -24,7 +24,10 @@ export class Terraform {
     return new Terraform(plugin);
   }
 
-  public init(cwd: string, stack: CldCtlTerraformStack): Deno.ChildProcess {
+  public init(
+    cwd: string,
+    stack: CldCtlTerraformStack,
+  ): Deno.ChildProcess | any { // execa.ChildProcess
     const moduleFile = path.join(cwd, "main.tf.json");
     Deno.mkdirSync(cwd, { recursive: true });
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
@@ -41,7 +44,7 @@ export class Terraform {
     cwd: string,
     outputFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
-  ): Deno.ChildProcess {
+  ): Deno.ChildProcess | any { // execa.ChildProcess
     const args = ["plan", "-input=false", `-out=${outputFile}`];
     if (options?.refresh === false) {
       args.push("-refresh=false");
@@ -61,7 +64,7 @@ export class Terraform {
     cwd: string,
     planFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
-  ): Deno.ChildProcess {
+  ): Deno.ChildProcess | any { // execa.ChildProcess
     const args = ["apply"];
     if (options?.refresh === false) {
       args.push("-refresh=false");
@@ -79,7 +82,7 @@ export class Terraform {
     });
   }
 
-  public destroy(cwd: string, planFile: string): Deno.ChildProcess {
+  public destroy(cwd: string, planFile: string): Deno.ChildProcess | any { // execa.ChildProcess
     return this.plugin.exec(["destroy", planFile], {
       stdout: false,
       commandOptions: { cwd },
@@ -97,7 +100,7 @@ export class Terraform {
     });
   }
 
-  public output(cwd: string, id?: string): Deno.ChildProcess {
+  public output(cwd: string, id?: string): Deno.ChildProcess | any { // execa.ChildProcess
     const args = ["output", "-json"];
     if (id) {
       args.push(id);

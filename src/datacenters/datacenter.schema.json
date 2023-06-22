@@ -1055,6 +1055,9 @@
                                       "items": {
                                         "additionalProperties": false,
                                         "properties": {
+                                          "image": {
+                                            "type": "string"
+                                          },
                                           "mount_path": {
                                             "type": "string"
                                           },
@@ -1092,6 +1095,9 @@
                                 "items": {
                                   "additionalProperties": false,
                                   "properties": {
+                                    "image": {
+                                      "type": "string"
+                                    },
                                     "mount_path": {
                                       "type": "string"
                                     },
@@ -1355,6 +1361,10 @@
                                 "description": "Namespace to put the ingress rule in",
                                 "type": "string"
                               },
+                              "password": {
+                                "description": "Basic auth password",
+                                "type": "string"
+                              },
                               "path": {
                                 "default": "/",
                                 "description": "The path the ingress rule listens on",
@@ -1386,6 +1396,10 @@
                               },
                               "type": {
                                 "const": "ingressRule",
+                                "type": "string"
+                              },
+                              "username": {
+                                "description": "Basic auth username",
                                 "type": "string"
                               }
                             },
@@ -1656,39 +1670,6 @@
                               },
                               "type": {
                                 "const": "nodeSize",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "type"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
-                                "const": "pod",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": false,
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "labels": {
-                                "additionalProperties": {
-                                  "type": "string"
-                                },
-                                "type": "object"
-                              },
-                              "type": {
-                                "const": "pod",
                                 "type": "string"
                               }
                             },
@@ -2120,7 +2101,6 @@
                             "kubernetesCluster",
                             "loadBalancer",
                             "namespace",
-                            "pod",
                             "secret",
                             "service",
                             "task",
@@ -2961,7 +2941,6 @@
                           "namespace",
                           "node",
                           "nodeSize",
-                          "pod",
                           "region",
                           "secret",
                           "service",
@@ -3997,6 +3976,9 @@
                                 "items": {
                                   "additionalProperties": false,
                                   "properties": {
+                                    "image": {
+                                      "type": "string"
+                                    },
                                     "mount_path": {
                                       "type": "string"
                                     },
@@ -4034,6 +4016,9 @@
                           "items": {
                             "additionalProperties": false,
                             "properties": {
+                              "image": {
+                                "type": "string"
+                              },
                               "mount_path": {
                                 "type": "string"
                               },
@@ -4297,6 +4282,10 @@
                           "description": "Namespace to put the ingress rule in",
                           "type": "string"
                         },
+                        "password": {
+                          "description": "Basic auth password",
+                          "type": "string"
+                        },
                         "path": {
                           "default": "/",
                           "description": "The path the ingress rule listens on",
@@ -4328,6 +4317,10 @@
                         },
                         "type": {
                           "const": "ingressRule",
+                          "type": "string"
+                        },
+                        "username": {
+                          "description": "Basic auth username",
                           "type": "string"
                         }
                       },
@@ -4598,39 +4591,6 @@
                         },
                         "type": {
                           "const": "nodeSize",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "type"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
-                          "const": "pod",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "labels": {
-                          "additionalProperties": {
-                            "type": "string"
-                          },
-                          "type": "object"
-                        },
-                        "type": {
-                          "const": "pod",
                           "type": "string"
                         }
                       },
@@ -5062,7 +5022,6 @@
                       "kubernetesCluster",
                       "loadBalancer",
                       "namespace",
-                      "pod",
                       "secret",
                       "service",
                       "task",
@@ -6045,6 +6004,9 @@
                             "items": {
                               "additionalProperties": false,
                               "properties": {
+                                "image": {
+                                  "type": "string"
+                                },
                                 "mount_path": {
                                   "type": "string"
                                 },
@@ -6082,6 +6044,9 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
+                          "image": {
+                            "type": "string"
+                          },
                           "mount_path": {
                             "type": "string"
                           },
@@ -6345,6 +6310,10 @@
                       "description": "Namespace to put the ingress rule in",
                       "type": "string"
                     },
+                    "password": {
+                      "description": "Basic auth password",
+                      "type": "string"
+                    },
                     "path": {
                       "default": "/",
                       "description": "The path the ingress rule listens on",
@@ -6376,6 +6345,10 @@
                     },
                     "type": {
                       "const": "ingressRule",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "Basic auth username",
                       "type": "string"
                     }
                   },
@@ -6646,39 +6619,6 @@
                     },
                     "type": {
                       "const": "nodeSize",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
-                      "const": "pod",
-                      "type": "string"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "labels": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "type": "object"
-                    },
-                    "type": {
-                      "const": "pod",
                       "type": "string"
                     }
                   },
@@ -7110,7 +7050,6 @@
                   "kubernetesCluster",
                   "loadBalancer",
                   "namespace",
-                  "pod",
                   "secret",
                   "service",
                   "task",
@@ -7215,9 +7154,6 @@
               "nodeSize": {
                 "type": "string"
               },
-              "pod": {
-                "type": "string"
-              },
               "provider": {
                 "type": "string"
               },
@@ -7256,7 +7192,6 @@
                   "namespace",
                   "node",
                   "nodeSize",
-                  "pod",
                   "region",
                   "secret",
                   "service",

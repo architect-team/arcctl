@@ -224,7 +224,7 @@
                 "items": {
                   "additionalProperties": false,
                   "properties": {
-                    "digest": {
+                    "image": {
                       "type": "string"
                     },
                     "mount_path": {
@@ -260,7 +260,7 @@
           "items": {
             "additionalProperties": false,
             "properties": {
-              "digest": {
+              "image": {
                 "type": "string"
               },
               "mount_path": {

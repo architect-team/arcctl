@@ -686,7 +686,7 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "digest": {
+                          "image": {
                             "type": "string"
                           },
                           "mount_path": {
@@ -726,7 +726,7 @@
                 "items": {
                   "additionalProperties": false,
                   "properties": {
-                    "digest": {
+                    "image": {
                       "type": "string"
                     },
                     "mount_path": {
@@ -1302,38 +1302,6 @@
           "if": {
             "properties": {
               "type": {
-                "const": "pod",
-                "type": "string"
-              }
-            }
-          },
-          "then": {
-            "additionalProperties": false,
-            "properties": {
-              "account": {
-                "type": "string"
-              },
-              "labels": {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              "type": {
-                "const": "pod",
-                "type": "string"
-              }
-            },
-            "required": [
-              "type"
-            ],
-            "type": "object"
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
                 "properties": {},
                 "type": "object"
               }
@@ -1745,7 +1713,6 @@
             "kubernetesCluster",
             "loadBalancer",
             "namespace",
-            "pod",
             "secret",
             "service",
             "task",

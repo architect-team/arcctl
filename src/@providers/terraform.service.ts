@@ -18,7 +18,7 @@ type TerraformResourceState =
   | {
     id: string;
   }
-  | { terraform_version: string; [key: string]: any };
+  | { terraform_version: string; stateFile: any; lockFile: any };
 
 export abstract class TerraformResourceService<
   T extends ResourceType,
@@ -186,6 +186,7 @@ export abstract class TerraformResourceService<
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
     const stateFile = path.join(options.cwd, 'terraform.tfstate');
+    const lockFile = path.join(options.cwd, '.terraform.lock.hcl');
 
     const app = new App({
       outdir: options.cwd,
@@ -214,7 +215,8 @@ export abstract class TerraformResourceService<
 
     let initRan = false;
     if (options.state && 'terraform_version' in options.state) {
-      Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state)));
+      Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state.stateFile)));
+      Deno.writeFileSync(lockFile, new TextEncoder().encode(options.state.lockFile));
     } else if (options.state) {
       // State must be imported from an ID
       const imports = await module.genImports(options.state.id);
@@ -274,10 +276,18 @@ export abstract class TerraformResourceService<
     });
 
     const stateFileBuffer = await Deno.readFile(stateFile);
-    options.state = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+    const lockFileBuffer = await Deno.readFile(lockFile);
+    const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+    options.state = {
+      terraform_version: stateFileContents.terraform_version,
+      stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
+      lockFile: new TextDecoder().decode(lockFileBuffer),
+    };
 
     const { stdout: rawOutputs } = await this.tfOutput(options.cwd, options.logger);
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
+
+    await Deno.remove(options.cwd, { recursive: true });
 
     if (!parsedOutputs) {
       subscriber.error(new Error('Failed to retrieve terraform outputs'));
@@ -305,6 +315,7 @@ export abstract class TerraformResourceService<
   ): Promise<void> {
     try {
       const stateFile = path.join(options.cwd, 'terraform.tfstate');
+      const lockFile = path.join(options.cwd, '.terraform.lock.hcl');
 
       let app = new App({
         outdir: options.cwd,
@@ -331,7 +342,8 @@ export abstract class TerraformResourceService<
       });
 
       if (options.state && 'terraform_version' in options.state) {
-        Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state)));
+        Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state.stateFile)));
+        Deno.writeFileSync(lockFile, new TextEncoder().encode(options.state.lockFile));
       } else if (options.state) {
         // State must be imported from an ID
         const imports = await module.genImports(options.state.id);
@@ -380,7 +392,15 @@ export abstract class TerraformResourceService<
       await this.tfApply(options.cwd, options.logger);
 
       const stateFileBuffer = await Deno.readFile(stateFile);
-      options.state = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+      const lockFileBuffer = await Deno.readFile(lockFile);
+      const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+      options.state = {
+        terraform_version: stateFileContents.terraform_version,
+        stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
+        lockFile: new TextDecoder().decode(lockFileBuffer),
+      };
+
+      //await Deno.remove(options.cwd, { recursive: true });
 
       subscriber.next({
         status: {

@@ -11,6 +11,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   action: StepAction;
   color?: StepColor;
   status?: StepStatus;
+  hash?: string;
   component?: string;
   environment?: string;
   state?: any;
@@ -24,6 +25,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   action: StepAction;
   color: StepColor;
   status: StepStatus;
+  hash?: string;
   component?: string;
   environment?: string;
   state?: any;
@@ -38,6 +40,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.status = options.status || {
       state: 'pending',
     };
+    this.hash = options.hash;
     this.component = options.component;
     this.environment = options.environment;
     this.state = options.state;
@@ -58,6 +61,41 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       this.color === step.color && this.component === step.component &&
       this.environment === step.environment &&
       JSON.stringify(this.inputs) === JSON.stringify(step.inputs);
+  }
+
+  public getHash(options: ApplyOptions): string {
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
+
+    const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
+    Deno.mkdirSync(nodeDir, { recursive: true });
+    if (!nodeDir) {
+      throw new Error('Unable to create execution directory for terraform');
+    }
+
+    const account = options.providerStore.getProvider(
+      this.inputs?.account || '',
+    );
+    if (!account) {
+      throw new Error(`Invalid account: ${this.inputs?.account}`);
+    }
+
+    const service = account.resources[this.type] as ResourceService<any, any>;
+    if (!service) {
+      throw new Error(
+        `The ${account.type} provider doesn't support the ${this.type} resource`,
+      );
+    }
+
+    const writableService = service as WritableResourceService<any, any>;
+    let applyObservable: Observable<ApplyOutputs<any>> | undefined;
+
+    return writableService.getHash(this.inputs, {
+      id: this.id,
+      cwd: nodeDir,
+      providerStore: options.providerStore,
+      logger: options.logger,
+      state: this.state,
+    });
   }
 
   public apply(options: ApplyOptions): Observable<PipelineStep<T>> {

@@ -5,6 +5,7 @@ export type CloudNodeOptions<T extends ResourceType> = {
   inputs: ResourceInputs[T];
   component?: string;
   environment?: string;
+  isNoop?: boolean;
 };
 
 export class CloudNode<T extends ResourceType = ResourceType> {
@@ -12,6 +13,7 @@ export class CloudNode<T extends ResourceType = ResourceType> {
   inputs: ResourceInputs[T];
   component?: string;
   environment?: string;
+  isNoop?: boolean;
 
   static genResourceId(options: {
     name: string;
@@ -51,6 +53,7 @@ export class CloudNode<T extends ResourceType = ResourceType> {
     this.environment = options.environment;
     this.name = options.name;
     this.inputs = options.inputs;
+    this.isNoop = options.isNoop;
   }
 
   get account(): string | undefined {

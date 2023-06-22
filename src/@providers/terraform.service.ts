@@ -1,5 +1,6 @@
 import { App } from 'cdktf';
 import { Construct } from 'constructs';
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
 import { Observable, Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
@@ -416,6 +417,25 @@ export abstract class TerraformResourceService<
       console.error(err);
       subscriber.error(err);
     }
+  }
+
+  public getHash(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): string {
+    const app = new App({
+      outdir: options.cwd,
+    });
+    const stack = new CldCtlTerraformStack(app, 'arcctl');
+    this.configureTerraformProviders(stack);
+    const fileStorageDir = path.join(options.providerStore.storageDir, options.id.replaceAll('/', '--'));
+    Deno.mkdirSync(fileStorageDir, { recursive: true });
+    stack.addModule(this.construct, {
+      id: options.id,
+      inputs,
+      accountName: this.accountName,
+      credentials: this.credentials,
+      providerStore: this.providerStore,
+      FileConstruct: createProviderFileConstructor(fileStorageDir),
+    });
+    return crypto.createHash('sha256').update(stack.toTerraform()).digest('hex').toString();
   }
 
   public apply(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): Observable<ApplyOutputs<T>> {

@@ -156,7 +156,7 @@ export class ComponentStore {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     await copy(host_path, new_path, { overwrite: true });
-    return artifact_id;
+    return new_path;
   }
 
   /**

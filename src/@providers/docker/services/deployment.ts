@@ -112,7 +112,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
-        args.push('--volume', `${mount.volume}:${mount.mount_path}`);
+        args.push('--volume', `${mount.local_image}:${mount.mount_path}`);
       }
     }
 

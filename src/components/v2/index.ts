@@ -23,7 +23,7 @@ export default class ComponentV2 extends Component {
   /**
    * A set of other components that this component depends on
    */
-  dependencies?: Record<string, DependencySchemaV2>;
+  dependencies?: Record<string, string | DependencySchemaV2>;
 
   /**
    * A set of inputs the component expects to be provided
@@ -148,6 +148,20 @@ export default class ComponentV2 extends Component {
     }
   >;
 
+  private get normalizedDependencies(): Record<string, DependencySchemaV2> {
+    const dependencies = this.dependencies || {};
+
+    for (const [key, value] of Object.entries(dependencies)) {
+      if (typeof value === 'string') {
+        dependencies[key] = {
+          component: value,
+        };
+      }
+    }
+
+    return dependencies as Record<string, DependencySchemaV2>;
+  }
+
   private addBuildsToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
     for (const [build_key, build_config] of Object.entries(this.builds || {})) {
       if (build_config.image) {
@@ -195,7 +209,7 @@ export default class ComponentV2 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, build_node));
+        graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, build_node));
       }
     }
 
@@ -390,7 +404,7 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, deployment_node));
+      graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, deployment_node));
 
       for (const volume of volume_node_ids) {
         graph.insertEdges(
@@ -438,7 +452,7 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, service_node));
+      graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, service_node));
       graph.insertEdges(
         new CloudEdge({
           from: service_node.id,
@@ -494,7 +508,7 @@ export default class ComponentV2 extends Component {
           internal: ingress_config.internal || false,
         },
       });
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, ingress_node));
+      graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, ingress_node));
       graph.insertEdges(
         new CloudEdge({
           from: ingress_node.id,
@@ -513,7 +527,7 @@ export default class ComponentV2 extends Component {
   }
 
   public getDependencies(): ComponentDependencies {
-    return Object.values(this.dependencies || {}).map((dependency) => {
+    return Object.values(this.normalizedDependencies).map((dependency) => {
       const inputs: ComponentDependencies[number]['inputs'] = {};
       for (const [key, value] of Object.entries(dependency.inputs || {})) {
         if (Array.isArray(value)) {

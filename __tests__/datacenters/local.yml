@@ -1,22 +1,28 @@
 secrets:
   account: local
 
+variables:
+  account:
+    type: arcctlAccount
+    description: The docker account to use for this datacenter
+    provider: docker
+
 resources:
   service-registry:
     type: volume
-    account: docker
+    account: ${{ variables.account }}
     name: traefik-volume
 
   network:
     type: namespace
-    account: docker
+    account: ${{ variables.account }}
     name: local
-  
+
   jaeger:
     type: deployment
     name: jaeger
     namespace: ${{ resources.network.id }}
-    account: docker
+    account: ${{ variables.account }}
     image: jaegertracing/all-in-one:1.6
     environment:
       COLLECTOR_ZIPKIN_HTTP_PORT: 9411
@@ -35,7 +41,7 @@ resources:
     type: deployment
     name: my-gateway
     namespace: ${{ resources.network.id }}
-    account: docker
+    account: ${{ variables.account }}
     exposed_ports:
       - port: 80
         target_port: 80
@@ -66,13 +72,13 @@ accounts:
     credentials:
       type: volume
       volume: ${{ resources.service-registry.id }}
-      account: docker
+      account: ${{ variables.account }}
 
 environment:
   resources:
     pg:
       type: database
-      account: docker
+      account: ${{ variables.account }}
       name: ${{ environment.name }}-pg
       databaseType: postgres
       databaseVersion: '13'
@@ -114,5 +120,5 @@ environment:
         TRACING_PROVIDER: jaeger
         TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL: ${{ resources.jaeger.id }}:5778/sampling
         TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS: ${{ resources.jaeger.id }}:6831
-    - account: docker
+    - account: ${{ variables.account }}
       namespace: ${{ resources.network.id }}

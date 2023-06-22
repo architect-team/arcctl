@@ -302,7 +302,7 @@ export default class ComponentV2 extends Component {
         volume_mounts.push({
           volume: `\${{ ${volume_node.id}.id }}`,
           mount_path: volumeConfig.mount_path!,
-          image: volumeConfig.image,
+          remote_image: volumeConfig.image,
           readonly: false,
         });
 

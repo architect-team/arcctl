@@ -390,7 +390,7 @@ describe('Environment schema: v1', () => {
       dependencies:
         dep:
           component: account/dependency
-          inputs:
+          variables:
             key:
               - value1
     `;
@@ -450,7 +450,7 @@ describe('Environment schema: v1', () => {
       dependencies:
         dep:
           component: account/dependency
-          inputs:
+          variables:
             key:
               - value1
     `;
@@ -515,7 +515,7 @@ describe('Environment schema: v1', () => {
       dependencies:
         dep:
           component: account/dependency
-          inputs:
+          variables:
             key:
               - value1
     `;
@@ -525,7 +525,7 @@ describe('Environment schema: v1', () => {
       dependencies:
         dep:
           component: account/dependency
-          inputs:
+          variables:
             key:
               - value2
               - value3
@@ -593,7 +593,7 @@ describe('Environment schema: v1', () => {
       dependencies:
         dep:
           component: account/dependency
-          inputs:
+          variables:
             key:
               - value-component
     `;
@@ -700,7 +700,7 @@ describe('Environment schema: v1', () => {
       dependencies:
         dep:
           component: account/dependency
-          inputs:
+          variables:
             key:
               - value1
     `;

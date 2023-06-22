@@ -529,7 +529,7 @@ export default class ComponentV2 extends Component {
   public getDependencies(): ComponentDependencies {
     return Object.values(this.normalizedDependencies).map((dependency) => {
       const inputs: ComponentDependencies[number]['inputs'] = {};
-      for (const [key, value] of Object.entries(dependency.inputs || {})) {
+      for (const [key, value] of Object.entries(dependency.variables || {})) {
         if (Array.isArray(value)) {
           inputs[key] = value;
         } else {

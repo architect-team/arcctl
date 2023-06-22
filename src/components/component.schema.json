@@ -2755,7 +2755,7 @@
                     "description": "The repo the component is in",
                     "type": "string"
                   },
-                  "inputs": {
+                  "variables": {
                     "additionalProperties": {
                       "anyOf": [
                         {

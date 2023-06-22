@@ -7,5 +7,5 @@ export type DependencySchemaV2 = {
   /**
    * Input values to provide to the component if `merge` is turned on
    */
-  inputs?: Record<string, string | string[]>;
+  variables?: Record<string, string | string[]>;
 };

@@ -27,7 +27,7 @@ export class GoogleCloudDnsZoneModule extends ResourceModule<'dnsZone', GoogleCl
             service: 'dns.googleapis.com',
           }),
         ],
-        name: this.inputs.name,
+        name: this.inputs.name.replaceAll('.', '-').slice(0, -1),
         dnsName: this.inputs.name,
       });
     }

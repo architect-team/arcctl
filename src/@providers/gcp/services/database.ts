@@ -38,7 +38,7 @@ export class GoogleCloudDatabaseService extends TerraformResourceService<'databa
         instance: id,
       });
 
-      // TODO(tyler): Fix database gets
+      // TODO: Fix database gets
       return {
         id: data.instance || '',
         host: data.selfLink || '',
@@ -63,14 +63,14 @@ export class GoogleCloudDatabaseService extends TerraformResourceService<'databa
 
     const databases: ResourceOutputs['database'][] = [];
     for (const instance of (data.items || [])) {
-      // TODO(tyler): Fix database gets
+      // TODO: Fix database gets
       databases.push({
         id: instance.name || '',
         host: instance.selfLink || '',
         port: 0,
         username: instance.selfLink || '',
         password: instance.selfLink || '',
-        protocol: instance.selfLink || '',
+        protocol: instance.databaseVersion || '',
       });
     }
 

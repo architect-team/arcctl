@@ -29,7 +29,7 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
         ? 'POSTGRES_14'
         : `${this.inputs.databaseType}_${this.inputs.databaseVersion}`,
       deletionProtection: false,
-      region: !this.inputs?.region ? 'us-east1' : this.inputs.region.split('-').slice(0, -1).join('-'),
+      region: !this.inputs?.region ? 'us-east4-a' : this.inputs.region.split('-').slice(0, -1).join('-'),
       settings: {
         tier: this.inputs?.databaseSize || 'db-f1-micro',
         deletionProtectionEnabled: false,
@@ -45,7 +45,7 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
       password,
     });
 
-    // TODO(tyler): Fix outputs
+    // TODO: Fix outputs
     this.outputs = {
       id: this.database.name,
       protocol: 'TODO',

@@ -73,8 +73,8 @@ export class GoogleCloudDnsZoneService extends TerraformResourceService<'dnsZone
   get validators(): InputValidators<'dnsZone'> {
     return {
       name: (input: string): string | true => {
-        if (!/^\*?[\d.A-Za-z]+\.$/.test(input) || !input.endsWith('.')) {
-          return 'DNS name must contain alphanumeric characters and periods with an optional asterisk at the beginning and must end with a period.';
+        if (!/^\*?\S+\.\S+$/.test(input)) {
+          return 'Name must have more than two parts separated by periods and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
         }
         return true;
       },

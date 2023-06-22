@@ -1,6 +1,7 @@
 import { exec } from '../../utils/command.ts';
 import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
+import { DockerBuildService } from './services/build.ts';
 import { DockerDatabaseService } from './services/database.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
@@ -19,6 +20,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     task: new DockerTaskService(this.name, this.credentials, this.providerStore),
     volume: new DockerVolumeService(this.name, this.credentials, this.providerStore),
     database: new DockerDatabaseService(this.name, this.credentials, this.providerStore),
+    dockerBuild: new DockerBuildService(this.name, this.credentials, this.providerStore),
   };
 
   public async testCredentials(): Promise<boolean> {

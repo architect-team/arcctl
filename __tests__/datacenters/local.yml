@@ -11,7 +11,26 @@ resources:
     type: namespace
     account: docker
     name: local
-    
+  
+  jaeger:
+    type: deployment
+    name: jaeger
+    namespace: ${{ resources.network.id }}
+    account: docker
+    image: jaegertracing/all-in-one:1.6
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+    exposed_ports:
+      - port: 9411
+        target_port: 9411
+      - port: 14268
+        target_port: 14268
+      - port: 16686
+        target_port: 16686
+      - port: 5778
+        target_port: 5778
+    volume_mounts: []
+
   gateway:
     type: deployment
     name: my-gateway
@@ -26,13 +45,19 @@ resources:
     command:
       - --providers.file.directory=/etc/traefik
       - --providers.file.watch=true
+      - --tracing.jaeger=true
+      - --tracing.jaeger.samplingServerURL=${{ resources.jaeger.id }}:5778/sampling
+      - --tracing.jaeger.samplingType=const
+      - --tracing.jaeger.localAgentHostPort=${{ resources.jaeger.id }}:6831
       - --api.insecure=true
       - --api.dashboard=true
-      - --accesslog=true
     volume_mounts:
       - mount_path: /etc/traefik
         readonly: true
         volume: ${{ resources.service-registry.id }}
+      - mount_path: /var/run/docker.sock
+        readonly: true
+        volume: /var/run/docker.sock
 
 accounts:
   gateway:
@@ -70,11 +95,12 @@ environment:
     - when:
         type: service
       account: ${{ accounts.gateway.id }}
+      dnsZone: 172.17.0.1.nip.io
     - when:
         type: ingressRule
       account: ${{ accounts.gateway.id }}
       registry: ${{ resources.service-registry.id }}
-      dnsZone: localhost
+      dnsZone: 127.0.0.1.nip.io
     - when:
         type: databaseSchema
       account: ${{ environment.accounts.pg.id }}
@@ -82,5 +108,11 @@ environment:
         type: deployment
         image: oryd/kratos-selfservice-ui-node:v0.13.0
       platform: linux/amd64
+    - when:
+        type: deployment
+      environment:
+        TRACING_PROVIDER: jaeger
+        TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL: ${{ resources.jaeger.id }}:5778/sampling
+        TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS: ${{ resources.jaeger.id }}:6831
     - account: docker
       namespace: ${{ resources.network.id }}

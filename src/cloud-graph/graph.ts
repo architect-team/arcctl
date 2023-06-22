@@ -91,6 +91,8 @@ export class CloudGraph {
       if (!this.nodes.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the graph`);
       } else if (!this.nodes.some((n) => n.id === edge.to)) {
+        console.log(this.nodes);
+        console.log(this.edges);
         throw new Error(`${edge.to} is missing from the graph, but required by ${edge.from}`);
       }
     }

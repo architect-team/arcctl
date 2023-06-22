@@ -1,5 +1,4 @@
 import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
@@ -74,7 +73,6 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
       .apply({
         providerStore: command_helper.providerStore,
         logger: logger,
-        cwd: path.resolve(path.join('./.terraform', name)),
       })
       .then(async () => {
         await command_helper.saveDatacenter(name, newDatacenter, newPipeline);

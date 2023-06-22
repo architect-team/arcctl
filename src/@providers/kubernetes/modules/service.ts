@@ -11,12 +11,14 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
   constructor(scope: Construct, options: ResourceModuleOptions<'service', KubernetesCredentials>) {
     super(scope, options);
 
+    const host = this.inputs?.name.replaceAll('/', '--') || 'unknown';
+
     this.service = new Service(this, 'service', {
       metadata: {
-        name: this.inputs?.name.replaceAll('/', '--'),
+        name: host,
         namespace: this.inputs?.namespace,
         labels: {
-          'architect.io/name': this.inputs?.name.replaceAll('/', '--') || 'unknown',
+          'architect.io/name': host,
           ...this.inputs?.labels,
         },
       },
@@ -45,12 +47,25 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
     const protocol = this.inputs && 'external_hostname' in this.inputs
       ? 'http'
       : this.inputs?.target_protocol || 'http';
+    const port = 80;
+
+    let id = host;
+    if (this.inputs?.namespace) {
+      id = `${this.inputs.namespace}/${id}`;
+    }
+
+    let url = `${protocol}://`;
+    if (this.inputs?.username) {
+      url += `${this.inputs.username}:${this.inputs.password}@`;
+    }
+    url += host;
+
     this.outputs = {
-      id: this.inputs?.name || 'unknown',
+      id,
       protocol,
-      host: this.inputs?.name.replaceAll('/', '--') || 'unknown',
-      port: 80,
-      url: `${protocol}://${this.inputs?.name.replaceAll('/', '--') || 'unknown'}`,
+      host,
+      port,
+      url,
     };
   }
 

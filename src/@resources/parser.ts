@@ -2,6 +2,9 @@ import Ajv2019 from "ajv/dist/2019.js";
 import yaml from "js-yaml";
 import * as path from "std/path/mod.ts";
 import { InputSchema, ResourceInputs, ResourceType } from "./types.ts";
+import input_schema_contents from "./input.schema.json" assert {
+  type: "json",
+};
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 const __dirname = new URL(".", import.meta.url).pathname;
@@ -9,11 +12,8 @@ const __dirname = new URL(".", import.meta.url).pathname;
 export const parseResourceInputs = async (
   input: Record<string, unknown> | string,
 ): Promise<InputSchema> => {
-  const input_schema_contents = Deno.readTextFileSync(
-    path.join(__dirname, "./input.schema.json"),
-  ); // TODO: cache loaded data
   const input_validator = ajv.compile<InputSchema>(
-    JSON.parse(input_schema_contents),
+    input_schema_contents,
   );
 
   let raw_obj: any;

@@ -3,6 +3,9 @@ import yaml from "js-yaml";
 import * as path from "std/path/mod.ts";
 import { Environment } from "./environment.ts";
 import { buildEnvironment, EnvironmentSchema } from "./schema.ts";
+import environment_schema_contents from "./environment.schema.json" assert {
+  type: "json",
+};
 
 const DEFAULT_SCHEMA_VERSION = "v1";
 const ajv = new Ajv2019({ strict: false, discriminator: true });
@@ -11,11 +14,8 @@ const __dirname = new URL(".", import.meta.url).pathname;
 export const parseEnvironment = async (
   input: Record<string, unknown> | string,
 ): Promise<Environment> => {
-  const environment_schema_contents = Deno.readTextFileSync( // TODO: cache
-    path.join(__dirname, "./environment.schema.json"),
-  );
   const environment_validator = ajv.compile<EnvironmentSchema>(
-    JSON.parse(environment_schema_contents),
+    environment_schema_contents,
   );
 
   let raw_obj: any;

@@ -1,6 +1,8 @@
 import Ajv2019 from "ajv/dist/2019.js";
 import yaml from "js-yaml";
-import * as path from "std/path/mod.ts";
+import datacenter_schema_contents from "./datacenter.schema.json" assert {
+  type: "json",
+};
 import { Datacenter } from "./datacenter.ts";
 import { buildDatacenter, DatacenterSchema } from "./schema.ts";
 
@@ -11,11 +13,8 @@ const __dirname = new URL(".", import.meta.url).pathname;
 export const parseDatacenter = async (
   input: Record<string, unknown> | string,
 ): Promise<Datacenter> => {
-  const datacenter_schema_contents = Deno.readTextFileSync( // TODO: cache
-    path.join(__dirname, "./datacenter.schema.json"),
-  );
   const datacenter_validator = ajv.compile<DatacenterSchema>(
-    JSON.parse(datacenter_schema_contents),
+    datacenter_schema_contents,
   );
 
   let raw_obj: any;

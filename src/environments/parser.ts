@@ -9,7 +9,6 @@ import environment_schema_contents from "./environment.schema.json" assert {
 
 const DEFAULT_SCHEMA_VERSION = "v1";
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = new URL(".", import.meta.url).pathname;
 
 export const parseEnvironment = async (
   input: Record<string, unknown> | string,

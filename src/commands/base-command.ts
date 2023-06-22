@@ -1,37 +1,52 @@
-import { JSONSchemaType } from 'ajv';
-import cliSpinners from 'cli-spinners';
-import { colors } from 'cliffy/ansi/colors.ts';
-import { Command } from 'cliffy/command/mod.ts';
-import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
-import logUpdate from 'log-update';
-import { deepMerge } from 'std/collections/deep_merge.ts';
-import * as path from 'std/path/mod.ts';
-import { WritableResourceService } from '../@providers/base.service.ts';
-import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
-import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
-import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
-import { ComponentStore } from '../component-store/index.ts';
+import cliSpinners from "cli-spinners";
+import { colors } from "cliffy/ansi/colors.ts";
+import { Command } from "cliffy/command/mod.ts";
+import {
+  Confirm,
+  Input,
+  Number as NumberPrompt,
+  prompt,
+  Secret,
+  Select,
+} from "cliffy/prompt/mod.ts";
+import logUpdate from "log-update";
+import { JSONSchemaType } from "npm:ajv";
+import { deepMerge } from "std/collections/deep_merge.ts";
+import * as path from "std/path/mod.ts";
+import { WritableResourceService } from "../@providers/base.service.ts";
+import {
+  Provider,
+  ProviderStore,
+  SupportedProviders,
+} from "../@providers/index.ts";
+import { ResourceType, ResourceTypeList } from "../@resources/index.ts";
+import { CloudEdge, CloudGraph, CloudNode } from "../cloud-graph/index.ts";
+import { ComponentStore } from "../component-store/index.ts";
 import {
   Datacenter,
   DatacenterRecord,
   DatacenterStore,
   ParsedVariablesMetadata,
   ParsedVariablesType,
-} from '../datacenters/index.ts';
-import { EnvironmentStore } from '../environments/index.ts';
-import { Pipeline, PipelineStep } from '../pipeline/index.ts';
-import CloudCtlConfig from '../utils/config.ts';
-import { CldCtlProviderStore } from '../utils/provider-store.ts';
-import { createTable } from '../utils/table.ts';
+} from "../datacenters/index.ts";
+import { EnvironmentStore } from "../environments/index.ts";
+import { Pipeline, PipelineStep } from "../pipeline/index.ts";
+import CloudCtlConfig from "../utils/config.ts";
+import { CldCtlProviderStore } from "../utils/provider-store.ts";
+import { createTable } from "../utils/table.ts";
 
 export type GlobalOptions = {
   configHome?: string;
 };
 
 export function BaseCommand() {
-  return new Command().globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
-    prefix: 'XDG_',
-  });
+  return new Command().globalEnv(
+    "XDG_CONFIG_HOME=<value:string>",
+    "Configuration folder location.",
+    {
+      prefix: "XDG_",
+    },
+  );
 }
 
 export class CommandHelper {
@@ -45,7 +60,10 @@ export class CommandHelper {
 
   get componentStore(): ComponentStore {
     const config_dir = CloudCtlConfig.getConfigDirectory();
-    return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
+    return new ComponentStore(
+      path.join(config_dir, "component-store"),
+      "registry.architect.io",
+    );
   }
 
   get providerStore(): ProviderStore {
@@ -64,15 +82,19 @@ export class CommandHelper {
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+  public saveDatacenter(
+    datacenterName: string,
+    datacenter: Datacenter,
+    pipeline: Pipeline,
+  ): Promise<void> {
     return new Promise((resolve, reject) => {
       const secretStep = new PipelineStep({
-        action: 'create',
-        type: 'secret',
+        action: "create",
+        type: "secret",
         name: `${datacenterName}-datacenter-pipeline`,
         inputs: {
-          type: 'secret',
-          name: 'datacenter-pipeline',
+          type: "secret",
+          name: "datacenter-pipeline",
           namespace: datacenterName,
           account: datacenter.getSecretsConfig().account,
           data: JSON.stringify(pipeline),
@@ -86,7 +108,7 @@ export class CommandHelper {
         .subscribe({
           complete: async () => {
             if (!secretStep.outputs) {
-              console.error('Something went wrong storing the pipeline');
+              console.error("Something went wrong storing the pipeline");
               Deno.exit(1);
             }
 
@@ -110,19 +132,19 @@ export class CommandHelper {
   public removeDatacenter(record: DatacenterRecord): Promise<void> {
     return new Promise((resolve, reject) => {
       const secretStep = new PipelineStep({
-        action: 'delete',
-        type: 'secret',
+        action: "delete",
+        type: "secret",
         name: `${record.name}-datacenter-pipeline`,
         inputs: {
-          type: 'secret',
-          name: 'datacenter-pipeline',
+          type: "secret",
+          name: "datacenter-pipeline",
           namespace: record.name,
-          data: '',
+          data: "",
           account: record.config.getSecretsConfig().account,
         },
         outputs: {
           id: `${record.name}/datacenter-pipeline`,
-          data: '',
+          data: "",
         },
       });
 
@@ -139,16 +161,24 @@ export class CommandHelper {
     });
   }
 
-  public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+  public async getPipelineForDatacenter(
+    record: DatacenterRecord,
+  ): Promise<Pipeline> {
+    const secretAccount = this.providerStore.getProvider(
+      record.lastPipeline.account,
+    );
     if (!secretAccount) {
-      console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
+      console.error(
+        `Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`,
+      );
       Deno.exit(1);
     }
 
     const service = secretAccount.resources.secret;
     if (!service) {
-      console.error(`The ${secretAccount.type} provider doesn't support secrets`);
+      console.error(
+        `The ${secretAccount.type} provider doesn't support secrets`,
+      );
       Deno.exit(1);
     }
 
@@ -168,20 +198,23 @@ export class CommandHelper {
   /**
    * Render the executable graph and the status of each resource
    */
-  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean; message?: string }): void {
-    const headers = ['Name', 'Type'];
+  public renderPipeline(
+    pipeline: Pipeline,
+    options?: { clear?: boolean; message?: string },
+  ): void {
+    const headers = ["Name", "Type"];
     const showEnvironment = pipeline.steps.some((s) => s.environment);
     const showComponent = pipeline.steps.some((s) => s.component);
 
     if (showComponent) {
-      headers.push('Component');
+      headers.push("Component");
     }
 
     if (showEnvironment) {
-      headers.push('Environment');
+      headers.push("Environment");
     }
 
-    headers.push('Action', 'Status', 'Time');
+    headers.push("Action", "Status", "Time");
     const table = createTable({
       head: headers,
     });
@@ -190,26 +223,29 @@ export class CommandHelper {
       ...pipeline.steps
         .sort(
           (first: PipelineStep, second: PipelineStep) =>
-            second.environment?.localeCompare(first.environment || '') ||
-            second.component?.localeCompare(first.component || '') ||
+            second.environment?.localeCompare(first.environment || "") ||
+            second.component?.localeCompare(first.component || "") ||
             0,
         )
         .map((step: PipelineStep) => {
           const row = [step.name, step.type];
 
           if (showComponent) {
-            row.push(step.component || '');
+            row.push(step.component || "");
           }
 
           if (showEnvironment) {
-            row.push(step.environment || '');
+            row.push(step.environment || "");
           }
 
           row.push(
             step.action,
             step.status.state,
-            Math.floor(((step.status.endTime || Date.now()) - (step.status.startTime || Date.now())) / 1000) + 's',
-            step.status.message || '',
+            Math.floor(
+              ((step.status.endTime || Date.now()) -
+                (step.status.startTime || Date.now())) / 1000,
+            ) + "s",
+            step.status.message || "",
           );
 
           return row;
@@ -218,9 +254,11 @@ export class CommandHelper {
 
     if (options?.clear) {
       const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
-      this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
+      this.spinner_frame_index = ++this.spinner_frame_index %
+        cliSpinners.dots.frames.length;
 
-      const message = spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString();
+      const message = spinner + " " + (options.message || "Applying changes") +
+        "\n" + table.toString();
       logUpdate(message);
     } else {
       console.log(table.toString());
@@ -246,9 +284,13 @@ export class CommandHelper {
     const results: Array<T> = [];
 
     const count = await NumberPrompt.prompt({
-      message: `How many ${property.schema.description || property.name} should be created?`,
+      message: `How many ${
+        property.schema.description || property.name
+      } should be created?`,
       validate: (value: string) => {
-        if (!(typeof value === 'number' || (!!value && !isNaN(Number(value))))) {
+        if (
+          !(typeof value === "number" || (!!value && !isNaN(Number(value))))
+        ) {
           return false;
         }
 
@@ -293,19 +335,23 @@ export class CommandHelper {
 
     const result = await Input.prompt({
       message: `${property.schema.description || property.name}${
-        property.schema.properties?.required ? '' : ' (optional)'
+        property.schema.properties?.required ? "" : " (optional)"
       }`,
       validate: (value?: string) => {
-        const number = Number.parseFloat(value || '');
+        const number = Number.parseFloat(value || "");
         if (value && Number.isNaN(number)) {
-          return 'Must be a number';
+          return "Must be a number";
         }
 
         if (property.schema.properties?.required && !value) {
           return `${property.name} is required`;
-        } else if (property.schema.minimum && value && number < property.schema.minimum) {
+        } else if (
+          property.schema.minimum && value && number < property.schema.minimum
+        ) {
           return `${property.name} must be greater than ${property.schema.minimum}`;
-        } else if (property.schema.maximum && value && number > property.schema.maximum) {
+        } else if (
+          property.schema.maximum && value && number > property.schema.maximum
+        ) {
           return `${property.name} must be less than ${property.schema.maximum}`;
         }
 
@@ -330,7 +376,7 @@ export class CommandHelper {
 
     const result = await Input.prompt({
       message: `${property.schema.description || property.name}${
-        property.schema.properties?.required ? '' : ' (optional)'
+        property.schema.properties?.required ? "" : " (optional)"
       }`,
       validate: (input?: string) => {
         if (property.schema.properties?.required && !input) {
@@ -356,8 +402,12 @@ export class CommandHelper {
     const results: any = {};
     console.log(`${property.name} is a key/value store.`);
 
-    while (await this.promptForContinuation(`Would you like to add a key/value pair to ${property.name}?`)) {
-      const key = await Input.prompt('Key:');
+    while (
+      await this.promptForContinuation(
+        `Would you like to add a key/value pair to ${property.name}?`,
+      )
+    ) {
+      const key = await Input.prompt("Key:");
 
       results[key] = await this.promptForSchemaProperties<any>(
         graph,
@@ -399,11 +449,11 @@ export class CommandHelper {
             name: row.id,
             value: row.id,
           })),
-          ...('apply' in service
+          ...("apply" in service
             ? [
               Select.separator(),
               {
-                value: 'create-new',
+                value: "create-new",
                 name: `Create a new ${property.name}`,
               },
             ]
@@ -412,12 +462,17 @@ export class CommandHelper {
       });
     }
 
-    if (answer === 'create-new') {
+    if (answer === "create-new") {
       console.log(`Inputs for ${property.name}`);
-      const node = await this.promptForNewResource(graph, provider, property.name, data);
+      const node = await this.promptForNewResource(
+        graph,
+        provider,
+        property.name,
+        data,
+      );
       console.log(`End ${property.name} inputs`);
       return `\${{ ${node.id}.id }}`;
-    } else if (answer === 'none') {
+    } else if (answer === "none") {
       return undefined;
     } else {
       return answer;
@@ -436,14 +491,17 @@ export class CommandHelper {
   ): Promise<T> {
     let schema = property.schema as JSONSchemaType<any>;
     if (schema.$ref && schema.definitions) {
-      schema = schema.definitions[schema.$ref.replace('#/definitions/', '')] as JSONSchemaType<any>;
+      schema = schema
+        .definitions[
+          schema.$ref.replace("#/definitions/", "")
+        ] as JSONSchemaType<any>;
     } else if (schema.$ref) {
-      console.error('Invalid json schema');
+      console.error("Invalid json schema");
     }
 
     const resource = provider.resources[resourceType];
     let validator = undefined;
-    if (resource && 'validators' in resource) {
+    if (resource && "validators" in resource) {
       const validators = resource.validators;
       validator = validators ? (validators as any)[property.name] : undefined;
     }
@@ -459,9 +517,13 @@ export class CommandHelper {
       )) as any;
       data[property.name] = res;
       return res;
-    } else if (schema.type === 'object' && schema.properties) {
+    } else if (schema.type === "object" && schema.properties) {
       let res: Record<string, unknown> = {};
-      for (const [propertyName, propertySchema] of Object.entries<any>(schema.properties)) {
+      for (
+        const [propertyName, propertySchema] of Object.entries<any>(
+          schema.properties,
+        )
+      ) {
         res[propertyName] = await this.promptForSchemaProperties(
           graph,
           provider,
@@ -483,7 +545,7 @@ export class CommandHelper {
       }
 
       return res as any;
-    } else if (property.schema.type === 'array') {
+    } else if (property.schema.type === "array") {
       return this.promptForArrayInputs(
         graph,
         provider,
@@ -493,7 +555,7 @@ export class CommandHelper {
         },
         data,
       ) as any;
-    } else if (property.schema.type === 'number') {
+    } else if (property.schema.type === "number") {
       return this.promptForNumberInputs(
         {
           name: property.name,
@@ -522,7 +584,7 @@ export class CommandHelper {
       account?: string;
       prompt_accounts?: Provider[];
       type?: ResourceType;
-      action?: 'list' | 'get' | 'create' | 'update' | 'delete';
+      action?: "list" | "get" | "create" | "update" | "delete";
       message?: string;
     } = {},
   ): Promise<Provider> {
@@ -535,7 +597,8 @@ export class CommandHelper {
           if (
             !options.action ||
             options.action in service ||
-            (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
+            (["create", "update", "delete"].includes(options.action) &&
+              "construct" in service)
           ) {
             filteredAccounts.push(p);
           }
@@ -552,10 +615,10 @@ export class CommandHelper {
     if (options.account) {
       account = filteredAccounts.find((a) => a.name === options.account);
     } else {
-      const newAccountName = 'Add a new account';
+      const newAccountName = "Add a new account";
 
       selected_account = await Select.prompt({
-        message: options.message || 'Select an account',
+        message: options.message || "Select an account",
         options: [
           ...filteredAccounts.map((p) => ({
             name: `${p.name} (${p.type})`,
@@ -588,16 +651,21 @@ export class CommandHelper {
    */
   public async promptForResourceType(
     provider: Provider,
-    action: 'list' | 'get' | 'create' | 'update' | 'delete',
+    action: "list" | "get" | "create" | "update" | "delete",
     input?: string,
     optional?: boolean,
   ): Promise<ResourceType> {
-    const resources = provider.getResourceEntries().filter(([type, service]) => {
-      return (action in service || 'construct' in service) && (!input || type === input);
-    });
+    const resources = provider.getResourceEntries().filter(
+      ([type, service]) => {
+        return (action in service || "construct" in service) &&
+          (!input || type === input);
+      },
+    );
 
     if (resources.length === 0) {
-      console.error(`The cloud provider ${provider.type} cannot ${action} ${input}s`);
+      console.error(
+        `The cloud provider ${provider.type} cannot ${action} ${input}s`,
+      );
       Deno.exit(1);
     }
 
@@ -623,34 +691,49 @@ export class CommandHelper {
     type: T,
     data: Record<string, unknown> = {},
   ): Promise<CloudNode<T>> {
-    const __dirname = new URL('.', import.meta.url).pathname;
-    const schemaPath = path.join(__dirname, '../@resources', type, './inputs.schema.json');
+    const __dirname = new URL(".", import.meta.url).pathname;
+    const schemaPath = path.join(
+      __dirname,
+      "../@resources",
+      type,
+      "./inputs.schema.json",
+    );
     const schemaString = await Deno.readTextFile(schemaPath);
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {
-      schema = schema.definitions[schema.$ref.replace('#/definitions/', '')];
+      schema = schema.definitions[schema.$ref.replace("#/definitions/", "")];
     }
 
     const service = account.resources[type];
     if (!service) {
-      console.error(`The ${account.type} provider does not work with ${type} resources`);
+      console.error(
+        `The ${account.type} provider does not work with ${type} resources`,
+      );
       Deno.exit(1);
     }
 
-    if (!('construct' in service) && !('create' in service)) {
-      console.error(`The ${account.type} provider cannot create ${type} resources`);
+    if (!("construct" in service) && !("create" in service)) {
+      console.error(
+        `The ${account.type} provider cannot create ${type} resources`,
+      );
       Deno.exit(1);
     }
 
-    const writableService = service as unknown as WritableResourceService<T, Provider>;
+    const writableService = service as unknown as WritableResourceService<
+      T,
+      Provider
+    >;
     if (writableService.presets && writableService.presets.length > 0) {
       const result = await Select.prompt({
-        message: 'Please select one of our default configurations or customize the creation of your resource.',
-        options: [...writableService.presets.map((p) => p.display), 'custom'],
+        message:
+          "Please select one of our default configurations or customize the creation of your resource.",
+        options: [...writableService.presets.map((p) => p.display), "custom"],
       });
 
-      let service_preset_values = writableService.presets.find((p) => p.display === result)?.values;
-      if (!service_preset_values || result === 'custom') {
+      let service_preset_values = writableService.presets.find((p) =>
+        p.display === result
+      )?.values;
+      if (!service_preset_values || result === "custom") {
         service_preset_values = {};
       }
 
@@ -662,7 +745,7 @@ export class CommandHelper {
       account,
       type,
       {
-        name: '',
+        name: "",
         schema,
       },
       data,
@@ -681,17 +764,20 @@ export class CommandHelper {
     return node;
   }
 
-  public async promptForCredentials(provider_type: keyof typeof SupportedProviders): Promise<Record<string, string>> {
-    const credential_schema = SupportedProviders[provider_type].CredentialsSchema;
+  public async promptForCredentials(
+    provider_type: keyof typeof SupportedProviders,
+  ): Promise<Record<string, string>> {
+    const credential_schema =
+      SupportedProviders[provider_type].CredentialsSchema;
 
     const credentials: Record<string, string> = {};
     for (const [key, value] of Object.entries(credential_schema.properties)) {
       const cred = await Secret.prompt({
         message: key,
-        default: (value as any).default || '',
+        default: (value as any).default || "",
       });
-      if (!(value as any).default && cred === '') {
-        console.log('Required credential requires input');
+      if (!(value as any).default && cred === "") {
+        console.log("Required credential requires input");
         Deno.exit(1);
       }
       credentials[key] = cred;
@@ -706,20 +792,21 @@ export class CommandHelper {
 
     const res = await prompt([
       {
-        name: 'name',
+        name: "name",
         type: Input,
-        message: 'What would you like to name the new account?',
+        message: "What would you like to name the new account?",
         validate: (input: string) => {
           if (allAccounts.some((a) => a.name === input)) {
-            return 'An account with that name already exists.';
+            return "An account with that name already exists.";
           }
           return true;
         },
       },
       {
         type: Select,
-        name: 'type',
-        message: 'What type of provider are you registering the credentials for?',
+        name: "type",
+        message:
+          "What type of provider are you registering the credentials for?",
         options: providers,
       },
     ]);
@@ -735,7 +822,7 @@ export class CommandHelper {
 
     const validCredentials = await account.testCredentials();
     if (!validCredentials) {
-      throw new Error('Invalid credentials');
+      throw new Error("Invalid credentials");
     }
 
     try {
@@ -753,11 +840,11 @@ export class CommandHelper {
     if (!ex.stderr) {
       throw ex;
     }
-    const errorPrefix = 'Error: ';
+    const errorPrefix = "Error: ";
     const errorPrefixLength = errorPrefix.length;
-    console.log(colors.red('We have encountered an issue...'));
+    console.log(colors.red("We have encountered an issue..."));
     console.log(ex);
-    for (const line of ex.stderr.split('\n') as string[]) {
+    for (const line of ex.stderr.split("\n") as string[]) {
       const index = line.indexOf(errorPrefix);
       if (index !== -1) {
         console.log(line.substring(index + errorPrefixLength));
@@ -772,7 +859,10 @@ export class CommandHelper {
    * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
    * an error is thrown.
    */
-  public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
+  public async promptForVariables(
+    graph: CloudGraph,
+    variables: ParsedVariablesType,
+  ): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
     const sorted_vars = this.sortVariables(variables);
 
@@ -789,11 +879,11 @@ export class CommandHelper {
       // Fill in metadata that relied on this variable
       for (const next_variable of sorted_vars) {
         if (next_variable.dependencies.has(variable.name)) {
-          const dependency = variables[next_variable.name].dependant_variables?.find((dep) =>
-            dep.value === variable.name
-          )!;
+          const dependency = variables[next_variable.name].dependant_variables
+            ?.find((dep) => dep.value === variable.name)!;
 
-          (next_variable.metadata as Record<string, unknown>)[dependency.key] = variable_value;
+          (next_variable.metadata as Record<string, unknown>)[dependency.key] =
+            variable_value;
         }
       }
     }
@@ -806,20 +896,22 @@ export class CommandHelper {
     metadata: ParsedVariablesMetadata,
   ): Promise<string | boolean | number | undefined> {
     const message = `${name}: ${metadata.description}`;
-    if (metadata.type === 'string') {
+    if (metadata.type === "string") {
       return Input.prompt({ message });
-    } else if (metadata.type === 'boolean') {
+    } else if (metadata.type === "boolean") {
       return Confirm.prompt({ message });
-    } else if (metadata.type === 'number') {
+    } else if (metadata.type === "number") {
       return NumberPrompt.prompt({ message });
-    } else if (metadata.type === 'arcctlAccount') {
+    } else if (metadata.type === "arcctlAccount") {
       const provider_name = metadata.provider ||
         (await Select.prompt({
           message: `What provider will this account connect to?`,
           options: Object.keys(SupportedProviders),
         }));
 
-      const existing_accounts = this.providerStore.getProviders().filter((p) => p.type === provider_name);
+      const existing_accounts = this.providerStore.getProviders().filter((p) =>
+        p.type === provider_name
+      );
       const account = await this.promptForAccount({
         prompt_accounts: existing_accounts,
         message: message,
@@ -828,7 +920,9 @@ export class CommandHelper {
     } else {
       // In this case, metadata.type is a non-special-case ResourceInputs key.
       if (!metadata.arcctlAccount) {
-        throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
+        throw new Error(
+          `Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`,
+        );
       }
       const provider = this.providerStore.getProvider(metadata.arcctlAccount);
       if (!provider) {
@@ -849,11 +943,19 @@ export class CommandHelper {
    */
   protected sortVariables(
     variables: ParsedVariablesType,
-  ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
+  ): {
+    name: string;
+    metadata: ParsedVariablesMetadata;
+    dependencies: Set<string>;
+  }[] {
     const variable_graph: Record<string, Set<string>> = {};
-    for (const [variable_name, variable_metadata] of Object.entries(variables)) {
+    for (
+      const [variable_name, variable_metadata] of Object.entries(variables)
+    ) {
       const var_dependencies = new Set(
-        variable_metadata.dependant_variables ? variable_metadata.dependant_variables.map((v) => v.value) : [],
+        variable_metadata.dependant_variables
+          ? variable_metadata.dependant_variables.map((v) => v.value)
+          : [],
       );
       variable_graph[variable_name] = var_dependencies;
     }
@@ -863,7 +965,13 @@ export class CommandHelper {
     const finished = new Set<string>();
     for (const var_name of Object.keys(variable_graph)) {
       if (!finished.has(var_name) && !discovered.has(var_name)) {
-        this.topologicalSort(variable_graph, var_name, discovered, finished, result);
+        this.topologicalSort(
+          variable_graph,
+          var_name,
+          discovered,
+          finished,
+          result,
+        );
       }
     }
     // We must reverse the topological sort to get the correct ordering - the edges in this
@@ -895,7 +1003,9 @@ export class CommandHelper {
 
     for (const edge of graph[node]) {
       if (discovered.has(edge)) {
-        throw Error(`A circular dependency has been found between the variables '${node}' and '${edge}'`);
+        throw Error(
+          `A circular dependency has been found between the variables '${node}' and '${edge}'`,
+        );
       }
       if (!finished.has(edge)) {
         this.topologicalSort(graph, edge, discovered, finished, result);

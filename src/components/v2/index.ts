@@ -37,7 +37,7 @@ export default class ComponentV2 extends Component {
     /**
      * A default value to use if one isn't provided
      */
-    default?: string;
+    default?: string | string[];
 
     /**
      * If true, a value is required or the component won't run.
@@ -218,7 +218,9 @@ export default class ComponentV2 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          data: variable_config.default || '',
+          data: variable_config.default && Array.isArray(variable_config.default)
+            ? JSON.stringify(variable_config.default)
+            : variable_config.default || '',
           ...(variable_config.required ? { required: variable_config.required } : {}),
           ...(variable_config.merge ? { merge: variable_config.merge } : {}),
           ...(variable_config.sensitive ? { sensitive: variable_config.sensitive } : {}),

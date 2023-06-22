@@ -184,15 +184,26 @@ export default class EnvironmentV1 extends Environment {
 
     const env_value = node.component ? this.components?.[node.component]?.variables?.[node.name] : undefined;
     if (node.inputs.merge && env_value) {
-      const values = typeof env_value === 'string' ? [env_value] : env_value;
-      if (additionalValues) {
-        values.push(...additionalValues);
+      const default_value = JSON.parse(node.inputs.data || '[]');
+      if (typeof env_value === 'string') {
+        default_value.push(env_value);
+      } else {
+        default_value.push(...env_value);
       }
-      node.inputs.data = JSON.stringify(values.sort());
+
+      if (additionalValues) {
+        default_value.push(...additionalValues);
+      }
+
+      node.inputs.data = JSON.stringify(default_value.sort());
     } else if (env_value) {
       node.inputs.data = JSON.stringify(typeof env_value === 'string' ? [env_value] : env_value);
     } else if (node.inputs.merge) {
-      node.inputs.data = JSON.stringify(additionalValues ? additionalValues.sort() : []);
+      const default_value = JSON.parse(node.inputs.data || '[]');
+      if (additionalValues) {
+        default_value.push(...additionalValues);
+      }
+      node.inputs.data = JSON.stringify(default_value.sort());
     }
 
     return node;

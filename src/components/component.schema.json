@@ -3235,8 +3235,18 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "description": "A default value to use if one isn't provided",
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                ],
+                "description": "A default value to use if one isn't provided"
               },
               "description": {
                 "description": "A human-readable description",

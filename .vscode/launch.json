@@ -23,6 +23,28 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "Deploy Small",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "-A",
+                "main.ts"
+            ],
+            "args": [
+                "deploy",
+                "-v",
+                "-e",
+                "local",
+                "architect/small:latest"
+            ],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Deploy Auth",
             "type": "node",
             "request": "launch",

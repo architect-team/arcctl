@@ -76,7 +76,7 @@ export class EnvironmentStore {
     } else {
       allEnvironments.push(input);
     }
-    this.saveAll(allEnvironments);
+    await this.saveAll(allEnvironments);
   }
 
   public async remove(name: string): Promise<void> {

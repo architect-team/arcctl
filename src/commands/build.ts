@@ -57,7 +57,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     if (code !== 0) {
       throw new Error(stderr);
     }
-    return stdout;
+    return stdout.replace(/^\s+|\s+$/g, '');
   }, async (options) => {
     return await command_helper.componentStore.addVolume(options.host_path);
   });
@@ -66,10 +66,10 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
   if (options.tag) {
     for (const tag of options.tag) {
-      component.tag(async (sourceRef: string, targetName: string) => {
+      component = await component.tag(async (sourceRef: string, targetName: string) => {
         const imageRepository = new ImageRepository(tag);
         const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-        const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
+        const targetRef = path.join(imageRepository.registry, `${imageRepository.repository}--${targetName}${suffix}`);
 
         await exec('docker', { args: ['tag', sourceRef, targetRef] });
         return targetRef;
@@ -80,9 +80,13 @@ async function build_action(options: BuildOptions, context_file: string): Promis
         return volumeTag;
       });
 
-      command_helper.componentStore.tag(digest, tag);
+      const component_digest = await command_helper.componentStore.add(component);
+      command_helper.componentStore.tag(component_digest, tag);
+      console.log(`Digest: ${component_digest}`);
       console.log(`Tagged: ${tag}`);
     }
+  } else {
+    console.log(`Digest: ${digest}`);
   }
 }
 

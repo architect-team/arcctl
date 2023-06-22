@@ -1,5 +1,4 @@
 import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
@@ -77,7 +76,6 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
   return pipeline
     .apply({
       providerStore: command_helper.providerStore,
-      cwd: path.resolve(path.join('./.terraform', targetDatacenter.name)),
       logger,
     })
     .then(async () => {

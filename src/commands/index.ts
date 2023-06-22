@@ -12,6 +12,7 @@ import PruneAccountsCommand from './prune.ts';
 import PushCommand from './push.ts';
 import RemoveCommands from './remove/index.ts';
 import TagCommand from './tag.ts';
+import UpCommand from './up.ts';
 import UpdateCommands from './update/index.ts';
 
 export default async function arcctl() {
@@ -29,7 +30,8 @@ export default async function arcctl() {
     .command('list', ListCommands.alias('ls'))
     .command('remove', RemoveCommands.alias('rm'))
     .command('update', UpdateCommands)
-    .command('logs', LogsCommand);
+    .command('logs', LogsCommand)
+    .command('up', UpCommand);
 
   // Print help when empty command is executed
   const finalCommand = command.reset().action(() => {

@@ -1,6 +1,5 @@
 import cliSpinners from 'cli-spinners';
 import { Confirm, Select } from 'cliffy/prompt/mod.ts';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
@@ -67,7 +66,6 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     .apply({
       providerStore: command_helper.providerStore,
       logger: logger,
-      cwd: path.resolve('./.terraform'),
     })
     .then(async () => {
       // Remove all the environments backed by this datacenter

@@ -254,6 +254,8 @@ describe('Component Schema: v1', () => {
         registry: '',
         subdomain: 'app',
         path: '/',
+        username: `\${{ ${service_node.id}.username }}`,
+        password: `\${{ ${service_node.id}.password }}`,
         protocol: `\${{ ${service_node.id}.protocol }}`,
         service: `\${{ ${service_node.id}.id }}`,
         port: 80,

@@ -61,7 +61,7 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
           },
           spec: {
             initContainer: this.inputs?.volume_mounts?.map((volume) => {
-              const [repo, tag] = (volume.image || '').split(':');
+              const [repo, tag] = (volume.remote_image || '').split(':');
               const repoParts = repo.split('/');
               repoParts.splice(1, 0, 'v2');
               const fullRepo = repoParts.join('/');

@@ -2714,6 +2714,162 @@
                   "string"
                 ]
               },
+              "debug": {
+                "additionalProperties": false,
+                "properties": {
+                  "autoscaling": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cpu": {
+                        "type": [
+                          "number",
+                          "string"
+                        ]
+                      },
+                      "memory": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "command": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "cpu": {
+                    "type": [
+                      "number",
+                      "string"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "entrypoint": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "environment": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "labels": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "memory": {
+                    "type": "string"
+                  },
+                  "probes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "liveness": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "failure_threshold": {
+                            "type": "number"
+                          },
+                          "headers": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "initial_delay": {
+                            "type": "number"
+                          },
+                          "interval": {
+                            "type": "number"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "port": {
+                            "type": "number"
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "success_threshold": {
+                            "type": "number"
+                          },
+                          "timeout": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "enum": [
+                              "exec",
+                              "http"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "volumes": {
+                    "additionalProperties": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "digest": {
+                          "type": "string"
+                        },
+                        "host_path": {
+                          "type": "string"
+                        },
+                        "mount_path": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
               "description": {
                 "type": "string"
               },
@@ -2901,7 +3057,6 @@
                     }
                   },
                   "required": [
-                    "host_path",
                     "mount_path"
                   ],
                   "type": "object"
@@ -2967,6 +3122,10 @@
                 "description": "Description of the service",
                 "type": "string"
               },
+              "password": {
+                "description": "Basic auth password",
+                "type": "string"
+              },
               "port": {
                 "description": "Port the service listens on",
                 "type": "number"
@@ -2974,6 +3133,10 @@
               "protocol": {
                 "default": "http",
                 "description": "Protocol the service listens on",
+                "type": "string"
+              },
+              "username": {
+                "description": "Basic auth username",
                 "type": "string"
               }
             },

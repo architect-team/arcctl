@@ -39,7 +39,7 @@ describe(
       mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
 
       const component_id = await store.add('/component/architect.yml');
-      assertEquals(component_id.length, 64);
+      assertEquals(component_id.length, 12);
 
       // Make sure what got stored is the same as what we put in
       const original_config = await parseComponent('/component/architect.yml');
@@ -198,7 +198,7 @@ describe(
       assertSpyCalls(mockUpload, 2);
       assertSpyCall(mockUpload, 0, {
         args: [
-          path.join(tmp_store, 'f24572215a3fbb037dcf66fd4c923dbfb8e8672d7f5673cde24d337fffcbbf6f', 'architect.json'),
+          path.join(tmp_store, 'f24572215a3f', 'architect.json'),
         ],
       });
       assertSpyCall(mockUpload, 1, {

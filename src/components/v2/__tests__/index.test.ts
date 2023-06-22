@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
-import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { CloudNode } from '../../../cloud-graph/index.ts';
+import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -170,4 +170,110 @@ describe('Component Schema: v2', () => {
         deployment_name: 'main',
       },
     ));
+
+  it('should create debug volumes', () => {
+    const component = new ComponentV2(yaml.load(`
+      deployments:
+        main:
+          image: nginx:latest
+          debug:
+            volumes:
+              src:
+                host_path: ./src
+                mount_path: /app/src
+    `) as ComponentSchema);
+    const graph = component.getGraph({
+      component: {
+        name: 'component',
+        source: '/fake/source',
+        debug: true,
+      },
+      environment: 'environment',
+    });
+
+    const volume_node = new CloudNode({
+      name: 'main-src',
+      component: 'component',
+      environment: 'environment',
+      inputs: {
+        type: 'volume',
+        name: CloudNode.genResourceId({
+          name: 'main-src',
+          component: 'component',
+          environment: 'environment',
+        }),
+        hostPath: '/fake/source/src',
+      },
+    });
+
+    const deployment_node = new CloudNode({
+      name: 'main',
+      component: 'component',
+      environment: 'environment',
+      inputs: {
+        type: 'deployment',
+        name: CloudNode.genResourceId({
+          name: 'main',
+          component: 'component',
+          environment: 'environment',
+        }),
+        replicas: 1,
+        image: 'nginx:latest',
+        volume_mounts: [{
+          mount_path: '/app/src',
+          volume: `\${{ ${volume_node.id}.id }}`,
+          readonly: false,
+        }],
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [volume_node, deployment_node]);
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: deployment_node.id,
+        to: volume_node.id,
+        required: true,
+      }),
+    ]);
+  });
+
+  it('should ignore debug volumes when not debugging', () => {
+    const component = new ComponentV2(yaml.load(`
+      deployments:
+        main:
+          image: nginx:latest
+          debug:
+            volumes:
+              src:
+                host_path: ./src
+                mount_path: /app/src
+    `) as ComponentSchema);
+    const graph = component.getGraph({
+      component: {
+        name: 'component',
+        source: 'fake/source',
+      },
+      environment: 'environment',
+    });
+
+    const deployment_node = new CloudNode({
+      name: 'main',
+      component: 'component',
+      environment: 'environment',
+      inputs: {
+        type: 'deployment',
+        name: CloudNode.genResourceId({
+          name: 'main',
+          component: 'component',
+          environment: 'environment',
+        }),
+        replicas: 1,
+        image: 'nginx:latest',
+        volume_mounts: [],
+      },
+    });
+
+    assertEquals(graph.nodes, [deployment_node]);
+    assertEquals(graph.edges, []);
+  });
 });

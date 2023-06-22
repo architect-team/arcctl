@@ -1,3 +1,4 @@
+import { deepMerge } from 'std/collections/deep_merge.ts';
 import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
 import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
@@ -22,7 +23,7 @@ type Hook<T extends ResourceType = ResourceType> = {
       source: string;
     } & Record<string, unknown>;
   };
-} & DeepPartial<ResourceInputs[T]>;
+} & Record<string, any>;
 
 export default class DatacenterV1 extends Datacenter {
   /**
@@ -617,11 +618,16 @@ export default class DatacenterV1 extends Datacenter {
                   node.id,
                   this.replaceEnvironmentNameRefs(
                     environmentName,
-                    replaceHookExpressions(hookResources, hookAccounts, node.name, node.id, {
-                      ...node.inputs,
-                      ...hookData,
-                      account: node.inputs.account || hookData.account,
-                    } as any),
+                    replaceHookExpressions(
+                      hookResources,
+                      hookAccounts,
+                      node.name,
+                      node.id,
+                      deepMerge(node.inputs as any, {
+                        ...hookData,
+                        account: node.inputs.account || hookData.account,
+                      }) as any,
+                    ),
                   ),
                 ),
               ),

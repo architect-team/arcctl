@@ -17,7 +17,12 @@
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
     "listr": "npm:listr@0.14.3",
     "rxjs": "npm:rxjs@7.5.6",
-    "winston": "npm:winston@^3.8.2"
+    "winston": "npm:winston@3.8.2",
+    "dots-wrapper": "npm:dots-wrapper@3.10.0",
+    "dots-wrapper/dist/database/index.ts": "npm:dots-wrapper@3.10.0",
+    "dots-wrapper/dist/vpc/index.ts": "npm:dots-wrapper@3.10.0",
+    "tar": "npm:tar@6.1.11",
+    "@architect-io/arc-oci": "npm:@architect-io/arc-oci@0.1.0"
   },
   "scopes": {
     "https://esm.sh/v124/": {

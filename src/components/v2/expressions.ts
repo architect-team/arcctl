@@ -1,5 +1,6 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { GraphContext } from '../component.ts';
+import { DependencySchemaV2 } from './dependency.ts';
 
 const parseSecretRefs = <T extends CloudNode>(
   graph: CloudGraph,
@@ -8,7 +9,7 @@ const parseSecretRefs = <T extends CloudNode>(
 ): T => {
   node.inputs = JSON.parse(
     JSON.stringify(node.inputs).replace(
-      /\${{\s?secrets\.([\w-]+)\s?}}/g,
+      /\${{\s?(?:parameters|secrets|variables|vars)\.([\w-]+)\s?}}/g,
       (_, input_name) => {
         const input_node_id = CloudNode.genId({
           type: 'secret',
@@ -176,7 +177,7 @@ const parseIngressRefs = <T extends CloudNode>(
 
 const parseDependencyOutputRefs = <T extends CloudNode>(
   graph: CloudGraph,
-  dependencies: Record<string, string>,
+  dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   node: T,
 ): T => {
@@ -184,15 +185,15 @@ const parseDependencyOutputRefs = <T extends CloudNode>(
     JSON.stringify(node.inputs).replace(
       /\${{\s?dependencies\.([\w/-]+)\.outputs\.([\w-]+)\s?}}/g,
       (_, dependency_name, output_name) => {
-        const dep_component = dependencies[dependency_name];
-        if (!dep_component) {
+        const dep = dependencies[dependency_name];
+        if (!dep) {
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
         const dependency_node_id = CloudNode.genId({
           type: 'secret',
           name: output_name,
-          component: dep_component,
+          component: dep.component,
         });
         graph.insertEdges(
           new CloudEdge({
@@ -210,7 +211,7 @@ const parseDependencyOutputRefs = <T extends CloudNode>(
 
 const parseDependencyServiceRefs = <T extends CloudNode>(
   graph: CloudGraph,
-  dependencies: Record<string, string>,
+  dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   node: T,
 ): T => {
@@ -218,15 +219,15 @@ const parseDependencyServiceRefs = <T extends CloudNode>(
     JSON.stringify(node.inputs).replace(
       /\${{\s?dependencies\.([\w/-]+)\.services\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, dependency_name, service_name, key) => {
-        const dep_component = dependencies[dependency_name];
-        if (!dep_component) {
+        const dep = dependencies[dependency_name];
+        if (!dep) {
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
         const dependency_node_id = CloudNode.genId({
           type: 'service',
           name: service_name,
-          component: dep_component,
+          component: dep.component,
           environment: context.environment,
         });
         graph.insertEdges(
@@ -246,7 +247,7 @@ const parseDependencyServiceRefs = <T extends CloudNode>(
 
 const parseDependencyIngressRefs = <T extends CloudNode>(
   graph: CloudGraph,
-  dependencies: Record<string, string>,
+  dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   node: T,
 ): T => {
@@ -254,15 +255,15 @@ const parseDependencyIngressRefs = <T extends CloudNode>(
     JSON.stringify(node.inputs).replace(
       /\${{\s?dependencies\.([\w/-]+)\.ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, dependency_name, ingress_name, key) => {
-        const dep_component = dependencies[dependency_name];
-        if (!dep_component) {
+        const dep = dependencies[dependency_name];
+        if (!dep) {
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
         const dependency_node_id = CloudNode.genId({
           type: 'ingressRule',
           name: ingress_name,
-          component: dep_component,
+          component: dep.component,
           environment: context.environment,
         });
         graph.insertEdges(
@@ -281,7 +282,7 @@ const parseDependencyIngressRefs = <T extends CloudNode>(
 
 export const parseExpressionRefs = <T extends CloudNode>(
   graph: CloudGraph,
-  dependencies: Record<string, string>,
+  dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   node: T,
 ): T => {

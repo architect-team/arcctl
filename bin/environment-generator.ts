@@ -30,6 +30,7 @@ Deno.writeTextFile(
 await build({
   typeCheck: false,
   test: false,
+  scriptModule: false,
   entryPoints: [path.join(environments_dir, 'schema.ts')],
   outDir: build_dir,
   compilerOptions: {
@@ -47,7 +48,7 @@ await build({
 });
 
 console.log('Finishing building temp package, generating JSON schema...');
-const { stdout: type_schema_string } = await exec('deno', {
+const { stdout: type_schema_string, stderr: err } = await exec('deno', {
   args: [
     'run',
     '--allow-read',
@@ -63,6 +64,12 @@ const { stdout: type_schema_string } = await exec('deno', {
     '--no-type-check',
   ],
 });
+
+if (err.length > 0) {
+  console.error('Failed to generate datacenter schema!')
+  console.error(err);
+  Deno.exit(1);
+}
 
 let type_schema = JSON.parse(type_schema_string);
 if (type_schema.definitions.EnvironmentSchema.anyOf) {

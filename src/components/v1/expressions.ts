@@ -8,7 +8,7 @@ const parseSecretRefs = <T extends CloudNode>(
 ): T => {
   node.inputs = JSON.parse(
     JSON.stringify(node.inputs).replace(
-      /\${{\s?(?:parameters|secrets|inputs)\.([\w-]+)\s?}}/g,
+      /\${{\s?(?:parameters|secrets|variables|vars)\.([\w-]+)\s?}}/g,
       (_, input_name) => {
         const input_node_id = CloudNode.genId({
           type: 'secret',
@@ -23,7 +23,7 @@ const parseSecretRefs = <T extends CloudNode>(
             required: true,
           }),
         );
-        return `\${{ ${input_node_id}.value }}`;
+        return `\${{ ${input_node_id}.data }}`;
       },
     ),
   );

@@ -104,10 +104,10 @@ describe('Component Schema: v2', () => {
     assertArrayIncludes(graph.nodes, [build_node]);
   });
 
-  it('should generate secrets', () =>
+  it('should generate variables', () =>
     testSecretGeneration(
       `
-        secrets:
+        variables:
           DB_HOST:
             description: The host for the database
       `,
@@ -118,17 +118,17 @@ describe('Component Schema: v2', () => {
       },
     ));
 
-  it('should connect deployments to secrets', () =>
+  it('should connect deployments to variables', () =>
     testSecretIntegration(
       `
-      secrets:
+      variables:
         DB_HOST:
           description: The host for the database
       deployments:
         main:
           image: nginx:1.14.2
           environment:
-            DB_DSN: \${{ secrets.DB_HOST }}
+            DB_DSN: \${{ variables.DB_HOST }}
       `,
       ComponentV2,
       {

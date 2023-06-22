@@ -30,7 +30,6 @@ export const testSecretGeneration = (
         environment: 'test',
       }),
       data: '',
-      required: false,
     },
   });
 
@@ -63,7 +62,6 @@ export const testSecretIntegration = (
         environment: 'environment',
       }),
       data: '',
-      required: false,
     },
   });
 

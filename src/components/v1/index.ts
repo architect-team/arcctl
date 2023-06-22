@@ -1,8 +1,17 @@
 import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import {
+  Component,
+  ComponentDependencies,
+  DockerBuildFn,
+  DockerPushFn,
+  DockerTagFn,
+  GraphContext,
+  VolumeBuildFn,
+} from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DatabaseSchemaV1 } from './database-schema-v1.ts';
+import { DependencySchemaV1 } from './dependency-schema-v1.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { InterfaceSchemaV1 } from './interface-schema-v1.ts';
 import { ParameterSchemaV1 } from './parameter-schema-v1.ts';
@@ -31,6 +40,8 @@ export default class ComponentV1 extends Component {
    *
    * Parameters can either be an object describing the parameter or a string shorthand that directly
    * applies to the `default` value.
+   *
+   * This is an alias for the `inputs` field.
    */
   parameters?: Record<string, ParameterSchemaV1>;
 
@@ -40,9 +51,19 @@ export default class ComponentV1 extends Component {
    * Parameters can either be an object describing the parameter or a string shorthand that directly
    * applies to the `default` value.
    *
-   * This is an alias for the `parameters` field.
+   * This is an alias for the `inputs` field.
    */
   secrets?: Record<string, ParameterSchemaV1>;
+
+  /**
+   * A dictionary of named parameters that this component uses to configure services.
+   *
+   * Parameters can either be an object describing the parameter or a string shorthand that directly
+   * applies to the `default` value.
+   *
+   * This is an alias for the `parameters` field.
+   */
+  variables?: Record<string, ParameterSchemaV1>;
 
   /**
    * A dictionary of named interfaces that the component makes available to upstreams, including
@@ -56,7 +77,10 @@ export default class ComponentV1 extends Component {
   /**
    * A set of components and associated versions that this component depends on.
    */
-  dependencies?: Record<string, string>;
+  dependencies?: Record<
+    string,
+    string | DependencySchemaV1
+  >;
 
   /**
    * A set of named services that need to be run and persisted in order to power this component.
@@ -574,8 +598,88 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
+  private addVariablesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
+    for (const [param_key, param_value] of Object.entries(this.parameters || {})) {
+      const secret_node = new CloudNode({
+        name: param_key,
+        component: context.component.name,
+        environment: context.environment,
+        inputs: {
+          type: 'secret',
+          name: CloudNode.genResourceId({
+            name: param_key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
+          data: typeof param_value === 'string' ? param_value : param_value.default?.toString() || '',
+          ...(typeof param_value === 'object'
+            ? {
+              ...(param_value.required ? { required: param_value.required } : {}),
+              ...(param_value.merge ? { merge: param_value.merge } : {}),
+            }
+            : {}),
+        },
+      });
+
+      graph.insertNodes(secret_node);
+    }
+
+    for (const [secret_key, secret_value] of Object.entries(this.secrets || {})) {
+      const secret_node = new CloudNode({
+        name: secret_key,
+        component: context.component.name,
+        environment: context.environment,
+        inputs: {
+          type: 'secret',
+          name: CloudNode.genResourceId({
+            name: secret_key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
+          data: typeof secret_value === 'string' ? secret_value : secret_value.default?.toString() || '',
+          ...(typeof secret_value === 'object'
+            ? {
+              ...(secret_value.required ? { required: secret_value.required } : {}),
+              ...(secret_value.merge ? { merge: secret_value.merge } : {}),
+            }
+            : {}),
+        },
+      });
+
+      graph.insertNodes(secret_node);
+    }
+
+    for (const [variable_key, variable_config] of Object.entries(this.variables || {})) {
+      const secret_node = new CloudNode({
+        name: variable_key,
+        component: context.component.name,
+        environment: context.environment,
+        inputs: {
+          type: 'secret',
+          name: CloudNode.genResourceId({
+            name: variable_key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
+          data: typeof variable_config === 'string' ? variable_config : variable_config.default?.toString() || '',
+          ...(typeof variable_config === 'object'
+            ? {
+              ...(variable_config.required ? { required: variable_config.required } : {}),
+              ...(variable_config.merge ? { merge: variable_config.merge } : {}),
+            }
+            : {}),
+        },
+      });
+
+      graph.insertNodes(secret_node);
+    }
+
+    return graph;
+  }
+
   public getGraph(context: GraphContext): CloudGraph {
     let graph = new CloudGraph();
+    graph = this.addVariablesToGraph(graph, context);
     graph = this.addServicesToGraph(graph, context);
     graph = this.addTasksToGraph(graph, context);
     graph = this.addInterfacesToGraph(graph, context);
@@ -583,8 +687,20 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
-  public getDependencies(): string[] {
-    return Object.keys(this.dependencies || {});
+  public getDependencies(): ComponentDependencies {
+    const res: ComponentDependencies = [];
+
+    for (const [key, value] of Object.entries(this.dependencies || {})) {
+      if (typeof value === 'string') {
+        res.push({
+          component: key,
+        });
+      } else {
+        res.push(value);
+      }
+    }
+
+    return res;
   }
 
   public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {

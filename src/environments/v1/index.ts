@@ -3,6 +3,7 @@ import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import type { ComponentStore } from '../../component-store/index.ts';
 import { Component, parseComponent } from '../../components/index.ts';
 import { ComponentMetadata, Environment } from '../environment.ts';
+import { VariableMergingDisabledError } from '../errors.ts';
 
 export default class EnvironmentV1 extends Environment {
   /**
@@ -21,10 +22,10 @@ export default class EnvironmentV1 extends Environment {
       source?: string;
 
       /**
-       * Values for secrets that should be passed to the component
+       * Values for variables the component expects
        */
-      secrets?: {
-        [key: string]: string;
+      variables?: {
+        [key: string]: string | string[];
       };
 
       /**
@@ -176,18 +177,23 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichSecret(node: CloudNode<'secret'>): CloudNode<'secret'> {
-    if (!node.component || !this.components) {
-      return node;
+  private enrichSecret(node: CloudNode<'secret'>, additionalValues?: string[]): CloudNode<'secret'> {
+    if (!node.inputs.merge && additionalValues && additionalValues.length > 0) {
+      throw new VariableMergingDisabledError(node.name, additionalValues, node.component);
     }
 
-    const component_config = this.components[node.component];
-    if (!component_config) {
-      return node;
+    const env_value = node.component ? this.components?.[node.component]?.variables?.[node.name] : undefined;
+    if (node.inputs.merge && env_value) {
+      const values = typeof env_value === 'string' ? [env_value] : env_value;
+      if (additionalValues) {
+        values.push(...additionalValues);
+      }
+      node.inputs.data = JSON.stringify(values);
+    } else if (env_value) {
+      node.inputs.data = JSON.stringify(typeof env_value === 'string' ? [env_value] : env_value);
+    } else if (node.inputs.merge) {
+      node.inputs.data = JSON.stringify(additionalValues || []);
     }
-    const secret_config = component_config.secrets?.[node.name];
-
-    node.inputs.data = secret_config || node.inputs.data;
 
     return node;
   }
@@ -213,8 +219,8 @@ export default class EnvironmentV1 extends Environment {
     this.enrichLocal();
 
     // Populate explicit components
-    const found_components: Record<string, Component> = {};
-    const implicit_dependencies: string[] = [];
+    const found_components: Record<string, { component: Component; inputs: Record<string, string[]> }> = {};
+    const implicit_dependencies: Record<string, Record<string, string[]>> = {};
     await Promise.all(
       Object.entries(this.components || {})
         .filter(([_, component_config]) => component_config.source)
@@ -223,10 +229,13 @@ export default class EnvironmentV1 extends Environment {
             const source = component_config.source.replace(/^file:/, '');
             try {
               const component = await parseComponent(source);
-              found_components[component_key] = component;
+              found_components[component_key] = { component, inputs: {} };
               for (const dependency of component.getDependencies()) {
-                if (!implicit_dependencies.includes(dependency) && !found_components[dependency]) {
-                  implicit_dependencies.push(dependency);
+                for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
+                  implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
+                  implicit_dependencies[dependency.component][inputKey] =
+                    implicit_dependencies[dependency.component][inputKey] || [];
+                  implicit_dependencies[dependency.component][inputKey].push(...inputValues);
                 }
               }
             } catch (err) {
@@ -236,10 +245,13 @@ export default class EnvironmentV1 extends Environment {
           } else if (component_config.source) {
             try {
               const component = await componentStore.getComponentConfig(component_config.source);
-              found_components[component_key] = component;
+              found_components[component_key] = { component, inputs: {} };
               for (const dependency of component.getDependencies()) {
-                if (!implicit_dependencies.includes(dependency) && !found_components[dependency]) {
-                  implicit_dependencies.push(dependency);
+                implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
+                for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
+                  implicit_dependencies[dependency.component][inputKey] =
+                    implicit_dependencies[dependency.component][inputKey] || [];
+                  implicit_dependencies[dependency.component][inputKey].push(...inputValues);
                 }
               }
             } catch (err) {
@@ -250,19 +262,29 @@ export default class EnvironmentV1 extends Environment {
     );
 
     // Populate implicit dependencies
-    while (implicit_dependencies.length > 0) {
-      const dependency_name = implicit_dependencies.shift()!;
-      const component = await componentStore.getComponentConfig(`${dependency_name}:latest`);
-      found_components[dependency_name] = component;
+    while (Object.keys(implicit_dependencies).length > 0) {
+      const [name, inputs] = Object.entries(implicit_dependencies).shift()!;
+      delete implicit_dependencies[name];
+
+      const component = await componentStore.getComponentConfig(`${name}:latest`);
+      found_components[name] = found_components[name] || { component, inputs: {} };
+      for (const [inputKey, inputValues] of Object.entries(inputs)) {
+        found_components[name].inputs[inputKey] = found_components[name].inputs[inputKey] || [];
+        found_components[name].inputs[inputKey].push(...inputValues);
+      }
+
       for (const dependency of component.getDependencies()) {
-        if (!implicit_dependencies.includes(dependency) && !found_components[dependency]) {
-          implicit_dependencies.push(dependency);
+        implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
+        for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
+          implicit_dependencies[dependency.component][inputKey] =
+            implicit_dependencies[dependency.component][inputKey] || [];
+          implicit_dependencies[dependency.component][inputKey].push(...inputValues);
         }
       }
     }
 
     // Insert graph resources from found components
-    Object.entries(found_components).map(([key, component]) => {
+    Object.entries(found_components).map(([key, config]) => {
       const component_config = this.components?.[key];
       let source = component_config?.source || key;
       if (source.startsWith('file:')) {
@@ -271,7 +293,7 @@ export default class EnvironmentV1 extends Environment {
           source = path.dirname(source);
         }
       }
-      const component_graph = component.getGraph({
+      const component_graph = config.component.getGraph({
         component: {
           name: key,
           source,
@@ -305,7 +327,7 @@ export default class EnvironmentV1 extends Environment {
                 return this.enrichIngressRule(node as CloudNode<'ingressRule'>);
               }
               case 'secret': {
-                return this.enrichSecret(node as CloudNode<'secret'>);
+                return this.enrichSecret(node as CloudNode<'secret'>, config.inputs[node.name]);
               }
               default: {
                 return node;

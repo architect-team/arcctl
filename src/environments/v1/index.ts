@@ -188,11 +188,11 @@ export default class EnvironmentV1 extends Environment {
       if (additionalValues) {
         values.push(...additionalValues);
       }
-      node.inputs.data = JSON.stringify(values);
+      node.inputs.data = JSON.stringify(values.sort());
     } else if (env_value) {
       node.inputs.data = JSON.stringify(typeof env_value === 'string' ? [env_value] : env_value);
     } else if (node.inputs.merge) {
-      node.inputs.data = JSON.stringify(additionalValues || []);
+      node.inputs.data = JSON.stringify(additionalValues ? additionalValues.sort() : []);
     }
 
     return node;

@@ -565,7 +565,7 @@ describe('Environment schema: v1', () => {
           component: 'account/dependency',
           environment: 'account/environment',
         }),
-        data: JSON.stringify(['value-environment', 'value-component']),
+        data: JSON.stringify(['value-component', 'value-environment']),
         merge: true,
       },
     });

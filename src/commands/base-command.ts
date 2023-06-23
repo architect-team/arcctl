@@ -6,6 +6,7 @@ import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from '
 import logUpdate from 'log-update';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
+import winston from 'winston';
 import { WritableResourceService } from '../@providers/base.service.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
@@ -1017,5 +1018,61 @@ export class CommandHelper {
     discovered.delete(node);
     finished.add(node);
     result.unshift(node);
+  }
+
+  public async applyDatacenter(
+    name: string,
+    datacenter: Datacenter,
+    pipeline: Pipeline,
+    logger: winston.Logger | undefined,
+  ): Promise<void> {
+    return pipeline
+      .apply({
+        providerStore: this.providerStore,
+        logger: logger,
+      })
+      .then(async () => {
+        await this.saveDatacenter(name, datacenter, pipeline);
+      })
+      .catch(async (err) => {
+        await this.saveDatacenter(name, datacenter, pipeline);
+        console.error(err);
+        Deno.exit(1);
+      });
+  }
+
+  public async applyEnvironment(
+    name: string,
+    datacenterRecord: DatacenterRecord,
+    environmentRecord: EnvironmentRecord,
+    environment: Environment,
+    pipeline: Pipeline,
+    logger: winston.Logger | undefined,
+  ): Promise<void> {
+    return pipeline
+      .apply({
+        providerStore: this.providerStore,
+        logger,
+      })
+      .then(async () => {
+        await this.saveEnvironment(
+          environmentRecord!.datacenter,
+          name,
+          datacenterRecord.config,
+          environment!,
+          pipeline,
+        );
+      })
+      .catch(async (err) => {
+        await this.saveEnvironment(
+          environmentRecord!.datacenter,
+          name,
+          datacenterRecord.config,
+          environment!,
+          pipeline,
+        );
+        console.error(err);
+        Deno.exit(1);
+      });
   }
 }

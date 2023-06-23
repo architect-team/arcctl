@@ -153,13 +153,20 @@ export const testDatabaseIntegration = (
     environment: 'environment',
   });
 
+  const deployment_node_id = CloudNode.genId({
+    type: 'deployment',
+    name: options.deployment_name,
+    component: 'component',
+    environment: 'environment',
+  });
+
   const database_user_node = new CloudNode({
-    name: `deployment-${options.deployment_name}/${options.database_name}`,
+    name: `${deployment_node_id}/${options.database_name}`,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'databaseUser',
-      username: options.deployment_name,
+      username: deployment_node_id.replaceAll('/', '--'),
       databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
       account: `\${{ ${database_schema_node_id}.account }}`,
     },

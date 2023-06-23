@@ -241,9 +241,18 @@ export default class EnvironmentV1 extends Environment {
             try {
               const component = await parseComponent(source);
               found_components[component_key] = { component, inputs: {} };
-              for (const dependency of component.getDependencies()) {
+              for (
+                const dependency of component.getDependencies(graph, {
+                  environment: environment_name,
+                  component: {
+                    name: component_key,
+                    source,
+                    debug: debug,
+                  },
+                })
+              ) {
+                implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
                 for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
-                  implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
                   implicit_dependencies[dependency.component][inputKey] =
                     implicit_dependencies[dependency.component][inputKey] || [];
                   implicit_dependencies[dependency.component][inputKey].push(...inputValues);
@@ -257,7 +266,16 @@ export default class EnvironmentV1 extends Environment {
             try {
               const component = await componentStore.getComponentConfig(component_config.source);
               found_components[component_key] = { component, inputs: {} };
-              for (const dependency of component.getDependencies()) {
+              for (
+                const dependency of component.getDependencies(graph, {
+                  environment: environment_name,
+                  component: {
+                    name: component_key,
+                    source: component_config.source,
+                    debug: debug,
+                  },
+                })
+              ) {
                 implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
                 for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
                   implicit_dependencies[dependency.component][inputKey] =
@@ -284,7 +302,25 @@ export default class EnvironmentV1 extends Environment {
         found_components[name].inputs[inputKey].push(...inputValues);
       }
 
-      for (const dependency of component.getDependencies()) {
+      const component_config = this.components?.[name];
+      let source = component_config?.source || name;
+      if (source.startsWith('file:')) {
+        source = source.replace(/^file:/, '');
+        if (source.endsWith('architect.yml')) {
+          source = path.dirname(source);
+        }
+      }
+
+      for (
+        const dependency of component.getDependencies(graph, {
+          environment: environment_name,
+          component: {
+            name: name,
+            source,
+            debug: debug,
+          },
+        })
+      ) {
         implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
         for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
           implicit_dependencies[dependency.component][inputKey] =

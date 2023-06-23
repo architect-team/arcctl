@@ -209,7 +209,14 @@ export default class ComponentV2 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, build_node));
+        build_node.inputs = parseExpressionRefs(
+          graph,
+          this.normalizedDependencies,
+          context,
+          build_node.id,
+          build_node.inputs,
+        );
+        graph.insertNodes(build_node);
       }
     }
 
@@ -404,7 +411,14 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, deployment_node));
+      deployment_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        deployment_node.id,
+        deployment_node.inputs,
+      );
+      graph.insertNodes(deployment_node);
 
       for (const volume of volume_node_ids) {
         graph.insertEdges(
@@ -452,7 +466,14 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, service_node));
+      service_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        service_node.id,
+        service_node.inputs,
+      );
+      graph.insertNodes(service_node);
       graph.insertEdges(
         new CloudEdge({
           from: service_node.id,
@@ -508,7 +529,15 @@ export default class ComponentV2 extends Component {
           internal: ingress_config.internal || false,
         },
       });
-      graph.insertNodes(parseExpressionRefs(graph, this.normalizedDependencies, context, ingress_node));
+
+      ingress_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        ingress_node.id,
+        ingress_node.inputs,
+      );
+      graph.insertNodes(ingress_node);
       graph.insertEdges(
         new CloudEdge({
           from: ingress_node.id,
@@ -526,15 +555,24 @@ export default class ComponentV2 extends Component {
     Object.assign(this, data);
   }
 
-  public getDependencies(): ComponentDependencies {
+  public getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies {
     return Object.values(this.normalizedDependencies).map((dependency) => {
       const inputs: ComponentDependencies[number]['inputs'] = {};
       for (const [key, value] of Object.entries(dependency.variables || {})) {
+        const from_id = CloudNode.genId({
+          type: 'secret',
+          name: key,
+          component: dependency.component,
+          environment: context.environment,
+        });
+
         if (Array.isArray(value)) {
           inputs[key] = value;
         } else {
           inputs[key] = [value];
         }
+
+        inputs[key] = parseExpressionRefs(graph, this.normalizedDependencies, context, from_id, inputs[key]);
       }
 
       return {

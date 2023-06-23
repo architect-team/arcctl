@@ -48,7 +48,7 @@ export type ComponentDependencies = Array<{
 }>;
 
 export abstract class Component {
-  public abstract getDependencies(): ComponentDependencies;
+  public abstract getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies;
 
   public abstract getGraph(context: GraphContext): CloudGraph;
 

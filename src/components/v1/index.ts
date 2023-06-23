@@ -168,7 +168,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, build_node));
+        build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
+        graph.insertNodes(build_node);
         graph.insertEdges(
           new CloudEdge({
             from: deployment_node_id,
@@ -226,8 +227,9 @@ export default class ComponentV1 extends Component {
                 },
               });
 
+              volume_node.inputs = parseExpressionRefs(graph, context, volume_node.id, volume_node.inputs);
               graph.insertNodes(
-                parseExpressionRefs(graph, context, volume_node),
+                volume_node,
               );
               graph.insertEdges(
                 new CloudEdge({
@@ -252,7 +254,8 @@ export default class ComponentV1 extends Component {
       });
 
       // Insert the deployment node
-      graph.insertNodes(parseExpressionRefs(graph, context, deployment_node));
+      deployment_node.inputs = parseExpressionRefs(graph, context, deployment_node.id, deployment_node.inputs);
+      graph.insertNodes(deployment_node);
 
       // Create and insert the service nodes for each interface
       for (
@@ -281,7 +284,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, service_node));
+        service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
+        graph.insertNodes(service_node);
         graph.insertEdges(
           new CloudEdge({
             from: service_node.id,
@@ -291,7 +295,8 @@ export default class ComponentV1 extends Component {
         );
 
         if (typeof interface_config === 'object' && interface_config.ingress) {
-          graph.insertNodes(parseExpressionRefs(graph, context, service_node));
+          service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
+          graph.insertNodes(service_node);
 
           const ingress_node = new CloudNode({
             name: `${service_name}-${interface_name}`,
@@ -316,7 +321,8 @@ export default class ComponentV1 extends Component {
             },
           });
 
-          graph.insertNodes(parseExpressionRefs(graph, context, ingress_node));
+          ingress_node.inputs = parseExpressionRefs(graph, context, ingress_node.id, ingress_node.inputs);
+          graph.insertNodes(ingress_node);
           graph.insertEdges(
             new CloudEdge({
               from: ingress_node.id,
@@ -379,7 +385,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, build_node));
+        build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
+        graph.insertNodes(build_node);
         graph.insertEdges(
           new CloudEdge({
             from: cronjob_node_id,
@@ -424,9 +431,8 @@ export default class ComponentV1 extends Component {
                 },
               });
 
-              graph.insertNodes(
-                parseExpressionRefs(graph, context, volume_node),
-              );
+              volume_node.inputs = parseExpressionRefs(graph, context, volume_node.id, volume_node.inputs);
+              graph.insertNodes(volume_node);
               graph.insertEdges(
                 new CloudEdge({
                   from: cronjob_node.id,
@@ -450,7 +456,8 @@ export default class ComponentV1 extends Component {
       });
 
       // Insert the deployment node
-      graph.insertNodes(parseExpressionRefs(graph, context, cronjob_node));
+      cronjob_node.inputs = parseExpressionRefs(graph, context, cronjob_node.id, cronjob_node.inputs);
+      graph.insertNodes(cronjob_node);
     }
 
     return graph;
@@ -513,7 +520,8 @@ export default class ComponentV1 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, context, interface_node));
+      interface_node.inputs = parseExpressionRefs(graph, context, interface_node.id, interface_node.inputs);
+      graph.insertNodes(interface_node);
       graph.insertEdges(
         new CloudEdge({
           from: interface_node.id,
@@ -523,7 +531,8 @@ export default class ComponentV1 extends Component {
       );
 
       if (typeof interface_config === 'object' && interface_config.ingress) {
-        graph.insertNodes(parseExpressionRefs(graph, context, interface_node));
+        interface_node.inputs = parseExpressionRefs(graph, context, interface_node.id, interface_node.inputs);
+        graph.insertNodes(interface_node);
 
         const ingress_node = new CloudNode({
           name: interface_key,
@@ -546,7 +555,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, ingress_node));
+        ingress_node.inputs = parseExpressionRefs(graph, context, ingress_node.id, ingress_node.inputs);
+        graph.insertNodes(ingress_node);
         graph.insertEdges(
           new CloudEdge({
             from: ingress_node.id,
@@ -687,7 +697,7 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
-  public getDependencies(): ComponentDependencies {
+  public getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies {
     const res: ComponentDependencies = [];
 
     for (const [key, value] of Object.entries(this.dependencies || {})) {
@@ -696,7 +706,22 @@ export default class ComponentV1 extends Component {
           component: key,
         });
       } else {
-        res.push(value);
+        const inputs: ComponentDependencies[number]['inputs'] = {};
+        for (const [inputKey, inputValue] of Object.entries(value.inputs || {})) {
+          const from_id = CloudNode.genId({
+            type: 'secret',
+            name: key,
+            component: value.component,
+            environment: context.environment,
+          });
+
+          inputs[inputKey] = parseExpressionRefs(graph, context, from_id, inputValue);
+        }
+
+        res.push({
+          component: value.component,
+          inputs,
+        });
       }
     }
 

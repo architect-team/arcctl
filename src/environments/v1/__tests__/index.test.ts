@@ -686,6 +686,83 @@ describe('Environment schema: v1', () => {
     );
   });
 
+  it('should pass dynamic values to dependency variables', async () => {
+    const environment = await parseEnvironment(
+      yaml.load(`
+      components:
+        account/component:
+          source: account/component:latest
+    `) as Record<string, unknown>,
+    );
+
+    const component = `
+      version: v2
+
+      deployments:
+        main:
+          image: nginx:latest
+
+      services:
+        main:
+          deployment: main
+          port: 80
+
+      dependencies:
+        dep:
+          component: account/dependency
+          variables:
+            key:
+              - \${{ services.main.url }}
+    `;
+
+    const dependency = `
+      version: v2
+      variables:
+        key:
+          merge: true
+    `;
+
+    mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component));
+    mockFile.prepareVirtualFile('/dependency/architect.yml', new TextEncoder().encode(dependency));
+
+    const tmp_dir = Deno.makeTempDirSync({ prefix: 'arc-store-' });
+    const store = new ComponentStore(tmp_dir, 'registry.architect.io');
+    const component_id = await store.add('/component/architect.yml');
+    store.tag(component_id, 'account/component:latest');
+    const dependency_id = await store.add('/dependency/architect.yml');
+    store.tag(dependency_id, 'account/dependency:latest');
+
+    const graph = await environment.getGraph('account/environment', store);
+
+    const service_node_id = CloudNode.genId({
+      type: 'service',
+      name: 'main',
+      component: 'account/component',
+      environment: 'account/environment',
+    });
+
+    const secret_node = new CloudNode({
+      name: 'key',
+      component: 'account/dependency',
+      environment: 'account/environment',
+      inputs: {
+        type: 'secret',
+        name: CloudNode.genResourceId({
+          name: 'key',
+          component: 'account/dependency',
+          environment: 'account/environment',
+        }),
+        data: JSON.stringify([`\${{ ${service_node_id}.url }}`]),
+        merge: true,
+      },
+    });
+
+    assertArrayIncludes(
+      graph.nodes,
+      [secret_node],
+    );
+  });
+
   it('should error if upstreams pass values to non-mergable dependency variables', async () => {
     const environment = await parseEnvironment(
       yaml.load(`

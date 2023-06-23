@@ -1,7 +1,7 @@
 version: v2
 
 dependencies:
-  smtp: architect/smtp
+  smtp: muesch.io/architect/smtp
 
 databases:
   kratos:
@@ -18,7 +18,7 @@ databases:
 
 builds:
   kratos-ui:
-    context: ./
+    context: /home/muesch/Architect/code/kratos-selfservice-ui-node/
     dockerfile: Dockerfile
     debug:
       dockerfile: Dockerfile-dev

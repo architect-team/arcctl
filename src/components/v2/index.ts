@@ -295,7 +295,9 @@ export default class ComponentV2 extends Component {
               component: context.component.name,
               environment: context.environment,
             }),
-            hostPath: volumeConfig.host_path ? path.join(context.component.source, volumeConfig.host_path) : undefined,
+            hostPath: volumeConfig.host_path
+              ? path.join(path.dirname(context.component.source), volumeConfig.host_path)
+              : undefined,
           },
         });
 

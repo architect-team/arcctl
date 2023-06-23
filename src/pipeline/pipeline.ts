@@ -95,7 +95,10 @@ export class Pipeline {
    */
   public replaceRefsWithOutputValues<T>(input: T): T {
     return JSON.parse(
-      JSON.stringify(input).replace(/\${{\s?([^.]+).(\S+)\s?}}/g, (_, step_id, key) => {
+      JSON.stringify(input).replace(/\${{\s?(.*?)\s}}/g, (_, ref) => {
+        ref = ref.trim();
+        const step_id = ref.substring(0, ref.lastIndexOf('.'));
+        const key = ref.substring(ref.lastIndexOf('.') + 1);
         const step = this.steps.find((s) => s.id === step_id);
         const outputs = step?.outputs;
         if (!step || !outputs) {
@@ -194,7 +197,6 @@ export class Pipeline {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
       } else if (!this.steps.some((n) => n.id === edge.to)) {
-        console.log(this);
         throw new Error(`${edge.to} is missing from the pipeline, but required by ${edge.from}`);
       }
     }

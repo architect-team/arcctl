@@ -22,7 +22,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     );
 
     if (confirmed) {
-      await command_helper.environmentStore.remove(environmentRecord.name);
+      await command_helper.removeEnvironment(datacenterRecord!.config, environmentRecord!);
       console.log(`Environment removed. Resources may still be dangling.`);
       return;
     } else {

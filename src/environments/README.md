@@ -1,6 +1,6 @@
 # ArcCtl Environments
 
-Environments represent running instances of [components](../components/) that that
+Environments represent running instances of [components](../components/) that
 are made available to each other for integration. You likely have environments for
 things like `production` or `staging`, but may also create private environments for
 integration testing or everyday development.
@@ -29,9 +29,9 @@ $ arcctl up ./api1 architect/auth:latest --datacenter my-datacenter
 ```
 
 The command above will create an environment with at least two components: one that can be found
-at the path `./api1`, and the other that has been tagged as `architect/auth:latest`. The
-environment will also be backed by the `my-datacenter` datacenter and will follow the rules of
-that datacenter for provisioning.
+at the path `./api1` (which must contain an architect.yml file at minimum), and the other that has
+been tagged as `architect/auth:latest`. The environment will also be backed by the `my-datacenter`
+datacenter and will follow the rules of that datacenter for provisioning.
 
 In addition to the component(s) cited, arcctl will also deploy any dependencies of the cited components –
 even if you don't specify them explicitly. By default, all components deployed implicitly as dependencies
@@ -87,7 +87,7 @@ $ arcctl deploy architect/auth:latest --environment production
 
 One example of configuration that can be passed in the deploy command is ingress subdomains. Domain
 names in the same environment often use the same base URL any naming conventions for exposing
-ingress rules to the outside world, but that means that means that ingress names for components can
+ingress rules to the outside world, but that means that ingress names for components can
 collide with one another when they land in the same environment (e.g. two components with an ingress
 named "api").
 
@@ -108,7 +108,8 @@ a flag to configure what you need, check out the environment configuration file 
 
 Environments can be updated at any time using the `arcctl update environment` command. The update
 command will ensure the environment matches the provided configuration. That sometimes means creating
-new resources, destroying resources that are no longer needed, or both.
+new resources, updating existing resources, destroying resources that are no longer needed, or a little
+bit of everything.
 
 ```sh
 $ arcctl update environment production ./environment.yml

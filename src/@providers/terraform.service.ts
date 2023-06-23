@@ -72,7 +72,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo( // TODO: uncomment
+    cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
           stdout.write(chunk);
@@ -112,7 +112,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo( // TODO: uncomment
+    cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
           stdout.write(chunk);
@@ -152,7 +152,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo( // TODO: uncomment
+    cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
           stdout.write(chunk);
@@ -193,7 +193,7 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo( // TODO: uncomment
+    cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
           stdout.write(chunk);
@@ -329,7 +329,7 @@ export abstract class TerraformResourceService<
       options.cwd,
       options.logger,
     );
-    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs)); // TODO: find out why this throws an error
+    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
 
     if (!parsedOutputs) {
       subscriber.error(new Error("Failed to retrieve terraform outputs"));

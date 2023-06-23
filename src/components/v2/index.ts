@@ -10,7 +10,7 @@ import {
   GraphContext,
   VolumeBuildFn,
   VolumePushFn,
-  VolumeTagFn,
+  VolumeTagFn
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
@@ -284,6 +284,13 @@ export default class ComponentV2 extends Component {
         );
       }
       for (const [volumeKey, volumeConfig] of Object.entries(volumes)) {
+        const is_directory = volumeConfig.host_path ? Deno.statSync(volumeConfig.host_path).isDirectory : false;
+        let host_path = undefined;
+        if (volumeConfig.host_path && is_directory) {
+          host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
+        } else if (volumeConfig.host_path) {
+          host_path = path.join(context.component.source, volumeConfig.host_path);
+        }
         const volume_node = new CloudNode({
           name: `${deployment_key}-${volumeKey}`,
           component: context.component.name,
@@ -295,9 +302,7 @@ export default class ComponentV2 extends Component {
               component: context.component.name,
               environment: context.environment,
             }),
-            hostPath: volumeConfig.host_path
-              ? path.join(path.dirname(context.component.source), volumeConfig.host_path)
-              : undefined,
+            hostPath: host_path,
           },
         });
 

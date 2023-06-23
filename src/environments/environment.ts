@@ -1,9 +1,10 @@
 import { CloudGraph } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/store.ts';
-import { ImageRepository } from '@architect-io/arc-oci';
+import { ImageRepository } from '../oci/index.ts';
 
 export type ComponentMetadata = {
   image: ImageRepository;
+  path?: string;
   ingresses?: Record<string, string>;
 };
 

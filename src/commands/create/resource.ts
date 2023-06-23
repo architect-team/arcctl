@@ -2,7 +2,6 @@ import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import { Confirm } from 'cliffy/prompt/mod.ts';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
@@ -76,7 +75,6 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
     .apply({
       providerStore: command_helper.providerStore,
       logger: logger,
-      cwd: path.resolve('./.terraform'),
     })
     .then(() => {
       command_helper.renderPipeline(pipeline, { clear: !logger });

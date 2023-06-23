@@ -1,4 +1,5 @@
-import { ReadableStream, Subscriber } from "rxjs";
+import { Subscriber } from "rxjs";
+import { mergeReadableStreams } from "std/streams/mod.ts";
 import { ResourceInputs, ResourceOutputs } from "../../../@resources/index.ts";
 import { exec } from "../../../utils/command.ts";
 import { PagingOptions, PagingResponse } from "../../../utils/paging.ts";
@@ -97,7 +98,7 @@ export class DockerDeploymentService
       args,
     });
     const child = cmd.spawn();
-    return child.stdout;
+    return mergeReadableStreams(child.stdout, child.stderr);
   }
 
   async create(
@@ -122,7 +123,7 @@ export class DockerDeploymentService
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
-        args.push("--volume", `${mount.volume}:${mount.mount_path}`);
+        args.push("--volume", `${mount.local_image}:${mount.mount_path}`);
       }
     }
 
@@ -143,7 +144,7 @@ export class DockerDeploymentService
     labels = {
       ...labels,
       "io.architect": "arcctl",
-      "io.architect.arcctl.deployment": inputs.name,
+      "io.architect.arcctl.deployment": containerName,
     };
 
     for (const [key, value] of Object.entries(labels)) {
@@ -166,7 +167,7 @@ export class DockerDeploymentService
     }
 
     return {
-      id: inputs.name,
+      id: containerName,
       labels,
     };
   }
@@ -251,7 +252,7 @@ export class DockerDeploymentService
       labels = {
         ...inputs.labels,
         "io.architect": "arcctl",
-        "io.architect.arcctl.deployment": inputs.name,
+        "io.architect.arcctl.deployment": containerName,
       };
     } else if (inputs.labels) {
       labels = {
@@ -273,13 +274,13 @@ export class DockerDeploymentService
       args.push(...(typeof command === "string" ? [command] : command));
     }
 
-    const { code, stdout, stderr } = await exec("docker", { args });
+    const { code, stderr } = await exec("docker", { args });
     if (code !== 0) {
       throw new Error(stderr || "Deployment failed");
     }
 
     return {
-      id: stdout.replace(/^\s+|\s+$/g, ""),
+      id: containerName,
       labels,
     };
   }

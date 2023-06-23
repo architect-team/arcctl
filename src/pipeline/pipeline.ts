@@ -111,11 +111,15 @@ export class Pipeline {
           const outputs = step?.outputs;
           if (!step || !outputs) {
             throw new Error(`Missing outputs for ${step_id}`);
-          } else if (!(outputs as any)[key]) {
-            throw new Error(`Invalid key, ${key}, for ${step.type}`);
+          } else if ((outputs as any)[key] === undefined) {
+            throw new Error(
+              `Invalid key, ${key}, for ${step.type}. ${
+                JSON.stringify(outputs)
+              }`,
+            );
           }
 
-          return (outputs as any)[key];
+          return (outputs as any)[key] || "";
         },
       ),
     );
@@ -211,6 +215,7 @@ export class Pipeline {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
       } else if (!this.steps.some((n) => n.id === edge.to)) {
+        console.log(this);
         throw new Error(
           `${edge.to} is missing from the pipeline, but required by ${edge.from}`,
         );

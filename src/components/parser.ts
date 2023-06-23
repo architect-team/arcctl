@@ -40,7 +40,7 @@ export const parseComponent = async (
   }
 
   if (!component_validator(raw_obj)) {
-    throw component_validator.errors;
+    throw new Error(JSON.stringify(component_validator.errors, null, 2));
   }
 
   return buildComponent(raw_obj);

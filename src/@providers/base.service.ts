@@ -24,7 +24,7 @@ export type ResourcePresets<T extends ResourceType> = Array<{
 export type ApplyOptions<S = any> = {
   id: string;
   providerStore: ProviderStore;
-  cwd: string;
+  cwd?: string;
   logger?: Logger;
   state?: S;
 };

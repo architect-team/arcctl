@@ -115,6 +115,8 @@ type Container = {
   volume_mounts: Array<{
     volume: string;
     mount_path: string;
+    local_image?: string;
+    remote_image?: string;
     readonly: boolean;
   }>;
 

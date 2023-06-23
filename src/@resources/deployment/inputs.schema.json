@@ -224,6 +224,9 @@
                 "items": {
                   "additionalProperties": false,
                   "properties": {
+                    "image": {
+                      "type": "string"
+                    },
                     "mount_path": {
                       "type": "string"
                     },
@@ -257,6 +260,9 @@
           "items": {
             "additionalProperties": false,
             "properties": {
+              "image": {
+                "type": "string"
+              },
               "mount_path": {
                 "type": "string"
               },

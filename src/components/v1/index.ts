@@ -286,6 +286,8 @@ export default class ComponentV1 extends Component {
               path: interface_config.ingress.path || '/',
               protocol: `\${{ ${service_node.id}.protocol }}`,
               service: `\${{ ${service_node.id}.id }}`,
+              username: `\${{ ${service_node.id}.username }}`,
+              password: `\${{ ${service_node.id}.password }}`,
               internal: interface_config.ingress.internal || false,
             },
           });

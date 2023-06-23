@@ -1,3 +1,4 @@
+import * as path from 'std/path/mod.ts';
 import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import type { ComponentStore } from '../../component-store/index.ts';
 import { Component, parseComponent } from '../../components/index.ts';
@@ -263,10 +264,17 @@ export default class EnvironmentV1 extends Environment {
     // Insert graph resources from found components
     Object.entries(found_components).map(([key, component]) => {
       const component_config = this.components?.[key];
+      let source = component_config?.source || key;
+      if (source.startsWith('file:')) {
+        source = source.replace(/^file:/, '');
+        if (source.endsWith('architect.yml')) {
+          source = path.dirname(source);
+        }
+      }
       const component_graph = component.getGraph({
         component: {
           name: key,
-          source: component_config?.source || key,
+          source,
           debug: debug,
         },
         environment: environment_name,
@@ -316,7 +324,9 @@ export default class EnvironmentV1 extends Environment {
   public addComponent(metadata: ComponentMetadata): void {
     this.components = this.components || {};
     this.components[metadata.image.repository] = this.components[metadata.image.repository] || {};
-    this.components[metadata.image.repository].source = metadata.image.toString();
+    this.components[metadata.image.repository].source = metadata.path
+      ? `file:${metadata.path}`
+      : metadata.image.toString().replace(/:latest$/, '');
     for (const [key, subdomain] of Object.entries(metadata.ingresses || {})) {
       this.components[metadata.image.repository].ingresses = this.components[metadata.image.repository].ingresses || {};
       this.components[metadata.image.repository].ingresses![key] = {

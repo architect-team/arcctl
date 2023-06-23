@@ -1,4 +1,3 @@
-import * as path from 'std/path/mod.ts';
 import { WritableResourceService } from '../base.service.ts';
 import { Provider } from '../provider.ts';
 import { ProviderStore } from '../store.ts';
@@ -47,7 +46,6 @@ export class TraefikTaskService {
         }],
       }, {
         providerStore: this.providerStore,
-        cwd: path.resolve('.terraform'),
         id: 'list-traefik-services',
       })
         .subscribe({

@@ -1,7 +1,7 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
-import { ImageRepository } from '@architect-io/arc-oci';
 import * as path from 'std/path/mod.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { exec } from '../utils/command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 const TagCommand = BaseCommand()
   .description('Tag a component and its associated build artifacts')
@@ -21,6 +21,11 @@ async function tag_action(options: GlobalOptions, source: string, target: string
 
       await exec('docker', { args: ['tag', sourceRef, targetRef] });
       return targetRef;
+    }, async (digest: string, deploymentName: string, volumeName: string) => {
+      console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);
+      const [tagName, tagVersion] = target.split(':');
+      const volumeTag = `${tagName}/${deploymentName}/volume/${volumeName}:${tagVersion}`;
+      return volumeTag;
     });
 
     command_helper.componentStore.tag(source, target);

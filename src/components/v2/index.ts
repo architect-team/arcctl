@@ -10,7 +10,7 @@ import {
   GraphContext,
   VolumeBuildFn,
   VolumePushFn,
-  VolumeTagFn
+  VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';

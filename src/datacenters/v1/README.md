@@ -1,29 +1,61 @@
 # v1 datacenter schema
 
-```yaml
-# Datacenters can declare variables that the user will be prompted
-# to provide when they create or update the datacenter
+The v1 datacenter schema is designed to allow operators to control resources in three
+different scopes:
+
+- Datacenter-scoped resources
+- Environment-scoped resources
+- Application-scoped resources
+
+By combining these three scopes, operators can create robust datacenter templates that
+can be used to host and integrate virtually any application in any style of cloud
+environment.
+
+## Variables
+
+Though most of each datacenter schema is self-contained, there are some cases where datacenters
+templates need additional input from users before they can be used to power a datacenter. These
+inputs are called variables:
+
+```yml
 variables:
   account:
-    # Variables can use arcctl resource types
+    # Variables can be arcctl resources
     type: arcctlAccount
     description: The DigitalOcean account used to power the environment
     provider: digitalocean
-  region:
-    type: region
-    description: Region to put resources in
-    # Variables can reference each other to simplify prompting
-    arcctlAccount: ${{ variables.account }}
+```
 
-# Datacenters can declare resources that should be live/die with
-# the lifecycle of the datacenter to be shared with all environments
-# it hosts
+Declared variables can be referenced anywhere else in the datacenter template that you'd like
+using the expression syntax, `${{ variables.<variable-name> }}`.
+
+## Datacenter resources
+
+Datacenter scoped [resources](../../%40resources/) are those which get created and destroyed with the lifecycle of
+the datacenter itself. This scoping allows operators to create cloud resources that will be
+shared across all environments and applications hosted by the datacenter. This can be VPCs,
+kubernetes clusters, API gateways, and more utilities that you'd want to share across
+environments.
+
+```yaml
 resources:
   vpc:
     type: vpc
     name: arcctl-datacenter
     account: ${{ variables.doAccount }}
     region: ${{ variables.region }}
+```
+
+Every resource must declare a `type` that matches one of the arcctl [resource types](../../%40resources/)
+as well as an `account` capable of creating said type of resource. Once declared, the outputs of said
+resource type can be referenced elsewhere in the datacenter schema using the expression syntax,
+`${{ resources.<resource-key>.<output-key> }}`.
+
+```yml
+resources:
+  vpc:
+    # ...same as above...
+
   cluster:
     type: kubernetesCluster
     name: arcctl-datacenter
@@ -35,22 +67,51 @@ resources:
       - name: pool1
         count: 3
         nodeSize: s-1vcpu-2gb
+```
 
-# New arcctl accounts can be registered that will live/die with
-# the lifecycle of the datacenter. These accounts can then be
-# used by other resources in the datacenter
+## Datacenter accounts
+
+In addition to creating arcctl resources, datacenters can also register new cloud accounts
+with one of the supported providers automatically. This can help setup complex sequences
+that allow you to create resources within newly created cloud accounts without additional
+steps.
+
+```yml
 accounts:
   cluster:
     name: do-personal-cluster
     provider: kubernetes
     credentials:
       configPath: ${{ resources.cluster.configPath }}
+```
 
-# Datacenters can define rules that only apply to
-# individual environments inside the datacenter
+Like resources and variables, you can then reference this new account elsewhere with
+the expression syntax, `${{ accounts.<account-key>.id }}`.
+
+## Environment specification
+
+The environment specification is where we define resources and rules for how each
+environment will behave within the datacenter. Everything defined in the environment
+section of the schema will apply to each individual environment within the datacenter.
+
+```yml
 environment:
-  # Environments can specify dedicated resources that need to
-  # exist uniquely in each environment
+  resources:
+    # ...
+  accounts:
+    # ...
+  hooks:
+    # ...
+```
+
+### Environment resources
+
+Like with the root scope, arcctl resources can be declared within the environment
+specification as well. When declared here, one of each resource will be created for
+each environment within the datacenter.
+
+```yml
+environment:
   resources:
     namespace:
       type: namespace
@@ -62,54 +123,94 @@ environment:
       type: helmChart
       name: ${{ environment.name }}-ingress-nginx
       account: ${{ accounts.cluster.id }}
+      # Environment resources can point to each other
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
+```
+
+### Environment accounts
+
+Also as with the root scope, new arcctl accounts can be registered for each enviroment
+that broker access to environment-scoped resources:
+
+```yml
+environment:
+  resources:
+    pg:
+      type: database
+      account: ${{ variables.account }}
+      name: ${{ environment.name }}-pg
+      databaseType: postgres
+      databaseVersion: '13'
+      databaseSize: n/a
+      vpc: n/a
+      region: n/a
   
-  # Hooks allow operators to define rules for how application
-  # resources should behave inside the datacenter
-  hooks:
-    # Hooks can define "when" clauses that indicate what fields
-    # must match for the hook to apply
-    - when:
-        type: secret
-      account: local
-    - when:
-        type: databaseSchema
-        databaseType: postgres
-      # Hooks can define inline resources that should be created
-      # whenever an application resource matches the hook
-      resources:
-        db:
-          type: database
-          account: ${{ variables.doAccount }}
-          # Inline resources can reference fields from the application 
-          # resource node like .id, .inputs.*, and .outputs.*
-          name: ${{ this.id }}
-          databaseVersion: ${{ this.inputs.databaseVersion }}
-          databaseSize: db-s-1vcpu-1gb
-          databaseType: ${{ this.inputs.databaseType }}
-          vpc: ${{ resources.vpc.id }}
-          region: ${{ variables.region }}
-      account: ${{ variables.doAccount }}
-      # The matching resource can also refer to the inline resource to populate
-      # its configuration
-      database: ${{ this.resources.db.id }}
-    - when:
-        type: ingressRule
-      resources:
-        dnsRecord:
-          type: dnsRecord
-          account: ${{ variables.doAccount }}
-          dnsZone: ${{ variables.dnsZone }}
-          subdomain: ${{ this.inputs.subdomain }}
-          recordType: A
-          content: ${{ this.outputs.loadBalancerHostname }}
-      registry: nginx
-      namespace: ${{ environment.resources.namespace.id }}
-      dnsZone: ${{ variables.dnsZone }}
-    # Application results will be mutated by all matching rules UNTIL
-    # an `account` is set.
-    - account: ${{ accounts.cluster.id }}
-      namespace: ${{ environment.resources.namespace.id }}
+  accounts:
+    pg:
+      name: ${{ environment.name }}-postgres-db
+      provider: postgres
+      credentials:
+        host: ${{ environment.resources.pg.host }}
+        port: ${{ environment.resources.pg.port }}
+        username: ${{ environment.resources.pg.username }}
+        password: ${{ environment.resources.pg.password }}
+        database: architect
+```
+
+### Resource hooks
+
+The last, and possibly most interesting part of the datacenter spec is the ability to define `hooks`.
+Hooks are rules for how application resources should be modified when they land within the datacenter.
+
+These hooks allow operators to assign rules for how ALL resources should behave in the environment and
+are the main feature that enables operators to retain control of the environment without compromising
+developer self-service.
+
+```yaml
+hooks:
+  # Hooks can define "when" clauses that indicate what fields
+  # must match for the hook to apply
+  - when:
+      type: secret
+    account: local
+  - when:
+      type: databaseSchema
+      databaseType: postgres
+    # Hooks can define inline resources that should be created
+    # whenever an application resource matches the hook
+    resources:
+      db:
+        type: database
+        account: ${{ variables.doAccount }}
+        # Inline resources can reference fields from the application 
+        # resource node like .id, .inputs.*, and .outputs.*
+        name: ${{ this.id }}
+        databaseVersion: ${{ this.inputs.databaseVersion }}
+        databaseSize: db-s-1vcpu-1gb
+        databaseType: ${{ this.inputs.databaseType }}
+        vpc: ${{ resources.vpc.id }}
+        region: ${{ variables.region }}
+    account: ${{ variables.doAccount }}
+    # The matching resource can also refer to the inline resource to populate
+    # its configuration
+    database: ${{ this.resources.db.id }}
+  - when:
+      type: ingressRule
+    resources:
+      dnsRecord:
+        type: dnsRecord
+        account: ${{ variables.doAccount }}
+        dnsZone: ${{ variables.dnsZone }}
+        subdomain: ${{ this.inputs.subdomain }}
+        recordType: A
+        content: ${{ this.outputs.loadBalancerHostname }}
+    registry: nginx
+    namespace: ${{ environment.resources.namespace.id }}
+    dnsZone: ${{ variables.dnsZone }}
+  # Application results will be mutated by all matching rules UNTIL
+  # an `account` is set.
+  - account: ${{ accounts.cluster.id }}
+    namespace: ${{ environment.resources.namespace.id }}
 ```

@@ -72,7 +72,6 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // if (cmd.stdout?.pipeTo) {
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -81,18 +80,7 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } //else if (cmd.stdout?.pipe) {
-    //   cmd.stdout.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stdout.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    // if (cmd.stderr?.pipeTo) {
     cmd.stderr.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -101,23 +89,8 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } //else if (cmd.stderr?.pipe) {
-    //   cmd.stderr.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stderr.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    let status;
-    // if (cmd.status) {
-    status = await cmd.status;
-    // } else { // TODO: find out how to best differentiate between deno and execa process types to find out what to await
-    //   status = (await cmd).exitCode;
-    // }
+    const status = await cmd.status;
 
     return {
       ...status,
@@ -136,7 +109,6 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // if (cmd.stdout?.pipeTo) {
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -145,18 +117,7 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } //else if (cmd.stdout?.pipe) {
-    //   cmd.stdout.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stdout.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    // if (cmd.stderr?.pipeTo) {
     cmd.stderr.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -165,23 +126,8 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } //else if (cmd.stderr?.pipe) {
-    //   cmd.stderr.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stderr.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    let status;
-    // if (cmd.status) {
-    status = await cmd.status;
-    // } else {
-    //   status = (await cmd).exitCode;
-    // }
+    const status = await cmd.status;
 
     return {
       ...status,
@@ -200,7 +146,6 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // if (cmd.stdout?.pipeTo) {
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -209,18 +154,7 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } //else if (cmd.stdout?.pipe) {
-    //   cmd.stdout.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stdout.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    // if (cmd.stderr?.pipeTo) {
     cmd.stderr.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -229,23 +163,8 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } //else if (cmd.stderr?.pipe) {
-    //   cmd.stderr.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stderr.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    let status;
-    // if (cmd.status) {
-    status = await cmd.status;
-    // } else {
-    //  status = (await cmd).exitCode;
-    // }
+    const status = await cmd.status;
 
     return {
       ...status,
@@ -265,7 +184,6 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // if (cmd.stdout?.pipeTo) {
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -274,18 +192,7 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } else if (cmd.stdout?.pipe) {
-    //   cmd.stdout.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stdout.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    // if (cmd.stderr?.pipeTo) {
     cmd.stderr.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -294,23 +201,8 @@ export abstract class TerraformResourceService<
         },
       }),
     );
-    // } else if (cmd.stderr?.pipe) {
-    //   cmd.stderr.pipe(
-    //     new WritableStream({
-    //       write(chunk) {
-    //         stderr.write(chunk);
-    //         logger?.info(new TextDecoder().decode(chunk));
-    //       },
-    //     }),
-    //   );
-    // }
 
-    let status;
-    // if (cmd.status) {
-    status = await cmd.status;
-    // } else {
-    //   status = (await cmd).exitCode;
-    // }
+    const status = await cmd.status;
 
     return {
       ...status,
@@ -334,6 +226,8 @@ export abstract class TerraformResourceService<
       options.providerStore.storageDir,
       options.id.replaceAll("/", "--"),
     );
+    console.log("********FILE STORAGE");
+    console.log(fileStorageDir);
     Deno.mkdirSync(fileStorageDir, { recursive: true });
     const { module, output: moduleOutput } = stack.addModule(this.construct, {
       id: options.id,

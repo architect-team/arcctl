@@ -6,20 +6,9 @@ env:
   CI: true
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          clean: true
-          ref: ${{ github.ref_name }}
-      - uses: denoland/setup-deno@v1.1.2
-      - run: deno lint
-        continue-on-error: true # TODO: remove
   publish_cli:
     name: Publish CLI
     if: github.ref_name == 'main' || startsWith(github.ref_name, 'arcctl-')
-    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,10 +19,9 @@ jobs:
         with:
           node-version: '18'
       - uses: denoland/setup-deno@v1.1.2
-      - run: deno task generate:npm
+      - run: deno task generate:npm # TODO: add version
       - run: |
           cd build
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
           npm publish --access public
 
-# TODO: condense workflows

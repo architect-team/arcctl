@@ -1,6 +1,5 @@
 import Ajv2019 from "ajv/dist/2019.js";
 import yaml from "js-yaml";
-import * as path from "std/path/mod.ts";
 import input_schema_contents from "./input.schema.json" assert {
   type: "json",
 };
@@ -63,11 +62,8 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
     raw_obj = input;
   }
 
-  const resource_schema_contents = Deno.readTextFileSync(
-    path.join(__dirname, type, "./inputs.schema.json"), // TODO: handle this as well
-  );
   const resource_validator = ajv.compile<ResourceInputs[T]>(
-    JSON.parse(resource_schema_contents),
+    input_schema_contents,
   );
 
   if (!resource_validator(raw_obj)) {

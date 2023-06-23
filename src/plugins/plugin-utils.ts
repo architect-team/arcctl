@@ -14,12 +14,13 @@ export default class PluginUtils {
   ): Promise<void> {
     return fetch(url).then(async (response) => {
       // TODO: replace with the following when file.writable is implemented - https://github.com/denoland/node_shims/blob/094b9cfa50aac59e7b113816ddd8bbda40493194/packages/shim-deno/src/deno/stable/classes/FsFile.ts#L65
-      // const file = await Deno.create(location);
-      // await response.body?.pipeTo(file.writable);
+      const file = await Deno.create(location);
+      await response.body?.pipeTo(file.writable);
 
-      const data = new Uint8Array(await response.arrayBuffer());
-      const file = Deno.createSync(location);
-      file.writeSync(data);
+      // TODO: remove as this isn't needed if we're not using this in a node module?
+      // const data = new Uint8Array(await response.arrayBuffer());
+      // const file = Deno.createSync(location);
+      // file.writeSync(data);
     });
   }
 

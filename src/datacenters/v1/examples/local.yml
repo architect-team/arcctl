@@ -1,0 +1,124 @@
+secrets:
+  account: local
+
+variables:
+  account:
+    type: arcctlAccount
+    description: The docker account to use for this datacenter
+    provider: docker
+
+resources:
+  service-registry:
+    type: volume
+    account: ${{ variables.account }}
+    name: traefik-volume
+
+  network:
+    type: namespace
+    account: ${{ variables.account }}
+    name: local
+  
+  jaeger:
+    type: deployment
+    name: jaeger
+    namespace: ${{ resources.network.id }}
+    account: ${{ variables.account }}
+    image: jaegertracing/all-in-one:1.6
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+    exposed_ports:
+      - port: 9411
+        target_port: 9411
+      - port: 14268
+        target_port: 14268
+      - port: 16686
+        target_port: 16686
+      - port: 5778
+        target_port: 5778
+    volume_mounts: []
+
+  gateway:
+    type: deployment
+    name: my-gateway
+    namespace: ${{ resources.network.id }}
+    account: ${{ variables.account }}
+    exposed_ports:
+      - port: 80
+        target_port: 80
+      - port: 8080
+        target_port: 8080
+    image: traefik:v2.10
+    command:
+      - --providers.file.directory=/etc/traefik
+      - --providers.file.watch=true
+      - --tracing.jaeger=true
+      - --tracing.jaeger.samplingServerURL=${{ resources.jaeger.id }}:5778/sampling
+      - --tracing.jaeger.samplingType=const
+      - --tracing.jaeger.localAgentHostPort=${{ resources.jaeger.id }}:6831
+      - --api.insecure=true
+      - --api.dashboard=true
+    volume_mounts:
+      - mount_path: /etc/traefik
+        readonly: true
+        volume: ${{ resources.service-registry.id }}
+      - mount_path: /var/run/docker.sock
+        readonly: true
+        volume: /var/run/docker.sock
+
+accounts:
+  gateway:
+    name: local-gateway
+    provider: traefik
+    credentials:
+      type: volume
+      volume: ${{ resources.service-registry.id }}
+      account: ${{ variables.account }}
+
+environment:
+  resources:
+    pg:
+      type: database
+      account: ${{ variables.account }}
+      name: ${{ environment.name }}-pg
+      databaseType: postgres
+      databaseVersion: '13'
+      databaseSize: n/a
+      vpc: n/a
+      region: n/a
+  
+  accounts:
+    pg:
+      name: ${{ environment.name }}-postgres-db
+      provider: postgres
+      credentials:
+        host: ${{ environment.resources.pg.host }}
+        port: ${{ environment.resources.pg.port }}
+        username: ${{ environment.resources.pg.username }}
+        password: ${{ environment.resources.pg.password }}
+        database: architect
+
+  hooks:
+    - when:
+        type: service
+      account: ${{ accounts.gateway.id }}
+      dnsZone: 172.17.0.1.nip.io
+    - when:
+        type: ingressRule
+      account: ${{ accounts.gateway.id }}
+      registry: ${{ resources.service-registry.id }}
+      dnsZone: 127.0.0.1.nip.io
+    - when:
+        type: databaseSchema
+      account: ${{ environment.accounts.pg.id }}
+    - when:
+        type: deployment
+        image: oryd/kratos-selfservice-ui-node:v0.13.0
+      platform: linux/amd64
+    - when:
+        type: deployment
+      environment:
+        TRACING_PROVIDER: jaeger
+        TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL: ${{ resources.jaeger.id }}:5778/sampling
+        TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS: ${{ resources.jaeger.id }}:6831
+    - account: ${{ variables.account }}
+      namespace: ${{ resources.network.id }}

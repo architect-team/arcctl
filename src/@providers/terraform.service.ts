@@ -72,16 +72,16 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout?.pipeTo) {
-      cmd.stdout.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stdout.write(chunk);
-            logger?.info(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } //else if (cmd.stdout?.pipe) {
+    // if (cmd.stdout?.pipeTo) {
+    cmd.stdout.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } //else if (cmd.stdout?.pipe) {
     //   cmd.stdout.pipe(
     //     new WritableStream({
     //       write(chunk) {
@@ -92,16 +92,16 @@ export abstract class TerraformResourceService<
     //   );
     // }
 
-    if (cmd.stderr?.pipeTo) {
-      cmd.stderr.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stderr.write(chunk);
-            logger?.error(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } //else if (cmd.stderr?.pipe) {
+    // if (cmd.stderr?.pipeTo) {
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } //else if (cmd.stderr?.pipe) {
     //   cmd.stderr.pipe(
     //     new WritableStream({
     //       write(chunk) {
@@ -113,11 +113,11 @@ export abstract class TerraformResourceService<
     // }
 
     let status;
-    if (cmd.status) {
-      status = await cmd.status;
-    } else { // TODO: find out how to best differentiate between deno and execa process types to find out what to await
-      status = (await cmd).exitCode;
-    }
+    // if (cmd.status) {
+    status = await cmd.status;
+    // } else { // TODO: find out how to best differentiate between deno and execa process types to find out what to await
+    //   status = (await cmd).exitCode;
+    // }
 
     return {
       ...status,
@@ -136,16 +136,16 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout?.pipeTo) {
-      cmd.stdout.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stdout.write(chunk);
-            logger?.info(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } //else if (cmd.stdout?.pipe) {
+    // if (cmd.stdout?.pipeTo) {
+    cmd.stdout.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } //else if (cmd.stdout?.pipe) {
     //   cmd.stdout.pipe(
     //     new WritableStream({
     //       write(chunk) {
@@ -156,16 +156,16 @@ export abstract class TerraformResourceService<
     //   );
     // }
 
-    if (cmd.stderr?.pipeTo) {
-      cmd.stderr.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stderr.write(chunk);
-            logger?.error(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } //else if (cmd.stderr?.pipe) {
+    // if (cmd.stderr?.pipeTo) {
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } //else if (cmd.stderr?.pipe) {
     //   cmd.stderr.pipe(
     //     new WritableStream({
     //       write(chunk) {
@@ -177,11 +177,11 @@ export abstract class TerraformResourceService<
     // }
 
     let status;
-    if (cmd.status) {
-      status = await cmd.status;
-    } else {
-      status = (await cmd).exitCode;
-    }
+    // if (cmd.status) {
+    status = await cmd.status;
+    // } else {
+    //   status = (await cmd).exitCode;
+    // }
 
     return {
       ...status,
@@ -200,16 +200,16 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout?.pipeTo) {
-      cmd.stdout.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stdout.write(chunk);
-            logger?.info(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } //else if (cmd.stdout?.pipe) {
+    // if (cmd.stdout?.pipeTo) {
+    cmd.stdout.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } //else if (cmd.stdout?.pipe) {
     //   cmd.stdout.pipe(
     //     new WritableStream({
     //       write(chunk) {
@@ -220,16 +220,16 @@ export abstract class TerraformResourceService<
     //   );
     // }
 
-    if (cmd.stderr?.pipeTo) {
-      cmd.stderr.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stderr.write(chunk);
-            logger?.error(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } //else if (cmd.stderr?.pipe) {
+    // if (cmd.stderr?.pipeTo) {
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } //else if (cmd.stderr?.pipe) {
     //   cmd.stderr.pipe(
     //     new WritableStream({
     //       write(chunk) {
@@ -241,11 +241,11 @@ export abstract class TerraformResourceService<
     // }
 
     let status;
-    if (cmd.status) {
-      status = await cmd.status;
-    } else {
-      status = (await cmd).exitCode;
-    }
+    // if (cmd.status) {
+    status = await cmd.status;
+    // } else {
+    //  status = (await cmd).exitCode;
+    // }
 
     return {
       ...status,
@@ -261,60 +261,56 @@ export abstract class TerraformResourceService<
     const terraform = await this.getTerraformPlugin();
 
     const cmd = terraform.output(cwd);
-    console.log("********COMMAND");
-    console.log(cmd);
 
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    if (cmd.stdout?.pipeTo) {
-      cmd.stdout.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stdout.write(chunk);
-            logger?.info(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } else if (cmd.stdout?.pipe) {
-      console.log("****PIPE STDOUT");
-      cmd.stdout.pipe(
-        new WritableStream({
-          write(chunk) {
-            stdout.write(chunk);
-            logger?.info(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    }
+    // if (cmd.stdout?.pipeTo) {
+    cmd.stdout.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } else if (cmd.stdout?.pipe) {
+    //   cmd.stdout.pipe(
+    //     new WritableStream({
+    //       write(chunk) {
+    //         stdout.write(chunk);
+    //         logger?.info(new TextDecoder().decode(chunk));
+    //       },
+    //     }),
+    //   );
+    // }
 
-    if (cmd.stderr?.pipeTo) {
-      cmd.stderr.pipeTo(
-        new WritableStream({
-          write(chunk) {
-            stderr.write(chunk);
-            logger?.error(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    } else if (cmd.stderr?.pipe) {
-      console.log("****PIPE STDERR");
-      cmd.stderr.pipe(
-        new WritableStream({
-          write(chunk) {
-            stderr.write(chunk);
-            logger?.info(new TextDecoder().decode(chunk));
-          },
-        }),
-      );
-    }
+    // if (cmd.stderr?.pipeTo) {
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
+    // } else if (cmd.stderr?.pipe) {
+    //   cmd.stderr.pipe(
+    //     new WritableStream({
+    //       write(chunk) {
+    //         stderr.write(chunk);
+    //         logger?.info(new TextDecoder().decode(chunk));
+    //       },
+    //     }),
+    //   );
+    // }
 
     let status;
-    if (cmd.status) {
-      status = await cmd.status;
-    } else {
-      status = (await cmd).exitCode;
-    }
+    // if (cmd.status) {
+    status = await cmd.status;
+    // } else {
+    //   status = (await cmd).exitCode;
+    // }
 
     return {
       ...status,
@@ -427,9 +423,6 @@ export abstract class TerraformResourceService<
       options.cwd,
       options.logger,
     );
-    console.log("********OUTPUTS");
-    console.log(rawOutputs);
-    console.log(new TextDecoder().decode(rawOutputs));
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs)); // TODO: find out why this throws an error
 
     if (!parsedOutputs) {

@@ -72,27 +72,28 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // cmd.stdout.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stdout.write(chunk);
-    //       logger?.info(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stdout.pipeTo( // TODO: uncomment
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
-    // cmd.stderr.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stderr.write(chunk);
-    //       logger?.error(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
     const status = await cmd.status;
-    console.log("****INIT STATUS");
-    console.log(status);
+    if (!status.success) {
+      throw new Error(`Terraform init failed with exit code ${status.code}`);
+    }
 
     return {
       ...status,
@@ -111,27 +112,28 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // cmd.stdout.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stdout.write(chunk);
-    //       logger?.info(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stdout.pipeTo( // TODO: uncomment
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
-    // cmd.stderr.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stderr.write(chunk);
-    //       logger?.error(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
     const status = await cmd.status;
-    console.log("****PLAN STATUS");
-    console.log(status);
+    if (!status.success) {
+      throw new Error(`Terraform plan failed with exit code ${status.code}`);
+    }
 
     return {
       ...status,
@@ -150,27 +152,28 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // cmd.stdout.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stdout.write(chunk);
-    //       logger?.info(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stdout.pipeTo( // TODO: uncomment
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
-    // cmd.stderr.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stderr.write(chunk);
-    //       logger?.error(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
     const status = await cmd.status;
-    console.log("****APPLY STATUS");
-    console.log(status);
+    if (!status.success) {
+      throw new Error(`Terraform apply failed with exit code ${status.code}`);
+    }
 
     return {
       ...status,
@@ -190,25 +193,28 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    // cmd.stdout.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stdout.write(chunk);
-    //       logger?.info(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stdout.pipeTo( // TODO: uncomment
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+          logger?.info(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
-    // cmd.stderr.pipeTo(
-    //   new WritableStream({
-    //     write(chunk) {
-    //       stderr.write(chunk);
-    //       logger?.error(new TextDecoder().decode(chunk));
-    //     },
-    //   }),
-    // );
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+          logger?.error(new TextDecoder().decode(chunk));
+        },
+      }),
+    );
 
     const status = await cmd.status;
+    if (!status.success) {
+      throw new Error(`Terraform output failed with exit code ${status.code}`);
+    }
     console.log("****OUTPUT STATUS");
     console.log(status);
 

@@ -1,8 +1,8 @@
 import * as path from "std/path/mod.ts";
+import { ArchitectPlugin } from "../index.ts";
 import PluginManager from "../plugins/plugin-manager.ts";
 import { CldCtlTerraformStack } from "../utils/stack.ts";
 import { TerraformPlugin, TerraformVersion } from "./plugin.ts";
-import { ArchitectPlugin } from "../index.ts";
 
 export class Terraform {
   private plugin: ArchitectPlugin;
@@ -27,7 +27,7 @@ export class Terraform {
   public init(
     cwd: string,
     stack: CldCtlTerraformStack,
-  ): Deno.ChildProcess | any { // TODO: | execa.ChildProcess
+  ): Deno.ChildProcess {
     const moduleFile = path.join(cwd, "main.tf.json");
     Deno.mkdirSync(cwd, { recursive: true });
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
@@ -44,7 +44,7 @@ export class Terraform {
     cwd: string,
     outputFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
-  ): Deno.ChildProcess | any { // execa.ChildProcess
+  ): Deno.ChildProcess {
     const args = ["plan", "-input=false", `-out=${outputFile}`];
     if (options?.refresh === false) {
       args.push("-refresh=false");
@@ -64,7 +64,7 @@ export class Terraform {
     cwd: string,
     planFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
-  ): Deno.ChildProcess | any { // execa.ChildProcess
+  ): Deno.ChildProcess {
     const args = ["apply"];
     if (options?.refresh === false) {
       args.push("-refresh=false");
@@ -82,7 +82,7 @@ export class Terraform {
     });
   }
 
-  public destroy(cwd: string, planFile: string): Deno.ChildProcess | any { // execa.ChildProcess
+  public destroy(cwd: string, planFile: string): Deno.ChildProcess {
     return this.plugin.exec(["destroy", planFile], {
       stdout: false,
       commandOptions: { cwd },
@@ -100,7 +100,7 @@ export class Terraform {
     });
   }
 
-  public output(cwd: string, id?: string): Deno.ChildProcess | any { // execa.ChildProcess
+  public output(cwd: string, id?: string): Deno.ChildProcess {
     const args = ["output", "-json"];
     if (id) {
       args.push(id);

@@ -91,6 +91,8 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
+    console.log("****INIT STATUS");
+    console.log(status);
 
     return {
       ...status,
@@ -128,6 +130,8 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
+    console.log("****PLAN STATUS");
+    console.log(status);
 
     return {
       ...status,
@@ -165,6 +169,8 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
+    console.log("****APPLY STATUS");
+    console.log(status);
 
     return {
       ...status,
@@ -203,6 +209,8 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
+    console.log("****OUTPUT STATUS");
+    console.log(status);
 
     return {
       ...status,
@@ -226,8 +234,6 @@ export abstract class TerraformResourceService<
       options.providerStore.storageDir,
       options.id.replaceAll("/", "--"),
     );
-    console.log("********FILE STORAGE");
-    console.log(fileStorageDir);
     Deno.mkdirSync(fileStorageDir, { recursive: true });
     const { module, output: moduleOutput } = stack.addModule(this.construct, {
       id: options.id,

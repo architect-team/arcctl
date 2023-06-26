@@ -27,7 +27,7 @@ The command above will prompt you for credentials for `<provider-name>` and then
 - [x] [Docker](./docker/)
 - [x] [local](./local/)
 - [x] [postgres](./postgres/)
-- [x] [traefik](./traefik/)
+- [x] [Traefik](./traefik/)
 
 Don't see your preferred cloud provider? Go ahead and [file a request](https://github.com/architect-team/arcctl/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.md&title=) for the provider.
 

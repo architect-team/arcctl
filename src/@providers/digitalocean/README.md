@@ -1,4 +1,4 @@
-# arcctl - Digitalocean Provider
+# ArcCtl - Digitalocean Provider
 
 ## Authentication
 

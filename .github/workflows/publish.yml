@@ -21,6 +21,7 @@ jobs:
       - uses: denoland/setup-deno@v1.1.2
       - run: deno task generate:npm # TODO: add version
       - run: |
-          cd build
+          cd build/esm/
+          npm ci
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
           GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release

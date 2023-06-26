@@ -55,6 +55,7 @@ const mainPlugins = [
 ];
 
 module.exports = {
+  debug: true, // TODO: remove
   dryRun: true, // TODO: remove
   branches: [
     'main',

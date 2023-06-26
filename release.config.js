@@ -14,17 +14,17 @@ const git = [
     ],
   },
 ];
-const exec = [
-  '@semantic-release/exec',
-  {
-    prepareCmd: `deno task generate:npm`,
-  },
-];
+// const exec = [
+//   '@semantic-release/exec',
+//   {
+//     prepareCmd: `deno task generate:npm`,
+//   },
+// ];
 const npm = [
   '@semantic-release/npm',
-  {
-    'pkgRoot': './build'
-  }
+  // {
+  //   'pkgRoot': './build'
+  // }
 ];
 const github = [
   '@semantic-release/github',
@@ -39,7 +39,7 @@ const changelog = [
 const defaultPlugins = [
   commitAnalyzer,
   releaseNotesGenerator,
-  exec,
+  // exec,
   npm,
   git,
 ];
@@ -48,7 +48,7 @@ const mainPlugins = [
   commitAnalyzer,
   releaseNotesGenerator,
   changelog,
-  exec,
+  // exec,
   npm,
   git,
   github,

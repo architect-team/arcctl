@@ -56,6 +56,7 @@
     "@types/tar": "^6.1.2",
     "mustache": "^4.2.0",
     "prettier": "^2.6.2",
+    "semantic-release": "^21.0.5",
     "shx": "^0.3.4",
     "ts-node": "^10.7.0",
     "ts-xor": "^1.0.8"

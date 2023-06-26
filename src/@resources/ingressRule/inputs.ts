@@ -41,6 +41,16 @@ export type IngressRuleInputs = {
   dnsZone?: string;
 
   /**
+   * Basic auth username
+   */
+  username?: string;
+
+  /**
+   * Basic auth password
+   */
+  password?: string;
+
+  /**
    * The path the ingress rule listens on
    * @default /
    */

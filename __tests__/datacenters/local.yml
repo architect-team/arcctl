@@ -1,22 +1,50 @@
 secrets:
   account: local
 
+variables:
+  account:
+    type: arcctlAccount
+    description: The docker account to use for this datacenter
+    provider: docker
+  secretAccount:
+    type: arcctlAccount
+    description: The account used to store secrets
+
 resources:
   service-registry:
     type: volume
-    account: docker
+    account: ${{ variables.account }}
     name: traefik-volume
 
   network:
     type: namespace
-    account: docker
+    account: ${{ variables.account }}
     name: local
-    
+
+  jaeger:
+    type: deployment
+    name: jaeger
+    namespace: ${{ resources.network.id }}
+    account: ${{ variables.account }}
+    image: jaegertracing/all-in-one:1.6
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+    exposed_ports:
+      - port: 9411
+        target_port: 9411
+      - port: 14268
+        target_port: 14268
+      - port: 16686
+        target_port: 16686
+      - port: 5778
+        target_port: 5778
+    volume_mounts: []
+
   gateway:
     type: deployment
     name: my-gateway
     namespace: ${{ resources.network.id }}
-    account: docker
+    account: ${{ variables.account }}
     exposed_ports:
       - port: 80
         target_port: 80
@@ -28,7 +56,6 @@ resources:
       - --providers.file.watch=true
       - --api.insecure=true
       - --api.dashboard=true
-      - --accesslog=true
     volume_mounts:
       - mount_path: /etc/traefik
         readonly: true
@@ -41,20 +68,20 @@ accounts:
     credentials:
       type: volume
       volume: ${{ resources.service-registry.id }}
-      account: docker
+      account: ${{ variables.account }}
 
 environment:
   resources:
     pg:
       type: database
-      account: docker
+      account: ${{ variables.account }}
       name: ${{ environment.name }}-pg
       databaseType: postgres
       databaseVersion: '13'
       databaseSize: n/a
       vpc: n/a
       region: n/a
-  
+
   accounts:
     pg:
       name: ${{ environment.name }}-postgres-db
@@ -70,11 +97,12 @@ environment:
     - when:
         type: service
       account: ${{ accounts.gateway.id }}
+      dnsZone: 172.17.0.1.nip.io
     - when:
         type: ingressRule
       account: ${{ accounts.gateway.id }}
       registry: ${{ resources.service-registry.id }}
-      dnsZone: localhost
+      dnsZone: 127.0.0.1.nip.io
     - when:
         type: databaseSchema
       account: ${{ environment.accounts.pg.id }}
@@ -82,5 +110,8 @@ environment:
         type: deployment
         image: oryd/kratos-selfservice-ui-node:v0.13.0
       platform: linux/amd64
-    - account: docker
+    - when:
+        type: secret
+      account: ${{ variables.secretAccount }}
+    - account: ${{ variables.account }}
       namespace: ${{ resources.network.id }}

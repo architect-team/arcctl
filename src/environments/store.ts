@@ -1,11 +1,17 @@
+import * as path from 'std/path/mod.ts';
 import { Environment } from './environment.ts';
 import { parseEnvironment } from './parser.ts';
-import * as path from 'std/path/mod.ts';
 
 export type EnvironmentRecord = {
   name: string;
   datacenter: string;
   config?: Environment;
+
+  // Refers to a secret containing the last pipeline that was run
+  lastPipeline: {
+    account: string;
+    secret: string;
+  };
 };
 
 export class EnvironmentStore {
@@ -48,6 +54,7 @@ export class EnvironmentStore {
         name: raw.name,
         datacenter: raw.datacenter,
         config: raw.config ? await parseEnvironment(raw.config) : undefined,
+        lastPipeline: raw.lastPipeline,
       });
     }
 
@@ -69,7 +76,7 @@ export class EnvironmentStore {
     } else {
       allEnvironments.push(input);
     }
-    this.saveAll(allEnvironments);
+    await this.saveAll(allEnvironments);
   }
 
   public async remove(name: string): Promise<void> {

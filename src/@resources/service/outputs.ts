@@ -15,6 +15,16 @@ export type ServiceOutputs = {
   port: number;
 
   /**
+   * Basic auth username
+   */
+  username?: string;
+
+  /**
+   * Basic auth password
+   */
+  password?: string;
+
+  /**
    * Fully resolvable URL of the service
    */
   url: string;

@@ -1,8 +1,8 @@
-import { Component } from './component.ts';
-import { buildComponent, ComponentSchema } from './schema.ts';
 import Ajv2019 from 'ajv/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
+import { Component } from './component.ts';
+import { buildComponent, ComponentSchema } from './schema.ts';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
@@ -35,7 +35,7 @@ export const parseComponent = async (input: Record<string, unknown> | string): P
   }
 
   if (!component_validator(raw_obj)) {
-    throw component_validator.errors;
+    throw new Error(JSON.stringify(component_validator.errors, null, 2));
   }
 
   return buildComponent(raw_obj);

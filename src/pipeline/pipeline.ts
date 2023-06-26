@@ -95,16 +95,19 @@ export class Pipeline {
    */
   public replaceRefsWithOutputValues<T>(input: T): T {
     return JSON.parse(
-      JSON.stringify(input).replace(/\${{\s?([^.]+).(\S+)\s?}}/g, (_, step_id, key) => {
+      JSON.stringify(input).replace(/\${{\s?(.*?)\s}}/g, (_, ref) => {
+        ref = ref.trim();
+        const step_id = ref.substring(0, ref.lastIndexOf('.'));
+        const key = ref.substring(ref.lastIndexOf('.') + 1);
         const step = this.steps.find((s) => s.id === step_id);
         const outputs = step?.outputs;
         if (!step || !outputs) {
           throw new Error(`Missing outputs for ${step_id}`);
-        } else if (!(outputs as any)[key]) {
-          throw new Error(`Invalid key, ${key}, for ${step.type}`);
+        } else if ((outputs as any)[key] === undefined) {
+          throw new Error(`Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`);
         }
 
-        return (outputs as any)[key];
+        return (outputs as any)[key] || '';
       }),
     );
   }

@@ -1,6 +1,5 @@
 import cliSpinners from 'cli-spinners';
 import { Select } from 'cliffy/prompt/mod.ts';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
@@ -71,15 +70,15 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
       .apply({
         providerStore: command_helper.providerStore,
         logger: logger,
-        cwd: path.resolve(path.join('./.terraform', datacenterRecord.name)),
       })
       .then(async () => {
-        await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-        await command_helper.environmentStore.save({
-          datacenter: datacenterRecord.name,
-          name: name,
-          config: environment,
-        });
+        await command_helper.saveEnvironment(
+          datacenterRecord.name,
+          name,
+          datacenterRecord.config,
+          environment!,
+          pipeline,
+        );
         command_helper.renderPipeline(pipeline, { clear: !options.verbose });
         clearInterval(interval);
         console.log('Environment created successfully');

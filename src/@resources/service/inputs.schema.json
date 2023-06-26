@@ -5,6 +5,10 @@
     "ServiceInputs": {
       "additionalProperties": false,
       "properties": {
+        "dnsZone": {
+          "description": "Optional DNS zone to use for listeners",
+          "type": "string"
+        },
         "external_hostname": {
           "description": "External address to point to",
           "type": "string"
@@ -24,6 +28,10 @@
           "description": "Resource namespace",
           "type": "string"
         },
+        "password": {
+          "description": "Basic auth password",
+          "type": "string"
+        },
         "port": {
           "description": "Port to listen on",
           "type": "number"
@@ -39,6 +47,10 @@
         "target_protocol": {
           "default": "http",
           "description": "Protocol",
+          "type": "string"
+        },
+        "username": {
+          "description": "Basic auth username",
           "type": "string"
         }
       },

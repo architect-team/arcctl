@@ -83,7 +83,7 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
   }
 
   async afterImport(options: ApplyOptions<TerraformResourceState>) {
-    const state_file = path.join(options.cwd, 'terraform.tfstate');
+    const state_file = path.join(options.cwd!, 'terraform.tfstate');
     const file_contents = await Deno.readTextFile(state_file);
     const modified_file_contents = file_contents.replace(
       '"deletion_protection": true',

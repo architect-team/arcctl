@@ -57,14 +57,14 @@ async function graph_action(options: GraphOptions): Promise<void> {
   const umlLines = [`@startuml`];
   for (const node of graph.nodes) {
     umlLines.push(`class "${node.id}" {`);
-    for (const [key, value] of Object.entries(node.inputs)) {
-      let displayValue = value;
-      if (typeof value === 'object' || Array.isArray(value)) {
-        displayValue = JSON.stringify(value);
-      }
-      displayValue = displayValue?.toString().includes('\n') ? `CANNOT DISPLAY` : displayValue;
-      umlLines.push(`  ${key}: ${displayValue}`);
-    }
+    // for (const [key, value] of Object.entries(node.inputs)) {
+    //   let displayValue = value;
+    //   if (typeof value === 'object' || Array.isArray(value)) {
+    //     displayValue = JSON.stringify(value);
+    //   }
+    //   displayValue = displayValue?.toString().includes('\n') ? `CANNOT DISPLAY` : displayValue;
+    //   umlLines.push(`  ${key}: ${displayValue}`);
+    // }
     umlLines.push(`  {method} account ${node.account}`);
     if (node.environment) {
       umlLines.push(`  {method} environment ${node.environment}`);

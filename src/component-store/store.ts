@@ -85,7 +85,7 @@ export class ComponentStore {
    */
   async getComponentConfig(ref_or_id: string): Promise<Component> {
     // If the input is an image ID, look for it in the filesystem
-    if (/^[\dA-Fa-f]{64}/.test(ref_or_id)) {
+    if (/^[\dA-Fa-f]{12}/.test(ref_or_id)) {
       const src_path = path.join(this.cache_dir, ref_or_id, 'architect.json');
       if (!existsSync(src_path)) {
         throw new MissingComponentRef(ref_or_id);
@@ -115,11 +115,11 @@ export class ComponentStore {
       ? await parseComponent(component_or_path)
       : component_or_path;
     const component_contents = JSON.stringify(component);
-    const artifact_id = crypto
+    const artifact_id = (crypto
       .createHash('sha256')
       .update(component_contents)
       .setEncoding('utf-8')
-      .digest('hex') as string;
+      .digest('hex') as string).substring(0, 12);
     const new_path = path.join(this.cache_dir, artifact_id);
     if (!existsSync(new_path)) {
       Deno.mkdirSync(new_path, { recursive: true });
@@ -156,7 +156,7 @@ export class ComponentStore {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     await copy(host_path, new_path, { overwrite: true });
-    return artifact_id;
+    return new_path;
   }
 
   /**
@@ -166,7 +166,7 @@ export class ComponentStore {
    */
   async remove(ref_string: string): Promise<void> {
     try {
-      if (/^[\dA-Fa-f]{64}/.test(ref_string)) {
+      if (/^[\dA-Fa-f]{12}/.test(ref_string)) {
         // If the input is an image ID, look for it in the filesystem
         const src_path = path.join(this.cache_dir, ref_string);
         if (!existsSync(src_path)) {
@@ -201,7 +201,7 @@ export class ComponentStore {
     // Ensure the destination repository is in the DB
     this.db[dest_match.repository] = this.db[dest_match.repository] || {};
 
-    if (/^[\dA-Fa-f]{64}/.test(src_ref_or_id)) {
+    if (/^[\dA-Fa-f]{12}/.test(src_ref_or_id)) {
       // If the input is an image ID, look for it in the filesystem
       const src_path = path.join(this.cache_dir, src_ref_or_id, 'architect.json');
       if (!existsSync(src_path)) {

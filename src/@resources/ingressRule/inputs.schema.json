@@ -22,6 +22,10 @@
           "description": "Namespace to put the ingress rule in",
           "type": "string"
         },
+        "password": {
+          "description": "Basic auth password",
+          "type": "string"
+        },
         "path": {
           "default": "/",
           "description": "The path the ingress rule listens on",
@@ -49,6 +53,10 @@
         },
         "subdomain": {
           "description": "The subdomain the ingress rule listens on",
+          "type": "string"
+        },
+        "username": {
+          "description": "Basic auth username",
           "type": "string"
         }
       },

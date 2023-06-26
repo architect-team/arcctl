@@ -72,7 +72,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   const pipeline = Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
-  });
+  }, command_helper.providerStore);
   pipeline.validate();
 
   let interval: number;

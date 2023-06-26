@@ -82,7 +82,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
       const pipeline = Pipeline.plan({
         before: previousPipeline,
         after: targetGraph,
-      });
+      }, command_helper.providerStore);
 
       let interval: number;
       if (!options.verbose) {

@@ -33,11 +33,11 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
 
   const lastPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
 
-  const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph());
+  const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph(), name);
   const pipeline = Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
-  });
+  }, command_helper.providerStore);
 
   let interval: number;
   if (!options.verbose) {

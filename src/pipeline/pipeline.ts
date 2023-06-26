@@ -1,7 +1,10 @@
+import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
+
+export const PIPELINE_NO_OP = 'no-op';
 
 export type PlanOptions = {
   before: Pipeline;
@@ -13,7 +16,7 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
-const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipeline => {
+const setNoopSteps = (providerStore: ProviderStore, previousPipeline: Pipeline, nextPipeline: Pipeline): Pipeline => {
   let done = false;
 
   do {
@@ -21,27 +24,25 @@ const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipel
     for (let step of nextPipeline.steps.filter((step) => step.action === 'update')) {
       const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
 
-      if (!previousStep) {
-        continue;
-      }
-
       const allDependencies = nextPipeline.getDependencies(step.id);
       const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
 
-      if (allDependencies.length !== completeDependencies.length) {
+      if (!step.isNoop && allDependencies.length !== completeDependencies.length) {
         continue;
       }
 
       step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
 
       if (
-        step.equals(previousStep) &&
-        previousStep.status.state === 'complete'
+        step.isNoop ||
+        (step.getHash(providerStore) === previousStep?.hash &&
+          previousStep.status.state === 'complete')
       ) {
-        step.action = 'no-op';
+        step.action = PIPELINE_NO_OP;
         step.status.state = 'complete';
-        step.state = previousStep.state;
-        step.outputs = previousStep.outputs;
+        step.state = previousStep?.state;
+        step.outputs = previousStep?.outputs;
+        step.isNoop = true;
         nextPipeline.insertSteps(step);
         done = false;
       }
@@ -217,7 +218,7 @@ export class Pipeline {
   /**
    * Returns a new pipeline by comparing the old pipeline to a new target graph
    */
-  public static plan(options: PlanOptions): Pipeline {
+  public static plan(options: PlanOptions, providerStore: ProviderStore): Pipeline {
     const pipeline = new Pipeline({
       edges: [...options.after.edges],
     });
@@ -297,7 +298,7 @@ export class Pipeline {
     }
 
     // Check for nodes that can be no-op'd
-    return setNoopSteps(options.before, pipeline);
+    return setNoopSteps(providerStore, options.before, pipeline);
   }
 
   /**

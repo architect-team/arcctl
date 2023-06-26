@@ -45,7 +45,7 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
     const pipeline = Pipeline.plan({
       before: lastPipeline,
       after: targetGraph,
-    });
+    }, command_helper.providerStore);
 
     pipeline.validate();
 

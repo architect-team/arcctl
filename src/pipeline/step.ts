@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
+import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
@@ -17,6 +18,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
+  isNoop?: boolean;
 };
 
 export class PipelineStep<T extends ResourceType = ResourceType> {
@@ -31,6 +33,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
+  isNoop?: boolean;
 
   constructor(options: PipelineStepOptions<T>) {
     this.name = options.name;
@@ -46,6 +49,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.state = options.state;
     this.inputs = options.inputs;
     this.outputs = options.outputs;
+    this.isNoop = options.isNoop;
   }
 
   get id(): string {
@@ -63,8 +67,8 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       JSON.stringify(this.inputs) === JSON.stringify(step.inputs);
   }
 
-  public getHash(options: ApplyOptions): string {
-    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
+  public getHash(providerStore: ProviderStore): string {
+    const cwd = Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
     Deno.mkdirSync(nodeDir, { recursive: true });
@@ -72,7 +76,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       throw new Error('Unable to create execution directory for terraform');
     }
 
-    const account = options.providerStore.getProvider(
+    const account = providerStore.getProvider(
       this.inputs?.account || '',
     );
     if (!account) {
@@ -87,14 +91,11 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     }
 
     const writableService = service as WritableResourceService<any, any>;
-    let applyObservable: Observable<ApplyOutputs<any>> | undefined;
 
     return writableService.getHash(this.inputs, {
       id: this.id,
       cwd: nodeDir,
-      providerStore: options.providerStore,
-      logger: options.logger,
-      state: this.state,
+      providerStore,
     });
   }
 

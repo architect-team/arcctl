@@ -54,7 +54,7 @@ export async function update_environment_action(options: UpdateEnvironmentOption
   const pipeline = Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
-  });
+  }, command_helper.providerStore);
 
   let interval: number | undefined = undefined;
   if (!options.verbose) {

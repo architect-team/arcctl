@@ -4,6 +4,8 @@ import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDeploymentGeneration,
+  testSecretGeneration,
+  testSecretIntegration,
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
@@ -122,6 +124,41 @@ describe('Component Schema: v1', () => {
       }),
     ]);
   });
+
+  it('should generate variables', () =>
+    testSecretGeneration(
+      `
+        name: test
+        variables:
+          DB_HOST:
+            description: The host for the database
+      `,
+      ComponentV1,
+      {
+        secret_name: 'DB_HOST',
+        data: '',
+      },
+    ));
+
+  it('should connect services to variables', () =>
+    testSecretIntegration(
+      `
+      name: test
+      variables:
+        DB_HOST:
+          description: The host for the database
+      services:
+        main:
+          image: nginx:1.14.2
+          environment:
+            DB_DSN: \${{ variables.DB_HOST }}
+      `,
+      ComponentV1,
+      {
+        secret_name: 'DB_HOST',
+        deployment_name: 'main',
+      },
+    ));
 
   it('should create ingress nodes for root interfaces', () => {
     const component = new ComponentV1(

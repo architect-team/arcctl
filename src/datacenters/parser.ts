@@ -18,9 +18,15 @@ export const parseDatacenter = async (
 
   let raw_obj: any;
   if (typeof input === 'string') {
-    const filename = input;
-    const raw_contents = await Deno.readTextFile(filename);
-    if (filename.endsWith('.json')) {
+    let raw_contents: string;
+    if (input.startsWith('http://') || input.startsWith('https://')) {
+      const resp = await fetch(input);
+      raw_contents = await resp.text();
+    } else {
+      raw_contents = await Deno.readTextFile(input);
+    }
+
+    if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
       raw_obj = yaml.load(raw_contents);

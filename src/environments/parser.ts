@@ -1,11 +1,10 @@
 import Ajv2019 from 'ajv/dist/2019.js';
 import yaml from 'js-yaml';
-import * as path from 'std/path/mod.ts';
-import { Environment } from './environment.ts';
-import { buildEnvironment, EnvironmentSchema } from './schema.ts';
 import environment_schema_contents from './environment.schema.json' assert {
   type: 'json',
 };
+import { Environment } from './environment.ts';
+import { buildEnvironment, EnvironmentSchema } from './schema.ts';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
@@ -19,7 +18,14 @@ export const parseEnvironment = async (
 
   let raw_obj: any;
   if (typeof input === 'string') {
-    const raw_contents = await Deno.readTextFile(input);
+    let raw_contents: string;
+    if (input.startsWith('http://') || input.startsWith('https://')) {
+      const resp = await fetch(input);
+      raw_contents = await resp.text();
+    } else {
+      raw_contents = await Deno.readTextFile(input);
+    }
+
     if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {

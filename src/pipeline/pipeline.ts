@@ -70,7 +70,7 @@ export class Pipeline {
    * @param sourceId
    * @param targetId
    */
-  public replaceStepRefs(sourceId: string, targetId: string): void {
+  private replaceStepRefs(sourceId: string, targetId: string): void {
     // Replace expressions within nodes
     this.steps = this.steps.map((step) => {
       return new PipelineStep(

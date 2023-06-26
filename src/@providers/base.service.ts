@@ -105,6 +105,4 @@ export abstract class WritableResourceService<
   ): Observable<ApplyOutputs<T>>;
 
   abstract destroy(options: ApplyOptions): Observable<ApplyOutputs<T>>;
-
-  abstract setTerraformPlugin(plugin: ArchitectPlugin): void;
 }

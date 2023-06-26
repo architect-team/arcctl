@@ -16,4 +16,11 @@ export type ParameterSchemaV1 =
      * A human-readable description of the parameter, how it should be used, and what kinds of values it supports.
      */
     description?: string;
+
+    /**
+     * Whether or not to merge results from multiple sources into a single array
+     *
+     * @default false
+     */
+    merge?: boolean;
   };

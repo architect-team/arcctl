@@ -1,3 +1,4 @@
+import { prepareVirtualFile } from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
@@ -104,10 +105,10 @@ describe('Component Schema: v2', () => {
     assertArrayIncludes(graph.nodes, [build_node]);
   });
 
-  it('should generate secrets', () =>
+  it('should generate variables', () =>
     testSecretGeneration(
       `
-        secrets:
+        variables:
           DB_HOST:
             description: The host for the database
       `,
@@ -118,17 +119,17 @@ describe('Component Schema: v2', () => {
       },
     ));
 
-  it('should connect deployments to secrets', () =>
+  it('should connect deployments to variables', () =>
     testSecretIntegration(
       `
-      secrets:
+      variables:
         DB_HOST:
           description: The host for the database
       deployments:
         main:
           image: nginx:1.14.2
           environment:
-            DB_DSN: \${{ secrets.DB_HOST }}
+            DB_DSN: \${{ variables.DB_HOST }}
       `,
       ComponentV2,
       {
@@ -182,6 +183,7 @@ describe('Component Schema: v2', () => {
                 host_path: ./src
                 mount_path: /app/src
     `) as ComponentSchema);
+    prepareVirtualFile('/fake/source/architect.yml');
     const graph = component.getGraph({
       component: {
         name: 'component',

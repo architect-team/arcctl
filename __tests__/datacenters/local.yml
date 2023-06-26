@@ -6,6 +6,9 @@ variables:
     type: arcctlAccount
     description: The docker account to use for this datacenter
     provider: docker
+  secretAccount:
+    type: arcctlAccount
+    description: The account used to store secrets
 
 resources:
   service-registry:
@@ -51,19 +54,12 @@ resources:
     command:
       - --providers.file.directory=/etc/traefik
       - --providers.file.watch=true
-      - --tracing.jaeger=true
-      - --tracing.jaeger.samplingServerURL=${{ resources.jaeger.id }}:5778/sampling
-      - --tracing.jaeger.samplingType=const
-      - --tracing.jaeger.localAgentHostPort=${{ resources.jaeger.id }}:6831
       - --api.insecure=true
       - --api.dashboard=true
     volume_mounts:
       - mount_path: /etc/traefik
         readonly: true
         volume: ${{ resources.service-registry.id }}
-      - mount_path: /var/run/docker.sock
-        readonly: true
-        volume: /var/run/docker.sock
 
 accounts:
   gateway:
@@ -115,10 +111,7 @@ environment:
         image: oryd/kratos-selfservice-ui-node:v0.13.0
       platform: linux/amd64
     - when:
-        type: deployment
-      environment:
-        TRACING_PROVIDER: jaeger
-        TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL: ${{ resources.jaeger.id }}:5778/sampling
-        TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS: ${{ resources.jaeger.id }}:6831
+        type: secret
+      account: ${{ variables.secretAccount }}
     - account: ${{ variables.account }}
       namespace: ${{ resources.network.id }}

@@ -111,7 +111,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
-        args.push('--volume', `${mount.local_image}:${mount.mount_path}`);
+        args.push('--volume', `${mount.volume}:${mount.mount_path}`);
       }
     }
 
@@ -234,6 +234,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     for (const [key, value] of Object.entries(labels)) {
       args.push('--label', `${key}=${value}`);
+    }
+
+    if (inputs.volume_mounts) {
+      for (const mount of inputs.volume_mounts) {
+        args.push('--volume', `${mount?.volume}:${mount?.mount_path}`);
+      }
     }
 
     args.push(inputs.image || inspection.Image);

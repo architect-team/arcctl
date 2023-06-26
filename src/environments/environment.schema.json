@@ -108,13 +108,6 @@
                 },
                 "type": "object"
               },
-              "secrets": {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "description": "Values for secrets that should be passed to the component",
-                "type": "object"
-              },
               "services": {
                 "additionalProperties": {
                   "additionalProperties": false,
@@ -135,6 +128,23 @@
               "source": {
                 "description": "The source of the component to deploy. Can either be a docker registry repository or a reference to the local filesystem prefixed with `file:`",
                 "type": "string"
+              },
+              "variables": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  ]
+                },
+                "description": "Values for variables the component expects",
+                "type": "object"
               }
             },
             "type": "object"

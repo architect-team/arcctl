@@ -1,20 +1,19 @@
-import { Construct } from "constructs";
-import { createApiClient } from "dots-wrapper";
-import { IVpc } from "dots-wrapper/dist/vpc/index.ts";
-import { ResourceOutputs } from "../../../@resources/index.ts";
-import { PagingOptions, PagingResponse } from "../../../utils/paging.ts";
-import { InputValidators } from "../../base.service.ts";
-import { ProviderStore } from "../../store.ts";
-import { TerraformResourceService } from "../../terraform.service.ts";
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from "../.gen/providers/digitalocean/provider/index.ts";
-import { DigitaloceanCredentials } from "../credentials.ts";
-import { DigitaloceanVpcModule } from "../modules/vpc.ts";
+import { Construct } from 'constructs';
+import { createApiClient } from 'dots-wrapper';
+import { IVpc } from 'dots-wrapper/dist/vpc/index.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanVpcModule } from '../modules/vpc.ts';
 
-export class DigitaloceanVpcService
-  extends TerraformResourceService<"vpc", DigitaloceanCredentials> {
+export class DigitaloceanVpcService extends TerraformResourceService<'vpc', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
-  readonly terraform_version = "1.4.5";
+  readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanVpcModule;
 
   constructor(
@@ -26,7 +25,7 @@ export class DigitaloceanVpcService
     this.client = createApiClient({ token: credentials.token });
   }
 
-  private normalizeVpc(vpc: IVpc): ResourceOutputs["vpc"] {
+  private normalizeVpc(vpc: IVpc): ResourceOutputs['vpc'] {
     return {
       id: vpc.id,
       name: vpc.name,
@@ -38,12 +37,12 @@ export class DigitaloceanVpcService
   public configureTerraformProviders(
     scope: Construct,
   ): TerraformDigitaloceanProvider {
-    return new TerraformDigitaloceanProvider(scope, "digitalocean", {
+    return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
       token: this.credentials.token,
     });
   }
 
-  async get(id: string): Promise<ResourceOutputs["vpc"]> {
+  async get(id: string): Promise<ResourceOutputs['vpc']> {
     const {
       data: { vpc },
     } = await this.client.vpc.getVpc({ vpc_id: id });
@@ -51,9 +50,9 @@ export class DigitaloceanVpcService
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs["vpc"]>,
+    filterOptions?: Partial<ResourceOutputs['vpc']>,
     _pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs["vpc"]>> {
+  ): Promise<PagingResponse<ResourceOutputs['vpc']>> {
     const {
       data: { vpcs },
     } = await this.client.vpc.listVpcs({});
@@ -68,18 +67,18 @@ export class DigitaloceanVpcService
     };
   }
 
-  get validators(): InputValidators<"vpc"> {
+  get validators(): InputValidators<'vpc'> {
     return {
       name: (input: string) => {
         return (
           /^[\d.A-Za-z-]+$/.test(input) ||
-          "Must be unique and contain alphanumeric characters, dashes, and periods only."
+          'Must be unique and contain alphanumeric characters, dashes, and periods only.'
         );
       },
 
       description: (input?: string) => {
         return !input || input.length <= 255 ||
-          "Description must be less than 255 characters.";
+          'Description must be less than 255 characters.';
       },
     };
   }

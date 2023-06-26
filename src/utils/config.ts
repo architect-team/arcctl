@@ -19,12 +19,16 @@ export default class CloudCtlConfig {
     if (this.configDirectory) {
       return this.configDirectory;
     }
-    throw Error('No config directory configured'); // TODO: why do we error here and not just create it?
+    throw Error('No config directory configured');
   }
 
   public static getTerraformDirectory(): string {
     if (!this.tfDirectory) {
-      this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${crypto.randomUUID()}/`);
+      this.tfDirectory = path.join(
+        this.getConfigDirectory(),
+        '/tf/',
+        `/${crypto.randomUUID()}/`,
+      );
     }
     return this.tfDirectory!;
   }

@@ -1,8 +1,8 @@
-import * as path from "std/path/mod.ts";
-import { ArchitectPlugin } from "../index.ts";
-import PluginManager from "../plugins/plugin-manager.ts";
-import { CldCtlTerraformStack } from "../utils/stack.ts";
-import { TerraformPlugin, TerraformVersion } from "./plugin.ts";
+import * as path from 'std/path/mod.ts';
+import { ArchitectPlugin } from '../index.ts';
+import PluginManager from '../plugins/plugin-manager.ts';
+import { CldCtlTerraformStack } from '../utils/stack.ts';
+import { TerraformPlugin, TerraformVersion } from './plugin.ts';
 
 export class Terraform {
   private plugin: ArchitectPlugin;
@@ -28,11 +28,11 @@ export class Terraform {
     cwd: string,
     stack: CldCtlTerraformStack,
   ): Deno.ChildProcess {
-    const moduleFile = path.join(cwd, "main.tf.json");
+    const moduleFile = path.join(cwd, 'main.tf.json');
     Deno.mkdirSync(cwd, { recursive: true });
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
 
-    return this.plugin.exec(["init", "-input=false"], {
+    return this.plugin.exec(['init', '-input=false'], {
       stdout: false,
       commandOptions: {
         cwd,
@@ -45,13 +45,13 @@ export class Terraform {
     outputFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
   ): Deno.ChildProcess {
-    const args = ["plan", "-input=false", `-out=${outputFile}`];
+    const args = ['plan', '-input=false', `-out=${outputFile}`];
     if (options?.refresh === false) {
-      args.push("-refresh=false");
+      args.push('-refresh=false');
     }
 
     if (options?.destroy) {
-      args.push("-destroy");
+      args.push('-destroy');
     }
 
     return this.plugin.exec(args, {
@@ -65,13 +65,13 @@ export class Terraform {
     planFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
   ): Deno.ChildProcess {
-    const args = ["apply"];
+    const args = ['apply'];
     if (options?.refresh === false) {
-      args.push("-refresh=false");
+      args.push('-refresh=false');
     }
 
     if (options?.destroy) {
-      args.push("-destroy");
+      args.push('-destroy');
     }
 
     args.push(planFile);
@@ -83,7 +83,7 @@ export class Terraform {
   }
 
   public destroy(cwd: string, planFile: string): Deno.ChildProcess {
-    return this.plugin.exec(["destroy", planFile], {
+    return this.plugin.exec(['destroy', planFile], {
       stdout: false,
       commandOptions: { cwd },
     });
@@ -94,14 +94,14 @@ export class Terraform {
     resourceId: string,
     cloudId: string,
   ): Deno.ChildProcess {
-    return this.plugin.exec(["import", resourceId, cloudId], {
+    return this.plugin.exec(['import', resourceId, cloudId], {
       stdout: false,
       commandOptions: { cwd },
     });
   }
 
   public output(cwd: string, id?: string): Deno.ChildProcess {
-    const args = ["output", "-json"];
+    const args = ['output', '-json'];
     if (id) {
       args.push(id);
     }

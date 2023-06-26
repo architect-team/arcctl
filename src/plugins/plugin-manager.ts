@@ -1,12 +1,7 @@
-import { existsSync } from "std/fs/exists.ts";
-import * as path from "std/path/mod.ts";
-import {
-  ArchitectPlugin,
-  PluginArchitecture,
-  PluginBundleType,
-  PluginPlatform,
-} from "./plugin-types.ts";
-import PluginUtils from "./plugin-utils.ts";
+import { existsSync } from 'std/fs/exists.ts';
+import * as path from 'std/path/mod.ts';
+import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.ts';
+import PluginUtils from './plugin-utils.ts';
 
 type Dictionary<T> = { [key: string]: T };
 
@@ -81,9 +76,7 @@ export default class PluginManager {
     );
     const downloadedFilePath = path.join(
       versionPath,
-      `/${plugin.name}.${
-        binary.bundleType === PluginBundleType.ZIP ? "zip" : "tar.gz"
-      }`,
+      `/${plugin.name}.${binary.bundleType === PluginBundleType.ZIP ? 'zip' : 'tar.gz'}`,
     );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);

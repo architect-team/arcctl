@@ -1,23 +1,19 @@
-import { App } from "cdktf";
-import { Construct } from "constructs";
-import { Buffer } from "https://deno.land/std@0.190.0/io/buffer.ts";
-import { Observable, Subscriber } from "rxjs";
-import * as path from "std/path/mod.ts";
-import { Logger } from "winston";
-import { ResourceInputs, ResourceType } from "../@resources/index.ts";
-import { createProviderFileConstructor } from "../cdktf-modules/provider-file.ts";
-import { ArchitectPlugin } from "../index.ts";
-import { TerraformVersion } from "../terraform/plugin.ts";
-import { Terraform } from "../terraform/terraform.ts";
-import CloudCtlConfig from "../utils/config.ts";
-import { CldCtlTerraformStack } from "../utils/stack.ts";
-import {
-  ApplyOptions,
-  ApplyOutputs,
-  WritableResourceService,
-} from "./base.service.ts";
-import { ProviderCredentials } from "./credentials.ts";
-import { ResourceModuleConstructor } from "./module.ts";
+import { App } from 'cdktf';
+import { Construct } from 'constructs';
+import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
+import { Observable, Subscriber } from 'rxjs';
+import * as path from 'std/path/mod.ts';
+import { Logger } from 'winston';
+import { ResourceInputs, ResourceType } from '../@resources/index.ts';
+import { createProviderFileConstructor } from '../cdktf-modules/provider-file.ts';
+import { ArchitectPlugin } from '../index.ts';
+import { TerraformVersion } from '../terraform/plugin.ts';
+import { Terraform } from '../terraform/terraform.ts';
+import CloudCtlConfig from '../utils/config.ts';
+import { CldCtlTerraformStack } from '../utils/stack.ts';
+import { ApplyOptions, ApplyOutputs, WritableResourceService } from './base.service.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ResourceModuleConstructor } from './module.ts';
 
 type TerraformResourceState =
   | {
@@ -108,7 +104,7 @@ export abstract class TerraformResourceService<
   ): Promise<Deno.CommandOutput> {
     const terraform = await this.getTerraformPlugin();
 
-    const cmd = terraform.plan(cwd, "plan");
+    const cmd = terraform.plan(cwd, 'plan');
     const stdout = new Buffer();
     const stderr = new Buffer();
 
@@ -148,7 +144,7 @@ export abstract class TerraformResourceService<
   ): Promise<Deno.CommandOutput> {
     const terraform = await this.getTerraformPlugin();
 
-    const cmd = terraform.apply(cwd, "plan");
+    const cmd = terraform.apply(cwd, 'plan');
     const stdout = new Buffer();
     const stderr = new Buffer();
 
@@ -215,7 +211,7 @@ export abstract class TerraformResourceService<
     if (!status.success) {
       throw new Error(`Terraform output failed with exit code ${status.code}`);
     }
-    console.log("****OUTPUT STATUS");
+    console.log('****OUTPUT STATUS');
     console.log(status);
 
     return {
@@ -231,16 +227,16 @@ export abstract class TerraformResourceService<
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
     const cwd = options.cwd || Deno.makeTempDirSync();
-    const stateFile = path.join(cwd, "terraform.tfstate");
+    const stateFile = path.join(cwd, 'terraform.tfstate');
 
     const app = new App({
       outdir: cwd,
     });
-    const stack = new CldCtlTerraformStack(app, "arcctl");
+    const stack = new CldCtlTerraformStack(app, 'arcctl');
     this.configureTerraformProviders(stack);
     const fileStorageDir = path.join(
       options.providerStore.storageDir,
-      options.id.replaceAll("/", "--"),
+      options.id.replaceAll('/', '--'),
     );
     Deno.mkdirSync(fileStorageDir, { recursive: true });
     const { module, output: moduleOutput } = stack.addModule(this.construct, {
@@ -255,14 +251,14 @@ export abstract class TerraformResourceService<
     const startTime = Date.now();
     subscriber.next({
       status: {
-        state: "starting",
-        message: "Importing resource state",
+        state: 'starting',
+        message: 'Importing resource state',
         startTime,
       },
     });
 
     let initRan = false;
-    if (options.state && "terraform_version" in options.state) {
+    if (options.state && 'terraform_version' in options.state) {
       Deno.writeFileSync(
         stateFile,
         new TextEncoder().encode(JSON.stringify(options.state)),
@@ -284,8 +280,8 @@ export abstract class TerraformResourceService<
     if (!initRan) {
       subscriber.next({
         status: {
-          state: "starting",
-          message: "Initializing terraform",
+          state: 'starting',
+          message: 'Initializing terraform',
           startTime,
         },
       });
@@ -295,8 +291,8 @@ export abstract class TerraformResourceService<
 
     subscriber.next({
       status: {
-        state: "starting",
-        message: "Generating diff",
+        state: 'starting',
+        message: 'Generating diff',
         startTime,
       },
     });
@@ -305,8 +301,8 @@ export abstract class TerraformResourceService<
 
     subscriber.next({
       status: {
-        state: "applying",
-        message: "Applying changes",
+        state: 'applying',
+        message: 'Applying changes',
         startTime,
       },
     });
@@ -319,8 +315,8 @@ export abstract class TerraformResourceService<
 
     subscriber.next({
       status: {
-        state: "applying",
-        message: "Collecting outputs",
+        state: 'applying',
+        message: 'Collecting outputs',
         startTime,
       },
     });
@@ -332,7 +328,7 @@ export abstract class TerraformResourceService<
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
 
     if (!parsedOutputs) {
-      subscriber.error(new Error("Failed to retrieve terraform outputs"));
+      subscriber.error(new Error('Failed to retrieve terraform outputs'));
     } else if (!(moduleOutput.friendlyUniqueId in parsedOutputs)) {
       subscriber.error(
         new Error(
@@ -344,8 +340,8 @@ export abstract class TerraformResourceService<
 
     subscriber.next({
       status: {
-        state: "complete",
-        message: "",
+        state: 'complete',
+        message: '',
         startTime,
         endTime: Date.now(),
       },
@@ -361,12 +357,12 @@ export abstract class TerraformResourceService<
   ): Promise<void> {
     try {
       const cwd = options.cwd || Deno.makeTempDirSync();
-      const stateFile = path.join(cwd, "terraform.tfstate");
+      const stateFile = path.join(cwd, 'terraform.tfstate');
 
       let app = new App({
         outdir: cwd,
       });
-      let stack = new CldCtlTerraformStack(app, "arcctl");
+      let stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
       const fileStorageDir = path.join(
         options.providerStore.storageDir,
@@ -384,13 +380,13 @@ export abstract class TerraformResourceService<
       const startTime = Date.now();
       subscriber.next({
         status: {
-          state: "starting",
-          message: "Importing resource state",
+          state: 'starting',
+          message: 'Importing resource state',
           startTime,
         },
       });
 
-      if (options.state && "terraform_version" in options.state) {
+      if (options.state && 'terraform_version' in options.state) {
         Deno.writeFileSync(
           stateFile,
           new TextEncoder().encode(JSON.stringify(options.state)),
@@ -409,13 +405,13 @@ export abstract class TerraformResourceService<
       }
 
       app = new App({ outdir: cwd });
-      stack = new CldCtlTerraformStack(app, "arcctl");
+      stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
 
       subscriber.next({
         status: {
-          state: "starting",
-          message: "Initializing terraform",
+          state: 'starting',
+          message: 'Initializing terraform',
           startTime,
         },
       });
@@ -424,8 +420,8 @@ export abstract class TerraformResourceService<
 
       subscriber.next({
         status: {
-          state: "starting",
-          message: "Generating diff",
+          state: 'starting',
+          message: 'Generating diff',
           startTime,
         },
       });
@@ -434,8 +430,8 @@ export abstract class TerraformResourceService<
 
       subscriber.next({
         status: {
-          state: "applying",
-          message: "Applying changes",
+          state: 'applying',
+          message: 'Applying changes',
           startTime,
         },
       });
@@ -447,8 +443,8 @@ export abstract class TerraformResourceService<
 
       subscriber.next({
         status: {
-          state: "complete",
-          message: "",
+          state: 'complete',
+          message: '',
           startTime,
           endTime: Date.now(),
         },

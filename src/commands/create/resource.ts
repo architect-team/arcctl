@@ -19,12 +19,22 @@ type CreateResourceOptions = {
 const CreateResourceCommand = BaseCommand()
   .description('Create a new cloud resource')
   .type('resourceType', resourceType)
-  .option('-a, --account <account:string>', 'The cloud provider credentials to use to apply this resource')
-  .option('-v, --verbose [verbose:boolean]', 'Show verbose logs of the command', { default: false })
+  .option(
+    '-a, --account <account:string>',
+    'The cloud provider credentials to use to apply this resource',
+  )
+  .option(
+    '-v, --verbose [verbose:boolean]',
+    'Show verbose logs of the command',
+    { default: false },
+  )
   .arguments('[type:resourceType]')
   .action(create_resource_action);
 
-async function create_resource_action(options: CreateResourceOptions, resource_type?: ResourceType) {
+async function create_resource_action(
+  options: CreateResourceOptions,
+  resource_type?: ResourceType,
+) {
   const command_helper = new CommandHelper(options);
 
   const account = await command_helper.promptForAccount({
@@ -33,16 +43,23 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
     action: 'create',
   });
 
-  const type = await command_helper.promptForResourceType(account, 'create', resource_type);
+  const type = await command_helper.promptForResourceType(
+    account,
+    'create',
+    resource_type,
+  );
 
   const graph = new CloudGraph();
-  const rootNode = await command_helper.promptForNewResource(graph, account, type);
+  const rootNode = await command_helper.promptForNewResource(
+    graph,
+    account,
+    type,
+  );
 
   const pipeline = Pipeline.plan({
     before: new Pipeline(),
     after: graph,
   });
-  console.log(pipeline)
 
   console.log('\nAbout to create the following resources:');
   command_helper.renderPipeline(pipeline);
@@ -82,7 +99,9 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
       const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
       console.log('');
       console.log(colors.green(`${type} created successfully!`));
-      console.log('Please record the results for your records. Some fields may not be retrievable again.');
+      console.log(
+        'Please record the results for your records. Some fields may not be retrievable again.',
+      );
       console.log(step?.outputs);
     })
     .catch((err) => {

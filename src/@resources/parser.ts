@@ -1,12 +1,12 @@
-import Ajv2019 from "ajv/dist/2019.js";
-import yaml from "js-yaml";
-import input_schema_contents from "./input.schema.json" assert {
-  type: "json",
+import Ajv2019 from 'ajv/dist/2019.js';
+import yaml from 'js-yaml';
+import input_schema_contents from './input.schema.json' assert {
+  type: 'json',
 };
-import { InputSchema, ResourceInputs, ResourceType } from "./types.ts";
+import { InputSchema, ResourceInputs, ResourceType } from './types.ts';
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = new URL(".", import.meta.url).pathname;
+const __dirname = new URL('.', import.meta.url).pathname;
 
 export const parseResourceInputs = async (
   input: Record<string, unknown> | string,
@@ -16,7 +16,7 @@ export const parseResourceInputs = async (
   );
 
   let raw_obj: any;
-  if (typeof input === "string") {
+  if (typeof input === 'string') {
     const filename = input;
     const lstat = await Deno.lstat(filename);
     if (!lstat.isFile) {
@@ -24,7 +24,7 @@ export const parseResourceInputs = async (
     }
 
     const raw_contents = await Deno.readTextFile(filename);
-    if (filename.endsWith(".json")) {
+    if (filename.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
       raw_obj = yaml.load(raw_contents);
@@ -45,7 +45,7 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
   input: Record<string, unknown> | string,
 ): Promise<ResourceInputs[T]> => {
   let raw_obj: any;
-  if (typeof input === "string") {
+  if (typeof input === 'string') {
     const filename = input;
     const lstat = await Deno.lstat(filename);
     if (!lstat.isFile) {
@@ -53,7 +53,7 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
     }
 
     const raw_contents = await Deno.readTextFile(filename);
-    if (filename.endsWith(".json")) {
+    if (filename.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
       raw_obj = yaml.load(raw_contents);

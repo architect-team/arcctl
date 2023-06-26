@@ -1,12 +1,12 @@
-import Ajv2019 from "ajv/dist/2019.js";
-import yaml from "js-yaml";
-import datacenter_schema_contents from "./datacenter.schema.json" assert {
-  type: "json",
+import Ajv2019 from 'ajv/dist/2019.js';
+import yaml from 'js-yaml';
+import datacenter_schema_contents from './datacenter.schema.json' assert {
+  type: 'json',
 };
-import { Datacenter } from "./datacenter.ts";
-import { buildDatacenter, DatacenterSchema } from "./schema.ts";
+import { Datacenter } from './datacenter.ts';
+import { buildDatacenter, DatacenterSchema } from './schema.ts';
 
-const DEFAULT_SCHEMA_VERSION = "v1";
+const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
 export const parseDatacenter = async (
@@ -17,10 +17,10 @@ export const parseDatacenter = async (
   );
 
   let raw_obj: any;
-  if (typeof input === "string") {
+  if (typeof input === 'string') {
     const filename = input;
     const raw_contents = await Deno.readTextFile(filename);
-    if (filename.endsWith(".json")) {
+    if (filename.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
       raw_obj = yaml.load(raw_contents);
@@ -29,7 +29,7 @@ export const parseDatacenter = async (
     raw_obj = input;
   }
 
-  if (!("version" in raw_obj)) {
+  if (!('version' in raw_obj)) {
     raw_obj.version = DEFAULT_SCHEMA_VERSION;
   }
 

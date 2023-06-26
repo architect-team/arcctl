@@ -1,14 +1,10 @@
-import { Observable, ReadableStream } from "rxjs";
-import { Logger } from "winston";
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from "../@resources/index.ts";
-import { ArchitectPlugin } from "../index.ts";
-import { PagingOptions, PagingResponse } from "../utils/paging.ts";
-import { ProviderCredentials } from "./credentials.ts";
-import { ProviderStore } from "./store.ts";
+import { Observable, ReadableStream } from 'rxjs';
+import { Logger } from 'winston';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { ArchitectPlugin } from '../index.ts';
+import { PagingOptions, PagingResponse } from '../utils/paging.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ProviderStore } from './store.ts';
 
 export type InputValidators<T extends ResourceType> = {
   [P in keyof ResourceInputs[T]]?: (
@@ -33,13 +29,13 @@ export type ApplyOutputs<T extends ResourceType> = {
   state?: any;
   status: {
     state:
-      | "pending"
-      | "starting"
-      | "applying"
-      | "destroying"
-      | "complete"
-      | "unknown"
-      | "error";
+      | 'pending'
+      | 'starting'
+      | 'applying'
+      | 'destroying'
+      | 'complete'
+      | 'unknown'
+      | 'error';
     message?: string;
     startTime?: number;
     endTime?: number;

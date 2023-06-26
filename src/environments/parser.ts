@@ -1,13 +1,13 @@
-import Ajv2019 from "ajv/dist/2019.js";
-import yaml from "js-yaml";
-import * as path from "std/path/mod.ts";
-import { Environment } from "./environment.ts";
-import { buildEnvironment, EnvironmentSchema } from "./schema.ts";
-import environment_schema_contents from "./environment.schema.json" assert {
-  type: "json",
+import Ajv2019 from 'ajv/dist/2019.js';
+import yaml from 'js-yaml';
+import * as path from 'std/path/mod.ts';
+import { Environment } from './environment.ts';
+import { buildEnvironment, EnvironmentSchema } from './schema.ts';
+import environment_schema_contents from './environment.schema.json' assert {
+  type: 'json',
 };
 
-const DEFAULT_SCHEMA_VERSION = "v1";
+const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
 export const parseEnvironment = async (
@@ -18,9 +18,9 @@ export const parseEnvironment = async (
   );
 
   let raw_obj: any;
-  if (typeof input === "string") {
+  if (typeof input === 'string') {
     const raw_contents = await Deno.readTextFile(input);
-    if (input.endsWith(".json")) {
+    if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
       raw_obj = yaml.load(raw_contents);
@@ -29,7 +29,7 @@ export const parseEnvironment = async (
     raw_obj = input;
   }
 
-  if (!("version" in raw_obj)) {
+  if (!('version' in raw_obj)) {
     raw_obj.version = DEFAULT_SCHEMA_VERSION;
   }
 

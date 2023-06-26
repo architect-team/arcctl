@@ -1,9 +1,6 @@
-import { Construct } from "constructs";
-import * as path from "std/path/mod.ts";
-import {
-  SensitiveFile,
-  SensitiveFileConfig,
-} from "./.gen/providers/local/sensitive-file/index.ts";
+import { Construct } from 'constructs';
+import * as path from 'std/path/mod.ts';
+import { SensitiveFile, SensitiveFileConfig } from './.gen/providers/local/sensitive-file/index.ts';
 
 export const createProviderFileConstructor = (
   directory: string,

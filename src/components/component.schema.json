@@ -26,7 +26,32 @@
         },
         "dependencies": {
           "additionalProperties": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "component": {
+                    "type": "string"
+                  },
+                  "inputs": {
+                    "additionalProperties": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "component"
+                ],
+                "type": "object"
+              }
+            ]
           },
           "description": "A set of components and associated versions that this component depends on.",
           "type": "object"
@@ -114,6 +139,11 @@
                     "description": "A human-readable description of the parameter, how it should be used, and what kinds of values it supports.",
                     "type": "string"
                   },
+                  "merge": {
+                    "default": false,
+                    "description": "Whether or not to merge results from multiple sources into a single array",
+                    "type": "boolean"
+                  },
                   "required": {
                     "default": false,
                     "description": "A boolean indicating whether or not an operator is required ot provide a value",
@@ -124,7 +154,7 @@
               }
             ]
           },
-          "description": "A dictionary of named parameters that this component uses to configure services.\n\nParameters can either be an object describing the parameter or a string shorthand that directly applies to the `default` value.",
+          "description": "A dictionary of named parameters that this component uses to configure services.\n\nParameters can either be an object describing the parameter or a string shorthand that directly applies to the `default` value.\n\nThis is an alias for the `inputs` field.",
           "type": "object"
         },
         "secrets": {
@@ -147,6 +177,11 @@
                     "description": "A human-readable description of the parameter, how it should be used, and what kinds of values it supports.",
                     "type": "string"
                   },
+                  "merge": {
+                    "default": false,
+                    "description": "Whether or not to merge results from multiple sources into a single array",
+                    "type": "boolean"
+                  },
                   "required": {
                     "default": false,
                     "description": "A boolean indicating whether or not an operator is required ot provide a value",
@@ -157,7 +192,7 @@
               }
             ]
           },
-          "description": "A dictionary of named parameters that this component uses to configure services.\n\nParameters can either be an object describing the parameter or a string shorthand that directly applies to the `default` value.\n\nThis is an alias for the `parameters` field.",
+          "description": "A dictionary of named parameters that this component uses to configure services.\n\nParameters can either be an object describing the parameter or a string shorthand that directly applies to the `default` value.\n\nThis is an alias for the `inputs` field.",
           "type": "object"
         },
         "services": {
@@ -2442,6 +2477,44 @@
           "description": "A set of scheduled and triggerable tasks that get registered alongside the component. Tasks are great for data translation, reporting, and much more.",
           "type": "object"
         },
+        "variables": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "default": {
+                    "description": "The default value to apply to the parameter when one wasn't provided by the operator",
+                    "type": [
+                      "string",
+                      "number"
+                    ]
+                  },
+                  "description": {
+                    "description": "A human-readable description of the parameter, how it should be used, and what kinds of values it supports.",
+                    "type": "string"
+                  },
+                  "merge": {
+                    "default": false,
+                    "description": "Whether or not to merge results from multiple sources into a single array",
+                    "type": "boolean"
+                  },
+                  "required": {
+                    "default": false,
+                    "description": "A boolean indicating whether or not an operator is required ot provide a value",
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            ]
+          },
+          "description": "A dictionary of named parameters that this component uses to configure services.\n\nParameters can either be an object describing the parameter or a string shorthand that directly applies to the `default` value.\n\nThis is an alias for the `parameters` field.",
+          "type": "object"
+        },
         "version": {
           "const": "v1",
           "type": "string"
@@ -2671,7 +2744,41 @@
         },
         "dependencies": {
           "additionalProperties": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "component": {
+                    "description": "The repo the component is in",
+                    "type": "string"
+                  },
+                  "variables": {
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "description": "Input values to provide to the component if `merge` is turned on",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "component"
+                ],
+                "type": "object"
+              }
+            ]
           },
           "description": "A set of other components that this component depends on",
           "type": "object"
@@ -2713,6 +2820,162 @@
                   "number",
                   "string"
                 ]
+              },
+              "debug": {
+                "additionalProperties": false,
+                "properties": {
+                  "autoscaling": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cpu": {
+                        "type": [
+                          "number",
+                          "string"
+                        ]
+                      },
+                      "memory": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "command": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "cpu": {
+                    "type": [
+                      "number",
+                      "string"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "entrypoint": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "environment": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "labels": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "memory": {
+                    "type": "string"
+                  },
+                  "probes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "liveness": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "failure_threshold": {
+                            "type": "number"
+                          },
+                          "headers": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "initial_delay": {
+                            "type": "number"
+                          },
+                          "interval": {
+                            "type": "number"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "port": {
+                            "type": "number"
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "success_threshold": {
+                            "type": "number"
+                          },
+                          "timeout": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "enum": [
+                              "exec",
+                              "http"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "volumes": {
+                    "additionalProperties": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
+                          "type": "string"
+                        },
+                        "mount_path": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
               },
               "description": {
                 "type": "string"
@@ -2901,7 +3164,6 @@
                     }
                   },
                   "required": [
-                    "host_path",
                     "mount_path"
                   ],
                   "type": "object"
@@ -2936,25 +3198,6 @@
           "description": "Claims for external (e.g. client) access to a service",
           "type": "object"
         },
-        "secrets": {
-          "additionalProperties": {
-            "additionalProperties": false,
-            "properties": {
-              "default": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "required": {
-                "type": "boolean"
-              }
-            },
-            "type": "object"
-          },
-          "description": "A set of secrets that this component requires",
-          "type": "object"
-        },
         "services": {
           "additionalProperties": {
             "additionalProperties": false,
@@ -2967,6 +3210,10 @@
                 "description": "Description of the service",
                 "type": "string"
               },
+              "password": {
+                "description": "Basic auth password",
+                "type": "string"
+              },
               "port": {
                 "description": "Port the service listens on",
                 "type": "number"
@@ -2974,6 +3221,10 @@
               "protocol": {
                 "default": "http",
                 "description": "Protocol the service listens on",
+                "type": "string"
+              },
+              "username": {
+                "description": "Basic auth username",
                 "type": "string"
               }
             },
@@ -2984,6 +3235,49 @@
             "type": "object"
           },
           "description": "Services that can receive network traffic",
+          "type": "object"
+        },
+        "variables": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                ],
+                "description": "A default value to use if one isn't provided"
+              },
+              "description": {
+                "description": "A human-readable description",
+                "type": "string"
+              },
+              "merge": {
+                "default": false,
+                "description": "If true, upstream components can pass in values that will be merged together with each other and environment-provided values",
+                "type": "boolean"
+              },
+              "required": {
+                "default": false,
+                "description": "If true, a value is required or the component won't run.",
+                "type": "boolean"
+              },
+              "sensitive": {
+                "default": false,
+                "description": "Whether or not the data should be considered sensitive and stripped from logs",
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "description": "A set of inputs the component expects to be provided",
           "type": "object"
         },
         "version": {

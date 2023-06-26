@@ -42,8 +42,13 @@ export type VolumePushFn = (
   mount_path: string,
 ) => Promise<void>;
 
+export type ComponentDependencies = Array<{
+  component: string;
+  inputs?: Record<string, string[]>;
+}>;
+
 export abstract class Component {
-  public abstract getDependencies(): string[];
+  public abstract getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies;
 
   public abstract getGraph(context: GraphContext): CloudGraph;
 

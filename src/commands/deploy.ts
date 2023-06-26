@@ -1,8 +1,9 @@
-import { ImageRepository } from '../oci/index.ts';
 import cliSpinners from 'cli-spinners';
+import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import EnvironmentV1 from '../environments/v1/index.ts';
+import { parseEnvironment } from '../environments/index.ts';
+import { ImageRepository } from '../oci/index.ts';
 import { Pipeline } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
@@ -10,6 +11,7 @@ type DeployOptions = {
   environment?: string[];
   ingress?: string[];
   verbose?: boolean;
+  debug?: boolean;
 } & GlobalOptions;
 
 const DeployCommand = BaseCommand()
@@ -21,15 +23,22 @@ const DeployCommand = BaseCommand()
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
     collect: true,
   })
+  .option('-d, --debug [debug:boolean]', 'Use the components debug configuration', { default: false })
   .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
   .action(deploy_action);
 
-async function deploy_action(options: DeployOptions, tag: string): Promise<void> {
+async function deploy_action(options: DeployOptions, tag_or_path: string): Promise<void> {
   const command_helper = new CommandHelper(options);
 
   try {
-    const imageRepository = new ImageRepository(tag);
-    await command_helper.componentStore.getComponentConfig(tag);
+    let componentPath: string | undefined;
+    if (existsSync(tag_or_path)) {
+      componentPath = path.join(Deno.cwd(), tag_or_path);
+      tag_or_path = await command_helper.componentStore.add(tag_or_path);
+    }
+
+    const imageRepository = new ImageRepository(tag_or_path);
+    await command_helper.componentStore.getComponentConfig(tag_or_path);
 
     if (!options.environment || options.environment.length <= 0) {
       console.error('Must specify at least one environment to deploy to');
@@ -48,12 +57,10 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
         console.error(`Invalid datacenter associated with environment: ${environmentRecord.datacenter}`);
         Deno.exit(1);
       }
-      const previousPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
 
-      const environment = environmentRecord.config ||
-        new EnvironmentV1({
-          components: {},
-        });
+      const previousPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
+
+      const environment = environmentRecord.config || await parseEnvironment({});
 
       const ingressRules: Record<string, string> = {};
       for (const rule of options.ingress || []) {
@@ -64,10 +71,11 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
       environment.addComponent({
         image: imageRepository,
         ingresses: ingressRules,
+        path: componentPath,
       });
 
       const targetGraph = await datacenterRecord.config.enrichGraph(
-        await environment.getGraph(environmentRecord.name, command_helper.componentStore),
+        await environment.getGraph(environmentRecord.name, command_helper.componentStore, options.debug),
         environmentRecord.name,
       );
 
@@ -81,7 +89,7 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
         interval = setInterval(() => {
           command_helper.renderPipeline(pipeline, {
             clear: true,
-            message: `Deploying ${tag} to ${environmentRecord.name}`,
+            message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
         }, 1000 / cliSpinners.dots.frames.length);
       }
@@ -99,27 +107,33 @@ async function deploy_action(options: DeployOptions, tag: string): Promise<void>
       await pipeline
         .apply({
           providerStore: command_helper.providerStore,
-          cwd: path.resolve('./.terraform'),
           logger,
         })
         .then(async () => {
-          await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-          await command_helper.environmentStore.save({
-            name: environmentRecord.name,
-            datacenter: datacenterRecord.name,
-            config: environment,
-          });
+          await command_helper.saveEnvironment(
+            datacenterRecord.name,
+            environmentRecord.name,
+            datacenterRecord.config,
+            environment,
+            pipeline,
+          );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
-            message: `Deploying ${tag} to ${environmentRecord.name}`,
+            message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
           clearInterval(interval);
         })
         .catch(async (err) => {
-          await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+          await command_helper.saveEnvironment(
+            datacenterRecord.name,
+            environmentRecord.name,
+            datacenterRecord.config,
+            environment,
+            pipeline,
+          );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
-            message: `Deploying ${tag} to ${environmentRecord.name}`,
+            message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
           clearInterval(interval);
           console.error(err);

@@ -1,5 +1,4 @@
 import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
@@ -19,7 +18,7 @@ const UpdateEnvironmentCommand = BaseCommand()
   .arguments('<name:string> [config_path:string]')
   .action(update_environment_action);
 
-async function update_environment_action(options: UpdateEnvironmentOptions, name: string, config_path?: string) {
+export async function update_environment_action(options: UpdateEnvironmentOptions, name: string, config_path?: string) {
   const command_helper = new CommandHelper(options);
 
   const environmentRecord = await command_helper.environmentStore.get(name);
@@ -47,20 +46,17 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, name);
   targetGraph.validate();
 
-  let startingPipeline = new Pipeline();
-  if (environmentRecord?.datacenter) {
-    const startingDatacenter = await command_helper.datacenterStore.get(environmentRecord.datacenter);
-    if (startingDatacenter) {
-      startingPipeline = await command_helper.getPipelineForDatacenter(startingDatacenter);
-    }
-  }
+  const startingDatacenter = (await command_helper.datacenterStore.get(environmentRecord!.datacenter))!;
+  startingDatacenter.config.enrichGraph(targetGraph, name);
+
+  const startingPipeline = await command_helper.getPipelineForEnvironment(environmentRecord!);
 
   const pipeline = Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
   });
 
-  let interval: number;
+  let interval: number | undefined = undefined;
   if (!options.verbose) {
     interval = setInterval(() => {
       command_helper.renderPipeline(pipeline, { clear: true });
@@ -77,30 +73,21 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
     });
   }
 
-  return pipeline
-    .apply({
-      providerStore: command_helper.providerStore,
-      cwd: path.resolve(path.join('./.terraform', targetDatacenter.name)),
-      logger,
-    })
-    .then(async () => {
-      await command_helper.saveDatacenter(targetDatacenter.name, targetDatacenter.config, pipeline);
-      await command_helper.environmentStore.save({
-        name: name,
-        datacenter: targetDatacenter.name,
-        config: targetEnvironment,
-      });
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
-      clearInterval(interval);
-      console.log('Environment updated successfully');
-    })
-    .catch(async (err) => {
-      await command_helper.saveDatacenter(targetDatacenter.name, targetDatacenter.config, pipeline);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
-      clearInterval(interval);
-      console.error(err);
-      Deno.exit(1);
-    });
+  await command_helper.applyEnvironment(
+    name,
+    startingDatacenter,
+    environmentRecord!,
+    targetEnvironment!,
+    pipeline,
+    logger,
+  );
+
+  if (interval) {
+    clearInterval(interval);
+  }
+  command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+  command_helper.doneRenderingPipeline();
+  console.log(`Environment ${name} updated successfully`);
 }
 
 export default UpdateEnvironmentCommand;

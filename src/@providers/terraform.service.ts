@@ -186,11 +186,12 @@ export abstract class TerraformResourceService<
     inputs: ResourceInputs[T],
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
-    const stateFile = path.join(options.cwd, 'terraform.tfstate');
-    const lockFile = path.join(options.cwd, '.terraform.lock.hcl');
+    const cwd = options.cwd || Deno.makeTempDirSync();
+    const stateFile = path.join(cwd, 'terraform.tfstate');
+    const lockFile = path.join(cwd, '.terraform.lock.hcl');
 
     const app = new App({
-      outdir: options.cwd,
+      outdir: cwd,
     });
     const stack = new CldCtlTerraformStack(app, 'arcctl');
     this.configureTerraformProviders(stack);
@@ -223,12 +224,12 @@ export abstract class TerraformResourceService<
       const imports = await module.genImports(options.state.id);
 
       // We have to run this before we can run `terraform import`
-      await this.tfInit(options.cwd, stack, options.logger);
+      await this.tfInit(cwd, stack, options.logger);
       initRan = true;
 
       const terraform = await this.getTerraformPlugin();
       for (const [key, value] of Object.entries(imports)) {
-        await terraform.import(options.cwd, key, value).status;
+        await terraform.import(cwd, key, value).status;
       }
     }
 
@@ -241,7 +242,7 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfInit(options.cwd, stack, options.logger);
+      await this.tfInit(cwd, stack, options.logger);
     }
 
     subscriber.next({
@@ -252,7 +253,7 @@ export abstract class TerraformResourceService<
       },
     });
 
-    await this.tfPlan(options.cwd, options.logger);
+    await this.tfPlan(cwd, options.logger);
 
     subscriber.next({
       status: {
@@ -262,7 +263,7 @@ export abstract class TerraformResourceService<
       },
     });
 
-    const { stderr } = await this.tfApply(options.cwd, options.logger);
+    const { stderr } = await this.tfApply(cwd, options.logger);
     if (stderr && stderr.length > 0) {
       subscriber.error(new TextDecoder().decode(stderr));
       return;
@@ -285,10 +286,10 @@ export abstract class TerraformResourceService<
       lockFile: new TextDecoder().decode(lockFileBuffer),
     };
 
-    const { stdout: rawOutputs } = await this.tfOutput(options.cwd, options.logger);
+    const { stdout: rawOutputs } = await this.tfOutput(cwd, options.logger);
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
 
-    await Deno.remove(options.cwd, { recursive: true });
+    await Deno.remove(cwd, { recursive: true });
 
     if (!parsedOutputs) {
       subscriber.error(new Error('Failed to retrieve terraform outputs'));
@@ -315,11 +316,11 @@ export abstract class TerraformResourceService<
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
     try {
-      const stateFile = path.join(options.cwd, 'terraform.tfstate');
-      const lockFile = path.join(options.cwd, '.terraform.lock.hcl');
-
+      const cwd = options.cwd || Deno.makeTempDirSync();
+      const stateFile = path.join(cwd, 'terraform.tfstate');
+      const lockFile = path.join(cwd, '.terraform.lock.hcl');
       let app = new App({
-        outdir: options.cwd,
+        outdir: cwd,
       });
       let stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
@@ -350,15 +351,15 @@ export abstract class TerraformResourceService<
         const imports = await module.genImports(options.state.id);
 
         // We have to run this before we can run `terraform import`
-        await this.tfInit(options.cwd, stack, options.logger);
+        await this.tfInit(cwd, stack, options.logger);
 
         const terraform = await this.getTerraformPlugin();
         for (const [key, value] of Object.entries(imports)) {
-          await terraform.import(options.cwd, key, value).status;
+          await terraform.import(cwd, key, value).status;
         }
       }
 
-      app = new App({ outdir: options.cwd });
+      app = new App({ outdir: cwd });
       stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
 
@@ -370,7 +371,7 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfInit(options.cwd, stack, options.logger);
+      await this.tfInit(cwd, stack, options.logger);
 
       subscriber.next({
         status: {
@@ -380,7 +381,7 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfPlan(options.cwd, options.logger);
+      await this.tfPlan(cwd, options.logger);
 
       subscriber.next({
         status: {
@@ -390,7 +391,7 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfApply(options.cwd, options.logger);
+      await this.tfApply(cwd, options.logger);
 
       const stateFileBuffer = await Deno.readFile(stateFile);
       const lockFileBuffer = await Deno.readFile(lockFile);
@@ -401,7 +402,7 @@ export abstract class TerraformResourceService<
         lockFile: new TextDecoder().decode(lockFileBuffer),
       };
 
-      //await Deno.remove(options.cwd, { recursive: true });
+      await Deno.remove(cwd, { recursive: true });
 
       subscriber.next({
         status: {

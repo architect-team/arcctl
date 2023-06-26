@@ -1,5 +1,8 @@
 version: v2
 
+dependencies:
+  smtp: muesch.io/architect/smtp
+
 databases:
   kratos:
     type: postgres:15
@@ -13,14 +16,14 @@ databases:
       environment:
         DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
 
-deployments:
-  mailslurper:
-    image: oryd/mailslurper:latest-smtps
-    volumes:
-      source:
-        mount_path: /volume_test
-        host_path: /home/muesch/Architect/code/arcctl/bin
+builds:
+  kratos-ui:
+    context: ../../kratos-selfservice-ui-node/
+    dockerfile: Dockerfile
+    debug:
+      dockerfile: Dockerfile-dev
 
+deployments:
   kratos:
     image: oryd/kratos:v0.13.0
     entrypoint: [""]
@@ -32,22 +35,40 @@ deployments:
         echo "$IDENTITY_SCHEMA" > ./kratos/identity.schema.json
         echo "$CONFIG" > ./kratos/.kratos.yml
         kratos -c ./kratos/.kratos.yml migrate sql -e --yes
-        kratos serve -c ./kratos/.kratos.yml --watch-courier
+        kratos serve -c ./kratos/.kratos.yml --watch-courier --dev
     environment:
       CONFIG: |
         version: v0.13.0
         dsn: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
         serve:
           public:
-            base_url: ${{ ingresses.public.url }}
+            base_url: ${{ ingresses.api.url }}
             cors:
               enabled: true
+              debug: true
+              allowed_origins:
+                - http://*.127.0.0.1.nip.io
+                - ${{ ingresses.auth.url }}
+                - ${{ ingresses.api.url }}
+              allowed_methods:
+                - POST
+                - GET
+                - PUT
+                - PATCH
+                - DELETE
+              allowed_headers:
+                - Authorization
+                - Cookie
+                - Content-Type
+              exposed_headers:
+                - Content-Type
+                - Set-Cookie
           admin:
-            base_url: ${{ services.admin.url }}
+            base_url: ${{ services.kratos-admin.url }}
         selfservice:
-          default_browser_return_url: ${{ ingresses.frontend.url }}
+          default_browser_return_url: ${{ ingresses.auth.url }}
           allowed_return_urls:
-            - ${{ ingresses.frontend.url }}
+            - ${{ ingresses.auth.url }}
           methods:
             password:
               enabled: true
@@ -63,19 +84,19 @@ deployments:
               enabled: true
           flows:
             error:
-              ui_url: ${{ ingresses.frontend.url }}error
+              ui_url: ${{ ingresses.auth.url }}error
             settings:
-              ui_url: ${{ ingresses.frontend.url }}settings
+              ui_url: ${{ ingresses.auth.url }}settings
               privileged_session_max_age: 15m
               required_aal: highest_available
             logout:
               after:
-                default_browser_return_url: ${{ ingresses.frontend.url }}login
+                default_browser_return_url: ${{ ingresses.auth.url }}login
             login:
-              ui_url: ${{ ingresses.frontend.url }}login
+              ui_url: ${{ ingresses.auth.url }}login
               lifespan: 10m
             registration:
-              ui_url: ${{ ingresses.frontend.url }}registration
+              ui_url: ${{ ingresses.auth.url }}registration
               lifespan: 10m
               after:
                 password:
@@ -84,19 +105,19 @@ deployments:
                     - hook: show_verification_ui
             verification:
               enabled: true
-              ui_url: ${{ ingresses.frontend.url }}verification
+              ui_url: ${{ ingresses.auth.url }}verification
               use: code
               after:
-                default_browser_return_url: ${{ ingresses.frontend.url }}
+                default_browser_return_url: ${{ ingresses.auth.url }}
             recovery:
               enabled: true
-              ui_url: ${{ ingresses.frontend.url }}recovery
+              ui_url: ${{ ingresses.auth.url }}recovery
               use: code
         courier:
           smtp:
-            connection_uri: smtps://test:test@${{ services.smtps.host }}:${{ services.smtps.port }}/?skip_ssl_verify=true
+            connection_uri: ${{ dependencies.smtp.services.smtp.url }}/?skip_ssl_verify=true
         log:
-          level: debug
+          level: info
           format: text
           leak_sensitive_values: true
         secrets:
@@ -104,10 +125,8 @@ deployments:
             - PLEASE-CHANGE-ME-I-AM-VERY-INSECURE
           cipher:
             - 32-LONG-SECRET-NOT-SECURE-AT-ALL
-
         ciphers:
           algorithm: xchacha20-poly1305
-
         hashers:
           algorithm: bcrypt
           bcrypt:
@@ -117,9 +136,8 @@ deployments:
           schemas:
             - id: default
               url: file://./kratos/identity.schema.json
-        session:
-          cookie:
-            domain: davidthor.me
+        cookies:
+          domain: 127.0.0.1.nip.io
       IDENTITY_SCHEMA: |
         {
           "$id": "https://schemas.ory.sh/presets/kratos/quickstart/email-password/identity.schema.json",
@@ -172,25 +190,28 @@ deployments:
         }
 
   ui:
-    image: oryd/kratos-selfservice-ui-node:v0.13.0
+    image: ${{ builds.kratos-ui.id }}
     environment:
       PORT: '4455'
-      KRATOS_PUBLIC_URL: ${{ services.public.url }}
-      KRATOS_BROWSER_URL: ${{ ingresses.public.url }}
-      LOG_LEVEL: debug
-      LOG_FORMAT: text
+      KRATOS_PUBLIC_URL: ${{ services.kratos-public.url }}
+      KRATOS_BROWSER_URL: ${{ ingresses.api.url }}
+    debug:
+      volumes:
+        src:
+          host_path: ./src
+          mount_path: /usr/src/app/src
+        views:
+          host_path: ./views
+          mount_path: /usr/src/app/views
+        public:
+          host_path: ./public
+          mount_path: /usr/src/app/public
 
 services:
-  smtp:
-    deployment: mailslurper
-    port: 4436
-  smtps:
-    deployment: mailslurper
-    port: 4437
-  public:
+  kratos-public:
     deployment: kratos
     port: 4433
-  admin:
+  kratos-admin:
     deployment: kratos
     port: 4434
   frontend:
@@ -198,7 +219,7 @@ services:
     port: 4455
 
 ingresses:
-  public:
-    service: public
-  frontend:
+  api:
+    service: kratos-public
+  auth:
     service: frontend

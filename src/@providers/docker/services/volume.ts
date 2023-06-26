@@ -41,9 +41,24 @@ export class DockerVolumeService extends CrudResourceService<'volume', DockerCre
   }
 
   async create(subscriber: Subscriber<string>, inputs: ResourceInputs['volume']): Promise<ResourceOutputs['volume']> {
-    await exec('docker', { args: ['volume', 'create', inputs.name] });
+    const volumeId = inputs.name.replaceAll('/', '--');
+    const args = ['volume', 'create'];
+
+    if (inputs.hostPath) {
+      args.push('--opt', 'type=none');
+      args.push('--opt', `device=${inputs.hostPath}`);
+      args.push('--opt', 'o=bind');
+    }
+
+    args.push(volumeId);
+
+    const { code, stderr } = await exec('docker', { args });
+    if (code !== 0) {
+      throw new Error(stderr || 'Unable to create volume');
+    }
+
     return {
-      id: inputs.name,
+      id: volumeId,
     };
   }
 

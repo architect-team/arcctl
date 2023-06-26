@@ -4,6 +4,7 @@ import { ImageRepository } from '../oci/index.ts';
 
 export type ComponentMetadata = {
   image: ImageRepository;
+  path?: string;
   ingresses?: Record<string, string>;
 };
 

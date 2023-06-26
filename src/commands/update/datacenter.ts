@@ -1,10 +1,10 @@
 import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { update_environment_action } from './environment.ts';
 
 type UpdateDatacenterOptions = {
   verbose: boolean;
@@ -30,15 +30,12 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
     const allEnvironments = await command_helper.environmentStore.find();
     const datacenterEnvironments = allEnvironments.filter((e) => e.datacenter === name);
 
-    const targetGraph = await newDatacenter.enrichGraph(new CloudGraph());
+    const graph = new CloudGraph();
 
-    for (const record of datacenterEnvironments) {
-      const originalEnvGraph = await record.config?.getGraph(record.name, command_helper.componentStore);
-      const targetEnvGraph = await newDatacenter.enrichGraph(originalEnvGraph || new CloudGraph(), record.name);
+    const vars = await command_helper.promptForVariables(graph, newDatacenter.getVariables());
+    newDatacenter.setVariableValues(vars);
 
-      targetGraph.insertNodes(...targetEnvGraph.nodes);
-      targetGraph.insertEdges(...targetEnvGraph.edges);
-    }
+    const targetGraph = await newDatacenter.enrichGraph(graph);
 
     const originalPipeline = await command_helper.getPipelineForDatacenter(currentDatacenterRecord);
     const newPipeline = Pipeline.plan({
@@ -53,7 +50,7 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
 
     newPipeline.validate();
 
-    let interval: number;
+    let interval: number | undefined = undefined;
     if (!options.verbose) {
       interval = setInterval(() => {
         command_helper.renderPipeline(newPipeline, { clear: true });
@@ -70,24 +67,23 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
       });
     }
 
-    return newPipeline
-      .apply({
-        providerStore: command_helper.providerStore,
-        logger: logger,
-        cwd: path.resolve(path.join('./.terraform', name)),
-      })
-      .then(async () => {
-        await command_helper.saveDatacenter(name, newDatacenter, newPipeline);
-        command_helper.renderPipeline(newPipeline, { clear: !options.verbose });
-        clearInterval(interval);
-        console.log('Datacenter updated successfully');
-      })
-      .catch(async (err) => {
-        await command_helper.saveDatacenter(name, newDatacenter, newPipeline);
-        clearInterval(interval);
-        console.error(err);
-        Deno.exit(1);
-      });
+    await command_helper.applyDatacenter(name, newDatacenter, newPipeline, logger);
+
+    if (interval) {
+      clearInterval(interval);
+    }
+    command_helper.renderPipeline(newPipeline, { clear: !options.verbose });
+    command_helper.doneRenderingPipeline();
+    console.log(`Datacenter ${name} updated successfully`);
+
+    for (const environmet of datacenterEnvironments) {
+      await update_environment_action({
+        verbose: options.verbose,
+        datacenter: name,
+      }, environmet.name);
+    }
+    console.log('Environments updated successfully');
+    command_helper.doneRenderingPipeline();
   } catch (err) {
     if (Array.isArray(err)) {
       err.map((e) => {

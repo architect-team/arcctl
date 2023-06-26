@@ -1,4 +1,5 @@
 import { Subscriber } from 'rxjs';
+import { mergeReadableStreams } from 'std/streams/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
@@ -86,18 +87,17 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args,
     });
     const child = cmd.spawn();
-    return child.stdout;
+    return mergeReadableStreams(child.stdout, child.stderr);
   }
 
   async create(
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
-    const containerName = inputs.name.replaceAll('/', '--');
+    const containerName = [inputs.namespace || '', inputs.name.replaceAll('/', '--')].filter((value) => value).join(
+      '--',
+    );
     const args = ['run', '--detach', '--quiet', '--name', containerName];
-    if (inputs.namespace) {
-      args.push('--network', inputs.namespace);
-    }
 
     if (inputs.environment) {
       for (const [key, value] of Object.entries(inputs.environment)) {
@@ -111,7 +111,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
-        args.push('--volume', `${mount.local_image}:${mount.mount_path}`);
+        args.push('--volume', `${mount.volume}:${mount.mount_path}`);
       }
     }
 
@@ -130,7 +130,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     labels = {
       ...labels,
       'io.architect': 'arcctl',
-      'io.architect.arcctl.deployment': inputs.name,
+      'io.architect.arcctl.deployment': containerName,
     };
 
     for (const [key, value] of Object.entries(labels)) {
@@ -149,7 +149,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     }
 
     return {
-      id: inputs.name,
+      id: containerName,
       labels,
     };
   }
@@ -223,7 +223,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       labels = {
         ...inputs.labels,
         'io.architect': 'arcctl',
-        'io.architect.arcctl.deployment': inputs.name,
+        'io.architect.arcctl.deployment': containerName,
       };
     } else if (inputs.labels) {
       labels = {
@@ -236,6 +236,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push('--label', `${key}=${value}`);
     }
 
+    if (inputs.volume_mounts) {
+      for (const mount of inputs.volume_mounts) {
+        args.push('--volume', `${mount?.volume}:${mount?.mount_path}`);
+      }
+    }
+
     args.push(inputs.image || inspection.Image);
 
     const command = (inputs.command || inspection.Config.Cmd) as string | string[];
@@ -243,13 +249,13 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push(...(typeof command === 'string' ? [command] : command));
     }
 
-    const { code, stdout, stderr } = await exec('docker', { args });
+    const { code, stderr } = await exec('docker', { args });
     if (code !== 0) {
       throw new Error(stderr || 'Deployment failed');
     }
 
     return {
-      id: stdout.replace(/^\s+|\s+$/g, ''),
+      id: containerName,
       labels,
     };
   }

@@ -18,7 +18,8 @@ environment can be backed by. To learn more about datacenters, check out the [da
 
 Most developer's first exposure to environments is via ephemeral environments –
 short lived environments that will automatically clean themselves up when the process
-is killed. These are perfect for everyday usage and quick tests of new code changes.
+that created the environment is killed. These are perfect for everyday usage and quick
+tests of new code changes.
 
 Creating ephemeral environments is simple using the `arcctl up` command. You can specify
 one or more [components](../components/) to include in the environment via tag or local path,
@@ -54,7 +55,8 @@ _To learn more about components and dependencies, check out the [component docum
 ### Permament environments
 
 Permanent environments are long-running environments that will be constantly updated and contributed to.
-These environments persist beyond the lifecycle of the process and will be cleaned up manually.
+These environments persist beyond the lifecycle of the environment creation CLI process and will be cleaned
+up manually (or never).
 
 You can create an environment using `arcctl create environment`. The example below creates an environment
 called "production" on a datacenter called "my-datacenter":
@@ -98,7 +100,8 @@ $ arcctl deploy architect/auth:latest --environment production --ingress api:aut
 ```
 
 The command above will assign the subdomains `auth-api` and `auth` to the `api` and `frontend` ingress
-rules respectively inside the `architect/auth` component.
+rules respectively inside the `architect/auth` component. Note that the rest of the URL for the [`ingressRules`](../%40resources/ingressRule/)
+is expected to be provided by the datacenter you deploy to.
 
 _The deploy command is basically a wrapper on top of the `arcctl environment update` command seen below.
 It mutates the underlying environment configuration and then re-applies the changes. If you don't see

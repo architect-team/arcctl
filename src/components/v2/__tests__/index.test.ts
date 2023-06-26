@@ -1,7 +1,9 @@
+import { prepareVirtualFile } from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { ComponentSchema } from '../../schema.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -11,7 +13,6 @@ import {
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
-import { ComponentSchema } from '../../schema.ts';
 import ComponentV2 from '../index.ts';
 
 describe('Component Schema: v2', () => {
@@ -182,10 +183,11 @@ describe('Component Schema: v2', () => {
                 host_path: ./src
                 mount_path: /app/src
     `) as ComponentSchema);
+    prepareVirtualFile('/fake/source/architect.yml');
     const graph = component.getGraph({
       component: {
         name: 'component',
-        source: '/fake/source',
+        source: '/fake/source/architect.yml',
         debug: true,
       },
       environment: 'environment',

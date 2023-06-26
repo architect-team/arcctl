@@ -60,8 +60,30 @@
                 "deploy",
                 "-v",
                 "-e",
-                "do-env",
-                "muesch.io/muesch/architect/auth:latest"
+                "local",
+                "muesch.io/muesch/multienv:latest"
+            ],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Create Env",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "-A",
+                "main.ts"
+            ],
+            "args": [
+                "create",
+                "environment",
+                "-d",
+                "local",
+                "local"
             ],
             "attachSimplePort": 9229,
             "console": "integratedTerminal"

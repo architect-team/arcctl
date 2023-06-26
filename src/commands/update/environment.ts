@@ -82,11 +82,12 @@ export async function update_environment_action(options: UpdateEnvironmentOption
     logger,
   );
 
-  command_helper.renderPipeline(pipeline, { clear: !options.verbose });
   if (interval) {
     clearInterval(interval);
   }
-  console.log('Environment updated successfully');
+  command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+  command_helper.doneRenderingPipeline();
+  console.log(`Environment ${name} updated successfully`);
 }
 
 export default UpdateEnvironmentCommand;

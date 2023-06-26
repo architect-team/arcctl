@@ -1,5 +1,4 @@
 import cliSpinners from 'cli-spinners';
-import { sleep } from 'https://deno.land/x/sleep/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
@@ -70,12 +69,12 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
 
     await command_helper.applyDatacenter(name, newDatacenter, newPipeline, logger);
 
-    command_helper.renderPipeline(newPipeline, { clear: !options.verbose });
     if (interval) {
       clearInterval(interval);
     }
-    await sleep(1);
-    console.log('Datacenter updated successfully');
+    command_helper.renderPipeline(newPipeline, { clear: !options.verbose });
+    command_helper.doneRenderingPipeline();
+    console.log(`Datacenter ${name} updated successfully`);
 
     for (const environmet of datacenterEnvironments) {
       await update_environment_action({
@@ -83,8 +82,8 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
         datacenter: name,
       }, environmet.name);
     }
-    await sleep(1);
     console.log('Environments updated successfully');
+    command_helper.doneRenderingPipeline();
   } catch (err) {
     if (Array.isArray(err)) {
       err.map((e) => {

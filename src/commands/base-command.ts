@@ -341,6 +341,13 @@ export class CommandHelper {
   }
 
   /**
+   * Helper method to indicate the rendering pipeline is complete
+   */
+  public doneRenderingPipeline(): void {
+    logUpdate.done();
+  }
+
+  /**
    * Helper method to prompt users to confirm they're ready to proceed
    */
   private async promptForContinuation(message: string): Promise<boolean> {

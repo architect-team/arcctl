@@ -62,14 +62,22 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
       logger: logger,
     })
     .then(async () => {
+      clearInterval(interval);
       await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
-      clearInterval(interval);
-      console.log('Environment destroyed successfully');
+      command_helper.doneRenderingPipeline();
+      console.log(`Environment ${name} destroyed successfully`);
     })
     .catch(async (err) => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
       clearInterval(interval);
+      await command_helper.saveEnvironment(
+        datacenterRecord.name,
+        environmentRecord.name,
+        datacenterRecord.config,
+        environmentRecord.config!,
+        pipeline,
+      );
+      command_helper.doneRenderingPipeline();
       console.error(err);
       Deno.exit(1);
     });

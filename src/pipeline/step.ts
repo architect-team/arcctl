@@ -1,3 +1,4 @@
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
@@ -68,6 +69,9 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   }
 
   public getHash(providerStore: ProviderStore): string {
+    if (!this.inputs?.account || this.inputs?.account === 'n/a') {
+      return crypto.createHash('sha256').update(JSON.stringify(this.inputs)).digest('hex').toString();
+    }
     const cwd = Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));

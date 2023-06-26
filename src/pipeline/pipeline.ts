@@ -238,6 +238,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
+        newStep.hash = newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
         replacements[oldId] = newStep.id;
       } else {
@@ -251,6 +252,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
+        newExecutable.hash = newExecutable.getHash(providerStore);
         pipeline.insertSteps(newExecutable);
         replacements[oldId] = newExecutable.id;
       }

@@ -27,7 +27,7 @@
     ],
     "exclude": [
       "src/**/.gen/**/*",
-      "src/**/*.schema.json"
+      "src/**/*.json"
     ]
   },
   "tasks": {

@@ -205,14 +205,7 @@ export class Pipeline {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
       } else if (!this.steps.some((n) => n.id === edge.to)) {
-        // HEAD
-        console.log(this);
-        throw new Error(
-          `${edge.to} is missing from the pipeline, but required by ${edge.from}`,
-        );
-        //
         throw new Error(`${edge.to} is missing from the pipeline, but required by ${edge.from}`);
-        //aa5b56fead1afaa86b4aeb0293e172ad4fd459f5
       }
     }
   }

@@ -42,6 +42,7 @@ const mainPlugins = [
 ];
 
 module.exports = {
+  dryRun: true, // TODO: remove
   branches: [
     'main',
     {

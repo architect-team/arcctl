@@ -44,6 +44,7 @@ await build({
 // Copy files from the root dir into npm package.
 await Deno.copyFile('LICENSE.md', path.join(build_dir, 'LICENSE.md'));
 await Deno.copyFile('README.md', path.join(build_dir, 'README.md'));
+await Deno.copyFile('release.config.json', path.join(build_dir, 'release.config.json'));
 
 // Copy all *.schema.json files into the npm package
 for await (const dirEntry of walk(path.join(__dirname, '..', 'src'))) {

@@ -36,7 +36,6 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
       ? inputs.context
       : path.join(path.dirname(inputs.component_source), inputs.context);
     args.push('./');
-    // args.push(context);
 
     const { code, stdout, stderr } = await exec('docker', {
       args,

@@ -284,7 +284,7 @@ export default class ComponentV2 extends Component {
         );
       }
       for (const [volumeKey, volumeConfig] of Object.entries(volumes)) {
-        const is_directory = volumeConfig.host_path ? Deno.statSync(volumeConfig.host_path).isDirectory : false;
+        const is_directory = volumeConfig.host_path ? Deno.statSync(context.component.source).isDirectory : false;
         let host_path = undefined;
         if (volumeConfig.host_path && is_directory) {
           host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);

@@ -102,7 +102,6 @@ export class Pipeline {
         const step = this.steps.find((s) => s.id === step_id);
         const outputs = step?.outputs;
         if (!step || !outputs) {
-          console.log(input);
           throw new Error(`Missing outputs for ${step_id}`);
         } else if ((outputs as any)[key] === undefined) {
           throw new Error(`Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`);

@@ -1,8 +1,8 @@
-import { Datacenter } from './datacenter.ts';
-import { buildDatacenter, DatacenterSchema } from './schema.ts';
 import Ajv2019 from 'ajv/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
+import { Datacenter } from './datacenter.ts';
+import { buildDatacenter, DatacenterSchema } from './schema.ts';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
@@ -14,9 +14,15 @@ const datacenter_validator = ajv.compile<DatacenterSchema>(JSON.parse(datacenter
 export const parseDatacenter = async (input: Record<string, unknown> | string): Promise<Datacenter> => {
   let raw_obj: any;
   if (typeof input === 'string') {
-    const filename = input;
-    const raw_contents = await Deno.readTextFile(filename);
-    if (filename.endsWith('.json')) {
+    let raw_contents: string;
+    if (input.startsWith('http://') || input.startsWith('https://')) {
+      const resp = await fetch(input);
+      raw_contents = await resp.text();
+    } else {
+      raw_contents = await Deno.readTextFile(input);
+    }
+
+    if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
       raw_obj = yaml.load(raw_contents);

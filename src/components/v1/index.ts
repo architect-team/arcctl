@@ -1,8 +1,17 @@
 import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import {
+  Component,
+  ComponentDependencies,
+  DockerBuildFn,
+  DockerPushFn,
+  DockerTagFn,
+  GraphContext,
+  VolumeBuildFn,
+} from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DatabaseSchemaV1 } from './database-schema-v1.ts';
+import { DependencySchemaV1 } from './dependency-schema-v1.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { InterfaceSchemaV1 } from './interface-schema-v1.ts';
 import { ParameterSchemaV1 } from './parameter-schema-v1.ts';
@@ -31,6 +40,8 @@ export default class ComponentV1 extends Component {
    *
    * Parameters can either be an object describing the parameter or a string shorthand that directly
    * applies to the `default` value.
+   *
+   * This is an alias for the `inputs` field.
    */
   parameters?: Record<string, ParameterSchemaV1>;
 
@@ -40,9 +51,19 @@ export default class ComponentV1 extends Component {
    * Parameters can either be an object describing the parameter or a string shorthand that directly
    * applies to the `default` value.
    *
-   * This is an alias for the `parameters` field.
+   * This is an alias for the `inputs` field.
    */
   secrets?: Record<string, ParameterSchemaV1>;
+
+  /**
+   * A dictionary of named parameters that this component uses to configure services.
+   *
+   * Parameters can either be an object describing the parameter or a string shorthand that directly
+   * applies to the `default` value.
+   *
+   * This is an alias for the `parameters` field.
+   */
+  variables?: Record<string, ParameterSchemaV1>;
 
   /**
    * A dictionary of named interfaces that the component makes available to upstreams, including
@@ -56,7 +77,10 @@ export default class ComponentV1 extends Component {
   /**
    * A set of components and associated versions that this component depends on.
    */
-  dependencies?: Record<string, string>;
+  dependencies?: Record<
+    string,
+    string | DependencySchemaV1
+  >;
 
   /**
    * A set of named services that need to be run and persisted in order to power this component.
@@ -144,7 +168,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, build_node));
+        build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
+        graph.insertNodes(build_node);
         graph.insertEdges(
           new CloudEdge({
             from: deployment_node_id,
@@ -202,8 +227,9 @@ export default class ComponentV1 extends Component {
                 },
               });
 
+              volume_node.inputs = parseExpressionRefs(graph, context, volume_node.id, volume_node.inputs);
               graph.insertNodes(
-                parseExpressionRefs(graph, context, volume_node),
+                volume_node,
               );
               graph.insertEdges(
                 new CloudEdge({
@@ -228,7 +254,8 @@ export default class ComponentV1 extends Component {
       });
 
       // Insert the deployment node
-      graph.insertNodes(parseExpressionRefs(graph, context, deployment_node));
+      deployment_node.inputs = parseExpressionRefs(graph, context, deployment_node.id, deployment_node.inputs);
+      graph.insertNodes(deployment_node);
 
       // Create and insert the service nodes for each interface
       for (
@@ -257,7 +284,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, service_node));
+        service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
+        graph.insertNodes(service_node);
         graph.insertEdges(
           new CloudEdge({
             from: service_node.id,
@@ -267,7 +295,8 @@ export default class ComponentV1 extends Component {
         );
 
         if (typeof interface_config === 'object' && interface_config.ingress) {
-          graph.insertNodes(parseExpressionRefs(graph, context, service_node));
+          service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
+          graph.insertNodes(service_node);
 
           const ingress_node = new CloudNode({
             name: `${service_name}-${interface_name}`,
@@ -292,7 +321,8 @@ export default class ComponentV1 extends Component {
             },
           });
 
-          graph.insertNodes(parseExpressionRefs(graph, context, ingress_node));
+          ingress_node.inputs = parseExpressionRefs(graph, context, ingress_node.id, ingress_node.inputs);
+          graph.insertNodes(ingress_node);
           graph.insertEdges(
             new CloudEdge({
               from: ingress_node.id,
@@ -355,7 +385,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, build_node));
+        build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
+        graph.insertNodes(build_node);
         graph.insertEdges(
           new CloudEdge({
             from: cronjob_node_id,
@@ -400,9 +431,8 @@ export default class ComponentV1 extends Component {
                 },
               });
 
-              graph.insertNodes(
-                parseExpressionRefs(graph, context, volume_node),
-              );
+              volume_node.inputs = parseExpressionRefs(graph, context, volume_node.id, volume_node.inputs);
+              graph.insertNodes(volume_node);
               graph.insertEdges(
                 new CloudEdge({
                   from: cronjob_node.id,
@@ -426,7 +456,8 @@ export default class ComponentV1 extends Component {
       });
 
       // Insert the deployment node
-      graph.insertNodes(parseExpressionRefs(graph, context, cronjob_node));
+      cronjob_node.inputs = parseExpressionRefs(graph, context, cronjob_node.id, cronjob_node.inputs);
+      graph.insertNodes(cronjob_node);
     }
 
     return graph;
@@ -489,7 +520,8 @@ export default class ComponentV1 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, context, interface_node));
+      interface_node.inputs = parseExpressionRefs(graph, context, interface_node.id, interface_node.inputs);
+      graph.insertNodes(interface_node);
       graph.insertEdges(
         new CloudEdge({
           from: interface_node.id,
@@ -499,7 +531,8 @@ export default class ComponentV1 extends Component {
       );
 
       if (typeof interface_config === 'object' && interface_config.ingress) {
-        graph.insertNodes(parseExpressionRefs(graph, context, interface_node));
+        interface_node.inputs = parseExpressionRefs(graph, context, interface_node.id, interface_node.inputs);
+        graph.insertNodes(interface_node);
 
         const ingress_node = new CloudNode({
           name: interface_key,
@@ -522,7 +555,8 @@ export default class ComponentV1 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, context, ingress_node));
+        ingress_node.inputs = parseExpressionRefs(graph, context, ingress_node.id, ingress_node.inputs);
+        graph.insertNodes(ingress_node);
         graph.insertEdges(
           new CloudEdge({
             from: ingress_node.id,
@@ -574,8 +608,43 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
+  private addVariablesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
+    const values = {
+      ...this.parameters,
+      ...this.variables,
+      ...this.secrets,
+    };
+    for (const [key, value] of Object.entries(values || {})) {
+      const secret_node = new CloudNode({
+        name: key,
+        component: context.component.name,
+        environment: context.environment,
+        inputs: {
+          type: 'secret',
+          name: CloudNode.genResourceId({
+            name: key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
+          data: typeof value === 'string' ? value : value.default?.toString() || '',
+          ...(typeof value === 'object'
+            ? {
+              ...(value.required ? { required: value.required } : {}),
+              ...(value.merge ? { merge: value.merge } : {}),
+            }
+            : {}),
+        },
+      });
+
+      graph.insertNodes(secret_node);
+    }
+
+    return graph;
+  }
+
   public getGraph(context: GraphContext): CloudGraph {
     let graph = new CloudGraph();
+    graph = this.addVariablesToGraph(graph, context);
     graph = this.addServicesToGraph(graph, context);
     graph = this.addTasksToGraph(graph, context);
     graph = this.addInterfacesToGraph(graph, context);
@@ -583,8 +652,35 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
-  public getDependencies(): string[] {
-    return Object.keys(this.dependencies || {});
+  public getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies {
+    const res: ComponentDependencies = [];
+
+    for (const [key, value] of Object.entries(this.dependencies || {})) {
+      if (typeof value === 'string') {
+        res.push({
+          component: key,
+        });
+      } else {
+        const inputs: ComponentDependencies[number]['inputs'] = {};
+        for (const [inputKey, inputValue] of Object.entries(value.inputs || {})) {
+          const from_id = CloudNode.genId({
+            type: 'secret',
+            name: key,
+            component: value.component,
+            environment: context.environment,
+          });
+
+          inputs[inputKey] = parseExpressionRefs(graph, context, from_id, inputValue);
+        }
+
+        res.push({
+          component: value.component,
+          inputs,
+        });
+      }
+    }
+
+    return res;
   }
 
   public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {

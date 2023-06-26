@@ -1,0 +1,58 @@
+secrets:
+  account: local
+
+resources:
+  service-registry:
+    type: volume
+    account: docker
+    name: traefik-volume
+
+  gateway:
+    type: deployment
+    name: my-gateway
+    account: docker
+    exposed_ports:
+      - port: 80
+        target_port: 80
+      - port: 8080
+        target_port: 8080
+    image: traefik:v2.10
+    command:
+      - --providers.file.directory=/etc/traefik
+      - --providers.file.watch=true
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --accesslog=true
+    volume_mounts:
+      - mount_path: /etc/traefik
+        readonly: true
+        volume: ${{ resources.service-registry.id }}
+
+accounts:
+  gateway:
+    name: local-gateway
+    provider: traefik
+    credentials:
+      type: volume
+      volume: ${{ resources.service-registry.id }}
+      account: docker
+
+environment:
+  hooks:
+    - when:
+        type: service
+      account: ${{ accounts.gateway.id }}
+    - when:
+        type: ingressRule
+      account: ${{ accounts.gateway.id }}
+      registry: ${{ resources.service-registry.id }}
+      dnsZone: localhost
+    - when:
+        type: databaseSchema
+      account: ${{ environment.accounts.pg.id }}
+    - when:
+        type: deployment
+        image: oryd/kratos-selfservice-ui-node:v0.13.0
+      platform: linux/amd64
+    - account: docker
+      namespace: ${{ environment.name }}

@@ -6,6 +6,12 @@ export type EnvironmentRecord = {
   name: string;
   datacenter: string;
   config?: Environment;
+
+  // Refers to a secret containing the last pipeline that was run
+  lastPipeline: {
+    account: string;
+    secret: string;
+  };
 };
 
 export class EnvironmentStore {
@@ -48,6 +54,7 @@ export class EnvironmentStore {
         name: raw.name,
         datacenter: raw.datacenter,
         config: raw.config ? await parseEnvironment(raw.config) : undefined,
+        lastPipeline: raw.lastPipeline,
       });
     }
 

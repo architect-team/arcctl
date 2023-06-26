@@ -1,4 +1,5 @@
 import { Subscriber } from 'rxjs';
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
@@ -31,9 +32,15 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
       args.push('-f', inputs.dockerfile);
     }
 
-    args.push(inputs.context);
+    const context = path.isAbsolute(inputs.context)
+      ? inputs.context
+      : path.join(path.dirname(inputs.component_source), inputs.context);
+    args.push('./');
 
-    const { code, stdout, stderr } = await exec('docker', { args });
+    const { code, stdout, stderr } = await exec('docker', {
+      args,
+      cwd: context,
+    });
     if (code !== 0) {
       throw new Error(stderr || 'Build failed');
     }

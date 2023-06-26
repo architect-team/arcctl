@@ -686,7 +686,7 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "image": {
+                          "local_image": {
                             "type": "string"
                           },
                           "mount_path": {
@@ -694,6 +694,9 @@
                           },
                           "readonly": {
                             "type": "boolean"
+                          },
+                          "remote_image": {
+                            "type": "string"
                           },
                           "volume": {
                             "type": "string"
@@ -726,7 +729,7 @@
                 "items": {
                   "additionalProperties": false,
                   "properties": {
-                    "image": {
+                    "local_image": {
                       "type": "string"
                     },
                     "mount_path": {
@@ -734,6 +737,9 @@
                     },
                     "readonly": {
                       "type": "boolean"
+                    },
+                    "remote_image": {
+                      "type": "string"
                     },
                     "volume": {
                       "type": "string"
@@ -1343,6 +1349,11 @@
                 "description": "Data to populate the secret with",
                 "type": "string"
               },
+              "merge": {
+                "default": false,
+                "description": "Whether or not to merge the input data from multiple sources into an array of values",
+                "type": "boolean"
+              },
               "name": {
                 "description": "Name for the secret",
                 "type": "string"
@@ -1352,7 +1363,13 @@
                 "type": "string"
               },
               "required": {
+                "default": false,
                 "description": "Whether or not the secret is required",
+                "type": "boolean"
+              },
+              "sensitive": {
+                "default": false,
+                "description": "Whether or not the data is to be considered sensitive and stripped from logs",
                 "type": "boolean"
               },
               "type": {

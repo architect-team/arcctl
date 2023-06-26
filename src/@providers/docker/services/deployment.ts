@@ -94,11 +94,10 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
-    const containerName = inputs.name.replaceAll('/', '--');
+    const containerName = [inputs.namespace || '', inputs.name.replaceAll('/', '--')].filter((value) => value).join(
+      '--',
+    );
     const args = ['run', '--detach', '--quiet', '--name', containerName];
-    if (inputs.namespace) {
-      args.push('--network', inputs.namespace);
-    }
 
     if (inputs.environment) {
       for (const [key, value] of Object.entries(inputs.environment)) {
@@ -112,7 +111,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
-        args.push('--volume', `${mount.local_image}:${mount.mount_path}`);
+        args.push('--volume', `${mount.volume}:${mount.mount_path}`);
       }
     }
 
@@ -235,6 +234,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     for (const [key, value] of Object.entries(labels)) {
       args.push('--label', `${key}=${value}`);
+    }
+
+    if (inputs.volume_mounts) {
+      for (const mount of inputs.volume_mounts) {
+        args.push('--volume', `${mount?.volume}:${mount?.mount_path}`);
+      }
     }
 
     args.push(inputs.image || inspection.Image);

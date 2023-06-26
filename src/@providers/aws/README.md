@@ -1,6 +1,6 @@
-# arcctl - AWS Provider
+# ArcCtl - AWS Provider
 
-The
+## Authentication
 
 ### Create IAM user
 
@@ -38,3 +38,17 @@ From here, you can click the button to copy the key directly to your clipboard o
 in a `.csv` file. You’ll use this key to register your AWS provider.
 
 ![screenshot](./docs/aws-access-key-review.png)
+
+## Supported resources
+
+- [x] [`region`](../../%40resources/region/)
+- [x] [`vpc`](../../%40resources/vpc/)
+- [x] [`nodeSize`](../../%40resources/nodeSize/)
+- [x] [`kubernetesVersion`](../../%40resources/kubernetesVersion/)
+- [x] [`kubernetesCluster`](../../%40resources/kubernetesCluster/)
+- [x] [`database`](../../%40resources/database/)
+- [x] [`databaseSize`](../../%40resources/databaseSize/)
+- [x] [`databaseType`](../../%40resources/databaseType/)
+- [x] [`databaseVersion`](../../%40resources/databaseVersion/)
+- [x] [`dnsZone`](../../%40resources/dnsZone/)
+- [x] [`dnsRecord`](../../%40resources/dnsRecord/)

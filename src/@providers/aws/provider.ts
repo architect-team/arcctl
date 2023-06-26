@@ -1,4 +1,3 @@
-import { Construct } from 'constructs';
 import { AwsDnsZoneTest } from '../aws/tests/dns-zone.ts';
 import { ProviderCredentials } from '../credentials.ts';
 import { Provider } from '../provider.ts';

@@ -31,4 +31,4 @@ The command above will prompt you for credentials for `<provider-name>` and then
 
 Don't see your preferred cloud provider? Go ahead and [file a request](https://github.com/architect-team/arcctl/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.md&title=) for the provider.
 
-Want to contribute a provider so that you and others can more easily interact with your favorite cloud providers? Check out the [provider conributing](./CONTRIBUTING.md) guidelines to learn more about authoring new providers.
+Want to contribute a provider so that you and others can more easily interact with your favorite cloud providers? Check out the [provider contributing](./CONTRIBUTING.md) guidelines to learn more about authoring new providers.

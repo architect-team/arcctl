@@ -681,6 +681,7 @@
       "digitalocean-js@^2.0.3": "digitalocean-js@2.0.3_asynckit@0.4.0_combined-stream@1.0.8_delayed-stream@1.0.0_fast-deep-equal@3.1.3_follow-redirects@1.15.2_form-data@4.0.0_is-buffer@2.0.5_mime-db@1.51.0_mime-types@2.1.34_proxy-from-env@1.1.0_tslib@2.3.1",
       "digitalocean@^1.2.1": "digitalocean@1.2.1",
       "dots-wrapper@^3.10.0": "dots-wrapper@3.10.1",
+      "dots-wrapper@^3.11.0": "dots-wrapper@3.11.0",
       "log-symbols@^5.1.0": "log-symbols@5.1.0",
       "log-update@^5.0.1": "log-update@5.0.1",
       "mongodb@^4.10.0": "mongodb@4.16.0",
@@ -2425,6 +2426,14 @@
           "form-data": "form-data@4.0.0"
         }
       },
+      "axios@1.4.0": {
+        "integrity": "sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==",
+        "dependencies": {
+          "follow-redirects": "follow-redirects@1.15.2",
+          "form-data": "form-data@4.0.0",
+          "proxy-from-env": "proxy-from-env@1.1.0"
+        }
+      },
       "balanced-match@1.0.2": {
         "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==",
         "dependencies": {}
@@ -2947,6 +2956,12 @@
         "integrity": "sha512-UeQ2O6HKgWw8qMUjBgduyALFUsXU7NlvwjsWOVVx5jowAggWzHRZsMfHp8XHyIb6bMuO7e0bAlADEp2fqOP++g==",
         "dependencies": {
           "axios": "axios@0.27.2"
+        }
+      },
+      "dots-wrapper@3.11.0": {
+        "integrity": "sha512-H/YSFXxaxeDJ1S8MOo01BsE6+mYTO9H9UNitCNLO6Kr+AfpmWNCVv87S+DUNW/CuMIDJ3u+VQvmkiJF0tTgUxw==",
+        "dependencies": {
+          "axios": "axios@1.4.0"
         }
       },
       "duplexer2@0.1.4": {

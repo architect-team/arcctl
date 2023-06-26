@@ -4,6 +4,7 @@ import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import {
   Component,
+  ComponentDependencies,
   DockerBuildFn,
   DockerPushFn,
   DockerTagFn,
@@ -14,6 +15,7 @@ import {
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
+import { DependencySchemaV2 } from './dependency.ts';
 import { DebuggableDeploymentSchemaV2 } from './deployment.ts';
 import { parseExpressionRefs } from './expressions.ts';
 
@@ -21,15 +23,43 @@ export default class ComponentV2 extends Component {
   /**
    * A set of other components that this component depends on
    */
-  dependencies?: Record<string, string>;
+  dependencies?: Record<string, string | DependencySchemaV2>;
 
   /**
-   * A set of secrets that this component requires
+   * A set of inputs the component expects to be provided
    */
-  secrets?: Record<string, {
+  variables?: Record<string, {
+    /**
+     * A human-readable description
+     */
     description?: string;
-    default?: string;
+
+    /**
+     * A default value to use if one isn't provided
+     */
+    default?: string | string[];
+
+    /**
+     * If true, a value is required or the component won't run.
+     *
+     * @default false
+     */
     required?: boolean;
+
+    /**
+     * If true, upstream components can pass in values that will be merged together
+     * with each other and environment-provided values
+     *
+     * @default false
+     */
+    merge?: boolean;
+
+    /**
+     * Whether or not the data should be considered sensitive and stripped from logs
+     *
+     * @default false
+     */
+    sensitive?: boolean;
   }>;
 
   /**
@@ -118,6 +148,20 @@ export default class ComponentV2 extends Component {
     }
   >;
 
+  private get normalizedDependencies(): Record<string, DependencySchemaV2> {
+    const dependencies = this.dependencies || {};
+
+    for (const [key, value] of Object.entries(dependencies)) {
+      if (typeof value === 'string') {
+        dependencies[key] = {
+          component: value,
+        };
+      }
+    }
+
+    return dependencies as Record<string, DependencySchemaV2>;
+  }
+
   private addBuildsToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
     for (const [build_key, build_config] of Object.entries(this.builds || {})) {
       if (build_config.image) {
@@ -165,31 +209,42 @@ export default class ComponentV2 extends Component {
           },
         });
 
-        graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, build_node));
+        build_node.inputs = parseExpressionRefs(
+          graph,
+          this.normalizedDependencies,
+          context,
+          build_node.id,
+          build_node.inputs,
+        );
+        graph.insertNodes(build_node);
       }
     }
 
     return graph;
   }
 
-  private addSecretsToGraph(
+  private addVariablestoGraph(
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [secret_key, secret_config] of Object.entries(this.secrets || {})) {
+    for (const [variable_key, variable_config] of Object.entries(this.variables || {})) {
       const secret_node = new CloudNode({
-        name: secret_key,
+        name: variable_key,
         component: context.component.name,
         environment: context.environment,
         inputs: {
           type: 'secret',
           name: CloudNode.genResourceId({
-            name: secret_key,
+            name: variable_key,
             component: context.component.name,
             environment: context.environment,
           }),
-          data: secret_config.default || '',
-          required: secret_config.required || false,
+          data: variable_config.default && Array.isArray(variable_config.default)
+            ? JSON.stringify(variable_config.default)
+            : variable_config.default || '',
+          ...(variable_config.required ? { required: variable_config.required } : {}),
+          ...(variable_config.merge ? { merge: variable_config.merge } : {}),
+          ...(variable_config.sensitive ? { sensitive: variable_config.sensitive } : {}),
         },
       });
       graph.insertNodes(secret_node);
@@ -284,6 +339,14 @@ export default class ComponentV2 extends Component {
         );
       }
       for (const [volumeKey, volumeConfig] of Object.entries(volumes)) {
+        const is_directory = Deno.statSync(context.component.source).isDirectory;
+        let host_path = undefined;
+        if (volumeConfig.host_path && !is_directory) {
+          host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
+        } else if (volumeConfig.host_path) {
+          host_path = path.join(context.component.source, volumeConfig.host_path);
+          host_path = `${is_directory}`;
+        }
         const volume_node = new CloudNode({
           name: `${deployment_key}-${volumeKey}`,
           component: context.component.name,
@@ -295,7 +358,7 @@ export default class ComponentV2 extends Component {
               component: context.component.name,
               environment: context.environment,
             }),
-            hostPath: volumeConfig.host_path ? path.join(context.component.source, volumeConfig.host_path) : undefined,
+            hostPath: host_path,
           },
         });
 
@@ -356,7 +419,14 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, deployment_node));
+      deployment_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        deployment_node.id,
+        deployment_node.inputs,
+      );
+      graph.insertNodes(deployment_node);
 
       for (const volume of volume_node_ids) {
         graph.insertEdges(
@@ -404,7 +474,14 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, service_node));
+      service_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        service_node.id,
+        service_node.inputs,
+      );
+      graph.insertNodes(service_node);
       graph.insertEdges(
         new CloudEdge({
           from: service_node.id,
@@ -460,7 +537,15 @@ export default class ComponentV2 extends Component {
           internal: ingress_config.internal || false,
         },
       });
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, ingress_node));
+
+      ingress_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        ingress_node.id,
+        ingress_node.inputs,
+      );
+      graph.insertNodes(ingress_node);
       graph.insertEdges(
         new CloudEdge({
           from: ingress_node.id,
@@ -478,13 +563,36 @@ export default class ComponentV2 extends Component {
     Object.assign(this, data);
   }
 
-  public getDependencies(): string[] {
-    return Object.values(this.dependencies || {});
+  public getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies {
+    return Object.values(this.normalizedDependencies).map((dependency) => {
+      const inputs: ComponentDependencies[number]['inputs'] = {};
+      for (const [key, value] of Object.entries(dependency.variables || {})) {
+        const from_id = CloudNode.genId({
+          type: 'secret',
+          name: key,
+          component: dependency.component,
+          environment: context.environment,
+        });
+
+        if (Array.isArray(value)) {
+          inputs[key] = value;
+        } else {
+          inputs[key] = [value];
+        }
+
+        inputs[key] = parseExpressionRefs(graph, this.normalizedDependencies, context, from_id, inputs[key]);
+      }
+
+      return {
+        component: dependency.component,
+        inputs,
+      };
+    });
   }
 
   public getGraph(context: GraphContext): CloudGraph {
     let graph = new CloudGraph();
-    graph = this.addSecretsToGraph(graph, context);
+    graph = this.addVariablestoGraph(graph, context);
     graph = this.addBuildsToGraph(graph, context);
     graph = this.addDatabasesToGraph(graph, context);
     graph = this.addDeploymentsToGraph(graph, context);

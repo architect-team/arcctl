@@ -5,6 +5,7 @@ import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { destroyEnvironment } from './environment.ts';
 
 type DestroyDatacenterOptions = {
   verbose: boolean;
@@ -45,6 +46,12 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     }
   }
 
+  for (const env of datacenterEnvs) {
+    await destroyEnvironment({
+      verbose: options.verbose,
+    }, env.name);
+  }
+
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
@@ -68,19 +75,17 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       logger: logger,
     })
     .then(async () => {
-      // Remove all the environments backed by this datacenter
-      for (const env of datacenterEnvs) {
-        await command_helper.environmentStore.remove(env.name);
-      }
-
+      clearInterval(interval);
       await command_helper.removeDatacenter(datacenterRecord);
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.doneRenderingPipeline();
       clearInterval(interval);
-      console.log('Datacenter destroyed successfully');
+      console.log(`Datacenter ${name} destroyed successfully`);
     })
     .catch(async (err) => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
       clearInterval(interval);
+      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+      command_helper.doneRenderingPipeline();
       console.error(err);
       Deno.exit(1);
     });

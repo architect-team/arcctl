@@ -98,12 +98,13 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       logger: logger,
     })
     .then(async () => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-      await command_helper.environmentStore.save({
-        datacenter: datacenterRecord.name,
-        name: options.environment,
-        config: environment,
-      });
+      await command_helper.saveEnvironment(
+        datacenterRecord.name,
+        options.environment,
+        datacenterRecord.config,
+        environment,
+        pipeline,
+      );
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);
 
@@ -115,7 +116,13 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       await streamLogs({ follow: true }, options.environment);
     })
     .catch(async (err) => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+      await command_helper.saveEnvironment(
+        datacenterRecord.name,
+        options.environment,
+        datacenterRecord.config,
+        environment,
+        pipeline,
+      );
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);
       console.error(err);

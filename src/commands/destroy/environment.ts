@@ -22,7 +22,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     );
 
     if (confirmed) {
-      await command_helper.environmentStore.remove(environmentRecord.name);
+      await command_helper.removeEnvironment(datacenterRecord!.config, environmentRecord!);
       console.log(`Environment removed. Resources may still be dangling.`);
       return;
     } else {
@@ -31,7 +31,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     }
   }
 
-  const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+  const lastPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
 
   const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph());
   const pipeline = Pipeline.plan({
@@ -62,15 +62,22 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
       logger: logger,
     })
     .then(async () => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-      await command_helper.environmentStore.remove(environmentRecord.name);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);
-      console.log('Environment destroyed successfully');
+      await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.doneRenderingPipeline();
+      console.log(`Environment ${name} destroyed successfully`);
     })
     .catch(async (err) => {
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
       clearInterval(interval);
+      await command_helper.saveEnvironment(
+        datacenterRecord.name,
+        environmentRecord.name,
+        datacenterRecord.config,
+        environmentRecord.config!,
+        pipeline,
+      );
+      command_helper.doneRenderingPipeline();
       console.error(err);
       Deno.exit(1);
     });

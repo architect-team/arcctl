@@ -17,7 +17,7 @@ await build({
   entryPoints: [path.join(build_dir, '..', 'src', 'index.ts')],
   outDir: build_dir,
   compilerOptions: {
-    lib: ['ES2022'],
+    lib: ['ES2022', 'DOM'],
     target: 'ES2020',
   },
   shims: {
@@ -39,6 +39,7 @@ await build({
     dependencies: package_json.dependencies,
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
+  scriptModule: false
 });
 
 // Copy files from the root dir into npm package.
@@ -56,10 +57,6 @@ for await (const dirEntry of walk(path.join(__dirname, '..', 'src'))) {
     await Deno.copyFile(
       dirEntry.path,
       path.join(build_dir, 'esm', ...src_relative_path),
-    );
-    await Deno.copyFile(
-      dirEntry.path,
-      path.join(build_dir, 'script', ...src_relative_path),
     );
   }
 }

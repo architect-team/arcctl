@@ -1,4 +1,4 @@
-import Ajv2019 from 'ajv/dist/2019.js';
+import Ajv2019 from 'npm:ajv';
 import yaml from 'js-yaml';
 import input_schema_contents from './input.schema.json' assert {
   type: 'json',

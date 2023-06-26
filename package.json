@@ -28,6 +28,7 @@
   ],
   "dependencies": {
     "@architect-io/arc-oci": "0.1.0",
+    "ajv": "^8.11.0",
     "cli-spinners": "^2.7.0",
     "digitalocean": "^1.2.1",
     "digitalocean-js": "^2.0.3",
@@ -60,11 +61,6 @@
     "ts-xor": "^1.0.8"
   },
   "scripts": {
-    "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js",
-    "lint": "eslint . --ext .ts --config .eslintrc.cjs",
-    "version": "oclif readme && git add README.md",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test:service": "ts-node --project ./tsconfig.json ./tests/integration/test-runner.ts",
-    "generate:resources": "ts-node --project ./tsconfig.json ./bin/resource-generator.ts"
+    "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js"
   }
 }

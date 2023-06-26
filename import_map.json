@@ -1,7 +1,7 @@
 {
   "imports": {
     "deps": "./src/deps.ts",
-    "std/": "https://deno.land/std@0.189.0/",
+    "std/": "https://deno.land/std@0.192.0/",
     "cliffy/": "https://deno.land/x/cliffy@v0.25.7/",
     "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
     "adm-zip": "https://esm.sh/v124/adm-zip@0.5.9",

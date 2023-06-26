@@ -57,7 +57,8 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         console.error(`Invalid datacenter associated with environment: ${environmentRecord.datacenter}`);
         Deno.exit(1);
       }
-      const previousPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+
+      const previousPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
 
       const environment = environmentRecord.config || await parseEnvironment({});
 
@@ -109,12 +110,13 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           logger,
         })
         .then(async () => {
-          await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-          await command_helper.environmentStore.save({
-            name: environmentRecord.name,
-            datacenter: datacenterRecord.name,
-            config: environment,
-          });
+          await command_helper.saveEnvironment(
+            datacenterRecord.name,
+            environmentRecord.name,
+            datacenterRecord.config,
+            environment,
+            pipeline,
+          );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
@@ -122,7 +124,13 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           clearInterval(interval);
         })
         .catch(async (err) => {
-          await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+          await command_helper.saveEnvironment(
+            datacenterRecord.name,
+            environmentRecord.name,
+            datacenterRecord.config,
+            environment,
+            pipeline,
+          );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,

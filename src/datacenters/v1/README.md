@@ -11,24 +11,6 @@ By combining these three scopes, operators can create robust datacenter template
 can be used to host and integrate virtually any application in any style of cloud
 environment.
 
-## Variables
-
-Though most of each datacenter schema is self-contained, there are some cases where datacenters
-templates need additional input from users before they can be used to power a datacenter. These
-inputs are called variables:
-
-```yml
-variables:
-  account:
-    # Variables can be arcctl resources
-    type: arcctlAccount
-    description: The DigitalOcean account used to power the environment
-    provider: digitalocean
-```
-
-Declared variables can be referenced anywhere else in the datacenter template that you'd like
-using the expression syntax, `${{ variables.<variable-name> }}`.
-
 ## Datacenter resources
 
 Datacenter scoped [resources](../../%40resources/) are those which get created and destroyed with the lifecycle of
@@ -47,7 +29,7 @@ resources:
 ```
 
 Every resource must declare a `type` that matches one of the arcctl [resource types](../../%40resources/)
-as well as an `account` capable of creating said type of resource. Once declared, the outputs of said
+as well as an [`account`](../../%40providers/) capable of creating said type of resource. Once declared, the outputs of said
 resource type can be referenced elsewhere in the datacenter schema using the expression syntax,
 `${{ resources.<resource-key>.<output-key> }}`.
 
@@ -214,3 +196,27 @@ hooks:
   - account: ${{ accounts.cluster.id }}
     namespace: ${{ environment.resources.namespace.id }}
 ```
+
+## Variables
+
+Though most of each datacenter schema is self-contained, there are some cases where datacenters
+templates need additional input from users before they can be used to power a datacenter. These
+inputs are called variables:
+
+```yml
+variables:
+  account:
+    # Variables can be arcctl resources
+    type: arcctlAccount
+    description: The DigitalOcean account used to power the environment
+    provider: digitalocean
+  region:
+    type: region
+    name: Region to host resources in
+    account: ${{ variables.account }}
+```
+
+Declared variables can be referenced anywhere else in the datacenter template that you'd like
+using the expression syntax, `${{ variables.<variable-name> }}`.
+
+In addition to [arcctl resources](../../%40resources/), variables can also be `string`, `number`, and `boolean` types.

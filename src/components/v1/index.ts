@@ -609,73 +609,28 @@ export default class ComponentV1 extends Component {
   }
 
   private addVariablesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
-    for (const [param_key, param_value] of Object.entries(this.parameters || {})) {
+    const values = {
+      ...this.parameters,
+      ...this.variables,
+      ...this.secrets,
+    };
+    for (const [key, value] of Object.entries(values || {})) {
       const secret_node = new CloudNode({
-        name: param_key,
+        name: key,
         component: context.component.name,
         environment: context.environment,
         inputs: {
           type: 'secret',
           name: CloudNode.genResourceId({
-            name: param_key,
+            name: key,
             component: context.component.name,
             environment: context.environment,
           }),
-          data: typeof param_value === 'string' ? param_value : param_value.default?.toString() || '',
-          ...(typeof param_value === 'object'
+          data: typeof value === 'string' ? value : value.default?.toString() || '',
+          ...(typeof value === 'object'
             ? {
-              ...(param_value.required ? { required: param_value.required } : {}),
-              ...(param_value.merge ? { merge: param_value.merge } : {}),
-            }
-            : {}),
-        },
-      });
-
-      graph.insertNodes(secret_node);
-    }
-
-    for (const [secret_key, secret_value] of Object.entries(this.secrets || {})) {
-      const secret_node = new CloudNode({
-        name: secret_key,
-        component: context.component.name,
-        environment: context.environment,
-        inputs: {
-          type: 'secret',
-          name: CloudNode.genResourceId({
-            name: secret_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
-          data: typeof secret_value === 'string' ? secret_value : secret_value.default?.toString() || '',
-          ...(typeof secret_value === 'object'
-            ? {
-              ...(secret_value.required ? { required: secret_value.required } : {}),
-              ...(secret_value.merge ? { merge: secret_value.merge } : {}),
-            }
-            : {}),
-        },
-      });
-
-      graph.insertNodes(secret_node);
-    }
-
-    for (const [variable_key, variable_config] of Object.entries(this.variables || {})) {
-      const secret_node = new CloudNode({
-        name: variable_key,
-        component: context.component.name,
-        environment: context.environment,
-        inputs: {
-          type: 'secret',
-          name: CloudNode.genResourceId({
-            name: variable_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
-          data: typeof variable_config === 'string' ? variable_config : variable_config.default?.toString() || '',
-          ...(typeof variable_config === 'object'
-            ? {
-              ...(variable_config.required ? { required: variable_config.required } : {}),
-              ...(variable_config.merge ? { merge: variable_config.merge } : {}),
+              ...(value.required ? { required: value.required } : {}),
+              ...(value.merge ? { merge: value.merge } : {}),
             }
             : {}),
         },

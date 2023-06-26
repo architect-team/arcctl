@@ -9,7 +9,6 @@ const git = [
       'CHANGELOG.md',
       'README.md',
       'package.json',
-      'package-lock.json',
       'deno.json',
       'deno.lock',
     ],
@@ -18,20 +17,17 @@ const git = [
 const exec = [
   '@semantic-release/exec',
   {
-    publishCmd: 'npm run pack',
+    prepareCmd: `deno task generate:npm`,
   },
 ];
-const npm = '@semantic-release/npm';
+const npm = [
+  '@semantic-release/npm',
+  {
+    'pkgRoot': './build'
+  }
+];
 const github = [
   '@semantic-release/github',
-  {
-    assets: [
-      {
-        path: 'dist/*.tar.gz',
-        label: 'arcctl ${nextRelease.version}',
-      },
-    ],
-  },
 ];
 const changelog = [
   '@semantic-release/changelog',
@@ -43,6 +39,7 @@ const changelog = [
 const defaultPlugins = [
   commitAnalyzer,
   releaseNotesGenerator,
+  exec,
   npm,
   git,
 ];
@@ -58,6 +55,7 @@ const mainPlugins = [
 ];
 
 module.exports = {
+  dryRun: true, // TODO: remove
   branches: [
     'main',
     {

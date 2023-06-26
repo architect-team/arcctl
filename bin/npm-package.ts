@@ -28,7 +28,6 @@ await build({
   },
   package: {
     name: '@architect-io/arcctl',
-    version: Deno.args[0],
     description:
       'arcctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure',
     license: 'Apache-2.0',

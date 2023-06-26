@@ -2,6 +2,7 @@ import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { ResourceType, ResourceTypeList } from '../../@resources/types.ts';
 import { Pipeline, PipelineStep } from '../../pipeline/index.ts';
@@ -18,7 +19,7 @@ const DestroyResourceCommand = BaseCommand()
   .description('Destroy a cloud resource')
   .type('resourceType', resourceType)
   .option('-a, --account <account:string>', 'The cloud account to use to destroy this resource')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Show verbose logs of the command', { default: false })
   .arguments('[type:resourceType] [id:string]')
   .action(destroy_resource_action);
 
@@ -115,6 +116,7 @@ async function destroy_resource_action(
     .apply({
       providerStore: command_helper.providerStore,
       logger: logger,
+      cwd: path.resolve('./.terraform'),
     })
     .then(() => {
       command_helper.renderPipeline(pipeline, { clear: true });

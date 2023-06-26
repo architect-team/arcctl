@@ -14,7 +14,7 @@ import { ApplyOptions, ApplyOutputs, WritableResourceService } from './base.serv
 import { ProviderCredentials } from './credentials.ts';
 import { ResourceModuleConstructor } from './module.ts';
 
-type TerraformResourceState =
+export type TerraformResourceState =
   | {
     id: string;
   }
@@ -345,6 +345,8 @@ export abstract class TerraformResourceService<
         }
       }
 
+      await module.afterImport(options);
+
       app = new App({ outdir: options.cwd });
       stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
@@ -377,7 +379,11 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfApply(options.cwd, options.logger);
+      const { stderr } = await this.tfApply(options.cwd, options.logger);
+      if (stderr && stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(stderr));
+        return;
+      }
 
       const stateFileBuffer = await Deno.readFile(stateFile);
       options.state = JSON.parse(new TextDecoder().decode(stateFileBuffer));

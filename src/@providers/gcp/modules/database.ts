@@ -1,6 +1,9 @@
 import { Construct } from 'constructs';
+import * as path from 'std/path/mod.ts';
 import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ApplyOptions } from '../../base.service.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { TerraformResourceState } from '../../terraform.service.ts';
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { SqlDatabaseInstance } from '../.gen/providers/google/sql-database-instance/index.ts';
 import { SqlUser } from '../.gen/providers/google/sql-user/index.ts';
@@ -45,15 +48,22 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
       password,
     });
 
+    let cert = '';
+    try {
+      cert = this.database.serverCaCert.get(0).cert;
+    } catch {
+      cert = '';
+    }
+
     // TODO: Fix outputs
     this.outputs = {
-      id: this.database.name,
-      protocol: 'TODO',
-      host: this.database.selfLink,
+      id: this.database.id,
+      protocol: this.inputs?.databaseType || '',
+      host: this.database.connectionName,
       port: 0,
-      username: this.database.replicaConfiguration.username,
-      password: this.database.replicaConfiguration.password,
-      certificate: this.database.replicaConfiguration.caCertificate,
+      username: this.user.name,
+      password: this.user.password,
+      certificate: cert,
     };
   }
 
@@ -72,15 +82,13 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
     };
   }
 
-  // hooks = {
-  //   afterImport: async () => {
-  //     const file_path = path.join(CloudCtlConfig.getTerraformDirectory(), 'terraform.tfstate');
-  //     const file_contents = await fs.promises.readFile(file_path, 'utf8');
-  //     const modified_file_contents = file_contents.replace(
-  //       '"deletion_protection": true',
-  //       '"deletion_protection": false',
-  //     );
-  //     await fs.promises.writeFile(file_path, modified_file_contents);
-  //   },
-  // };
+  async afterImport(options: ApplyOptions<TerraformResourceState>) {
+    const state_file = path.join(options.cwd, 'terraform.tfstate');
+    const file_contents = await Deno.readTextFile(state_file);
+    const modified_file_contents = file_contents.replace(
+      '"deletion_protection": true',
+      '"deletion_protection": false',
+    );
+    Deno.writeTextFileSync(state_file, modified_file_contents);
+  }
 }

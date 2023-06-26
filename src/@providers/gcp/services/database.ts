@@ -43,9 +43,9 @@ export class GoogleCloudDatabaseService extends TerraformResourceService<'databa
         id: data.instance || '',
         host: data.selfLink || '',
         port: 0,
-        username: data.selfLink || '',
-        password: data.selfLink || '',
-        protocol: data.selfLink || '',
+        username: '',
+        password: '',
+        protocol: data.instance || '',
       };
     } catch {
       return undefined;
@@ -66,10 +66,10 @@ export class GoogleCloudDatabaseService extends TerraformResourceService<'databa
       // TODO: Fix database gets
       databases.push({
         id: instance.name || '',
-        host: instance.selfLink || '',
+        host: instance.ipAddresses?.at(0)?.ipAddress || '',
         port: 0,
-        username: instance.selfLink || '',
-        password: instance.selfLink || '',
+        username: '',
+        password: '',
         protocol: instance.databaseVersion || '',
       });
     }

@@ -36,6 +36,8 @@ await build({
     repository: 'architect-team/arcctl',
     bugs: 'https://github.com/architect-team/arcctl/issues',
     dependencies: package_json.dependencies,
+    devDependencies: package_json.devDependencies,
+    scripts: package_json.scripts
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
   scriptModule: false

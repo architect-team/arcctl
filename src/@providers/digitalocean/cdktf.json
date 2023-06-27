@@ -1,6 +1,6 @@
 {
   "language": "typescript",
-  "app": "ts-node main.ts",
+  "app": "",
   "terraformModules": [],
   "terraformProviders": [
     {

@@ -48,6 +48,4 @@ export class GoogleCloudVpcModule extends ResourceModule<'vpc', GoogleCloudCrede
       [this.getResourceRef(this.vpc)]: 'VPC',
     };
   }
-
-  hooks = {};
 }

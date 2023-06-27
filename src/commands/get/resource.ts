@@ -1,7 +1,7 @@
-import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import { Select } from 'cliffy/prompt/mod.ts';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 

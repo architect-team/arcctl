@@ -1,0 +1,29 @@
+{
+  "$ref": "#/definitions/FunctionInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FunctionInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "description": "Location of the image used to run the cloud function",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the cloud function",
+          "type": "string"
+        },
+        "region": {
+          "description": "Region the function should live in",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "image",
+        "region"
+      ],
+      "type": "object"
+    }
+  }
+}

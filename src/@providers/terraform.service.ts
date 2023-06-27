@@ -14,7 +14,7 @@ import { ApplyOptions, ApplyOutputs, WritableResourceService } from './base.serv
 import { ProviderCredentials } from './credentials.ts';
 import { ResourceModuleConstructor } from './module.ts';
 
-type TerraformResourceState =
+export type TerraformResourceState =
   | {
     id: string;
   }
@@ -305,7 +305,8 @@ export abstract class TerraformResourceService<
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
     try {
-      const cwd = options.cwd || Deno.makeTempDirSync();
+      options.cwd = options.cwd || Deno.makeTempDirSync();
+      const cwd = options.cwd;
       const stateFile = path.join(cwd, 'terraform.tfstate');
 
       let app = new App({
@@ -347,6 +348,8 @@ export abstract class TerraformResourceService<
         }
       }
 
+      await module.afterImport(options);
+
       app = new App({ outdir: cwd });
       stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
@@ -378,6 +381,13 @@ export abstract class TerraformResourceService<
           startTime,
         },
       });
+
+      // HEAD
+      const { stderr } = await this.tfApply(options.cwd, options.logger);
+      if (stderr && stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(stderr));
+        return;
+      }
 
       await this.tfApply(cwd, options.logger);
 

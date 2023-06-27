@@ -2,8 +2,10 @@ import { TerraformResource } from 'cdktf';
 import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { SensitiveFile, SensitiveFileConfig } from '../cdktf-modules/.gen/providers/local/sensitive-file/index.ts';
+import { ApplyOptions } from './base.service.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ProviderStore } from './store.ts';
+import { TerraformResourceState } from './terraform.service.ts';
 
 export type FileConstruct = new (_scope: Construct, _id: string, _config: SensitiveFileConfig) => SensitiveFile;
 
@@ -44,4 +46,7 @@ export abstract class ResourceModule<T extends ResourceType, C extends ProviderC
   abstract genImports(resourceId: string, credentials?: C): Promise<Record<string, string>>;
 
   abstract getDisplayNames(): Record<string, string>;
+
+  async afterImport(_options: ApplyOptions<TerraformResourceState>): Promise<void> {
+  }
 }

@@ -2,7 +2,6 @@ import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import { Confirm, Select } from 'cliffy/prompt/mod.ts';
-import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { ResourceType, ResourceTypeList } from '../../@resources/types.ts';
 import { Pipeline, PipelineStep } from '../../pipeline/index.ts';
@@ -116,7 +115,6 @@ async function destroy_resource_action(
     .apply({
       providerStore: command_helper.providerStore,
       logger: logger,
-      cwd: path.resolve('./.terraform'),
     })
     .then(() => {
       command_helper.renderPipeline(pipeline, { clear: true });

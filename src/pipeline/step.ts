@@ -69,9 +69,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   }
 
   public getHash(providerStore: ProviderStore): string {
-    if (!this.inputs?.account || this.inputs?.account === 'n/a') {
-      return crypto.createHash('sha256').update(JSON.stringify(this.inputs)).digest('hex').toString();
-    }
     const cwd = Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
@@ -84,7 +81,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       this.inputs?.account || '',
     );
     if (!account) {
-      throw new Error(`Invalid account: ${this.inputs?.account}`);
+      return crypto.createHash('sha256').update(JSON.stringify(this.inputs)).digest('hex').toString();
     }
 
     const service = account.resources[this.type] as ResourceService<any, any>;

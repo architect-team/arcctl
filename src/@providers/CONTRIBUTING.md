@@ -95,6 +95,10 @@ export class MyRegionService extends ResourceService<'region', MyProviderCredent
 
 ### CRUD services
 
+CRUD resource services define simple `create`, `update`, and `delete` methods to mirror common REST
+API behavior. This provides a very intuitive experience for provider authors who are used to wiring
+together API calls.
+
 ```typescript
 export class MyVpcService extends CrudResourceService<'vpc', MyProviderCredentials> {
   async get(id: string) {
@@ -137,7 +141,7 @@ export class MyVpcService extends CrudResourceService<'vpc', MyProviderCredentia
 
 ### Terraform services
 
-Crud services are great for simple cloud operations that require only one or two API calls, but for more complex resources it can become tedious and error prone. To make this easier, arcctl services can leverage Terraform instead of defining individual `create`, `update`, and `delete` methods:
+Crud services are great for simple cloud operations that require only one or two API calls, but for more complex resources it can become tedious and error prone. To make this easier, arcctl services can leverage Terraform instead of defining individual `create`, `update`, and `delete` methods. The most important part of this service is the `construct` field which references a [CDK module (learn more)](#cdk-modules).
 
 ```typescript
 export class MyService extends TerraformResourceService<'vpc', MyProviderCredentials> {
@@ -176,6 +180,10 @@ Modules contain all the resource creation logic for Terraform services. Modules 
 export class MyVpcModule extends ResourceModule<'vpc', MyProviderCredentials> {
   outputs: ResourceOutputs['vpc'];
 
+  /**
+   * Behaves just like a CDK module. Use the constructor to define what
+   * infrastructure and resources to create.
+   */
   constructor(scope: Construct, id: string, inputs: ResourceInputs['vpc']) {
     super(scope, id, inputs);
 
@@ -192,6 +200,21 @@ export class MyVpcModule extends ResourceModule<'vpc', MyProviderCredentials> {
       region: vpc.region,
       type: 'vpc',
     };
+  }
+
+  /**
+   * In order to power update/deletion of terraform resources, we need a way to
+   * recover state. This method allows you to return a dictionary of terraform
+   * resource IDs and the associated cloud resource IDs that match. You can freely
+   * make HTTP calls to retrieve sub-resources.
+   */
+  genImports(
+    resourceId: string,
+    credentials: MyProviderCredentials,
+  ): Promise<Record<string, string>> {
+    return Promise.resolve({
+      [this.getResourceRef(this.cluster)]: resourceId,
+    });
   }
 }
 ```

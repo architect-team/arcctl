@@ -19,7 +19,6 @@ export type PipelineStepOptions<T extends ResourceType> = {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
-  isNoop?: boolean;
 };
 
 export class PipelineStep<T extends ResourceType = ResourceType> {
@@ -34,7 +33,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
-  isNoop?: boolean;
 
   constructor(options: PipelineStepOptions<T>) {
     this.name = options.name;
@@ -50,7 +48,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.state = options.state;
     this.inputs = options.inputs;
     this.outputs = options.outputs;
-    this.isNoop = options.isNoop;
   }
 
   get id(): string {

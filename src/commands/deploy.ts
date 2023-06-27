@@ -4,7 +4,7 @@ import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { Pipeline } from '../pipeline/index.ts';
+import { Pipeline, PlanContextLevel } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type DeployOptions = {
@@ -78,13 +78,13 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         await environment.getGraph(environmentRecord.name, command_helper.componentStore, options.debug),
         {
           environmentName: environmentRecord.name,
-          noop: true,
         },
       );
 
       const pipeline = Pipeline.plan({
         before: previousPipeline,
         after: targetGraph,
+        contextFilter: PlanContextLevel.Environment,
       }, command_helper.providerStore);
 
       let interval: number;

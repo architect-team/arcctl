@@ -4,7 +4,7 @@ import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type CreateEnvironmentOptions = {
@@ -41,13 +41,13 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
 
     const targetGraph = await datacenterRecord.config.enrichGraph(environmentGraph, {
       environmentName: name,
-      noop: true,
     });
     targetGraph.validate();
 
     const pipeline = Pipeline.plan({
       before: lastPipeline,
       after: targetGraph,
+      contextFilter: PlanContextLevel.Environment,
     }, command_helper.providerStore);
 
     pipeline.validate();

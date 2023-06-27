@@ -39,7 +39,10 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
       environmentGraph = await environment.getGraph(name, command_helper.componentStore);
     }
 
-    const targetGraph = await datacenterRecord.config.enrichGraph(environmentGraph, name);
+    const targetGraph = await datacenterRecord.config.enrichGraph(environmentGraph, {
+      environmentName: name,
+      noop: true,
+    });
     targetGraph.validate();
 
     const pipeline = Pipeline.plan({

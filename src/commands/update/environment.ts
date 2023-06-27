@@ -43,11 +43,17 @@ export async function update_environment_action(options: UpdateEnvironmentOption
     targetGraph = await targetEnvironment.getGraph(name, command_helper.componentStore);
   }
 
-  targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, name);
+  targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {
+    environmentName: name,
+    noop: true,
+  });
   targetGraph.validate();
 
   const startingDatacenter = (await command_helper.datacenterStore.get(environmentRecord!.datacenter))!;
-  startingDatacenter.config.enrichGraph(targetGraph, name);
+  startingDatacenter.config.enrichGraph(targetGraph, {
+    environmentName: name,
+    noop: true,
+  });
 
   const startingPipeline = await command_helper.getPipelineForEnvironment(environmentRecord!);
 

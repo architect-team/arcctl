@@ -76,7 +76,10 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
 
       const targetGraph = await datacenterRecord.config.enrichGraph(
         await environment.getGraph(environmentRecord.name, command_helper.componentStore, options.debug),
-        environmentRecord.name,
+        {
+          environmentName: environmentRecord.name,
+          noop: true,
+        },
       );
 
       const pipeline = Pipeline.plan({

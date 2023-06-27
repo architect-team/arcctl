@@ -66,7 +66,10 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     targetGraph.insertNodes(ingressNode);
   }
 
-  targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, options.environment);
+  targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, {
+    environmentName: options.environment,
+    noop: true,
+  });
   targetGraph.validate();
 
   const pipeline = Pipeline.plan({

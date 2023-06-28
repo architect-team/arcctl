@@ -65,7 +65,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     .then(async () => {
       clearInterval(interval);
       await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
       command_helper.doneRenderingPipeline();
       console.log(`Environment ${name} destroyed successfully`);
     })

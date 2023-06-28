@@ -122,6 +122,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
+            disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
           clearInterval(interval);
@@ -136,6 +137,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
+            disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
           clearInterval(interval);

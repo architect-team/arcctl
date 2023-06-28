@@ -4,7 +4,7 @@ import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type ApplyEnvironmentOptions = {
@@ -45,14 +45,12 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
 
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {
     environmentName: name,
-    noop: true,
   });
   targetGraph.validate();
 
   const startingDatacenter = (await command_helper.datacenterStore.get(targetDatacenterName!))!;
   startingDatacenter.config.enrichGraph(targetGraph, {
     environmentName: name,
-    noop: true,
   });
 
   const startingPipeline = environmentRecord
@@ -62,6 +60,7 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   const pipeline = Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
+    contextFilter: PlanContextLevel.Environment,
   }, command_helper.providerStore);
 
   let interval: number | undefined = undefined;
@@ -84,7 +83,6 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   await command_helper.applyEnvironment(
     name,
     startingDatacenter,
-    environmentRecord!,
     targetEnvironment!,
     pipeline,
     logger,
@@ -93,7 +91,7 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   if (interval) {
     clearInterval(interval);
   }
-  command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+  command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
   command_helper.doneRenderingPipeline();
   console.log(`Environment ${name} ${environmentRecord ? 'updated' : 'created'} successfully`);
 }

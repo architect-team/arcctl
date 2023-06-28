@@ -4,6 +4,7 @@ import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { apply_environment_action } from './environment.ts';
 
 type ApplyDatacenterOptions = {
   verbose?: boolean;
@@ -64,38 +65,20 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     }
 
     await command_helper.saveDatacenter(name, datacenter, pipeline);
-    command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+    command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
     command_helper.doneRenderingPipeline();
     console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
 
-    // if (datacenterEnvironments) {
-    //   for (const environmet of datacenterEnvironments) {
-    //     await apply_environment_action({
-    //       verbose: options.verbose,
-    //       datacenter: name,
-    //     }, environmet.name);
-    //   }
-    //   console.log('Environments updated successfully');
-    //   command_helper.doneRenderingPipeline();
-    // }
-
-    return pipeline
-      .apply({
-        providerStore: command_helper.providerStore,
-        logger: logger,
-      })
-      .then(async () => {
-        await command_helper.saveDatacenter(name, datacenter, pipeline);
-        command_helper.renderPipeline(pipeline, { clear: !options.verbose });
-        clearInterval(interval);
-        console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
-      })
-      .catch(async (err) => {
-        await command_helper.saveDatacenter(name, datacenter, pipeline);
-        clearInterval(interval);
-        console.error(err);
-        Deno.exit(1);
-      });
+    if (datacenterEnvironments.length > 0) {
+      for (const environmet of datacenterEnvironments) {
+        await apply_environment_action({
+          verbose: options.verbose,
+          datacenter: name,
+        }, environmet.name);
+      }
+      console.log('Environments updated successfully');
+      command_helper.doneRenderingPipeline();
+    }
   } catch (err: any) {
     if (Array.isArray(err)) {
       for (const e of err) {

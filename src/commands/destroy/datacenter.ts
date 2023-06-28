@@ -77,7 +77,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     .then(async () => {
       clearInterval(interval);
       await command_helper.removeDatacenter(datacenterRecord);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
       command_helper.doneRenderingPipeline();
       clearInterval(interval);
       console.log(`Datacenter ${name} destroyed successfully`);

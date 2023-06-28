@@ -14,7 +14,6 @@ import PushCommand from './push.ts';
 import RemoveCommands from './remove/index.ts';
 import TagCommand from './tag.ts';
 import UpCommand from './up.ts';
-import UpdateCommands from './update/index.ts';
 
 export default async function arcctl() {
   const command = BaseCommand()
@@ -31,7 +30,6 @@ export default async function arcctl() {
     .command('get', GetCommands)
     .command('list', ListCommands.alias('ls'))
     .command('remove', RemoveCommands.alias('rm'))
-    .command('update', UpdateCommands)
     .command('logs', LogsCommand)
     .command('up', UpCommand);
 

@@ -281,7 +281,10 @@ export class CommandHelper {
   /**
    * Render the executable graph and the status of each resource
    */
-  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean; message?: string }): void {
+  public renderPipeline(
+    pipeline: Pipeline,
+    options?: { clear?: boolean; message?: string; disableSpinner?: boolean },
+  ): void {
     const headers = ['Name', 'Type'];
     const showEnvironment = pipeline.steps.some((s) => s.environment);
     const showComponent = pipeline.steps.some((s) => s.component);
@@ -332,8 +335,12 @@ export class CommandHelper {
     if (options?.clear) {
       const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
       this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
-
-      const message = spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString();
+      const message = !options.disableSpinner
+        ? spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString()
+        : table.toString();
+      if (options.disableSpinner) {
+        logUpdate.clear();
+      }
       logUpdate(message);
     } else {
       console.log(table.toString());
@@ -1051,7 +1058,6 @@ export class CommandHelper {
   public async applyEnvironment(
     name: string,
     datacenterRecord: DatacenterRecord,
-    environmentRecord: EnvironmentRecord,
     environment: Environment,
     pipeline: Pipeline,
     logger: winston.Logger | undefined,
@@ -1063,7 +1069,7 @@ export class CommandHelper {
       })
       .then(async () => {
         await this.saveEnvironment(
-          environmentRecord!.datacenter,
+          datacenterRecord.name,
           name,
           datacenterRecord.config,
           environment!,
@@ -1072,7 +1078,7 @@ export class CommandHelper {
       })
       .catch(async (err) => {
         await this.saveEnvironment(
-          environmentRecord!.datacenter,
+          datacenterRecord.name,
           name,
           datacenterRecord.config,
           environment!,

@@ -37,11 +37,6 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
       inputs.context,
     );
     args.push('./');
-    console.log(inputs.component_source);
-    console.log(inputs.context);
-    console.log(context);
-    console.log(args);
-    console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 
     const { code, stdout, stderr } = await exec('docker', {
       args,

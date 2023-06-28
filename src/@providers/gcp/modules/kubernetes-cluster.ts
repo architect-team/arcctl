@@ -71,7 +71,7 @@ export class GoogleCloudKubernetesClusterModule extends ResourceModule<
 clusters:
 - cluster:
     certificate-authority-data: ${this.cluster.masterAuth.clusterCaCertificate}
-    server: ${this.cluster.endpoint}
+    server: https://${this.cluster.endpoint}
   name: ${this.cluster.name}
 contexts:
 - context:

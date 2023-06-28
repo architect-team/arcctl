@@ -15,7 +15,7 @@ import { ApplyOptions, ApplyOutputs, WritableResourceService } from './base.serv
 import { ProviderCredentials } from './credentials.ts';
 import { ResourceModuleConstructor } from './module.ts';
 
-type TerraformResourceState =
+export type TerraformResourceState =
   | {
     id: string;
   }
@@ -316,7 +316,8 @@ export abstract class TerraformResourceService<
     options: ApplyOptions<TerraformResourceState>,
   ): Promise<void> {
     try {
-      const cwd = options.cwd || Deno.makeTempDirSync();
+      options.cwd = options.cwd || Deno.makeTempDirSync();
+      const cwd = options.cwd;
       const stateFile = path.join(cwd, 'terraform.tfstate');
       const lockFile = path.join(cwd, '.terraform.lock.hcl');
       let app = new App({
@@ -359,6 +360,8 @@ export abstract class TerraformResourceService<
         }
       }
 
+      await module.afterImport(options);
+
       app = new App({ outdir: cwd });
       stack = new CldCtlTerraformStack(app, 'arcctl');
       this.configureTerraformProviders(stack);
@@ -390,6 +393,13 @@ export abstract class TerraformResourceService<
           startTime,
         },
       });
+
+      // HEAD
+      const { stderr } = await this.tfApply(options.cwd, options.logger);
+      if (stderr && stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(stderr));
+        return;
+      }
 
       await this.tfApply(cwd, options.logger);
 
@@ -436,7 +446,9 @@ export abstract class TerraformResourceService<
       providerStore: this.providerStore,
       FileConstruct: createProviderFileConstructor(fileStorageDir),
     });
-    return crypto.createHash('sha256').update(stack.toTerraform()).digest('hex').toString();
+    const terraform = stack.toTerraform();
+    const stringStack = typeof terraform === 'string' ? terraform : JSON.stringify(terraform);
+    return crypto.createHash('sha256').update(stringStack).digest('hex').toString();
   }
 
   public apply(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): Observable<ApplyOutputs<T>> {

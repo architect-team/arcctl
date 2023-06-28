@@ -18,7 +18,7 @@ const DestroyResourceCommand = BaseCommand()
   .description('Destroy a cloud resource')
   .type('resourceType', resourceType)
   .option('-a, --account <account:string>', 'The cloud account to use to destroy this resource')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Show verbose logs of the command', { default: false })
   .arguments('[type:resourceType] [id:string]')
   .action(destroy_resource_action);
 

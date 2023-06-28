@@ -6,9 +6,17 @@ import { ApplyOptions } from './types.ts';
 
 export const PIPELINE_NO_OP = 'no-op';
 
+export enum PlanContextLevel {
+  None = 0,
+  Datacenter = 1,
+  Environment = 2,
+  Component = 3,
+}
+
 export type PlanOptions = {
   before: Pipeline;
   after: CloudGraph;
+  contextFilter?: PlanContextLevel;
 };
 
 export type PipelineOptions = {
@@ -16,7 +24,22 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
-const setNoopSteps = (providerStore: ProviderStore, previousPipeline: Pipeline, nextPipeline: Pipeline): Pipeline => {
+const getContextLevel = (step: PipelineStep): PlanContextLevel => {
+  if (step.component) {
+    return PlanContextLevel.Component;
+  }
+  if (step.environment) {
+    return PlanContextLevel.Environment;
+  }
+  return PlanContextLevel.Datacenter;
+};
+
+const setNoopSteps = (
+  providerStore: ProviderStore,
+  previousPipeline: Pipeline,
+  nextPipeline: Pipeline,
+  contextFilter?: PlanContextLevel,
+): Pipeline => {
   let done = false;
 
   do {
@@ -27,14 +50,16 @@ const setNoopSteps = (providerStore: ProviderStore, previousPipeline: Pipeline, 
       const allDependencies = nextPipeline.getDependencies(step.id);
       const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
 
-      if (!step.isNoop && allDependencies.length !== completeDependencies.length) {
+      const isNoop = !contextFilter ? false : getContextLevel(step) < contextFilter;
+
+      if (!isNoop && allDependencies.length !== completeDependencies.length) {
         continue;
       }
 
       step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
 
       if (
-        step.isNoop ||
+        isNoop ||
         (step.getHash(providerStore) === previousStep?.hash &&
           previousStep.status.state === 'complete')
       ) {
@@ -42,7 +67,6 @@ const setNoopSteps = (providerStore: ProviderStore, previousPipeline: Pipeline, 
         step.status.state = 'complete';
         step.state = previousStep?.state;
         step.outputs = previousStep?.outputs;
-        step.isNoop = true;
         nextPipeline.insertSteps(step);
         done = false;
       }
@@ -300,7 +324,7 @@ export class Pipeline {
     }
 
     // Check for nodes that can be no-op'd
-    return setNoopSteps(providerStore, options.before, pipeline);
+    return setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
   }
 
   /**

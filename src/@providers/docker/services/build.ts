@@ -32,9 +32,10 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
       args.push('-f', inputs.dockerfile);
     }
 
-    const context = path.isAbsolute(inputs.context)
-      ? inputs.context
-      : path.join(path.dirname(inputs.component_source), inputs.context);
+    const context = path.isAbsolute(inputs.context) ? inputs.context : path.join(
+      Deno.lstatSync(inputs.component_source).isFile ? path.dirname(inputs.component_source) : inputs.component_source,
+      inputs.context,
+    );
     args.push('./');
 
     const { code, stdout, stderr } = await exec('docker', {

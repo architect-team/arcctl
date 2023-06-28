@@ -338,7 +338,6 @@ export default class DatacenterV1 extends Datacenter {
       const node = new CloudNode({
         name: key,
         inputs: value,
-        isNoop: !!options?.noop,
       });
 
       node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
@@ -356,7 +355,6 @@ export default class DatacenterV1 extends Datacenter {
           account: 'n/a', // Helps it skip hook mutations
           ...value,
         },
-        isNoop: !!options?.noop,
       });
 
       node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);

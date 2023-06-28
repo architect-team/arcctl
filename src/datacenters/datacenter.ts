@@ -43,10 +43,6 @@ export type DatacenterEnrichmentOptions = {
    * Whether or not to build the graph using debug features
    */
   debug?: boolean;
-  /**
-   * Wether or not to mark datacenter nodes as noops
-   */
-  noop?: boolean;
 };
 
 export abstract class Datacenter {

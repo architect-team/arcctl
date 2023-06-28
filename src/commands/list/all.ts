@@ -1,7 +1,7 @@
-import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { createTable } from '../../utils/table.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { createTable } from '../../utils/table.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -26,6 +26,10 @@ async function list_all_resources_action(options: ListAllResourceOptions, resour
   });
 
   const displayableTypes: Set<ResourceType> = new Set(['kubernetesCluster', 'vpc']);
+
+  if (!(await provider.testCredentials())) {
+    throw new Error(`Unable to list resources for ${provider.name} because the credentials are invalid`);
+  }
 
   for (const [resourceType, resourceImpl] of provider.getResourceEntries()) {
     if (!displayableTypes.has(resourceType) || !resourceImpl.list) {

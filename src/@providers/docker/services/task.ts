@@ -5,14 +5,12 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
-import { RequiresDocker } from '../helper.ts';
 
 export class DockerTaskService extends CrudResourceService<'task', DockerCredentials> {
   get(_id: string): Promise<ResourceOutputs['task'] | undefined> {
     return Promise.resolve(undefined);
   }
 
-  @RequiresDocker()
   list(
     _filterOptions?: Partial<ResourceOutputs['task']> | undefined,
     _pagingOptions?: Partial<PagingOptions> | undefined,
@@ -23,7 +21,6 @@ export class DockerTaskService extends CrudResourceService<'task', DockerCredent
     });
   }
 
-  @RequiresDocker()
   async create(_subscriber: Subscriber<string>, inputs: ResourceInputs['task']): Promise<ResourceOutputs['task']> {
     const args = ['run', '--detach'];
     if (inputs.namespace) {
@@ -81,7 +78,6 @@ export class DockerTaskService extends CrudResourceService<'task', DockerCredent
     };
   }
 
-  @RequiresDocker()
   async update(
     subscriber: Subscriber<string>,
     id: string,
@@ -101,7 +97,6 @@ export class DockerTaskService extends CrudResourceService<'task', DockerCredent
     }
   }
 
-  @RequiresDocker()
   delete(subscriber: Subscriber<string>, _id: string): Promise<void> {
     subscriber.next('Tasks cannot be deleted. No action was taken.');
     return Promise.resolve();

@@ -5,7 +5,6 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
-import { RequiresDocker } from '../helper.ts';
 
 type DockerVolume = {
   Availability: string;
@@ -26,7 +25,6 @@ export class DockerVolumeService extends CrudResourceService<'volume', DockerCre
     return results.rows.find((r) => r.id === id);
   }
 
-  @RequiresDocker()
   async list(
     filterOptions?: Partial<ResourceOutputs['volume']>,
     pagingOptions?: Partial<PagingOptions>,
@@ -42,7 +40,6 @@ export class DockerVolumeService extends CrudResourceService<'volume', DockerCre
     };
   }
 
-  @RequiresDocker()
   async create(subscriber: Subscriber<string>, inputs: ResourceInputs['volume']): Promise<ResourceOutputs['volume']> {
     const volumeId = inputs.name.replaceAll('/', '--');
     const args = ['volume', 'create'];
@@ -65,7 +62,6 @@ export class DockerVolumeService extends CrudResourceService<'volume', DockerCre
     };
   }
 
-  @RequiresDocker()
   update(
     subscriber: Subscriber<string>,
     id: string,
@@ -75,7 +71,6 @@ export class DockerVolumeService extends CrudResourceService<'volume', DockerCre
     return Promise.resolve({ id });
   }
 
-  @RequiresDocker()
   async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
     await exec('docker', { args: ['volume', 'rm', id] });
   }

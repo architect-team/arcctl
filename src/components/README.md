@@ -2,7 +2,9 @@
 
 Components are Architect's cloud-agnostic, 100% portable cloud application bundles. The component
 framework allows developers to use simple terms to design their cloud applications using a simple,
-declarative language.
+declarative language. By using a common, infrastructure-agnostic language, developers are able to
+better collaborate with peer engineering and operations teams without colliding or slowing each
+other down.
 
 ## Designing components
 

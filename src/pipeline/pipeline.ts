@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { PipelineStep } from './step.ts';
@@ -320,99 +321,107 @@ export class Pipeline {
   /**
    * Kick off the pipeline
    */
-  public async apply(options: ApplyOptions): Promise<void> {
+  public apply(options: ApplyOptions): Observable<Pipeline> {
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
-    let step: PipelineStep | undefined;
-    while (
-      (step = this.getNextStep(
-        ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
-      ))
-    ) {
-      if (!step) {
-        throw new Error(`Something went wrong queuing up a node to apply`);
-      }
-
-      if (step.inputs) {
-        try {
-          if (step.action !== 'delete') {
-            step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+    return new Observable((subscriber) => {
+      (async () => {
+        let step: PipelineStep | undefined;
+        while (
+          (step = this.getNextStep(
+            ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
+          ))
+        ) {
+          if (!step) {
+            subscriber.error(`Something went wrong queuing up a node to apply`);
+            return;
           }
-        } catch (err: any) {
-          step.status.state = 'error';
-          step.status.message = err.message;
-          throw err;
-        }
-      }
 
-      // Hijack the arcctl account type to execute w/out a provider
-      if (step.inputs?.type === 'arcctlAccount') {
-        if (!Object.keys(SupportedProviders).includes(step.inputs.provider)) {
-          step.status.state = 'error';
-          step.status.message = 'Invalid provider specified';
-          throw new Error(
-            `Invalid provider specified: ${step.inputs.provider}`,
-          );
-        }
+          if (step.inputs) {
+            try {
+              if (step.action !== 'delete') {
+                step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+              }
+            } catch (err: any) {
+              step.status.state = 'error';
+              step.status.message = err.message;
+              subscriber.error(err.message);
+              return;
+            }
+          }
 
-        if (step.action === 'delete') {
-          step.status = {
-            state: 'destroying',
-            message: '',
-            startTime: Date.now(),
-            endTime: Date.now(),
-          };
+          // Hijack the arcctl account type to execute w/out a provider
+          if (step.inputs?.type === 'arcctlAccount') {
+            if (!Object.keys(SupportedProviders).includes(step.inputs.provider)) {
+              step.status.state = 'error';
+              step.status.message = 'Invalid provider specified';
+              subscriber.error(
+                `Invalid provider specified: ${step.inputs.provider}`,
+              );
+              return;
+            }
 
-          options.providerStore.deleteProvider(step.inputs.name);
-        } else {
-          step.status = {
-            state: 'applying',
-            message: '',
-            startTime: Date.now(),
-            endTime: Date.now(),
-          };
+            if (step.action === 'delete') {
+              step.status = {
+                state: 'destroying',
+                message: '',
+                startTime: Date.now(),
+                endTime: Date.now(),
+              };
 
-          options.providerStore.saveProvider(
-            new SupportedProviders[
-              step.inputs.provider as keyof typeof SupportedProviders
-            ](
-              step.inputs.name,
-              step.inputs.credentials as any,
-              options.providerStore,
-            ),
-          );
-        }
+              options.providerStore.deleteProvider(step.inputs.name);
+            } else {
+              step.status = {
+                state: 'applying',
+                message: '',
+                startTime: Date.now(),
+                endTime: Date.now(),
+              };
 
-        step.outputs = {
-          id: step.inputs.name,
-        };
-        step.state = {
-          id: step.inputs.name,
-        };
+              options.providerStore.saveProvider(
+                new SupportedProviders[
+                  step.inputs.provider as keyof typeof SupportedProviders
+                ](
+                  step.inputs.name,
+                  step.inputs.credentials as any,
+                  options.providerStore,
+                ),
+              );
+            }
 
-        step.status = {
-          state: 'complete',
-          message: '',
-          startTime: Date.now(),
-          endTime: Date.now(),
-        };
-        continue;
-      }
+            step.outputs = {
+              id: step.inputs.name,
+            };
+            step.state = {
+              id: step.inputs.name,
+            };
 
-      await new Promise<void>((resolve, reject) => {
-        step!
-          .apply({
-            ...options,
-            cwd,
-          })
-          .subscribe({
-            next: (res) => {
-              this.insertSteps(res);
-            },
-            error: reject,
-            complete: resolve,
+            step.status = {
+              state: 'complete',
+              message: '',
+              startTime: Date.now(),
+              endTime: Date.now(),
+            };
+            continue;
+          }
+
+          await new Promise<void>((resolve, reject) => {
+            step!
+              .apply({
+                ...options,
+                cwd,
+              })
+              .subscribe({
+                next: (res) => {
+                  this.insertSteps(res);
+                },
+                error: reject,
+                complete: resolve,
+              });
           });
-      });
-    }
+          subscriber.next(this);
+        }
+      })().then(() => subscriber.complete());
+    });
   }
 }

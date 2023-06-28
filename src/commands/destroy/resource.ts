@@ -116,6 +116,7 @@ async function destroy_resource_action(
       providerStore: command_helper.providerStore,
       logger: logger,
     })
+    .toPromise()
     .then(() => {
       command_helper.renderPipeline(pipeline, { clear: true });
       clearInterval(interval);

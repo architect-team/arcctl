@@ -66,6 +66,7 @@ async function create_datacenter_action(options: CreateDatacenterOptions, name: 
         providerStore: command_helper.providerStore,
         logger: logger,
       })
+      .toPromise()
       .then(async () => {
         await command_helper.saveDatacenter(name, datacenter, pipeline);
         command_helper.renderPipeline(pipeline, { clear: !options.verbose });

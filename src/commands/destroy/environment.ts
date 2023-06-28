@@ -61,6 +61,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
       providerStore: command_helper.providerStore,
       logger: logger,
     })
+    .toPromise()
     .then(async () => {
       clearInterval(interval);
       await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);

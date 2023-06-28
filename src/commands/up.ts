@@ -97,6 +97,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       providerStore: command_helper.providerStore,
       logger: logger,
     })
+    .toPromise()
     .then(async () => {
       await command_helper.saveEnvironment(
         datacenterRecord.name,

@@ -71,6 +71,7 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
         providerStore: command_helper.providerStore,
         logger: logger,
       })
+      .toPromise()
       .then(async () => {
         await command_helper.saveEnvironment(
           datacenterRecord.name,

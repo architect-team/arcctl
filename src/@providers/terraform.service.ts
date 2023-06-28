@@ -1,5 +1,6 @@
 import { App } from 'cdktf';
 import { Construct } from 'constructs';
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
 import { Observable, Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
@@ -18,7 +19,7 @@ export type TerraformResourceState =
   | {
     id: string;
   }
-  | { terraform_version: string; [key: string]: any };
+  | { terraform_version: string; stateFile: any; lockFile: any };
 
 export abstract class TerraformResourceService<
   T extends ResourceType,
@@ -187,6 +188,7 @@ export abstract class TerraformResourceService<
   ): Promise<void> {
     const cwd = options.cwd || Deno.makeTempDirSync();
     const stateFile = path.join(cwd, 'terraform.tfstate');
+    const lockFile = path.join(cwd, '.terraform.lock.hcl');
 
     const app = new App({
       outdir: cwd,
@@ -215,7 +217,8 @@ export abstract class TerraformResourceService<
 
     let initRan = false;
     if (options.state && 'terraform_version' in options.state) {
-      Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state)));
+      Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state.stateFile)));
+      Deno.writeFileSync(lockFile, new TextEncoder().encode(options.state.lockFile));
     } else if (options.state) {
       // State must be imported from an ID
       const imports = await module.genImports(options.state.id);
@@ -275,10 +278,18 @@ export abstract class TerraformResourceService<
     });
 
     const stateFileBuffer = await Deno.readFile(stateFile);
-    options.state = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+    const lockFileBuffer = await Deno.readFile(lockFile);
+    const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+    options.state = {
+      terraform_version: stateFileContents.terraform_version,
+      stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
+      lockFile: new TextDecoder().decode(lockFileBuffer),
+    };
 
     const { stdout: rawOutputs } = await this.tfOutput(cwd, options.logger);
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
+
+    await Deno.remove(cwd, { recursive: true });
 
     if (!parsedOutputs) {
       subscriber.error(new Error('Failed to retrieve terraform outputs'));
@@ -308,7 +319,7 @@ export abstract class TerraformResourceService<
       options.cwd = options.cwd || Deno.makeTempDirSync();
       const cwd = options.cwd;
       const stateFile = path.join(cwd, 'terraform.tfstate');
-
+      const lockFile = path.join(cwd, '.terraform.lock.hcl');
       let app = new App({
         outdir: cwd,
       });
@@ -334,7 +345,8 @@ export abstract class TerraformResourceService<
       });
 
       if (options.state && 'terraform_version' in options.state) {
-        Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state)));
+        Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state.stateFile)));
+        Deno.writeFileSync(lockFile, new TextEncoder().encode(options.state.lockFile));
       } else if (options.state) {
         // State must be imported from an ID
         const imports = await module.genImports(options.state.id);
@@ -392,7 +404,15 @@ export abstract class TerraformResourceService<
       await this.tfApply(cwd, options.logger);
 
       const stateFileBuffer = await Deno.readFile(stateFile);
-      options.state = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+      const lockFileBuffer = await Deno.readFile(lockFile);
+      const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+      options.state = {
+        terraform_version: stateFileContents.terraform_version,
+        stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
+        lockFile: new TextDecoder().decode(lockFileBuffer),
+      };
+
+      await Deno.remove(cwd, { recursive: true });
 
       subscriber.next({
         status: {
@@ -408,6 +428,27 @@ export abstract class TerraformResourceService<
       console.error(err);
       subscriber.error(err);
     }
+  }
+
+  public getHash(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): string {
+    const app = new App({
+      outdir: options.cwd,
+    });
+    const stack = new CldCtlTerraformStack(app, 'arcctl');
+    this.configureTerraformProviders(stack);
+    const fileStorageDir = path.join(options.providerStore.storageDir, options.id.replaceAll('/', '--'));
+    Deno.mkdirSync(fileStorageDir, { recursive: true });
+    stack.addModule(this.construct, {
+      id: options.id,
+      inputs,
+      accountName: this.accountName,
+      credentials: this.credentials,
+      providerStore: this.providerStore,
+      FileConstruct: createProviderFileConstructor(fileStorageDir),
+    });
+    const terraform = stack.toTerraform();
+    const stringStack = typeof terraform === 'string' ? terraform : JSON.stringify(terraform);
+    return crypto.createHash('sha256').update(stringStack).digest('hex').toString();
   }
 
   public apply(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): Observable<ApplyOutputs<T>> {

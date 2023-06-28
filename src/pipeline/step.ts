@@ -1,6 +1,8 @@
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
+import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
@@ -11,6 +13,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   action: StepAction;
   color?: StepColor;
   status?: StepStatus;
+  hash?: string;
   component?: string;
   environment?: string;
   state?: any;
@@ -24,6 +27,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   action: StepAction;
   color: StepColor;
   status: StepStatus;
+  hash?: string;
   component?: string;
   environment?: string;
   state?: any;
@@ -38,6 +42,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.status = options.status || {
       state: 'pending',
     };
+    this.hash = options.hash;
     this.component = options.component;
     this.environment = options.environment;
     this.state = options.state;
@@ -58,6 +63,38 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       this.color === step.color && this.component === step.component &&
       this.environment === step.environment &&
       JSON.stringify(this.inputs) === JSON.stringify(step.inputs);
+  }
+
+  public getHash(providerStore: ProviderStore): string {
+    const cwd = Deno.makeTempDirSync({ prefix: 'arcctl-' });
+
+    const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
+    Deno.mkdirSync(nodeDir, { recursive: true });
+    if (!nodeDir) {
+      throw new Error('Unable to create execution directory for terraform');
+    }
+
+    const account = providerStore.getProvider(
+      this.inputs?.account || '',
+    );
+    if (!account) {
+      return crypto.createHash('sha256').update(JSON.stringify(this.inputs)).digest('hex').toString();
+    }
+
+    const service = account.resources[this.type] as ResourceService<any, any>;
+    if (!service) {
+      throw new Error(
+        `The ${account.type} provider doesn't support the ${this.type} resource`,
+      );
+    }
+
+    const writableService = service as WritableResourceService<any, any>;
+
+    return writableService.getHash(this.inputs, {
+      id: this.id,
+      cwd: nodeDir,
+      providerStore,
+    });
   }
 
   public apply(options: ApplyOptions): Observable<PipelineStep<T>> {

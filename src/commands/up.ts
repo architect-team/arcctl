@@ -5,7 +5,7 @@ import winston, { Logger } from 'winston';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { Pipeline } from '../pipeline/index.ts';
+import { Pipeline, PlanContextLevel } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { destroyEnvironment } from './destroy/environment.ts';
 import { streamLogs } from './logs.ts';
@@ -66,13 +66,16 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     targetGraph.insertNodes(ingressNode);
   }
 
-  targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, options.environment);
+  targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, {
+    environmentName: options.environment,
+  });
   targetGraph.validate();
 
   const pipeline = Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
-  });
+    contextFilter: PlanContextLevel.Environment,
+  }, command_helper.providerStore);
   pipeline.validate();
 
   let interval: number;

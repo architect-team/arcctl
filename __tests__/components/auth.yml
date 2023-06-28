@@ -18,7 +18,7 @@ databases:
 
 builds:
   kratos-ui:
-    context: ../../kratos-selfservice-ui-node/
+    context: ../../../kratos-selfservice-ui-node/
     dockerfile: Dockerfile
     debug:
       dockerfile: Dockerfile-dev

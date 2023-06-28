@@ -3,7 +3,3 @@ version: v2
 deployments:
   mailslurper:
     image: oryd/mailslurper:latest-smtps
-    volumes:
-      source:
-        mount_path: /volume_test
-        host_path: /home/muesch/Architect/code/arcctl/bin

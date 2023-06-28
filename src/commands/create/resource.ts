@@ -41,7 +41,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
   const pipeline = Pipeline.plan({
     before: new Pipeline(),
     after: graph,
-  });
+  }, command_helper.providerStore);
 
   console.log('\nAbout to create the following resources:');
   command_helper.renderPipeline(pipeline);

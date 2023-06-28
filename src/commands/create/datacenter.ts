@@ -35,7 +35,7 @@ async function create_datacenter_action(options: CreateDatacenterOptions, name: 
     const pipeline = Pipeline.plan({
       before: new Pipeline(),
       after: graph,
-    });
+    }, command_helper.providerStore);
 
     pipeline.validate();
 

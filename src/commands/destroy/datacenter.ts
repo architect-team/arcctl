@@ -27,7 +27,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   const pipeline = Pipeline.plan({
     before: lastPipeline,
     after: new CloudGraph(),
-  });
+  }, command_helper.providerStore);
 
   const allEnvs = await command_helper.environmentStore.find();
   const datacenterEnvs = allEnvs.filter((env) => env.datacenter === datacenterRecord.name);

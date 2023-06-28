@@ -41,7 +41,7 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
     const newPipeline = Pipeline.plan({
       before: originalPipeline,
       after: targetGraph,
-    });
+    }, command_helper.providerStore);
 
     if (newPipeline.steps.length <= 0) {
       await command_helper.saveDatacenter(name, newDatacenter, newPipeline);

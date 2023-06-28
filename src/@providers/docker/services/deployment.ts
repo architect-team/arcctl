@@ -8,6 +8,7 @@ import { LogsOptions } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
+import { RequiresDocker } from '../helper.ts';
 import { DockerInspectionResults, DockerPsItem } from '../types.ts';
 
 const DOCKER_NETWORK_NAME = 'arcctl-local';
@@ -28,6 +29,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     return listRes.rows.find((row) => row.id === id);
   }
 
+  @RequiresDocker()
   private async getPods(
     labels: Record<string, string>,
   ): Promise<DockerInspectionResults[]> {
@@ -53,6 +55,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     }));
   }
 
+  @RequiresDocker()
   async list(
     filterOptions?: Partial<ResourceOutputs['deployment']> | undefined,
     _pagingOptions?: Partial<PagingOptions> | undefined,
@@ -72,6 +75,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     };
   }
 
+  @RequiresDocker()
   logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
     const args = ['logs', id.replaceAll('/', '--')];
 
@@ -113,6 +117,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     }
   }
 
+  @RequiresDocker()
   async create(
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
@@ -178,6 +183,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     };
   }
 
+  @RequiresDocker()
   async update(
     subscriber: Subscriber<string>,
     id: string,
@@ -284,6 +290,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     };
   }
 
+  @RequiresDocker()
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
     const match = await this.get(id);
     if (!match) {

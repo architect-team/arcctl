@@ -4,6 +4,7 @@ import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
+import { RequiresDocker } from '../helper.ts';
 
 type DockerNetwork = {
   CreatedAt: string;
@@ -21,6 +22,7 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     return results.rows.find((r) => r.id === id);
   }
 
+  @RequiresDocker()
   async list(
     _filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
     _pagingOptions?: Partial<PagingOptions> | undefined,
@@ -36,6 +38,7 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     };
   }
 
+  @RequiresDocker()
   async create(
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['namespace'],
@@ -46,6 +49,7 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     };
   }
 
+  @RequiresDocker()
   async update(
     subscriber: Subscriber<string>,
     id: string,
@@ -60,6 +64,7 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     return res;
   }
 
+  @RequiresDocker()
   async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
     await exec('docker', { args: ['network', 'rm', id] });
   }

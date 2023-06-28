@@ -6,6 +6,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
+import { RequiresDocker } from '../helper.ts';
 
 export class DockerBuildService extends CrudResourceService<'dockerBuild', DockerCredentials> {
   get(id: string): Promise<ResourceOutputs['dockerBuild'] | undefined> {
@@ -22,6 +23,7 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
     });
   }
 
+  @RequiresDocker()
   async create(
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['dockerBuild'],

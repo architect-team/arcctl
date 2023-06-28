@@ -6,6 +6,7 @@ import { LogsOptions } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
+import { RequiresDocker } from '../helper.ts';
 import { DockerDeploymentService } from './deployment.ts';
 import { DockerVolumeService } from './volume.ts';
 
@@ -48,6 +49,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     };
   }
 
+  @RequiresDocker()
   logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
     const args = ['logs', id.replaceAll('/', '--')];
 
@@ -69,6 +71,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     return child.stdout;
   }
 
+  @RequiresDocker()
   async create(
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['database'],
@@ -126,6 +129,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     };
   }
 
+  @RequiresDocker()
   async update(
     subscriber: Subscriber<string>,
     id: string,
@@ -204,6 +208,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     };
   }
 
+  @RequiresDocker()
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
     const res = await this.get(id);
     if (!res) {

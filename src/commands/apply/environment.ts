@@ -9,14 +9,18 @@ import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type ApplyEnvironmentOptions = {
   datacenter?: string;
-  verbose?: boolean;
+  verbose: boolean;
+  autoApprove: boolean;
 } & GlobalOptions;
 
 const ApplyEnvironmentCommand = BaseCommand()
   .description('create or update an environment')
   .option('-d, --datacenter <datacenter:string>', 'Datacenter for the environment')
-  .option('-v, --verbose', 'Turn on verbose logs')
-  .arguments('<name:string> [config_path:string]')
+  .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
+  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
+  .arguments(
+    '<name:string> [config_path:string]',
+  )
   .action(apply_environment_action);
 
 export async function apply_environment_action(options: ApplyEnvironmentOptions, name: string, config_path?: string) {
@@ -62,6 +66,9 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
   }, command_helper.providerStore);
+
+  pipeline.validate();
+  await command_helper.confirmPipeline(pipeline, options.autoApprove);
 
   let interval: number | undefined = undefined;
   if (!options.verbose) {

@@ -7,12 +7,14 @@ import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { apply_environment_action } from './environment.ts';
 
 type ApplyDatacenterOptions = {
-  verbose?: boolean;
+  verbose: boolean;
+  autoApprove: boolean;
 } & GlobalOptions;
 
 const ApplyDatacenterCommand = BaseCommand()
   .description('Create or update a datacenter')
   .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
+  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string> <config_path:string>')
   .action(apply_datacenter_action);
 
@@ -40,6 +42,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     }, command_helper.providerStore);
 
     pipeline.validate();
+    await command_helper.confirmPipeline(pipeline, options.autoApprove);
 
     let interval: number | undefined = undefined;
     if (!options.verbose) {
@@ -74,6 +77,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
         await apply_environment_action({
           verbose: options.verbose,
           datacenter: name,
+          autoApprove: true,
         }, environmet.name);
       }
       console.log('Environments updated successfully');

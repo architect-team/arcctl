@@ -278,6 +278,17 @@ export class CommandHelper {
     });
   }
 
+  public async confirmPipeline(pipeline: Pipeline, autoApprove: boolean): Promise<void> {
+    if (autoApprove) {
+      return;
+    }
+    this.renderPipeline(pipeline);
+    const shouldContinue = await this.promptForContinuation('Do you want to apply the above changes?');
+    if (!shouldContinue) {
+      Deno.exit(0);
+    }
+  }
+
   /**
    * Render the executable graph and the status of each resource
    */
@@ -940,15 +951,12 @@ export class CommandHelper {
     } else if (metadata.type === 'number') {
       return NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
-      const provider_name = metadata.provider ||
-        (await Select.prompt({
-          message: `What provider will this account connect to?`,
-          options: Object.keys(SupportedProviders),
-        }));
-
-      const existing_accounts = this.providerStore.getProviders().filter((p) => p.type === provider_name);
+      const existing_accounts = this.providerStore.getProviders();
+      const query_accounts = metadata.provider
+        ? existing_accounts.filter((p) => p.type === metadata.provider)
+        : existing_accounts;
       const account = await this.promptForAccount({
-        prompt_accounts: existing_accounts,
+        prompt_accounts: query_accounts,
         message: message,
       });
       return account.name;

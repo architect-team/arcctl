@@ -8,6 +8,7 @@ import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
+  autoApprove: boolean;
 } & GlobalOptions;
 
 export const destroyEnvironment = async (options: DestroyResourceOptons, name: string) => {
@@ -16,7 +17,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   const environmentRecord = await promptForEnvironment(command_helper, name);
   const datacenterRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
   if (!datacenterRecord) {
-    const confirmed = await Confirm.prompt(
+    const confirmed = options.autoApprove || await Confirm.prompt(
       'The environment is pointed to an invalid datacenter. ' +
         'The environment can be removed, but the resources can\'t be destroyed. Would you like to proceed?',
     );
@@ -39,6 +40,10 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
   }, command_helper.providerStore);
+
+  pipeline.validate();
+
+  await command_helper.confirmPipeline(pipeline, options.autoApprove);
 
   let interval: number;
   if (!options.verbose) {
@@ -112,5 +117,6 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 export default BaseCommand()
   .description('Destroy all the resources in the specified environment')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string>')
   .action(destroyEnvironment);

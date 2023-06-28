@@ -37,18 +37,19 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     for (const env of datacenterEnvs) {
       console.log(`- ${env.name}`);
     }
+  }
 
-    const confirm = options.autoApprove === true || (await Confirm.prompt('Are you sure you want to proceed?'));
+  const confirm = options.autoApprove === true || (await Confirm.prompt('Are you sure you want to proceed?'));
 
-    if (!confirm) {
-      console.error('Datacenter destruction cancelled');
-      Deno.exit(1);
-    }
+  if (!confirm) {
+    console.error('Datacenter destruction cancelled');
+    Deno.exit(1);
   }
 
   for (const env of datacenterEnvs) {
     await destroyEnvironment({
       verbose: options.verbose,
+      autoApprove: true,
     }, env.name);
   }
 

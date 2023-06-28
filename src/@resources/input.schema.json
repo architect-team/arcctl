@@ -1155,77 +1155,6 @@
           "if": {
             "properties": {
               "type": {
-                "const": "loadBalancer",
-                "type": "string"
-              }
-            }
-          },
-          "then": {
-            "additionalProperties": false,
-            "properties": {
-              "account": {
-                "type": "string"
-              },
-              "internal": {
-                "default": false,
-                "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                "type": "boolean"
-              },
-              "loadBalancerType": {
-                "description": "What type of load balancer to create",
-                "type": "string"
-              },
-              "name": {
-                "description": "Name for the new load balancer",
-                "type": "string"
-              },
-              "namespace": {
-                "description": "A namespace to put the load balancer in",
-                "type": "string"
-              },
-              "type": {
-                "const": "loadBalancer",
-                "type": "string"
-              }
-            },
-            "required": [
-              "loadBalancerType",
-              "name",
-              "type"
-            ],
-            "type": "object"
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
-                "properties": {},
-                "type": "object"
-              }
-            }
-          },
-          "then": {
-            "additionalProperties": {},
-            "properties": {
-              "account": {
-                "type": "string"
-              },
-              "type": {
-                "const": "loadBalancerType",
-                "type": "string"
-              }
-            },
-            "required": [
-              "type"
-            ],
-            "type": "object"
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
                 "const": "namespace",
                 "type": "string"
               }
@@ -1728,7 +1657,6 @@
             "helmChart",
             "ingressRule",
             "kubernetesCluster",
-            "loadBalancer",
             "namespace",
             "secret",
             "service",

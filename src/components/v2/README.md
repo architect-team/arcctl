@@ -36,6 +36,23 @@ deployments:
     memory: 200Mi
 ```
 
+### Overriding command and entrypoint
+
+```yml
+version: v2
+
+deployments:
+  my-app:
+    # ...
+    entrypoint: [""]
+    command:
+      - sh
+      - -c
+      - |
+        sleep 100
+        npm start
+```
+
 ## Building docker images
 
 ```yml
@@ -67,23 +84,6 @@ deployments:
     # ...
     environment:
       VAR_VALUE: ${{ variables.my-var }}
-```
-
-## Overriding command and entrypoint
-
-```yml
-version: v2
-
-deployments:
-  my-app:
-    # ...
-    entrypoint: [""]
-    command:
-      - sh
-      - -c
-      - |
-        sleep 100
-        npm start
 ```
 
 ## Databases
@@ -258,6 +258,14 @@ variables:
   allowed_return_urls:
     description: URLs that the service can safely redirect to after auth flows
     merge: true
+
+services:
+  public:
+    # ...
+
+ingresses:
+  public:
+    # ...
 ```
 
 ```yml
@@ -277,12 +285,4 @@ deployments:
     environment:
       SMTP_ADDR: ${{ dependencies.smtp.services.smtp.url }}
       AUTH_ADDR: ${{ dependencies.auth.ingresses.public.url }}
-
-services:
-  public:
-    # ...
-
-ingresses:
-  public:
-    # ...
 ```

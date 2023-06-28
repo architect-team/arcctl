@@ -1,1 +1,1 @@
-# Architect Component v2
+# Architect Component Schema - v2

@@ -51,7 +51,9 @@ async function graph_action(options: GraphOptions): Promise<void> {
   }
 
   if (datacenter) {
-    graph = await datacenter.enrichGraph(graph, environment ? environment_name : undefined);
+    graph = await datacenter.enrichGraph(graph, {
+      environmentName: environment ? environment_name : undefined,
+    });
   }
 
   const umlLines = [`@startuml`];

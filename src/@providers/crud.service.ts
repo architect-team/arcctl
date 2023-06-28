@@ -1,3 +1,4 @@
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable, Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { DeepPartial } from '../utils/types.ts';
@@ -131,5 +132,9 @@ export abstract class CrudResourceService<
         });
       });
     });
+  }
+
+  getHash(inputs: ResourceInputs[T]): string {
+    return crypto.createHash('sha256').update(JSON.stringify(inputs)).digest('hex').toString();
   }
 }

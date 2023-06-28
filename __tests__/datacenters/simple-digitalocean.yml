@@ -1,0 +1,19 @@
+secrets:
+  account: local
+
+variables:
+  region:
+    type: region
+    description: Region to put resources in
+    arcctlAccount: ${{ variables.doAccount }}
+  doAccount:
+    description: Name of your registered DigitalOcean account.
+    type: arcctlAccount
+    provider: digitalocean
+
+resources:
+  vpc:
+    type: vpc
+    name: arcctl-datacenter
+    account: ${{ variables.doAccount }}
+    region: ${{ variables.region }}

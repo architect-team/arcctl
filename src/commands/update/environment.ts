@@ -2,7 +2,7 @@ import cliSpinners from 'cli-spinners';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type UpdateEnvironmentOptions = {
@@ -43,18 +43,23 @@ export async function update_environment_action(options: UpdateEnvironmentOption
     targetGraph = await targetEnvironment.getGraph(name, command_helper.componentStore);
   }
 
-  targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, name);
+  targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {
+    environmentName: name,
+  });
   targetGraph.validate();
 
   const startingDatacenter = (await command_helper.datacenterStore.get(environmentRecord!.datacenter))!;
-  startingDatacenter.config.enrichGraph(targetGraph, name);
+  startingDatacenter.config.enrichGraph(targetGraph, {
+    environmentName: name,
+  });
 
   const startingPipeline = await command_helper.getPipelineForEnvironment(environmentRecord!);
 
   const pipeline = Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
-  });
+    contextFilter: PlanContextLevel.Environment,
+  }, command_helper.providerStore);
 
   let interval: number | undefined = undefined;
   if (!options.verbose) {

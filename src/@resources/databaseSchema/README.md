@@ -8,3 +8,13 @@ Each database schema has its own set of tables so as to remain isolated from oth
 despite residing on the same instance or cluster. This helps operators consolidate the effort
 needed to manage database instances without causing developers creating tables to collide with
 one another.
+
+```sh
+$ arcctl list databaseSchema
+
+$ acctl get databaseSchema <id>
+
+$ arcctl create databaseSchema
+
+$ arcctl destroy databaseSchema
+```

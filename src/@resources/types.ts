@@ -30,10 +30,6 @@ import type kubernetesClusterInputs from './kubernetesCluster/inputs.ts';
 import type kubernetesClusterOutputs from './kubernetesCluster/outputs.ts';
 import type kubernetesVersionInputs from './kubernetesVersion/inputs.ts';
 import type kubernetesVersionOutputs from './kubernetesVersion/outputs.ts';
-import type loadBalancerInputs from './loadBalancer/inputs.ts';
-import type loadBalancerOutputs from './loadBalancer/outputs.ts';
-import type loadBalancerTypeInputs from './loadBalancerType/inputs.ts';
-import type loadBalancerTypeOutputs from './loadBalancerType/outputs.ts';
 import type namespaceInputs from './namespace/inputs.ts';
 import type namespaceOutputs from './namespace/outputs.ts';
 import type nodeInputs from './node/inputs.ts';
@@ -70,8 +66,6 @@ export type ResourceType =
   | 'ingressRule'
   | 'kubernetesCluster'
   | 'kubernetesVersion'
-  | 'loadBalancer'
-  | 'loadBalancerType'
   | 'namespace'
   | 'node'
   | 'nodeSize'
@@ -80,7 +74,8 @@ export type ResourceType =
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc';
+  | 'vpc'
+;
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
@@ -99,8 +94,6 @@ export const ResourceTypeList: ResourceType[] = [
   'ingressRule',
   'kubernetesCluster',
   'kubernetesVersion',
-  'loadBalancer',
-  'loadBalancerType',
   'namespace',
   'node',
   'nodeSize',
@@ -177,14 +170,6 @@ export type ResourceInputs = {
     type: 'kubernetesVersion';
     account?: string;
   } & kubernetesVersionInputs;
-  'loadBalancer': {
-    type: 'loadBalancer';
-    account?: string;
-  } & loadBalancerInputs;
-  'loadBalancerType': {
-    type: 'loadBalancerType';
-    account?: string;
-  } & loadBalancerTypeInputs;
   'namespace': {
     type: 'namespace';
     account?: string;
@@ -272,12 +257,6 @@ export type ResourceOutputs = {
   'kubernetesVersion': {
     id: string;
   } & kubernetesVersionOutputs;
-  'loadBalancer': {
-    id: string;
-  } & loadBalancerOutputs;
-  'loadBalancerType': {
-    id: string;
-  } & loadBalancerTypeOutputs;
   'namespace': {
     id: string;
   } & namespaceOutputs;

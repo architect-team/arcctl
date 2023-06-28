@@ -15,7 +15,7 @@ type DestroyDatacenterOptions = {
 const DestroyDatacenterCommand = BaseCommand()
   .description('Destroy a datacenter and all the environments managed by it')
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
-  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
+  .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string>')
   .action(destroy_datacenter_action);
 
@@ -39,7 +39,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     }
   }
 
-  const confirm = options.autoApprove === true || (await Confirm.prompt('Are you sure you want to proceed?'));
+  const confirm = options.autoApprove || (await Confirm.prompt('Are you sure you want to proceed?'));
 
   if (!confirm) {
     console.error('Datacenter destruction cancelled');

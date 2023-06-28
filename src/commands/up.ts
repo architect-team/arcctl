@@ -112,7 +112,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       clearInterval(interval);
 
       Deno.addSignalListener('SIGINT', async () => {
-        await destroyEnvironment({ verbose: options.verbose }, options.environment);
+        await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, options.environment);
         Deno.exit();
       });
 

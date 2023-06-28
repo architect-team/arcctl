@@ -14,7 +14,7 @@ type ApplyDatacenterOptions = {
 const ApplyDatacenterCommand = BaseCommand()
   .description('Create or update a datacenter')
   .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
-  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
+  .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string> <config_path:string>')
   .action(apply_datacenter_action);
 

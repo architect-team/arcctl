@@ -117,6 +117,6 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 export default BaseCommand()
   .description('Destroy all the resources in the specified environment')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })
-  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
+  .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string>')
   .action(destroyEnvironment);

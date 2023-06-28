@@ -17,7 +17,7 @@ const ApplyEnvironmentCommand = BaseCommand()
   .description('create or update an environment')
   .option('-d, --datacenter <datacenter:string>', 'Datacenter for the environment')
   .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
-  .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
+  .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments(
     '<name:string> [config_path:string]',
   )

@@ -39,8 +39,7 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsR
         recordType: domain_record.type || '',
         managedZone: managed_zone,
       };
-    } catch (error) {
-      console.log(error);
+    } catch {
       return undefined;
     }
   }

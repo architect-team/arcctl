@@ -14,7 +14,7 @@ for all new Architect Components.
 
 One of the main features of Architect Components is the ability to run containerized cloud
 applications. In the v2 Component Schema, these workloads are called "deployments". This language
-mirrors ArcCtl's own [resource types](../../%40resources/deployment/) as well as [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+mirrors Architect's own [resource types](../../%40resources/deployment/) as well as [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 to ensure that developers coming from other tools have an intuitive experience.
 
 Declaring a deployment as part of your component is easy. The only _required_ field is a Docker
@@ -189,7 +189,21 @@ deployments:
 
 ## Services
 
+Now that you've seen how components can integrate [databases](#integrating-databases), you may be
+wondering how you can do the same for your applications. You've learned about
+[deployments](#deployments), but not how to expose your APIs to be integrated by others.
+
+This is where "services" come into play. Services offer a way for components to declare APIs or other
+listening addresses by which their deployments are to be made available for other apps in the
+same environment.
+
+The term "services" mirrors Architect's own [resource types](../../%40resources/service/) as well as [Kubernetes Services](https://kubernetes.io/docs/concepts/services-networking/service/) to ensure that developers coming from other tools have an intuitive experience.
+
 ### Registering services
+
+Once you've declared the deployment you want to run as part of your component, you can declare services
+for each port that your application listens on. Many applications only listen on one port, but some will
+listen on several to blend internal and administrative usage of their application.
 
 ```yml
 version: v2
@@ -209,7 +223,22 @@ services:
     password: pass
 ```
 
+As you can see from the `admin` service, you can also configure services to include basic auth credentials. The service doesn't do anything in particular with these values, but declaring them
+this way will ensure that any references to the service will automatically include the `user:pass`
+combo in the `url` value.
+
 ### Integrating services
+
+Now that you've declared what services exist, you can easily integrate those services into your
+deployments, cronjobs, or other parts of your component. In the example below, the `my-app` deployment
+is referencing its own "public" service address while the `second-app` deployment is referencing the
+admin service address.
+
+By using Architect's reference syntax, you'll not only ensure the values are automatically populated,
+but you'll also reap the benefits of Architect's zero-trust security automation. Every time a
+deployment or task references a service, Architect will automatically queue up the creation of a
+strict "network policy" to allow traffic to flow between the deployment and the service. Since this
+happens automatically, operations teams get reliable network policies without any work from developers.
 
 ```yml
 version: v2
@@ -245,7 +274,20 @@ services:
 
 ## Ingress rules
 
+While [services](#services) are used to declare APIs available for other applications within your
+cloud environment, ingress rules are used to declare APIs and applications available for users and
+applications outside the cloud environment.
+
 ### Creating ingress rules
+
+Creating ingress rules is just as easy as creating [services](#services). The most basic of ingress
+rules simply point to the service they should forward traffic too, but you can also indicate whether
+or not your ingress rule should be `internal`.
+
+By marking your ingress rule as internal, you're informing the [datacenter](../../datacenters/) that
+the route should not be given a public address, but should intead be available behind internal load
+balancers. This annotation is perfect for administrative panels where you expect team members to work
+through a VPN to access the route.
 
 ```yml
 version: v2
@@ -271,6 +313,12 @@ ingresses:
 ```
 
 ### Integrating ingress rules
+
+Just like with [services](#services) and [databases](#integrating-databases), you can also connect
+applications within the component to collect ingress URLs. While this is unnecessary for internal APIs
+since they can connect more directly through [services](#services), this is perfect for client-side,
+javascript-heavy web applications that run in the browser and not in your cloud. It's also a great way
+for server-side APIs to acquire URLs for CORS whitelisting.
 
 ```yml
 version: v2
@@ -299,7 +347,24 @@ ingresses:
 
 ## Component dependencies
 
+One of the more advanced features of Architect's Component framework is the ability for components to
+extend one another as "dependencies". Like libraries and packages, APIs can benefit from the ability to
+seamlessly integrate with one another, so we wanted to bring this capability to components.
+
+If you're familiar with [Terraform](https://www.terraform.io/) you've probably seen something that looks
+a bit similar with [modules](https://developer.hashicorp.com/terraform/language/modules), but unlike modules, Architect dependencies will be shared by all components in the same environment that refer to
+the same dependency. This is more desirable when teams build internal services like "auth" or
+"recommendations" so that there is only one instance of the dependent component that's run by the team
+that owns it.
+
 ### Integrating dependencies
+
+Declaring dependencies for your component is as easy as using the `dependencies` keyword as shown below.
+The key is simply a reference name that you'd use elsewhere in the component for referencing the
+dependency, and the value is the repository where you expect to find the component.
+
+Once declared, you can inject the dependency's [services](#services), [ingresses](#ingress-rules), or
+[databases](#databases) as if they were part of your own component. Architect will continue to generate zero-trust configuration settings even when connecting across components.
 
 ```yml
 version: v2
@@ -318,6 +383,13 @@ deployments:
 
 ### Passing variables
 
+There are some cases where dependencies need to collect information from the components that consume
+them. Usually this is for whitelisting URLs or otherwise configuring security rules.
+
+Passing values can only be done for components and variables that declare the `merge` field as true.
+This tells Architect to merge the results from the environment and all upstream components into an array
+of values the component can use to configure itself.
+
 ```yml
 # architect/auth component
 version: v2
@@ -335,6 +407,9 @@ ingresses:
   public:
     # ...
 ```
+
+When upstream components cite the component as a dependency, they can provide their own values to these
+mergeable variables that will be integrated with the other values:
 
 ```yml
 version: v2

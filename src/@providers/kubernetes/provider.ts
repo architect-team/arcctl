@@ -1,4 +1,3 @@
-import k8s from '@kubernetes/client-node';
 import { Provider } from '../provider.ts';
 import { KubernetesCredentials, KubernetesCredentialsSchema } from './credentials.ts';
 import { KubernetesDeploymentService } from './services/deployment.ts';
@@ -6,7 +5,7 @@ import { KubernetesHelmChartService } from './services/helm-chart.ts';
 import { KubernetesIngressRuleService } from './services/ingress-rule.ts';
 import { KubernetesNamespaceService } from './services/namespace.ts';
 import { KubernetesServiceService } from './services/service.ts';
-import KubernetesUtils from './utils.ts';
+import { kubectlExec } from './utils.ts';
 
 export default class KubernetesProvider extends Provider<KubernetesCredentials> {
   readonly type = 'kubernetes';
@@ -22,10 +21,11 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
   };
 
   public async testCredentials(): Promise<boolean> {
-    const client = KubernetesUtils.getClient(this.credentials, k8s.VersionApi);
     try {
-      const res = await client.getCode();
-      return Number(res.body.major) >= 1 && Number(res.body.minor) >= 18;
+      const cmdOutput = await kubectlExec(this.credentials, ['version']);
+      const version = JSON.parse(cmdOutput.stdout);
+      const clientVersion = version.clientVersion;
+      return Number(clientVersion.major) >= 1 && Number(clientVersion.minor) >= 18;
     } catch {
       return false;
     }

@@ -6,6 +6,7 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesServiceModule } from '../modules/service.ts';
+import { kubectlExec } from '../utils.ts';
 import { KubernetesNamespaceService } from './namespace.ts';
 
 export class KubernetesServiceService extends TerraformResourceService<'service', KubernetesCredentials> {
@@ -13,26 +14,6 @@ export class KubernetesServiceService extends TerraformResourceService<'service'
 
   readonly terraform_version = '1.4.5';
   readonly construct = KubernetesServiceModule;
-
-  private get client(): k8s.CoreV1Api {
-    if (this._client) {
-      return this._client;
-    }
-
-    const kubeConfig = new k8s.KubeConfig();
-    if (this.credentials.configPath) {
-      kubeConfig.loadFromFile(this.credentials.configPath);
-    } else {
-      kubeConfig.loadFromDefault();
-    }
-
-    if (this.credentials.configContext) {
-      kubeConfig.setCurrentContext(this.credentials.configContext);
-    }
-
-    this._client = kubeConfig.makeApiClient(k8s.CoreV1Api);
-    return this._client;
-  }
 
   public configureTerraformProviders(scope: Construct): void {
     new TerraformKubernetesProvider(scope, 'kubernetes', {
@@ -48,7 +29,8 @@ export class KubernetesServiceService extends TerraformResourceService<'service'
     }
 
     try {
-      const { body } = await this.client.readNamespacedService(match[1], match[0]);
+      const { stdout } = await kubectlExec(this.credentials, ['get', 'svc', '-n', match[1], match[2]]);
+      const body = JSON.parse(stdout);
 
       if (!body.metadata?.name) {
         throw new Error('Service exists, but is malformatted.');
@@ -80,7 +62,8 @@ export class KubernetesServiceService extends TerraformResourceService<'service'
 
     const rows: Array<ResourceOutputs['service']> = [];
     for (const namespace of namespaces.rows) {
-      const { body } = await this.client.listNamespacedService(namespace.id);
+      const { stdout } = await kubectlExec(this.credentials, ['get', 'svc', '-n', namespace.id]);
+      const body = JSON.parse(stdout);
 
       for (const service of body.items) {
         const ports = service.spec?.ports;

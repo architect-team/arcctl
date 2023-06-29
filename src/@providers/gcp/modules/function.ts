@@ -46,8 +46,6 @@ export class GoogleCloudFunctionModule extends ResourceModule<
   }
 
   async genImports(resourceId: string): Promise<Record<string, string>> {
-    // TODO: This is maybe wrong
-    console.log(resourceId);
     return {
       [this.getResourceRef(this.function)]: resourceId,
     };

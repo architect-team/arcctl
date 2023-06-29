@@ -1,5 +1,4 @@
 import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
@@ -11,14 +10,11 @@ import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
 import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {
-  private client: ReturnType<typeof createApiClient>;
-
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDnsRecordModule;
 
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {

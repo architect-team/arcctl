@@ -1,23 +1,21 @@
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../base.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanNodeSizeService extends ResourceService<'nodeSize', DigitaloceanCredentials> {
-  private client: ReturnType<typeof createApiClient>;
-
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   async get(id: string): Promise<ResourceOutputs['nodeSize'] | undefined> {
-    const {
-      data: { options },
-    } = await this.client.kubernetes.listAvailableOptionsOfKubernetes();
-    const match = options.sizes.find((size) => size.slug === id);
+    const options = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: '/kubernetes/options',
+    })).options;
+    const match = options.sizes.find((size: any) => size.slug === id);
     return match
       ? {
         id: match.slug,
@@ -30,12 +28,13 @@ export class DigitaloceanNodeSizeService extends ResourceService<'nodeSize', Dig
     _filterOptions?: Partial<ResourceOutputs['nodeSize']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['nodeSize']>> {
-    const {
-      data: { options },
-    } = await this.client.kubernetes.listAvailableOptionsOfKubernetes();
+    const options = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: '/kubernetes/options',
+    })).options;
     return {
       total: options.sizes.length,
-      rows: options.sizes.map((size) => ({
+      rows: options.sizes.map((size: any) => ({
         type: 'nodeSize',
         id: size.slug,
         name: size.name,

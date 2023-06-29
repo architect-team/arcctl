@@ -1,5 +1,7 @@
 import { CloudEdge } from './edge.ts';
 import { CloudNode } from './node.ts';
+import { Type } from 'npm:class-transformer';
+import 'reflect-metadata';
 
 export type CloudGraphOptions = {
   nodes?: CloudNode[];
@@ -7,7 +9,10 @@ export type CloudGraphOptions = {
 };
 
 export class CloudGraph {
+  @Type(() => CloudNode)
   nodes: CloudNode[];
+
+  @Type(() => CloudEdge)
   edges: CloudEdge[];
 
   constructor(options?: CloudGraphOptions) {

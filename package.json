@@ -29,6 +29,7 @@
   "dependencies": {
     "@architect-io/arc-oci": "0.1.0",
     "ajv": "^8.11.0",
+    "class-transformer": "^0.5.1",
     "cli-spinners": "^2.7.0",
     "digitalocean": "^1.2.1",
     "digitalocean-js": "^2.0.3",
@@ -37,6 +38,7 @@
     "log-update": "^5.0.1",
     "mongodb": "^4.10.0",
     "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
     "strip-ansi": "^7.0.1",
     "tar": "^6.1.11",
     "untildify": "^4.0.0",

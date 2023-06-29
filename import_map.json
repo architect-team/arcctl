@@ -22,7 +22,9 @@
     "dots-wrapper/dist/database/index.ts": "npm:dots-wrapper@3.10.0",
     "dots-wrapper/dist/vpc/index.ts": "npm:dots-wrapper@3.10.0",
     "tar": "npm:tar@6.1.11",
-    "@architect-io/arc-oci": "npm:@architect-io/arc-oci@0.1.0"
+    "@architect-io/arc-oci": "npm:@architect-io/arc-oci@0.1.0",
+    "class-transformer": "npm:class-transformer",
+    "reflect-metadata": "npm:reflect-metadata"
   },
   "scopes": {
     "https://esm.sh/v124/": {

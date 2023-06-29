@@ -278,10 +278,24 @@ export class CommandHelper {
     });
   }
 
+  public async confirmPipeline(pipeline: Pipeline, autoApprove: boolean): Promise<void> {
+    if (autoApprove) {
+      return;
+    }
+    this.renderPipeline(pipeline);
+    const shouldContinue = await this.promptForContinuation('Do you want to apply the above changes?');
+    if (!shouldContinue) {
+      Deno.exit(0);
+    }
+  }
+
   /**
    * Render the executable graph and the status of each resource
    */
-  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean; message?: string }): void {
+  public renderPipeline(
+    pipeline: Pipeline,
+    options?: { clear?: boolean; message?: string; disableSpinner?: boolean },
+  ): void {
     const headers = ['Name', 'Type'];
     const showEnvironment = pipeline.steps.some((s) => s.environment);
     const showComponent = pipeline.steps.some((s) => s.component);
@@ -332,8 +346,12 @@ export class CommandHelper {
     if (options?.clear) {
       const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
       this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
-
-      const message = spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString();
+      const message = !options.disableSpinner
+        ? spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString()
+        : table.toString();
+      if (options.disableSpinner) {
+        logUpdate.clear();
+      }
       logUpdate(message);
     } else {
       console.log(table.toString());
@@ -933,15 +951,12 @@ export class CommandHelper {
     } else if (metadata.type === 'number') {
       return NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
-      const provider_name = metadata.provider ||
-        (await Select.prompt({
-          message: `What provider will this account connect to?`,
-          options: Object.keys(SupportedProviders),
-        }));
-
-      const existing_accounts = this.providerStore.getProviders().filter((p) => p.type === provider_name);
+      const existing_accounts = this.providerStore.getProviders();
+      const query_accounts = metadata.provider
+        ? existing_accounts.filter((p) => p.type === metadata.provider)
+        : existing_accounts;
       const account = await this.promptForAccount({
-        prompt_accounts: existing_accounts,
+        prompt_accounts: query_accounts,
         message: message,
       });
       return account.name;
@@ -1051,7 +1066,6 @@ export class CommandHelper {
   public async applyEnvironment(
     name: string,
     datacenterRecord: DatacenterRecord,
-    environmentRecord: EnvironmentRecord,
     environment: Environment,
     pipeline: Pipeline,
     logger: winston.Logger | undefined,
@@ -1063,7 +1077,7 @@ export class CommandHelper {
       })
       .then(async () => {
         await this.saveEnvironment(
-          environmentRecord!.datacenter,
+          datacenterRecord.name,
           name,
           datacenterRecord.config,
           environment!,
@@ -1072,7 +1086,7 @@ export class CommandHelper {
       })
       .catch(async (err) => {
         await this.saveEnvironment(
-          environmentRecord!.datacenter,
+          datacenterRecord.name,
           name,
           datacenterRecord.config,
           environment!,

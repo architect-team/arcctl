@@ -117,7 +117,7 @@ async function destroy_resource_action(
       logger: logger,
     })
     .then(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.renderPipeline(pipeline, { clear: true, disableSpinner: true });
       clearInterval(interval);
       console.log('');
       console.log(colors.green(`${type} destroyed successfully!`));

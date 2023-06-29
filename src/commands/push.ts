@@ -1,3 +1,4 @@
+import { verifyDocker } from '../docker/helper.ts';
 import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
@@ -9,6 +10,7 @@ const PushCommand = BaseCommand()
   .action(push_action);
 
 async function push_action(options: BuildOptions, tag: string): Promise<void> {
+  verifyDocker();
   const command_helper = new CommandHelper(options);
 
   const component = await command_helper.componentStore.getComponentConfig(tag);

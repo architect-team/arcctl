@@ -10,8 +10,9 @@ import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 type DeployOptions = {
   environment?: string[];
   ingress?: string[];
-  verbose?: boolean;
-  debug?: boolean;
+  verbose: boolean;
+  debug: boolean;
+  autoApprove: boolean;
 } & GlobalOptions;
 
 const DeployCommand = BaseCommand()
@@ -24,7 +25,8 @@ const DeployCommand = BaseCommand()
     collect: true,
   })
   .option('-d, --debug [debug:boolean]', 'Use the components debug configuration', { default: false })
-  .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
+  .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .action(deploy_action);
 
 async function deploy_action(options: DeployOptions, tag_or_path: string): Promise<void> {
@@ -87,6 +89,9 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         contextFilter: PlanContextLevel.Environment,
       }, command_helper.providerStore);
 
+      pipeline.validate();
+      await command_helper.confirmPipeline(pipeline, options.autoApprove);
+
       let interval: number;
       if (!options.verbose) {
         interval = setInterval(() => {
@@ -122,6 +127,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
+            disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
           clearInterval(interval);
@@ -136,6 +142,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           );
           command_helper.renderPipeline(pipeline, {
             clear: !options.verbose,
+            disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
           clearInterval(interval);

@@ -1,7 +1,7 @@
-import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { createTable } from '../../utils/table.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { createTable } from '../../utils/table.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -32,6 +32,10 @@ async function list_resource_action(options: ListResourceOptions, resource_type?
   for (const f of options.filter || []) {
     const [key, value] = f.split('=');
     filter[key] = value;
+  }
+
+  if (!(await account.testCredentials())) {
+    throw new Error(`Unable to list resources for ${account.name} because the credentials are invalid`);
   }
 
   const list = account.resources[type]?.list?.bind(account.resources[type]);

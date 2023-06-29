@@ -108,11 +108,11 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
         environment,
         pipeline,
       );
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
       clearInterval(interval);
 
       Deno.addSignalListener('SIGINT', async () => {
-        await destroyEnvironment({ verbose: options.verbose }, options.environment);
+        await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, options.environment);
         Deno.exit();
       });
 
@@ -126,7 +126,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
         environment,
         pipeline,
       );
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
       clearInterval(interval);
       console.error(err);
       Deno.exit(1);

@@ -18,7 +18,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
     super(accountName, credentials, providerStore);
 
     this.client = new pg.Client({
-      host: credentials.host,
+      host: credentials.host === 'host.docker.internal' ? 'localhost' : credentials.host,
       port: credentials.port,
       user: credentials.username,
       password: credentials.password,

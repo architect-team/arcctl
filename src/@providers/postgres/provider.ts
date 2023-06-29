@@ -17,7 +17,7 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
   public async testCredentials(): Promise<boolean> {
     try {
       const client = new pg.Client({
-        host: this.credentials.host,
+        host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
         port: this.credentials.port,
         user: this.credentials.username,
         password: this.credentials.password,

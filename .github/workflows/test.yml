@@ -23,7 +23,7 @@ jobs:
           key: ${{ hashFiles('deno.lock') }}
       - name: Check formatting
         run: deno fmt --check
-      - name: Check formatting
+      - name: Check linting
         run: deno lint
       - name: Run type checks
         run: deno task typecheck

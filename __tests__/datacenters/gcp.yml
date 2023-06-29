@@ -1,0 +1,93 @@
+secrets:
+  account: local
+
+variables:
+  region:
+    type: region
+    description: Region to put resources in
+    arcctlAccount: ${{ variables.gcpAccount }}
+  gcpAccount:
+    description: Name of your registered GCP account.
+    type: arcctlAccount
+    provider: gcp
+  dnsZone:
+    type: string
+    description: Name of DNS zone for DNS records
+
+resources:
+  vpc:
+    type: vpc
+    name: gcp-datacenter
+    account: ${{ variables.gcpAccount }}
+    region: ${{ variables.region }}
+  cluster:
+    type: kubernetesCluster
+    account: ${{ variables.gcpAccount }}
+    name: gcp-datacenter
+    kubernetesVersion: 1.25.8-gke.1000
+    region: ${{ variables.region }}
+    vpc: ${{ resources.vpc.id }}
+    nodePools:
+      - name: pool1
+        count: 1
+        nodeSize: e2-medium
+
+accounts:
+  cluster:
+    name: gcp-cluster
+    provider: kubernetes
+    credentials:
+      configPath: ${{ resources.cluster.configPath }}
+
+environment:
+  resources:
+    namespace:
+      type: namespace
+      account: ${{ accounts.cluster.id }}
+      name: ${{ environment.name }}
+    nginx-ingress-controller:
+      type: helmChart
+      name: ${{ environment.name }}-ingress-nginx
+      account: ${{ accounts.cluster.id }}
+      namespace: ${{ environment.resources.namespace.id }}
+      repository: https://kubernetes.github.io/ingress-nginx
+      chart: ingress-nginx
+    zone:
+      type: dnsZone
+      account: ${{ variables.gcpAccount }}
+      name: ${{ variables.dnsZone }}
+
+  hooks:
+    - when:
+        type: databaseSchema
+        databaseType: postgres
+      resources:
+        db:
+          type: database
+          account: ${{ variables.gcpAccount }}
+          region: ${{ variables.region }}
+          name: ${{ this.id }}
+          databaseVersion: ${{ this.inputs.databaseVersion }}
+          databaseSize: db-f1-micro
+          databaseType: ${{ this.inputs.databaseType }}
+          vpc: ${{ resources.vpc.id }}
+      account: ${{ this.resources.db.account }}
+      database: ${{ this.resources.db.id }}
+      host: ${{ this.resources.db.host }}
+      port: ${{ this.resources.db.port }}
+      protocol: ${{ this.resources.db.protocol }}
+    - when:
+        type: ingressRule
+      resources:
+        dnsRecord:
+          type: dnsRecord
+          account: ${{ variables.gcpAccount }}
+          dnsZone: ${{ environment.resources.zone.id }}
+          subdomain: ${{ this.inputs.subdomain }}
+          recordType: A
+          content: ${{ this.outputs.loadBalancerHostname }}
+      registry: nginx
+      namespace: ${{ environment.resources.namespace.id }}
+      dnsZone: ${{ variables.dnsZone }}
+    - account: ${{ accounts.cluster.id }}
+      namespace: ${{ environment.resources.namespace.id }}

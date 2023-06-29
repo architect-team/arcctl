@@ -10,8 +10,9 @@ more than one kubernetes account by re-running `arcctl add account`.
 
 ## Requirments
 
-In order to interact with this provider you will need to install the following.
-[Kubectl](https://kubernetes.io/docs/tasks/tools/)
+In order to interact with this provider you will need to install the following:
+
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 
 ## Authentication
 

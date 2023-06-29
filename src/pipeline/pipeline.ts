@@ -311,13 +311,16 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            pipeline.insertEdges(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-                required: oldEdge.required,
-              }),
-            );
+            const targetNode = pipeline.steps.find(step => step.id === oldEdge.from);
+            if (targetNode) {
+              pipeline.insertEdges(
+                new CloudEdge({
+                  from: oldEdge.to,
+                  to: oldEdge.from,
+                  required: oldEdge.required,
+                }),
+              );
+            }
           }
         }
       }

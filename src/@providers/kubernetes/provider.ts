@@ -22,10 +22,13 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
 
   public async testCredentials(): Promise<boolean> {
     try {
-      const cmdOutput = await kubectlExec(this.credentials, ['version']);
-      const version = JSON.parse(cmdOutput.stdout);
-      const clientVersion = version.clientVersion;
-      return Number(clientVersion.major) >= 1 && Number(clientVersion.minor) >= 18;
+      const { code, stdout } = await kubectlExec(this.credentials, ['version']);
+      if (code !== 0) {
+        return false;
+      }
+
+      const output = JSON.parse(stdout);
+      return Number(output.serverVersion.major) >= 1 && Number(output.serverVersion.minor) >= 18;
     } catch {
       return false;
     }

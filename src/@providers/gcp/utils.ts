@@ -94,18 +94,4 @@ export default class GcpUtils {
     }
     return results;
   }
-
-  /**
-   * Returns a list of all GCP regions available. e.g. `us-east4`, `us-west1` -
-   * NOT zones, e.g. `us-west1-a`.
-   */
-  public static async getProjectRegions(credentials: GoogleCloudCredentials, project: string): Promise<string[]> {
-    const auth = this.getAuthClient(credentials);
-    const { data } = await google.compute('v1').regions.list({
-      project: project,
-      auth: auth,
-    });
-
-    return (data.items || []).map((i) => i.name!);
-  }
 }

@@ -22,8 +22,6 @@ import type dnsZoneInputs from './dnsZone/inputs.ts';
 import type dnsZoneOutputs from './dnsZone/outputs.ts';
 import type dockerBuildInputs from './dockerBuild/inputs.ts';
 import type dockerBuildOutputs from './dockerBuild/outputs.ts';
-import type functionInputs from './function/inputs.ts';
-import type functionOutputs from './function/outputs.ts';
 import type helmChartInputs from './helmChart/inputs.ts';
 import type helmChartOutputs from './helmChart/outputs.ts';
 import type ingressRuleInputs from './ingressRule/inputs.ts';
@@ -64,7 +62,6 @@ export type ResourceType =
   | 'dnsRecord'
   | 'dnsZone'
   | 'dockerBuild'
-  | 'function'
   | 'helmChart'
   | 'ingressRule'
   | 'kubernetesCluster'
@@ -77,8 +74,7 @@ export type ResourceType =
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc'
-;
+  | 'vpc';
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
@@ -93,7 +89,6 @@ export const ResourceTypeList: ResourceType[] = [
   'dnsRecord',
   'dnsZone',
   'dockerBuild',
-  'function',
   'helmChart',
   'ingressRule',
   'kubernetesCluster',
@@ -158,10 +153,6 @@ export type ResourceInputs = {
     type: 'dockerBuild';
     account?: string;
   } & dockerBuildInputs;
-  'function': {
-    type: 'function';
-    account?: string;
-  } & functionInputs;
   'helmChart': {
     type: 'helmChart';
     account?: string;
@@ -253,9 +244,6 @@ export type ResourceOutputs = {
   'dockerBuild': {
     id: string;
   } & dockerBuildOutputs;
-  'function': {
-    id: string;
-  } & functionOutputs;
   'helmChart': {
     id: string;
   } & helmChartOutputs;

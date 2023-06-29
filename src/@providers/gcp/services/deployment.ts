@@ -7,14 +7,14 @@ import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { GoogleProvider as TerraformGoogleProvider } from '../.gen/providers/google/provider/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
-import { GoogleCloudFunctionModule } from '../modules/function.ts';
+import { GoogleCloudDeploymentModule } from '../modules/deployment.ts';
 import GcpUtils from '../utils.ts';
 
-export class GoogleCloudFunctionService extends TerraformResourceService<'function', GoogleCloudCredentials> {
+export class GoogleCloudDeploymentService extends TerraformResourceService<'deployment', GoogleCloudCredentials> {
   private auth: Auth.GoogleAuth;
 
   readonly terraform_version = '1.4.5';
-  readonly construct = GoogleCloudFunctionModule;
+  readonly construct = GoogleCloudDeploymentModule;
 
   constructor(accountName: string, credentials: GoogleCloudCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
@@ -33,7 +33,7 @@ export class GoogleCloudFunctionService extends TerraformResourceService<'functi
 
   async get(
     id: string,
-  ): Promise<ResourceOutputs['function'] | undefined> {
+  ): Promise<ResourceOutputs['deployment'] | undefined> {
     const [region, name] = id.split('/');
     try {
       const { data } = await google.run('v2').projects.locations.services.get({
@@ -43,7 +43,10 @@ export class GoogleCloudFunctionService extends TerraformResourceService<'functi
 
       return {
         id: data.uid || id,
-        name: data.name || id,
+        labels: {
+          'name': data.name || id,
+          'uri': data.uri || '',
+        },
       };
     } catch {
       return undefined;
@@ -51,13 +54,13 @@ export class GoogleCloudFunctionService extends TerraformResourceService<'functi
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['function']>,
+    filterOptions?: Partial<ResourceOutputs['deployment']>,
     pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['function']>> {
+  ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
     const regions = await GcpUtils.getProjectRegions(this.credentials, this.credentials.project);
 
     const service_promises = [];
-    const service_results: ResourceOutputs['function'][] = [];
+    const service_results: ResourceOutputs['deployment'][] = [];
 
     for (const region of regions) {
       service_promises.push(
@@ -78,7 +81,7 @@ export class GoogleCloudFunctionService extends TerraformResourceService<'functi
             }
             service_results.push({
               id,
-              name,
+              labels: { 'name': name },
             });
           }
         })(),
@@ -93,7 +96,7 @@ export class GoogleCloudFunctionService extends TerraformResourceService<'functi
     };
   }
 
-  get validators(): InputValidators<'function'> {
+  get validators(): InputValidators<'deployment'> {
     return {
       name: (input: string) => {
         if (!/[a-z]([\da-z-]*[\da-z])?/.test(input)) {

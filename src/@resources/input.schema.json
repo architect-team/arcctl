@@ -911,47 +911,6 @@
           "if": {
             "properties": {
               "type": {
-                "const": "function",
-                "type": "string"
-              }
-            }
-          },
-          "then": {
-            "additionalProperties": false,
-            "properties": {
-              "account": {
-                "type": "string"
-              },
-              "image": {
-                "description": "Location of the image used to run the cloud function",
-                "type": "string"
-              },
-              "name": {
-                "description": "Name of the cloud function",
-                "type": "string"
-              },
-              "region": {
-                "description": "Region the function should live in",
-                "type": "string"
-              },
-              "type": {
-                "const": "function",
-                "type": "string"
-              }
-            },
-            "required": [
-              "image",
-              "name",
-              "region",
-              "type"
-            ],
-            "type": "object"
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
                 "const": "helmChart",
                 "type": "string"
               }
@@ -1695,7 +1654,6 @@
             "dnsRecord",
             "dnsZone",
             "dockerBuild",
-            "function",
             "helmChart",
             "ingressRule",
             "kubernetesCluster",

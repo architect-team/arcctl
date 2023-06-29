@@ -9,9 +9,9 @@ import { GoogleCloudDatabaseSizeService } from './services/database-size.ts';
 import { GoogleCloudDatabaseTypeService } from './services/database-type.ts';
 import { GoogleCloudDatabaseVersionService } from './services/database-version.ts';
 import { GoogleCloudDatabaseService } from './services/database.ts';
+import { GoogleCloudDeploymentService } from './services/deployment.ts';
 import { GoogleCloudDnsRecordService } from './services/dns-record.ts';
 import { GoogleCloudDnsZoneService } from './services/dns-zone.ts';
-import { GoogleCloudFunctionService } from './services/function.ts';
 import { GoogleCloudKubernetesClusterService } from './services/kubernetes-cluster.ts';
 import { GoogleCloudKubernetesVersionService } from './services/kubernetes-version.ts';
 import { GoogleCloudNodeSizeService } from './services/node-size.ts';
@@ -62,7 +62,7 @@ export default class GoogleCloudProvider extends Provider<GoogleCloudCredentials
     databaseType: new GoogleCloudDatabaseTypeService(this.name, this.credentials, this.providerStore),
     databaseVersion: new GoogleCloudDatabaseVersionService(this.name, this.credentials, this.providerStore),
     database: new GoogleCloudDatabaseService(this.name, this.credentials, this.providerStore),
-    function: new GoogleCloudFunctionService(this.name, this.credentials, this.providerStore),
+    deployment: new GoogleCloudDeploymentService(this.name, this.credentials, this.providerStore),
   };
 
   public genTerraformProvider(scope: Construct): TerraformGoogleProvider {

@@ -45,7 +45,14 @@ async function list_all_resources_action(options: ListAllResourceOptions, resour
     const table = createTable({
       head: Object.keys(results.rows[0]),
     });
-    table.push(...results.rows.map((r) => Object.values(r).map(String)));
+    table.push(...results.rows.map((r) =>
+      Object.values(r).map((val) => {
+        if (typeof val === 'object') {
+          return JSON.stringify(val);
+        }
+        return String(val);
+      })
+    ));
     console.log(table.toString());
     console.log();
   }

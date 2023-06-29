@@ -5,14 +5,14 @@ import { CloudRunV2Service } from '../.gen/providers/google/cloud-run-v2-service
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 
-export class GoogleCloudFunctionModule extends ResourceModule<
-  'function',
+export class GoogleCloudDeploymentModule extends ResourceModule<
+  'deployment',
   GoogleCloudCredentials
 > {
-  private function: CloudRunV2Service;
-  outputs: ResourceOutputs['function'];
+  private deployment: CloudRunV2Service;
+  outputs: ResourceOutputs['deployment'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'function', GoogleCloudCredentials>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'deployment', GoogleCloudCredentials>) {
     super(scope, options);
 
     const depends_on = this.inputs?.name
@@ -24,11 +24,11 @@ export class GoogleCloudFunctionModule extends ResourceModule<
       : [];
 
     let region = 'deleting';
-    if (this.inputs?.region) {
-      region = this.inputs.region.split('-').slice(0, -1).join('-');
+    if (this.inputs?.namespace) {
+      region = this.inputs.namespace.split('-').slice(0, -1).join('-');
     }
 
-    this.function = new CloudRunV2Service(this, 'function', {
+    this.deployment = new CloudRunV2Service(this, 'deployment', {
       dependsOn: depends_on,
       name: this.inputs?.name || 'deleting',
       location: region,
@@ -40,20 +40,23 @@ export class GoogleCloudFunctionModule extends ResourceModule<
     });
 
     this.outputs = {
-      id: this.function.uid,
-      name: this.function.name,
+      id: this.deployment.uid,
+      labels: {
+        'name': this.deployment.name,
+        'uri': this.deployment.uri,
+      },
     };
   }
 
   async genImports(resourceId: string): Promise<Record<string, string>> {
     return {
-      [this.getResourceRef(this.function)]: resourceId,
+      [this.getResourceRef(this.deployment)]: resourceId,
     };
   }
 
   getDisplayNames(): Record<string, string> {
     return {
-      [this.getResourceRef(this.function)]: 'Cloud Run Function',
+      [this.getResourceRef(this.deployment)]: 'Cloud Run Function',
     };
   }
 }

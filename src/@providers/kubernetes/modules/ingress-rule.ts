@@ -21,6 +21,12 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     }
 
     const host = hostParts.join('.');
+    let service_name = this.inputs?.service.replace(/\//g, '--') || 'unknown';
+    if (this.inputs?.namespace && service_name.startsWith(this.inputs.namespace)) {
+      // Remove namespace + initial '--' from the beginning of the service name
+      // if it was included in the service input.
+      service_name = service_name.substring(this.inputs.namespace.length + 2);
+    }
     this.ingress = new IngressV1(this, 'ingress', {
       waitForLoadBalancer: true,
       metadata: {
@@ -38,7 +44,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
                   path: this.inputs?.path || '/',
                   backend: {
                     service: {
-                      name: this.inputs?.service.replace(/\//g, '--') || 'unknown',
+                      name: service_name,
                       port: {
                         number: Number(this.inputs?.port || 80),
                       },

@@ -824,14 +824,21 @@ export class CommandHelper {
 
     const credentials: Record<string, string> = {};
     for (const [key, value] of Object.entries(credential_schema.properties)) {
+      const propValue = value as any;
+      const message = [key];
+      if (propValue.nullable) {
+        message.push('(optional)');
+      }
       const cred = await Secret.prompt({
-        message: key,
-        default: (value as any).default || '',
+        message: message.join(' '),
+        default: propValue.default || '',
       });
-      if (!(value as any).default && cred === '') {
+
+      if (!propValue.nullable && cred === '') {
         console.log('Required credential requires input');
         Deno.exit(1);
       }
+
       credentials[key] = cred;
     }
 

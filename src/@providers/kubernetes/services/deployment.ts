@@ -1,4 +1,3 @@
-import k8s from '@kubernetes/client-node';
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
@@ -6,33 +5,12 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesDeploymentModule } from '../modules/deployment.ts';
+import { kubectlExec } from '../utils.ts';
 import { KubernetesNamespaceService } from './namespace.ts';
 
 export class KubernetesDeploymentService extends TerraformResourceService<'deployment', KubernetesCredentials> {
-  private _client?: k8s.AppsV1Api;
-
   readonly terraform_version = '1.4.5';
   readonly construct = KubernetesDeploymentModule;
-
-  private get client(): k8s.AppsV1Api {
-    if (this._client) {
-      return this._client;
-    }
-
-    const kubeConfig = new k8s.KubeConfig();
-    if (this.credentials.configPath) {
-      kubeConfig.loadFromFile(this.credentials.configPath);
-    } else {
-      kubeConfig.loadFromDefault();
-    }
-
-    if (this.credentials.configContext) {
-      kubeConfig.setCurrentContext(this.credentials.configContext);
-    }
-
-    this._client = kubeConfig.makeApiClient(k8s.AppsV1Api);
-    return this._client;
-  }
 
   async get(id: string): Promise<ResourceOutputs['deployment'] | undefined> {
     const match = id.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
@@ -41,7 +19,8 @@ export class KubernetesDeploymentService extends TerraformResourceService<'deplo
     }
 
     try {
-      const { body } = await this.client.readNamespacedDeployment(match[1], match[0]);
+      const { stdout } = await kubectlExec(this.credentials, ['get', 'deployment', '-n', match[1], match[0]]);
+      const body = JSON.parse(stdout);
 
       if (!body.metadata?.name) {
         throw new Error('Deployment exists, but is malformatted.');
@@ -64,7 +43,8 @@ export class KubernetesDeploymentService extends TerraformResourceService<'deplo
 
     const rows: Array<ResourceOutputs['deployment']> = [];
     for (const namespace of namespaces.rows) {
-      const { body } = await this.client.listNamespacedDeployment(namespace.id);
+      const { stdout } = await kubectlExec(this.credentials, ['get', 'deployment', '-n', namespace.id]);
+      const body = JSON.parse(stdout);
 
       for (const deployment of body.items) {
         rows.push({

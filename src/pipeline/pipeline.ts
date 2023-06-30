@@ -291,8 +291,8 @@ export class Pipeline {
     for (const previousStep of options.before.steps) {
       if (
         (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' && previousStep.status.state === 'pending') ||
-        (previousStep.action === 'delete' && !previousStep.outputs)
+        (previousStep.action === 'create' &&
+          (previousStep.status.state === 'pending' || previousStep.status.state === 'error'))
       ) {
         continue;
       }
@@ -311,7 +311,7 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            const targetNode = pipeline.steps.find(step => step.id === oldEdge.from);
+            const targetNode = pipeline.steps.find((step) => step.id === oldEdge.from);
             if (targetNode) {
               pipeline.insertEdges(
                 new CloudEdge({

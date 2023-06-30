@@ -134,8 +134,8 @@ export default class TerraformPlugin implements ArchitectPlugin {
 
     const cmd = new Deno.Command(path.join(this.pluginDirectory, `/${this.binary?.executablePath}`), {
       args: [...(opts.commandOptions?.cwd ? [`-chdir=${opts.commandOptions?.cwd}`] : []), ...args],
-      stdin: 'piped',
-      stdout: 'piped',
+      stdin: 'inherit', // TODO: undo back to pipe
+      stdout: 'inherit', // TODO: undo back to pipe
     });
     const child = cmd.spawn();
 

@@ -130,12 +130,19 @@ export class TerraformPlugin implements ArchitectPlugin {
       throw new Error(`Terraform plugin not loaded. Try running setup().`);
     }
 
+
+    // TODO: print out command and find out why terraform doesn't succeed
+    console.log('****TERRAFORM')
+    console.log(args)
+    console.log(opts)
+
+
     const binaryPath = path.join(this.binaryDir, this.binary.executablePath);
     const cmd = new Deno.Command(binaryPath, {
       args,
       ...opts?.commandOptions,
-      stdout: 'piped',
-      stderr: 'piped',
+      stdout: 'inherit',
+      stderr: 'inherit',
     });
     return cmd.spawn();
   }

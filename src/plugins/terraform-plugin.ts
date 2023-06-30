@@ -132,10 +132,6 @@ export default class TerraformPlugin implements ArchitectPlugin {
       return {} as Deno.ChildProcess;
     }
 
-    // TODO: print out command and find out why terraform doesn't succeed
-    console.log('****TERRAFORM')
-    console.log(args)
-
     const cmd = new Deno.Command(path.join(this.pluginDirectory, `/${this.binary?.executablePath}`), {
       args: [...(opts.commandOptions?.cwd ? [`-chdir=${opts.commandOptions?.cwd}`] : []), ...args],
       stdin: 'piped',

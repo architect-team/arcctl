@@ -59,7 +59,6 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   }
 
   let targetGraph = await environment.getGraph(options.environment, command_helper.componentStore, options.debug);
-
   for (const node of targetGraph.nodes.filter((node) => node.type === 'ingressRule')) {
     const ingressNode = node as CloudNode<'ingressRule'>;
     ingressNode.inputs.subdomain = ingressNode.inputs.subdomain || ingressNode.name;

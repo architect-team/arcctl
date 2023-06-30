@@ -187,7 +187,7 @@ export default class ComponentV2 extends Component {
               : build_config.context,
             dockerfile: context.component.debug &&
                 build_config.debug &&
-                build_config.debug.context
+                build_config.debug.dockerfile
               ? build_config.debug.dockerfile
               : build_config.dockerfile || 'Dockerfile',
             args: context.component.debug &&
@@ -345,8 +345,8 @@ export default class ComponentV2 extends Component {
           host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
         } else if (volumeConfig.host_path) {
           host_path = path.join(context.component.source, volumeConfig.host_path);
-          host_path = `${is_directory}`;
         }
+
         const volume_node = new CloudNode({
           name: `${deployment_key}-${volumeKey}`,
           component: context.component.name,

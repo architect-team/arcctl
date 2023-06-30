@@ -1,4 +1,4 @@
-import { Auth, google } from 'googleapis';
+import { Auth, google } from 'npm:googleapis';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../base.service.ts';

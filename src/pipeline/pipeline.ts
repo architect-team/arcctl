@@ -291,7 +291,8 @@ export class Pipeline {
     for (const previousStep of options.before.steps) {
       if (
         (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' && previousStep.status.state === 'pending') ||
+        (previousStep.action === 'create' &&
+          (previousStep.status.state === 'pending' || previousStep.status.state === 'error')) ||
         (previousStep.action === 'delete' && !previousStep.outputs)
       ) {
         continue;
@@ -311,18 +312,24 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            const targetNode = pipeline.steps.find(step => step.id === oldEdge.from);
-            if (targetNode) {
-              pipeline.insertEdges(
-                new CloudEdge({
-                  from: oldEdge.to,
-                  to: oldEdge.from,
-                  required: oldEdge.required,
-                }),
-              );
-            }
+            pipeline.insertEdges(
+              new CloudEdge({
+                from: oldEdge.to,
+                to: oldEdge.from,
+                required: oldEdge.required,
+              }),
+            );
           }
         }
+      }
+    }
+
+    // Remove edges from delete nodes that point to nothing
+    for (const edge of [].slice.call(pipeline.edges) as CloudEdge[]) {
+      const fromStep = pipeline.steps.find((step) => step.id === edge.from);
+      const toStep = pipeline.steps.find((step) => step.id === edge.to);
+      if (fromStep?.action === 'delete' && !toStep) {
+        pipeline.removeEdge({ from: edge.from, to: edge.to });
       }
     }
 

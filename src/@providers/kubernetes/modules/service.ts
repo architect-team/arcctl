@@ -66,6 +66,8 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
       host,
       port,
       url,
+      username: this.inputs?.username || '',
+      password: this.inputs?.password || '',
     };
   }
 

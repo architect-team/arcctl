@@ -1,6 +1,4 @@
 import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
-import { IVpc } from 'dots-wrapper/dist/vpc/index.ts';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
@@ -9,10 +7,9 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanVpcModule } from '../modules/vpc.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanVpcService extends TerraformResourceService<'vpc', DigitaloceanCredentials> {
-  private client: ReturnType<typeof createApiClient>;
-
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanVpcModule;
 
@@ -22,10 +19,9 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
     providerStore: ProviderStore,
   ) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
-  private normalizeVpc(vpc: IVpc): ResourceOutputs['vpc'] {
+  private normalizeVpc(vpc: any): ResourceOutputs['vpc'] {
     return {
       id: vpc.id,
       name: vpc.name,
@@ -43,9 +39,10 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
   }
 
   async get(id: string): Promise<ResourceOutputs['vpc']> {
-    const {
-      data: { vpc },
-    } = await this.client.vpc.getVpc({ vpc_id: id });
+    const vpc = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: `/vpcs/${id}`,
+    })).vpc;
     return this.normalizeVpc(vpc);
   }
 
@@ -53,17 +50,18 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
     filterOptions?: Partial<ResourceOutputs['vpc']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['vpc']>> {
-    const {
-      data: { vpcs },
-    } = await this.client.vpc.listVpcs({});
+    const vpcs = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: `/vpcs`,
+    })).vpcs;
     const regionVpcs = filterOptions?.region
-      ? vpcs.filter((vpc) => {
+      ? vpcs.filter((vpc: any) => {
         return vpc.region === filterOptions.region;
       })
       : vpcs;
     return {
       total: regionVpcs.length,
-      rows: regionVpcs.map((vpc) => this.normalizeVpc(vpc)),
+      rows: regionVpcs.map((vpc: any) => this.normalizeVpc(vpc)),
     };
   }
 

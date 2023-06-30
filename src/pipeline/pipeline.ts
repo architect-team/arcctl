@@ -1,12 +1,23 @@
 import { Observable } from 'rxjs';
+import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
 
+export const PIPELINE_NO_OP = 'no-op';
+
+export enum PlanContextLevel {
+  None = 0,
+  Datacenter = 1,
+  Environment = 2,
+  Component = 3,
+}
+
 export type PlanOptions = {
   before: Pipeline;
   after: CloudGraph;
+  contextFilter?: PlanContextLevel;
 };
 
 export type PipelineOptions = {
@@ -14,9 +25,21 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
+const getContextLevel = (step: PipelineStep): PlanContextLevel => {
+  if (step.component) {
+    return PlanContextLevel.Component;
+  }
+  if (step.environment) {
+    return PlanContextLevel.Environment;
+  }
+  return PlanContextLevel.Datacenter;
+};
+
 const setNoopSteps = (
+  providerStore: ProviderStore,
   previousPipeline: Pipeline,
   nextPipeline: Pipeline,
+  contextFilter?: PlanContextLevel,
 ): Pipeline => {
   let done = false;
 
@@ -27,27 +50,26 @@ const setNoopSteps = (
     ) {
       const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
 
-      if (!previousStep) {
-        continue;
-      }
-
       const allDependencies = nextPipeline.getDependencies(step.id);
       const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
 
-      if (allDependencies.length !== completeDependencies.length) {
+      const isNoop = !contextFilter ? false : getContextLevel(step) < contextFilter;
+
+      if (!isNoop && allDependencies.length !== completeDependencies.length) {
         continue;
       }
 
       step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
 
       if (
-        step.equals(previousStep) &&
-        previousStep.status.state === 'complete'
+        isNoop ||
+        (step.getHash(providerStore) === previousStep?.hash &&
+          previousStep.status.state === 'complete')
       ) {
-        step.action = 'no-op';
+        step.action = PIPELINE_NO_OP;
         step.status.state = 'complete';
-        step.state = previousStep.state;
-        step.outputs = previousStep.outputs;
+        step.state = previousStep?.state;
+        step.outputs = previousStep?.outputs;
         nextPipeline.insertSteps(step);
         done = false;
       }
@@ -230,7 +252,7 @@ export class Pipeline {
   /**
    * Returns a new pipeline by comparing the old pipeline to a new target graph
    */
-  public static plan(options: PlanOptions): Pipeline {
+  public static plan(options: PlanOptions, providerStore: ProviderStore): Pipeline {
     const pipeline = new Pipeline({
       edges: [...options.after.edges],
     });
@@ -253,6 +275,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
+        newStep.hash = newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
         replacements[oldId] = newStep.id;
       } else {
@@ -266,6 +289,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
+        newExecutable.hash = newExecutable.getHash(providerStore);
         pipeline.insertSteps(newExecutable);
         replacements[oldId] = newExecutable.id;
       }
@@ -302,20 +326,23 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            pipeline.insertEdges(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-                required: oldEdge.required,
-              }),
-            );
+            const targetNode = pipeline.steps.find(step => step.id === oldEdge.from);
+            if (targetNode) {
+              pipeline.insertEdges(
+                new CloudEdge({
+                  from: oldEdge.to,
+                  to: oldEdge.from,
+                  required: oldEdge.required,
+                }),
+              );
+            }
           }
         }
       }
     }
 
     // Check for nodes that can be no-op'd
-    return setNoopSteps(options.before, pipeline);
+    return setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
   }
 
   /**

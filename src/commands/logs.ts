@@ -72,6 +72,9 @@ export const streamLogs = async (options: LogsOptions, environment: string): Pro
       console.error(`The ${step.id} resource is using an invalid account: ${step.inputs!.account}`);
       Deno.exit(1);
     }
+    if (!(await account.testCredentials())) {
+      throw new Error(`Unable to get logs for ${account.name} because the credentials are invalid`);
+    }
 
     const service = account.resources[step.type];
     if (!service) {

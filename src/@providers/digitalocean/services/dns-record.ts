@@ -1,5 +1,4 @@
 import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
@@ -8,16 +7,14 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {
-  private client: ReturnType<typeof createApiClient>;
-
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDnsRecordModule;
 
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
@@ -27,15 +24,13 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsR
   }
 
   async get(id: string): Promise<ResourceOutputs['dnsRecord'] | undefined> {
-    const [managed_zone, record_id] = id.split('/');
+    const [managed_zone, record_id] = id.split(',');
 
     try {
-      const {
-        data: { domain_record },
-      } = await this.client.domain.getDomainRecord({
-        domain_name: managed_zone,
-        domain_record_id: Number.parseInt(record_id),
-      });
+      const domain_record = (await digitalOceanApiRequest({
+        credentials: this.credentials,
+        path: `/domains/${managed_zone}/records/${record_id}`,
+      })).domain_record;
 
       return {
         id: domain_record.id.toString() || '',
@@ -53,18 +48,18 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsR
     _filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsRecord']>> {
-    const {
-      data: { domains },
-    } = await this.client.domain.listDomains({});
+    const domains = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: `/domains`,
+    })).domains;
 
     const dns_record_rows: ResourceOutputs['dnsRecord'][] = [];
     for (const dns_zone of domains || []) {
       if (dns_zone.name) {
-        const {
-          data: { domain_records },
-        } = await this.client.domain.listDomainRecords({
-          domain_name: dns_zone.name,
-        });
+        const domain_records = (await digitalOceanApiRequest({
+          credentials: this.credentials,
+          path: `/domains/${dns_zone.name}/records`,
+        })).domain_records;
 
         for (const record of domain_records || []) {
           dns_record_rows.push({

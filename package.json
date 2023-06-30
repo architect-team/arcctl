@@ -30,8 +30,6 @@
     "@architect-io/arc-oci": "0.1.0",
     "ajv": "^8.11.0",
     "cli-spinners": "^2.7.0",
-    "digitalocean": "^1.2.1",
-    "digitalocean-js": "^2.0.3",
     "dots-wrapper": "^3.10.0",
     "log-symbols": "^5.1.0",
     "log-update": "^5.0.1",
@@ -57,7 +55,6 @@
     "mustache": "^4.2.0",
     "prettier": "^2.6.2",
     "shx": "^0.3.4",
-    "ts-node": "^10.7.0",
     "ts-xor": "^1.0.8"
   },
   "scripts": {

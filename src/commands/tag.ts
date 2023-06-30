@@ -1,4 +1,5 @@
 import * as path from 'std/path/mod.ts';
+import { verifyDocker } from '../docker/helper.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
@@ -9,6 +10,7 @@ const TagCommand = BaseCommand()
   .action(tag_action);
 
 async function tag_action(options: GlobalOptions, source: string, target: string) {
+  verifyDocker();
   const command_helper = new CommandHelper(options);
 
   try {

@@ -63,7 +63,7 @@ async function create_resource_action(
   const pipeline = Pipeline.plan({
     before: new Pipeline(),
     after: graph,
-  });
+  }, command_helper.providerStore);
 
   console.log('****PIPELINE') // TODO: remove
   console.log(pipeline)
@@ -103,7 +103,7 @@ async function create_resource_action(
     })
     .toPromise()
     .then(() => {
-      command_helper.renderPipeline(pipeline, { clear: !logger });
+      command_helper.renderPipeline(pipeline, { clear: !logger, disableSpinner: true });
       clearInterval(interval);
       const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
       console.log('');

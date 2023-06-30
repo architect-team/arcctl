@@ -1,3 +1,4 @@
+import { RequiresDocker } from '../../docker/helper.ts';
 import { exec } from '../../utils/command.ts';
 import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
@@ -23,6 +24,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     dockerBuild: new DockerBuildService(this.name, this.credentials, this.providerStore),
   };
 
+  @RequiresDocker()
   public async testCredentials(): Promise<boolean> {
     const { stdout } = await exec('docker', { args: ['info', '--format=json'] });
     const info = JSON.parse(stdout) as DockerInfo;

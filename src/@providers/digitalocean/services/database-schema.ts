@@ -1,5 +1,4 @@
 import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
@@ -7,19 +6,17 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseSchemaModule } from '../modules/database-schema.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanDatabaseSchemaService extends TerraformResourceService<
   'databaseSchema',
   DigitaloceanCredentials
 > {
-  private client: ReturnType<typeof createApiClient>;
-
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDatabaseSchemaModule;
 
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
@@ -34,27 +31,30 @@ export class DigitaloceanDatabaseSchemaService extends TerraformResourceService<
     }
 
     const [cluster_id, db] = id.split('/');
-    const cluster = await this.client.database.getDatabaseCluster({ database_cluster_id: cluster_id });
-    const res = await this.client.database.getDatabaseClusterDb({
-      database_cluster_id: cluster.data.database.id,
-      db_name: db,
+    const cluster = await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: `/databases/${cluster_id}`,
     });
-    const protocol = cluster.data.database.engine === 'pg' ? 'postgresql' : cluster.data.database.engine;
-    const username = cluster.data.database.connection.user;
+    const res = await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: `/databases/${cluster_id}/dbs/${db}`,
+    });
+    const protocol = cluster.database.engine === 'pg' ? 'postgresql' : cluster.database.engine;
+    const username = cluster.database.connection.user;
     const password = '';
-    const host = cluster.data.database.connection.host;
-    const port = cluster.data.database.connection.port;
+    const host = cluster.database.connection.host;
+    const port = cluster.database.connection.port;
 
     return {
-      id: `${cluster_id}/${res.data.db.name}`,
+      id: `${cluster_id}/${res.db.name}`,
       protocol,
       username,
       password,
       host,
       port,
       account: this.accountName,
-      name: res.data.db.name,
-      url: `${protocol}://${username}:${password}@${host}:${port}/${res.data.db.name}`,
+      name: res.db.name,
+      url: `${protocol}://${username}:${password}@${host}:${port}/${res.db.name}`,
     };
   }
 
@@ -62,15 +62,18 @@ export class DigitaloceanDatabaseSchemaService extends TerraformResourceService<
     filterOptions?: Partial<ResourceOutputs['databaseSchema']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseSchema']>> {
-    const clusters = await this.client.database.listDatabaseClusters({ per_page: 100 });
+    const clusters = await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: '/databases',
+    });
     const schemas: ResourceOutputs['databaseSchema'][] = [];
     await Promise.all(
-      clusters.data.databases.map(async (cluster) => {
-        const res = await this.client.database.listDatabaseClusterDbs({
-          database_cluster_id: cluster.id,
+      (clusters.databases || []).map(async (cluster: any) => {
+        const res = await digitalOceanApiRequest({
+          credentials: this.credentials,
+          path: `/databases/${cluster.id}/dbs`,
         });
-
-        res.data.dbs.forEach((db) => {
+        res.dbs.forEach((db: any) => {
           const protocol = cluster.engine === 'pg' ? 'postgresql' : cluster.engine;
           const host = cluster.connection.host;
           const port = cluster.connection.port;

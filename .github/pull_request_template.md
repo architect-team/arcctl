@@ -1,10 +1,8 @@
-# Pull Request Template
-
 ## Description
 
 Please include a summary of the change and which issue is fixed. The more information you include here the faster we can merge it in.
 
-Fixes # (issue)
+Closes <link-to-issue>
 
 ## Type of change
 

@@ -1,5 +1,6 @@
 import * as path from 'std/path/mod.ts';
 import { Component, parseComponent } from '../components/index.ts';
+import { verifyDocker } from '../docker/helper.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
@@ -15,8 +16,9 @@ const BuildCommand = BaseCommand()
   .action(build_action);
 
 async function build_action(options: BuildOptions, context_file: string): Promise<void> {
+  verifyDocker();
   const command_helper = new CommandHelper(options);
-  const context = Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
+  const context = !Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
 
   let component: Component;
   try {

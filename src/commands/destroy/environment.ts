@@ -3,11 +3,12 @@ import { Confirm, Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
+  autoApprove: boolean;
 } & GlobalOptions;
 
 export const destroyEnvironment = async (options: DestroyResourceOptons, name: string) => {
@@ -16,7 +17,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   const environmentRecord = await promptForEnvironment(command_helper, name);
   const datacenterRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
   if (!datacenterRecord) {
-    const confirmed = await Confirm.prompt(
+    const confirmed = options.autoApprove || await Confirm.prompt(
       'The environment is pointed to an invalid datacenter. ' +
         'The environment can be removed, but the resources can\'t be destroyed. Would you like to proceed?',
     );
@@ -33,11 +34,16 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
 
   const lastPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
 
-  const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph());
+  const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph(), {});
   const pipeline = Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
-  });
+    contextFilter: PlanContextLevel.Environment,
+  }, command_helper.providerStore);
+
+  pipeline.validate();
+
+  await command_helper.confirmPipeline(pipeline, options.autoApprove);
 
   let interval: number;
   if (!options.verbose) {
@@ -65,7 +71,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     .then(async () => {
       clearInterval(interval);
       await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
       command_helper.doneRenderingPipeline();
       console.log(`Environment ${name} destroyed successfully`);
     })
@@ -112,5 +118,6 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 export default BaseCommand()
   .description('Destroy all the resources in the specified environment')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string>')
   .action(destroyEnvironment);

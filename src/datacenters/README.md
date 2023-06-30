@@ -18,12 +18,12 @@ enriched the way ops teams need. Basically, datacenters let you make your own Pa
 
 ## Creating datacenters
 
-Creating datacenters from existing templates is easy. All you have to do is run `arcctl create datacenter`
+Creating datacenters from existing templates is easy. All you have to do is run `arcctl apply datacenter`
 and point to your configuration file. If the datacenter declares variables, you will be prompted for the
 values at creation time:
 
 ```sh
-$ arcctl create datacenter digitalocean ./v1/examples/digitalocean.yml
+$ arcctl apply datacenter digitalocean ./v1/examples/digitalocean.yml
  ? account: The docker account to use for this datacenter
  ❯ docker (docker)
    Add a new account
@@ -35,12 +35,12 @@ datacenter-scoped resources and then register the datacenter:
 ```
  ? account: The docker account to use for this datacenter › docker (docker)
 ⠴ Applying changes
-  Name              Type           Action  Status    Time  
-  service-registry  volume         create  complete  0s    
-  network           namespace      create  complete  0s    
-  jaeger            deployment     create  complete  0s    
-  gateway           deployment     create  complete  0s    
-  local-gateway     arcctlAccount  create  complete  0s    
+  Name              Type           Action  Status    Time
+  service-registry  volume         create  complete  0s
+  network           namespace      create  complete  0s
+  jaeger            deployment     create  complete  0s
+  gateway           deployment     create  complete  0s
+  local-gateway     arcctlAccount  create  complete  0s
 Datacenter created successfully
 ```
 
@@ -50,7 +50,7 @@ Datacenters can be updated as easily as they can be created. Simply provide a ne
 datacenter configuration file, and arcctl will propogate the changes:
 
 ```sh
-$ arcctl update datacenter digitalocean ./v1/examples/digitalocean.yml
+$ arcctl apply datacenter digitalocean ./v1/examples/digitalocean.yml
 ```
 
 Note that for datacenters that are actively hosting environments, changes to the datacenter

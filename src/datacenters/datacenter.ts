@@ -34,6 +34,17 @@ export type DatacenterSecretsConfig = {
   namespace?: string;
 };
 
+export type DatacenterEnrichmentOptions = {
+  /**
+   * Name of an environment to enrich resources for
+   */
+  environmentName?: string;
+  /**
+   * Whether or not to build the graph using debug features
+   */
+  debug?: boolean;
+};
+
 export abstract class Datacenter {
   public abstract enrichGraph(
     /**
@@ -41,13 +52,9 @@ export abstract class Datacenter {
      */
     graph: CloudGraph,
     /**
-     * Name of an environment to enrich resources for
+     * Options used to enrich the environment
      */
-    environmentName?: string,
-    /**
-     * Whether or not to build the graph using debug features
-     */
-    debug?: boolean,
+    options?: DatacenterEnrichmentOptions,
   ): Promise<CloudGraph>;
 
   public abstract getSecretsConfig(): DatacenterSecretsConfig;

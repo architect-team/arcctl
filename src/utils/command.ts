@@ -1,4 +1,4 @@
-type ExecOutput = {
+export type ExecOutput = {
   code: number;
   stdout: string;
   stderr: string;

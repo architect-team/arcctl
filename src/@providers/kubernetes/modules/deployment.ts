@@ -1,11 +1,10 @@
-import k8s from '@kubernetes/client-node';
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
 import { PersistentVolumeClaim } from '../.gen/providers/kubernetes/persistent-volume-claim/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import KubernetesUtils from '../utils.ts';
+import { kubectlExec } from '../utils.ts';
 
 export class KubernetesDeploymentModule extends ResourceModule<'deployment', KubernetesCredentials> {
   private deployment: Deployment;
@@ -160,13 +159,14 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
 
   async genImports(resourceId: string): Promise<Record<string, string>> {
     const [namespace, name] = resourceId.split('/');
-    const client = KubernetesUtils.getClient(this.credentials, k8s.CoreV1Api);
-    const pods = await client.listNamespacedPod(namespace);
+
+    const { stdout } = await kubectlExec(this.credentials, ['get', 'pos', '-n', namespace]);
+    const pods = JSON.parse(stdout);
     const normalizedName = name.replace(/\//g, '--') || 'unknown';
-    const currentPod = pods.body.items.find((pod) => pod.metadata?.labels?.['architect.io/name'] === normalizedName);
+    const currentPod = pods.items.find((pod: any) => pod.metadata?.labels?.['architect.io/name'] === normalizedName);
     const volumeIds: Record<string, string> = {};
     if (currentPod) {
-      currentPod.spec?.volumes?.forEach((volume) => {
+      currentPod.spec?.volumes?.forEach((volume: any) => {
         volumeIds[this.getResourceRef(this.volumeClaims[volume.persistentVolumeClaim?.claimName || ''])] = volume.name;
       });
     }

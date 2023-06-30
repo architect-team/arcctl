@@ -12,10 +12,12 @@ import { GoogleCloudDatabaseService } from './services/database.ts';
 import { GoogleCloudDeploymentService } from './services/deployment.ts';
 import { GoogleCloudDnsRecordService } from './services/dns-record.ts';
 import { GoogleCloudDnsZoneService } from './services/dns-zone.ts';
+import { GoogleCloudIngressRuleService } from './services/ingress-rule.ts';
 import { GoogleCloudKubernetesClusterService } from './services/kubernetes-cluster.ts';
 import { GoogleCloudKubernetesVersionService } from './services/kubernetes-version.ts';
 import { GoogleCloudNodeSizeService } from './services/node-size.ts';
 import { GoogleCloudRegionService } from './services/region.ts';
+import { GoogleCloudServiceService } from './services/service.ts';
 import { GoogleCloudVpcService } from './services/vpc.ts';
 import { GoogleCloudDnsRecordTest } from './tests/dns-record.ts';
 import { GoogleCloudDnsZoneTest } from './tests/dns-zone.ts';
@@ -63,6 +65,8 @@ export default class GoogleCloudProvider extends Provider<GoogleCloudCredentials
     databaseVersion: new GoogleCloudDatabaseVersionService(this.name, this.credentials, this.providerStore),
     database: new GoogleCloudDatabaseService(this.name, this.credentials, this.providerStore),
     deployment: new GoogleCloudDeploymentService(this.name, this.credentials, this.providerStore),
+    ingressRule: new GoogleCloudIngressRuleService(this.name, this.credentials, this.providerStore),
+    service: new GoogleCloudServiceService(this.name, this.credentials, this.providerStore),
   };
 
   public genTerraformProvider(scope: Construct): TerraformGoogleProvider {

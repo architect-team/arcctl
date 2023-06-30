@@ -5,7 +5,6 @@ import { CloudRunV2ServiceIamBinding } from '../.gen/providers/google/cloud-run-
 import { CloudRunV2Service } from '../.gen/providers/google/cloud-run-v2-service/index.ts';
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
-
 export class GoogleCloudDeploymentModule extends ResourceModule<
   'deployment',
   GoogleCloudCredentials
@@ -38,7 +37,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       name: this.inputs?.name || 'deleting',
       location: region,
       // TODO: Is this necessary?
-      // ingress: 'INGRESS_TRAFFIC_ALL',
+      ingress: 'INGRESS_TRAFFIC_ALL',
       template: {
         // TODO: If there are multiple exposed ports, need to create multiple containers and one port mapping each
         containers: [{

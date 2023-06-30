@@ -10,9 +10,9 @@ variables:
     type: region
     description: Region to put resources in
     arcctlAccount: ${{ variables.gcpAccount }}
-  # dnsZone:
-  #   type: string
-  #   description: Name of DNS zone for DNS records
+  dnsZone:
+    type: string
+    description: Name of DNS zone for DNS records
 
 resources:
   vpc:
@@ -20,41 +20,31 @@ resources:
     name: gcp-datacenter
     account: ${{ variables.gcpAccount }}
     region: ${{ variables.region }}
-  # TODO: Currently all hardcoded, no ingress support, only allows 1 port
-  mailslurper:
-    type: deployment
-    name: mailslurper-function-test
-    namespace: ${{ variables.region }}
-    account: ${{ variables.gcpAccount }}
-    image: docker.io/tyleraldrich/mailslurper:latest
-    volume_mounts: []
-    exposed_ports:
-      - port: 8080
-        target_port: 8080
-      # - port: 8085
-      #   target_port: 8085
-    command:
-      - sh
-      - -c
-      - |
-        apk update
-        apk add wget
-        wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
-        mv jq-linux64 /usr/local/bin/jq
-        chmod +x /usr/local/bin/jq
-        tmpfile=$(mktemp)
-        jq '.wwwPublicURL="http://0.0.0.0:8080" | .servicePublicURL="http://0.0.0.0:8085"' config.json > "$tmpfile"
-        mv "$tmpfile" config.json
-        ./mailslurper
-    # TODO: command wwwPublicURL and servicePublicURL are placeholders
 
 environment:
-  # resources:
-  #   zone:
-  #     type: dnsZone
-  #     account: ${{ variables.gcpAccount }}
-  #     name: ${{ variables.dnsZone }}
-  # hooks:
-  #   - when:
-  #       type: deployment
-  #     namespace: ${{ variables.region }}
+  resources:
+    zone:
+      type: dnsZone
+      account: ${{ variables.gcpAccount }}
+      name: ${{ variables.dnsZone }}
+  hooks:
+    - when:
+        type: deployment
+      namespace: ${{ variables.region }}
+      account: ${{ variables.gcpAccount }}
+    - when:
+        type: ingressRule
+      resources:
+        dnsRecord:
+          type: dnsRecord
+          account: ${{ variables.gcpAccount }}
+          dnsZone: ${{ environment.resources.zone.id }}
+          subdomain: ${{ this.inputs.subdomain }}
+          recordType: A
+          content: ${{ this.outputs.loadBalancerHostname }}
+      dnsZone: ${{ variables.dnsZone }}
+      namespace: ${{ variables.region }}
+      # TODO: Is it possible to get the deployment.name field here?
+      service: tyleraldrich--mailslurper--mailslurper
+    - account: ${{ variables.gcpAccount }}
+      namespace: ${{ variables.region }}

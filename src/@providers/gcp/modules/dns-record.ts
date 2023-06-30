@@ -29,6 +29,7 @@ export class GoogleCloudDnsRecordModule extends ResourceModule<'dnsRecord', Goog
       });
     } else { // creating
       const dns_zone = new DataGoogleDnsManagedZone(this, 'dns-zone', {
+        dependsOn: depends_on,
         name: this.inputs.dnsZone,
       });
       const name = this.inputs.subdomain.endsWith('.') ? this.inputs.subdomain : `${this.inputs.subdomain}.`;

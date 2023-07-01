@@ -24,6 +24,8 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
         database: this.credentials.database,
       });
 
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
       await client.connect();
       await client.query('SELECT NOW()');
       await client.end();

@@ -247,6 +247,15 @@ export default class ComponentV2 extends Component {
           ...(variable_config.sensitive ? { sensitive: variable_config.sensitive } : {}),
         },
       });
+
+      secret_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        secret_node.id,
+        secret_node.inputs,
+      );
+
       graph.insertNodes(secret_node);
     }
     return graph;
@@ -286,37 +295,6 @@ export default class ComponentV2 extends Component {
     }
 
     return graph;
-  }
-
-  private getDeploymentVolumes(
-    tag: string,
-    deployment_name: string,
-    volumes: Record<string, {
-      host_path: string;
-      mount_path: string;
-      image?: string;
-    }>,
-  ): {
-    volume: string;
-    name: string;
-    mount_path: string;
-    remote_image?: string;
-    local_image?: string;
-    readonly: boolean;
-  }[] {
-    const deployment_volumes = [];
-    const [repo_name, repo_tag] = tag.split(':');
-    for (const [volume_key, volume_config] of Object.entries(volumes)) {
-      deployment_volumes.push({
-        name: volume_key,
-        volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
-        mount_path: volume_config.mount_path,
-        local_image: volume_config.image,
-        remote_image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
-        readonly: true,
-      });
-    }
-    return deployment_volumes;
   }
 
   private addDeploymentsToGraph(

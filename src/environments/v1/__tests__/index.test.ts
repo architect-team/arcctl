@@ -436,69 +436,6 @@ describe('Environment schema: v1', () => {
     );
   });
 
-  it('should merge upstream values with default values', async () => {
-    const environment = await parseEnvironment(
-      yaml.load(`
-      components:
-        account/component:
-          source: account/component:latest
-    `) as Record<string, unknown>,
-    );
-
-    const component = `
-      version: v2
-      dependencies:
-        dep:
-          component: account/dependency
-          variables:
-            key:
-              - value1
-    `;
-
-    const dependency = `
-      version: v2
-      variables:
-        key:
-          merge: true
-          default:
-            - value2
-            - value3
-    `;
-
-    mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component));
-    mockFile.prepareVirtualFile('/dependency/architect.yml', new TextEncoder().encode(dependency));
-
-    const tmp_dir = Deno.makeTempDirSync({ prefix: 'arc-store-' });
-    const store = new ComponentStore(tmp_dir, 'registry.architect.io');
-    const component_id = await store.add('/component/architect.yml');
-    store.tag(component_id, 'account/component:latest');
-    const dependency_id = await store.add('/dependency/architect.yml');
-    store.tag(dependency_id, 'account/dependency:latest');
-
-    const graph = await environment.getGraph('account/environment', store);
-
-    const secret_node = new CloudNode({
-      name: 'key',
-      component: 'account/dependency',
-      environment: 'account/environment',
-      inputs: {
-        type: 'secret',
-        name: CloudNode.genResourceId({
-          name: 'key',
-          component: 'account/dependency',
-          environment: 'account/environment',
-        }),
-        data: JSON.stringify(['value1', 'value2', 'value3']),
-        merge: true,
-      },
-    });
-
-    assertArrayIncludes(
-      graph.nodes,
-      [secret_node],
-    );
-  });
-
   it('should merge values passed from upstream components', async () => {
     const environment = await parseEnvironment(
       yaml.load(`
@@ -706,6 +643,10 @@ describe('Environment schema: v1', () => {
         main:
           deployment: main
           port: 80
+      
+      ingresses:
+        main:
+          service: main
 
       dependencies:
         dep:
@@ -713,6 +654,7 @@ describe('Environment schema: v1', () => {
           variables:
             key:
               - \${{ services.main.url }}
+              - \${{ ingresses.main.url }}
     `;
 
     const dependency = `
@@ -741,6 +683,13 @@ describe('Environment schema: v1', () => {
       environment: 'account/environment',
     });
 
+    const ingress_node_id = CloudNode.genId({
+      type: 'ingressRule',
+      name: 'main',
+      component: 'account/component',
+      environment: 'account/environment',
+    });
+
     const secret_node = new CloudNode({
       name: 'key',
       component: 'account/dependency',
@@ -752,7 +701,7 @@ describe('Environment schema: v1', () => {
           component: 'account/dependency',
           environment: 'account/environment',
         }),
-        data: JSON.stringify([`\${{ ${service_node_id}.url }}`]),
+        data: JSON.stringify([`\${{ ${ingress_node_id}.url }}`, `\${{ ${service_node_id}.url }}`]),
         merge: true,
       },
     });
@@ -760,6 +709,22 @@ describe('Environment schema: v1', () => {
     assertArrayIncludes(
       graph.nodes,
       [secret_node],
+    );
+
+    assertArrayIncludes(
+      graph.edges,
+      [
+        new CloudEdge({
+          from: secret_node.id,
+          to: service_node_id,
+          required: true,
+        }),
+        new CloudEdge({
+          from: secret_node.id,
+          to: ingress_node_id,
+          required: true,
+        }),
+      ],
     );
   });
 
@@ -807,5 +772,96 @@ describe('Environment schema: v1', () => {
     }
 
     throw new Error('Should have thrown an error');
+  });
+
+  it('should merge upstream values with default values', async () => {
+    const environment = await parseEnvironment(
+      yaml.load(`
+      components:
+        account/component:
+          source: account/component:latest
+    `) as Record<string, unknown>,
+    );
+
+    const component = `
+      version: v2
+      dependencies:
+        dep:
+          component: account/dependency
+          variables:
+            key:
+              - value1
+    `;
+
+    const dependency = `
+      version: v2
+
+      deployments:
+        main:
+          image: nginx:latest
+      
+      services:
+        main:
+          deployment: main
+          port: 8080
+
+      variables:
+        key:
+          merge: true
+          default:
+            - value2
+            - \${{ services.main.url }}
+    `;
+
+    mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component));
+    mockFile.prepareVirtualFile('/dependency/architect.yml', new TextEncoder().encode(dependency));
+
+    const tmp_dir = Deno.makeTempDirSync({ prefix: 'arc-store-' });
+    const store = new ComponentStore(tmp_dir, 'registry.architect.io');
+    const component_id = await store.add('/component/architect.yml');
+    store.tag(component_id, 'account/component:latest');
+    const dependency_id = await store.add('/dependency/architect.yml');
+    store.tag(dependency_id, 'account/dependency:latest');
+
+    const graph = await environment.getGraph('account/environment', store);
+
+    const service_node_id = CloudNode.genId({
+      type: 'service',
+      name: 'main',
+      component: 'account/dependency',
+      environment: 'account/environment',
+    });
+
+    const secret_node = new CloudNode({
+      name: 'key',
+      component: 'account/dependency',
+      environment: 'account/environment',
+      inputs: {
+        type: 'secret',
+        name: CloudNode.genResourceId({
+          name: 'key',
+          component: 'account/dependency',
+          environment: 'account/environment',
+        }),
+        data: JSON.stringify([`\${{ ${service_node_id}.url }}`, 'value1', 'value2']),
+        merge: true,
+      },
+    });
+
+    assertArrayIncludes(
+      graph.nodes,
+      [secret_node],
+    );
+
+    assertArrayIncludes(
+      graph.edges,
+      [
+        new CloudEdge({
+          from: secret_node.id,
+          to: service_node_id,
+          required: true,
+        }),
+      ],
+    );
   });
 });

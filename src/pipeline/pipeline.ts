@@ -292,8 +292,7 @@ export class Pipeline {
       if (
         (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
         (previousStep.action === 'create' &&
-          (previousStep.status.state === 'pending' || previousStep.status.state === 'error')) ||
-        (previousStep.action === 'delete' && !previousStep.outputs)
+          (previousStep.status.state === 'pending' || previousStep.status.state === 'error'))
       ) {
         continue;
       }
@@ -312,6 +311,7 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
+            // HEAD
             pipeline.insertEdges(
               new CloudEdge({
                 from: oldEdge.to,
@@ -319,6 +319,18 @@ export class Pipeline {
                 required: oldEdge.required,
               }),
             );
+            //
+            const targetNode = pipeline.steps.find((step) => step.id === oldEdge.from);
+            if (targetNode) {
+              pipeline.insertEdges(
+                new CloudEdge({
+                  from: oldEdge.to,
+                  to: oldEdge.from,
+                  required: oldEdge.required,
+                }),
+              );
+            }
+            //43640494582323f0ed23cea23a06ba4e0ab7dd64
           }
         }
       }

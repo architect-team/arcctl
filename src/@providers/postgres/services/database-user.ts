@@ -5,6 +5,7 @@ import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseUserModule } from '../modules/database-user.ts';
+import { getPgClient } from '../utils.ts';
 
 export class PostgresDatabaseUserService extends TerraformResourceService<'databaseUser', PostgresCredentials> {
   private client: pg.Client;
@@ -15,13 +16,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
   constructor(accountName: string, credentials: PostgresCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
 
-    this.client = new pg.Client({
-      host: credentials.host === 'host.docker.internal' ? 'localhost' : credentials.host,
-      port: credentials.port,
-      user: credentials.username,
-      password: credentials.password,
-      database: credentials.database,
-    });
+    this.client = getPgClient(credentials);
   }
 
   async get(id: string): Promise<ResourceOutputs['databaseUser'] | undefined> {

@@ -287,6 +287,7 @@ export class Pipeline {
       pipeline.replaceStepRefs(source, target);
     }
 
+    const potentialEdges: CloudEdge[] = [];
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
       if (
@@ -311,37 +312,23 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            // HEAD
-            pipeline.insertEdges(
+            potentialEdges.push(
               new CloudEdge({
                 from: oldEdge.to,
                 to: oldEdge.from,
                 required: oldEdge.required,
               }),
             );
-            //
-            const targetNode = pipeline.steps.find((step) => step.id === oldEdge.from);
-            if (targetNode) {
-              pipeline.insertEdges(
-                new CloudEdge({
-                  from: oldEdge.to,
-                  to: oldEdge.from,
-                  required: oldEdge.required,
-                }),
-              );
-            }
-            //43640494582323f0ed23cea23a06ba4e0ab7dd64
           }
         }
       }
     }
 
-    // Remove edges from delete nodes that point to nothing
-    for (const edge of [].slice.call(pipeline.edges) as CloudEdge[]) {
-      const fromStep = pipeline.steps.find((step) => step.id === edge.from);
-      const toStep = pipeline.steps.find((step) => step.id === edge.to);
-      if (fromStep?.action === 'delete' && !toStep) {
-        pipeline.removeEdge({ from: edge.from, to: edge.to });
+    // Add edges for nodes being removed that are still valid
+    for (const potentialEdge of potentialEdges) {
+      const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
+      if (targetNode) {
+        pipeline.insertEdges(potentialEdge);
       }
     }
 

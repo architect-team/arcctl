@@ -187,7 +187,7 @@ export default class ComponentV2 extends Component {
               : build_config.context,
             dockerfile: context.component.debug &&
                 build_config.debug &&
-                build_config.debug.context
+                build_config.debug.dockerfile
               ? build_config.debug.dockerfile
               : build_config.dockerfile || 'Dockerfile',
             args: context.component.debug &&
@@ -247,6 +247,15 @@ export default class ComponentV2 extends Component {
           ...(variable_config.sensitive ? { sensitive: variable_config.sensitive } : {}),
         },
       });
+
+      secret_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        secret_node.id,
+        secret_node.inputs,
+      );
+
       graph.insertNodes(secret_node);
     }
     return graph;
@@ -288,37 +297,6 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  private getDeploymentVolumes(
-    tag: string,
-    deployment_name: string,
-    volumes: Record<string, {
-      host_path: string;
-      mount_path: string;
-      image?: string;
-    }>,
-  ): {
-    volume: string;
-    name: string;
-    mount_path: string;
-    remote_image?: string;
-    local_image?: string;
-    readonly: boolean;
-  }[] {
-    const deployment_volumes = [];
-    const [repo_name, repo_tag] = tag.split(':');
-    for (const [volume_key, volume_config] of Object.entries(volumes)) {
-      deployment_volumes.push({
-        name: volume_key,
-        volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
-        mount_path: volume_config.mount_path,
-        local_image: volume_config.image,
-        remote_image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
-        readonly: true,
-      });
-    }
-    return deployment_volumes;
-  }
-
   private addDeploymentsToGraph(
     graph: CloudGraph,
     context: GraphContext,
@@ -345,8 +323,8 @@ export default class ComponentV2 extends Component {
           host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
         } else if (volumeConfig.host_path) {
           host_path = path.join(context.component.source, volumeConfig.host_path);
-          host_path = `${is_directory}`;
         }
+
         const volume_node = new CloudNode({
           name: `${deployment_key}-${volumeKey}`,
           component: context.component.name,

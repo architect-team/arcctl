@@ -87,12 +87,14 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     });
   }
 
-  await command_helper.applyEnvironment(
+  const success = await command_helper.applyEnvironment(
     name,
     startingDatacenter,
     targetEnvironment!,
     pipeline,
-    logger,
+    {
+      logger,
+    },
   );
 
   if (interval) {
@@ -100,7 +102,12 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   }
   command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
   command_helper.doneRenderingPipeline();
-  console.log(`Environment ${name} ${environmentRecord ? 'updated' : 'created'} successfully`);
+
+  if (!success) {
+    console.log(`Environment ${environmentRecord ? 'update' : 'creation'} failed`);
+  } else {
+    console.log(`Environment ${name} ${environmentRecord ? 'updated' : 'created'} successfully`);
+  }
 }
 
 async function promptForDatacenter(command_helper: CommandHelper, name?: string): Promise<DatacenterRecord> {

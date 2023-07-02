@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { Role } from '../.gen/providers/postgresql/role/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 
@@ -12,6 +13,16 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
     super(scope, options);
 
     const password = crypto.randomUUID();
+
+    new PostgresqlProvider(this, 'postgres', {
+      host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
+      port: this.credentials.port,
+      username: this.credentials.username,
+      password: this.credentials.password,
+      database: this.inputs?.databaseSchema,
+      superuser: false,
+      sslMode: 'disable',
+    });
 
     this.role = new Role(this, 'user', {
       name: this.inputs?.username || 'unknown',

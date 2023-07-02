@@ -287,6 +287,7 @@ export class Pipeline {
       pipeline.replaceStepRefs(source, target);
     }
 
+    const potentialEdges: CloudEdge[] = [];
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
       if (
@@ -311,18 +312,23 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            const targetNode = pipeline.steps.find((step) => step.id === oldEdge.from);
-            if (targetNode) {
-              pipeline.insertEdges(
-                new CloudEdge({
-                  from: oldEdge.to,
-                  to: oldEdge.from,
-                  required: oldEdge.required,
-                }),
-              );
-            }
+            potentialEdges.push(
+              new CloudEdge({
+                from: oldEdge.to,
+                to: oldEdge.from,
+                required: oldEdge.required,
+              }),
+            );
           }
         }
+      }
+    }
+
+    // Add edges for nodes being removed that are still valid
+    for (const potentialEdge of potentialEdges) {
+      const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
+      if (targetNode) {
+        pipeline.insertEdges(potentialEdge);
       }
     }
 

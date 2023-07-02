@@ -1,7 +1,7 @@
-import PluginManager from '../plugins/plugin-manager.ts';
-import { CldCtlTerraformStack } from '../utils/stack.ts';
-import { TerraformPlugin, TerraformVersion } from './plugin.ts';
+import { TerraformStack } from 'cdktf';
 import * as path from 'std/path/mod.ts';
+import PluginManager from '../plugins/plugin-manager.ts';
+import { TerraformPlugin, TerraformVersion } from './plugin.ts';
 
 export class Terraform {
   private plugin: TerraformPlugin;
@@ -16,7 +16,7 @@ export class Terraform {
     return new Terraform(plugin);
   }
 
-  public init(cwd: string, stack: CldCtlTerraformStack): Deno.ChildProcess {
+  public init(cwd: string, stack: TerraformStack): Deno.ChildProcess {
     const moduleFile = path.join(cwd, 'main.tf.json');
     Deno.mkdirSync(cwd, { recursive: true });
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
@@ -84,5 +84,9 @@ export class Terraform {
     }
 
     return this.plugin.exec(args, { stdout: false, commandOptions: { cwd } });
+  }
+
+  public show(cwd: string): Deno.ChildProcess {
+    return this.plugin.exec(['show', '-json'], { stdout: false, commandOptions: { cwd } });
   }
 }

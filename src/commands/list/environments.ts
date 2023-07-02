@@ -1,5 +1,5 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const ListEnvironmentCommand = BaseCommand()
   .description('List registered environments')
@@ -18,16 +18,11 @@ async function list_environments_action(options: GlobalOptions) {
     head: ['Name', 'Datacenter', 'Resources'],
   });
 
-  for (const { name, datacenter } of environments) {
-    const datacenterRecord = await command_helper.datacenterStore.get(datacenter);
+  for (const environmentRecord of environments) {
+    const pipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
+    const resourceCount = pipeline.steps.filter((step) => step.action !== 'delete').length;
 
-    let resourceCount = 0;
-    if (datacenterRecord) {
-      const pipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
-      resourceCount = pipeline.steps.filter((step) => step.action !== 'delete' && step.environment === name).length;
-    }
-
-    table.push([name, datacenter, String(resourceCount)]);
+    table.push([environmentRecord.name, environmentRecord.datacenter, String(resourceCount)]);
   }
 
   console.log(table.toString());

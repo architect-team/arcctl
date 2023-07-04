@@ -166,7 +166,7 @@ export const testDatabaseIntegration = (
     environment: 'environment',
     inputs: {
       type: 'databaseUser',
-      username: deployment_node_id.replaceAll('/', '--'),
+      username: `${deployment_node_id}/${options.database_name}`.replaceAll('/', '--'),
       databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
       account: `\${{ ${database_schema_node_id}.account }}`,
     },

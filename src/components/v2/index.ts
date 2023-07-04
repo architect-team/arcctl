@@ -143,8 +143,20 @@ export default class ComponentV2 extends Component {
   ingresses?: Record<
     string,
     {
+      /**
+       * Service the ingress rule forwards traffic to
+       */
       service: string;
+
+      /**
+       * Whether or not the ingress rule should be attached to an internal gateway
+       */
       internal?: boolean;
+
+      /**
+       * Additional headers to include in responses
+       */
+      headers?: Record<string, string>;
     }
   >;
 
@@ -513,6 +525,7 @@ export default class ComponentV2 extends Component {
           username: `\${{ ${service_node.id}.username }}`,
           password: `\${{ ${service_node.id}.password }}`,
           internal: ingress_config.internal || false,
+          headers: ingress_config.headers || {},
         },
       });
 

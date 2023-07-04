@@ -3183,10 +3183,19 @@
           "additionalProperties": {
             "additionalProperties": false,
             "properties": {
+              "headers": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Additional headers to include in responses",
+                "type": "object"
+              },
               "internal": {
+                "description": "Whether or not the ingress rule should be attached to an internal gateway",
                 "type": "boolean"
               },
               "service": {
+                "description": "Service the ingress rule forwards traffic to",
                 "type": "string"
               }
             },

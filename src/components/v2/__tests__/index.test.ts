@@ -3,7 +3,6 @@ import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
-import { ComponentSchema } from '../../schema.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -13,6 +12,7 @@ import {
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
+import { ComponentSchema } from '../../schema.ts';
 import ComponentV2 from '../index.ts';
 
 describe('Component Schema: v2', () => {

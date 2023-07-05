@@ -64,23 +64,23 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stdout.write(chunk);
-          logger?.info(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stdout.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stdout.write(chunk);
+    //       logger?.info(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
-    cmd.stderr.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stderr.write(chunk);
-          logger?.error(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stderr.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stderr.write(chunk);
+    //       logger?.error(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
     const status = await cmd.status;
     if (!status.success) {
@@ -104,23 +104,23 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stdout.write(chunk);
-          logger?.info(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stdout.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stdout.write(chunk);
+    //       logger?.info(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
-    cmd.stderr.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stderr.write(chunk);
-          logger?.error(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stderr.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stderr.write(chunk);
+    //       logger?.error(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
     const status = await cmd.status;
     if (!status.success) {
@@ -144,23 +144,23 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stdout.write(chunk);
-          logger?.info(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stdout.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stdout.write(chunk);
+    //       logger?.info(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
-    cmd.stderr.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stderr.write(chunk);
-          logger?.error(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stderr.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stderr.write(chunk);
+    //       logger?.error(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
     const status = await cmd.status;
     if (!status.success) {
@@ -185,23 +185,23 @@ export abstract class TerraformResourceService<
     const stdout = new Buffer();
     const stderr = new Buffer();
 
-    cmd.stdout.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stdout.write(chunk);
-          logger?.info(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stdout.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stdout.write(chunk);
+    //       logger?.info(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
-    cmd.stderr.pipeTo(
-      new WritableStream({
-        write(chunk) {
-          stderr.write(chunk);
-          logger?.error(new TextDecoder().decode(chunk));
-        },
-      }),
-    );
+    // cmd.stderr.pipeTo(
+    //   new WritableStream({
+    //     write(chunk) {
+    //       stderr.write(chunk);
+    //       logger?.error(new TextDecoder().decode(chunk));
+    //     },
+    //   }),
+    // );
 
     const status = await cmd.status;
     if (!status.success) {

@@ -42,16 +42,12 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
   };
 
   public async testCredentials(): Promise<boolean> {
-    console.log('****CREDENTIALS');
-    console.log(this.credentials);
     try {
       await digitalOceanApiRequest({
         credentials: this.credentials,
         path: '/account',
       });
-    } catch (err) {
-      console.log('****CRED CHECK FAILED');
-      console.log(err);
+    } catch {
       return false;
     }
     return true;

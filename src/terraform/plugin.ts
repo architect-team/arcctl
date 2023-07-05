@@ -139,8 +139,8 @@ export class TerraformPlugin implements ArchitectPlugin {
     const cmd = new Deno.Command(binaryPath, {
       args,
       ...opts?.commandOptions,
-      stdout: 'pipe',
-      stderr: 'pipe',
+      stdout: 'piped',
+      stderr: 'piped',
     });
     return cmd.spawn();
   }

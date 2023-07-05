@@ -324,10 +324,7 @@ export abstract class TerraformResourceService<
     };
 
     const { stdout: rawOutputs } = await this.tfOutput(cwd, options.logger);
-    console.log('****RAW OUTPUTS');
-    console.log(rawOutputs);
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
-    console.log('****PARSED RAW OUTPUTS');
 
     await Deno.remove(cwd, { recursive: true });
 

@@ -1,7 +1,7 @@
-import * as path from 'std/path/mod.ts';
 import { home_dir } from 'deps';
+import * as path from 'std/path/mod.ts';
 
-export default class CloudCtlConfig {
+export default class ArcCtlConfig {
   private static dev: boolean;
   private static tfDirectory?: string;
   private static noCleanup: boolean;
@@ -27,6 +27,10 @@ export default class CloudCtlConfig {
       this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${crypto.randomUUID()}/`);
     }
     return this.tfDirectory!;
+  }
+
+  public static getTerraformCacheDirectory(): string {
+    return path.join(this.getConfigDirectory(), '/tf-cache/');
   }
 
   public static getPluginDirectory(): string {

@@ -160,13 +160,14 @@ export const testDatabaseIntegration = (
     environment: 'environment',
   });
 
+  const name = `${deployment_node_id}/${options.database_name}`;
   const database_user_node = new CloudNode({
-    name: `${deployment_node_id}/${options.database_name}`,
+    name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'databaseUser',
-      username: deployment_node_id.replaceAll('/', '--'),
+      username: name.replaceAll('/', '--'),
       databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
       account: `\${{ ${database_schema_node_id}.account }}`,
     },

@@ -16,6 +16,7 @@ export class GoogleCloudVpcModule extends ResourceModule<'vpc', GoogleCloudCrede
       ? [
         new ProjectService(this, 'vpc-compute-service', {
           service: 'compute.googleapis.com',
+          disableOnDestroy: false,
         }),
       ]
       : [];

@@ -44,7 +44,8 @@ environment:
           content: ${{ this.outputs.loadBalancerHostname }}
       dnsZone: ${{ variables.dnsZone }}
       namespace: ${{ variables.region }}
-      # TODO: Is it possible to get the deployment.name field here?
-      service: tyleraldrich--mailslurper--mailslurper
+    - when:
+        type: service
+      namespace: ${{ variables.region }
     - account: ${{ variables.gcpAccount }}
       namespace: ${{ variables.region }}

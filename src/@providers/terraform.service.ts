@@ -384,7 +384,11 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfPlan(cwd, options.logger);
+      const { stderr: plan_stderr } = await this.tfPlan(cwd, options.logger);
+      if (plan_stderr && plan_stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(plan_stderr));
+        return;
+      }
 
       subscriber.next({
         status: {
@@ -394,14 +398,11 @@ export abstract class TerraformResourceService<
         },
       });
 
-      // HEAD
       const { stderr } = await this.tfApply(options.cwd, options.logger);
       if (stderr && stderr.length > 0) {
         subscriber.error(new TextDecoder().decode(stderr));
         return;
       }
-
-      await this.tfApply(cwd, options.logger);
 
       const stateFileBuffer = await Deno.readFile(stateFile);
       const lockFileBuffer = await Deno.readFile(lockFile);

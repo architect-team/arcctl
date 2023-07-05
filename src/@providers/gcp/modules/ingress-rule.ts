@@ -1,11 +1,10 @@
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
-import { ComputeBackendService } from '../.gen/providers/google/compute-backend-service/index.ts';
 import { ComputeGlobalForwardingRule } from '../.gen/providers/google/compute-global-forwarding-rule/index.ts';
-import { ComputeRegionNetworkEndpointGroup } from '../.gen/providers/google/compute-region-network-endpoint-group/index.ts';
 import { ComputeTargetHttpProxy } from '../.gen/providers/google/compute-target-http-proxy/index.ts';
 import { ComputeUrlMap } from '../.gen/providers/google/compute-url-map/index.ts';
+import { DataGoogleComputeBackendService } from '../.gen/providers/google/data-google-compute-backend-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 
 export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', GoogleCloudCredentials> {
@@ -15,43 +14,24 @@ export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', 
   constructor(scope: Construct, options: ResourceModuleOptions<'ingressRule', GoogleCloudCredentials>) {
     super(scope, options);
 
-    const function_name = this.inputs?.service || '';
+    const service_name = this.inputs?.name.replaceAll('/', '--') || '';
 
-    let region = '';
-    if (this.inputs?.namespace) {
-      region = this.inputs.namespace.split('-').slice(0, -1).join('-');
-    }
-
-    const serverless_neg = new ComputeRegionNetworkEndpointGroup(this, 'serverless-neg', {
-      name: `${function_name}--neg`,
-      networkEndpointType: 'SERVERLESS',
-      region,
-      cloudRun: {
-        service: function_name,
-      },
-    });
-
-    const backend_service = new ComputeBackendService(this, 'backend-neg', {
-      name: `${function_name}--backend`,
-      backend: [{
-        group: serverless_neg.id,
-      }],
-      loadBalancingScheme: 'EXTERNAL_MANAGED',
-      localityLbPolicy: 'ROUND_ROBIN',
+    const backend_service = new DataGoogleComputeBackendService(this, 'backend-neg', {
+      name: `${service_name}--backend`,
     });
 
     const url_map = new ComputeUrlMap(this, 'url-map', {
-      name: `${function_name}--lb`,
+      name: `${service_name}--lb`,
       defaultService: backend_service.id,
     });
 
     const http_proxy = new ComputeTargetHttpProxy(this, 'backend-proxy', {
-      name: `${function_name}--target-proxy`,
+      name: `${service_name}--target-proxy`,
       urlMap: url_map.id,
     });
 
     this.ingress = new ComputeGlobalForwardingRule(this, 'fwd-rule', {
-      name: `${function_name}--frontend`,
+      name: `${service_name}--frontend`,
       loadBalancingScheme: 'EXTERNAL_MANAGED',
       target: http_proxy.id,
       portRange: '80',
@@ -59,7 +39,7 @@ export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', 
 
     this.outputs = {
       id: this.ingress.id,
-      host: 'main', // TODO: Hardcoded
+      host: this.ingress.ipAddress,
       port: this.inputs?.port || 80,
       path: this.inputs?.path || '/',
       url: '',

@@ -34,9 +34,9 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
 
     this.deployment = new CloudRunV2Service(this, 'deployment', {
       dependsOn: depends_on,
-      name: this.inputs?.name || 'deleting',
+      name: this.inputs?.name.replaceAll('/', '--') || 'deleting',
       location: region,
-      // TODO: Is this necessary?
+
       ingress: 'INGRESS_TRAFFIC_ALL',
       template: {
         // TODO: If there are multiple exposed ports, need to create multiple containers and one port mapping each

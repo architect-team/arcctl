@@ -165,7 +165,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
                   id: this.outputs.id,
                 }
                 : undefined),
-          });
+          }, this.inputs);
         } else if (!this.inputs) {
           subscriber.error(new Error(`Missing inputs for ${this.id}`));
         } else {

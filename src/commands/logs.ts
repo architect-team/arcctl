@@ -15,13 +15,7 @@ export const streamLogs = async (options: LogsOptions, environment: string): Pro
     Deno.exit(1);
   }
 
-  const datacenterRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
-  if (!datacenterRecord) {
-    console.error(`No datacenter named ${environmentRecord.datacenter}`);
-    Deno.exit(1);
-  }
-
-  const pipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+  const pipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
   const activeSteps = pipeline.steps.filter((step) =>
     step.type !== 'arcctlAccount' &&
     step.action !== 'delete' && step.status.state === 'complete' && step.inputs?.account && step.outputs

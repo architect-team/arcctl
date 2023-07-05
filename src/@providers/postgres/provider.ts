@@ -1,8 +1,8 @@
-import { pg } from 'deps';
 import { Provider, ProviderResources } from '../provider.ts';
 import { PostgresCredentials, PostgresCredentialsSchema } from './credentials.ts';
 import { PostgresDatabaseSchemaService } from './services/database-schema.ts';
 import { PostgresDatabaseUserService } from './services/database-user.ts';
+import { getPgClient } from './utils.ts';
 
 export default class PostgresProvider extends Provider<PostgresCredentials> {
   readonly type = 'postgres';
@@ -15,22 +15,21 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
   };
 
   public async testCredentials(): Promise<boolean> {
-    try {
-      const client = new pg.Client({
-        host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
-        port: this.credentials.port,
-        user: this.credentials.username,
-        password: this.credentials.password,
-        database: this.credentials.database,
-      });
+    let failureCount = 0;
+    while (failureCount < 3) {
+      try {
+        const client = getPgClient(this.credentials);
 
-      await client.connect();
-      await client.query('SELECT NOW()');
-      await client.end();
+        await client.connect();
+        await client.query('SELECT NOW()');
+        await client.end();
 
-      return true;
-    } catch {
-      return false;
+        return true;
+      } catch {
+        failureCount++;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 1000 * failureCount));
     }
+    return false;
   }
 }

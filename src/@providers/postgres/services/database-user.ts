@@ -1,12 +1,11 @@
-import { Construct } from 'constructs';
 import { pg } from 'deps';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
-import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseUserModule } from '../modules/database-user.ts';
+import { getPgClient } from '../utils.ts';
 
 export class PostgresDatabaseUserService extends TerraformResourceService<'databaseUser', PostgresCredentials> {
   private client: pg.Client;
@@ -17,13 +16,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
   constructor(accountName: string, credentials: PostgresCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
 
-    this.client = new pg.Client({
-      host: credentials.host === 'host.docker.internal' ? 'localhost' : credentials.host,
-      port: credentials.port,
-      user: credentials.username,
-      password: credentials.password,
-      database: credentials.database,
-    });
+    this.client = getPgClient(credentials);
   }
 
   async get(id: string): Promise<ResourceOutputs['databaseUser'] | undefined> {
@@ -61,16 +54,5 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
         url: `postgresql://${this.credentials.host}:${this.credentials.port}`,
       })),
     };
-  }
-
-  configureTerraformProviders(scope: Construct): void {
-    new PostgresqlProvider(scope, 'postgres', {
-      host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
-      port: this.credentials.port,
-      username: this.credentials.username,
-      password: this.credentials.password,
-      superuser: false,
-      sslMode: 'disable',
-    });
   }
 }

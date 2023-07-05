@@ -445,8 +445,6 @@ export abstract class TerraformResourceService<
         return;
       }
 
-      await this.tfApply(cwd, options.logger);
-
       const stateFileBuffer = await Deno.readFile(stateFile);
       const lockFileBuffer = await Deno.readFile(lockFile);
       const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));

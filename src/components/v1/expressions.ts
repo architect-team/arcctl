@@ -206,6 +206,18 @@ const parseComponentIngressRefs = <T extends Record<string, any>>(
   );
 };
 
+const parseEnvironmentRefs = <T extends Record<string, any>>(
+  context: GraphContext,
+  inputs: T,
+): T => {
+  return JSON.parse(
+    JSON.stringify(inputs).replace(
+      /\${{\s*environment\.name\s*}}/g,
+      () => context.environment,
+    ),
+  );
+};
+
 export const parseExpressionRefs = <T extends Record<string, any>>(
   graph: CloudGraph,
   context: GraphContext,
@@ -219,5 +231,6 @@ export const parseExpressionRefs = <T extends Record<string, any>>(
   inputs = parseServiceInterfaceRefs(graph, context, from_id, inputs);
   inputs = parseComponentInterfaceRefs(graph, context, from_id, inputs);
   inputs = parseComponentIngressRefs(graph, context, from_id, inputs);
+  inputs = parseEnvironmentRefs(context, inputs);
   return inputs;
 };

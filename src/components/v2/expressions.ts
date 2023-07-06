@@ -276,6 +276,18 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
   );
 };
 
+const parseEnvironmentRefs = <T extends Record<string, any>>(
+  context: GraphContext,
+  inputs: T,
+): T => {
+  return JSON.parse(
+    JSON.stringify(inputs).replace(
+      /\${{\s*environment\.name\s*}}/g,
+      () => context.environment,
+    ),
+  );
+};
+
 export const parseExpressionRefs = <T extends Record<string, any>>(
   graph: CloudGraph,
   dependencies: Record<string, DependencySchemaV2>,
@@ -303,5 +315,6 @@ export const parseExpressionRefs = <T extends Record<string, any>>(
     from_id,
     inputs,
   );
+  inputs = parseEnvironmentRefs(context, inputs);
   return inputs;
 };

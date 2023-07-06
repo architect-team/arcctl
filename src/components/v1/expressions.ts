@@ -30,6 +30,56 @@ const parseSecretRefs = <T extends Record<string, any>>(
   );
 };
 
+const parseDatabaseRefs = <T extends Record<string, any>>(
+  graph: CloudGraph,
+  context: GraphContext,
+  from_id: string,
+  inputs: T,
+): T => {
+  return JSON.parse(
+    JSON.stringify(inputs).replace(
+      /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      (_, database_name, key) => {
+        const database_schema_node_id = CloudNode.genId({
+          type: 'databaseSchema',
+          name: database_name,
+          component: context.component.name,
+          environment: context.environment,
+        });
+
+        const name = `${from_id}/${database_name}`;
+        const database_user_node = new CloudNode({
+          name,
+          component: context.component.name,
+          environment: context.environment,
+          inputs: {
+            type: 'databaseUser',
+            account: `\${{ ${database_schema_node_id}.account }}`,
+            username: name.replaceAll('/', '--'),
+            databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
+          },
+        });
+
+        graph.insertNodes(database_user_node);
+        graph.insertEdges(
+          new CloudEdge({
+            from: database_user_node.id,
+            to: database_schema_node_id,
+            required: true,
+          }),
+          new CloudEdge({
+            from: from_id,
+            to: database_user_node.id,
+            required: true,
+          }),
+        );
+
+        return `\${{ ${database_user_node.id}.${key} }}`;
+      },
+    ),
+  );
+};
+
 const parseDependencyOutputRefs = <T extends Record<string, any>>(
   graph: CloudGraph,
   context: GraphContext,
@@ -225,6 +275,7 @@ export const parseExpressionRefs = <T extends Record<string, any>>(
   inputs: T,
 ): T => {
   inputs = parseSecretRefs(graph, context, from_id, inputs);
+  inputs = parseDatabaseRefs(graph, context, from_id, inputs);
   inputs = parseDependencyOutputRefs(graph, context, from_id, inputs);
   inputs = parseDependencyInterfaceRefs(graph, context, from_id, inputs);
   inputs = parseDependencyIngressRefs(graph, context, from_id, inputs);

@@ -3,6 +3,8 @@ import { assertArrayIncludes } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import {
+  testDatabaseGeneration,
+  testDatabaseIntegration,
   testDeploymentGeneration,
   testSecretGeneration,
   testSecretIntegration,
@@ -522,4 +524,38 @@ describe('Component Schema: v1', () => {
       }),
     ]);
   });
+
+  it('should generate databases', () =>
+    testDatabaseGeneration(
+      `
+        databases:
+          main:
+            type: postgres:13
+      `,
+      ComponentV1,
+      {
+        database_name: 'main',
+        database_type: 'postgres',
+        database_version: '13',
+      },
+    ));
+
+  it('should connect services to databases', () =>
+    testDatabaseIntegration(
+      `
+      databases:
+        main:
+          type: postgres:13
+      services:
+        main:
+          image: nginx:1.14.2
+          environment:
+            DB_DSN: \${{ databases.main.dsn }}
+      `,
+      ComponentV1,
+      {
+        database_name: 'main',
+        deployment_name: 'main',
+      },
+    ));
 });

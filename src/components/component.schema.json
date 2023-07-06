@@ -263,6 +263,12 @@
                           "string"
                         ]
                       },
+                      "depends_on": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "entrypoint": {
                         "anyOf": [
                           {
@@ -278,7 +284,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -345,6 +354,9 @@
                           "type": "string"
                         },
                         "type": "object"
+                      },
+                      "language": {
+                        "type": "string"
                       },
                       "liveness_probe": {
                         "additionalProperties": false,
@@ -464,6 +476,12 @@
                     },
                     "type": "object"
                   },
+                  "depends_on": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "entrypoint": {
                     "anyOf": [
                       {
@@ -479,7 +497,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -549,6 +570,10 @@
                       "type": "string"
                     },
                     "type": "object"
+                  },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
                   },
                   "liveness_probe": {
                     "additionalProperties": false,
@@ -781,6 +806,12 @@
                           "string"
                         ]
                       },
+                      "depends_on": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "entrypoint": {
                         "anyOf": [
                           {
@@ -796,7 +827,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -863,6 +897,9 @@
                           "type": "string"
                         },
                         "type": "object"
+                      },
+                      "language": {
+                        "type": "string"
                       },
                       "liveness_probe": {
                         "additionalProperties": false,
@@ -982,6 +1019,12 @@
                     },
                     "type": "object"
                   },
+                  "depends_on": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "entrypoint": {
                     "anyOf": [
                       {
@@ -997,7 +1040,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -1064,6 +1110,10 @@
                       "type": "string"
                     },
                     "type": "object"
+                  },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
                   },
                   "liveness_probe": {
                     "additionalProperties": false,
@@ -1296,6 +1346,12 @@
                           "string"
                         ]
                       },
+                      "depends_on": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "entrypoint": {
                         "anyOf": [
                           {
@@ -1311,7 +1367,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -1378,6 +1437,9 @@
                           "type": "string"
                         },
                         "type": "object"
+                      },
+                      "language": {
+                        "type": "string"
                       },
                       "liveness_probe": {
                         "additionalProperties": false,
@@ -1497,6 +1559,12 @@
                     },
                     "type": "object"
                   },
+                  "depends_on": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "entrypoint": {
                     "anyOf": [
                       {
@@ -1512,7 +1580,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -1582,6 +1653,10 @@
                       "type": "string"
                     },
                     "type": "object"
+                  },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
                   },
                   "liveness_probe": {
                     "additionalProperties": false,
@@ -1927,7 +2002,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -1939,6 +2017,9 @@
                           "type": "string"
                         },
                         "type": "object"
+                      },
+                      "language": {
+                        "type": "string"
                       },
                       "memory": {
                         "type": "string"
@@ -1988,7 +2069,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -2000,6 +2084,10 @@
                       "type": "string"
                     },
                     "type": "object"
+                  },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
                   },
                   "memory": {
                     "type": "string"
@@ -2144,7 +2232,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -2156,6 +2247,9 @@
                           "type": "string"
                         },
                         "type": "object"
+                      },
+                      "language": {
+                        "type": "string"
                       },
                       "memory": {
                         "type": "string"
@@ -2205,7 +2299,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -2214,6 +2311,10 @@
                       "type": "string"
                     },
                     "type": "object"
+                  },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
                   },
                   "memory": {
                     "type": "string"
@@ -2358,7 +2459,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -2370,6 +2474,9 @@
                           "type": "string"
                         },
                         "type": "object"
+                      },
+                      "language": {
+                        "type": "string"
                       },
                       "memory": {
                         "type": "string"
@@ -2419,7 +2526,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -2431,6 +2541,10 @@
                       "type": "string"
                     },
                     "type": "object"
+                  },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
                   },
                   "memory": {
                     "type": "string"

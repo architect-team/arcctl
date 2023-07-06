@@ -2,6 +2,7 @@ import { DeepPartial } from '../../utils/types.ts';
 import { RuntimeSchemaV1 } from './common.ts';
 
 export type ServiceSchemaV1 = RuntimeSchemaV1 & {
+  depends_on?: string[];
   replicas?: number | string;
   scaling?: {
     min_replicas: number | string;

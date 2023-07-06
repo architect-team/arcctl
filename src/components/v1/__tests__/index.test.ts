@@ -28,6 +28,121 @@ describe('Component Schema: v1', () => {
       },
     ));
 
+  it('should generate build steps', () => {
+    const component = new ComponentV1(yaml.load(
+      `
+      name: account/component
+      services:
+        api:
+          build:
+            context: ./
+    `,
+    ) as ComponentSchema);
+    const graph = component.getGraph({
+      component: {
+        name: 'account/component',
+        source: 'fake/source',
+      },
+      environment: 'account/environment',
+    });
+
+    const build_node = new CloudNode({
+      name: 'api',
+      component: 'account/component',
+      environment: 'account/environment',
+      inputs: {
+        type: 'dockerBuild',
+        context: './',
+        component_source: 'fake/source',
+        repository: 'account/component',
+      },
+    });
+
+    const deployment_node = new CloudNode({
+      name: 'api',
+      component: 'account/component',
+      environment: 'account/environment',
+      inputs: {
+        type: 'deployment',
+        name: CloudNode.genResourceId({
+          name: 'api',
+          component: 'account/component',
+          environment: 'account/environment',
+        }),
+        replicas: 1,
+        image: `\${{ ${build_node.id}.id }}`,
+        volume_mounts: [],
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [deployment_node]);
+  });
+
+  it('should create edge for explicit depends_on', () => {
+    const component = new ComponentV1(yaml.load(
+      `
+      name: account/component
+      services:
+        api:
+          image: nginx:latest
+        app:
+          image: nginx:latest
+          depends_on:
+            - api
+    `,
+    ) as ComponentSchema);
+    const graph = component.getGraph({
+      component: {
+        name: 'account/component',
+        source: 'fake/source',
+      },
+      environment: 'account/environment',
+    });
+
+    const api_node = new CloudNode({
+      name: 'api',
+      component: 'account/component',
+      environment: 'account/environment',
+      inputs: {
+        type: 'deployment',
+        name: CloudNode.genResourceId({
+          name: 'api',
+          component: 'account/component',
+          environment: 'account/environment',
+        }),
+        replicas: 1,
+        image: 'nginx:latest',
+        volume_mounts: [],
+      },
+    });
+
+    const app_node = new CloudNode({
+      name: 'app',
+      component: 'account/component',
+      environment: 'account/environment',
+      inputs: {
+        type: 'deployment',
+        name: CloudNode.genResourceId({
+          name: 'app',
+          component: 'account/component',
+          environment: 'account/environment',
+        }),
+        replicas: 1,
+        image: 'nginx:latest',
+        volume_mounts: [],
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [api_node, app_node]);
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: app_node.id,
+        to: api_node.id,
+        required: true,
+      }),
+    ]);
+  });
+
   it('should generate services', () =>
     testServiceGeneration(
       `

@@ -9,6 +9,13 @@
           "description": "The DNS zone (aka base URL) that the ingress rule listens on",
           "type": "string"
         },
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Headers to include in responses",
+          "type": "object"
+        },
         "internal": {
           "default": false,
           "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",

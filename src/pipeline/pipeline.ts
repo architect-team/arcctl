@@ -1,5 +1,4 @@
-import { ProviderStore } from '../@providers/store.ts';
-import { SupportedProviders } from '../@providers/supported-providers.ts';
+import { ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
@@ -132,7 +131,7 @@ export class Pipeline {
           throw new Error(`Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`);
         }
 
-        return (outputs as any)[key] || '';
+        return (String((outputs as any)[key]) || '').replaceAll('"', '\\"');
       }),
     );
   }

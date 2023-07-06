@@ -114,6 +114,9 @@
               "namespace": {
                 "type": "string"
               },
+              "platform": {
+                "type": "string"
+              },
               "schedule": {
                 "type": "string"
               },
@@ -160,6 +163,9 @@
                       "type": "string"
                     },
                     "memory": {
+                      "type": "string"
+                    },
+                    "platform": {
                       "type": "string"
                     },
                     "volume_mounts": {

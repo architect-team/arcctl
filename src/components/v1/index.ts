@@ -133,7 +133,7 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'dockerBuild',
-            component_source: undefined as any,
+            component_source: context.component.source,
             repository: context.component.name,
             context: context.component.debug &&
                 service_config.debug &&
@@ -378,7 +378,7 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'dockerBuild',
-            component_source: undefined as any,
+            component_source: context.component.source,
             repository: context.component.name,
             context: context.component.debug &&
                 task_config.debug &&

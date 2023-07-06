@@ -56,18 +56,10 @@ async function create_resource_action(
     type,
   );
 
-  console.log('****GRAPH') // TODO: remove
-  console.log(new Pipeline())
-  console.log(graph)
-
   const pipeline = Pipeline.plan({
     before: new Pipeline(),
     after: graph,
   }, command_helper.providerStore);
-
-  console.log('****PIPELINE') // TODO: remove
-  console.log(pipeline)
-  // throw new Error('test')
 
   console.log('\nAbout to create the following resources:');
   command_helper.renderPipeline(pipeline);

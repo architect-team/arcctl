@@ -136,8 +136,6 @@ export class TerraformPlugin implements ArchitectPlugin {
       ...opts?.commandOptions,
       stdout: 'piped',
       stderr: 'piped',
-      // stdout: 'inherit',
-      // stderr: 'inherit',
     });
     return cmd.spawn();
   }

@@ -92,8 +92,6 @@ async function destroy_resource_action(
     },
   });
 
-  const pipeline = new Pipeline({ steps: [step] });
-
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {

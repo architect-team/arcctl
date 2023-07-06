@@ -438,7 +438,6 @@ export abstract class TerraformResourceService<
         },
       });
 
-      // HEAD
       const { stderr } = await this.tfApply(options.cwd, options.logger);
       if (stderr && stderr.length > 0) {
         subscriber.error(new TextDecoder().decode(stderr));

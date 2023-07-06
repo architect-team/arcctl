@@ -398,6 +398,7 @@ export default class ComponentV2 extends Component {
             environment: context.environment,
           }),
           image,
+          ...(deployment_config.platform ? { platform: deployment_config.platform } : {}),
           ...(environment ? { environment } : {}),
           ...(command ? { command } : {}),
           ...(entrypoint ? { entrypoint } : {}),

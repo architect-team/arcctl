@@ -195,6 +195,7 @@ export default class ComponentV1 extends Component {
             environment: context.environment,
           }),
           replicas: Number(service_config.replicas || 1), // TODO: Ensure this is a number value
+          ...(service_config.platform ? { platform: service_config.platform } : {}),
           ...(service_config.scaling
             ? {
               autoscaling: {
@@ -432,6 +433,7 @@ export default class ComponentV1 extends Component {
           type: 'cronjob',
           schedule: task_config.schedule!,
           image: image,
+          ...(task_config.platform ? { platform: task_config.platform } : {}),
           ...(task_config.command ? { command: task_config.command } : {}),
           ...(task_config.entrypoint ? { entrypoint: task_config.entrypoint } : {}),
           ...(environment ? { environment } : {}),

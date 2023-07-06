@@ -2,16 +2,35 @@ import { DeepPartial } from '../../utils/types.ts';
 import { RuntimeSchemaV1 } from './common.ts';
 
 export type ServiceSchemaV1 = RuntimeSchemaV1 & {
+  /**
+   * Specify other services that you want to wait for before starting this one
+   */
   depends_on?: string[];
+
+  /**
+   * Number of replicas of the deployment to run
+   */
   replicas?: number | string;
+
+  /**
+   * Autoscaling rules for the deployment
+   */
   scaling?: {
     min_replicas: number | string;
     max_replicas: number | string;
+
+    /**
+     * Metrics to be used to trigger autoscaling
+     */
     metrics: {
       cpu?: number | string;
       memory?: string;
     };
   };
+
+  /**
+   * Task run continuously to determine if each service replica is healthy
+   */
   liveness_probe?: {
     /**
      * The number of times to retry a health check before the container is considered healthy

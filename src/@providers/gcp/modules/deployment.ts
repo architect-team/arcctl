@@ -9,8 +9,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
   'deployment',
   GoogleCloudCredentials
 > {
-  private access_policy: CloudRunV2ServiceIamBinding;
-  private deployment: CloudRunV2Service;
+  private deployments: CloudRunV2Service[];
   outputs: ResourceOutputs['deployment'];
 
   constructor(scope: Construct, options: ResourceModuleOptions<'deployment', GoogleCloudCredentials>) {
@@ -32,75 +31,77 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       region = this.inputs.namespace.split('-').slice(0, -1).join('-');
     }
 
-    this.deployment = new CloudRunV2Service(this, 'deployment', {
-      dependsOn: depends_on,
-      name: this.inputs?.name.replaceAll('/', '--') || 'deleting',
-      location: region,
+    this.deployments = [];
+    const labels: Record<string, string> = {};
 
-      ingress: 'INGRESS_TRAFFIC_ALL',
-      template: {
-        // TODO: If there are multiple exposed ports, need to create multiple containers and one port mapping each
-        containers: [{
-          image: this.inputs?.image || 'deleting',
-          args: typeof this.inputs?.entrypoint === 'string'
-            ? this.inputs.entrypoint.split(' ')
-            : this.inputs?.entrypoint,
-          command: typeof this.inputs?.command === 'string' ? this.inputs.command.split(' ') : this.inputs?.command,
-          env: Object.entries(this.inputs?.environment || {}).map(([key, value]) => ({
-            name: key,
-            value: String(value),
-          })),
-          // TODO: service has this information currently,
-          // but should be set up here i think
-          ports: this.inputs?.exposed_ports
-            ? this.inputs.exposed_ports.map((ports) => ({
-              containerPort: ports.target_port,
-            }))
-            : [{ containerPort: 8080 }], // TODO(tyler): This is just for testing
-          resources: {
-            limits: {
-              ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),
-              ...(this.inputs?.memory ? { memory: this.inputs.memory } : {}),
+    for (const service_port of this.inputs?.service_ports || []) {
+      const deployment_name = (this.inputs?.name.replaceAll('/', '--') || 'deleting') + `--${service_port}`;
+      const deployment = new CloudRunV2Service(this, `${deployment_name}-deployment`, {
+        dependsOn: depends_on,
+        name: deployment_name,
+        location: region,
+        ingress: 'INGRESS_TRAFFIC_ALL',
+        template: {
+          containers: [{
+            image: this.inputs?.image || 'deleting',
+            args: typeof this.inputs?.entrypoint === 'string'
+              ? this.inputs.entrypoint.split(' ')
+              : this.inputs?.entrypoint,
+            command: typeof this.inputs?.command === 'string' ? this.inputs.command.split(' ') : this.inputs?.command,
+            env: Object.entries(this.inputs?.environment || {}).map(([key, value]) => ({
+              name: key,
+              value: String(value),
+            })),
+            ports: [{ containerPort: service_port }],
+            resources: {
+              limits: {
+                ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),
+                ...(this.inputs?.memory ? { memory: this.inputs.memory } : {}),
+              },
             },
-          },
-          volumeMounts: (this.inputs?.volume_mounts || []).map((volume) => {
-            return {
-              name: volume.volume,
-              mountPath: volume.mount_path,
-            };
-          }),
-        }],
-      },
-    });
+            volumeMounts: (this.inputs?.volume_mounts || []).map((volume) => {
+              return {
+                name: volume.volume,
+                mountPath: volume.mount_path,
+              };
+            }),
+          }],
+        },
+      });
 
-    this.access_policy = new CloudRunV2ServiceIamBinding(this, 'noauth-policy', {
-      project: this.deployment.project,
-      location: this.deployment.location,
-      name: this.deployment.name,
-      role: 'roles/run.invoker',
-      members: [
-        'allUsers',
-      ],
-    });
+      const _access_policy = new CloudRunV2ServiceIamBinding(this, `${deployment_name}-noauth-policy`, {
+        project: deployment.project,
+        location: deployment.location,
+        name: deployment.name,
+        role: 'roles/run.invoker',
+        members: [
+          'allUsers',
+        ],
+      });
+
+      labels[deployment.name] = deployment.uri;
+      this.deployments.push(deployment);
+    }
 
     this.outputs = {
-      id: this.deployment.uid,
-      labels: {
-        'name': this.deployment.name,
-        'uri': this.deployment.uri,
-      },
+      id: this.deployments.at(0)?.uid || '',
+      labels,
     };
   }
 
   async genImports(resourceId: string): Promise<Record<string, string>> {
-    return {
-      [this.getResourceRef(this.deployment)]: resourceId,
-    };
+    const imports: Record<string, string> = {};
+    for (const deployment of this.deployments) {
+      imports[this.getResourceRef(deployment)] = deployment.id;
+    }
+    return imports;
   }
 
   getDisplayNames(): Record<string, string> {
-    return {
-      [this.getResourceRef(this.deployment)]: 'Cloud Run Function',
-    };
+    const display_names: Record<string, string> = {};
+    for (const deployment of this.deployments) {
+      display_names[this.getResourceRef(deployment)] = 'Cloud Run Function';
+    }
+    return display_names;
   }
 }

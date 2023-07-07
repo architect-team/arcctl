@@ -42,7 +42,7 @@ export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', 
       host: this.ingress.ipAddress,
       port: this.inputs?.port || 80,
       path: this.inputs?.path || '/',
-      url: '',
+      url: `http://${this.inputs?.subdomain}.${this.inputs?.dnsZone}/`,
       loadBalancerHostname: this.ingress.ipAddress,
     };
   }

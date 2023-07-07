@@ -323,6 +323,14 @@ export default class ComponentV2 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
+    const deployment_ports: Record<string, number[]> = {};
+    for (const [_, service_config] of Object.entries(this.services || {})) {
+      if (!deployment_ports[service_config.deployment]) {
+        deployment_ports[service_config.deployment] = [];
+      }
+      deployment_ports[service_config.deployment].push(service_config.port);
+    }
+
     for (
       const [deployment_key, deployment_config] of Object.entries(
         this.deployments || {},
@@ -416,6 +424,7 @@ export default class ComponentV2 extends Component {
           ...(liveness ? { liveness } : {}),
           volume_mounts,
           replicas: 1,
+          service_ports: deployment_ports[deployment_key],
         },
       });
 

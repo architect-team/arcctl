@@ -12,7 +12,9 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
   constructor(scope: Construct, options: ResourceModuleOptions<'service', GoogleCloudCredentials>) {
     super(scope, options);
 
-    const function_name = this.inputs?.target_deployment.replaceAll('/', '--') || '';
+    const service_name = this.inputs?.name.replaceAll('/', '--') || 'deleting';
+    const function_name = (this.inputs?.target_deployment.replaceAll('/', '--') || 'deleting') +
+      `--${this.inputs?.target_port}`;
 
     let region = '';
     if (this.inputs?.namespace) {
@@ -20,7 +22,7 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
     }
 
     const serverless_neg = new ComputeRegionNetworkEndpointGroup(this, 'serverless-neg', {
-      name: `${function_name}--neg`,
+      name: `${service_name}--neg`,
       networkEndpointType: 'SERVERLESS',
       region,
       cloudRun: {
@@ -29,7 +31,7 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
     });
 
     this.backend_service = new ComputeBackendService(this, 'backend-neg', {
-      name: `${function_name}--backend`,
+      name: `${service_name}--backend`,
       backend: [{
         group: serverless_neg.id,
       }],

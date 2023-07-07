@@ -156,6 +156,11 @@ export type DeploymentInputs = {
   }[];
 
   /**
+   * Target ports for services of the deployment
+   */
+  service_ports?: number[];
+
+  /**
    * Target platform the deployment will run on
    */
   platform?: string;

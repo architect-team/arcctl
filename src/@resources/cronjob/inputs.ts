@@ -1,5 +1,6 @@
 type Container = {
   image: string;
+  platform?: string;
   command?: string | string[];
   entrypoint?: string | string[];
   environment?: Record<string, string>;

@@ -263,6 +263,12 @@
                           "string"
                         ]
                       },
+                      "depends_on": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "entrypoint": {
                         "anyOf": [
                           {
@@ -278,7 +284,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -346,6 +355,9 @@
                         },
                         "type": "object"
                       },
+                      "language": {
+                        "type": "string"
+                      },
                       "liveness_probe": {
                         "additionalProperties": false,
                         "properties": {
@@ -396,6 +408,9 @@
                         "type": "object"
                       },
                       "memory": {
+                        "type": "string"
+                      },
+                      "platform": {
                         "type": "string"
                       },
                       "replicas": {
@@ -464,6 +479,13 @@
                     },
                     "type": "object"
                   },
+                  "depends_on": {
+                    "description": "Specify other services that you want to wait for before starting this one",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "entrypoint": {
                     "anyOf": [
                       {
@@ -479,7 +501,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -550,8 +575,13 @@
                     },
                     "type": "object"
                   },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
                   "liveness_probe": {
                     "additionalProperties": false,
+                    "description": "Task run continuously to determine if each service replica is healthy",
                     "properties": {
                       "command": {
                         "anyOf": [
@@ -615,7 +645,11 @@
                   "memory": {
                     "type": "string"
                   },
+                  "platform": {
+                    "type": "string"
+                  },
                   "replicas": {
+                    "description": "Number of replicas of the deployment to run",
                     "type": [
                       "number",
                       "string"
@@ -623,6 +657,7 @@
                   },
                   "scaling": {
                     "additionalProperties": false,
+                    "description": "Autoscaling rules for the deployment",
                     "properties": {
                       "max_replicas": {
                         "type": [
@@ -632,6 +667,7 @@
                       },
                       "metrics": {
                         "additionalProperties": false,
+                        "description": "Metrics to be used to trigger autoscaling",
                         "properties": {
                           "cpu": {
                             "type": [
@@ -781,6 +817,12 @@
                           "string"
                         ]
                       },
+                      "depends_on": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "entrypoint": {
                         "anyOf": [
                           {
@@ -796,7 +838,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -864,6 +909,9 @@
                         },
                         "type": "object"
                       },
+                      "language": {
+                        "type": "string"
+                      },
                       "liveness_probe": {
                         "additionalProperties": false,
                         "properties": {
@@ -914,6 +962,9 @@
                         "type": "object"
                       },
                       "memory": {
+                        "type": "string"
+                      },
+                      "platform": {
                         "type": "string"
                       },
                       "replicas": {
@@ -982,6 +1033,13 @@
                     },
                     "type": "object"
                   },
+                  "depends_on": {
+                    "description": "Specify other services that you want to wait for before starting this one",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "entrypoint": {
                     "anyOf": [
                       {
@@ -997,7 +1055,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -1065,8 +1126,13 @@
                     },
                     "type": "object"
                   },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
                   "liveness_probe": {
                     "additionalProperties": false,
+                    "description": "Task run continuously to determine if each service replica is healthy",
                     "properties": {
                       "command": {
                         "anyOf": [
@@ -1130,7 +1196,11 @@
                   "memory": {
                     "type": "string"
                   },
+                  "platform": {
+                    "type": "string"
+                  },
                   "replicas": {
+                    "description": "Number of replicas of the deployment to run",
                     "type": [
                       "number",
                       "string"
@@ -1138,6 +1208,7 @@
                   },
                   "scaling": {
                     "additionalProperties": false,
+                    "description": "Autoscaling rules for the deployment",
                     "properties": {
                       "max_replicas": {
                         "type": [
@@ -1147,6 +1218,7 @@
                       },
                       "metrics": {
                         "additionalProperties": false,
+                        "description": "Metrics to be used to trigger autoscaling",
                         "properties": {
                           "cpu": {
                             "type": [
@@ -1296,6 +1368,12 @@
                           "string"
                         ]
                       },
+                      "depends_on": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "entrypoint": {
                         "anyOf": [
                           {
@@ -1311,7 +1389,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -1379,6 +1460,9 @@
                         },
                         "type": "object"
                       },
+                      "language": {
+                        "type": "string"
+                      },
                       "liveness_probe": {
                         "additionalProperties": false,
                         "properties": {
@@ -1429,6 +1513,9 @@
                         "type": "object"
                       },
                       "memory": {
+                        "type": "string"
+                      },
+                      "platform": {
                         "type": "string"
                       },
                       "replicas": {
@@ -1497,6 +1584,13 @@
                     },
                     "type": "object"
                   },
+                  "depends_on": {
+                    "description": "Specify other services that you want to wait for before starting this one",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "entrypoint": {
                     "anyOf": [
                       {
@@ -1512,7 +1606,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -1583,8 +1680,13 @@
                     },
                     "type": "object"
                   },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
                   "liveness_probe": {
                     "additionalProperties": false,
+                    "description": "Task run continuously to determine if each service replica is healthy",
                     "properties": {
                       "command": {
                         "anyOf": [
@@ -1648,7 +1750,11 @@
                   "memory": {
                     "type": "string"
                   },
+                  "platform": {
+                    "type": "string"
+                  },
                   "replicas": {
+                    "description": "Number of replicas of the deployment to run",
                     "type": [
                       "number",
                       "string"
@@ -1656,6 +1762,7 @@
                   },
                   "scaling": {
                     "additionalProperties": false,
+                    "description": "Autoscaling rules for the deployment",
                     "properties": {
                       "max_replicas": {
                         "type": [
@@ -1665,6 +1772,7 @@
                       },
                       "metrics": {
                         "additionalProperties": false,
+                        "description": "Metrics to be used to trigger autoscaling",
                         "properties": {
                           "cpu": {
                             "type": [
@@ -1927,7 +2035,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -1940,7 +2051,13 @@
                         },
                         "type": "object"
                       },
+                      "language": {
+                        "type": "string"
+                      },
                       "memory": {
+                        "type": "string"
+                      },
+                      "platform": {
                         "type": "string"
                       },
                       "schedule": {
@@ -1988,7 +2105,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -2001,7 +2121,14 @@
                     },
                     "type": "object"
                   },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
                   "memory": {
+                    "type": "string"
+                  },
+                  "platform": {
                     "type": "string"
                   },
                   "schedule": {
@@ -2144,7 +2271,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -2157,7 +2287,13 @@
                         },
                         "type": "object"
                       },
+                      "language": {
+                        "type": "string"
+                      },
                       "memory": {
+                        "type": "string"
+                      },
+                      "platform": {
                         "type": "string"
                       },
                       "schedule": {
@@ -2205,7 +2341,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -2215,7 +2354,14 @@
                     },
                     "type": "object"
                   },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
                   "memory": {
+                    "type": "string"
+                  },
+                  "platform": {
                     "type": "string"
                   },
                   "schedule": {
@@ -2358,7 +2504,10 @@
                       },
                       "environment": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "type": "object"
                       },
@@ -2371,7 +2520,13 @@
                         },
                         "type": "object"
                       },
+                      "language": {
+                        "type": "string"
+                      },
                       "memory": {
+                        "type": "string"
+                      },
+                      "platform": {
                         "type": "string"
                       },
                       "schedule": {
@@ -2419,7 +2574,10 @@
                   },
                   "environment": {
                     "additionalProperties": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "type": "object"
                   },
@@ -2432,7 +2590,14 @@
                     },
                     "type": "object"
                   },
+                  "language": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
                   "memory": {
+                    "type": "string"
+                  },
+                  "platform": {
                     "type": "string"
                   },
                   "schedule": {
@@ -2813,7 +2978,8 @@
                     },
                     "type": "array"
                   }
-                ]
+                ],
+                "description": "Command to use when the container is booted up"
               },
               "cpu": {
                 "type": [
@@ -2890,6 +3056,9 @@
                     "type": "object"
                   },
                   "memory": {
+                    "type": "string"
+                  },
+                  "platform": {
                     "type": "string"
                   },
                   "probes": {
@@ -2978,6 +3147,7 @@
                 "type": "object"
               },
               "description": {
+                "description": "Human readable description of the deployment",
                 "type": "string"
               },
               "entrypoint": {
@@ -2991,15 +3161,18 @@
                     },
                     "type": "array"
                   }
-                ]
+                ],
+                "description": "The executable to run every time the container is booted up"
               },
               "environment": {
                 "additionalProperties": {
                   "type": "string"
                 },
+                "description": "Environment variables to pass to the service",
                 "type": "object"
               },
               "image": {
+                "description": "Docker image to use for the deployment",
                 "type": "string"
               },
               "labels": {
@@ -3009,6 +3182,10 @@
                 "type": "object"
               },
               "memory": {
+                "type": "string"
+              },
+              "platform": {
+                "description": "Set platform if server is multi-platform capable",
                 "type": "string"
               },
               "probes": {

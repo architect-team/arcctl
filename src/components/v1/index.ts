@@ -133,7 +133,7 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'dockerBuild',
-            component_source: undefined as any,
+            component_source: context.component.source,
             repository: context.component.name,
             context: context.component.debug &&
                 service_config.debug &&
@@ -178,7 +178,7 @@ export default class ComponentV1 extends Component {
           }),
         );
 
-        image = `\${{ ${build_node.id}.image }}`;
+        image = `\${{ ${build_node.id}.id }}`;
       } else {
         image = service_config.image;
       }
@@ -195,6 +195,7 @@ export default class ComponentV1 extends Component {
             environment: context.environment,
           }),
           replicas: Number(service_config.replicas || 1), // TODO: Ensure this is a number value
+          ...(service_config.platform ? { platform: service_config.platform } : {}),
           ...(service_config.scaling
             ? {
               autoscaling: {
@@ -332,6 +333,22 @@ export default class ComponentV1 extends Component {
           );
         }
       }
+
+      // Add edges for explicit depends_on
+      for (const otherService of service_config.depends_on || []) {
+        graph.insertEdges(
+          new CloudEdge({
+            from: deployment_node.id,
+            to: CloudNode.genId({
+              type: 'deployment',
+              name: otherService,
+              component: context.component.name,
+              environment: context.environment,
+            }),
+            required: true,
+          }),
+        );
+      }
     }
 
     return graph;
@@ -362,7 +379,7 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'dockerBuild',
-            component_source: undefined as any,
+            component_source: context.component.source,
             repository: context.component.name,
             context: context.component.debug &&
                 task_config.debug &&
@@ -400,6 +417,14 @@ export default class ComponentV1 extends Component {
         image = task_config.image;
       }
 
+      let environment: Record<string, string> | undefined;
+      if (task_config.environment) {
+        environment = {};
+        Object.entries(task_config.environment).forEach(([key, value]) => {
+          environment![key] = String(value);
+        });
+      }
+
       const cronjob_node = new CloudNode({
         name: task_name,
         component: context.component.name,
@@ -408,9 +433,10 @@ export default class ComponentV1 extends Component {
           type: 'cronjob',
           schedule: task_config.schedule!,
           image: image,
+          ...(task_config.platform ? { platform: task_config.platform } : {}),
           ...(task_config.command ? { command: task_config.command } : {}),
           ...(task_config.entrypoint ? { entrypoint: task_config.entrypoint } : {}),
-          ...(task_config.environment ? { environment: task_config.environment } : {}),
+          ...(environment ? { environment } : {}),
           ...(task_config.cpu ? { cpu: Number(task_config.cpu) } : {}),
           ...(task_config.memory ? { memory: task_config.memory } : {}),
           ...(task_config.labels ? { labels: task_config.labels } : {}),

@@ -473,16 +473,38 @@ export default class ComponentV2 extends Component {
         service_node.inputs,
       );
       graph.insertNodes(service_node);
+
+      const deployment_node_id = CloudNode.genId({
+        type: 'deployment',
+        name: service_config.deployment,
+        component: context.component.name,
+        environment: context.environment,
+      });
+
+      const deployment_node = graph.nodes.find((n) => n.id === deployment_node_id);
+      if (!deployment_node) {
+        throw new Error(`No deployment named ${service_config.deployment}. Referenced by the service, ${service_key}`);
+      }
+
+      // Update deployment node with service references
+      (deployment_node as CloudNode<'deployment'>).inputs.services =
+        (deployment_node as CloudNode<'deployment'>).inputs.services || [];
+      (deployment_node as CloudNode<'deployment'>).inputs.services!.push({
+        id: `\${{ ${service_node.id}.id }}`,
+        account: `\${{ ${service_node.id}.account }}`,
+      });
+      graph.insertNodes(deployment_node);
+
       graph.insertEdges(
         new CloudEdge({
           from: service_node.id,
-          to: CloudNode.genId({
-            type: 'deployment',
-            name: service_config.deployment,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          to: deployment_node.id,
           required: false,
+        }),
+        new CloudEdge({
+          from: deployment_node.id,
+          to: service_node.id,
+          required: true,
         }),
       );
     }

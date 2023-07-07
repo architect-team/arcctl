@@ -197,7 +197,11 @@ export default class EnvironmentV1 extends Environment {
 
       node.inputs.data = JSON.stringify(default_value.sort());
     } else if (env_value) {
-      node.inputs.data = JSON.stringify(typeof env_value === 'string' ? [env_value] : env_value);
+      if (Array.isArray(env_value)) {
+        throw new Error(`Cannot use array inputs for non-merge variables: ${env_value}`);
+      }
+
+      node.inputs.data = env_value;
     } else if (node.inputs.merge) {
       const default_value = JSON.parse(node.inputs.data || '[]');
       if (additionalValues) {

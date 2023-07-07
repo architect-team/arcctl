@@ -47,6 +47,7 @@ export class KubernetesServiceService extends TerraformResourceService<'service'
         port: ports[0].port,
         protocol: 'http',
         url: `http://${body.metadata.name}:${ports[0].port}`,
+        account: this.accountName,
       };
     } catch {
       return undefined;
@@ -74,6 +75,7 @@ export class KubernetesServiceService extends TerraformResourceService<'service'
             port: ports[0].port,
             protocol: 'http',
             url: `http://${service.metadata.name}:${ports[0].port}`,
+            account: this.accountName,
           });
         }
       }

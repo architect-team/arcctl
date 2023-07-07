@@ -258,6 +258,10 @@ export default class ComponentV1 extends Component {
       deployment_node.inputs = parseExpressionRefs(graph, context, deployment_node.id, deployment_node.inputs);
       graph.insertNodes(deployment_node);
 
+      if (Object.keys(service_config.interfaces || {}).length > 0) {
+        (deployment_node as CloudNode<'deployment'>).inputs.services = [];
+      }
+
       // Create and insert the service nodes for each interface
       for (
         const [interface_name, interface_config] of Object.entries(
@@ -294,6 +298,18 @@ export default class ComponentV1 extends Component {
             required: false,
           }),
         );
+        graph.insertEdges(
+          new CloudEdge({
+            from: deployment_node.id,
+            to: service_node.id,
+            required: true,
+          }),
+        );
+
+        (deployment_node as CloudNode<'deployment'>).inputs.services?.push({
+          id: `\${{ ${service_node.id}.id }}`,
+          account: `\${{ ${service_node.id}.account }}`,
+        });
 
         if (typeof interface_config === 'object' && interface_config.ingress) {
           service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
@@ -333,6 +349,9 @@ export default class ComponentV1 extends Component {
           );
         }
       }
+
+      // Update the deployment node with the service IDs
+      graph.insertNodes(deployment_node);
 
       // Add edges for explicit depends_on
       for (const otherService of service_config.depends_on || []) {

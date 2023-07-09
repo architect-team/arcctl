@@ -188,6 +188,8 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(`No deployment with ID ${id}`);
     }
 
+    subscriber.next(`Stopping old container: ${inspection.Id}`);
+
     const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', inspection.Id] });
     if (stopCode !== 0) {
       throw new Error(stopStderr);
@@ -198,11 +200,11 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(rmStderr);
     }
 
-    const containerName = inputs.name?.replaceAll('/', '--') || inspection.Name;
-    const args: string[] = ['run', '--detach', '--name', containerName];
+    subscriber.next(`Starting new container`);
 
-    const existingNetwork = Object.keys(inspection.NetworkSettings.Networks)[0];
-    args.push('--network', inputs.namespace || existingNetwork);
+    await this.createNetwork();
+    const containerName = inputs.name?.replaceAll('/', '--') || inspection.Name;
+    const args: string[] = ['run', '--detach', '--name', containerName, '--network', DOCKER_NETWORK_NAME];
 
     const existingEnv: Record<string, string> = {};
     for (const item of inspection.Config.Env || []) {

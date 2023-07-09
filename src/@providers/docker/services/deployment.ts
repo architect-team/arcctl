@@ -10,8 +10,6 @@ import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
 import { DockerInspectionResults, DockerPsItem } from '../types.ts';
 
-const DOCKER_NETWORK_NAME = 'arcctl-local';
-
 export class DockerDeploymentService extends CrudResourceService<'deployment', DockerCredentials> {
   public constructor(accountName: string, credentials: DockerCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
@@ -92,32 +90,10 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     return mergeReadableStreams(child.stdout, child.stderr);
   }
 
-  private async checkIfNetworkExists(): Promise<boolean> {
-    const { stdout, code } = await exec('docker', {
-      args: ['network', 'ls', '--format=json', '--filter', 'name=arcctl-local'],
-    });
-    if (code != 0) {
-      throw new Error('Unable to list docker networks');
-    }
-    return !!stdout;
-  }
-
-  private async createNetwork(): Promise<void> {
-    if (await this.checkIfNetworkExists()) {
-      return;
-    }
-
-    const { code } = await exec('docker', { args: ['network', 'create', DOCKER_NETWORK_NAME] });
-    if (code !== 0) {
-      throw new Error('Unable to create docker network');
-    }
-  }
-
   async create(
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
-    await this.createNetwork();
     const containerName = inputs.name.replaceAll('/', '--');
     const args = ['run', '--detach', '--quiet', '--name', containerName];
 
@@ -131,7 +107,9 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push('--platform', inputs.platform);
     }
 
-    args.push(`--network=${DOCKER_NETWORK_NAME}`);
+    if (inputs.namespace) {
+      args.push('--network', inputs.namespace);
+    }
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
@@ -202,9 +180,11 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     subscriber.next(`Starting new container`);
 
-    await this.createNetwork();
     const containerName = inputs.name?.replaceAll('/', '--') || inspection.Name;
-    const args: string[] = ['run', '--detach', '--name', containerName, '--network', DOCKER_NETWORK_NAME];
+    const args: string[] = ['run', '--detach', '--name', containerName];
+
+    const network = inputs.namespace || Object.keys(inspection.NetworkSettings.Networks)[0];
+    args.push('--network', network);
 
     const existingEnv: Record<string, string> = {};
     for (const item of inspection.Config.Env || []) {

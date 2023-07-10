@@ -155,9 +155,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
             service: serviceName,
             ...(isNotHttp
               ? {
-                tls: {
-                  passthrough: true,
-                },
+                tls: {},
               }
               : {}),
           },
@@ -236,9 +234,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
             service: newServiceName,
             ...(isNotHttp
               ? {
-                tls: {
-                  passthrough: true,
-                },
+                tls: {},
               }
               : {}),
           },

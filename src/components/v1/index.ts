@@ -260,6 +260,7 @@ export default class ComponentV1 extends Component {
 
       if (Object.keys(service_config.interfaces || {}).length > 0) {
         (deployment_node as CloudNode<'deployment'>).inputs.services = [];
+        (deployment_node as CloudNode<'deployment'>).inputs.service_ports = [];
       }
 
       // Create and insert the service nodes for each interface
@@ -310,6 +311,8 @@ export default class ComponentV1 extends Component {
           id: `\${{ ${service_node.id}.id }}`,
           account: `\${{ ${service_node.id}.account }}`,
         });
+
+        (deployment_node as CloudNode<'deployment'>).inputs.service_ports?.push(service_node.inputs.target_port);
 
         if (typeof interface_config === 'object' && interface_config.ingress) {
           service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);

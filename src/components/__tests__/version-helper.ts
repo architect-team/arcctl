@@ -296,6 +296,7 @@ export const testServiceGeneration = (
           account: `\${{ ${service_node.id}.account }}`,
         },
       ],
+      service_ports: [80],
       volume_mounts: [],
     },
   });

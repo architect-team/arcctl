@@ -1,5 +1,6 @@
 import { ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
+import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
 
@@ -73,6 +74,23 @@ const setNoopSteps = (
   } while (!done);
 
   return nextPipeline;
+};
+
+const checkCircularDependencies = (pipeline: Pipeline) => {
+  const graph: Record<string, Set<string>> = {};
+  for (const edge of pipeline.edges) {
+    if (!edge.required) {
+      continue;
+    }
+
+    if (graph[edge.from] === undefined) {
+      graph[edge.from] = new Set();
+    }
+    graph[edge.from].add(edge.to);
+  }
+
+  // Raises an error if it cannot be topologically sorted, which implies there is a cycle
+  topologicalSort(graph);
 };
 
 export class Pipeline {
@@ -242,7 +260,7 @@ export class Pipeline {
    * Returns a new pipeline by comparing the old pipeline to a new target graph
    */
   public static plan(options: PlanOptions, providerStore: ProviderStore): Pipeline {
-    const pipeline = new Pipeline({
+    let pipeline = new Pipeline({
       edges: [...options.after.edges],
     });
 
@@ -332,7 +350,13 @@ export class Pipeline {
     }
 
     // Check for nodes that can be no-op'd
-    return setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
+    pipeline = setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
+
+    // Check for circular dependencies and edges that point to nodes that don't exist.
+    // This will raise an exception if a circular dependency exists and abort
+    checkCircularDependencies(pipeline);
+
+    return pipeline;
   }
 
   /**
@@ -427,6 +451,12 @@ export class Pipeline {
             complete: resolve,
           });
       });
+    }
+
+    for (const step of this.steps) {
+      if (step.status.state !== 'complete') {
+        throw Error(`Pipeline finished with an unfinished step`);
+      }
     }
   }
 }

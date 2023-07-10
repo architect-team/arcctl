@@ -1,4 +1,4 @@
-import { App } from 'cdktf';
+import { App, TerraformOutput, TerraformStack } from 'cdktf';
 import { Construct } from 'constructs';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
@@ -37,7 +37,7 @@ export abstract class TerraformResourceService<
 
   abstract readonly terraform_version: TerraformVersion;
 
-  abstract configureTerraformProviders(scope: Construct): void;
+  configureTerraformProviders(scope: Construct): void {}
 
   private async getTerraformPlugin(): Promise<Terraform> {
     if (this._terraform) {
@@ -49,7 +49,38 @@ export abstract class TerraformResourceService<
     return this._terraform;
   }
 
-  private async tfInit(cwd: string, stack: CldCtlTerraformStack, logger?: Logger): Promise<Deno.CommandOutput> {
+  private async tfShow(cwd: string): Promise<Deno.CommandOutput> {
+    const terraform = await this.getTerraformPlugin();
+    const cmd = terraform.show(cwd);
+
+    const stdout = new Buffer();
+    const stderr = new Buffer();
+
+    cmd.stdout.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stdout.write(chunk);
+        },
+      }),
+    );
+
+    cmd.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          stderr.write(chunk);
+        },
+      }),
+    );
+
+    const status = await cmd.status;
+    return {
+      ...status,
+      stdout: stdout.bytes(),
+      stderr: stderr.bytes(),
+    };
+  }
+
+  private async tfInit(cwd: string, stack: TerraformStack, logger?: Logger): Promise<Deno.CommandOutput> {
     const terraform = await this.getTerraformPlugin();
 
     const cmd = terraform.init(cwd, stack);
@@ -83,17 +114,20 @@ export abstract class TerraformResourceService<
     };
   }
 
-  private async tfPlan(cwd: string, logger?: Logger): Promise<Deno.CommandOutput> {
+  private async tfPlan(
+    cwd: string,
+    options?: { logger?: Logger; refresh?: boolean; destroy?: boolean },
+  ): Promise<Deno.CommandOutput> {
     const terraform = await this.getTerraformPlugin();
 
-    const cmd = terraform.plan(cwd, 'plan');
+    const cmd = terraform.plan(cwd, 'plan', options);
     const stdout = new Buffer();
     const stderr = new Buffer();
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
           stdout.write(chunk);
-          logger?.info(new TextDecoder().decode(chunk));
+          options?.logger?.info(new TextDecoder().decode(chunk));
         },
       }),
     );
@@ -102,7 +136,7 @@ export abstract class TerraformResourceService<
       new WritableStream({
         write(chunk) {
           stderr.write(chunk);
-          logger?.error(new TextDecoder().decode(chunk));
+          options?.logger?.error(new TextDecoder().decode(chunk));
         },
       }),
     );
@@ -193,11 +227,9 @@ export abstract class TerraformResourceService<
     const app = new App({
       outdir: cwd,
     });
-    const stack = new CldCtlTerraformStack(app, 'arcctl');
-    this.configureTerraformProviders(stack);
     const fileStorageDir = path.join(options.providerStore.storageDir, options.id.replaceAll('/', '--'));
     Deno.mkdirSync(fileStorageDir, { recursive: true });
-    const { module, output: moduleOutput } = stack.addModule(this.construct, {
+    const stack = new this.construct(app, {
       id: options.id,
       inputs,
       accountName: this.accountName,
@@ -205,7 +237,11 @@ export abstract class TerraformResourceService<
       providerStore: this.providerStore,
       FileConstruct: createProviderFileConstructor(fileStorageDir),
     });
-
+    const moduleOutput = new TerraformOutput(stack, `${options.id}-output`, {
+      value: stack.outputs,
+      sensitive: true,
+    });
+    this.configureTerraformProviders(stack);
     const startTime = Date.now();
     subscriber.next({
       status: {
@@ -221,7 +257,7 @@ export abstract class TerraformResourceService<
       Deno.writeFileSync(lockFile, new TextEncoder().encode(options.state.lockFile));
     } else if (options.state) {
       // State must be imported from an ID
-      const imports = await module.genImports(options.state.id);
+      const imports = await stack.genImports(options.state.id);
 
       // We have to run this before we can run `terraform import`
       await this.tfInit(cwd, stack, options.logger);
@@ -253,7 +289,9 @@ export abstract class TerraformResourceService<
       },
     });
 
-    await this.tfPlan(cwd, options.logger);
+    await this.tfPlan(cwd, {
+      logger: options.logger,
+    });
 
     subscriber.next({
       status: {
@@ -314,26 +352,27 @@ export abstract class TerraformResourceService<
   private async destroyAsync(
     subscriber: Subscriber<ApplyOutputs<T>>,
     options: ApplyOptions<TerraformResourceState>,
+    inputs?: ResourceInputs[T],
   ): Promise<void> {
     try {
       options.cwd = options.cwd || Deno.makeTempDirSync();
       const cwd = options.cwd;
       const stateFile = path.join(cwd, 'terraform.tfstate');
       const lockFile = path.join(cwd, '.terraform.lock.hcl');
-      let app = new App({
+      const app = new App({
         outdir: cwd,
       });
-      let stack = new CldCtlTerraformStack(app, 'arcctl');
-      this.configureTerraformProviders(stack);
       const fileStorageDir = path.join(options.providerStore.storageDir, options.id);
       Deno.mkdirSync(fileStorageDir, { recursive: true });
-      const { module } = stack.addModule(this.construct, {
+      const stack = new this.construct(app, {
         id: options.id,
         FileConstruct: createProviderFileConstructor(fileStorageDir),
         accountName: this.accountName,
         credentials: this.credentials,
         providerStore: this.providerStore,
+        inputs,
       });
+      this.configureTerraformProviders(stack);
 
       const startTime = Date.now();
       subscriber.next({
@@ -349,7 +388,7 @@ export abstract class TerraformResourceService<
         Deno.writeFileSync(lockFile, new TextEncoder().encode(options.state.lockFile));
       } else if (options.state) {
         // State must be imported from an ID
-        const imports = await module.genImports(options.state.id);
+        const imports = await stack.genImports(options.state.id);
 
         // We have to run this before we can run `terraform import`
         await this.tfInit(cwd, stack, options.logger);
@@ -360,11 +399,7 @@ export abstract class TerraformResourceService<
         }
       }
 
-      await module.afterImport(options);
-
-      app = new App({ outdir: cwd });
-      stack = new CldCtlTerraformStack(app, 'arcctl');
-      this.configureTerraformProviders(stack);
+      await stack.afterImport(options);
 
       subscriber.next({
         status: {
@@ -384,7 +419,10 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfPlan(cwd, options.logger);
+      await this.tfPlan(cwd, {
+        logger: options.logger,
+        destroy: true,
+      });
 
       subscriber.next({
         status: {
@@ -394,7 +432,6 @@ export abstract class TerraformResourceService<
         },
       });
 
-      // HEAD
       const { stderr } = await this.tfApply(options.cwd, options.logger);
       if (stderr && stderr.length > 0) {
         subscriber.error(new TextDecoder().decode(stderr));
@@ -457,9 +494,12 @@ export abstract class TerraformResourceService<
     });
   }
 
-  public destroy(options: ApplyOptions<TerraformResourceState>): Observable<ApplyOutputs<T>> {
+  public destroy(
+    options: ApplyOptions<TerraformResourceState>,
+    inputs?: ResourceInputs[T],
+  ): Observable<ApplyOutputs<T>> {
     return new Observable((subscriber) => {
-      this.destroyAsync(subscriber, options);
+      this.destroyAsync(subscriber, options, inputs);
     });
   }
 }

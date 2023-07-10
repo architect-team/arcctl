@@ -1,26 +1,24 @@
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../base.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanKubernetesVersionService extends ResourceService<
   'kubernetesVersion',
   DigitaloceanCredentials
 > {
-  private client: ReturnType<typeof createApiClient>;
-
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   async get(id: string): Promise<ResourceOutputs['kubernetesVersion'] | undefined> {
-    const {
-      data: { options },
-    } = await this.client.kubernetes.listAvailableOptionsOfKubernetes();
-    const match = options.versions.find((version) => version.slug === id);
+    const options = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: '/kubernetes/options',
+    })).options;
+    const match = options.versions.find((version: any) => version.slug === id);
 
     return match
       ? {
@@ -35,13 +33,14 @@ export class DigitaloceanKubernetesVersionService extends ResourceService<
     _filterOptions?: Partial<ResourceOutputs['kubernetesVersion']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesVersion']>> {
-    const {
-      data: { options },
-    } = await this.client.kubernetes.listAvailableOptionsOfKubernetes();
+    const options = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: '/kubernetes/options',
+    })).options;
 
     return {
       total: options.versions.length,
-      rows: options.versions.map((version) => ({
+      rows: options.versions.map((version: any) => ({
         type: 'kubernetesVersion',
         id: version.slug,
         name: version.kubernetes_version,

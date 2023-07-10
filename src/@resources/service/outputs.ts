@@ -28,6 +28,11 @@ export type ServiceOutputs = {
    * Fully resolvable URL of the service
    */
   url: string;
+
+  /**
+   * The account used to connect to this service
+   */
+  account: string;
 };
 
 export default ServiceOutputs;

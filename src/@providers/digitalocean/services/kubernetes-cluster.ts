@@ -1,5 +1,4 @@
 import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators, ResourcePresets } from '../../base.service.ts';
@@ -8,19 +7,17 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
   'kubernetesCluster',
   DigitaloceanCredentials
 > {
-  private client: ReturnType<typeof createApiClient>;
-
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanKubernetesClusterModule;
 
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
@@ -31,11 +28,10 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
 
   async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     try {
-      const {
-        data: { kubernetes_cluster },
-      } = await this.client.kubernetes.getKubernetesCluster({
-        kubernetes_cluster_id: id,
-      });
+      const kubernetes_cluster = (await digitalOceanApiRequest({
+        credentials: this.credentials,
+        path: `/kubernetes/clusters/${id}`,
+      })).kubernetes_cluster;
 
       return {
         id: kubernetes_cluster.id,
@@ -54,18 +50,20 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
     _filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>> {
-    const {
-      data: { meta, kubernetes_clusters },
-    } = await this.client.kubernetes.listKubernetesClusters({
-      per_page: pagingOptions?.limit,
-      page: pagingOptions?.offset && pagingOptions.limit
-        ? Math.floor(pagingOptions.offset / pagingOptions.limit)
-        : undefined,
+    const data = await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: `/kubernetes/clusters`,
+      paging: {
+        per_page: pagingOptions?.limit,
+        page: pagingOptions?.offset && pagingOptions.limit
+          ? Math.floor(pagingOptions.offset / pagingOptions.limit)
+          : undefined,
+      },
     });
 
     return {
-      total: meta?.total || 0,
-      rows: kubernetes_clusters.map((cluster) => ({
+      total: data.meta?.total || 0,
+      rows: data.kubernetes_clusters.map((cluster: any) => ({
         id: cluster.id,
         name: cluster.name,
         vpc: cluster.vpc_uuid,

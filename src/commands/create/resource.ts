@@ -76,7 +76,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
       logger: logger,
     })
     .then(() => {
-      command_helper.renderPipeline(pipeline, { clear: !logger });
+      command_helper.renderPipeline(pipeline, { clear: !logger, disableSpinner: true });
       clearInterval(interval);
       const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
       console.log('');

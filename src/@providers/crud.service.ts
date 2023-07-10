@@ -98,7 +98,7 @@ export abstract class CrudResourceService<
       }
 
       const statusObserver = new Observable<string>((status) => {
-        this.delete(status, options.state!.id).then((outputs) => {
+        this.delete(status, options.state!.id).then(() => {
           status.complete();
           res.next({
             status: {
@@ -125,7 +125,7 @@ export abstract class CrudResourceService<
       statusObserver.subscribe((status) => {
         res.next({
           status: {
-            state: 'applying',
+            state: 'destroying',
             message: status,
             startTime,
           },

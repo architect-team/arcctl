@@ -180,6 +180,21 @@ export type DeploymentInputs = {
    * A set of additional containers to run as part of each replica
    */
   sidecars?: Array<Container>;
+
+  /**
+   * Services this deployment should register itself with
+   */
+  services?: Array<{
+    /**
+     * Unique ID of the service the deployment should attach itself to
+     */
+    id: string;
+
+    /**
+     * The account the deployment can use to register itself with the service.
+     */
+    account: string;
+  }>;
 } & Container;
 
 export default DeploymentInputs;

@@ -1,25 +1,20 @@
-import k8s, { ApiType } from '@kubernetes/client-node';
+import { exec, ExecOutput } from '../../utils/command.ts';
 import { KubernetesCredentials } from './credentials.ts';
 
-type ApiConstructor<T extends ApiType> = new (server: string) => T;
-export default class KubernetesUtils {
-  public static getKubeConfig(credentials: KubernetesCredentials): k8s.KubeConfig {
-    const kubeConfig = new k8s.KubeConfig();
-    if (credentials.configPath) {
-      kubeConfig.loadFromFile(credentials.configPath);
-    } else {
-      kubeConfig.loadFromDefault();
-    }
-
-    if (credentials.configContext) {
-      kubeConfig.setCurrentContext(credentials.configContext);
-    }
-
-    return kubeConfig;
+export async function kubectlExec(credentials: KubernetesCredentials, args: string[]): Promise<ExecOutput> {
+  const configuration = [
+    '--output=json',
+  ];
+  if (credentials.configPath) {
+    configuration.push(`--kubeconfig=${credentials.configPath}`);
   }
-
-  public static getClient<T extends ApiType>(credentials: KubernetesCredentials, apiClientType: ApiConstructor<T>): T {
-    const kubeConfig = KubernetesUtils.getKubeConfig(credentials);
-    return kubeConfig.makeApiClient(apiClientType);
+  if (credentials.configContext) {
+    configuration.push(`--context=${credentials.configContext}`);
   }
+  return exec('kubectl', {
+    args: [
+      ...configuration,
+      ...args,
+    ],
+  });
 }

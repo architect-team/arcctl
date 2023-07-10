@@ -8,6 +8,12 @@ The arcctl kubernetes provider brokers access to kubernetes clusters to help
 developers deploy cloud resources to kubernetes. You can register accounts for
 more than one kubernetes account by re-running `arcctl add account`.
 
+## Requirments
+
+In order to interact with this provider you will need to install the following:
+
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/)
+
 ## Authentication
 
 The kubernetes provider takes in a local path to a kubernetes config file and (optionally)

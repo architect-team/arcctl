@@ -47,6 +47,7 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
       url: '',
       username: '',
       password: '',
+      account: this.inputs?.account || '',
     };
   }
 

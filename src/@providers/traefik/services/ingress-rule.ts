@@ -309,17 +309,11 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const host = hostParts.join('.');
 
     const rules = [];
-    const isNotHttp = inputs.protocol && inputs.protocol !== 'http';
-    if (isNotHttp) {
-      rules.push('HostSNI(\\\`' + host + '\\\`)');
-    } else {
-      rules.push('Host(\\\`' + host + '\\\`)');
-    }
-
     if (inputs.path) {
       rules.push('PathPrefix(\\\`' + inputs.path + '\\\`)');
     }
 
+    const isNotHttp = inputs.protocol && inputs.protocol !== 'http';
     let newEntry: TraefikFormattedIngressRule;
     if (isNotHttp) {
       rules.push('HostSNI(\\\`' + host + '\\\`)');

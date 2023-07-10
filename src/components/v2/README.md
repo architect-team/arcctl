@@ -73,9 +73,9 @@ deployments:
 
 ### Overriding command and entrypoint
 
-Docker images are capable of defining the `CMD` and `ENTRYPOINT` fields right inside the `Dockerfile`,
-but sometimes those values aren't quite right for how your application needs to run. You can easily
-override those values as part of your deployment definition:
+Docker images are capable of defining the `CMD` and `ENTRYPOINT` fields right inside the
+`Dockerfile`, but sometimes those values aren't quite right for how your application needs to run.
+You can easily override those values as part of your deployment definition:
 
 ```yml
 version: v2
@@ -118,7 +118,8 @@ deployments:
 
 ## Variables
 
-Although Architect Components strive to automate as much configuration as possible, there are still cases where you may want to run your component with manually provided configuration or credentials.
+Although Architect Components strive to automate as much configuration as possible, there are still
+cases where you may want to run your component with manually provided configuration or credentials.
 To allow your component to receive manual input, simply declare a variable and specify where that
 variable should be injected into your Component:
 
@@ -140,13 +141,15 @@ deployments:
 
 ## Databases
 
-Another key building block for cloud applications is the database. Databases are critical for stateful
-applications to securely and performantly store and query application data.
+Another key building block for cloud applications is the database. Databases are critical for
+stateful applications to securely and performantly store and query application data.
 
 ### Creating databases
 
-To create a database as part of your component, all you have to do is give it a name and `type`. Types are of the format, `<engine>:<version>`. It's also common to give your database a human-readable
-`description` so that operations teams can easily see what the database is allocated for.
+To create a database as part of your component, all you have to do is give it a name and `type`.
+Types are of the format, `<engine>:<version>`. It's also common to give your database a
+human-readable `description` so that operations teams can easily see what the database is
+allocated for.
 
 ```yml
 version: v2
@@ -160,14 +163,14 @@ databases:
 ### Integrating databases
 
 Declaring databases is easy enough, but what really makes [Architect Components](../) shine are their
-ability to automate the integration between cloud services and resources. Using the schema's expression
-syntax, you can easily inject the databases connection string into your application's environment
-variables. In doing so, the application will automatically receive the correct value in every
-environment it gets deployed into.
+ability to automate the integration between cloud services and resources. Using the schema's
+expression syntax, you can easily inject the databases connection string into your application's
+environment variables. In doing so, the application will automatically receive the correct value in
+every environment it gets deployed into.
 
-If that wasn't enough, Architect also detects when different resources are attempting to connect to the
-database and automatically creates unique credentials for each consumer. That means you've effectively
-achieved zero-trust security without any additional work!
+If that wasn't enough, Architect also detects when different resources are attempting to connect to
+the database and automatically creates unique credentials for each consumer. That means you've
+effectively achieved zero-trust security without any additional work!
 
 ```yml
 # ... contents from above ...

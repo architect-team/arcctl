@@ -78,7 +78,6 @@
       "signal-exit": "https://esm.sh/v124/signal-exit@3.0.7",
       "slice-ansi": "https://esm.sh/v124/slice-ansi@5.0.0",
       "string-width": "https://esm.sh/v124/string-width@4.2.3",
-      "strip-ansi": "https://esm.sh/v124/strip-ansi@7.1.0",
       "strip-final-newline": "https://esm.sh/v124/strip-final-newline@3.0.0",
       "through": "https://esm.sh/v124/through@2.3.8",
       "tslib": "https://esm.sh/v124/tslib@2.5.2",

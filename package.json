@@ -36,7 +36,7 @@
     "mongodb": "^4.10.0",
     "mysql2": "^2.3.3",
     "semver": "^7.5.3",
-    "strip-ansi": "^7.0.1",
+    "strip-ansi": "^7.1.0",
     "tar": "^6.1.11",
     "untildify": "^4.0.0",
     "which": "^3.0.1",

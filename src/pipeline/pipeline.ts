@@ -326,7 +326,7 @@ export class Pipeline {
 
         for (const oldEdge of options.before.edges) {
           if (oldEdge.to === rmStep.id) {
-            const targetNode = pipeline.steps.find(step => step.id === oldEdge.from);
+            const targetNode = pipeline.steps.find((step) => step.id === oldEdge.from);
             if (targetNode) {
               pipeline.insertEdges(
                 new CloudEdge({
@@ -442,13 +442,23 @@ export class Pipeline {
                 next: (res) => {
                   this.insertSteps(res);
                 },
-                error: reject,
-                complete: resolve,
+                error: (err) => {
+                  reject(err);
+                  return;
+                },
+                complete: () => {
+                  resolve();
+                  return;
+                },
               });
           });
           subscriber.next(this);
         }
-      })().then(() => subscriber.complete());
+      })()
+        .then(() => subscriber.complete())
+        .catch((err) => {
+          subscriber.error(err);
+        });
     });
   }
 }

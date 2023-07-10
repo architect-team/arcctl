@@ -91,6 +91,7 @@ async function destroy_resource_action(
       id: resource_id,
     },
   });
+  const pipeline = new Pipeline({ steps: [step] });
 
   let interval: number;
   if (!options.verbose) {

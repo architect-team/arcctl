@@ -76,7 +76,7 @@ const setNoopSteps = (
   return nextPipeline;
 };
 
-const checkCircularDependencies = (pipeline: Pipeline) => {
+const checkCircularRequiredDependencies = (pipeline: Pipeline) => {
   const graph: Record<string, Set<string>> = {};
   for (const edge of pipeline.edges) {
     if (!edge.required) {
@@ -235,6 +235,10 @@ export class Pipeline {
   }
 
   public validate(): void {
+    // Check for circular dependencies and edges that point to nodes that don't exist.
+    // This will raise an exception if a circular dependency exists and abort
+    checkCircularRequiredDependencies(this);
+
     for (const edge of this.edges) {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
@@ -350,13 +354,7 @@ export class Pipeline {
     }
 
     // Check for nodes that can be no-op'd
-    pipeline = setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
-
-    // Check for circular dependencies and edges that point to nodes that don't exist.
-    // This will raise an exception if a circular dependency exists and abort
-    checkCircularDependencies(pipeline);
-
-    return pipeline;
+    return setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
   }
 
   /**

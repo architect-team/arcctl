@@ -1,4 +1,3 @@
-import { createApiClient } from 'dots-wrapper';
 import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
 import { DigitaloceanCredentials, DigitaloceanCredentialsSchema } from './credentials.ts';
@@ -19,6 +18,7 @@ import { DigitalOceanDatabaseTest } from './tests/database.ts';
 import { DigitalOceanDnsRecordTest } from './tests/dns-record.ts';
 import { DigitalOceanDnsZoneTest } from './tests/dns-zone.ts';
 import { DigitalOceanVpcTest } from './tests/vpc.ts';
+import { digitalOceanApiRequest } from './utils.ts';
 
 export default class DigitaloceanProvider extends Provider<DigitaloceanCredentials> {
   readonly type = 'digitalocean';
@@ -43,8 +43,10 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
 
   public async testCredentials(): Promise<boolean> {
     try {
-      const dots = createApiClient({ token: this.credentials.token });
-      await dots.account.getAccount();
+      await digitalOceanApiRequest({
+        credentials: this.credentials,
+        path: '/account',
+      });
     } catch {
       return false;
     }

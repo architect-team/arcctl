@@ -1,24 +1,20 @@
 version: v2
 
+variables:
+  allowed_return_urls:
+    description: URLs that the service can safely redirect to after auth flows
+    merge: true
+
 dependencies:
-  smtp: muesch.io/architect/smtp
+  smtp: architect/smtp
 
 databases:
   kratos:
     type: postgres:15
-    migrate:
-      image: oryd/kratos:v0.13.0
-      entrypoint: [""]
-      command:
-        - sh
-        - -c
-        - kratos -c ./kratos/.kratos.yml migrate sql -e --yes
-      environment:
-        DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
 
 builds:
   kratos-ui:
-    context: ../../../kratos-selfservice-ui-node/
+    context: ./
     dockerfile: Dockerfile
     debug:
       dockerfile: Dockerfile-dev

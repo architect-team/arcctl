@@ -114,6 +114,9 @@
               "namespace": {
                 "type": "string"
               },
+              "platform": {
+                "type": "string"
+              },
               "schedule": {
                 "type": "string"
               },
@@ -160,6 +163,9 @@
                       "type": "string"
                     },
                     "memory": {
+                      "type": "string"
+                    },
+                    "platform": {
                       "type": "string"
                     },
                     "volume_mounts": {
@@ -603,6 +609,28 @@
                 "description": "Number of replicas of the deployment to run",
                 "type": "number"
               },
+              "services": {
+                "description": "Services this deployment should register itself with",
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "description": "The account the deployment can use to register itself with the service.",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique ID of the service the deployment should attach itself to",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "account"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
               "sidecars": {
                 "description": "A set of additional containers to run as part of each replica",
                 "items": {
@@ -979,6 +1007,13 @@
               "dnsZone": {
                 "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                 "type": "string"
+              },
+              "headers": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Headers to include in responses",
+                "type": "object"
               },
               "internal": {
                 "default": false,

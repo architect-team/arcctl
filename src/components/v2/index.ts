@@ -143,8 +143,20 @@ export default class ComponentV2 extends Component {
   ingresses?: Record<
     string,
     {
+      /**
+       * Service the ingress rule forwards traffic to
+       */
       service: string;
+
+      /**
+       * Whether or not the ingress rule should be attached to an internal gateway
+       */
       internal?: boolean;
+
+      /**
+       * Additional headers to include in responses
+       */
+      headers?: Record<string, string>;
     }
   >;
 
@@ -187,7 +199,7 @@ export default class ComponentV2 extends Component {
               : build_config.context,
             dockerfile: context.component.debug &&
                 build_config.debug &&
-                build_config.debug.context
+                build_config.debug.dockerfile
               ? build_config.debug.dockerfile
               : build_config.dockerfile || 'Dockerfile',
             args: context.component.debug &&
@@ -247,6 +259,15 @@ export default class ComponentV2 extends Component {
           ...(variable_config.sensitive ? { sensitive: variable_config.sensitive } : {}),
         },
       });
+
+      secret_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        secret_node.id,
+        secret_node.inputs,
+      );
+
       graph.insertNodes(secret_node);
     }
     return graph;
@@ -288,37 +309,6 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  private getDeploymentVolumes(
-    tag: string,
-    deployment_name: string,
-    volumes: Record<string, {
-      host_path: string;
-      mount_path: string;
-      image?: string;
-    }>,
-  ): {
-    volume: string;
-    name: string;
-    mount_path: string;
-    remote_image?: string;
-    local_image?: string;
-    readonly: boolean;
-  }[] {
-    const deployment_volumes = [];
-    const [repo_name, repo_tag] = tag.split(':');
-    for (const [volume_key, volume_config] of Object.entries(volumes)) {
-      deployment_volumes.push({
-        name: volume_key,
-        volume: `${repo_name.replaceAll('/', '-').replaceAll('.', '-')}-${deployment_name}-volumes-${volume_key}`,
-        mount_path: volume_config.mount_path,
-        local_image: volume_config.image,
-        remote_image: `${repo_name}/${deployment_name}/volume/${volume_key}:${repo_tag}`,
-        readonly: true,
-      });
-    }
-    return deployment_volumes;
-  }
-
   private addDeploymentsToGraph(
     graph: CloudGraph,
     context: GraphContext,
@@ -353,8 +343,8 @@ export default class ComponentV2 extends Component {
           host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
         } else if (volumeConfig.host_path) {
           host_path = path.join(context.component.source, volumeConfig.host_path);
-          host_path = `${is_directory}`;
         }
+
         const volume_node = new CloudNode({
           name: `${deployment_key}-${volumeKey}`,
           component: context.component.name,
@@ -416,6 +406,7 @@ export default class ComponentV2 extends Component {
             environment: context.environment,
           }),
           image,
+          ...(deployment_config.platform ? { platform: deployment_config.platform } : {}),
           ...(environment ? { environment } : {}),
           ...(command ? { command } : {}),
           ...(entrypoint ? { entrypoint } : {}),
@@ -491,16 +482,38 @@ export default class ComponentV2 extends Component {
         service_node.inputs,
       );
       graph.insertNodes(service_node);
+
+      const deployment_node_id = CloudNode.genId({
+        type: 'deployment',
+        name: service_config.deployment,
+        component: context.component.name,
+        environment: context.environment,
+      });
+
+      const deployment_node = graph.nodes.find((n) => n.id === deployment_node_id);
+      if (!deployment_node) {
+        throw new Error(`No deployment named ${service_config.deployment}. Referenced by the service, ${service_key}`);
+      }
+
+      // Update deployment node with service references
+      (deployment_node as CloudNode<'deployment'>).inputs.services =
+        (deployment_node as CloudNode<'deployment'>).inputs.services || [];
+      (deployment_node as CloudNode<'deployment'>).inputs.services!.push({
+        id: `\${{ ${service_node.id}.id }}`,
+        account: `\${{ ${service_node.id}.account }}`,
+      });
+      graph.insertNodes(deployment_node);
+
       graph.insertEdges(
         new CloudEdge({
           from: service_node.id,
-          to: CloudNode.genId({
-            type: 'deployment',
-            name: service_config.deployment,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          to: deployment_node.id,
           required: false,
+        }),
+        new CloudEdge({
+          from: deployment_node.id,
+          to: service_node.id,
+          required: true,
         }),
       );
     }
@@ -544,6 +557,7 @@ export default class ComponentV2 extends Component {
           username: `\${{ ${service_node.id}.username }}`,
           password: `\${{ ${service_node.id}.password }}`,
           internal: ingress_config.internal || false,
+          headers: ingress_config.headers || {},
         },
       });
 

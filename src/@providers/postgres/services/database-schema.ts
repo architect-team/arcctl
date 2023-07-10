@@ -7,6 +7,7 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseSchemaModule } from '../modules/database-schema.ts';
+import { getPgClient } from '../utils.ts';
 
 export class PostgresDatabaseSchemaService extends TerraformResourceService<'databaseSchema', PostgresCredentials> {
   private client: pg.Client;
@@ -17,13 +18,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
   constructor(accountName: string, credentials: PostgresCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
 
-    this.client = new pg.Client({
-      host: credentials.host,
-      port: credentials.port,
-      user: credentials.username,
-      password: credentials.password,
-      database: credentials.database,
-    });
+    this.client = getPgClient(credentials);
   }
 
   async get(id: string): Promise<ResourceOutputs['databaseSchema'] | undefined> {

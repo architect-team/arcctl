@@ -19,57 +19,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     this.deploymentService = new DockerDeploymentService(accountName, credentials, providerStore);
   }
 
-  async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
-    const listRes = await this.list();
-    return listRes.rows.find((row) => row.id === id);
-  }
-
-  async list(
-    filterOptions?: Partial<ResourceOutputs['database']>,
-    pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['database']>> {
-    const res = await this.deploymentService.list({
-      labels: {
-        'io.architect': 'arcctl',
-        'io.architect.arcctl.database': '',
-      },
-    });
-
-    return {
-      total: res.total,
-      rows: res.rows.map((row) => ({
-        id: row.labels?.['io.architect.arcctl.database'] || 'unknown',
-        host: 'localhost',
-        port: 5432,
-        username: 'architect',
-        password: 'architect',
-        protocol: 'postgresql',
-      })),
-    };
-  }
-
-  logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
-    const args = ['logs', id.replaceAll('/', '--')];
-
-    if (options?.follow) {
-      args.push('-f');
-    }
-
-    if (options?.tail) {
-      args.push('--tail', options.tail.toString());
-    }
-
-    const cmd = new Deno.Command('docker', {
-      stdout: 'piped',
-      stderr: 'piped',
-      args,
-    });
-    const child = cmd.spawn();
-
-    return child.stdout;
-  }
-
-  async create(
+  private async createPostgresDb(
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['database'],
   ): Promise<ResourceOutputs['database']> {
@@ -124,6 +74,106 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
       password: 'architect',
       protocol: 'postgresql',
     };
+  }
+
+  private async createRedisDb(
+    subscriber: Subscriber<string>,
+    inputs: ResourceInputs['database'],
+  ): Promise<ResourceOutputs['database']> {
+    const normalizedName = inputs.name.replaceAll('/', '--');
+
+    await this.deploymentService.create(subscriber, {
+      type: 'deployment',
+      account: this.accountName,
+      name: normalizedName,
+      image: `${inputs.databaseType}:${inputs.databaseVersion}`,
+      volume_mounts: [],
+      environment: {
+        REDIS_PASSWORD: 'architect',
+      },
+      labels: {
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.database': inputs.name,
+        'io.architect.arcctl.databaseType': inputs.databaseType,
+        'io.architect.arcctl.databaseVersion': inputs.databaseVersion,
+      },
+      exposed_ports: [{
+        port: 6379,
+        target_port: 6379,
+      }],
+    });
+
+    return {
+      id: inputs.name,
+      host: 'host.docker.internal',
+      port: 6379,
+      username: '',
+      password: 'architect',
+      protocol: 'redis',
+    };
+  }
+
+  async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
+    const listRes = await this.list();
+    return listRes.rows.find((row) => row.id === id);
+  }
+
+  async list(
+    filterOptions?: Partial<ResourceOutputs['database']>,
+    pagingOptions?: Partial<PagingOptions>,
+  ): Promise<PagingResponse<ResourceOutputs['database']>> {
+    const res = await this.deploymentService.list({
+      labels: {
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.database': '',
+      },
+    });
+
+    return {
+      total: res.total,
+      rows: res.rows.map((row) => ({
+        id: row.labels?.['io.architect.arcctl.database'] || 'unknown',
+        host: 'localhost',
+        port: 5432,
+        username: 'architect',
+        password: 'architect',
+        protocol: 'postgresql',
+      })),
+    };
+  }
+
+  logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
+    const args = ['logs', id.replaceAll('/', '--')];
+
+    if (options?.follow) {
+      args.push('-f');
+    }
+
+    if (options?.tail) {
+      args.push('--tail', options.tail.toString());
+    }
+
+    const cmd = new Deno.Command('docker', {
+      stdout: 'piped',
+      stderr: 'piped',
+      args,
+    });
+    const child = cmd.spawn();
+
+    return child.stdout;
+  }
+
+  async create(
+    subscriber: Subscriber<string>,
+    inputs: ResourceInputs['database'],
+  ): Promise<ResourceOutputs['database']> {
+    if (inputs.databaseType === 'postgres') {
+      return this.createPostgresDb(subscriber, inputs);
+    } else if (inputs.databaseType === 'redis') {
+      return this.createRedisDb(subscriber, inputs);
+    }
+
+    throw new Error(`Unsupported database type: ${inputs.databaseType}`);
   }
 
   async update(

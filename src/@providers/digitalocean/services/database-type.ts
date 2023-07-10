@@ -1,16 +1,13 @@
-import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../base.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
+import { digitalOceanApiRequest } from '../utils.ts';
 
 export class DigitaloceanDatabaseTypeService extends ResourceService<'databaseType', DigitaloceanCredentials> {
-  private client: ReturnType<typeof createApiClient>;
-
   constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
-    this.client = createApiClient({ token: credentials.token });
   }
 
   get(_id: string): Promise<ResourceOutputs['databaseType'] | undefined> {
@@ -22,9 +19,10 @@ export class DigitaloceanDatabaseTypeService extends ResourceService<'databaseTy
     _filterOptions?: Partial<ResourceOutputs['databaseType']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseType']>> {
-    const {
-      data: { options },
-    } = await this.client.database.listDatabaseOptions();
+    const options = (await digitalOceanApiRequest({
+      credentials: this.credentials,
+      path: '/databases/options',
+    })).options;
     const types: ResourceOutputs['databaseType'][] = [];
     for (const database_name of Object.keys(options)) {
       types.push({

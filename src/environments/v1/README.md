@@ -49,11 +49,11 @@ components:
 
 ### Ingress configuration
 
-It is common for components to declare [`ingressRules`](../../@resources/ingressRule/) that 
+It is common for components to declare [`ingressRules`](../../@resources/ingressRule/) that
 indicate that they wish to be exposed to the outside world. However, components are NOT able
 to safely decide on the specifics of each rule because they don't know if those values
 will collide with other components in the environment (e.g. two ingresses trying to listen
-on `api.my-domain.com`). 
+on `api.my-domain.com`).
 
 For this reason, common ingress configuration settings (like `path` and `subdomain`) can be
 specified in the environment.

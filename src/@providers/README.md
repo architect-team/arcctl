@@ -1,9 +1,9 @@
-# cldctl providers
+# Architect Providers
 
-Providers are arcctl plugins that can list, get, create, update, and/or delete the [resources](../%40resources/) supported by arcctl. Developers can register their cloud provider "accounts" with
-arcctl in order to let the provider help them create cloud [resources](../%40resources/) more easily.
+Providers are Architect's plugins that can list, get, create, update, and/or delete the [resources](../%40resources/) supported by Architect. Developers can register their cloud provider "accounts" with
+Architect in order to let the provider help them create cloud [resources](../%40resources/) more easily.
 
-For anyone familiar with Terraform the concept is almost the same, but arcctl providers MUST conform to the input/output expectations of arcctl resources and cannot define their own resources. This helps the framework better serve the needs of developers by letting them focus on their applications instead of their infrastructure.
+For anyone familiar with Terraform the concept is almost the same, but Architect providers MUST conform to the input/output expectations of Architect resources and cannot define their own resources. This helps the framework better serve the needs of developers by letting them focus on their applications instead of their infrastructure.
 
 ## Using providers
 

@@ -351,23 +351,25 @@ ingresses:
 ## Component dependencies
 
 One of the more advanced features of Architect's Component framework is the ability for components to
-extend one another as "dependencies". Like libraries and packages, APIs can benefit from the ability to
-seamlessly integrate with one another, so we wanted to bring this capability to components.
+extend one another as "dependencies". Like libraries and packages, APIs can benefit from the ability
+to seamlessly integrate with one another, so we wanted to bring this capability to components.
 
-If you're familiar with [Terraform](https://www.terraform.io/) you've probably seen something that looks
-a bit similar with [modules](https://developer.hashicorp.com/terraform/language/modules), but unlike modules, Architect dependencies will be shared by all components in the same environment that refer to
-the same dependency. This is more desirable when teams build internal services like "auth" or
-"recommendations" so that there is only one instance of the dependent component that's run by the team
-that owns it.
+If you're familiar with [Terraform](https://www.terraform.io/) you've probably seen something that
+looks a bit similar with [modules](https://developer.hashicorp.com/terraform/language/modules), but
+unlike modules, Architect dependencies will be shared by all components in the same environment that
+refer to the same dependency. This is more desirable when teams build internal services like "auth"
+or "recommendations" so that there is only one instance of the dependent component that's run by the
+team that owns it.
 
 ### Integrating dependencies
 
-Declaring dependencies for your component is as easy as using the `dependencies` keyword as shown below.
-The key is simply a reference name that you'd use elsewhere in the component for referencing the
-dependency, and the value is the repository where you expect to find the component.
+Declaring dependencies for your component is as easy as using the `dependencies` keyword as shown
+below. The key is simply a reference name that you'd use elsewhere in the component for referencing
+the dependency, and the value is the repository where you expect to find the component.
 
 Once declared, you can inject the dependency's [services](#services), [ingresses](#ingress-rules), or
-[databases](#databases) as if they were part of your own component. Architect will continue to generate zero-trust configuration settings even when connecting across components.
+[databases](#databases) as if they were part of your own component. Architect will continue to
+generate zero-trust configuration settings even when connecting across components.
 
 ```yml
 version: v2
@@ -390,8 +392,8 @@ There are some cases where dependencies need to collect information from the com
 them. Usually this is for whitelisting URLs or otherwise configuring security rules.
 
 Passing values can only be done for components and variables that declare the `merge` field as true.
-This tells Architect to merge the results from the environment and all upstream components into an array
-of values the component can use to configure itself.
+This tells Architect to merge the results from the environment and all upstream components into an
+array of values the component can use to configure itself.
 
 ```yml
 # architect/auth component
@@ -411,8 +413,8 @@ ingresses:
     # ...
 ```
 
-When upstream components cite the component as a dependency, they can provide their own values to these
-mergeable variables that will be integrated with the other values:
+When upstream components cite the component as a dependency, they can provide their own values to
+these mergeable variables that will be integrated with the other values:
 
 ```yml
 version: v2

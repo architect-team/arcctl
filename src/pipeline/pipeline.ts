@@ -264,7 +264,7 @@ export class Pipeline {
    * Returns a new pipeline by comparing the old pipeline to a new target graph
    */
   public static plan(options: PlanOptions, providerStore: ProviderStore): Pipeline {
-    let pipeline = new Pipeline({
+    const pipeline = new Pipeline({
       edges: [...options.after.edges],
     });
 

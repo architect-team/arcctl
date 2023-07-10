@@ -2,7 +2,7 @@ import cliSpinners from 'cli-spinners';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { CloudNode } from '../cloud-graph/index.ts';
+import { CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { Pipeline, PlanContextLevel } from '../pipeline/index.ts';
@@ -59,7 +59,6 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   }
 
   let targetGraph = await environment.getGraph(options.environment, command_helper.componentStore, options.debug);
-
   for (const node of targetGraph.nodes.filter((node) => node.type === 'ingressRule')) {
     const ingressNode = node as CloudNode<'ingressRule'>;
     ingressNode.inputs.subdomain = ingressNode.inputs.subdomain || ingressNode.name;
@@ -78,7 +77,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   }, command_helper.providerStore);
   pipeline.validate();
 
-  let interval: number;
+  let interval: number | undefined;
   if (!options.verbose) {
     interval = setInterval(() => {
       command_helper.renderPipeline(pipeline, { clear: true });
@@ -95,43 +94,79 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     });
   }
 
-  return pipeline
-    .apply({
-      providerStore: command_helper.providerStore,
-      logger: logger,
-    })
-    .toPromise()
-    .then(async () => {
-      await command_helper.saveEnvironment(
-        datacenterRecord.name,
-        options.environment,
-        datacenterRecord.config,
-        environment,
-        pipeline,
-      );
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-      clearInterval(interval);
+  const success = await command_helper.applyEnvironment(
+    options.environment,
+    datacenterRecord,
+    environment,
+    pipeline,
+    {
+      logger,
+    },
+  );
 
-      Deno.addSignalListener('SIGINT', async () => {
-        await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, options.environment);
-        Deno.exit();
-      });
+  if (interval) {
+    clearInterval(interval);
+  }
 
-      await streamLogs({ follow: true }, options.environment);
-    })
-    .catch(async (err) => {
-      await command_helper.saveEnvironment(
-        datacenterRecord.name,
-        options.environment,
-        datacenterRecord.config,
-        environment,
-        pipeline,
-      );
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-      clearInterval(interval);
-      console.error(err);
-      Deno.exit(1);
+  command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+  command_helper.doneRenderingPipeline();
+
+  if (success) {
+    Deno.addSignalListener('SIGINT', async () => {
+      await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, options.environment);
+      Deno.exit();
     });
+
+    await streamLogs({ follow: true }, options.environment);
+  } else {
+    const emptyEnvironment = await parseEnvironment({});
+    const targetGraph = await datacenterRecord.config.enrichGraph(
+      new CloudGraph(),
+      {},
+    );
+    const revertedPipeline = Pipeline.plan({
+      before: pipeline,
+      after: targetGraph,
+      contextFilter: PlanContextLevel.Environment,
+    }, command_helper.providerStore);
+
+    revertedPipeline.validate();
+
+    if (!options.verbose) {
+      interval = setInterval(() => {
+        command_helper.renderPipeline(revertedPipeline, { clear: true });
+      }, 1000 / cliSpinners.dots.frames.length);
+    }
+
+    const revertSuccessful = await command_helper.applyEnvironment(
+      options.environment,
+      datacenterRecord,
+      emptyEnvironment,
+      revertedPipeline,
+      {
+        logger,
+      },
+    );
+
+    if (revertSuccessful) {
+      await command_helper.removeEnvironment(options.environment, datacenterRecord.name, datacenterRecord.config);
+    } else {
+      await command_helper.saveEnvironment(
+        datacenterRecord.name,
+        options.environment,
+        datacenterRecord.config,
+        emptyEnvironment,
+        revertedPipeline,
+      );
+    }
+
+    if (interval) {
+      clearInterval(interval);
+    }
+
+    command_helper.renderPipeline(revertedPipeline, { clear: !options.verbose, disableSpinner: true });
+    command_helper.doneRenderingPipeline();
+  }
 }
 
 export default UpCommand;

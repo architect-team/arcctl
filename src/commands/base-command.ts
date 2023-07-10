@@ -1,5 +1,4 @@
 import cliSpinners from 'cli-spinners';
-import { colors } from 'cliffy/ansi/colors.ts';
 import { Command } from 'cliffy/command/mod.ts';
 import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 import logUpdate from 'log-update';
@@ -122,21 +121,21 @@ export class CommandHelper {
     });
   }
 
-  public removeEnvironment(datacenter: Datacenter, record: EnvironmentRecord): Promise<void> {
+  public removeEnvironment(name: string, datacenterName: string, datacenterConfig: Datacenter): Promise<void> {
     return new Promise((resolve, reject) => {
       const secretStep = new PipelineStep({
         action: 'delete',
         type: 'secret',
-        name: `${record.name}-environment-pipeline`,
+        name: `${name}-environment-pipeline`,
         inputs: {
           type: 'secret',
           name: 'environment-pipeline',
-          namespace: `${record.datacenter}-${record.name}`,
+          namespace: `${datacenterName}-${name}`,
           data: '',
-          account: datacenter.getSecretsConfig().account,
+          account: datacenterConfig.getSecretsConfig().account,
         },
         outputs: {
-          id: `${record.datacenter}-${record.name}/environment-pipeline`,
+          id: `${datacenterName}-${name}/environment-pipeline`,
           data: '',
         },
       });
@@ -147,7 +146,7 @@ export class CommandHelper {
         })
         .subscribe({
           complete: async () => {
-            await this.environmentStore.remove(record.name);
+            await this.environmentStore.remove(name);
             resolve();
           },
         });
@@ -958,24 +957,6 @@ export class CommandHelper {
     return account;
   }
 
-  public handleTerraformError(ex: any): void {
-    if (!ex.stderr) {
-      throw ex;
-    }
-    const errorPrefix = 'Error: ';
-    const errorPrefixLength = errorPrefix.length;
-    console.log(colors.red('We have encountered an issue...'));
-    console.log(ex);
-    for (const line of ex.stderr.split('\n') as string[]) {
-      const index = line.indexOf(errorPrefix);
-      if (index !== -1) {
-        console.log(line.substring(index + errorPrefixLength));
-        break;
-      }
-    }
-    Deno.exit(1);
-  }
-
   /**
    * Prompts for all variables required by a datacenter.
    * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
@@ -1158,12 +1139,14 @@ export class CommandHelper {
     datacenterRecord: DatacenterRecord,
     environment: Environment,
     pipeline: Pipeline,
-    logger: winston.Logger | undefined,
-  ): Promise<void> {
+    options?: {
+      logger?: winston.Logger;
+    },
+  ): Promise<boolean> {
     return pipeline
       .apply({
         providerStore: this.providerStore,
-        logger,
+        logger: options?.logger,
       })
       .toPromise()
       .then(async () => {
@@ -1171,20 +1154,22 @@ export class CommandHelper {
           datacenterRecord.name,
           name,
           datacenterRecord.config,
-          environment!,
+          environment,
           pipeline,
         );
+
+        return true;
       })
       .catch(async (err) => {
+        console.error(err);
         await this.saveEnvironment(
           datacenterRecord.name,
           name,
           datacenterRecord.config,
-          environment!,
+          environment,
           pipeline,
         );
-        console.error(err);
-        Deno.exit(1);
+        return false;
       });
   }
 }

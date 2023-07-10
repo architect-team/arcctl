@@ -61,6 +61,13 @@ export type IngressRuleInputs = {
    * @default false
    */
   internal?: boolean;
+
+  /**
+   * Headers to include in responses
+   */
+  headers?: {
+    [key: string]: string;
+  };
 };
 
 export default IngressRuleInputs;

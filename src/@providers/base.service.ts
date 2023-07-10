@@ -104,7 +104,7 @@ export abstract class WritableResourceService<
     options: ApplyOptions,
   ): Observable<ApplyOutputs<T>>;
 
-  abstract destroy(options: ApplyOptions): Observable<ApplyOutputs<T>>;
+  abstract destroy(options: ApplyOptions, inputs?: ResourceInputs[T]): Observable<ApplyOutputs<T>>;
 
   abstract getHash(inputs: ResourceInputs[T], options: ApplyOptions): string;
 }

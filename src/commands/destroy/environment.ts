@@ -23,7 +23,8 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     );
 
     if (confirmed) {
-      await command_helper.removeEnvironment(datacenterRecord!.config, environmentRecord!);
+      // TODO: This won't work. Need to change how we remove environments when we don't have a datacenter
+      await command_helper.removeEnvironment(environmentRecord.name, datacenterRecord!.name, datacenterRecord!.config);
       console.log(`Environment removed. Resources may still be dangling.`);
       return;
     } else {
@@ -70,7 +71,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     .toPromise()
     .then(async () => {
       clearInterval(interval);
-      await command_helper.removeEnvironment(datacenterRecord.config, environmentRecord);
+      await command_helper.removeEnvironment(environmentRecord.name, datacenterRecord.name, datacenterRecord.config);
       command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
       command_helper.doneRenderingPipeline();
       console.log(`Environment ${name} destroyed successfully`);

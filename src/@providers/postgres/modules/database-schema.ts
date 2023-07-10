@@ -2,13 +2,11 @@ import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Database } from '../.gen/providers/postgresql/database/index.ts';
-import { Role } from '../.gen/providers/postgresql/role/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 
 export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema', PostgresCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
   db: Database;
-  role: Role;
 
   constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema', PostgresCredentials>) {
     super(scope, options);
@@ -16,16 +14,6 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     const normalizedName = this.inputs?.name.replaceAll('/', '--');
     this.db = new Database(this, 'postgres-database', {
       name: normalizedName || 'unknown',
-    });
-
-    const password = crypto.randomUUID();
-    this.role = new Role(this, 'user', {
-      name: normalizedName || 'unknown',
-      password,
-      superuser: false,
-      createDatabase: false,
-      encrypted: 'true',
-      login: true,
     });
 
     const protocol = 'postgresql';
@@ -36,11 +24,11 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
       name: this.db.name,
       host,
       port,
-      username: this.role.name,
-      password: this.role.password,
+      username: this.credentials.username,
+      password: this.credentials.password,
       account: this.accountName,
       protocol,
-      url: `${protocol}://${this.role.name}:${this.role.password}@${host}:${port}/${this.db.name}`,
+      url: `${protocol}://${this.credentials.username}:${this.credentials.password}@${host}:${port}/${this.db.name}`,
     };
   }
 

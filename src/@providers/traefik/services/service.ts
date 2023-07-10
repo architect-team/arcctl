@@ -55,6 +55,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
         port: 80,
         protocol: 'http',
         url: `http://${host}`,
+        account: this.accountName,
       };
     } else if (entry.tcp) {
       let host = '';
@@ -71,6 +72,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
         port: 80,
         protocol: 'tcp',
         url: `tcp://${host}`,
+        account: this.accountName,
       };
     }
   }
@@ -105,6 +107,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
           port: 80,
           protocol: 'http',
           url: `http://${host}`,
+          account: this.accountName,
         };
       } else if (config.tcp) {
         let host = '';
@@ -121,6 +124,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
           port: 80,
           protocol: 'tcp',
           url: `tcp://${host}`,
+          account: this.accountName,
         };
       }
 
@@ -151,9 +155,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
             service: serviceName,
             ...(isNotHttp
               ? {
-                tls: {
-                  passthrough: true,
-                },
+                tls: {},
               }
               : {}),
           },
@@ -194,6 +196,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       username: inputs.username || '',
       password: inputs.password || '',
       url,
+      account: this.accountName,
     };
   }
 
@@ -231,9 +234,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
             service: newServiceName,
             ...(isNotHttp
               ? {
-                tls: {
-                  passthrough: true,
-                },
+                tls: {},
               }
               : {}),
           },
@@ -284,6 +285,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       username: inputs.username || '',
       password: inputs.password || '',
       url,
+      account: this.accountName,
     };
   }
 

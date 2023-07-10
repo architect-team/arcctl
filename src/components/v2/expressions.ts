@@ -48,14 +48,15 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
           environment: context.environment,
         });
 
+        const name = `${from_id}/${database_name}`;
         const database_user_node = new CloudNode({
-          name: `${from_id}/${database_name}`,
+          name,
           component: context.component.name,
           environment: context.environment,
           inputs: {
             type: 'databaseUser',
             account: `\${{ ${database_schema_node_id}.account }}`,
-            username: from_id.replaceAll('/', '--'),
+            username: name.replaceAll('/', '--'),
             databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
           },
         });
@@ -275,6 +276,18 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
   );
 };
 
+const parseEnvironmentRefs = <T extends Record<string, any>>(
+  context: GraphContext,
+  inputs: T,
+): T => {
+  return JSON.parse(
+    JSON.stringify(inputs).replace(
+      /\${{\s*environment\.name\s*}}/g,
+      () => context.environment,
+    ),
+  );
+};
+
 export const parseExpressionRefs = <T extends Record<string, any>>(
   graph: CloudGraph,
   dependencies: Record<string, DependencySchemaV2>,
@@ -288,7 +301,20 @@ export const parseExpressionRefs = <T extends Record<string, any>>(
   inputs = parseServiceRefs(graph, context, from_id, inputs);
   inputs = parseIngressRefs(graph, context, from_id, inputs);
   inputs = parseDependencyOutputRefs(graph, dependencies, from_id, inputs);
-  inputs = parseDependencyServiceRefs(graph, dependencies, context, from_id, inputs);
-  inputs = parseDependencyIngressRefs(graph, dependencies, context, from_id, inputs);
+  inputs = parseDependencyServiceRefs(
+    graph,
+    dependencies,
+    context,
+    from_id,
+    inputs,
+  );
+  inputs = parseDependencyIngressRefs(
+    graph,
+    dependencies,
+    context,
+    from_id,
+    inputs,
+  );
+  inputs = parseEnvironmentRefs(context, inputs);
   return inputs;
 };

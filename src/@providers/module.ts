@@ -1,4 +1,4 @@
-import { TerraformResource } from 'cdktf';
+import { TerraformResource, TerraformStack } from 'cdktf';
 import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { SensitiveFile, SensitiveFileConfig } from '../cdktf-modules/.gen/providers/local/sensitive-file/index.ts';
@@ -22,7 +22,7 @@ export interface ResourceModuleConstructor<T extends ResourceType, C extends Pro
   new (scope: Construct, options: ResourceModuleOptions<T, C>): ResourceModule<T, C>;
 }
 
-export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends Construct {
+export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends TerraformStack {
   credentials: C;
   accountName: string;
   providerStore: ProviderStore;
@@ -30,7 +30,7 @@ export abstract class ResourceModule<T extends ResourceType, C extends ProviderC
   abstract outputs: ResourceOutputs[T];
 
   constructor(scope: Construct, options: ResourceModuleOptions<T, C>) {
-    super(scope, options.id);
+    super(scope, `arc-${options.id}`);
     this.accountName = options.accountName;
     this.inputs = options.inputs;
     this.credentials = options.credentials;

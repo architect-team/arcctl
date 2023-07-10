@@ -1,7 +1,6 @@
 # Architect Providers
 
-Providers are Architect's plugins that can list, get, create, update, and/or delete the [resources](../%40resources/) supported by Architect. Developers can register their cloud provider "accounts" with
-Architect in order to let the provider help them create cloud [resources](../%40resources/) more easily.
+Providers are plugins that can list, get, create, update, and/or delete the [resources](../%40resources/) supported by Architect. Developers can register their cloud provider "accounts" with Architect in order to let the provider help them create cloud [resources](../%40resources/) more easily.
 
 For anyone familiar with Terraform the concept is almost the same, but Architect providers MUST conform to the input/output expectations of Architect resources and cannot define their own resources. This helps the framework better serve the needs of developers by letting them focus on their applications instead of their infrastructure.
 

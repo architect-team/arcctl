@@ -2,17 +2,19 @@ import * as path from 'std/path/mod.ts';
 import { Component, parseComponent } from '../components/index.ts';
 import { verifyDocker } from '../docker/helper.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { exec } from '../utils/command.ts';
+import { exec, execVerbose } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type BuildOptions = {
   tag?: string[];
+  verbose: boolean;
 } & GlobalOptions;
 
 const BuildCommand = BaseCommand()
   .description('Build a component and relevant source services')
   .arguments('<context:string>') // 'Path to the component to build'
   .option('-t, --tag <tag:string>', 'Tags to assign to the built image', { collect: true })
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .action(build_action);
 
 async function build_action(options: BuildOptions, context_file: string): Promise<void> {
@@ -35,31 +37,55 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     }
   }
 
-  component = await component.build(async (options) => {
-    const buildArgs = ['build', '--quiet'];
-    if (options.dockerfile) {
-      buildArgs.push('--file', options.dockerfile);
+  component = await component.build(async (build_options) => {
+    const buildArgs = ['build'];
+
+    if (!options.verbose) {
+      buildArgs.push('--quiet');
     }
 
-    if (options.target) {
-      buildArgs.push('--target', options.target);
+    if (build_options.dockerfile) {
+      buildArgs.push('--file', build_options.dockerfile);
     }
 
-    if (options.args) {
-      for (const [key, value] of Object.entries(options.args)) {
+    if (build_options.target) {
+      buildArgs.push('--target', build_options.target);
+    }
+
+    if (build_options.args) {
+      for (const [key, value] of Object.entries(build_options.args)) {
         buildArgs.push('--build-arg', `${key}=${value}`);
       }
     }
-    if (path.isAbsolute(options.context)) {
-      buildArgs.push(options.context);
+    if (path.isAbsolute(build_options.context)) {
+      buildArgs.push(build_options.context);
     } else {
-      buildArgs.push(path.join(Deno.cwd(), context, options.context));
+      buildArgs.push(path.join(Deno.cwd(), context, build_options.context));
     }
-    const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
-    if (code !== 0) {
-      throw new Error(stderr);
+
+    if (options.verbose) {
+      const { code, stdout, stderr } = await execVerbose('docker', { args: buildArgs });
+
+      if (code !== 0) {
+        // Error is already displayed on screen for the user in verbose mode
+        Deno.exit(code);
+      }
+
+      // Docker build seems to output progress to stderr?
+      const merged_output = stdout + stderr;
+      const matches = merged_output.match(/.*writing.*(sha256:\w+).*/);
+
+      if (!matches || !matches[1]) {
+        throw new Error('No digest found.');
+      }
+      return matches[1];
+    } else {
+      const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
+      if (code !== 0) {
+        throw new Error(stderr);
+      }
+      return stdout.replace(/^\s+|\s+$/g, '');
     }
-    return stdout.replace(/^\s+|\s+$/g, '');
   }, async (options) => {
     return await command_helper.componentStore.addVolume(options.host_path);
   });

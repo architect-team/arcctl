@@ -1,3 +1,5 @@
+import { ResourceInputs } from '../../@resources/index.ts';
+
 export type TraefikRouter = {
   rule: string;
   service: string;
@@ -65,6 +67,7 @@ export type TraefikFormattedService = {
       [key: string]: TraefikTcpService;
     };
   };
+  architect: ResourceInputs['service'];
 };
 
 export type TraefikFormattedIngressRule = {

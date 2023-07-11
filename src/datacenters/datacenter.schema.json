@@ -218,6 +218,9 @@
                               "namespace": {
                                 "type": "string"
                               },
+                              "platform": {
+                                "type": "string"
+                              },
                               "schedule": {
                                 "type": "string"
                               },
@@ -264,6 +267,9 @@
                                       "type": "string"
                                     },
                                     "memory": {
+                                      "type": "string"
+                                    },
+                                    "platform": {
                                       "type": "string"
                                     },
                                     "volume_mounts": {
@@ -666,7 +672,6 @@
                                     }
                                   },
                                   "required": [
-                                    "port",
                                     "target_port"
                                   ],
                                   "type": "object"
@@ -842,6 +847,28 @@
                                 "default": 1,
                                 "description": "Number of replicas of the deployment to run",
                                 "type": "number"
+                              },
+                              "services": {
+                                "description": "Services this deployment should register itself with",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "account": {
+                                      "description": "The account the deployment can use to register itself with the service.",
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "description": "Unique ID of the service the deployment should attach itself to",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "account"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
                               },
                               "sidecars": {
                                 "description": "A set of additional containers to run as part of each replica",
@@ -1354,6 +1381,13 @@
                                 "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                                 "type": "string"
                               },
+                              "headers": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Headers to include in responses",
+                                "type": "object"
+                              },
                               "internal": {
                                 "default": false,
                                 "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -1518,79 +1552,6 @@
                               },
                               "type": {
                                 "const": "kubernetesVersion",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "type"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
-                                "const": "loadBalancer",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": false,
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "internal": {
-                                "default": false,
-                                "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                                "type": "boolean"
-                              },
-                              "loadBalancerType": {
-                                "description": "What type of load balancer to create",
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "Name for the new load balancer",
-                                "type": "string"
-                              },
-                              "namespace": {
-                                "description": "A namespace to put the load balancer in",
-                                "type": "string"
-                              },
-                              "type": {
-                                "const": "loadBalancer",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "loadBalancerType",
-                              "name",
-                              "type"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
-                                "properties": {},
-                                "type": "object"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": {},
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "type": {
-                                "const": "loadBalancerType",
                                 "type": "string"
                               }
                             },
@@ -1811,12 +1772,8 @@
                                 "description": "Basic auth password",
                                 "type": "string"
                               },
-                              "port": {
-                                "description": "Port to listen on",
-                                "type": "number"
-                              },
                               "target_deployment": {
-                                "description": "Target deployment name",
+                                "description": "A deployment the service should point to",
                                 "type": "string"
                               },
                               "target_port": {
@@ -1827,6 +1784,13 @@
                                 "default": "http",
                                 "description": "Protocol",
                                 "type": "string"
+                              },
+                              "target_servers": {
+                                "description": "The servers the service should load balance between",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
                               },
                               "type": {
                                 "const": "service",
@@ -1840,7 +1804,6 @@
                             "required": [
                               "account",
                               "name",
-                              "target_deployment",
                               "target_port",
                               "type"
                             ],
@@ -2116,7 +2079,6 @@
                             "helmChart",
                             "ingressRule",
                             "kubernetesCluster",
-                            "loadBalancer",
                             "namespace",
                             "secret",
                             "service",
@@ -2399,6 +2361,10 @@
                           }
                         ]
                       },
+                      "headers": {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       "hostPath": {
                         "anyOf": [
                           {
@@ -2436,11 +2402,6 @@
                             "default": false,
                             "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                             "type": "boolean"
-                          },
-                          {
-                            "default": false,
-                            "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                            "type": "boolean"
                           }
                         ]
                       },
@@ -2459,18 +2420,6 @@
                       "labels": {
                         "additionalProperties": false,
                         "type": "object"
-                      },
-                      "loadBalancerType": {
-                        "anyOf": [
-                          {
-                            "additionalProperties": false,
-                            "type": "object"
-                          },
-                          {
-                            "description": "What type of load balancer to create",
-                            "type": "string"
-                          }
-                        ]
                       },
                       "memory": {
                         "anyOf": [
@@ -2538,10 +2487,6 @@
                             "type": "string"
                           },
                           {
-                            "description": "Name for the new load balancer",
-                            "type": "string"
-                          },
-                          {
                             "description": "Name for the secret",
                             "type": "string"
                           },
@@ -2579,10 +2524,6 @@
                           },
                           {
                             "description": "Namespace to put the ingress rule in",
-                            "type": "string"
-                          },
-                          {
-                            "description": "A namespace to put the load balancer in",
                             "type": "string"
                           },
                           {
@@ -2631,6 +2572,9 @@
                             "type": "object"
                           },
                           {
+                            "type": "string"
+                          },
+                          {
                             "description": "Target platform the deployment will run on",
                             "type": "string"
                           }
@@ -2648,10 +2592,6 @@
                               "string",
                               "number"
                             ]
-                          },
-                          {
-                            "description": "Port to listen on",
-                            "type": "number"
                           }
                         ]
                       },
@@ -2870,6 +2810,10 @@
                           }
                         ]
                       },
+                      "services": {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       "sidecars": {
                         "additionalProperties": false,
                         "type": "object"
@@ -2921,7 +2865,7 @@
                             "type": "object"
                           },
                           {
-                            "description": "Target deployment name",
+                            "description": "A deployment the service should point to",
                             "type": "string"
                           }
                         ]
@@ -2950,6 +2894,10 @@
                             "type": "string"
                           }
                         ]
+                      },
+                      "target_servers": {
+                        "additionalProperties": false,
+                        "type": "object"
                       },
                       "ttl": {
                         "anyOf": [
@@ -2980,8 +2928,6 @@
                           "ingressRule",
                           "kubernetesCluster",
                           "kubernetesVersion",
-                          "loadBalancer",
-                          "loadBalancerType",
                           "namespace",
                           "node",
                           "nodeSize",
@@ -3183,6 +3129,9 @@
                         "namespace": {
                           "type": "string"
                         },
+                        "platform": {
+                          "type": "string"
+                        },
                         "schedule": {
                           "type": "string"
                         },
@@ -3229,6 +3178,9 @@
                                 "type": "string"
                               },
                               "memory": {
+                                "type": "string"
+                              },
+                              "platform": {
                                 "type": "string"
                               },
                               "volume_mounts": {
@@ -3631,7 +3583,6 @@
                               }
                             },
                             "required": [
-                              "port",
                               "target_port"
                             ],
                             "type": "object"
@@ -3807,6 +3758,28 @@
                           "default": 1,
                           "description": "Number of replicas of the deployment to run",
                           "type": "number"
+                        },
+                        "services": {
+                          "description": "Services this deployment should register itself with",
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "description": "The account the deployment can use to register itself with the service.",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "Unique ID of the service the deployment should attach itself to",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "account"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
                         },
                         "sidecars": {
                           "description": "A set of additional containers to run as part of each replica",
@@ -4319,6 +4292,13 @@
                           "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                           "type": "string"
                         },
+                        "headers": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "description": "Headers to include in responses",
+                          "type": "object"
+                        },
                         "internal": {
                           "default": false,
                           "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -4483,79 +4463,6 @@
                         },
                         "type": {
                           "const": "kubernetesVersion",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "type"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
-                          "const": "loadBalancer",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "internal": {
-                          "default": false,
-                          "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                          "type": "boolean"
-                        },
-                        "loadBalancerType": {
-                          "description": "What type of load balancer to create",
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "Name for the new load balancer",
-                          "type": "string"
-                        },
-                        "namespace": {
-                          "description": "A namespace to put the load balancer in",
-                          "type": "string"
-                        },
-                        "type": {
-                          "const": "loadBalancer",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "loadBalancerType",
-                        "name",
-                        "type"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
-                          "properties": {},
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": {},
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "type": {
-                          "const": "loadBalancerType",
                           "type": "string"
                         }
                       },
@@ -4776,12 +4683,8 @@
                           "description": "Basic auth password",
                           "type": "string"
                         },
-                        "port": {
-                          "description": "Port to listen on",
-                          "type": "number"
-                        },
                         "target_deployment": {
-                          "description": "Target deployment name",
+                          "description": "A deployment the service should point to",
                           "type": "string"
                         },
                         "target_port": {
@@ -4792,6 +4695,13 @@
                           "default": "http",
                           "description": "Protocol",
                           "type": "string"
+                        },
+                        "target_servers": {
+                          "description": "The servers the service should load balance between",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
                         },
                         "type": {
                           "const": "service",
@@ -4805,7 +4715,6 @@
                       "required": [
                         "account",
                         "name",
-                        "target_deployment",
                         "target_port",
                         "type"
                       ],
@@ -5081,7 +4990,6 @@
                       "helmChart",
                       "ingressRule",
                       "kubernetesCluster",
-                      "loadBalancer",
                       "namespace",
                       "secret",
                       "service",
@@ -5228,6 +5136,9 @@
                     "namespace": {
                       "type": "string"
                     },
+                    "platform": {
+                      "type": "string"
+                    },
                     "schedule": {
                       "type": "string"
                     },
@@ -5274,6 +5185,9 @@
                             "type": "string"
                           },
                           "memory": {
+                            "type": "string"
+                          },
+                          "platform": {
                             "type": "string"
                           },
                           "volume_mounts": {
@@ -5676,7 +5590,6 @@
                           }
                         },
                         "required": [
-                          "port",
                           "target_port"
                         ],
                         "type": "object"
@@ -5852,6 +5765,28 @@
                       "default": 1,
                       "description": "Number of replicas of the deployment to run",
                       "type": "number"
+                    },
+                    "services": {
+                      "description": "Services this deployment should register itself with",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "account": {
+                            "description": "The account the deployment can use to register itself with the service.",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique ID of the service the deployment should attach itself to",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "account"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
                     },
                     "sidecars": {
                       "description": "A set of additional containers to run as part of each replica",
@@ -6364,6 +6299,13 @@
                       "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                       "type": "string"
                     },
+                    "headers": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Headers to include in responses",
+                      "type": "object"
+                    },
                     "internal": {
                       "default": false,
                       "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -6528,79 +6470,6 @@
                     },
                     "type": {
                       "const": "kubernetesVersion",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
-                      "const": "loadBalancer",
-                      "type": "string"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "internal": {
-                      "default": false,
-                      "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                      "type": "boolean"
-                    },
-                    "loadBalancerType": {
-                      "description": "What type of load balancer to create",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Name for the new load balancer",
-                      "type": "string"
-                    },
-                    "namespace": {
-                      "description": "A namespace to put the load balancer in",
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "loadBalancer",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "loadBalancerType",
-                    "name",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
-                      "properties": {},
-                      "type": "object"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": {},
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "loadBalancerType",
                       "type": "string"
                     }
                   },
@@ -6821,12 +6690,8 @@
                       "description": "Basic auth password",
                       "type": "string"
                     },
-                    "port": {
-                      "description": "Port to listen on",
-                      "type": "number"
-                    },
                     "target_deployment": {
-                      "description": "Target deployment name",
+                      "description": "A deployment the service should point to",
                       "type": "string"
                     },
                     "target_port": {
@@ -6837,6 +6702,13 @@
                       "default": "http",
                       "description": "Protocol",
                       "type": "string"
+                    },
+                    "target_servers": {
+                      "description": "The servers the service should load balance between",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
                     },
                     "type": {
                       "const": "service",
@@ -6850,7 +6722,6 @@
                   "required": [
                     "account",
                     "name",
-                    "target_deployment",
                     "target_port",
                     "type"
                   ],
@@ -7126,7 +6997,6 @@
                   "helmChart",
                   "ingressRule",
                   "kubernetesCluster",
-                  "loadBalancer",
                   "namespace",
                   "secret",
                   "service",
@@ -7217,12 +7087,6 @@
               "kubernetesVersion": {
                 "type": "string"
               },
-              "loadBalancer": {
-                "type": "string"
-              },
-              "loadBalancerType": {
-                "type": "string"
-              },
               "namespace": {
                 "type": "string"
               },
@@ -7265,8 +7129,6 @@
                   "ingressRule",
                   "kubernetesCluster",
                   "kubernetesVersion",
-                  "loadBalancer",
-                  "loadBalancerType",
                   "namespace",
                   "node",
                   "nodeSize",

@@ -1,10 +1,10 @@
-import { Subscriber } from 'rxjs';
+import { lastValueFrom, Subscriber } from 'rxjs';
 import { mergeReadableStreams } from 'std/streams/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
-import { LogsOptions } from '../../base.service.ts';
+import { LogsOptions, WritableResourceService } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
@@ -15,7 +15,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     super(accountName, credentials, providerStore);
   }
 
-  private async inspect(id: string): Promise<DockerInspectionResults | undefined> {
+  public async inspect(id: string): Promise<DockerInspectionResults | undefined> {
     const { stdout } = await exec('docker', { args: ['inspect', id.replaceAll('/', '--')] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     return rawContents.length > 0 ? rawContents[0] : undefined;
@@ -94,7 +94,10 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
-    const containerName = inputs.name.replaceAll('/', '--');
+    let containerName = inputs.name.replaceAll('/', '--');
+    if (inputs.namespace) {
+      containerName = `${inputs.namespace}--` + containerName;
+    }
     const args = ['run', '--detach', '--quiet', '--name', containerName];
 
     if (inputs.environment) {
@@ -105,10 +108,6 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     if (inputs.platform) {
       args.push('--platform', inputs.platform);
-    }
-
-    if (inputs.namespace) {
-      args.push('--network', inputs.namespace);
     }
 
     if (inputs.volume_mounts) {
@@ -125,7 +124,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     }
 
     for (const port of inputs.exposed_ports || []) {
-      args.push('-p', `${port.port}:${port.target_port}`);
+      let value = String(port.target_port);
+      if (port.port) {
+        value = `${port.port}:${value}`;
+      }
+
+      args.push('-p', value);
     }
 
     let labels = inputs.labels || {};
@@ -148,6 +152,49 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const { code, stderr } = await exec('docker', { args });
     if (code !== 0) {
       throw new Error(stderr || 'Deployment failed');
+    }
+
+    // Deployment successful. Report back to the server.
+    const inspectionRes = await this.inspect(containerName);
+    const networks = Object.keys(inspectionRes?.NetworkSettings.Networks || {});
+    const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
+
+    for (const serviceConfig of inputs.services || []) {
+      const account = this.providerStore.getProvider(serviceConfig.account);
+      if (!account) {
+        throw new Error(`Cannot be registered w/ service. Account does not exist: ${serviceConfig.account}`);
+      }
+
+      const service = account.resources.service;
+      if (!service) {
+        throw new Error(
+          `Cannot be registered w/ service. ${serviceConfig.account} does not support service resources.`,
+        );
+      }
+
+      if (!('construct' in service) && !('create' in service)) {
+        throw new Error(`The ${account.type} provider cannot create service resources`);
+      }
+
+      const writeableService = service as unknown as WritableResourceService<'service', DockerCredentials>;
+      const existingService = await writeableService.get(serviceConfig.id);
+      if (existingService?.target_servers) {
+        const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
+
+        const target_servers = existingService.target_servers;
+        if (!target_servers.includes(newUrl)) {
+          target_servers.push(newUrl);
+        }
+
+        await lastValueFrom(writeableService.apply({
+          ...existingService,
+          type: 'service',
+          target_servers,
+        }, {
+          id: serviceConfig.id,
+          providerStore: this.providerStore,
+        }));
+      }
     }
 
     return {
@@ -180,10 +227,19 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     subscriber.next(`Starting new container`);
 
-    const containerName = inputs.name?.replaceAll('/', '--') || inspection.Name;
+    let containerName = inspection.Name;
+    if (inputs.name) {
+      containerName = inputs.name;
+      if (inputs.namespace) {
+        containerName = `${inputs.namespace}--` + containerName;
+      }
+
+      containerName = containerName.replaceAll('/', '--');
+    }
+
     const args: string[] = ['run', '--detach', '--name', containerName];
 
-    const network = inputs.namespace || Object.keys(inspection.NetworkSettings.Networks)[0];
+    const network = Object.keys(inspection.NetworkSettings.Networks)[0];
     args.push('--network', network);
 
     const existingEnv: Record<string, string> = {};
@@ -208,20 +264,24 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       );
     }
 
-    const ports = inputs.exposed_ports || [];
+    const exposedPorts = inputs.exposed_ports || [];
     if (!inputs.exposed_ports) {
       Object.keys(inspection.HostConfig.PortBindings).forEach((existingPort) => {
         const [targetPort] = existingPort.split('/');
         const hostPort = inspection.HostConfig.PortBindings[existingPort][0].HostPort;
-        ports.push({
+        exposedPorts.push({
           port: Number(hostPort),
           target_port: Number(targetPort),
         });
       });
     }
 
-    for (const port of ports) {
-      args.push('-p', `${port!.port}:${port!.target_port}`);
+    for (const port of exposedPorts) {
+      let value = String(port!.target_port);
+      if (port?.port) {
+        value = `${port.port}:${value}`;
+      }
+      args.push('-p', value);
     }
 
     let labels = inspection.Config.Labels;
@@ -258,6 +318,48 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const { code, stderr } = await exec('docker', { args });
     if (code !== 0) {
       throw new Error(stderr || 'Deployment failed');
+    }
+
+    const inspectionRes = await this.inspect(containerName);
+    const networks = Object.keys(inspectionRes?.NetworkSettings.Networks || {});
+    const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
+
+    for (const serviceConfig of (inputs.services as ResourceInputs['deployment']['services'] || [])) {
+      const account = this.providerStore.getProvider(serviceConfig.account);
+      if (!account) {
+        throw new Error(`Cannot be registered w/ service. Account does not exist: ${serviceConfig.account}`);
+      }
+
+      const service = account.resources.service;
+      if (!service) {
+        throw new Error(
+          `Cannot be registered w/ service. ${serviceConfig.account} does not support service resources.`,
+        );
+      }
+
+      if (!('construct' in service) && !('create' in service)) {
+        throw new Error(`The ${account.type} provider cannot create service resources`);
+      }
+
+      const writeableService = service as unknown as WritableResourceService<'service', DockerCredentials>;
+      const existingService = await writeableService.get(serviceConfig.id);
+      if (existingService?.target_servers) {
+        const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
+
+        const target_servers = existingService.target_servers;
+        if (!target_servers.includes(newUrl)) {
+          target_servers.push(newUrl);
+        }
+
+        await lastValueFrom(writeableService.apply({
+          ...existingService,
+          type: 'service',
+          target_servers,
+        }, {
+          id: serviceConfig.id,
+          providerStore: this.providerStore,
+        }));
+      }
     }
 
     return {

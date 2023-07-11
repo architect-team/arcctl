@@ -64,21 +64,11 @@ export class TraefikTaskService {
     });
   }
 
-  public async listAllFiles(dir: string): Promise<string[]> {
-    const { stdout } = await this.exec(['/bin/sh', '-c', `ls ${dir}`]);
-    return stdout ? stdout.split('\n').filter((item) => Boolean(item)) : [];
-  }
-
   public async listConfigFiles(dir: string, suffix: string): Promise<string[]> {
-    const allFiles = await this.listAllFiles(dir);
-    if (allFiles.length <= 0) {
-      return allFiles;
-    }
-
     const { stdout } = await this.exec([
       '/bin/sh',
       '-c',
-      'find ' + dir + '*' + suffix + ' -maxdepth 1 -type f',
+      'find ' + dir + '*' + suffix + ' -maxdepth 2 -type f',
     ]);
     return stdout ? stdout.split('\n').filter((item) => Boolean(item)) : [];
   }
@@ -96,7 +86,7 @@ export class TraefikTaskService {
     return this.exec([
       '/bin/sh',
       '-c',
-      `echo -e \"${contents}\" > ${filename}`,
+      `mkdir -p $(dirname ${filename}) && echo -e \"${contents}\" > ${filename}`,
     ]);
   }
 }

@@ -42,7 +42,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
       });
     }
 
-    await this.deploymentService.create(subscriber, {
+    const { id } = await this.deploymentService.create(subscriber, {
       type: 'deployment',
       account: this.accountName,
       name: normalizedName,
@@ -61,15 +61,24 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
         'io.architect.arcctl.databaseVersion': inputs.databaseVersion,
       },
       exposed_ports: [{
-        port: 5432,
         target_port: 5432,
       }],
     });
 
+    const inspectionRes = await this.deploymentService.inspect(id);
+    if (!inspectionRes) {
+      throw new Error(`Database failed to start`);
+    }
+
+    const hostPort = inspectionRes.NetworkSettings.Ports?.['5432/tcp']?.[0].HostPort;
+    if (!hostPort) {
+      throw new Error('Failed to allocate a port to listen on');
+    }
+
     return {
       id: inputs.name,
       host: 'host.docker.internal',
-      port: 5432,
+      port: Number(hostPort),
       username: 'architect',
       password: 'architect',
       protocol: 'postgresql',
@@ -239,15 +248,24 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
           existingDeployment.labels?.['io.architect.arcctl.databaseVersion'],
       },
       exposed_ports: [{
-        port: 5432,
         target_port: 5432,
       }],
     });
 
+    const inspectionRes = await this.deploymentService.inspect(deployment.id);
+    if (!inspectionRes) {
+      throw new Error(`Database failed to start`);
+    }
+
+    const hostPort = inspectionRes.NetworkSettings.Ports?.['5432/tcp']?.[0].HostPort;
+    if (!hostPort) {
+      throw new Error('Failed to allocate a port to listen on');
+    }
+
     return {
       id: normalizedName,
       host: 'host.docker.internal',
-      port: 5432,
+      port: Number(hostPort),
       username: 'architect',
       password: 'architect',
       protocol: 'postgresql',

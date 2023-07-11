@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>arcctl</id>
+    <version>v0.0.3</version>
+    <packageSourceUrl>https://github.com/architect-team/arcctl</packageSourceUrl>
+    <owners>Architect.io</owners>
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <!-- This section is about the software itself -->
+    <title>arcctl (Install)</title>
+    <authors>Architect.io</authors>
+    <projectUrl>https://github.com/architect-team/arcctl</projectUrl>
+    <tags>arcctl cloud datacenter</tags>
+    <summary>for creating on-demand cloud infrastructure</summary>
+    <description>arcctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure. With this CLI, you'll be able to list, get, create, or delete supported resources from your favorite cloud providers and tools without learning the API calls or language used by each individual provider. </description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+  </files>
+</package>

@@ -31,7 +31,6 @@ await build({
     description:
       'arcctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure',
     license: 'Apache-2.0',
-    version: '0.0.52-rc', // TODO: remove
     engines: { node: '>=12.0.0' },
     homepage: 'https://github.com/architect-team/arcctl',
     repository: 'architect-team/arcctl',

@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
+import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
 
@@ -77,6 +78,23 @@ const setNoopSteps = (
   } while (!done);
 
   return nextPipeline;
+};
+
+const checkCircularRequiredDependencies = (pipeline: Pipeline) => {
+  const graph: Record<string, Set<string>> = {};
+  for (const edge of pipeline.edges) {
+    if (!edge.required) {
+      continue;
+    }
+
+    if (graph[edge.from] === undefined) {
+      graph[edge.from] = new Set();
+    }
+    graph[edge.from].add(edge.to);
+  }
+
+  // Raises an error if it cannot be topologically sorted, which implies there is a cycle
+  topologicalSort(graph);
 };
 
 export class Pipeline {
@@ -224,6 +242,10 @@ export class Pipeline {
   }
 
   public validate(): void {
+    // Check for circular dependencies and edges that point to nodes that don't exist.
+    // This will raise an exception if a circular dependency exists and abort
+    checkCircularRequiredDependencies(this);
+
     for (const edge of this.edges) {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
@@ -459,7 +481,14 @@ export class Pipeline {
           subscriber.next(this);
         }
       })()
-        .then(() => subscriber.complete())
+        .then(() => {
+          for (const step of this.steps) {
+            if (step.status.state !== 'complete') {
+              throw Error(`Pipeline finished with an unfinished step`);
+            }
+          }
+          subscriber.complete();
+        })
         .catch((err) => {
           subscriber.error(err);
         });

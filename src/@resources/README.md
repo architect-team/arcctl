@@ -1,12 +1,12 @@
-# ArcCtl Resources
+# Architect Resources
 
-In order to ensure that applications are portable, ArcCtl has curated a set of
+In order to ensure that applications are portable, Architect has curated a set of
 cloud resource "contracts" that help [component](../components/) developers collaborate with
 [datacenter](../datacenters/) operators. Components are must be able to be converted
 into a graph of these resources, and in doing so datacenters can predict what types of
 resources need to be created and write rules for how they should be enriched.
 
-In this folder, you'll find a list of all the resources supported by ArcCtl. To learn more
+In this folder, you'll find a list of all the resources supported by Architect. To learn more
 about any particular resource, simply open up the resource folder and check out its
 own README.
 

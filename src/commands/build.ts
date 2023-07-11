@@ -97,7 +97,13 @@ async function build_action(options: BuildOptions, context_file: string): Promis
       component = await component.tag(async (sourceRef: string, targetName: string) => {
         const imageRepository = new ImageRepository(tag);
         const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-        const targetRef = path.join(imageRepository.registry, `${imageRepository.repository}--${targetName}${suffix}`);
+
+        // When the targetName matches the end of the "repository", e.g.
+        // using `-t myaccount/myimg:tag` with a build containing `myimg`, we don't want
+        // `myaccount/myimg-myimg:tag` as the ref.
+        const targetRef = imageRepository.repository.endsWith(targetName)
+          ? path.join(imageRepository.registry, `${imageRepository.repository}${suffix}`)
+          : path.join(imageRepository.registry, `${imageRepository.repository}-${targetName}${suffix}`);
 
         await exec('docker', { args: ['tag', sourceRef, targetRef] });
         return targetRef;

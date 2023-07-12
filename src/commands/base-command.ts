@@ -22,6 +22,7 @@ import { Environment, EnvironmentRecord, EnvironmentStore } from '../environment
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
+import { topologicalSort } from '../utils/sorting.ts';
 import { createTable } from '../utils/table.ts';
 
 export type GlobalOptions = {
@@ -981,14 +982,8 @@ export class CommandHelper {
       variable_graph[variable_name] = var_dependencies;
     }
 
-    const result: string[] = [];
-    const discovered = new Set<string>();
-    const finished = new Set<string>();
-    for (const var_name of Object.keys(variable_graph)) {
-      if (!finished.has(var_name) && !discovered.has(var_name)) {
-        this.topologicalSort(variable_graph, var_name, discovered, finished, result);
-      }
-    }
+    const result = topologicalSort(variable_graph);
+
     // We must reverse the topological sort to get the correct ordering - the edges in this
     // graph are variables the node depends on, so those dependencies must be prompted for first.
     result.reverse();
@@ -1002,32 +997,6 @@ export class CommandHelper {
       });
     }
     return vars;
-  }
-
-  /**
-   * Topologically sort the graph, and raise an error if a cycle is detected.
-   */
-  private topologicalSort(
-    graph: Record<string, Set<string>>,
-    node: string,
-    discovered: Set<string>,
-    finished: Set<string>,
-    result: string[],
-  ) {
-    discovered.add(node);
-
-    for (const edge of graph[node]) {
-      if (discovered.has(edge)) {
-        throw Error(`A circular dependency has been found between the variables '${node}' and '${edge}'`);
-      }
-      if (!finished.has(edge)) {
-        this.topologicalSort(graph, edge, discovered, finished, result);
-      }
-    }
-
-    discovered.delete(node);
-    finished.add(node);
-    result.unshift(node);
   }
 
   public async applyDatacenter(

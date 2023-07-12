@@ -1,6 +1,6 @@
-# ArcCtl Datacenters
+# Architect Datacenters
 
-ArcCtl datacenters are packages of configuration and rules dictating how
+Architect Datacenters are packages of configuration and rules dictating how
 cloud resources should behave. Datacenters can create datacenter-wide
 resources, environment-scoped resources, and can even mutate application
 resources derived from components deployed to the datacenter.
@@ -12,7 +12,7 @@ was done for two reasons:
 2. To give operators a way to control application behavior without compromising developer self-service
 
 With datacenters, operators can configure the API gateway, service mesh, databases, DNS providers and
-other global utilities and rules for all environments hosted by the datacenter. ArcCtl will automatically
+other global utilities and rules for all environments hosted by the datacenter. Architect will automatically
 match the cloud resources developers deploy with the rules of the datacenter to ensure everything gets
 enriched the way ops teams need. Basically, datacenters let you make your own PaaS.
 
@@ -47,7 +47,7 @@ Datacenter created successfully
 ## Updating datacenters
 
 Datacenters can be updated as easily as they can be created. Simply provide a new
-datacenter configuration file, and arcctl will propogate the changes:
+datacenter configuration file, and Architect will propogate the changes:
 
 ```sh
 $ arcctl apply datacenter digitalocean ./v1/examples/digitalocean.yml
@@ -69,7 +69,7 @@ If the datacenter is actively hosting environments, all environments will also b
 
 ## The datacenter configuration file
 
-ArcCtl uses versioning to allow its core schemas to grow and evolve. To learn how to author a datacenter
+Architect uses versioning to allow its core schemas to grow and evolve. To learn how to author a datacenter
 configuration file, select a schema version below:
 
 - [v1 (latest)](./v1/)

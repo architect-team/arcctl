@@ -1,4 +1,4 @@
-import Ajv2019 from 'npm:ajv';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
 import datacenter_schema_contents from './datacenter.schema.json' assert {
   type: 'json',

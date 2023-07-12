@@ -1,5 +1,5 @@
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
-import Ajv2019 from 'npm:ajv';
 import environment_schema_contents from './environment.schema.json' assert {
   type: 'json',
 };

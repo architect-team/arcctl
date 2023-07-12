@@ -6,7 +6,6 @@
     "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
     "adm-zip": "https://esm.sh/v124/adm-zip@0.5.9",
     "ajv": "https://esm.sh/v124/ajv@8.11.0",
-    "ajv/dist/2019.js": "https://esm.sh/v124/ajv@8.11.0/dist/2019.js",
     "cdktf": "https://esm.sh/v124/cdktf@0.15.5",
     "constructs": "https://esm.sh/v124/constructs@10.2.27",
     "d3-node": "https://esm.sh/v124/*d3-node@3.0.0",

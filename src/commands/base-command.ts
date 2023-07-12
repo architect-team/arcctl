@@ -2,7 +2,7 @@ import cliSpinners from 'cli-spinners';
 import { Command } from 'cliffy/command/mod.ts';
 import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 import logUpdate from 'log-update';
-import { JSONSchemaType } from 'npm:ajv';
+import { JSONSchemaType } from 'ajv';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import winston from 'winston';

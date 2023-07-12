@@ -1,4 +1,4 @@
-import { JSONSchemaType } from 'npm:ajv';
+import { JSONSchemaType } from 'ajv';
 
 // deno-lint-ignore no-empty-interface
 export interface ProviderCredentials {}

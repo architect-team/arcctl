@@ -25,6 +25,7 @@ export class GoogleCloudDnsZoneModule extends ResourceModule<'dnsZone', GoogleCl
         dependsOn: [
           new ProjectService(this, 'dns-zone-service', {
             service: 'dns.googleapis.com',
+            disableOnDestroy: false,
           }),
         ],
         name: this.inputs.name.replaceAll('.', '-').slice(0, -1),

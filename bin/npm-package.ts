@@ -39,7 +39,7 @@ await build({
     devDependencies: package_json.devDependencies,
     scripts: package_json.scripts,
     main: 'esm/index.js',
-    version: '0.0.52-rc'
+    version: '0.0.53-rc'
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
   scriptModule: false

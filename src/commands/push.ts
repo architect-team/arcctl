@@ -24,13 +24,15 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
         Deno.exit(code);
       }
     } else {
-      const { code, stdout, stderr } = await exec('docker', { args: ['push', image] });
+      const { code, stderr } = await exec('docker', { args: ['push', image] });
 
       if (stderr && stderr.length > 0) {
         console.error(stderr);
         Deno.exit(code);
       }
     }
+
+    console.log(`Pushed image: ${image}`);
   }, async (deploymentName: string, volumeName: string, image: string, host_path: string, mount_path: string) => {
     const [name, version] = tag.split(':');
     const ref = `${name}/${deploymentName}/volume/${volumeName}:${version}`;
@@ -45,7 +47,7 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
     );
     console.log(`Pushed Volume ${ref}`);
   });
-  console.log(`Pushed ${tag}`);
+  console.log(`Pushed component: ${tag}`);
 }
 
 export default PushCommand;

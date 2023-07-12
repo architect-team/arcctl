@@ -47,7 +47,7 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
     );
     console.log(`Pushed Volume ${ref}`);
   });
-  console.log(`Pushed component: ${tag}`);
+  console.log(`Pushed Component: ${tag}`);
 }
 
 export default PushCommand;

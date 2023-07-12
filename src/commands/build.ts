@@ -96,7 +96,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     for (const tag of options.tag) {
       component = await component.tag(async (sourceRef: string, targetName: string) => {
         const imageRepository = new ImageRepository(tag);
-        const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';q
+        const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
         const targetRef = path.join(imageRepository.registry, `${imageRepository.repository}-${targetName}${suffix}`);
 
         await exec('docker', { args: ['tag', sourceRef, targetRef] });

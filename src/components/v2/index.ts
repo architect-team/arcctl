@@ -415,7 +415,6 @@ export default class ComponentV2 extends Component {
           ...(liveness ? { liveness } : {}),
           volume_mounts,
           replicas: 1,
-          service_ports: deployment_ports[deployment_key],
         },
       });
 
@@ -501,6 +500,7 @@ export default class ComponentV2 extends Component {
       (deployment_node as CloudNode<'deployment'>).inputs.services!.push({
         id: `\${{ ${service_node.id}.id }}`,
         account: `\${{ ${service_node.id}.account }}`,
+        port: `\${{ ${service_node.id}.port }}`,
       });
       graph.insertNodes(deployment_node);
 

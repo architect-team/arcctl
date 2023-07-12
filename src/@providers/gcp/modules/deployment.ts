@@ -34,8 +34,8 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
     this.deployments = [];
     const labels: Record<string, string> = {};
 
-    for (const service_port of this.inputs?.service_ports || []) {
-      const deployment_name = (this.inputs?.name.replaceAll('/', '--') || 'deleting') + `--${service_port}`;
+    for (const service of this.inputs?.services || []) {
+      const deployment_name = (this.inputs?.name.replaceAll('/', '--') || 'deleting') + `--${service.port}`;
       const deployment = new CloudRunV2Service(this, `${deployment_name}-deployment`, {
         dependsOn: depends_on,
         name: deployment_name,
@@ -52,7 +52,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
               name: key,
               value: String(value),
             })),
-            ports: [{ containerPort: service_port }],
+            ports: [{ containerPort: Number(service.port || 80) }],
             resources: {
               limits: {
                 ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),

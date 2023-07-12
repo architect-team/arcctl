@@ -156,11 +156,6 @@ export type DeploymentInputs = {
   }[];
 
   /**
-   * Target ports for services of the deployment
-   */
-  service_ports?: number[];
-
-  /**
    * Target platform the deployment will run on
    */
   platform?: string;
@@ -199,6 +194,11 @@ export type DeploymentInputs = {
      * The account the deployment can use to register itself with the service.
      */
     account: string;
+
+    /**
+     * The port the service deployment is listening on
+     */
+    port: string;
   }>;
 } & Container;
 

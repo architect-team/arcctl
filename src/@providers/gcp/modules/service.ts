@@ -13,8 +13,9 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
     super(scope, options);
 
     const service_name = this.inputs?.name.replaceAll('/', '--') || 'deleting';
+    const service_port = this.inputs?.target_port || 80;
     const function_name = (this.inputs?.target_deployment.replaceAll('/', '--') || 'deleting') +
-      `--${this.inputs?.target_port}`;
+      `--${service_port}`;
 
     let region = '';
     if (this.inputs?.namespace) {
@@ -42,8 +43,8 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
     this.outputs = {
       id: this.backend_service.id,
       protocol: this.backend_service.protocol,
-      host: '',
-      port: 80,
+      host: function_name,
+      port: service_port,
       url: '',
       username: '',
       password: '',

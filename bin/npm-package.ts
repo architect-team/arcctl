@@ -7,10 +7,6 @@ const build_dir = path.join(__dirname, '../build');
 
 await emptyDir(build_dir);
 
-const package_json = JSON.parse(
-  await Deno.readTextFile(path.join(build_dir, '..', 'package.json')),
-);
-
 await build({
   typeCheck: false,
   test: false,

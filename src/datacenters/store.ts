@@ -1,64 +1,39 @@
+import { CloudEdge } from '../cloud-graph/edge.ts';
+import { Pipeline } from '../pipeline/pipeline.ts';
+import { PipelineStep } from '../pipeline/step.ts';
+import { BaseStore } from '../secrets/base-store.ts';
+import { SecretStore } from '../secrets/store.ts';
 import { Datacenter } from './datacenter.ts';
 import { parseDatacenter } from './parser.ts';
-import * as path from 'std/path/mod.ts';
 
 export type DatacenterRecord = {
   name: string;
   config: Datacenter;
-
-  // Refers to a secret containing the last pipeline that was run
-  lastPipeline: {
-    account: string;
-    secret: string;
-  };
+  lastPipeline: Pipeline;
 };
 
-export class DatacenterStore {
-  private _records?: DatacenterRecord[];
-
+export class DatacenterStore extends BaseStore<DatacenterRecord> {
   constructor(
-    private config_dir: string = Deno.makeTempDirSync(),
-    private datacenter_filename: string = 'datacenters.json',
+    secretStore: SecretStore,
   ) {
+    super('datacenters', secretStore);
     this.find();
   }
 
-  private get datacenters_config_file() {
-    return path.join(this.config_dir, this.datacenter_filename);
-  }
-
-  private async saveAll(datacenters: DatacenterRecord[]): Promise<void> {
-    await Deno.mkdir(path.dirname(this.datacenters_config_file), {
-      recursive: true,
-    });
-    await Deno.writeTextFile(this.datacenters_config_file, JSON.stringify(datacenters, null, 2));
-  }
-
   public async find(): Promise<DatacenterRecord[]> {
-    if (this._records) {
-      return this._records;
-    }
-
-    let rawDatacenters = [];
-    try {
-      const fileContents = Deno.readTextFileSync(this.datacenters_config_file);
-      rawDatacenters = JSON.parse(fileContents);
-    } catch {
-      this._records = [];
-    }
-
-    const datacenters: DatacenterRecord[] = [];
-    for (const raw of rawDatacenters) {
-      datacenters.push({
+    await this.load(async (raw: any) => {
+      const pipeline = new Pipeline({
+        steps: raw.lastPipeline.steps.map((step: any) => new PipelineStep(step)),
+        edges: raw.lastPipeline.edges.map((edge: any) => new CloudEdge(edge)),
+      });
+      return {
         name: raw.name,
         config: await parseDatacenter(raw.config),
-        lastPipeline: raw.lastPipeline,
-      });
-    }
+        lastPipeline: pipeline,
+      };
+    });
 
-    this._records = datacenters;
-
-    return this._records;
+    return this._records!;
   }
 
   public async get(name: string): Promise<DatacenterRecord | undefined> {

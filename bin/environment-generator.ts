@@ -66,7 +66,7 @@ const { stdout: type_schema_string, stderr: err } = await exec('deno', {
 });
 
 if (err.length > 0) {
-  console.error('Failed to generate datacenter schema!')
+  console.error('Failed to generate environment schema!')
   console.error(err);
   Deno.exit(1);
 }

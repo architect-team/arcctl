@@ -131,7 +131,7 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
       const password = await getOutputValue(this.password.friendlyUniqueId);
       const host = outputs.host;
       const port = outputs.port;
-      providerStore.saveProvider(
+      await providerStore.saveProvider(
         new SupportedProviders.postgres(`postgres-${this.inputs?.name || 'unknown'}`, {
           host,
           port,

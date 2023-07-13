@@ -33,12 +33,12 @@ const getContextLevel = (step: PipelineStep): PlanContextLevel => {
   return PlanContextLevel.Datacenter;
 };
 
-const setNoopSteps = (
+const setNoopSteps = async (
   providerStore: ProviderStore,
   previousPipeline: Pipeline,
   nextPipeline: Pipeline,
   contextFilter?: PlanContextLevel,
-): Pipeline => {
+): Promise<Pipeline> => {
   let done = false;
 
   do {
@@ -59,7 +59,7 @@ const setNoopSteps = (
 
       if (
         isNoop ||
-        (step.getHash(providerStore) === previousStep?.hash &&
+        (await step.getHash(providerStore) === previousStep?.hash &&
           previousStep.status.state === 'complete')
       ) {
         step.action = PIPELINE_NO_OP;
@@ -241,7 +241,7 @@ export class Pipeline {
   /**
    * Returns a new pipeline by comparing the old pipeline to a new target graph
    */
-  public static plan(options: PlanOptions, providerStore: ProviderStore): Pipeline {
+  public static async plan(options: PlanOptions, providerStore: ProviderStore): Promise<Pipeline> {
     const pipeline = new Pipeline({
       edges: [...options.after.edges],
     });
@@ -261,7 +261,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
-        newStep.hash = newStep.getHash(providerStore);
+        newStep.hash = await newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
         replacements[oldId] = newStep.id;
       } else {
@@ -275,7 +275,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
-        newExecutable.hash = newExecutable.getHash(providerStore);
+        newExecutable.hash = await newExecutable.getHash(providerStore);
         pipeline.insertSteps(newExecutable);
         replacements[oldId] = newExecutable.id;
       }
@@ -379,7 +379,7 @@ export class Pipeline {
             endTime: Date.now(),
           };
 
-          options.providerStore.deleteProvider(step.inputs.name);
+          await options.providerStore.deleteProvider(step.inputs.name);
         } else {
           step.status = {
             state: 'applying',
@@ -388,7 +388,7 @@ export class Pipeline {
             endTime: Date.now(),
           };
 
-          options.providerStore.saveProvider(
+          await options.providerStore.saveProvider(
             new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
               step.inputs.name,
               step.inputs.credentials as any,

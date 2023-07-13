@@ -30,7 +30,7 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
     undefined,
     { name: account_name },
   );
-  if (command_helper.providerStore.getProvider(name)) {
+  if (await command_helper.providerStore.getProvider(name)) {
     console.error(`An account named ${name} already exists`);
     Deno.exit(1);
   }
@@ -55,7 +55,7 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
   }
 
   try {
-    command_helper.providerStore.saveProvider(account);
+    await command_helper.providerStore.saveProvider(account);
     console.log(`${account.name} account registered`);
   } catch (ex: any) {
     console.error(ex.message);

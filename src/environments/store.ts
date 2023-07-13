@@ -1,4 +1,8 @@
-import * as path from 'std/path/mod.ts';
+import { CloudEdge } from '../cloud-graph/edge.ts';
+import { Pipeline } from '../pipeline/pipeline.ts';
+import { PipelineStep } from '../pipeline/step.ts';
+import { BaseStore } from '../secrets/base-store.ts';
+import { SecretStore } from '../secrets/store.ts';
 import { Environment } from './environment.ts';
 import { parseEnvironment } from './parser.ts';
 
@@ -6,61 +10,30 @@ export type EnvironmentRecord = {
   name: string;
   datacenter: string;
   config?: Environment;
-
-  // Refers to a secret containing the last pipeline that was run
-  lastPipeline: {
-    account: string;
-    secret: string;
-  };
+  lastPipeline: Pipeline;
 };
 
-export class EnvironmentStore {
-  private _records?: EnvironmentRecord[];
-
+export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
   constructor(
-    private config_dir: string = Deno.makeTempDirSync(),
-    private environment_filename: string = 'environments.json',
+    secretStore: SecretStore,
   ) {
-    this.find();
-  }
-
-  private get environments_config_file() {
-    return path.join(this.config_dir, this.environment_filename);
-  }
-
-  private async saveAll(environments: EnvironmentRecord[]): Promise<void> {
-    await Deno.mkdir(path.dirname(this.environments_config_file), {
-      recursive: true,
-    });
-    await Deno.writeTextFile(this.environments_config_file, JSON.stringify(environments, null, 2));
+    super('environments', secretStore);
   }
 
   public async find(): Promise<EnvironmentRecord[]> {
-    if (this._records) {
-      return this._records;
-    }
-
-    let rawEnvironments = [];
-    try {
-      const fileContents = Deno.readTextFileSync(this.environments_config_file);
-      rawEnvironments = JSON.parse(fileContents);
-    } catch {
-      this._records = [];
-    }
-
-    const environments: EnvironmentRecord[] = [];
-    for (const raw of rawEnvironments) {
-      environments.push({
+    await this.load(async (raw: any) => {
+      const pipeline = new Pipeline({
+        steps: raw.lastPipeline.steps.map((step: any) => new PipelineStep(step)),
+        edges: raw.lastPipeline.edges.map((edge: any) => new CloudEdge(edge)),
+      });
+      return {
         name: raw.name,
         datacenter: raw.datacenter,
-        config: raw.config ? await parseEnvironment(raw.config) : undefined,
-        lastPipeline: raw.lastPipeline,
-      });
-    }
-
-    this._records = environments;
-
-    return this._records;
+        config: await parseEnvironment(raw.config),
+        lastPipeline: pipeline,
+      };
+    });
+    return this._records!;
   }
 
   public async get(name: string): Promise<EnvironmentRecord | undefined> {

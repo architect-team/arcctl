@@ -57,11 +57,9 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     environmentName: name,
   });
 
-  const startingPipeline = environmentRecord
-    ? await command_helper.getPipelineForEnvironment(environmentRecord)
-    : await command_helper.getPipelineForDatacenter(targetDatacenter);
+  const startingPipeline = environmentRecord ? environmentRecord.lastPipeline : targetDatacenter.lastPipeline;
 
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,

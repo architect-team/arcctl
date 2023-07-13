@@ -6,10 +6,10 @@ const ListAccountCommand = BaseCommand()
   .description('List the accounts registered with the CLI')
   .action(list_account_action);
 
-function list_account_action(options: GlobalOptions) {
+async function list_account_action(options: GlobalOptions) {
   const command_helper = new CommandHelper(options);
 
-  const providers = command_helper.providerStore.getProviders();
+  const providers = await command_helper.providerStore.getProviders();
   const table = createTable({
     head: ['Name', 'Type'],
   });

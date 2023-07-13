@@ -36,7 +36,7 @@ export const parseEnvironment = async (input: Record<string, unknown> | string):
   }
 
   if (!environment_validator(raw_obj)) {
-    throw environment_validator.errors;
+    throw new Error(environment_validator.errors?.toString());
   }
 
   return buildEnvironment(raw_obj);

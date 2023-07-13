@@ -60,7 +60,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         Deno.exit(1);
       }
 
-      const previousPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
+      const previousPipeline = environmentRecord.lastPipeline;
 
       const environment = environmentRecord.config || await parseEnvironment({});
 
@@ -83,7 +83,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         },
       );
 
-      const pipeline = Pipeline.plan({
+      const pipeline = await Pipeline.plan({
         before: previousPipeline,
         after: targetGraph,
         contextFilter: PlanContextLevel.Environment,

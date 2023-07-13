@@ -9,7 +9,7 @@ import winston from 'winston';
 import { WritableResourceService } from '../@providers/base.service.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
-import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
+import { CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
 import {
   Datacenter,
@@ -18,8 +18,9 @@ import {
   ParsedVariablesMetadata,
   ParsedVariablesType,
 } from '../datacenters/index.ts';
-import { Environment, EnvironmentRecord, EnvironmentStore } from '../environments/index.ts';
+import { Environment, EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
+import { SecretStore } from '../secrets/store.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import { createTable } from '../utils/table.ts';
@@ -49,232 +50,58 @@ export class CommandHelper {
   }
 
   get providerStore(): ProviderStore {
-    return new CldCtlProviderStore(CloudCtlConfig.getConfigDirectory());
+    return new CldCtlProviderStore(this.secretStore);
   }
 
   get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(CloudCtlConfig.getConfigDirectory());
+    return new DatacenterStore(this.secretStore);
   }
 
   get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore(CloudCtlConfig.getConfigDirectory());
+    return new EnvironmentStore(this.secretStore);
+  }
+
+  get secretStore(): SecretStore {
+    return new SecretStore(CloudCtlConfig.getConfigDirectory());
   }
 
   /**
    * Store the pipeline in the datacenter secret manager and then log
    * it to the environment store
    */
-  public saveEnvironment(
+  public async saveEnvironment(
     datacenterName: string,
     environmentName: string,
     datacenter: Datacenter,
     environment: Environment,
     pipeline: Pipeline,
   ): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'create',
-        type: 'secret',
-        name: `${environmentName}-environment-pipeline`,
-        inputs: {
-          type: 'secret',
-          name: 'environment-pipeline',
-          namespace: `${datacenterName}-${environmentName}`,
-          account: datacenter.getSecretsConfig().account,
-          data: JSON.stringify(pipeline),
-        },
-      });
-
-      secretStep
-        .apply({
-          providerStore: this.providerStore,
-        })
-        .subscribe({
-          complete: async () => {
-            if (!secretStep.outputs) {
-              console.error('Something went wrong storing the pipeline');
-              Deno.exit(1);
-            }
-
-            await this.environmentStore.save({
-              name: environmentName,
-              datacenter: datacenterName,
-              config: environment,
-              lastPipeline: {
-                account: datacenter.getSecretsConfig().account,
-                secret: secretStep.outputs.id,
-              },
-            });
-            resolve();
-          },
-          error: (err) => {
-            reject(err);
-          },
-        });
+    await this.environmentStore.save({
+      name: environmentName,
+      datacenter: datacenterName,
+      config: environment,
+      lastPipeline: pipeline,
     });
   }
 
-  public removeEnvironment(name: string, datacenterName: string, datacenterConfig: Datacenter): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'delete',
-        type: 'secret',
-        name: `${name}-environment-pipeline`,
-        inputs: {
-          type: 'secret',
-          name: 'environment-pipeline',
-          namespace: `${datacenterName}-${name}`,
-          data: '',
-          account: datacenterConfig.getSecretsConfig().account,
-        },
-        outputs: {
-          id: `${datacenterName}-${name}/environment-pipeline`,
-          data: '',
-        },
-      });
-
-      secretStep
-        .apply({
-          providerStore: this.providerStore,
-        })
-        .subscribe({
-          complete: async () => {
-            await this.environmentStore.remove(name);
-            resolve();
-          },
-        });
-    });
+  public async removeEnvironment(name: string, datacenterName: string, datacenterConfig: Datacenter): Promise<void> {
+    await this.environmentStore.remove(name);
   }
 
   /**
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'create',
-        type: 'secret',
-        name: `${datacenterName}-datacenter-pipeline`,
-        inputs: {
-          type: 'secret',
-          name: 'datacenter-pipeline',
-          namespace: datacenterName,
-          account: datacenter.getSecretsConfig().account,
-          data: JSON.stringify(pipeline),
-        },
-      });
-
-      secretStep
-        .apply({
-          providerStore: this.providerStore,
-        })
-        .subscribe({
-          complete: async () => {
-            if (!secretStep.outputs) {
-              console.error('Something went wrong storing the pipeline');
-              Deno.exit(1);
-            }
-
-            await this.datacenterStore.save({
-              name: datacenterName,
-              config: datacenter,
-              lastPipeline: {
-                account: datacenter.getSecretsConfig().account,
-                secret: secretStep.outputs.id,
-              },
-            });
-            resolve();
-          },
-          error: (err) => {
-            reject(err);
-          },
-        });
+  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+    await this.datacenterStore.save({
+      name: datacenterName,
+      config: datacenter,
+      lastPipeline: pipeline,
     });
   }
 
-  public removeDatacenter(record: DatacenterRecord): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'delete',
-        type: 'secret',
-        name: `${record.name}-datacenter-pipeline`,
-        inputs: {
-          type: 'secret',
-          name: 'datacenter-pipeline',
-          namespace: record.name,
-          data: '',
-          account: record.config.getSecretsConfig().account,
-        },
-        outputs: {
-          id: `${record.name}/datacenter-pipeline`,
-          data: '',
-        },
-      });
-
-      secretStep
-        .apply({
-          providerStore: this.providerStore,
-        })
-        .subscribe({
-          complete: async () => {
-            await this.datacenterStore.remove(record.name);
-            resolve();
-          },
-        });
-    });
-  }
-
-  public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
-    if (!secretAccount) {
-      console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
-      Deno.exit(1);
-    }
-
-    const service = secretAccount.resources.secret;
-    if (!service) {
-      console.error(`The ${secretAccount.type} provider doesn't support secrets`);
-      Deno.exit(1);
-    }
-
-    const secret = await service.get(record.lastPipeline.secret);
-    if (!secret) {
-      return new Pipeline();
-    }
-
-    const rawPipeline = JSON.parse(secret.data);
-
-    return new Pipeline({
-      steps: rawPipeline.steps.map((step: any) => new PipelineStep(step)),
-      edges: rawPipeline.edges.map((edge: any) => new CloudEdge(edge)),
-    });
-  }
-
-  public async getPipelineForEnvironment(record: EnvironmentRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
-    if (!secretAccount) {
-      console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
-      Deno.exit(1);
-    }
-
-    const service = secretAccount.resources.secret;
-    if (!service) {
-      console.error(`The ${secretAccount.type} provider doesn't support secrets`);
-      Deno.exit(1);
-    }
-
-    const secret = await service.get(record.lastPipeline.secret);
-    if (!secret) {
-      return new Pipeline();
-    }
-
-    const rawPipeline = JSON.parse(secret.data);
-
-    return new Pipeline({
-      steps: rawPipeline.steps.map((step: any) => new PipelineStep(step)),
-      edges: rawPipeline.edges.map((edge: any) => new CloudEdge(edge)),
-    });
+  public async removeDatacenter(record: DatacenterRecord): Promise<void> {
+    await this.datacenterStore.remove(record.name);
   }
 
   public async confirmPipeline(pipeline: Pipeline, autoApprove: boolean): Promise<void> {
@@ -663,7 +490,7 @@ export class CommandHelper {
       message?: string;
     } = {},
   ): Promise<Provider> {
-    const allAccounts = this.providerStore.getProviders();
+    const allAccounts = await this.providerStore.getProviders();
     let filteredAccounts: Provider[] = [];
     if (!options.prompt_accounts) {
       for (const p of allAccounts) {
@@ -818,11 +645,18 @@ export class CommandHelper {
     return node;
   }
 
-  public async promptForCredentials(provider_type: keyof typeof SupportedProviders): Promise<Record<string, string>> {
+  public async promptForCredentials(
+    provider_type: keyof typeof SupportedProviders,
+    providedCredentials: Record<string, string> = {},
+  ): Promise<Record<string, string>> {
     const credential_schema = SupportedProviders[provider_type].CredentialsSchema;
 
     const credentials: Record<string, string> = {};
     for (const [key, value] of Object.entries(credential_schema.properties)) {
+      if (providedCredentials[key]) {
+        credentials[key] = providedCredentials[key];
+        continue;
+      }
       const propValue = value as any;
       const message = [key];
       if (propValue.nullable) {
@@ -845,7 +679,7 @@ export class CommandHelper {
   }
 
   private async createAccount(): Promise<Provider> {
-    const allAccounts = this.providerStore.getProviders();
+    const allAccounts = await this.providerStore.getProviders();
     const providers = Object.keys(SupportedProviders);
 
     const res = await prompt([
@@ -883,7 +717,7 @@ export class CommandHelper {
     }
 
     try {
-      this.providerStore.saveProvider(account);
+      await this.providerStore.saveProvider(account);
       console.log(`${account.name} account registered`);
     } catch (ex: any) {
       console.error(ex.message);
@@ -939,7 +773,7 @@ export class CommandHelper {
     } else if (metadata.type === 'number') {
       return NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
-      const existing_accounts = this.providerStore.getProviders();
+      const existing_accounts = await this.providerStore.getProviders();
       const query_accounts = metadata.provider
         ? existing_accounts.filter((p) => p.type === metadata.provider)
         : existing_accounts;
@@ -953,7 +787,7 @@ export class CommandHelper {
       if (!metadata.arcctlAccount) {
         throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
       }
-      const provider = this.providerStore.getProvider(metadata.arcctlAccount);
+      const provider = await this.providerStore.getProvider(metadata.arcctlAccount);
       if (!provider) {
         throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
       }

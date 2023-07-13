@@ -18,7 +18,7 @@ export default class TraefikProvider extends Provider<TraefikCredentials> {
   public async testCredentials(): Promise<boolean> {
     switch (this.credentials.type) {
       case 'volume': {
-        const account = this.providerStore.getProvider(this.credentials.account);
+        const account = await this.providerStore.getProvider(this.credentials.account);
         if (!account) {
           return false;
         } else if (!account.resources.task || !('apply' in account.resources.task)) {

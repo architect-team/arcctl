@@ -22,9 +22,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   const command_helper = new CommandHelper(options);
 
   const existingDatacenter = await command_helper.datacenterStore.get(name);
-  const originalPipeline = existingDatacenter
-    ? await command_helper.getPipelineForDatacenter(existingDatacenter)
-    : new Pipeline();
+  const originalPipeline = existingDatacenter ? existingDatacenter.lastPipeline : new Pipeline();
   const allEnvironments = await command_helper.environmentStore.find();
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
 
@@ -36,7 +34,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     datacenter.setVariableValues(vars);
     graph = await datacenter.enrichGraph(graph);
 
-    const pipeline = Pipeline.plan({
+    const pipeline = await Pipeline.plan({
       before: originalPipeline,
       after: graph,
     }, command_helper.providerStore);

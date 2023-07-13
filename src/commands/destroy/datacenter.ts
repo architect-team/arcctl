@@ -23,8 +23,8 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   const command_helper = new CommandHelper(options);
 
   const datacenterRecord = await promptForDatacenter(command_helper, name);
-  const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
-  const pipeline = Pipeline.plan({
+  const lastPipeline = datacenterRecord.lastPipeline;
+  const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: new CloudGraph(),
   }, command_helper.providerStore);

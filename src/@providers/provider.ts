@@ -34,6 +34,11 @@ export abstract class Provider<
    */
   abstract readonly resources: ProviderResources<C>;
 
+  /**
+   * A set of files that belong to the provider. These files should only be managed by the provider store.
+   */
+  readonly files: Record<string, string> = {};
+
   tests: CldctlTestResource<ProviderCredentials> = [];
 
   constructor(readonly name: string, readonly credentials: C, readonly providerStore: ProviderStore) {}
@@ -57,6 +62,7 @@ export abstract class Provider<
       name: this.name,
       type: this.type,
       credentials: this.credentials,
+      files: this.files,
     };
   }
 }

@@ -40,7 +40,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     Deno.exit(1);
   }
 
-  const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+  const lastPipeline = datacenterRecord.lastPipeline;
   const environment = await parseEnvironment({});
 
   for (let tag_or_path of components) {
@@ -70,7 +70,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   });
   targetGraph.validate();
 
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
@@ -124,7 +124,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       new CloudGraph(),
       {},
     );
-    const revertedPipeline = Pipeline.plan({
+    const revertedPipeline = await Pipeline.plan({
       before: pipeline,
       after: targetGraph,
       contextFilter: PlanContextLevel.Environment,

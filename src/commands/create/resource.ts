@@ -38,7 +38,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
   const graph = new CloudGraph();
   const rootNode = await command_helper.promptForNewResource(graph, account, type);
 
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: new Pipeline(),
     after: graph,
   }, command_helper.providerStore);

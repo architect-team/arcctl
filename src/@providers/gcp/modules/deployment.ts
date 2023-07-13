@@ -23,9 +23,11 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       ? [
         new ProjectService(this, 'cloud-run-service', {
           service: 'run.googleapis.com',
+          disableOnDestroy: false,
         }),
         new ProjectService(this, 'iam-service', {
           service: 'iam.googleapis.com',
+          disableOnDestroy: false,
         }),
       ]
       : [];

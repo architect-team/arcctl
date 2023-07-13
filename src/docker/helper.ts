@@ -1,5 +1,5 @@
-import semver from 'npm:semver';
-import which from 'npm:which';
+import semver from 'semver';
+import which from 'which';
 
 interface DockerInfoPlugin {
   SchemaVersion: string;

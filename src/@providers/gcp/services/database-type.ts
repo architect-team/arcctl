@@ -1,4 +1,4 @@
-import { Auth, google } from 'https://esm.sh/v124/googleapis@118.0.0';
+import { Auth, google } from 'googleapis';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../base.service.ts';

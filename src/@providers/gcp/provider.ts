@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { google } from 'npm:googleapis';
+import { google } from 'https://esm.sh/v124/googleapis@118.0.0';
 import { ProviderCredentials } from '../credentials.ts';
 import { Provider, ProviderResources } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';

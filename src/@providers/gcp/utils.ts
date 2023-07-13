@@ -1,4 +1,4 @@
-import { google } from 'npm:googleapis';
+import { google } from 'https://esm.sh/v124/googleapis@118.0.0';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { GoogleCloudCredentials } from './credentials.ts';
 

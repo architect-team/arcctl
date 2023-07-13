@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { Auth, google } from 'npm:googleapis';
+import { Auth, google } from 'https://esm.sh/v124/googleapis@118.0.0';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators, ResourcePresets } from '../../base.service.ts';

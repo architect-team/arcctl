@@ -27,10 +27,8 @@
     "/npm-shrinkwrap.json"
   ],
   "dependencies": {
-    "@architect-io/arc-oci": "0.1.0",
     "ajv": "^8.11.0",
     "cli-spinners": "^2.7.0",
-    "dots-wrapper": "^3.10.0",
     "log-symbols": "^5.1.0",
     "log-update": "^5.0.1",
     "mongodb": "^4.10.0",

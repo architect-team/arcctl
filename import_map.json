@@ -16,13 +16,13 @@
     "semver": "https://esm.sh/v124/semver@7.5.3",
     "which": "https://esm.sh/v124/which@3.0.1",
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
-    "aws-sdk": "npm:aws-sdk@2.1229.0",
-    "listr": "npm:listr@0.14.3",
-    "rxjs": "npm:rxjs@7.5.6",
-    "winston": "npm:winston@3.8.2",
-    "tar": "npm:tar@6.1.11",
-    "cli-spinners": "npm:cli-spinners@2.7.0",
-    "strip-ansi": "npm:strip-ansi@7.0.1"
+    "aws-sdk": "https://esm.sh/v124/aws-sdk@2.1229.0",
+    "listr": "https://esm.sh/v124/listr@0.14.3",
+    "rxjs": "https://esm.sh/v124/rxjs@7.5.6",
+    "winston": "https://esm.sh/v124/winston@3.8.2",
+    "tar": "https://esm.sh/v124/tar@6.1.11",
+    "cli-spinners": "https://esm.sh/v124/cli-spinners@2.7.0",
+    "strip-ansi": "https://esm.sh/v124/strip-ansi@7.0.1"
   },
   "scopes": {
     "https://esm.sh/v124/": {

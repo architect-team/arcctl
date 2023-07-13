@@ -1,8 +1,8 @@
+import { JSONSchemaType } from 'ajv';
 import cliSpinners from 'cli-spinners';
 import { Command } from 'cliffy/command/mod.ts';
 import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 import logUpdate from 'log-update';
-import { JSONSchemaType } from 'ajv';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import winston from 'winston';
@@ -30,13 +30,9 @@ export type GlobalOptions = {
 };
 
 export function BaseCommand() {
-  return new Command().globalEnv(
-    'XDG_CONFIG_HOME=<value:string>',
-    'Configuration folder location.',
-    {
-      prefix: 'XDG_',
-    },
-  );
+  return new Command().globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
+    prefix: 'XDG_',
+  });
 }
 
 export class CommandHelper {
@@ -50,10 +46,7 @@ export class CommandHelper {
 
   get componentStore(): ComponentStore {
     const config_dir = CloudCtlConfig.getConfigDirectory();
-    return new ComponentStore(
-      path.join(config_dir, 'component-store'),
-      'registry.architect.io',
-    );
+    return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
   }
 
   get providerStore(): ProviderStore {
@@ -158,11 +151,7 @@ export class CommandHelper {
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public saveDatacenter(
-    datacenterName: string,
-    datacenter: Datacenter,
-    pipeline: Pipeline,
-  ): Promise<void> {
+  public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
     return new Promise((resolve, reject) => {
       const secretStep = new PipelineStep({
         action: 'create',
@@ -237,24 +226,16 @@ export class CommandHelper {
     });
   }
 
-  public async getPipelineForDatacenter(
-    record: DatacenterRecord,
-  ): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(
-      record.lastPipeline.account,
-    );
+  public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
+    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
     if (!secretAccount) {
-      console.error(
-        `Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`,
-      );
+      console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
       Deno.exit(1);
     }
 
     const service = secretAccount.resources.secret;
     if (!service) {
-      console.error(
-        `The ${secretAccount.type} provider doesn't support secrets`,
-      );
+      console.error(`The ${secretAccount.type} provider doesn't support secrets`);
       Deno.exit(1);
     }
 
@@ -354,10 +335,7 @@ export class CommandHelper {
           row.push(
             step.action,
             step.status.state,
-            Math.floor(
-              ((step.status.endTime || Date.now()) -
-                (step.status.startTime || Date.now())) / 1000,
-            ) + 's',
+            Math.floor(((step.status.endTime || Date.now()) - (step.status.startTime || Date.now())) / 1000) + 's',
             step.status.message || '',
           );
 
@@ -408,9 +386,7 @@ export class CommandHelper {
     const count = await NumberPrompt.prompt({
       message: `How many ${property.schema.description || property.name} should be created?`,
       validate: (value: string) => {
-        if (
-          !(typeof value === 'number' || (!!value && !isNaN(Number(value))))
-        ) {
+        if (!(typeof value === 'number' || (!!value && !isNaN(Number(value))))) {
           return false;
         }
 
@@ -465,13 +441,9 @@ export class CommandHelper {
 
         if (property.schema.properties?.required && !value) {
           return `${property.name} is required`;
-        } else if (
-          property.schema.minimum && value && number < property.schema.minimum
-        ) {
+        } else if (property.schema.minimum && value && number < property.schema.minimum) {
           return `${property.name} must be greater than ${property.schema.minimum}`;
-        } else if (
-          property.schema.maximum && value && number > property.schema.maximum
-        ) {
+        } else if (property.schema.maximum && value && number > property.schema.maximum) {
           return `${property.name} must be less than ${property.schema.maximum}`;
         }
 
@@ -522,11 +494,7 @@ export class CommandHelper {
     const results: any = {};
     console.log(`${property.name} is a key/value store.`);
 
-    while (
-      await this.promptForContinuation(
-        `Would you like to add a key/value pair to ${property.name}?`,
-      )
-    ) {
+    while (await this.promptForContinuation(`Would you like to add a key/value pair to ${property.name}?`)) {
       const key = await Input.prompt('Key:');
 
       results[key] = await this.promptForSchemaProperties<any>(
@@ -584,12 +552,7 @@ export class CommandHelper {
 
     if (answer === 'create-new') {
       console.log(`Inputs for ${property.name}`);
-      const node = await this.promptForNewResource(
-        graph,
-        provider,
-        property.name,
-        data,
-      );
+      const node = await this.promptForNewResource(graph, provider, property.name, data);
       console.log(`End ${property.name} inputs`);
       return `\${{ ${node.id}.id }}`;
     } else if (answer === 'none') {
@@ -611,10 +574,7 @@ export class CommandHelper {
   ): Promise<T> {
     let schema = property.schema as JSONSchemaType<any>;
     if (schema.$ref && schema.definitions) {
-      schema = schema
-        .definitions[
-          schema.$ref.replace('#/definitions/', '')
-        ] as JSONSchemaType<any>;
+      schema = schema.definitions[schema.$ref.replace('#/definitions/', '')] as JSONSchemaType<any>;
     } else if (schema.$ref) {
       console.error('Invalid json schema');
     }
@@ -639,11 +599,7 @@ export class CommandHelper {
       return res;
     } else if (schema.type === 'object' && schema.properties) {
       let res: Record<string, unknown> = {};
-      for (
-        const [propertyName, propertySchema] of Object.entries<any>(
-          schema.properties,
-        )
-      ) {
+      for (const [propertyName, propertySchema] of Object.entries<any>(schema.properties)) {
         res[propertyName] = await this.promptForSchemaProperties(
           graph,
           provider,
@@ -717,8 +673,7 @@ export class CommandHelper {
           if (
             !options.action ||
             options.action in service ||
-            (['create', 'update', 'delete'].includes(options.action) &&
-              'construct' in service)
+            (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
           ) {
             filteredAccounts.push(p);
           }
@@ -775,17 +730,12 @@ export class CommandHelper {
     input?: string,
     optional?: boolean,
   ): Promise<ResourceType> {
-    const resources = provider.getResourceEntries().filter(
-      ([type, service]) => {
-        return (action in service || 'construct' in service) &&
-          (!input || type === input);
-      },
-    );
+    const resources = provider.getResourceEntries().filter(([type, service]) => {
+      return (action in service || 'construct' in service) && (!input || type === input);
+    });
 
     if (resources.length === 0) {
-      console.error(
-        `The cloud provider ${provider.type} cannot ${action} ${input}s`,
-      );
+      console.error(`The cloud provider ${provider.type} cannot ${action} ${input}s`);
       Deno.exit(1);
     }
 
@@ -812,12 +762,7 @@ export class CommandHelper {
     data: Record<string, unknown> = {},
   ): Promise<CloudNode<T>> {
     const __dirname = new URL('.', import.meta.url).pathname;
-    const schemaPath = path.join(
-      __dirname,
-      '../@resources',
-      type,
-      './inputs.schema.json',
-    );
+    const schemaPath = path.join(__dirname, '../@resources', type, './inputs.schema.json');
     const schemaString = await Deno.readTextFile(schemaPath);
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {
@@ -826,23 +771,16 @@ export class CommandHelper {
 
     const service = account.resources[type];
     if (!service) {
-      console.error(
-        `The ${account.type} provider does not work with ${type} resources`,
-      );
+      console.error(`The ${account.type} provider does not work with ${type} resources`);
       Deno.exit(1);
     }
 
     if (!('construct' in service) && !('create' in service)) {
-      console.error(
-        `The ${account.type} provider cannot create ${type} resources`,
-      );
+      console.error(`The ${account.type} provider cannot create ${type} resources`);
       Deno.exit(1);
     }
 
-    const writableService = service as unknown as WritableResourceService<
-      T,
-      Provider
-    >;
+    const writableService = service as unknown as WritableResourceService<T, Provider>;
     if (writableService.presets && writableService.presets.length > 0) {
       const result = await Select.prompt({
         message: 'Please select one of our default configurations or customize the creation of your resource.',
@@ -881,9 +819,7 @@ export class CommandHelper {
     return node;
   }
 
-  public async promptForCredentials(
-    provider_type: keyof typeof SupportedProviders,
-  ): Promise<Record<string, string>> {
+  public async promptForCredentials(provider_type: keyof typeof SupportedProviders): Promise<Record<string, string>> {
     const credential_schema = SupportedProviders[provider_type].CredentialsSchema;
 
     const credentials: Record<string, string> = {};
@@ -963,10 +899,7 @@ export class CommandHelper {
    * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
    * an error is thrown.
    */
-  public async promptForVariables(
-    graph: CloudGraph,
-    variables: ParsedVariablesType,
-  ): Promise<Record<string, unknown>> {
+  public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
     const sorted_vars = this.sortVariables(variables);
 
@@ -983,8 +916,9 @@ export class CommandHelper {
       // Fill in metadata that relied on this variable
       for (const next_variable of sorted_vars) {
         if (next_variable.dependencies.has(variable.name)) {
-          const dependency = variables[next_variable.name].dependant_variables
-            ?.find((dep) => dep.value === variable.name)!;
+          const dependency = variables[next_variable.name].dependant_variables?.find((dep) =>
+            dep.value === variable.name
+          )!;
 
           (next_variable.metadata as Record<string, unknown>)[dependency.key] = variable_value;
         }
@@ -1018,9 +952,7 @@ export class CommandHelper {
     } else {
       // In this case, metadata.type is a non-special-case ResourceInputs key.
       if (!metadata.arcctlAccount) {
-        throw new Error(
-          `Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`,
-        );
+        throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
       }
       const provider = this.providerStore.getProvider(metadata.arcctlAccount);
       if (!provider) {
@@ -1041,15 +973,9 @@ export class CommandHelper {
    */
   protected sortVariables(
     variables: ParsedVariablesType,
-  ): {
-    name: string;
-    metadata: ParsedVariablesMetadata;
-    dependencies: Set<string>;
-  }[] {
+  ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
     const variable_graph: Record<string, Set<string>> = {};
-    for (
-      const [variable_name, variable_metadata] of Object.entries(variables)
-    ) {
+    for (const [variable_name, variable_metadata] of Object.entries(variables)) {
       const var_dependencies = new Set(
         variable_metadata.dependant_variables ? variable_metadata.dependant_variables.map((v) => v.value) : [],
       );

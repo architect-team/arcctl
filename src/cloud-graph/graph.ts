@@ -8,7 +8,6 @@ export type CloudGraphOptions = {
 
 export class CloudGraph {
   nodes: CloudNode[];
-
   edges: CloudEdge[];
 
   constructor(options?: CloudGraphOptions) {

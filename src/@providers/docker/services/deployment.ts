@@ -13,20 +13,12 @@ import { DockerInspectionResults, DockerPsItem } from '../types.ts';
 const DOCKER_NETWORK_NAME = 'arcctl-local';
 
 export class DockerDeploymentService extends CrudResourceService<'deployment', DockerCredentials> {
-  public constructor(
-    accountName: string,
-    credentials: DockerCredentials,
-    providerStore: ProviderStore,
-  ) {
+  public constructor(accountName: string, credentials: DockerCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
   }
 
-  private async inspect(
-    id: string,
-  ): Promise<DockerInspectionResults | undefined> {
-    const { stdout } = await exec('docker', {
-      args: ['inspect', id.replaceAll('/', '--')],
-    });
+  private async inspect(id: string): Promise<DockerInspectionResults | undefined> {
+    const { stdout } = await exec('docker', { args: ['inspect', id.replaceAll('/', '--')] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     return rawContents.length > 0 ? rawContents[0] : undefined;
   }
@@ -172,9 +164,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     args.push(inputs.image);
 
     if (inputs.command) {
-      args.push(
-        ...(typeof inputs.command === 'string' ? [inputs.command] : inputs.command),
-      );
+      args.push(...(typeof inputs.command === 'string' ? [inputs.command] : inputs.command));
     }
 
     const { code, stderr } = await exec('docker', { args });
@@ -198,16 +188,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(`No deployment with ID ${id}`);
     }
 
-    const { code: stopCode, stderr: stopStderr } = await exec('docker', {
-      args: ['stop', inspection.Id],
-    });
+    const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', inspection.Id] });
     if (stopCode !== 0) {
       throw new Error(stopStderr);
     }
 
-    const { code: rmCode, stderr: rmStderr } = await exec('docker', {
-      args: ['rm', inspection.Id],
-    });
+    const { code: rmCode, stderr: rmStderr } = await exec('docker', { args: ['rm', inspection.Id] });
     if (rmCode !== 0) {
       throw new Error(rmStderr);
     }
@@ -228,9 +214,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push('--platform', inputs.platform);
     }
 
-    for (
-      const [key, value] of Object.entries(inputs.environment || existingEnv)
-    ) {
+    for (const [key, value] of Object.entries(inputs.environment || existingEnv)) {
       args.push('--env', `${key}=${String(value)}`);
     }
 
@@ -244,16 +228,14 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     const ports = inputs.exposed_ports || [];
     if (!inputs.exposed_ports) {
-      Object.keys(inspection.HostConfig.PortBindings).forEach(
-        (existingPort) => {
-          const [targetPort] = existingPort.split('/');
-          const hostPort = inspection.HostConfig.PortBindings[existingPort][0].HostPort;
-          ports.push({
-            port: Number(hostPort),
-            target_port: Number(targetPort),
-          });
-        },
-      );
+      Object.keys(inspection.HostConfig.PortBindings).forEach((existingPort) => {
+        const [targetPort] = existingPort.split('/');
+        const hostPort = inspection.HostConfig.PortBindings[existingPort][0].HostPort;
+        ports.push({
+          port: Number(hostPort),
+          target_port: Number(targetPort),
+        });
+      });
     }
 
     for (const port of ports) {
@@ -286,9 +268,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
     args.push(inputs.image || inspection.Image);
 
-    const command = (inputs.command || inspection.Config.Cmd) as
-      | string
-      | string[];
+    const command = (inputs.command || inspection.Config.Cmd) as string | string[];
     if (command) {
       args.push(...(typeof command === 'string' ? [command] : command));
     }
@@ -316,9 +296,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(stderr || 'Failed to stop deployment');
     }
 
-    const { code: rmCode, stderr: rmStderr } = await exec('docker', {
-      args: ['rm', match.id],
-    });
+    const { code: rmCode, stderr: rmStderr } = await exec('docker', { args: ['rm', match.id] });
     if (rmCode !== 0) {
       throw new Error(rmStderr || 'Failed to remove deployment');
     }

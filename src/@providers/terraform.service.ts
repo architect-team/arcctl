@@ -44,10 +44,7 @@ export abstract class TerraformResourceService<
       return this._terraform;
     }
 
-    this._terraform = await Terraform.generate(
-      CloudCtlConfig.getPluginDirectory(),
-      this.terraform_version,
-    );
+    this._terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), this.terraform_version);
 
     return this._terraform;
   }
@@ -110,7 +107,6 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
-
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -147,7 +143,6 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
-
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -155,10 +150,7 @@ export abstract class TerraformResourceService<
     };
   }
 
-  private async tfApply(
-    cwd: string,
-    logger?: Logger,
-  ): Promise<Deno.CommandOutput> {
+  private async tfApply(cwd: string, logger?: Logger): Promise<Deno.CommandOutput> {
     const terraform = await this.getTerraformPlugin();
 
     const cmd = terraform.apply(cwd, 'plan');
@@ -184,7 +176,6 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
-
     return {
       ...status,
       stdout: stdout.bytes(),
@@ -192,10 +183,7 @@ export abstract class TerraformResourceService<
     };
   }
 
-  private async tfOutput(
-    cwd: string,
-    logger?: Logger,
-  ): Promise<Deno.CommandOutput> {
+  private async tfOutput(cwd: string, logger?: Logger): Promise<Deno.CommandOutput> {
     const terraform = await this.getTerraformPlugin();
 
     const cmd = terraform.output(cwd);
@@ -222,7 +210,6 @@ export abstract class TerraformResourceService<
     );
 
     const status = await cmd.status;
-
     return {
       ...status,
       stdout: stdout.bytes(),

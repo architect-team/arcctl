@@ -15,6 +15,7 @@ export default class LocalProvider extends Provider<LocalCredentials> {
   };
 
   public testCredentials(): Promise<boolean> {
-    return exists(this.credentials.directory);
+    return exists(this.credentials.directory); // TODO: this should be more specific and let the user know that the directory doesn't exist
+    // TODO: why doesn't this pass with ~/.arcctl?
   }
 }

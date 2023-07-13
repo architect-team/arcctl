@@ -1,4 +1,4 @@
-import { App, TerraformOutput } from 'cdktf';
+import { App, TerraformOutput, TerraformStack } from 'cdktf';
 import { Construct } from 'constructs';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';

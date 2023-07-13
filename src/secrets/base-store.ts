@@ -32,11 +32,14 @@ export class BaseStore<T> {
           .apply({
             providerStore: {
               getProvider: (name: string): Promise<Provider> => {
-                return Promise.resolve(new SupportedProviders[secretAccount.provider](
-                  name,
-                  secretAccount.credentials,
-                  new EmptyProviderStore(),
-                ));
+                return Promise.resolve(
+                  new SupportedProviders[secretAccount.provider](
+                    name,
+                    secretAccount.credentials,
+                    new EmptyProviderStore(),
+                    {},
+                  ),
+                );
               },
             } as any,
           })
@@ -67,6 +70,7 @@ export class BaseStore<T> {
       'secret',
       secretAccount.credentials,
       new EmptyProviderStore(),
+      {},
     );
 
     if (!(provider.resources as any).secret) {

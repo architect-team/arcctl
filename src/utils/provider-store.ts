@@ -32,7 +32,7 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
 
     await this.load(async (raw) => {
       const type = raw.type as keyof typeof SupportedProviders;
-      return new SupportedProviders[type](raw.name, raw.credentials, this);
+      return new SupportedProviders[type](raw.name, raw.credentials, this, raw.files);
     });
 
     return this._records!.find((item) => item.name === name);
@@ -41,7 +41,7 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
   getProviders(): Promise<Provider[]> {
     return this.load(async (raw) => {
       const type = raw.type as keyof typeof SupportedProviders;
-      return new SupportedProviders[type](raw.name, raw.credentials, this);
+      return new SupportedProviders[type](raw.name, raw.credentials, this, raw.files);
     });
   }
 

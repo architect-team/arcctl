@@ -132,13 +132,18 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
       const host = outputs.host;
       const port = outputs.port;
       await providerStore.saveProvider(
-        new SupportedProviders.postgres(`postgres-${this.inputs?.name || 'unknown'}`, {
-          host,
-          port,
-          username,
-          password,
-          database: 'postgres',
-        }, providerStore),
+        new SupportedProviders.postgres(
+          `postgres-${this.inputs?.name || 'unknown'}`,
+          {
+            host,
+            port,
+            username,
+            password,
+            database: 'postgres',
+          },
+          providerStore,
+          {},
+        ),
       );
     },
   };

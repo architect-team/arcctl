@@ -393,6 +393,7 @@ export class Pipeline {
               step.inputs.name,
               step.inputs.credentials as any,
               options.providerStore,
+              {},
             ),
           );
         }

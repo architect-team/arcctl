@@ -36,6 +36,7 @@ async function set_secret_account(options: SetSecretAccountOptions) {
     'secret',
     credentials as any,
     command_helper.providerStore,
+    {},
   );
   const validCredentials = await account.testCredentials();
   if (!validCredentials) {
@@ -46,7 +47,6 @@ async function set_secret_account(options: SetSecretAccountOptions) {
     provider: providerType,
     credentials,
   });
-  console.log(command_helper.secretStore);
 }
 
 export default SetSecretAccountCommand;

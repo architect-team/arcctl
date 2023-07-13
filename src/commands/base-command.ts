@@ -709,6 +709,7 @@ export class CommandHelper {
       res.name!,
       credentials as any,
       this.providerStore,
+      {},
     );
 
     const validCredentials = await account.testCredentials();

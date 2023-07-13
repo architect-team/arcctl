@@ -4,6 +4,7 @@ import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { ComputeBackendService } from '../.gen/providers/google/compute-backend-service/index.ts';
 import { ComputeRegionNetworkEndpointGroup } from '../.gen/providers/google/compute-region-network-endpoint-group/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCloudCredentials> {
   outputs: ResourceOutputs['service'];
@@ -11,6 +12,8 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
 
   constructor(scope: Construct, options: ResourceModuleOptions<'service', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     const service_name = this.inputs?.name.replaceAll('/', '--') || 'deleting';
     const service_port = this.inputs?.target_port || 80;

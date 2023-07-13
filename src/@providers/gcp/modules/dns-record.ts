@@ -6,6 +6,7 @@ import { DnsRecordSet } from '../.gen/providers/google/dns-record-set/index.ts';
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 import { GoogleCloudDnsRecordService } from '../services/dns-record.ts';
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudDnsRecordModule extends ResourceModule<'dnsRecord', GoogleCloudCredentials> {
   dns_record: DnsRecordSet;
@@ -13,6 +14,8 @@ export class GoogleCloudDnsRecordModule extends ResourceModule<'dnsRecord', Goog
 
   constructor(scope: Construct, options: ResourceModuleOptions<'dnsRecord', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     const depends_on = [
       new ProjectService(this, 'dns-record-service', {

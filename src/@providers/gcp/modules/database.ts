@@ -8,6 +8,7 @@ import { ProjectService } from '../.gen/providers/google/project-service/index.t
 import { SqlDatabaseInstance } from '../.gen/providers/google/sql-database-instance/index.ts';
 import { SqlUser } from '../.gen/providers/google/sql-user/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudDatabaseModule extends ResourceModule<'database', GoogleCloudCredentials> {
   database: SqlDatabaseInstance;
@@ -16,6 +17,8 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
 
   constructor(scope: Construct, options: ResourceModuleOptions<'database', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     const depends_on = this.inputs?.name
       ? [

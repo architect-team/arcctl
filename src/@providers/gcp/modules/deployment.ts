@@ -5,6 +5,8 @@ import { CloudRunV2ServiceIamBinding } from '../.gen/providers/google/cloud-run-
 import { CloudRunV2Service } from '../.gen/providers/google/cloud-run-v2-service/index.ts';
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
+import GcpUtils from '../utils.ts';
+
 export class GoogleCloudDeploymentModule extends ResourceModule<
   'deployment',
   GoogleCloudCredentials
@@ -14,6 +16,8 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
 
   constructor(scope: Construct, options: ResourceModuleOptions<'deployment', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     const depends_on = this.inputs?.name
       ? [

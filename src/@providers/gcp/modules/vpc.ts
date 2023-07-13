@@ -4,6 +4,7 @@ import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { ComputeNetwork } from '../.gen/providers/google/compute-network/index.ts';
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudVpcModule extends ResourceModule<'vpc', GoogleCloudCredentials> {
   vpc: ComputeNetwork;
@@ -11,6 +12,8 @@ export class GoogleCloudVpcModule extends ResourceModule<'vpc', GoogleCloudCrede
 
   constructor(scope: Construct, options: ResourceModuleOptions<'vpc', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     const depends_on = this.inputs?.name
       ? [

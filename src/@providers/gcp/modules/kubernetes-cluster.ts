@@ -19,6 +19,9 @@ export class GoogleCloudKubernetesClusterModule extends ResourceModule<
 
   constructor(scope: Construct, options: ResourceModuleOptions<'kubernetesCluster', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
+
     const depends_on = this.inputs?.name
       ? [
         new ProjectService(this, 'cluster-compute-service', {

@@ -6,6 +6,7 @@ import { ComputeTargetHttpProxy } from '../.gen/providers/google/compute-target-
 import { ComputeUrlMap } from '../.gen/providers/google/compute-url-map/index.ts';
 import { DataGoogleComputeBackendService } from '../.gen/providers/google/data-google-compute-backend-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', GoogleCloudCredentials> {
   outputs: ResourceOutputs['ingressRule'];
@@ -13,6 +14,8 @@ export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', 
 
   constructor(scope: Construct, options: ResourceModuleOptions<'ingressRule', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     const service_name = this.inputs?.name.replaceAll('/', '--') || '';
 

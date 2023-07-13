@@ -1,11 +1,9 @@
-import { Construct } from 'constructs';
 import { Auth, google } from 'googleapis';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
-import { GoogleProvider as TerraformGoogleProvider } from '../.gen/providers/google/provider/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 import { GoogleCloudVpcModule } from '../modules/vpc.ts';
 
@@ -19,13 +17,6 @@ export class GoogleCloudVpcService extends TerraformResourceService<'vpc', Googl
     this.auth = new Auth.GoogleAuth({
       keyFile: credentials.serviceAccountCredentialsFile,
       scopes: ['https://www.googleapis.com/auth/cloud-platform'],
-    });
-  }
-
-  public configureTerraformProviders(scope: Construct): TerraformGoogleProvider {
-    return new TerraformGoogleProvider(scope, 'gcp', {
-      project: this.credentials.project,
-      credentials: this.credentials.serviceAccountCredentialsFile,
     });
   }
 

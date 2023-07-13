@@ -5,12 +5,15 @@ import { DnsManagedZone } from '../.gen/providers/google/dns-managed-zone/index.
 import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 
+import GcpUtils from '../utils.ts';
 export class GoogleCloudDnsZoneModule extends ResourceModule<'dnsZone', GoogleCloudCredentials> {
   dns_zone: DnsManagedZone;
   outputs: ResourceOutputs['dnsZone'];
 
   constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone', GoogleCloudCredentials>) {
     super(scope, options);
+
+    GcpUtils.configureProvider(this);
 
     if (!this.inputs) { // deleting
       this.dns_zone = new DnsManagedZone(this, 'dns-zone', {

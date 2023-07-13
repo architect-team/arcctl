@@ -1,5 +1,7 @@
 import { google } from 'googleapis';
-import { ResourceInputs } from '../../@resources/index.ts';
+import { ResourceInputs, ResourceType } from '../../@resources/index.ts';
+import { ResourceModule } from '../module.ts';
+import { GoogleProvider as TerraformGoogleProvider } from './.gen/providers/google/provider/index.ts';
 import { GoogleCloudCredentials } from './credentials.ts';
 
 export class GcpClusterImportIds {
@@ -107,5 +109,12 @@ export default class GcpUtils {
     });
 
     return (data.items || []).map((i) => i.name!);
+  }
+
+  public static configureProvider<T extends ResourceType>(resource_module: ResourceModule<T, GoogleCloudCredentials>) {
+    new TerraformGoogleProvider(resource_module, 'gcp', {
+      project: resource_module.credentials.project,
+      credentials: resource_module.credentials.serviceAccountCredentialsFile,
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Auth } from 'googleapis';
+import { Auth, google } from 'googleapis';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
@@ -23,13 +23,48 @@ export class GoogleCloudServiceService extends TerraformResourceService<'service
   async get(
     id: string,
   ): Promise<ResourceOutputs['service'] | undefined> {
-    throw Error('unimplemented');
+    try {
+      const { data: backend } = await google.compute('v1').backendServices.get({
+        project: this.credentials.project,
+        auth: this.auth,
+        backendService: id,
+      });
+      return {
+        id: backend.name || '',
+        protocol: backend.protocol || 'unknown',
+        port: backend.port || 0,
+        host: '',
+        url: '',
+        account: this.accountName,
+      };
+    } catch {
+      return undefined;
+    }
   }
 
   async list(
     filterOptions?: Partial<ResourceOutputs['service']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['service']>> {
-    throw Error('unimplemented');
+    const backends = await google.compute('v1').backendServices.list({
+      project: this.credentials.project,
+      auth: this.auth,
+    });
+
+    return {
+      total: backends.data.items?.length || 0,
+      rows: (backends.data.items || []).map((backend) => {
+        return {
+          type: 'service',
+          id: backend.name || '',
+          name: backend.name || '',
+          protocol: backend.protocol || 'unknown',
+          port: backend.port || 0,
+          host: '',
+          url: '',
+          account: this.accountName,
+        };
+      }),
+    };
   }
 }

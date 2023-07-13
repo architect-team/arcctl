@@ -1,4 +1,4 @@
-import { Auth } from 'googleapis';
+import { Auth, google } from 'googleapis';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
@@ -23,13 +23,46 @@ export class GoogleCloudIngressRuleService extends TerraformResourceService<'ing
   async get(
     id: string,
   ): Promise<ResourceOutputs['ingressRule'] | undefined> {
-    throw Error('unimplemented');
+    try {
+      const { data: rule } = await google.compute('v1').globalForwardingRules.get({
+        project: this.credentials.project,
+        auth: this.auth,
+        forwardingRule: id,
+      });
+      return {
+        id: rule.name || '',
+        loadBalancerHostname: rule.IPAddress || '',
+        host: rule.IPAddress || '',
+        port: rule.portRange || 80,
+        path: '/',
+        url: '',
+      };
+    } catch {
+      return undefined;
+    }
   }
 
   async list(
     filterOptions?: Partial<ResourceOutputs['ingressRule']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['ingressRule']>> {
-    throw Error('unimplemented');
+    const forwarding_rules = await google.compute('v1').globalForwardingRules.list({
+      project: this.credentials.project,
+      auth: this.auth,
+    });
+
+    return {
+      total: forwarding_rules.data.items?.length || 0,
+      rows: (forwarding_rules.data.items || []).map((rule) => {
+        return {
+          id: rule.name || '',
+          loadBalancerHostname: rule.IPAddress || '',
+          host: rule.IPAddress || '',
+          port: rule.portRange || 80,
+          path: '/',
+          url: '',
+        };
+      }),
+    };
   }
 }

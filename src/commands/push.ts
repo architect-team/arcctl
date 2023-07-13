@@ -1,12 +1,15 @@
 import { verifyDocker } from '../docker/helper.ts';
-import { exec } from '../utils/command.ts';
+import { exec, execVerbose } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
-type BuildOptions = GlobalOptions;
+type BuildOptions = {
+  verbose: boolean;
+} & GlobalOptions;
 
 const PushCommand = BaseCommand()
   .description('Push a component up to the registry')
   .arguments('<tag:string>')
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .action(push_action);
 
 async function push_action(options: BuildOptions, tag: string): Promise<void> {
@@ -15,7 +18,21 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
 
   const component = await command_helper.componentStore.getComponentConfig(tag);
   await component.push(async (image: string) => {
-    await exec('docker', { args: ['push', image] });
+    if (options.verbose) {
+      const { code } = await execVerbose('docker', { args: ['push', image] });
+      if (code != 0) {
+        Deno.exit(code);
+      }
+    } else {
+      const { code, stderr } = await exec('docker', { args: ['push', image] });
+
+      if (stderr && stderr.length > 0) {
+        console.error(stderr);
+        Deno.exit(code);
+      }
+    }
+
+    console.log(`Pushed image: ${image}`);
   }, async (deploymentName: string, volumeName: string, image: string, host_path: string, mount_path: string) => {
     const [name, version] = tag.split(':');
     const ref = `${name}/${deploymentName}/volume/${volumeName}:${version}`;
@@ -30,7 +47,7 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
     );
     console.log(`Pushed Volume ${ref}`);
   });
-  console.log(`Pushed ${tag}`);
+  console.log(`Pushed Component: ${tag}`);
 }
 
 export default PushCommand;

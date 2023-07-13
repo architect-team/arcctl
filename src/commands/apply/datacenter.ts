@@ -72,7 +72,6 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     command_helper.doneRenderingPipeline();
     console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
 
-    // TODO: handle any datacenter environments
     if (datacenterEnvironments.length > 0) {
       for (const environment of datacenterEnvironments) {
         await apply_environment_action({

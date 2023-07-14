@@ -1,4 +1,4 @@
-import { ReadableStream, Subscriber } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';

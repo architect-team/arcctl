@@ -17,7 +17,7 @@ await build({
     target: 'ES2020',
   },
   shims: {
-    // crypto: true,
+    crypto: true,
     deno: true,
     timers: true,
     undici: true,

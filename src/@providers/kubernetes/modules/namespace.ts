@@ -11,7 +11,7 @@ export class KubernetesNamespaceModule extends ResourceModule<'namespace', Kuber
   constructor(scope: Construct, options: ResourceModuleOptions<'namespace', KubernetesCredentials>) {
     super(scope, options);
 
-    this.namespace = new Namespace(scope, 'namespace', {
+    this.namespace = new Namespace(this, 'namespace', {
       metadata: {
         name: this.inputs?.name || 'unknown',
       },

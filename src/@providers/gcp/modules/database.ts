@@ -24,6 +24,7 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
       ? [
         new ProjectService(this, 'database-service', {
           service: 'compute.googleapis.com',
+          disableOnDestroy: false,
         }),
       ]
       : [];

@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: '18'
       - uses: denoland/setup-deno@v1.1.2
+      - run: deno --version
       - run: deno task generate:npm
       - run: |
           cd build

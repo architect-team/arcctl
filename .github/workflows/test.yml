@@ -4,8 +4,8 @@ on:
     branches-ignore:
       - "main"
 
-env:
-  DENO_DIR: deno_cache
+# env:
+#   DENO_DIR: deno_cache
 
 jobs:
   test:

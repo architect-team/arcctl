@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { google } from 'npm:googleapis';
+import { google } from 'googleapis';
 import { ProviderCredentials } from '../credentials.ts';
 import { Provider, ProviderResources } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';

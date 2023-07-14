@@ -13,11 +13,7 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanVpcModule;
 
-  constructor(
-    accountName: string,
-    credentials: DigitaloceanCredentials,
-    providerStore: ProviderStore,
-  ) {
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
   }
 
@@ -30,9 +26,7 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
     };
   }
 
-  public configureTerraformProviders(
-    scope: Construct,
-  ): TerraformDigitaloceanProvider {
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
     return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
       token: this.credentials.token,
     });
@@ -75,8 +69,7 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
       },
 
       description: (input?: string) => {
-        return !input || input.length <= 255 ||
-          'Description must be less than 255 characters.';
+        return !input || input.length <= 255 || 'Description must be less than 255 characters.';
       },
     };
   }

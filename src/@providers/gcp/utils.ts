@@ -1,4 +1,4 @@
-import { google } from 'npm:googleapis';
+import { google } from 'googleapis';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { GoogleCloudCredentials } from './credentials.ts';
 

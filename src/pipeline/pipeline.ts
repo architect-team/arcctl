@@ -46,9 +46,7 @@ const setNoopSteps = (
 
   do {
     done = true;
-    for (
-      let step of nextPipeline.steps.filter((step) => step.action === 'update')
-    ) {
+    for (let step of nextPipeline.steps.filter((step) => step.action === 'update')) {
       const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
 
       const allDependencies = nextPipeline.getDependencies(step.id);
@@ -236,9 +234,7 @@ export class Pipeline {
       }
     }
 
-    throw new Error(
-      `No edge found matching options: ${JSON.stringify(options)}`,
-    );
+    throw new Error(`No edge found matching options: ${JSON.stringify(options)}`);
   }
 
   public validate(): void {
@@ -257,17 +253,13 @@ export class Pipeline {
 
   public getDependencies(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) =>
-        step.id !== step_id &&
-        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
+      (step) => step.id !== step_id && this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
     );
   }
 
   public getDependents(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) =>
-        step.id !== step_id &&
-        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
+      (step) => step.id !== step_id && this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
     );
   }
 
@@ -281,13 +273,12 @@ export class Pipeline {
 
     const replacements: Record<string, string> = {};
     for (const newNode of options.after.nodes) {
-      const previousStep = options.before.steps.find((n) => n.id.startsWith(newNode.id));
+      const previousStep = options.before.steps.find((n) => {
+        return n.id.startsWith(newNode.id);
+      });
 
       const oldId = newNode.id;
-      if (
-        !previousStep || previousStep.status.state !== 'complete' ||
-        previousStep.action === 'delete'
-      ) {
+      if (!previousStep || previousStep.status.state !== 'complete' || previousStep.action === 'delete') {
         const newStep = new PipelineStep({
           ...newNode,
           type: newNode.type,
@@ -432,9 +423,7 @@ export class Pipeline {
               };
 
               options.providerStore.saveProvider(
-                new SupportedProviders[
-                  step.inputs.provider as keyof typeof SupportedProviders
-                ](
+                new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
                   step.inputs.name,
                   step.inputs.credentials as any,
                   options.providerStore,

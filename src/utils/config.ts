@@ -24,11 +24,7 @@ export default class CloudCtlConfig {
 
   public static getTerraformDirectory(): string {
     if (!this.tfDirectory) {
-      this.tfDirectory = path.join(
-        this.getConfigDirectory(),
-        '/tf/',
-        `/${crypto.randomUUID()}/`,
-      );
+      this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${crypto.randomUUID()}/`);
     }
     return this.tfDirectory!;
   }

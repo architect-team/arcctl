@@ -27,10 +27,7 @@ export default class PluginManager {
     return this.ARCHITECTUREMAP[Deno.build.arch];
   }
 
-  private static async removeOldPluginVersions(
-    pluginDirectory: string,
-    plugin: ArchitectPlugin,
-  ) {
+  private static async removeOldPluginVersions(pluginDirectory: string, plugin: ArchitectPlugin) {
     if (!existsSync(pluginDirectory)) {
       return;
     }
@@ -60,20 +57,13 @@ export default class PluginManager {
       throw new Error(`Unable to find version ${version} of ${ctor.name}`);
     }
     const pluginDirectory = configDirectory;
-    const currentPluginDirectory = path.join(
-      pluginDirectory,
-      `/${plugin.name}`,
-    );
+    const currentPluginDirectory = path.join(pluginDirectory, `/${plugin.name}`);
     const versionPath = path.join(currentPluginDirectory, `/${version}`);
 
     await this.removeOldPluginVersions(currentPluginDirectory, plugin);
     await Deno.mkdir(versionPath, { recursive: true });
 
-    const binary = PluginUtils.getBinary(
-      plugin.versions[version],
-      this.getPlatform(),
-      this.getArchitecture(),
-    );
+    const binary = PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture());
     const downloadedFilePath = path.join(
       versionPath,
       `/${plugin.name}.${binary.bundleType === PluginBundleType.ZIP ? 'zip' : 'tar.gz'}`,
@@ -92,7 +82,6 @@ export default class PluginManager {
       await PluginUtils.downloadFile(
         binary.url,
         downloadedFilePath,
-        binary.sha256,
       );
       await PluginUtils.extractFile(
         downloadedFilePath,
@@ -105,11 +94,7 @@ export default class PluginManager {
 
     await plugin.setup(
       versionPath,
-      PluginUtils.getBinary(
-        plugin.versions[version],
-        this.getPlatform(),
-        this.getArchitecture(),
-      ),
+      PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture()),
     );
 
     this.plugins[id] = plugin;

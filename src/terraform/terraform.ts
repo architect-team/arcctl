@@ -10,15 +10,8 @@ export class Terraform {
     this.plugin = plugin;
   }
 
-  public static async generate(
-    pluginDir: string,
-    version: TerraformVersion,
-  ): Promise<Terraform> {
-    const plugin = await PluginManager.getPlugin(
-      pluginDir,
-      version,
-      TerraformPlugin,
-    );
+  public static async generate(pluginDir: string, version: TerraformVersion): Promise<Terraform> {
+    const plugin = await PluginManager.getPlugin(pluginDir, version, TerraformPlugin);
 
     return new Terraform(plugin);
   }
@@ -36,11 +29,7 @@ export class Terraform {
     });
   }
 
-  public plan(
-    cwd: string,
-    outputFile: string,
-    options?: { refresh?: boolean; destroy?: boolean },
-  ): Deno.ChildProcess {
+  public plan(cwd: string, outputFile: string, options?: { refresh?: boolean; destroy?: boolean }): Deno.ChildProcess {
     const args = ['plan', '-input=false', `-out=${outputFile}`];
     if (options?.refresh === false) {
       args.push('-refresh=false');
@@ -56,11 +45,7 @@ export class Terraform {
     });
   }
 
-  public apply(
-    cwd: string,
-    planFile: string,
-    options?: { refresh?: boolean; destroy?: boolean },
-  ): Deno.ChildProcess {
+  public apply(cwd: string, planFile: string, options?: { refresh?: boolean; destroy?: boolean }): Deno.ChildProcess {
     const args = ['apply'];
     if (options?.refresh === false) {
       args.push('-refresh=false');
@@ -85,11 +70,7 @@ export class Terraform {
     });
   }
 
-  public import(
-    cwd: string,
-    resourceId: string,
-    cloudId: string,
-  ): Deno.ChildProcess {
+  public import(cwd: string, resourceId: string, cloudId: string): Deno.ChildProcess {
     return this.plugin.exec(['import', resourceId, cloudId], {
       stdout: false,
       commandOptions: { cwd },

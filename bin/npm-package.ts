@@ -7,10 +7,6 @@ const build_dir = path.join(__dirname, '../build');
 
 await emptyDir(build_dir);
 
-const package_json = JSON.parse(
-  await Deno.readTextFile(path.join(build_dir, '..', 'package.json')),
-);
-
 await build({
   typeCheck: false,
   test: false,
@@ -35,11 +31,11 @@ await build({
     homepage: 'https://github.com/architect-team/arcctl',
     repository: 'architect-team/arcctl',
     bugs: 'https://github.com/architect-team/arcctl/issues',
-    dependencies: package_json.dependencies,
-    devDependencies: package_json.devDependencies,
-    scripts: package_json.scripts,
+    scripts: {
+      "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js"
+    },
     main: 'esm/index.js',
-    version: '0.0.53-rc'
+    version: '0.0.54-rc'
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
   scriptModule: false

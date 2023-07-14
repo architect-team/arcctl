@@ -67,7 +67,12 @@ describe('Component Schema: v1', () => {
       environment: 'account/environment',
       inputs: {
         type: 'containerPush',
-        name: 'account/component',
+        name: CloudNode.genResourceId({
+          name: 'api',
+          component: 'account/component',
+          environment: 'account/environment',
+        }),
+        tag: 'latest',
         digest: `\${{ ${build_node.id}.id }}`,
       },
     });

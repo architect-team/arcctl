@@ -1,3 +1,3 @@
-export type ContainerPushOutputs = {};
+export type ContainerPushOutputs = Record<string, string>;
 
 export default ContainerPushOutputs;

@@ -5,8 +5,22 @@
     "RepositoryInputs": {
       "additionalProperties": false,
       "properties": {
-        "name": {
+        "description": {
+          "description": "Human-readable description of the repository",
           "type": "string"
+        },
+        "name": {
+          "description": "The name for the new repository",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "The namespace the repository should be in",
+          "type": "string"
+        },
+        "private": {
+          "default": false,
+          "description": "Whether or not the repository is private",
+          "type": "boolean"
         }
       },
       "required": [

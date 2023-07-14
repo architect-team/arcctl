@@ -189,20 +189,6 @@
                                 "description": "Path to the dockerfile relative to the context",
                                 "type": "string"
                               },
-                              "registry": {
-                                "default": "registry.architect.io",
-                                "description": "Registry the artifact will be pushed to",
-                                "type": "string"
-                              },
-                              "repository": {
-                                "description": "The repository to push the artifact to",
-                                "type": "string"
-                              },
-                              "tag": {
-                                "default": "latest",
-                                "description": "Tag to assign to the image",
-                                "type": "string"
-                              },
                               "target": {
                                 "description": "Name of a intermediate build stage to target",
                                 "type": "string"
@@ -216,7 +202,6 @@
                               "account",
                               "component_source",
                               "context",
-                              "repository",
                               "type"
                             ],
                             "type": "object"
@@ -240,6 +225,15 @@
                               "digest": {
                                 "type": "string"
                               },
+                              "name": {
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "type": "string"
+                              },
+                              "registry": {
+                                "type": "string"
+                              },
                               "tag": {
                                 "type": "string"
                               },
@@ -251,6 +245,7 @@
                             "required": [
                               "account",
                               "digest",
+                              "name",
                               "type"
                             ],
                             "type": "object"
@@ -2555,6 +2550,9 @@
                             "type": "string"
                           },
                           {
+                            "type": "string"
+                          },
+                          {
                             "description": "Unique name for the database",
                             "type": "string"
                           },
@@ -2564,9 +2562,6 @@
                           },
                           {
                             "description": "Deployment name",
-                            "type": "string"
-                          },
-                          {
                             "type": "string"
                           },
                           {
@@ -2842,8 +2837,6 @@
                             "type": "object"
                           },
                           {
-                            "default": "registry.architect.io",
-                            "description": "Registry the artifact will be pushed to",
                             "type": "string"
                           },
                           {
@@ -2870,10 +2863,6 @@
                           {
                             "additionalProperties": false,
                             "type": "object"
-                          },
-                          {
-                            "description": "The repository to push the artifact to",
-                            "type": "string"
                           },
                           {
                             "description": "The URL of the repository where the chart lives",
@@ -2958,11 +2947,6 @@
                           {
                             "additionalProperties": false,
                             "type": "object"
-                          },
-                          {
-                            "default": "latest",
-                            "description": "Tag to assign to the image",
-                            "type": "string"
                           },
                           {
                             "type": "string"
@@ -3221,20 +3205,6 @@
                           "description": "Path to the dockerfile relative to the context",
                           "type": "string"
                         },
-                        "registry": {
-                          "default": "registry.architect.io",
-                          "description": "Registry the artifact will be pushed to",
-                          "type": "string"
-                        },
-                        "repository": {
-                          "description": "The repository to push the artifact to",
-                          "type": "string"
-                        },
-                        "tag": {
-                          "default": "latest",
-                          "description": "Tag to assign to the image",
-                          "type": "string"
-                        },
                         "target": {
                           "description": "Name of a intermediate build stage to target",
                           "type": "string"
@@ -3248,7 +3218,6 @@
                         "account",
                         "component_source",
                         "context",
-                        "repository",
                         "type"
                       ],
                       "type": "object"
@@ -3272,6 +3241,15 @@
                         "digest": {
                           "type": "string"
                         },
+                        "name": {
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "type": "string"
+                        },
+                        "registry": {
+                          "type": "string"
+                        },
                         "tag": {
                           "type": "string"
                         },
@@ -3283,6 +3261,7 @@
                       "required": [
                         "account",
                         "digest",
+                        "name",
                         "type"
                       ],
                       "type": "object"
@@ -5308,20 +5287,6 @@
                       "description": "Path to the dockerfile relative to the context",
                       "type": "string"
                     },
-                    "registry": {
-                      "default": "registry.architect.io",
-                      "description": "Registry the artifact will be pushed to",
-                      "type": "string"
-                    },
-                    "repository": {
-                      "description": "The repository to push the artifact to",
-                      "type": "string"
-                    },
-                    "tag": {
-                      "default": "latest",
-                      "description": "Tag to assign to the image",
-                      "type": "string"
-                    },
                     "target": {
                       "description": "Name of a intermediate build stage to target",
                       "type": "string"
@@ -5335,7 +5300,6 @@
                     "account",
                     "component_source",
                     "context",
-                    "repository",
                     "type"
                   ],
                   "type": "object"
@@ -5359,6 +5323,15 @@
                     "digest": {
                       "type": "string"
                     },
+                    "name": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
                     "tag": {
                       "type": "string"
                     },
@@ -5370,6 +5343,7 @@
                   "required": [
                     "account",
                     "digest",
+                    "name",
                     "type"
                   ],
                   "type": "object"

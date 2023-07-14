@@ -27,9 +27,9 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
   ): Promise<ResourceOutputs['containerPush']> {
     if (!inputs.registry && !inputs.namespace) {
       subscriber.next(inputs.digest);
-      return {
+      return Promise.resolve({
         id: inputs.digest,
-      };
+      });
     }
 
     const tagParts = [];

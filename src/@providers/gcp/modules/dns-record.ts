@@ -17,6 +17,7 @@ export class GoogleCloudDnsRecordModule extends ResourceModule<'dnsRecord', Goog
     const depends_on = [
       new ProjectService(this, 'dns-record-service', {
         service: 'dns.googleapis.com',
+        disableOnDestroy: false,
       }),
     ];
 

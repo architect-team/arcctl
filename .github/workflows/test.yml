@@ -16,11 +16,11 @@ jobs:
         uses: denolib/setup-deno@master
         with:
           deno-version: 1.34.1
-      - name: Cache Deno dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.DENO_DIR }}
-          key: ${{ hashFiles('deno.lock') }}
+      # - name: Cache Deno dependencies
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ${{ env.DENO_DIR }}
+      #     key: ${{ hashFiles('deno.lock') }}
       - name: Check formatting
         run: deno fmt --check
       - name: Check linting

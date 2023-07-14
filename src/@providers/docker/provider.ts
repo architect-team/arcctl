@@ -6,6 +6,7 @@ import { DockerBuildService } from './services/build.ts';
 import { DockerDatabaseService } from './services/database.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
+import { DockerPushService } from './services/push.ts';
 import { DockerTaskService } from './services/task.ts';
 import { DockerVolumeService } from './services/volume.ts';
 import { DockerInfo } from './types.ts';
@@ -21,7 +22,8 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     task: new DockerTaskService(this.name, this.credentials, this.providerStore),
     volume: new DockerVolumeService(this.name, this.credentials, this.providerStore),
     database: new DockerDatabaseService(this.name, this.credentials, this.providerStore),
-    dockerBuild: new DockerBuildService(this.name, this.credentials, this.providerStore),
+    containerBuild: new DockerBuildService(this.name, this.credentials, this.providerStore),
+    containerPush: new DockerPushService(this.name, this.credentials, this.providerStore),
   };
 
   @RequiresDocker()

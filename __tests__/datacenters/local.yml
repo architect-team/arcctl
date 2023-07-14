@@ -76,6 +76,8 @@ environment:
 
   hooks:
     - when:
+        type: containerPush
+    - when:
         type: service
       account: ${{ accounts.gateway.id }}
       dnsZone: 172.17.0.1.nip.io

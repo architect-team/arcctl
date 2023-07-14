@@ -32,6 +32,7 @@ export abstract class CrudResourceService<
         },
       });
 
+      let lastStatus = '';
       const statusObserver = new Observable<string>((status) => {
         const promise = options.state?.id
           ? this.update(status, options.state.id, inputs as DeepPartial<ResourceInputs[T]>)
@@ -42,6 +43,7 @@ export abstract class CrudResourceService<
           res.next({
             status: {
               state: 'complete',
+              message: lastStatus,
               startTime,
               endTime: Date.now(),
             },
@@ -64,6 +66,7 @@ export abstract class CrudResourceService<
       });
 
       statusObserver.subscribe((status) => {
+        lastStatus = status;
         res.next({
           status: {
             state: 'applying',

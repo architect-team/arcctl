@@ -189,8 +189,7 @@ export default class ComponentV2 extends Component {
           component: context.component.name,
           environment: context.environment,
           inputs: {
-            type: 'dockerBuild',
-            repository: context.component.name,
+            type: 'containerBuild',
             component_source: context.component.source,
             context: context.component.debug &&
                 build_config.debug &&
@@ -229,6 +228,30 @@ export default class ComponentV2 extends Component {
           build_node.inputs,
         );
         graph.insertNodes(build_node);
+
+        const push_node = new CloudNode({
+          name: build_key,
+          component: context.component.name,
+          environment: context.environment,
+          inputs: {
+            type: 'containerPush',
+            name: CloudNode.genResourceId({
+              name: build_key,
+              component: context.component.name,
+              environment: context.environment,
+            }),
+            tag: 'latest',
+            digest: `\${{ ${build_node.id}.id }}`,
+          },
+        });
+        graph.insertNodes(push_node);
+        graph.insertEdges(
+          new CloudEdge({
+            from: push_node.id,
+            to: build_node.id,
+            required: true,
+          }),
+        );
       }
     }
 

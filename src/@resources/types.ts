@@ -1,5 +1,9 @@
 import type arcctlAccountInputs from './arcctlAccount/inputs.ts';
 import type arcctlAccountOutputs from './arcctlAccount/outputs.ts';
+import type containerBuildInputs from './containerBuild/inputs.ts';
+import type containerBuildOutputs from './containerBuild/outputs.ts';
+import type containerPushInputs from './containerPush/inputs.ts';
+import type containerPushOutputs from './containerPush/outputs.ts';
 import type cronjobInputs from './cronjob/inputs.ts';
 import type cronjobOutputs from './cronjob/outputs.ts';
 import type databaseInputs from './database/inputs.ts';
@@ -20,8 +24,6 @@ import type dnsRecordInputs from './dnsRecord/inputs.ts';
 import type dnsRecordOutputs from './dnsRecord/outputs.ts';
 import type dnsZoneInputs from './dnsZone/inputs.ts';
 import type dnsZoneOutputs from './dnsZone/outputs.ts';
-import type dockerBuildInputs from './dockerBuild/inputs.ts';
-import type dockerBuildOutputs from './dockerBuild/outputs.ts';
 import type helmChartInputs from './helmChart/inputs.ts';
 import type helmChartOutputs from './helmChart/outputs.ts';
 import type ingressRuleInputs from './ingressRule/inputs.ts';
@@ -38,6 +40,8 @@ import type nodeSizeInputs from './nodeSize/inputs.ts';
 import type nodeSizeOutputs from './nodeSize/outputs.ts';
 import type regionInputs from './region/inputs.ts';
 import type regionOutputs from './region/outputs.ts';
+import type repositoryInputs from './repository/inputs.ts';
+import type repositoryOutputs from './repository/outputs.ts';
 import type secretInputs from './secret/inputs.ts';
 import type secretOutputs from './secret/outputs.ts';
 import type serviceInputs from './service/inputs.ts';
@@ -51,6 +55,8 @@ import type vpcOutputs from './vpc/outputs.ts';
 
 export type ResourceType =
   | 'arcctlAccount'
+  | 'containerBuild'
+  | 'containerPush'
   | 'cronjob'
   | 'database'
   | 'databaseSchema'
@@ -61,7 +67,6 @@ export type ResourceType =
   | 'deployment'
   | 'dnsRecord'
   | 'dnsZone'
-  | 'dockerBuild'
   | 'helmChart'
   | 'ingressRule'
   | 'kubernetesCluster'
@@ -70,6 +75,7 @@ export type ResourceType =
   | 'node'
   | 'nodeSize'
   | 'region'
+  | 'repository'
   | 'secret'
   | 'service'
   | 'task'
@@ -78,6 +84,8 @@ export type ResourceType =
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
+  'containerBuild',
+  'containerPush',
   'cronjob',
   'database',
   'databaseSchema',
@@ -88,7 +96,6 @@ export const ResourceTypeList: ResourceType[] = [
   'deployment',
   'dnsRecord',
   'dnsZone',
-  'dockerBuild',
   'helmChart',
   'ingressRule',
   'kubernetesCluster',
@@ -97,6 +104,7 @@ export const ResourceTypeList: ResourceType[] = [
   'node',
   'nodeSize',
   'region',
+  'repository',
   'secret',
   'service',
   'task',
@@ -109,6 +117,14 @@ export type ResourceInputs = {
     type: 'arcctlAccount';
     account?: string;
   } & arcctlAccountInputs;
+  'containerBuild': {
+    type: 'containerBuild';
+    account?: string;
+  } & containerBuildInputs;
+  'containerPush': {
+    type: 'containerPush';
+    account?: string;
+  } & containerPushInputs;
   'cronjob': {
     type: 'cronjob';
     account?: string;
@@ -149,10 +165,6 @@ export type ResourceInputs = {
     type: 'dnsZone';
     account?: string;
   } & dnsZoneInputs;
-  'dockerBuild': {
-    type: 'dockerBuild';
-    account?: string;
-  } & dockerBuildInputs;
   'helmChart': {
     type: 'helmChart';
     account?: string;
@@ -185,6 +197,10 @@ export type ResourceInputs = {
     type: 'region';
     account?: string;
   } & regionInputs;
+  'repository': {
+    type: 'repository';
+    account?: string;
+  } & repositoryInputs;
   'secret': {
     type: 'secret';
     account?: string;
@@ -211,6 +227,12 @@ export type ResourceOutputs = {
   'arcctlAccount': {
     id: string;
   } & arcctlAccountOutputs;
+  'containerBuild': {
+    id: string;
+  } & containerBuildOutputs;
+  'containerPush': {
+    id: string;
+  } & containerPushOutputs;
   'cronjob': {
     id: string;
   } & cronjobOutputs;
@@ -241,9 +263,6 @@ export type ResourceOutputs = {
   'dnsZone': {
     id: string;
   } & dnsZoneOutputs;
-  'dockerBuild': {
-    id: string;
-  } & dockerBuildOutputs;
   'helmChart': {
     id: string;
   } & helmChartOutputs;
@@ -268,6 +287,9 @@ export type ResourceOutputs = {
   'region': {
     id: string;
   } & regionOutputs;
+  'repository': {
+    id: string;
+  } & repositoryOutputs;
   'secret': {
     id: string;
   } & secretOutputs;

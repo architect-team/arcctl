@@ -93,8 +93,7 @@ describe('Component Schema: v2', () => {
       component: 'component',
       environment: 'environment',
       inputs: {
-        type: 'dockerBuild',
-        repository: 'component',
+        type: 'containerBuild',
         context: './',
         args: {},
         component_source: 'fake/source',
@@ -102,7 +101,25 @@ describe('Component Schema: v2', () => {
       },
     });
 
-    assertArrayIncludes(graph.nodes, [build_node]);
+    const push_node = new CloudNode({
+      name: 'test',
+      component: 'component',
+      environment: 'environment',
+      inputs: {
+        type: 'containerPush',
+        name: 'component',
+        digest: `\${{ ${build_node.id}.id }}`,
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [build_node, push_node]);
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: push_node.id,
+        to: build_node.id,
+        required: true,
+      }),
+    ]);
   });
 
   it('should generate variables', () =>

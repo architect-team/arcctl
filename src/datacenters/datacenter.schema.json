@@ -157,6 +157,109 @@
                           "if": {
                             "properties": {
                               "type": {
+                                "const": "containerBuild",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "args": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "default": {},
+                                "description": "Arguments to pass to the build command",
+                                "type": "object"
+                              },
+                              "component_source": {
+                                "description": "Source of the component that contains the build context",
+                                "type": "string"
+                              },
+                              "context": {
+                                "description": "Docker build context relative to the component root",
+                                "type": "string"
+                              },
+                              "dockerfile": {
+                                "default": "Dockerfile",
+                                "description": "Path to the dockerfile relative to the context",
+                                "type": "string"
+                              },
+                              "registry": {
+                                "default": "registry.architect.io",
+                                "description": "Registry the artifact will be pushed to",
+                                "type": "string"
+                              },
+                              "repository": {
+                                "description": "The repository to push the artifact to",
+                                "type": "string"
+                              },
+                              "tag": {
+                                "default": "latest",
+                                "description": "Tag to assign to the image",
+                                "type": "string"
+                              },
+                              "target": {
+                                "description": "Name of a intermediate build stage to target",
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "containerBuild",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "component_source",
+                              "context",
+                              "repository",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "containerPush",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "digest": {
+                                "type": "string"
+                              },
+                              "tag": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "containerPush",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "digest",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
                                 "const": "cronjob",
                                 "type": "string"
                               }
@@ -218,6 +321,9 @@
                               "namespace": {
                                 "type": "string"
                               },
+                              "platform": {
+                                "type": "string"
+                              },
                               "schedule": {
                                 "type": "string"
                               },
@@ -264,6 +370,9 @@
                                       "type": "string"
                                     },
                                     "memory": {
+                                      "type": "string"
+                                    },
+                                    "platform": {
                                       "type": "string"
                                     },
                                     "volume_mounts": {
@@ -843,6 +952,28 @@
                                 "description": "Number of replicas of the deployment to run",
                                 "type": "number"
                               },
+                              "services": {
+                                "description": "Services this deployment should register itself with",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "account": {
+                                      "description": "The account the deployment can use to register itself with the service.",
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "description": "Unique ID of the service the deployment should attach itself to",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "account"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
                               "sidecars": {
                                 "description": "A set of additional containers to run as part of each replica",
                                 "items": {
@@ -1215,75 +1346,6 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "dockerBuild",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": false,
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "args": {
-                                "additionalProperties": {
-                                  "type": "string"
-                                },
-                                "default": {},
-                                "description": "Arguments to pass to the build command",
-                                "type": "object"
-                              },
-                              "component_source": {
-                                "description": "Source of the component that contains the build context",
-                                "type": "string"
-                              },
-                              "context": {
-                                "description": "Docker build context relative to the component root",
-                                "type": "string"
-                              },
-                              "dockerfile": {
-                                "default": "Dockerfile",
-                                "description": "Path to the dockerfile relative to the context",
-                                "type": "string"
-                              },
-                              "registry": {
-                                "default": "registry.architect.io",
-                                "description": "Registry the artifact will be pushed to",
-                                "type": "string"
-                              },
-                              "repository": {
-                                "description": "The repository to push the artifact to",
-                                "type": "string"
-                              },
-                              "tag": {
-                                "default": "latest",
-                                "description": "Tag to assign to the image",
-                                "type": "string"
-                              },
-                              "target": {
-                                "description": "Name of a intermediate build stage to target",
-                                "type": "string"
-                              },
-                              "type": {
-                                "const": "dockerBuild",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "component_source",
-                              "context",
-                              "repository",
-                              "type"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
                                 "const": "helmChart",
                                 "type": "string"
                               }
@@ -1353,6 +1415,13 @@
                               "dnsZone": {
                                 "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                                 "type": "string"
+                              },
+                              "headers": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Headers to include in responses",
+                                "type": "object"
                               },
                               "internal": {
                                 "default": false,
@@ -1532,79 +1601,6 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "loadBalancer",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": false,
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "internal": {
-                                "default": false,
-                                "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                                "type": "boolean"
-                              },
-                              "loadBalancerType": {
-                                "description": "What type of load balancer to create",
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "Name for the new load balancer",
-                                "type": "string"
-                              },
-                              "namespace": {
-                                "description": "A namespace to put the load balancer in",
-                                "type": "string"
-                              },
-                              "type": {
-                                "const": "loadBalancer",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "loadBalancerType",
-                              "name",
-                              "type"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
-                                "properties": {},
-                                "type": "object"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": {},
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "type": {
-                                "const": "loadBalancerType",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "type"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
                                 "const": "namespace",
                                 "type": "string"
                               }
@@ -1708,6 +1704,51 @@
                             },
                             "required": [
                               "account",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "repository",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Human-readable description of the repository",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name for the new repository",
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "description": "The namespace the repository should be in",
+                                "type": "string"
+                              },
+                              "private": {
+                                "default": false,
+                                "description": "Whether or not the repository is private",
+                                "type": "boolean"
+                              },
+                              "type": {
+                                "const": "repository",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "name",
                               "type"
                             ],
                             "type": "object"
@@ -2104,6 +2145,8 @@
                         "type": {
                           "enum": [
                             "arcctlAccount",
+                            "containerBuild",
+                            "containerPush",
                             "cronjob",
                             "database",
                             "databaseSchema",
@@ -2112,12 +2155,11 @@
                             "deployment",
                             "dnsRecord",
                             "dnsZone",
-                            "dockerBuild",
                             "helmChart",
                             "ingressRule",
                             "kubernetesCluster",
-                            "loadBalancer",
                             "namespace",
+                            "repository",
                             "secret",
                             "service",
                             "task",
@@ -2331,7 +2373,22 @@
                             "type": "string"
                           },
                           {
+                            "description": "Human-readable description of the repository",
+                            "type": "string"
+                          },
+                          {
                             "description": "Description for the VPC",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "digest": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
                             "type": "string"
                           }
                         ]
@@ -2399,6 +2456,10 @@
                           }
                         ]
                       },
+                      "headers": {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       "hostPath": {
                         "anyOf": [
                           {
@@ -2436,11 +2497,6 @@
                             "default": false,
                             "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                             "type": "boolean"
-                          },
-                          {
-                            "default": false,
-                            "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                            "type": "boolean"
                           }
                         ]
                       },
@@ -2459,18 +2515,6 @@
                       "labels": {
                         "additionalProperties": false,
                         "type": "object"
-                      },
-                      "loadBalancerType": {
-                        "anyOf": [
-                          {
-                            "additionalProperties": false,
-                            "type": "object"
-                          },
-                          {
-                            "description": "What type of load balancer to create",
-                            "type": "string"
-                          }
-                        ]
                       },
                       "memory": {
                         "anyOf": [
@@ -2538,7 +2582,7 @@
                             "type": "string"
                           },
                           {
-                            "description": "Name for the new load balancer",
+                            "description": "The name for the new repository",
                             "type": "string"
                           },
                           {
@@ -2582,7 +2626,7 @@
                             "type": "string"
                           },
                           {
-                            "description": "A namespace to put the load balancer in",
+                            "description": "The namespace the repository should be in",
                             "type": "string"
                           },
                           {
@@ -2631,6 +2675,9 @@
                             "type": "object"
                           },
                           {
+                            "type": "string"
+                          },
+                          {
                             "description": "Target platform the deployment will run on",
                             "type": "string"
                           }
@@ -2652,6 +2699,19 @@
                           {
                             "description": "Port to listen on",
                             "type": "number"
+                          }
+                        ]
+                      },
+                      "private": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": false,
+                            "description": "Whether or not the repository is private",
+                            "type": "boolean"
                           }
                         ]
                       },
@@ -2870,6 +2930,10 @@
                           }
                         ]
                       },
+                      "services": {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       "sidecars": {
                         "additionalProperties": false,
                         "type": "object"
@@ -2898,6 +2962,9 @@
                           {
                             "default": "latest",
                             "description": "Tag to assign to the image",
+                            "type": "string"
+                          },
+                          {
                             "type": "string"
                           }
                         ]
@@ -2965,6 +3032,8 @@
                       "type": {
                         "enum": [
                           "arcctlAccount",
+                          "containerBuild",
+                          "containerPush",
                           "cronjob",
                           "database",
                           "databaseSchema",
@@ -2975,17 +3044,15 @@
                           "deployment",
                           "dnsRecord",
                           "dnsZone",
-                          "dockerBuild",
                           "helmChart",
                           "ingressRule",
                           "kubernetesCluster",
                           "kubernetesVersion",
-                          "loadBalancer",
-                          "loadBalancerType",
                           "namespace",
                           "node",
                           "nodeSize",
                           "region",
+                          "repository",
                           "secret",
                           "service",
                           "task",
@@ -3122,6 +3189,109 @@
                     "if": {
                       "properties": {
                         "type": {
+                          "const": "containerBuild",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "args": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "default": {},
+                          "description": "Arguments to pass to the build command",
+                          "type": "object"
+                        },
+                        "component_source": {
+                          "description": "Source of the component that contains the build context",
+                          "type": "string"
+                        },
+                        "context": {
+                          "description": "Docker build context relative to the component root",
+                          "type": "string"
+                        },
+                        "dockerfile": {
+                          "default": "Dockerfile",
+                          "description": "Path to the dockerfile relative to the context",
+                          "type": "string"
+                        },
+                        "registry": {
+                          "default": "registry.architect.io",
+                          "description": "Registry the artifact will be pushed to",
+                          "type": "string"
+                        },
+                        "repository": {
+                          "description": "The repository to push the artifact to",
+                          "type": "string"
+                        },
+                        "tag": {
+                          "default": "latest",
+                          "description": "Tag to assign to the image",
+                          "type": "string"
+                        },
+                        "target": {
+                          "description": "Name of a intermediate build stage to target",
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "containerBuild",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "component_source",
+                        "context",
+                        "repository",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "containerPush",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "digest": {
+                          "type": "string"
+                        },
+                        "tag": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "containerPush",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "digest",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
                           "const": "cronjob",
                           "type": "string"
                         }
@@ -3183,6 +3353,9 @@
                         "namespace": {
                           "type": "string"
                         },
+                        "platform": {
+                          "type": "string"
+                        },
                         "schedule": {
                           "type": "string"
                         },
@@ -3229,6 +3402,9 @@
                                 "type": "string"
                               },
                               "memory": {
+                                "type": "string"
+                              },
+                              "platform": {
                                 "type": "string"
                               },
                               "volume_mounts": {
@@ -3808,6 +3984,28 @@
                           "description": "Number of replicas of the deployment to run",
                           "type": "number"
                         },
+                        "services": {
+                          "description": "Services this deployment should register itself with",
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "description": "The account the deployment can use to register itself with the service.",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "Unique ID of the service the deployment should attach itself to",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "account"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
                         "sidecars": {
                           "description": "A set of additional containers to run as part of each replica",
                           "items": {
@@ -4180,75 +4378,6 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "dockerBuild",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "args": {
-                          "additionalProperties": {
-                            "type": "string"
-                          },
-                          "default": {},
-                          "description": "Arguments to pass to the build command",
-                          "type": "object"
-                        },
-                        "component_source": {
-                          "description": "Source of the component that contains the build context",
-                          "type": "string"
-                        },
-                        "context": {
-                          "description": "Docker build context relative to the component root",
-                          "type": "string"
-                        },
-                        "dockerfile": {
-                          "default": "Dockerfile",
-                          "description": "Path to the dockerfile relative to the context",
-                          "type": "string"
-                        },
-                        "registry": {
-                          "default": "registry.architect.io",
-                          "description": "Registry the artifact will be pushed to",
-                          "type": "string"
-                        },
-                        "repository": {
-                          "description": "The repository to push the artifact to",
-                          "type": "string"
-                        },
-                        "tag": {
-                          "default": "latest",
-                          "description": "Tag to assign to the image",
-                          "type": "string"
-                        },
-                        "target": {
-                          "description": "Name of a intermediate build stage to target",
-                          "type": "string"
-                        },
-                        "type": {
-                          "const": "dockerBuild",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "component_source",
-                        "context",
-                        "repository",
-                        "type"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
                           "const": "helmChart",
                           "type": "string"
                         }
@@ -4318,6 +4447,13 @@
                         "dnsZone": {
                           "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                           "type": "string"
+                        },
+                        "headers": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "description": "Headers to include in responses",
+                          "type": "object"
                         },
                         "internal": {
                           "default": false,
@@ -4497,79 +4633,6 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "loadBalancer",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "internal": {
-                          "default": false,
-                          "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                          "type": "boolean"
-                        },
-                        "loadBalancerType": {
-                          "description": "What type of load balancer to create",
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "Name for the new load balancer",
-                          "type": "string"
-                        },
-                        "namespace": {
-                          "description": "A namespace to put the load balancer in",
-                          "type": "string"
-                        },
-                        "type": {
-                          "const": "loadBalancer",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "loadBalancerType",
-                        "name",
-                        "type"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
-                          "properties": {},
-                          "type": "object"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": {},
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "type": {
-                          "const": "loadBalancerType",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "type"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
                           "const": "namespace",
                           "type": "string"
                         }
@@ -4673,6 +4736,51 @@
                       },
                       "required": [
                         "account",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "repository",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "description": "Human-readable description of the repository",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name for the new repository",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "The namespace the repository should be in",
+                          "type": "string"
+                        },
+                        "private": {
+                          "default": false,
+                          "description": "Whether or not the repository is private",
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "const": "repository",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "name",
                         "type"
                       ],
                       "type": "object"
@@ -5069,6 +5177,8 @@
                   "type": {
                     "enum": [
                       "arcctlAccount",
+                      "containerBuild",
+                      "containerPush",
                       "cronjob",
                       "database",
                       "databaseSchema",
@@ -5077,12 +5187,11 @@
                       "deployment",
                       "dnsRecord",
                       "dnsZone",
-                      "dockerBuild",
                       "helmChart",
                       "ingressRule",
                       "kubernetesCluster",
-                      "loadBalancer",
                       "namespace",
+                      "repository",
                       "secret",
                       "service",
                       "task",
@@ -5167,6 +5276,109 @@
                 "if": {
                   "properties": {
                     "type": {
+                      "const": "containerBuild",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "args": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "default": {},
+                      "description": "Arguments to pass to the build command",
+                      "type": "object"
+                    },
+                    "component_source": {
+                      "description": "Source of the component that contains the build context",
+                      "type": "string"
+                    },
+                    "context": {
+                      "description": "Docker build context relative to the component root",
+                      "type": "string"
+                    },
+                    "dockerfile": {
+                      "default": "Dockerfile",
+                      "description": "Path to the dockerfile relative to the context",
+                      "type": "string"
+                    },
+                    "registry": {
+                      "default": "registry.architect.io",
+                      "description": "Registry the artifact will be pushed to",
+                      "type": "string"
+                    },
+                    "repository": {
+                      "description": "The repository to push the artifact to",
+                      "type": "string"
+                    },
+                    "tag": {
+                      "default": "latest",
+                      "description": "Tag to assign to the image",
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Name of a intermediate build stage to target",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "containerBuild",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "component_source",
+                    "context",
+                    "repository",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "containerPush",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "tag": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "containerPush",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "digest",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
                       "const": "cronjob",
                       "type": "string"
                     }
@@ -5228,6 +5440,9 @@
                     "namespace": {
                       "type": "string"
                     },
+                    "platform": {
+                      "type": "string"
+                    },
                     "schedule": {
                       "type": "string"
                     },
@@ -5274,6 +5489,9 @@
                             "type": "string"
                           },
                           "memory": {
+                            "type": "string"
+                          },
+                          "platform": {
                             "type": "string"
                           },
                           "volume_mounts": {
@@ -5853,6 +6071,28 @@
                       "description": "Number of replicas of the deployment to run",
                       "type": "number"
                     },
+                    "services": {
+                      "description": "Services this deployment should register itself with",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "account": {
+                            "description": "The account the deployment can use to register itself with the service.",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique ID of the service the deployment should attach itself to",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "account"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
                     "sidecars": {
                       "description": "A set of additional containers to run as part of each replica",
                       "items": {
@@ -6225,75 +6465,6 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "dockerBuild",
-                      "type": "string"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "args": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "default": {},
-                      "description": "Arguments to pass to the build command",
-                      "type": "object"
-                    },
-                    "component_source": {
-                      "description": "Source of the component that contains the build context",
-                      "type": "string"
-                    },
-                    "context": {
-                      "description": "Docker build context relative to the component root",
-                      "type": "string"
-                    },
-                    "dockerfile": {
-                      "default": "Dockerfile",
-                      "description": "Path to the dockerfile relative to the context",
-                      "type": "string"
-                    },
-                    "registry": {
-                      "default": "registry.architect.io",
-                      "description": "Registry the artifact will be pushed to",
-                      "type": "string"
-                    },
-                    "repository": {
-                      "description": "The repository to push the artifact to",
-                      "type": "string"
-                    },
-                    "tag": {
-                      "default": "latest",
-                      "description": "Tag to assign to the image",
-                      "type": "string"
-                    },
-                    "target": {
-                      "description": "Name of a intermediate build stage to target",
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "dockerBuild",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "component_source",
-                    "context",
-                    "repository",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
                       "const": "helmChart",
                       "type": "string"
                     }
@@ -6363,6 +6534,13 @@
                     "dnsZone": {
                       "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                       "type": "string"
+                    },
+                    "headers": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Headers to include in responses",
+                      "type": "object"
                     },
                     "internal": {
                       "default": false,
@@ -6542,79 +6720,6 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "loadBalancer",
-                      "type": "string"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "internal": {
-                      "default": false,
-                      "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
-                      "type": "boolean"
-                    },
-                    "loadBalancerType": {
-                      "description": "What type of load balancer to create",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Name for the new load balancer",
-                      "type": "string"
-                    },
-                    "namespace": {
-                      "description": "A namespace to put the load balancer in",
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "loadBalancer",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "loadBalancerType",
-                    "name",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
-                      "properties": {},
-                      "type": "object"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": {},
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "loadBalancerType",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
                       "const": "namespace",
                       "type": "string"
                     }
@@ -6718,6 +6823,51 @@
                   },
                   "required": [
                     "account",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "repository",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Human-readable description of the repository",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name for the new repository",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "The namespace the repository should be in",
+                      "type": "string"
+                    },
+                    "private": {
+                      "default": false,
+                      "description": "Whether or not the repository is private",
+                      "type": "boolean"
+                    },
+                    "type": {
+                      "const": "repository",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "name",
                     "type"
                   ],
                   "type": "object"
@@ -7114,6 +7264,8 @@
               "type": {
                 "enum": [
                   "arcctlAccount",
+                  "containerBuild",
+                  "containerPush",
                   "cronjob",
                   "database",
                   "databaseSchema",
@@ -7122,12 +7274,11 @@
                   "deployment",
                   "dnsRecord",
                   "dnsZone",
-                  "dockerBuild",
                   "helmChart",
                   "ingressRule",
                   "kubernetesCluster",
-                  "loadBalancer",
                   "namespace",
+                  "repository",
                   "secret",
                   "service",
                   "task",
@@ -7169,6 +7320,12 @@
               "arcctlAccount": {
                 "type": "string"
               },
+              "containerBuild": {
+                "type": "string"
+              },
+              "containerPush": {
+                "type": "string"
+              },
               "cronjob": {
                 "type": "string"
               },
@@ -7202,9 +7359,6 @@
               "dnsZone": {
                 "type": "string"
               },
-              "dockerBuild": {
-                "type": "string"
-              },
               "helmChart": {
                 "type": "string"
               },
@@ -7215,12 +7369,6 @@
                 "type": "string"
               },
               "kubernetesVersion": {
-                "type": "string"
-              },
-              "loadBalancer": {
-                "type": "string"
-              },
-              "loadBalancerType": {
                 "type": "string"
               },
               "namespace": {
@@ -7238,6 +7386,9 @@
               "region": {
                 "type": "string"
               },
+              "repository": {
+                "type": "string"
+              },
               "secret": {
                 "type": "string"
               },
@@ -7250,6 +7401,8 @@
               "type": {
                 "enum": [
                   "arcctlAccount",
+                  "containerBuild",
+                  "containerPush",
                   "cronjob",
                   "database",
                   "databaseSchema",
@@ -7260,17 +7413,15 @@
                   "deployment",
                   "dnsRecord",
                   "dnsZone",
-                  "dockerBuild",
                   "helmChart",
                   "ingressRule",
                   "kubernetesCluster",
                   "kubernetesVersion",
-                  "loadBalancer",
-                  "loadBalancerType",
                   "namespace",
                   "node",
                   "nodeSize",
                   "region",
+                  "repository",
                   "secret",
                   "service",
                   "task",

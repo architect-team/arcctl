@@ -426,12 +426,9 @@ export class Pipeline {
           id: step.inputs.name,
         };
 
-        step.status = {
-          state: 'complete',
-          message: '',
-          startTime: Date.now(),
-          endTime: Date.now(),
-        };
+        step.status.state = 'complete';
+        step.status.startTime = Date.now();
+        step.status.endTime = Date.now();
         continue;
       }
 

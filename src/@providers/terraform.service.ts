@@ -339,7 +339,6 @@ export abstract class TerraformResourceService<
     subscriber.next({
       status: {
         state: 'complete',
-        message: '',
         startTime,
         endTime: Date.now(),
       },
@@ -458,7 +457,6 @@ export abstract class TerraformResourceService<
       subscriber.next({
         status: {
           state: 'complete',
-          message: '',
           startTime,
           endTime: Date.now(),
         },

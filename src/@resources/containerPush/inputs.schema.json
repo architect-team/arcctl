@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/ContainerPushInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ContainerPushInputs": {
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

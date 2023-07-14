@@ -7,15 +7,15 @@ import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
 
-export class DockerBuildService extends CrudResourceService<'dockerBuild', DockerCredentials> {
-  get(id: string): Promise<ResourceOutputs['dockerBuild'] | undefined> {
+export class DockerBuildService extends CrudResourceService<'containerBuild', DockerCredentials> {
+  get(id: string): Promise<ResourceOutputs['containerBuild'] | undefined> {
     return Promise.resolve(undefined);
   }
 
   list(
-    filterOptions?: Partial<ResourceOutputs['dockerBuild']>,
+    filterOptions?: Partial<ResourceOutputs['containerBuild']>,
     pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['dockerBuild']>> {
+  ): Promise<PagingResponse<ResourceOutputs['containerBuild']>> {
     return Promise.resolve({
       total: 0,
       rows: [],
@@ -24,8 +24,8 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
 
   async create(
     subscriber: Subscriber<string>,
-    inputs: ResourceInputs['dockerBuild'],
-  ): Promise<ResourceOutputs['dockerBuild']> {
+    inputs: ResourceInputs['containerBuild'],
+  ): Promise<ResourceOutputs['containerBuild']> {
     const args = ['build', '--quiet'];
 
     if (inputs.dockerfile) {
@@ -54,13 +54,13 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
   update(
     subscriber: Subscriber<string>,
     id: string,
-    inputs: DeepPartial<ResourceInputs['dockerBuild']>,
-  ): Promise<ResourceOutputs['dockerBuild']> {
+    inputs: DeepPartial<ResourceInputs['containerBuild']>,
+  ): Promise<ResourceOutputs['containerBuild']> {
     if (inputs.context) {
-      return this.create(subscriber, inputs as ResourceInputs['dockerBuild']);
+      return this.create(subscriber, inputs as ResourceInputs['containerBuild']);
     }
 
-    throw new Error(`Cannot update dockerBuild resources`);
+    throw new Error(`Cannot update containerBuild resources`);
   }
 
   delete(subscriber: Subscriber<string>, id: string): Promise<void> {

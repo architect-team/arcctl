@@ -371,6 +371,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     url += `${host}${urlPath}`;
 
+    subscriber.next(url);
     return {
       id: normalizedId,
       host,

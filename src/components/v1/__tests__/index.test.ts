@@ -53,10 +53,22 @@ describe('Component Schema: v1', () => {
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
-        type: 'dockerBuild',
+        args: {},
+        type: 'containerBuild',
         context: './',
+        dockerfile: 'Dockerfile',
         component_source: 'fake/source',
-        repository: 'account/component',
+      },
+    });
+
+    const push_node = new CloudNode({
+      name: 'api',
+      component: 'account/component',
+      environment: 'account/environment',
+      inputs: {
+        type: 'containerPush',
+        name: 'account/component',
+        digest: `\${{ ${build_node.id}.id }}`,
       },
     });
 
@@ -72,12 +84,12 @@ describe('Component Schema: v1', () => {
           environment: 'account/environment',
         }),
         replicas: 1,
-        image: `\${{ ${build_node.id}.id }}`,
+        image: `\${{ ${push_node.id}.id }}`,
         volume_mounts: [],
       },
     });
 
-    assertArrayIncludes(graph.nodes, [deployment_node]);
+    assertArrayIncludes(graph.nodes, [build_node, push_node, deployment_node]);
   });
 
   it('should create edge for explicit depends_on', () => {
@@ -181,56 +193,6 @@ describe('Component Schema: v1', () => {
         environment: {
           NAME: `account/environment`,
         },
-      },
-    });
-
-    assertArrayIncludes(graph.nodes, [deployment_node]);
-  });
-
-  it('should generate build steps', () => {
-    const component = new ComponentV1(yaml.load(
-      `
-      name: account/component
-      services:
-        api:
-          build:
-            context: ./
-    `,
-    ) as ComponentSchema);
-    const graph = component.getGraph({
-      component: {
-        name: 'account/component',
-        source: 'fake/source',
-      },
-      environment: 'account/environment',
-    });
-
-    const build_node = new CloudNode({
-      name: 'api',
-      component: 'account/component',
-      environment: 'account/environment',
-      inputs: {
-        type: 'dockerBuild',
-        context: './',
-        component_source: 'fake/source',
-        repository: 'account/component',
-      },
-    });
-
-    const deployment_node = new CloudNode({
-      name: 'api',
-      component: 'account/component',
-      environment: 'account/environment',
-      inputs: {
-        type: 'deployment',
-        name: CloudNode.genResourceId({
-          name: 'api',
-          component: 'account/component',
-          environment: 'account/environment',
-        }),
-        replicas: 1,
-        image: `\${{ ${build_node.id}.id }}`,
-        volume_mounts: [],
       },
     });
 

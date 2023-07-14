@@ -53,6 +53,100 @@
           "if": {
             "properties": {
               "type": {
+                "const": "containerBuild",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "args": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "default": {},
+                "description": "Arguments to pass to the build command",
+                "type": "object"
+              },
+              "component_source": {
+                "description": "Source of the component that contains the build context",
+                "type": "string"
+              },
+              "context": {
+                "description": "Docker build context relative to the component root",
+                "type": "string"
+              },
+              "dockerfile": {
+                "default": "Dockerfile",
+                "description": "Path to the dockerfile relative to the context",
+                "type": "string"
+              },
+              "registry": {
+                "default": "registry.architect.io",
+                "description": "Registry the artifact will be pushed to",
+                "type": "string"
+              },
+              "repository": {
+                "description": "The repository to push the artifact to",
+                "type": "string"
+              },
+              "tag": {
+                "default": "latest",
+                "description": "Tag to assign to the image",
+                "type": "string"
+              },
+              "target": {
+                "description": "Name of a intermediate build stage to target",
+                "type": "string"
+              },
+              "type": {
+                "const": "containerBuild",
+                "type": "string"
+              }
+            },
+            "required": [
+              "component_source",
+              "context",
+              "repository",
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "containerPush",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "type": {
+                "const": "containerPush",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "cronjob",
                 "type": "string"
               }
@@ -871,74 +965,6 @@
           "if": {
             "properties": {
               "type": {
-                "const": "dockerBuild",
-                "type": "string"
-              }
-            }
-          },
-          "then": {
-            "additionalProperties": false,
-            "properties": {
-              "account": {
-                "type": "string"
-              },
-              "args": {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "default": {},
-                "description": "Arguments to pass to the build command",
-                "type": "object"
-              },
-              "component_source": {
-                "description": "Source of the component that contains the build context",
-                "type": "string"
-              },
-              "context": {
-                "description": "Docker build context relative to the component root",
-                "type": "string"
-              },
-              "dockerfile": {
-                "default": "Dockerfile",
-                "description": "Path to the dockerfile relative to the context",
-                "type": "string"
-              },
-              "registry": {
-                "default": "registry.architect.io",
-                "description": "Registry the artifact will be pushed to",
-                "type": "string"
-              },
-              "repository": {
-                "description": "The repository to push the artifact to",
-                "type": "string"
-              },
-              "tag": {
-                "default": "latest",
-                "description": "Tag to assign to the image",
-                "type": "string"
-              },
-              "target": {
-                "description": "Name of a intermediate build stage to target",
-                "type": "string"
-              },
-              "type": {
-                "const": "dockerBuild",
-                "type": "string"
-              }
-            },
-            "required": [
-              "component_source",
-              "context",
-              "repository",
-              "type"
-            ],
-            "type": "object"
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
                 "const": "helmChart",
                 "type": "string"
               }
@@ -1289,6 +1315,36 @@
               }
             },
             "required": [
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "repository",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "const": "repository",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
               "type"
             ],
             "type": "object"
@@ -1680,6 +1736,8 @@
         "type": {
           "enum": [
             "arcctlAccount",
+            "containerBuild",
+            "containerPush",
             "cronjob",
             "database",
             "databaseSchema",
@@ -1688,11 +1746,11 @@
             "deployment",
             "dnsRecord",
             "dnsZone",
-            "dockerBuild",
             "helmChart",
             "ingressRule",
             "kubernetesCluster",
             "namespace",
+            "repository",
             "secret",
             "service",
             "task",

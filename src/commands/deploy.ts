@@ -104,7 +104,6 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
 
       let logger: Logger | undefined;
       if (options.verbose) {
-        command_helper.renderPipeline(pipeline);
         logger = winston.createLogger({
           level: 'info',
           format: winston.format.printf(({ message }) => message),

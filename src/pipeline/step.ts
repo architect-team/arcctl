@@ -192,7 +192,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
           complete: () => {
             this.status.state = 'complete';
-            this.status.message = '';
             this.status.endTime = Date.now();
             subscriber.next(this);
             subscriber.complete();

@@ -21,7 +21,8 @@ import {
 import { Environment, EnvironmentRecord, EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import ArcCtlConfig from '../utils/config.ts';
-import { CldCtlProviderStore } from '../utils/provider-store.ts';
+import { ArcctlProviderStore } from '../utils/provider-store.ts';
+import { topologicalSort } from '../utils/sorting.ts';
 import { createTable } from '../utils/table.ts';
 
 export type GlobalOptions = {
@@ -49,7 +50,7 @@ export class CommandHelper {
   }
 
   get providerStore(): ProviderStore {
-    return new CldCtlProviderStore(ArcCtlConfig.getConfigDirectory());
+    return new ArcctlProviderStore(ArcCtlConfig.getConfigDirectory());
   }
 
   get datacenterStore(): DatacenterStore {
@@ -226,7 +227,7 @@ export class CommandHelper {
   }
 
   public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+    const secretAccount = this.providerStore.get(record.lastPipeline.account);
     if (!secretAccount) {
       console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
       Deno.exit(1);
@@ -252,7 +253,7 @@ export class CommandHelper {
   }
 
   public async getPipelineForEnvironment(record: EnvironmentRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+    const secretAccount = this.providerStore.get(record.lastPipeline.account);
     if (!secretAccount) {
       console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
       Deno.exit(1);
@@ -663,7 +664,7 @@ export class CommandHelper {
       message?: string;
     } = {},
   ): Promise<Provider> {
-    const allAccounts = this.providerStore.getProviders();
+    const allAccounts = this.providerStore.list();
     let filteredAccounts: Provider[] = [];
     if (!options.prompt_accounts) {
       for (const p of allAccounts) {
@@ -779,7 +780,7 @@ export class CommandHelper {
       Deno.exit(1);
     }
 
-    const writableService = service as unknown as WritableResourceService<T, Provider>;
+    const writableService = service as unknown as WritableResourceService<T, any>;
     if (writableService.presets && writableService.presets.length > 0) {
       const result = await Select.prompt({
         message: 'Please select one of our default configurations or customize the creation of your resource.',
@@ -845,7 +846,7 @@ export class CommandHelper {
   }
 
   private async createAccount(): Promise<Provider> {
-    const allAccounts = this.providerStore.getProviders();
+    const allAccounts = this.providerStore.list();
     const providers = Object.keys(SupportedProviders);
 
     const res = await prompt([
@@ -883,7 +884,7 @@ export class CommandHelper {
     }
 
     try {
-      this.providerStore.saveProvider(account);
+      this.providerStore.save(account);
       console.log(`${account.name} account registered`);
     } catch (ex: any) {
       console.error(ex.message);
@@ -939,7 +940,7 @@ export class CommandHelper {
     } else if (metadata.type === 'number') {
       return NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
-      const existing_accounts = this.providerStore.getProviders();
+      const existing_accounts = this.providerStore.list();
       const query_accounts = metadata.provider
         ? existing_accounts.filter((p) => p.type === metadata.provider)
         : existing_accounts;
@@ -953,7 +954,7 @@ export class CommandHelper {
       if (!metadata.arcctlAccount) {
         throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
       }
-      const provider = this.providerStore.getProvider(metadata.arcctlAccount);
+      const provider = this.providerStore.get(metadata.arcctlAccount);
       if (!provider) {
         throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
       }
@@ -981,14 +982,8 @@ export class CommandHelper {
       variable_graph[variable_name] = var_dependencies;
     }
 
-    const result: string[] = [];
-    const discovered = new Set<string>();
-    const finished = new Set<string>();
-    for (const var_name of Object.keys(variable_graph)) {
-      if (!finished.has(var_name) && !discovered.has(var_name)) {
-        this.topologicalSort(variable_graph, var_name, discovered, finished, result);
-      }
-    }
+    const result = topologicalSort(variable_graph);
+
     // We must reverse the topological sort to get the correct ordering - the edges in this
     // graph are variables the node depends on, so those dependencies must be prompted for first.
     result.reverse();
@@ -1002,32 +997,6 @@ export class CommandHelper {
       });
     }
     return vars;
-  }
-
-  /**
-   * Topologically sort the graph, and raise an error if a cycle is detected.
-   */
-  private topologicalSort(
-    graph: Record<string, Set<string>>,
-    node: string,
-    discovered: Set<string>,
-    finished: Set<string>,
-    result: string[],
-  ) {
-    discovered.add(node);
-
-    for (const edge of graph[node]) {
-      if (discovered.has(edge)) {
-        throw Error(`A circular dependency has been found between the variables '${node}' and '${edge}'`);
-      }
-      if (!finished.has(edge)) {
-        this.topologicalSort(graph, edge, discovered, finished, result);
-      }
-    }
-
-    discovered.delete(node);
-    finished.add(node);
-    result.unshift(node);
   }
 
   public async applyDatacenter(

@@ -23,9 +23,11 @@ export class GoogleCloudKubernetesClusterModule extends ResourceModule<
       ? [
         new ProjectService(this, 'cluster-compute-service', {
           service: 'compute.googleapis.com',
+          disableOnDestroy: false,
         }),
         new ProjectService(this, 'cluster-container-service', {
           service: 'container.googleapis.com',
+          disableOnDestroy: false,
         }),
       ]
       : [];

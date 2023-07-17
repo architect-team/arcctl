@@ -28,7 +28,7 @@ export class Terraform {
       commandOptions: {
         cwd,
         env: {
-          'TF_PLUGIN_CACHE_DIR': ArcCtlConfig.getTerraformCacheDirectory(),
+          'TF_PLUGIN_CACHE_DIR': Deno.env.get('TF_PLUGIN_CACHE_DIR') || ArcCtlConfig.getTerraformCacheDirectory(),
         },
       },
     });

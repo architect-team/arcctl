@@ -93,7 +93,6 @@
               }
             },
             "required": [
-              "port",
               "target_port"
             ],
             "type": "object"
@@ -140,6 +139,28 @@
           "default": 1,
           "description": "Number of replicas of the deployment to run",
           "type": "number"
+        },
+        "services": {
+          "description": "Services this deployment should register itself with",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "description": "The account the deployment can use to register itself with the service.",
+                "type": "string"
+              },
+              "id": {
+                "description": "Unique ID of the service the deployment should attach itself to",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "account"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         },
         "sidecars": {
           "description": "A set of additional containers to run as part of each replica",

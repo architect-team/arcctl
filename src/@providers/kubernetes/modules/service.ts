@@ -29,15 +29,18 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
         }
         : {
           type: 'ClusterIP',
-          selector: this.inputs?.target_deployment
+          ...(this.inputs && 'target_deployment' in this.inputs
             ? {
-              'architect.io/name': this.inputs.target_deployment.replaceAll('/', '--'),
+              selector: this.inputs?.target_deployment
+                ? {
+                  'architect.io/name': this.inputs.target_deployment.replaceAll('/', '--'),
+                }
+                : undefined,
             }
-            : undefined,
+            : {}),
           port: [
             {
               port: 80,
-              nodePort: this.inputs?.port,
               targetPort: String(this.inputs?.target_port || 80),
             },
           ],
@@ -61,6 +64,7 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
     url += host;
 
     this.outputs = {
+      ...this.inputs,
       id,
       protocol,
       host,
@@ -68,6 +72,9 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
       url,
       username: this.inputs?.username || '',
       password: this.inputs?.password || '',
+      account: this.inputs?.account || '',
+      name: host,
+      target_port: this.inputs?.target_port || 80,
     };
   }
 

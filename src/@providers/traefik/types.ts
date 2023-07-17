@@ -1,3 +1,5 @@
+import { ResourceInputs } from '../../@resources/index.ts';
+
 export type TraefikRouter = {
   rule: string;
   service: string;
@@ -33,7 +35,8 @@ export type TraefikMiddleware = {
   headers?: {
     customRequestHeaders?: Record<string, string>;
     customResponseHeaders?: Record<string, string>;
-    accessControlAllowMethods?: string;
+    accessControlAllowCredentials?: boolean;
+    accessControlAllowMethods?: string[];
     accessControlAllowHeaders?: string;
     accessControlAllowOriginList?: string[];
     accessControlMaxAge?: number;
@@ -64,6 +67,7 @@ export type TraefikFormattedService = {
       [key: string]: TraefikTcpService;
     };
   };
+  architect: ResourceInputs['service'];
 };
 
 export type TraefikFormattedIngressRule = {

@@ -160,13 +160,14 @@ export const testDatabaseIntegration = (
     environment: 'environment',
   });
 
+  const name = `${deployment_node_id}/${options.database_name}`;
   const database_user_node = new CloudNode({
-    name: `${deployment_node_id}/${options.database_name}`,
+    name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'databaseUser',
-      username: deployment_node_id.replaceAll('/', '--'),
+      username: name.replaceAll('/', '--'),
       databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
       account: `\${{ ${database_schema_node_id}.account }}`,
     },
@@ -276,17 +277,41 @@ export const testServiceGeneration = (
     },
   });
 
-  assertArrayIncludes(graph.nodes, [service_node]);
-  assertArrayIncludes(graph.edges, [
-    new CloudEdge({
-      from: service_node.id,
-      to: CloudNode.genId({
-        type: 'deployment',
+  const deployment_node = new CloudNode({
+    name: options.deployment_name,
+    component: 'component',
+    environment: 'environment',
+    inputs: {
+      type: 'deployment',
+      name: CloudNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
       }),
+      image: 'nginx:1.14.2',
+      replicas: 1,
+      services: [
+        {
+          id: `\${{ ${service_node.id}.id }}`,
+          account: `\${{ ${service_node.id}.account }}`,
+          port: `\${{ ${service_node.id}.target_port }}`,
+        },
+      ],
+      volume_mounts: [],
+    },
+  });
+
+  assertArrayIncludes(graph.nodes, [deployment_node, service_node]);
+  assertArrayIncludes(graph.edges, [
+    new CloudEdge({
+      from: service_node.id,
+      to: deployment_node.id,
       required: false,
+    }),
+    new CloudEdge({
+      from: deployment_node.id,
+      to: service_node.id,
+      required: true,
     }),
   ]);
 };

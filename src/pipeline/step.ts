@@ -74,7 +74,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       throw new Error('Unable to create execution directory for terraform');
     }
 
-    const account = providerStore.getProvider(
+    const account = providerStore.get(
       this.inputs?.account || '',
     );
     if (!account) {
@@ -115,7 +115,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         return;
       }
 
-      const account = options.providerStore.getProvider(
+      const account = options.providerStore.get(
         this.inputs?.account || '',
       );
       if (!account) {

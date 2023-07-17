@@ -114,6 +114,9 @@
               "namespace": {
                 "type": "string"
               },
+              "platform": {
+                "type": "string"
+              },
               "schedule": {
                 "type": "string"
               },
@@ -160,6 +163,9 @@
                       "type": "string"
                     },
                     "memory": {
+                      "type": "string"
+                    },
+                    "platform": {
                       "type": "string"
                     },
                     "volume_mounts": {
@@ -555,7 +561,6 @@
                     }
                   },
                   "required": [
-                    "port",
                     "target_port"
                   ],
                   "type": "object"
@@ -602,6 +607,28 @@
                 "default": 1,
                 "description": "Number of replicas of the deployment to run",
                 "type": "number"
+              },
+              "services": {
+                "description": "Services this deployment should register itself with",
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "description": "The account the deployment can use to register itself with the service.",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique ID of the service the deployment should attach itself to",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "account"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "sidecars": {
                 "description": "A set of additional containers to run as part of each replica",
@@ -980,6 +1007,13 @@
                 "description": "The DNS zone (aka base URL) that the ingress rule listens on",
                 "type": "string"
               },
+              "headers": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Headers to include in responses",
+                "type": "object"
+              },
               "internal": {
                 "default": false,
                 "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -1356,12 +1390,8 @@
                 "description": "Basic auth password",
                 "type": "string"
               },
-              "port": {
-                "description": "Port to listen on",
-                "type": "number"
-              },
               "target_deployment": {
-                "description": "Target deployment name",
+                "description": "A deployment the service should point to",
                 "type": "string"
               },
               "target_port": {
@@ -1372,6 +1402,13 @@
                 "default": "http",
                 "description": "Protocol",
                 "type": "string"
+              },
+              "target_servers": {
+                "description": "The servers the service should load balance between",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "type": {
                 "const": "service",
@@ -1384,7 +1421,6 @@
             },
             "required": [
               "name",
-              "target_deployment",
               "target_port",
               "type"
             ],

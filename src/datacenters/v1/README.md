@@ -1,4 +1,4 @@
-# v1 datacenter schema
+# Architect Datacenter Schema - v1
 
 The v1 datacenter schema is designed to allow operators to control resources in three
 different scopes:
@@ -28,7 +28,7 @@ resources:
     region: ${{ variables.region }}
 ```
 
-Every resource must declare a `type` that matches one of the arcctl [resource types](../../%40resources/)
+Every resource must declare a `type` that matches one of the Architect [resource types](../../%40resources/)
 as well as an [`account`](../../%40providers/) capable of creating said type of resource. Once declared, the outputs of said
 resource type can be referenced elsewhere in the datacenter schema using the expression syntax,
 `${{ resources.<resource-key>.<output-key> }}`.
@@ -53,7 +53,7 @@ resources:
 
 ## Datacenter accounts
 
-In addition to creating arcctl resources, datacenters can also register new cloud accounts
+In addition to creating [Architect Resources](../../@resources), datacenters can also register new cloud accounts
 with one of the supported providers automatically. This can help setup complex sequences
 that allow you to create resources within newly created cloud accounts without additional
 steps.
@@ -88,7 +88,7 @@ environment:
 
 ### Environment resources
 
-Like with the root scope, arcctl resources can be declared within the environment
+Like with the root scope, [Architect Resources](../../@resources) can be declared within the environment
 specification as well. When declared here, one of each resource will be created for
 each environment within the datacenter.
 
@@ -113,7 +113,7 @@ environment:
 
 ### Environment accounts
 
-Also as with the root scope, new arcctl accounts can be registered for each enviroment
+Also as with the root scope, new [Architect Accounts](../../@providers) can be registered for each enviroment
 that broker access to environment-scoped resources:
 
 ```yml
@@ -206,7 +206,7 @@ inputs are called variables:
 ```yml
 variables:
   account:
-    # Variables can be arcctl resources
+    # Variables can be Architect Resources
     type: arcctlAccount
     description: The DigitalOcean account used to power the environment
     provider: digitalocean
@@ -219,4 +219,4 @@ variables:
 Declared variables can be referenced anywhere else in the datacenter template that you'd like
 using the expression syntax, `${{ variables.<variable-name> }}`.
 
-In addition to [arcctl resources](../../%40resources/), variables can also be `string`, `number`, and `boolean` types.
+In addition to [Architect Resources](../../%40resources/), variables can also be `string`, `number`, and `boolean` types.

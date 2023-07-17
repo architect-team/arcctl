@@ -1,0 +1,48 @@
+{
+  "$ref": "#/definitions/DatabaseClusterApplyInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DatabaseClusterApplyInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "databaseSize": {
+          "description": "Size of the database instance to create",
+          "type": "string"
+        },
+        "databaseType": {
+          "description": "The type of database engine to use",
+          "type": "string"
+        },
+        "databaseVersion": {
+          "description": "Refers to the unique ID of a `databaseVersion` response",
+          "type": "string"
+        },
+        "description": {
+          "description": "Human-readable description of the database",
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique name for the database",
+          "type": "string"
+        },
+        "region": {
+          "description": "Unique ID of the region to run the database in",
+          "type": "string"
+        },
+        "vpc": {
+          "description": "Unique ID of the VPC to run the database in",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "databaseSize",
+        "databaseType",
+        "databaseVersion",
+        "vpc",
+        "region"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -4,8 +4,8 @@ import type cronjobInputs from './cronjob/inputs.ts';
 import type cronjobOutputs from './cronjob/outputs.ts';
 import type databaseInputs from './database/inputs.ts';
 import type databaseOutputs from './database/outputs.ts';
-import type databaseSchemaInputs from './databaseSchema/inputs.ts';
-import type databaseSchemaOutputs from './databaseSchema/outputs.ts';
+import type databaseClusterInputs from './databaseCluster/inputs.ts';
+import type databaseClusterOutputs from './databaseCluster/outputs.ts';
 import type databaseSizeInputs from './databaseSize/inputs.ts';
 import type databaseSizeOutputs from './databaseSize/outputs.ts';
 import type databaseTypeInputs from './databaseType/inputs.ts';
@@ -53,7 +53,7 @@ export type ResourceType =
   | 'arcctlAccount'
   | 'cronjob'
   | 'database'
-  | 'databaseSchema'
+  | 'databaseCluster'
   | 'databaseSize'
   | 'databaseType'
   | 'databaseUser'
@@ -80,7 +80,7 @@ export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
   'cronjob',
   'database',
-  'databaseSchema',
+  'databaseCluster',
   'databaseSize',
   'databaseType',
   'databaseUser',
@@ -117,10 +117,10 @@ export type ResourceInputs = {
     type: 'database';
     account?: string;
   } & databaseInputs;
-  'databaseSchema': {
-    type: 'databaseSchema';
+  'databaseCluster': {
+    type: 'databaseCluster';
     account?: string;
-  } & databaseSchemaInputs;
+  } & databaseClusterInputs;
   'databaseSize': {
     type: 'databaseSize';
     account?: string;
@@ -217,9 +217,9 @@ export type ResourceOutputs = {
   'database': {
     id: string;
   } & databaseOutputs;
-  'databaseSchema': {
+  'databaseCluster': {
     id: string;
-  } & databaseSchemaOutputs;
+  } & databaseClusterOutputs;
   'databaseSize': {
     id: string;
   } & databaseSizeOutputs;

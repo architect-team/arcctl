@@ -152,11 +152,16 @@
               "id": {
                 "description": "Unique ID of the service the deployment should attach itself to",
                 "type": "string"
+              },
+              "port": {
+                "description": "The port the service deployment is listening on",
+                "type": "string"
               }
             },
             "required": [
               "id",
-              "account"
+              "account",
+              "port"
             ],
             "type": "object"
           },

@@ -637,7 +637,7 @@ export default class ComponentV1 extends Component {
         component: context.component.name,
         environment: context.environment,
         inputs: {
-          type: 'databaseSchema',
+          type: 'database',
           name: CloudNode.genResourceId({
             name: database_key,
             component: context.component.name,

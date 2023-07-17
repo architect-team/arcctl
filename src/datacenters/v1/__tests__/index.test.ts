@@ -153,7 +153,7 @@
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'databaseSchema',
+//         type: 'database',
 //         database: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
@@ -177,7 +177,7 @@
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'databaseSchema',
+//         type: 'database',
 //         account: 'test',
 //         database: 'database-id',
 //         databaseType: 'postgres',
@@ -220,7 +220,7 @@
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'databaseSchema',
+//         type: 'database',
 //         database: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
@@ -278,7 +278,7 @@
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'databaseSchema',
+//         type: 'database',
 //         database: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
@@ -301,7 +301,7 @@
 //       name: 'hook-0-test',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'database',
+//         type: 'databaseCluster',
 //         name: 'test',
 //         databaseSize: 'size-slug',
 //         databaseVersion: '13',
@@ -352,7 +352,7 @@
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'databaseSchema',
+//         type: 'database',
 //         database: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
@@ -371,13 +371,13 @@
 //       'account/environment',
 //     );
 
-//     (databaseSchemaNode as CloudNode<'databaseSchema'>).inputs.database = '${{ this.resources.test.id }}';
+//     (databaseSchemaNode as CloudNode<'database'>).inputs.database = '${{ this.resources.test.id }}';
 
 //     const expectedDatabaseNode = new CloudNode({
 //       name: 'hook-0-test',
 //       environment: 'account/environment',
 //       inputs: {
-//         type: 'database',
+//         type: 'databaseCluster',
 //         name: 'test',
 //         account: 'test',
 //         databaseSize: 'size-slug',

@@ -117,7 +117,7 @@ export const testDatabaseGeneration = (
     component: 'component',
     environment: 'environment',
     inputs: {
-      type: 'databaseSchema',
+      type: 'database',
       name: CloudNode.genResourceId({
         name: options.database_name,
         component: 'component',
@@ -147,7 +147,7 @@ export const testDatabaseIntegration = (
   });
 
   const database_schema_node_id = CloudNode.genId({
-    type: 'databaseSchema',
+    type: 'database',
     name: options.database_name,
     component: 'component',
     environment: 'environment',

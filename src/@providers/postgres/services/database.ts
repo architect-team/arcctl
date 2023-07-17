@@ -6,14 +6,14 @@ import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
-import { PostgresDatabaseSchemaModule } from '../modules/database-schema.ts';
+import { PostgresDatabaseModule } from '../modules/database.ts';
 import { getPgClient } from '../utils.ts';
 
-export class PostgresDatabaseSchemaService extends TerraformResourceService<'databaseSchema', PostgresCredentials> {
+export class PostgresDatabaseService extends TerraformResourceService<'database', PostgresCredentials> {
   private client: pg.Client;
 
   readonly terraform_version = '1.4.5';
-  readonly construct = PostgresDatabaseSchemaModule;
+  readonly construct = PostgresDatabaseModule;
 
   constructor(accountName: string, credentials: PostgresCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
@@ -21,7 +21,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
     this.client = getPgClient(credentials);
   }
 
-  async get(id: string): Promise<ResourceOutputs['databaseSchema'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
     const results = await this.list({ id });
     if (results.total > 0) {
       return results.rows[0];
@@ -31,9 +31,9 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['databaseSchema']>,
+    filterOptions?: Partial<ResourceOutputs['database']>,
     _pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['databaseSchema']>> {
+  ): Promise<PagingResponse<ResourceOutputs['database']>> {
     await this.client.connect();
     let query = 'SELECT datname FROM pg_database WHERE datistemplate = false';
     if (filterOptions?.name) {

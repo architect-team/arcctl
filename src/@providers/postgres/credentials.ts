@@ -35,6 +35,6 @@ export const PostgresCredentialsSchema: ProviderCredentialsSchema<PostgresCreden
       description: 'Default database to connect to',
     },
   },
-  required: ['host', 'port', 'username', 'password', 'database'],
+  required: ['host', 'port', 'username', 'password', 'databaseCluster'],
   additionalProperties: false,
 };

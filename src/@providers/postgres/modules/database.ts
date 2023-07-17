@@ -4,11 +4,11 @@ import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Database } from '../.gen/providers/postgresql/database/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 
-export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema', PostgresCredentials> {
-  outputs: ResourceOutputs['databaseSchema'];
+export class PostgresDatabaseModule extends ResourceModule<'database', PostgresCredentials> {
+  outputs: ResourceOutputs['database'];
   db: Database;
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema', PostgresCredentials>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'database', PostgresCredentials>) {
     super(scope, options);
 
     const normalizedName = this.inputs?.name.replaceAll('/', '--');

@@ -5,10 +5,10 @@ import { Provider, ProviderResources } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
 import { GoogleProvider as TerraformGoogleProvider } from './.gen/providers/google/provider/index.ts';
 import { GoogleCloudCredentials, GoogleCloudCredentialsSchema } from './credentials.ts';
+import { GoogleCloudDatabaseClusterService } from './services/database-cluster.ts';
 import { GoogleCloudDatabaseSizeService } from './services/database-size.ts';
 import { GoogleCloudDatabaseTypeService } from './services/database-type.ts';
 import { GoogleCloudDatabaseVersionService } from './services/database-version.ts';
-import { GoogleCloudDatabaseService } from './services/database.ts';
 import { GoogleCloudDnsRecordService } from './services/dns-record.ts';
 import { GoogleCloudDnsZoneService } from './services/dns-zone.ts';
 import { GoogleCloudKubernetesClusterService } from './services/kubernetes-cluster.ts';
@@ -60,7 +60,7 @@ export default class GoogleCloudProvider extends Provider<GoogleCloudCredentials
     databaseSize: new GoogleCloudDatabaseSizeService(this.name, this.credentials, this.providerStore),
     databaseType: new GoogleCloudDatabaseTypeService(this.name, this.credentials, this.providerStore),
     databaseVersion: new GoogleCloudDatabaseVersionService(this.name, this.credentials, this.providerStore),
-    database: new GoogleCloudDatabaseService(this.name, this.credentials, this.providerStore),
+    databaseCluster: new GoogleCloudDatabaseClusterService(this.name, this.credentials, this.providerStore),
   };
 
   public genTerraformProvider(scope: Construct): TerraformGoogleProvider {

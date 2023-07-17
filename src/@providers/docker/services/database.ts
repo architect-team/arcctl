@@ -91,7 +91,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
   ): Promise<ResourceOutputs['database']> {
     const normalizedName = inputs.name.replaceAll('/', '--');
 
-    await this.deploymentService.create(subscriber, {
+    const { id } = await this.deploymentService.create(subscriber, {
       type: 'deployment',
       account: this.accountName,
       name: normalizedName,
@@ -107,15 +107,24 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
         'io.architect.arcctl.databaseVersion': inputs.databaseVersion,
       },
       exposed_ports: [{
-        port: 6379,
         target_port: 6379,
       }],
     });
 
+    const inspectionRes = await this.deploymentService.inspect(id);
+    if (!inspectionRes) {
+      throw new Error(`Database failed to start`);
+    }
+
+    const hostPort = inspectionRes.NetworkSettings.Ports?.['6379/tcp']?.[0].HostPort;
+    if (!hostPort) {
+      throw new Error('Failed to allocate a port to listen on');
+    }
+
     return {
       id: inputs.name,
       host: 'host.docker.internal',
-      port: 6379,
+      port: Number(hostPort),
       username: '',
       password: 'architect',
       protocol: 'redis',
@@ -202,74 +211,39 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
       throw new Error(`No databases matching ID: ${id}`);
     }
 
-    const normalizedName = inputs.name?.replaceAll('/', '--') || existingDeployment.id;
-
-    const volumeId = existingDeployment.labels?.['io.architect.arcctl.volume'];
-    const volume_mounts: ResourceInputs['deployment']['volume_mounts'] = [];
-    if (volumeId) {
-      subscriber.next('Updating storage volume');
-      const volume = await this.volumeService.update(subscriber, volumeId, {
-        type: 'volume',
-        name: normalizedName,
-        account: this.accountName,
-      });
-
-      switch (inputs.databaseType) {
-        case 'postgres': {
-          volume_mounts.push({
-            volume: volume.id,
-            mount_path: '/var/lib/postgresql',
-            readonly: false,
-          });
-        }
+    const databaseType = inputs.databaseType || existingDeployment.labels?.['io.architect.arcctl.databaseType'];
+    switch (databaseType) {
+      case 'postgres': {
+        return this.createPostgresDb(subscriber, {
+          type: 'database',
+          name: inputs.name || existingDeployment.labels?.['io.architect.arcctl.database'] || 'unknown',
+          databaseType,
+          databaseVersion: inputs.databaseVersion ||
+            existingDeployment.labels?.['io.architect.arcctl.databaseVersion'] || 'unknown',
+          databaseSize: inputs.databaseSize || 'unknown',
+          region: inputs.region || 'unknown',
+          vpc: inputs.vpc || 'unknown',
+          account: this.accountName,
+          description: inputs.description,
+        });
+      }
+      case 'redis': {
+        return this.createRedisDb(subscriber, {
+          type: 'database',
+          name: inputs.name || existingDeployment.labels?.['io.architect.arcctl.database'] || 'unknown',
+          databaseType,
+          databaseVersion: inputs.databaseVersion ||
+            existingDeployment.labels?.['io.architect.arcctl.databaseVersion'] || 'unknown',
+          databaseSize: inputs.databaseSize || 'unknown',
+          region: inputs.region || 'unknown',
+          vpc: inputs.vpc || 'unknown',
+          account: this.accountName,
+          description: inputs.description,
+        });
       }
     }
 
-    const deployment = await this.deploymentService.update(subscriber, existingDeployment.id, {
-      type: 'deployment',
-      account: this.accountName,
-      name: normalizedName,
-      ...(inputs.databaseType && inputs.databaseVersion
-        ? { image: `${inputs.databaseType}:${inputs.databaseVersion}` }
-        : {}),
-      volume_mounts,
-      environment: {
-        POSTGRES_USER: 'architect',
-        POSTGRES_PASSWORD: 'architect',
-        POSTGRES_DB: 'architect',
-      },
-      labels: {
-        'io.architect': 'arcctl',
-        'io.architect.arcctl.database': inputs.name,
-        ...(volume_mounts.length > 0 ? { 'io.architect.arcctl.volume': volume_mounts[0].volume } : {}),
-        'io.architect.arcctl.databaseType': inputs.databaseType ||
-          existingDeployment.labels?.['io.architect.arcctl.databaseType'],
-        'io.architect.arcctl.databaseVersion': inputs.databaseVersion ||
-          existingDeployment.labels?.['io.architect.arcctl.databaseVersion'],
-      },
-      exposed_ports: [{
-        target_port: 5432,
-      }],
-    });
-
-    const inspectionRes = await this.deploymentService.inspect(deployment.id);
-    if (!inspectionRes) {
-      throw new Error(`Database failed to start`);
-    }
-
-    const hostPort = inspectionRes.NetworkSettings.Ports?.['5432/tcp']?.[0].HostPort;
-    if (!hostPort) {
-      throw new Error('Failed to allocate a port to listen on');
-    }
-
-    return {
-      id: normalizedName,
-      host: 'host.docker.internal',
-      port: Number(hostPort),
-      username: 'architect',
-      password: 'architect',
-      protocol: 'postgresql',
-    };
+    throw new Error(`Unsupported database type: ${inputs.databaseType}`);
   }
 
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
@@ -279,20 +253,14 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
       return Promise.resolve();
     }
 
-    switch (res.protocol) {
-      case 'postgresql': {
-        const deployment = await this.deploymentService.get(res.id);
-        if (!deployment?.labels?.['io.architect.arcctl.volume']) {
-          throw new Error(`Database is missing metadata needed to clean up its volume`);
-        }
-
-        const volumeId = deployment.labels['io.architect.arcctl.volume'];
-        await this.deploymentService.delete(subscriber, res.id);
-        subscriber.next('Cleaning up database volume');
-        await this.volumeService.delete(subscriber, volumeId);
-      }
+    const deployment = await this.deploymentService.get(res.id);
+    if (!deployment?.labels?.['io.architect.arcctl.volume']) {
+      throw new Error(`Database is missing metadata needed to clean up its volume`);
     }
 
-    new Error(`Unsupported database type: ${res.protocol}`);
+    const volumeId = deployment.labels['io.architect.arcctl.volume'];
+    await this.deploymentService.delete(subscriber, res.id);
+    subscriber.next('Cleaning up database volume');
+    await this.volumeService.delete(subscriber, volumeId);
   }
 }

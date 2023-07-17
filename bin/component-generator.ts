@@ -79,6 +79,10 @@ type_schema = {
 };
 
 await Deno.writeTextFile(path.join(components_dir, './component.schema.json'), JSON.stringify(type_schema, null, 2));
+await Deno.writeTextFile(
+  path.join(components_dir, './component-schema.ts'),
+  `export default ${JSON.stringify(type_schema, null, 2)}`,
+);
 console.log(`Done! Updated schema is located at ${path.join(components_dir, './component.schema.json')}`);
 
 Deno.removeSync(build_dir, { recursive: true });

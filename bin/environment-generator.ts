@@ -92,6 +92,11 @@ await Deno.writeTextFile(
   path.join(environments_dir, './environment.schema.json'),
   JSON.stringify(type_schema, null, 2),
 );
+
+await Deno.writeTextFile(
+  path.join(environments_dir, './environment-schema.ts'),
+  `export default ${JSON.stringify(type_schema, null, 2)}`,
+);
 console.log(`Done! Updated schema is located at ${path.join(environments_dir, './environment.schema.json')}`);
 
 Deno.removeSync(build_dir, { recursive: true });

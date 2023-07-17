@@ -1,13 +1,12 @@
 import Ajv2019 from 'ajv/dist/2019.js';
 import yaml from 'js-yaml';
-import * as path from 'std/path/mod.ts';
+import * as InputSchemaContents from './input-schema.ts';
+import * as InputsSchemaContents from './inputs-schema.ts';
 import { InputSchema, ResourceInputs, ResourceType } from './types.ts';
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = new URL('.', import.meta.url).pathname;
 
-const input_schema_contents = Deno.readTextFileSync(path.join(__dirname, './input.schema.json'));
-const input_validator = ajv.compile<InputSchema>(JSON.parse(input_schema_contents));
+const input_validator = ajv.compile<InputSchema>(InputSchemaContents);
 
 export const parseResourceInputs = async (input: Record<string, unknown> | string): Promise<InputSchema> => {
   let raw_obj: any;
@@ -57,8 +56,7 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
     raw_obj = input;
   }
 
-  const resource_schema_contents = Deno.readTextFileSync(path.join(__dirname, type, './inputs.schema.json'));
-  const resource_validator = ajv.compile<ResourceInputs[T]>(JSON.parse(resource_schema_contents));
+  const resource_validator = ajv.compile<ResourceInputs[T]>((InputsSchemaContents as any)[type]);
 
   if (!resource_validator(raw_obj)) {
     throw resource_validator.errors;

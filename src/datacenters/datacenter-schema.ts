@@ -1,4 +1,4 @@
-{
+export default {
   "$ref": "#/definitions/DatacenterSchema",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "definitions": {

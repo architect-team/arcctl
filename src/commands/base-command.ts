@@ -21,7 +21,7 @@ import {
 import { Environment, EnvironmentRecord, EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import CloudCtlConfig from '../utils/config.ts';
-import { CldCtlProviderStore } from '../utils/provider-store.ts';
+import { ArcctlProviderStore } from '../utils/provider-store.ts';
 import { topologicalSort } from '../utils/sorting.ts';
 import { createTable } from '../utils/table.ts';
 
@@ -50,7 +50,7 @@ export class CommandHelper {
   }
 
   get providerStore(): ProviderStore {
-    return new CldCtlProviderStore(CloudCtlConfig.getConfigDirectory());
+    return new ArcctlProviderStore(CloudCtlConfig.getConfigDirectory());
   }
 
   get datacenterStore(): DatacenterStore {
@@ -780,7 +780,7 @@ export class CommandHelper {
       Deno.exit(1);
     }
 
-    const writableService = service as unknown as WritableResourceService<T, Provider>;
+    const writableService = service as unknown as WritableResourceService<T, any>;
     if (writableService.presets && writableService.presets.length > 0) {
       const result = await Select.prompt({
         message: 'Please select one of our default configurations or customize the creation of your resource.',

@@ -1,9 +1,11 @@
 import * as path from 'std/path/mod.ts';
+import { ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { Provider } from '../@providers/provider.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
+import { ResourceType } from '../@resources/index.ts';
 
-export class CldCtlProviderStore implements ProviderStore {
+export class ArcctlProviderStore implements ProviderStore {
   private _providers?: Provider[];
 
   constructor(
@@ -90,6 +92,42 @@ export class CldCtlProviderStore implements ProviderStore {
 
     allProviders.splice(foundIndex, 1);
     this.saveProviders(allProviders);
+  }
+
+  getService<T extends ResourceType>(accountName: string, type: T): ResourceService<T, any> {
+    const account = this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    return service;
+  }
+
+  getWritableService<T extends ResourceType>(accountName: string, type: T): WritableResourceService<T, any> {
+    const account = this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    if (!('construct' in service) && !('create' in service)) {
+      throw new Error(`The ${account.type} provider cannot create service resources`);
+    }
+
+    return service as unknown as WritableResourceService<T, any>;
   }
 
   private saveProviders(providers: Provider[]): void {

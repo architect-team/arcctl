@@ -4,7 +4,7 @@ import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
-import { LogsOptions, WritableResourceService } from '../../base.service.ts';
+import { LogsOptions } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
@@ -160,24 +160,8 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
 
     for (const serviceConfig of inputs.services || []) {
-      const account = this.providerStore.get(serviceConfig.account);
-      if (!account) {
-        throw new Error(`Cannot be registered w/ service. Account does not exist: ${serviceConfig.account}`);
-      }
-
-      const service = account.resources.service;
-      if (!service) {
-        throw new Error(
-          `Cannot be registered w/ service. ${serviceConfig.account} does not support service resources.`,
-        );
-      }
-
-      if (!('construct' in service) && !('create' in service)) {
-        throw new Error(`The ${account.type} provider cannot create service resources`);
-      }
-
-      const writeableService = service as unknown as WritableResourceService<'service', DockerCredentials>;
-      const existingService = await writeableService.get(serviceConfig.id);
+      const writableService = this.providerStore.getWritableService(serviceConfig.account, 'service');
+      const existingService = await writableService.get(serviceConfig.id);
       if (existingService?.target_servers) {
         const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
 
@@ -186,7 +170,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
           target_servers.push(newUrl);
         }
 
-        await lastValueFrom(writeableService.apply({
+        await lastValueFrom(writableService.apply({
           ...existingService,
           type: 'service',
           target_servers,
@@ -325,24 +309,8 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
 
     for (const serviceConfig of (inputs.services as ResourceInputs['deployment']['services'] || [])) {
-      const account = this.providerStore.get(serviceConfig.account);
-      if (!account) {
-        throw new Error(`Cannot be registered w/ service. Account does not exist: ${serviceConfig.account}`);
-      }
-
-      const service = account.resources.service;
-      if (!service) {
-        throw new Error(
-          `Cannot be registered w/ service. ${serviceConfig.account} does not support service resources.`,
-        );
-      }
-
-      if (!('construct' in service) && !('create' in service)) {
-        throw new Error(`The ${account.type} provider cannot create service resources`);
-      }
-
-      const writeableService = service as unknown as WritableResourceService<'service', DockerCredentials>;
-      const existingService = await writeableService.get(serviceConfig.id);
+      const writableService = this.providerStore.getWritableService(serviceConfig.account, 'service');
+      const existingService = await writableService.get(serviceConfig.id);
       if (existingService?.target_servers) {
         const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
 
@@ -351,7 +319,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
           target_servers.push(newUrl);
         }
 
-        await lastValueFrom(writeableService.apply({
+        await lastValueFrom(writableService.apply({
           ...existingService,
           type: 'service',
           target_servers,

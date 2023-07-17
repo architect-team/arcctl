@@ -1,3 +1,5 @@
+import { ResourceType } from '../@resources/index.ts';
+import { ResourceService, WritableResourceService } from './base.service.ts';
 import type { Provider } from './provider.ts';
 
 export interface ProviderStore {
@@ -27,4 +29,14 @@ export interface ProviderStore {
    * Remove the specified provider from the store. Throws an error if the provider doesn't exist.
    */
   delete(name: string): void;
+
+  /**
+   * Retrieve the service for the specified account and resource type. Error if not found.
+   */
+  getService<T extends ResourceType>(accountName: string, type: T): ResourceService<T, any>;
+
+  /**
+   * Same as getService, but checks to ensure the service can apply changes.
+   */
+  getWritableService<T extends ResourceType>(accountName: string, type: T): WritableResourceService<T, any>;
 }

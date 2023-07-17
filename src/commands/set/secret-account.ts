@@ -1,15 +1,17 @@
-import { Select } from 'cliffy/prompt/mod.ts';
+import { Input, Select } from 'cliffy/prompt/mod.ts';
 import { SupportedProviders } from '../../@providers/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type SetSecretAccountOptions = {
   provider?: string;
+  namespace?: string;
   creds?: string[];
 } & GlobalOptions;
 
 const SetSecretAccountCommand = BaseCommand()
   .description('Configure where to store the configuration settings for arcctl')
   .option('--provider <provider:string>', 'Which provider type to use')
+  .option('--namespace <namespace:string>', 'The namespace to use for the prvoider')
   .option('--creds <creds:string>', 'A key value pair of credentials to use for the provider', { collect: true })
   .action(set_secret_account);
 
@@ -32,6 +34,10 @@ async function set_secret_account(options: SetSecretAccountOptions) {
 
   const credentials = await command_helper.promptForCredentials(providerType, providedCredentials);
 
+  const namespace = options.namespace || await Input.prompt({
+    message: 'What namespace should this account use?',
+  });
+
   const account = new SupportedProviders[providerType](
     'secret',
     credentials as any,
@@ -46,6 +52,7 @@ async function set_secret_account(options: SetSecretAccountOptions) {
   await command_helper.secretStore.save({
     provider: providerType,
     credentials,
+    namespace,
   });
 }
 

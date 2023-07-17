@@ -14,20 +14,19 @@ export class BaseStore<T> {
 
   protected async saveAll(records: T[]): Promise<void> {
     return new Promise((resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'create',
-        type: 'secret',
-        name: this.name,
-        inputs: {
+      this.secretStore.get().then((secretAccount) => {
+        const secretStep = new PipelineStep({
+          action: 'create',
           type: 'secret',
           name: this.name,
-          namespace: 'arcctl',
-          account: '',
-          data: JSON.stringify(records),
-        },
-      });
-
-      this.secretStore.get().then((secretAccount) => {
+          inputs: {
+            type: 'secret',
+            name: this.name,
+            namespace: secretAccount.namespace,
+            account: '',
+            data: JSON.stringify(records),
+          },
+        });
         secretStep
           .apply({
             providerStore: {
@@ -84,7 +83,12 @@ export class BaseStore<T> {
       Deno.exit(1);
     }
 
-    const secret = await service.get(`arcctl--${this.name}`);
+    let secret;
+    try {
+      secret = await service.get(`${secretAccount.namespace}--${this.name}`);
+    } catch {
+      // handled by downstream code
+    }
     if (!secret) {
       this._records = [];
       return this._records;

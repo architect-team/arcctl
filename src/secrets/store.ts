@@ -4,6 +4,7 @@ import { SupportedProviders } from '../@providers/index.ts';
 export type SecretAccount = {
   provider: keyof typeof SupportedProviders;
   credentials: any;
+  namespace: string;
 };
 
 export class SecretStore {
@@ -44,6 +45,7 @@ export class SecretStore {
         credentials: {
           directory: secretLocation,
         },
+        namespace: 'arcctl-secrets',
       };
     }
 

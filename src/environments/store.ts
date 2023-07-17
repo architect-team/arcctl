@@ -1,6 +1,6 @@
 import { Pipeline } from '../pipeline/pipeline.ts';
 import { BaseStore } from '../secrets/base-store.ts';
-import { SecretStore } from '../secrets/store.ts';
+import { StateBackend } from '../utils/config.ts';
 import { Environment } from './environment.ts';
 import { parseEnvironment } from './parser.ts';
 
@@ -13,9 +13,9 @@ export type EnvironmentRecord = {
 
 export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
   constructor(
-    secretStore: SecretStore,
+    stateBackend: StateBackend,
   ) {
-    super('environments', secretStore);
+    super('environments', stateBackend);
   }
 
   public async find(): Promise<EnvironmentRecord[]> {

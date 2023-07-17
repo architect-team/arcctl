@@ -1,25 +1,73 @@
-import * as path from 'std/path/mod.ts';
 import { home_dir } from 'deps';
+import * as path from 'std/path/mod.ts';
+import { SupportedProviders } from '../@providers/index.ts';
+
+const DEFAULT_CONFIG_DIRECTORY = path.join(home_dir() || '~', '.config', 'arcctl');
+
+export type StateBackend = {
+  provider: keyof typeof SupportedProviders;
+  credentials: any;
+  namespace: string;
+};
+
+export type CloudCtlConfigOptions = {
+  configDirectory: string;
+  stateBackend: StateBackend;
+};
 
 export default class CloudCtlConfig {
   private static dev: boolean;
   private static tfDirectory?: string;
   private static noCleanup: boolean;
-  private static configDirectory?: string;
+  private static configOptions: CloudCtlConfigOptions = this.getDefaultConfig(DEFAULT_CONFIG_DIRECTORY);
 
-  public static setConfigDirectory(directory?: string): void {
-    if (directory) {
-      this.configDirectory = directory;
-    } else {
-      this.configDirectory = path.join(home_dir() || '~', '.config', 'arcctl');
+  private static getDefaultStateBackend(directory: string): StateBackend {
+    return {
+      provider: 'local',
+      credentials: {
+        directory,
+      },
+      namespace: 'arcctl-state',
+    };
+  }
+
+  private static getDefaultConfig(directory: string): CloudCtlConfigOptions {
+    return {
+      configDirectory: directory,
+      stateBackend: this.getDefaultStateBackend(directory),
+    };
+  }
+
+  public static load(directory?: string): void {
+    directory = directory || DEFAULT_CONFIG_DIRECTORY;
+    try {
+      if (Deno.statSync(path.join(directory, 'config.json')).isFile) {
+        this.configOptions = JSON.parse(Deno.readTextFileSync(path.join(directory, 'config.json')));
+        return;
+      }
+    } catch {
+      // Means the file does not exist which is okay
     }
+    this.configOptions = this.getDefaultConfig(directory);
+  }
+
+  public static getStateBackend(): StateBackend {
+    return this.configOptions.stateBackend;
+  }
+
+  public static setStateBackend(stateBackend: StateBackend): void {
+    this.configOptions.stateBackend = stateBackend;
+  }
+
+  public static save(): void {
+    Deno.writeTextFileSync(
+      path.join(this.getConfigDirectory(), 'config.json'),
+      JSON.stringify(this.configOptions, null, 2),
+    );
   }
 
   public static getConfigDirectory(): string {
-    if (this.configDirectory) {
-      return this.configDirectory;
-    }
-    throw Error('No config directory configured');
+    return this.configOptions.configDirectory;
   }
 
   public static getTerraformDirectory(): string {

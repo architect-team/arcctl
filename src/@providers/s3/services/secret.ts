@@ -11,7 +11,7 @@ const ARCCTL_SECRET_TYPE = 'arcctl-secret';
 export class S3SecretService extends CrudResourceService<'secret', S3Credentials> {
   async get(id: string): Promise<ResourceOutputs['secret'] | undefined> {
     const client = S3Utils.getS3Client(this.credentials);
-    const idParts = id.split('--');
+    const idParts = id.replaceAll('/', '--').split('--');
     if (idParts.length < 2) {
       throw new Error(`The secret name for ${id} is invalid`);
     }
@@ -36,7 +36,6 @@ export class S3SecretService extends CrudResourceService<'secret', S3Credentials
     _pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['secret']>> {
     const client = S3Utils.getS3Client(this.credentials);
-    client.bucket;
 
     const secrets: ResourceOutputs['secret'][] = [];
 

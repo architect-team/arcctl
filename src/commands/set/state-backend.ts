@@ -1,5 +1,6 @@
 import { Input, Select } from 'cliffy/prompt/mod.ts';
 import { SupportedProviders } from '../../@providers/index.ts';
+import CloudCtlConfig from '../../utils/config.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type SetStateBackendOptions = {
@@ -26,8 +27,20 @@ async function set_state_backend(options: SetStateBackendOptions) {
 
   const providerType = providerName as keyof typeof SupportedProviders;
 
-  const providedCredentials: Record<string, string> = {};
+  let providedCredentials: Record<string, string> = {};
   for (const cred of options.creds || []) {
+    if (cred.indexOf('=') === -1) {
+      try {
+        const creds = JSON.parse(cred);
+        providedCredentials = {
+          ...providedCredentials,
+          ...creds,
+        };
+        continue;
+      } catch {
+        throw new Error('Invalid credentials');
+      }
+    }
     const [key, value] = cred.split('=');
     providedCredentials[key] = value;
   }
@@ -49,11 +62,12 @@ async function set_state_backend(options: SetStateBackendOptions) {
     throw new Error('Invalid credentials');
   }
 
-  await command_helper.secretStore.save({
+  CloudCtlConfig.setStateBackend({
     provider: providerType,
     credentials,
     namespace,
   });
+  CloudCtlConfig.save();
 }
 
 export default SetStateBackendCommand;

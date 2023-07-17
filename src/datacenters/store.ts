@@ -1,6 +1,6 @@
 import { Pipeline } from '../pipeline/pipeline.ts';
 import { BaseStore } from '../secrets/base-store.ts';
-import { SecretStore } from '../secrets/store.ts';
+import { StateBackend } from '../utils/config.ts';
 import { Datacenter } from './datacenter.ts';
 import { parseDatacenter } from './parser.ts';
 
@@ -12,9 +12,9 @@ export type DatacenterRecord = {
 
 export class DatacenterStore extends BaseStore<DatacenterRecord> {
   constructor(
-    secretStore: SecretStore,
+    stateBackend: StateBackend,
   ) {
-    super('datacenters', secretStore);
+    super('datacenters', stateBackend);
     this.find();
   }
 

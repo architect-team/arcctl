@@ -5,14 +5,14 @@ import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { ResourceType } from '../@resources/index.ts';
 import { BaseStore } from '../secrets/base-store.ts';
-import { SecretStore } from '../secrets/store.ts';
+import { StateBackend } from './config.ts';
 
 export class CldCtlProviderStore extends BaseStore<Provider> implements ProviderStore {
   constructor(
-    secretStore: SecretStore,
+    stateBackend: StateBackend,
     private config_dir: string = Deno.makeTempDirSync(),
   ) {
-    super('providers', secretStore);
+    super('providers', stateBackend);
     this.list();
   }
 
@@ -89,7 +89,10 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
     return service;
   }
 
-  async getWritableService<T extends ResourceType>(accountName: string, type: T): Promise<WritableResourceService<T, any>> {
+  async getWritableService<T extends ResourceType>(
+    accountName: string,
+    type: T,
+  ): Promise<WritableResourceService<T, any>> {
     const account = await this.get(accountName);
     if (!account) {
       throw new Error(`Account does not exist: ${accountName}`);

@@ -20,7 +20,6 @@ import {
 } from '../datacenters/index.ts';
 import { Environment, EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
-import { SecretStore } from '../secrets/store.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import { topologicalSort } from '../utils/sorting.ts';
@@ -38,11 +37,9 @@ export function BaseCommand() {
 
 export class CommandHelper {
   private spinner_frame_index = 0;
-  private options: GlobalOptions;
 
   constructor(options: GlobalOptions) {
-    this.options = options;
-    CloudCtlConfig.setConfigDirectory(options.configHome);
+    CloudCtlConfig.load(options.configHome);
   }
 
   get componentStore(): ComponentStore {
@@ -51,19 +48,15 @@ export class CommandHelper {
   }
 
   get providerStore(): ProviderStore {
-    return new CldCtlProviderStore(this.secretStore);
+    return new CldCtlProviderStore(CloudCtlConfig.getStateBackend());
   }
 
   get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(this.secretStore);
+    return new DatacenterStore(CloudCtlConfig.getStateBackend());
   }
 
   get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore(this.secretStore);
-  }
-
-  get secretStore(): SecretStore {
-    return new SecretStore(CloudCtlConfig.getConfigDirectory());
+    return new EnvironmentStore(CloudCtlConfig.getStateBackend());
   }
 
   /**

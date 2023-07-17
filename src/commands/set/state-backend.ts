@@ -2,20 +2,20 @@ import { Input, Select } from 'cliffy/prompt/mod.ts';
 import { SupportedProviders } from '../../@providers/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
-type SetSecretAccountOptions = {
+type SetStateBackendOptions = {
   provider?: string;
   namespace?: string;
   creds?: string[];
 } & GlobalOptions;
 
-const SetSecretAccountCommand = BaseCommand()
+const SetStateBackendCommand = BaseCommand()
   .description('Configure where to store the configuration settings for arcctl')
   .option('--provider <provider:string>', 'Which provider type to use')
   .option('--namespace <namespace:string>', 'The namespace to use for the prvoider')
   .option('--creds <creds:string>', 'A key value pair of credentials to use for the provider', { collect: true })
-  .action(set_secret_account);
+  .action(set_state_backend);
 
-async function set_secret_account(options: SetSecretAccountOptions) {
+async function set_state_backend(options: SetStateBackendOptions) {
   const command_helper = new CommandHelper(options);
 
   const providerName = options.provider ||
@@ -56,4 +56,4 @@ async function set_secret_account(options: SetSecretAccountOptions) {
   });
 }
 
-export default SetSecretAccountCommand;
+export default SetStateBackendCommand;

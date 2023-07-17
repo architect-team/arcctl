@@ -55,7 +55,7 @@ export abstract class Provider<
       Deno.writeFileSync(file, new TextEncoder().encode(contents));
       fileLookup[hash] = file;
     }
-    this.replaceHashesWithFileRefrences(this.credentials, fileLookup);
+    this.replaceHashesWithFileReferences(this.credentials, fileLookup);
   }
 
   public abstract testCredentials(): Promise<boolean>;
@@ -72,10 +72,10 @@ export abstract class Provider<
     >;
   }
 
-  private replaceHashesWithFileRefrences(record: any, lookupTable: Record<string, string>): void {
+  private replaceHashesWithFileReferences(record: any, lookupTable: Record<string, string>): void {
     for (const [key, value] of Object.entries(record)) {
       if (typeof value === 'object') {
-        this.replaceHashesWithFileRefrences(value, lookupTable);
+        this.replaceHashesWithFileReferences(value, lookupTable);
         continue;
       }
       const file = lookupTable[value?.toString() || ''];

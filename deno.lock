@@ -746,7 +746,6 @@
       "@types/tar@^6.1.2": "@types/tar@6.1.5",
       "aws-sdk@2.1229.0": "aws-sdk@2.1229.0",
       "cli-spinners@^2.7.0": "cli-spinners@2.9.0",
-      "dots-wrapper@^3.10.0": "dots-wrapper@3.10.1",
       "log-symbols@^5.1.0": "log-symbols@5.1.0",
       "log-update@^5.0.1": "log-update@5.0.1",
       "mongodb@^4.10.0": "mongodb@4.16.0",
@@ -2917,12 +2916,6 @@
         "integrity": "sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==",
         "dependencies": {
           "is-obj": "is-obj@2.0.0"
-        }
-      },
-      "dots-wrapper@3.10.1": {
-        "integrity": "sha512-UeQ2O6HKgWw8qMUjBgduyALFUsXU7NlvwjsWOVVx5jowAggWzHRZsMfHp8XHyIb6bMuO7e0bAlADEp2fqOP++g==",
-        "dependencies": {
-          "axios": "axios@0.27.2"
         }
       },
       "duplexer2@0.1.4": {

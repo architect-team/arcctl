@@ -1,7 +1,9 @@
 import * as path from 'std/path/mod.ts';
+import { ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { Provider } from '../@providers/provider.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
+import { ResourceType } from '../@resources/index.ts';
 import { BaseStore } from '../secrets/base-store.ts';
 import { SecretStore } from '../secrets/store.ts';
 
@@ -11,7 +13,7 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
     private config_dir: string = Deno.makeTempDirSync(),
   ) {
     super('providers', secretStore);
-    this.getProviders();
+    this.list();
   }
 
   get storageDir() {
@@ -25,7 +27,7 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
     return file_path;
   }
 
-  async getProvider(name: string): Promise<Provider | undefined> {
+  async get(name: string): Promise<Provider | undefined> {
     if (this._records) {
       return this._records.find((item) => item.name === name);
     }
@@ -38,15 +40,15 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
     return this._records!.find((item) => item.name === name);
   }
 
-  getProviders(): Promise<Provider[]> {
+  list(): Promise<Provider[]> {
     return this.load(async (raw) => {
       const type = raw.type as keyof typeof SupportedProviders;
       return new SupportedProviders[type](raw.name, raw.credentials, this, raw.files);
     });
   }
 
-  async saveProvider(provider: Provider): Promise<void> {
-    const allProviders = await this.getProviders();
+  async save(provider: Provider): Promise<void> {
+    const allProviders = await this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === provider.name);
     if (foundIndex >= 0) {
       this._records![foundIndex] = provider;
@@ -56,8 +58,8 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
     await this.saveProviders();
   }
 
-  async deleteProvider(name: string): Promise<void> {
-    const allProviders = await this.getProviders();
+  async delete(name: string): Promise<void> {
+    const allProviders = await this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === name);
     if (foundIndex < 0) {
       throw new Error(`The ${name} provider was not found`);
@@ -69,5 +71,41 @@ export class CldCtlProviderStore extends BaseStore<Provider> implements Provider
 
   async saveProviders(): Promise<void> {
     await this.saveAll(this._records!);
+  }
+
+  async getService<T extends ResourceType>(accountName: string, type: T): Promise<ResourceService<T, any>> {
+    const account = await this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    return service;
+  }
+
+  async getWritableService<T extends ResourceType>(accountName: string, type: T): Promise<WritableResourceService<T, any>> {
+    const account = await this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    if (!('construct' in service) && !('create' in service)) {
+      throw new Error(`The ${account.type} provider cannot create service resources`);
+    }
+
+    return service as unknown as WritableResourceService<T, any>;
   }
 }

@@ -9,7 +9,7 @@ const ListAccountCommand = BaseCommand()
 async function list_account_action(options: GlobalOptions) {
   const command_helper = new CommandHelper(options);
 
-  const providers = await command_helper.providerStore.getProviders();
+  const providers = await command_helper.providerStore.list();
   const table = createTable({
     head: ['Name', 'Type'],
   });

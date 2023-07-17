@@ -1,5 +1,6 @@
 import { ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
+import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
 
@@ -73,6 +74,23 @@ const setNoopSteps = async (
   } while (!done);
 
   return nextPipeline;
+};
+
+const checkCircularRequiredDependencies = (pipeline: Pipeline) => {
+  const graph: Record<string, Set<string>> = {};
+  for (const edge of pipeline.edges) {
+    if (!edge.required) {
+      continue;
+    }
+
+    if (graph[edge.from] === undefined) {
+      graph[edge.from] = new Set();
+    }
+    graph[edge.from].add(edge.to);
+  }
+
+  // Raises an error if it cannot be topologically sorted, which implies there is a cycle
+  topologicalSort(graph);
 };
 
 export class Pipeline {
@@ -217,6 +235,10 @@ export class Pipeline {
   }
 
   public validate(): void {
+    // Check for circular dependencies and edges that point to nodes that don't exist.
+    // This will raise an exception if a circular dependency exists and abort
+    checkCircularRequiredDependencies(this);
+
     for (const edge of this.edges) {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
@@ -379,7 +401,7 @@ export class Pipeline {
             endTime: Date.now(),
           };
 
-          await options.providerStore.deleteProvider(step.inputs.name);
+          await options.providerStore.delete(step.inputs.name);
         } else {
           step.status = {
             state: 'applying',
@@ -388,7 +410,7 @@ export class Pipeline {
             endTime: Date.now(),
           };
 
-          await options.providerStore.saveProvider(
+          await options.providerStore.save(
             new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
               step.inputs.name,
               step.inputs.credentials as any,
@@ -428,6 +450,12 @@ export class Pipeline {
             complete: resolve,
           });
       });
+    }
+
+    for (const step of this.steps) {
+      if (step.status.state !== 'complete') {
+        throw Error(`Pipeline finished with an unfinished step`);
+      }
     }
   }
 }

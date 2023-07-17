@@ -1,11 +1,11 @@
-# ArcCtl Environments
+# Architect Environments
 
-Environments represent running instances of [components](../components/) that
+Environments represent running instances of [Components](../components/) that
 are made available to each other for integration. You likely have environments for
 things like `production` or `staging`, but may also create private environments for
 integration testing or everyday development.
 
-ArcCtl attempts to automate as much configuration for components as possible, but
+Architect attempts to automate as much configuration for components as possible, but
 there are still cases where owners will want to assign environment-specific rules
 and values.
 
@@ -34,7 +34,7 @@ at the path `./api1` (which must contain an architect.yml file at minimum), and 
 been tagged as `architect/auth:latest`. The environment will also be backed by the `my-datacenter`
 datacenter and will follow the rules of that datacenter for provisioning.
 
-In addition to the component(s) cited, arcctl will also deploy any dependencies of the cited components –
+In addition to the component(s) cited, Architect will also deploy any dependencies of the cited components –
 even if you don't specify them explicitly. By default, all components deployed implicitly as dependencies
 will attempt to deploy the `latest` tag of the component. You can specify other tags by including the
 component explicitly in the command:
@@ -136,7 +136,7 @@ $ arcctl destroy environment production
 
 ## The environment configuration file
 
-ArcCtl uses versioning to allow its core schemas to grow and evolve. To learn how to author an
+Architect uses versioning to allow its core schemas to grow and evolve. To learn how to author an
 environment configuration file, select a schema version below:
 
 - [v1 (latest)](./v1/)

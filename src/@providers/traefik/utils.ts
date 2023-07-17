@@ -21,7 +21,7 @@ export class TraefikTaskService {
   }
 
   private async getAccount(): Promise<Provider> {
-    const account = await this.options.providerStore.getProvider(this.options.account);
+    const account = await this.options.providerStore.get(this.options.account);
     if (!account) {
       throw new Error(`Invalid account name: ${this.options.account}`);
     } else if (!account.resources.task || !('apply' in account.resources.task)) {
@@ -70,21 +70,11 @@ export class TraefikTaskService {
     });
   }
 
-  public async listAllFiles(dir: string): Promise<string[]> {
-    const { stdout } = await this.exec(['/bin/sh', '-c', `ls ${dir}`]);
-    return stdout ? stdout.split('\n').filter((item) => Boolean(item)) : [];
-  }
-
   public async listConfigFiles(dir: string, suffix: string): Promise<string[]> {
-    const allFiles = await this.listAllFiles(dir);
-    if (allFiles.length <= 0) {
-      return allFiles;
-    }
-
     const { stdout } = await this.exec([
       '/bin/sh',
       '-c',
-      'find ' + dir + '*' + suffix + ' -maxdepth 1 -type f',
+      'find ' + dir + '*' + suffix + ' -maxdepth 2 -type f',
     ]);
     return stdout ? stdout.split('\n').filter((item) => Boolean(item)) : [];
   }
@@ -102,7 +92,7 @@ export class TraefikTaskService {
     return this.exec([
       '/bin/sh',
       '-c',
-      `echo -e \"${contents}\" > ${filename}`,
+      `mkdir -p $(dirname ${filename}) && echo -e \"${contents}\" > ${filename}`,
     ]);
   }
 }

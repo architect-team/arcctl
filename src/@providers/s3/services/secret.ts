@@ -36,6 +36,7 @@ export class S3SecretService extends CrudResourceService<'secret', S3Credentials
     _pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['secret']>> {
     const client = S3Utils.getS3Client(this.credentials);
+    client.bucket;
 
     const secrets: ResourceOutputs['secret'][] = [];
 

@@ -419,10 +419,14 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfPlan(cwd, {
+      const { stderr: plan_stderr } = await this.tfPlan(cwd, {
         logger: options.logger,
         destroy: true,
       });
+      if (plan_stderr && plan_stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(plan_stderr));
+        return;
+      }
 
       subscriber.next({
         status: {

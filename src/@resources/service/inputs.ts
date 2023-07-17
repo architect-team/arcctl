@@ -15,11 +15,6 @@ export type ServiceInputs = {
   labels?: Record<string, string>;
 
   /**
-   * Target deployment name
-   */
-  target_deployment: string;
-
-  /**
    * Target port
    */
   target_port: number;
@@ -29,11 +24,6 @@ export type ServiceInputs = {
    * @default http
    */
   target_protocol?: string;
-
-  /**
-   * Port to listen on
-   */
-  port?: number;
 
   /**
    * External address to point to
@@ -54,6 +44,16 @@ export type ServiceInputs = {
    * Optional DNS zone to use for listeners
    */
   dnsZone?: string;
+
+  /**
+   * A deployment the service should point to
+   */
+  target_deployment?: string;
+
+  /**
+   * The servers the service should load balance between
+   */
+  target_servers?: string[];
 };
 
 export default ServiceInputs;

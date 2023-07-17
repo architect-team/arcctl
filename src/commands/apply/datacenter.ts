@@ -61,28 +61,31 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       });
     }
 
-    await command_helper.applyDatacenter(name, datacenter, pipeline, logger);
-
-    if (interval) {
-      clearInterval(interval);
-    }
-
-    await command_helper.saveDatacenter(name, datacenter, pipeline);
-    command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-    command_helper.doneRenderingPipeline();
-    console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
-
-    if (datacenterEnvironments.length > 0) {
-      for (const environmet of datacenterEnvironments) {
-        await apply_environment_action({
-          verbose: options.verbose,
-          datacenter: name,
-          autoApprove: true,
-        }, environmet.name);
-      }
-      console.log('Environments updated successfully');
-      command_helper.doneRenderingPipeline();
-    }
+    command_helper.applyDatacenter(name, datacenter, pipeline, logger)
+      .then(async () => {
+        console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
+        if (datacenterEnvironments.length > 0) {
+          for (const environmet of datacenterEnvironments) {
+            await apply_environment_action({
+              verbose: options.verbose,
+              datacenter: name,
+              autoApprove: true,
+            }, environmet.name);
+          }
+          console.log('Environments updated successfully');
+          command_helper.doneRenderingPipeline();
+        }
+      }).catch((err) => {
+        console.error(err);
+        Deno.exit(1);
+      }).finally(async () => {
+        if (interval) {
+          clearInterval(interval);
+          await command_helper.saveDatacenter(name, datacenter, pipeline);
+          command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+          command_helper.doneRenderingPipeline();
+        }
+      });
   } catch (err: any) {
     if (Array.isArray(err)) {
       for (const e of err) {

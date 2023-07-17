@@ -45,6 +45,12 @@ export type DockerInspectionResults = {
     Entrypoint: string[];
   };
   NetworkSettings: {
+    Ports: {
+      [key: string]: [{
+        HostIp: string;
+        HostPort: string;
+      }];
+    };
     Networks: {
       [key: string]: {
         Aliases: string[];

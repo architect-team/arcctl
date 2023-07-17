@@ -1,4 +1,4 @@
-import { Subscriber } from 'rxjs';
+import { lastValueFrom, Subscriber } from 'rxjs';
 import { mergeReadableStreams } from 'std/streams/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
@@ -10,14 +10,12 @@ import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
 import { DockerInspectionResults, DockerPsItem } from '../types.ts';
 
-const DOCKER_NETWORK_NAME = 'arcctl-local';
-
 export class DockerDeploymentService extends CrudResourceService<'deployment', DockerCredentials> {
   public constructor(accountName: string, credentials: DockerCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
   }
 
-  private async inspect(id: string): Promise<DockerInspectionResults | undefined> {
+  public async inspect(id: string): Promise<DockerInspectionResults | undefined> {
     const { stdout } = await exec('docker', { args: ['inspect', id.replaceAll('/', '--')] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     return rawContents.length > 0 ? rawContents[0] : undefined;
@@ -92,33 +90,14 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     return mergeReadableStreams(child.stdout, child.stderr);
   }
 
-  private async checkIfNetworkExists(): Promise<boolean> {
-    const { stdout, code } = await exec('docker', {
-      args: ['network', 'ls', '--format=json', '--filter', 'name=arcctl-local'],
-    });
-    if (code != 0) {
-      throw new Error('Unable to list docker networks');
-    }
-    return !!stdout;
-  }
-
-  private async createNetwork(): Promise<void> {
-    if (await this.checkIfNetworkExists()) {
-      return;
-    }
-
-    const { code } = await exec('docker', { args: ['network', 'create', DOCKER_NETWORK_NAME] });
-    if (code !== 0) {
-      throw new Error('Unable to create docker network');
-    }
-  }
-
   async create(
     _subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
-    await this.createNetwork();
-    const containerName = inputs.name.replaceAll('/', '--');
+    let containerName = inputs.name.replaceAll('/', '--');
+    if (inputs.namespace) {
+      containerName = `${inputs.namespace}--` + containerName;
+    }
     const args = ['run', '--detach', '--quiet', '--name', containerName];
 
     if (inputs.environment) {
@@ -130,8 +109,6 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     if (inputs.platform) {
       args.push('--platform', inputs.platform);
     }
-
-    args.push(`--network=${DOCKER_NETWORK_NAME}`);
 
     if (inputs.volume_mounts) {
       for (const mount of inputs.volume_mounts) {
@@ -147,7 +124,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     }
 
     for (const port of inputs.exposed_ports || []) {
-      args.push('-p', `${port.port}:${port.target_port}`);
+      let value = String(port.target_port);
+      if (port.port) {
+        value = `${port.port}:${value}`;
+      }
+
+      args.push('-p', value);
     }
 
     let labels = inputs.labels || {};
@@ -172,6 +154,33 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(stderr || 'Deployment failed');
     }
 
+    // Deployment successful. Report back to the server.
+    const inspectionRes = await this.inspect(containerName);
+    const networks = Object.keys(inspectionRes?.NetworkSettings.Networks || {});
+    const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
+
+    for (const serviceConfig of inputs.services || []) {
+      const writableService = this.providerStore.getWritableService(serviceConfig.account, 'service');
+      const existingService = await writableService.get(serviceConfig.id);
+      if (existingService?.target_servers) {
+        const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
+
+        const target_servers = existingService.target_servers;
+        if (!target_servers.includes(newUrl)) {
+          target_servers.push(newUrl);
+        }
+
+        await lastValueFrom(writableService.apply({
+          ...existingService,
+          type: 'service',
+          target_servers,
+        }, {
+          id: serviceConfig.id,
+          providerStore: this.providerStore,
+        }));
+      }
+    }
+
     return {
       id: containerName,
       labels,
@@ -188,6 +197,8 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(`No deployment with ID ${id}`);
     }
 
+    subscriber.next(`Stopping old container: ${inspection.Id}`);
+
     const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', inspection.Id] });
     if (stopCode !== 0) {
       throw new Error(stopStderr);
@@ -198,11 +209,22 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(rmStderr);
     }
 
-    const containerName = inputs.name?.replaceAll('/', '--') || inspection.Name;
+    subscriber.next(`Starting new container`);
+
+    let containerName = inspection.Name;
+    if (inputs.name) {
+      containerName = inputs.name;
+      if (inputs.namespace) {
+        containerName = `${inputs.namespace}--` + containerName;
+      }
+
+      containerName = containerName.replaceAll('/', '--');
+    }
+
     const args: string[] = ['run', '--detach', '--name', containerName];
 
-    const existingNetwork = Object.keys(inspection.NetworkSettings.Networks)[0];
-    args.push('--network', inputs.namespace || existingNetwork);
+    const network = Object.keys(inspection.NetworkSettings.Networks)[0];
+    args.push('--network', network);
 
     const existingEnv: Record<string, string> = {};
     for (const item of inspection.Config.Env || []) {
@@ -226,20 +248,24 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       );
     }
 
-    const ports = inputs.exposed_ports || [];
+    const exposedPorts = inputs.exposed_ports || [];
     if (!inputs.exposed_ports) {
       Object.keys(inspection.HostConfig.PortBindings).forEach((existingPort) => {
         const [targetPort] = existingPort.split('/');
         const hostPort = inspection.HostConfig.PortBindings[existingPort][0].HostPort;
-        ports.push({
+        exposedPorts.push({
           port: Number(hostPort),
           target_port: Number(targetPort),
         });
       });
     }
 
-    for (const port of ports) {
-      args.push('-p', `${port!.port}:${port!.target_port}`);
+    for (const port of exposedPorts) {
+      let value = String(port!.target_port);
+      if (port?.port) {
+        value = `${port.port}:${value}`;
+      }
+      args.push('-p', value);
     }
 
     let labels = inspection.Config.Labels;
@@ -276,6 +302,32 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const { code, stderr } = await exec('docker', { args });
     if (code !== 0) {
       throw new Error(stderr || 'Deployment failed');
+    }
+
+    const inspectionRes = await this.inspect(containerName);
+    const networks = Object.keys(inspectionRes?.NetworkSettings.Networks || {});
+    const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
+
+    for (const serviceConfig of (inputs.services as ResourceInputs['deployment']['services'] || [])) {
+      const writableService = this.providerStore.getWritableService(serviceConfig.account, 'service');
+      const existingService = await writableService.get(serviceConfig.id);
+      if (existingService?.target_servers) {
+        const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
+
+        const target_servers = existingService.target_servers;
+        if (!target_servers.includes(newUrl)) {
+          target_servers.push(newUrl);
+        }
+
+        await lastValueFrom(writableService.apply({
+          ...existingService,
+          type: 'service',
+          target_servers,
+        }, {
+          id: serviceConfig.id,
+          providerStore: this.providerStore,
+        }));
+      }
     }
 
     return {

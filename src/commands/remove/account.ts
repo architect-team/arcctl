@@ -13,7 +13,7 @@ async function remove_account_action(options: GlobalOptions, name?: string) {
     message: 'Select the account to delete',
   });
 
-  command_helper.providerStore.deleteProvider(provider.name);
+  command_helper.providerStore.delete(provider.name);
   console.log('Account deleted');
 }
 

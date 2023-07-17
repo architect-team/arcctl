@@ -151,7 +151,7 @@ export type DeploymentInputs = {
    * Port that the deployment should expose on all nodes
    */
   exposed_ports?: {
-    port: number;
+    port?: number;
     target_port: number;
   }[];
 
@@ -194,6 +194,11 @@ export type DeploymentInputs = {
      * The account the deployment can use to register itself with the service.
      */
     account: string;
+
+    /**
+     * The port the service deployment is listening on
+     */
+    port: string;
   }>;
 } & Container;
 

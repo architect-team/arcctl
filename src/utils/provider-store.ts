@@ -1,16 +1,18 @@
 import * as path from 'std/path/mod.ts';
+import { ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { Provider } from '../@providers/provider.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
+import { ResourceType } from '../@resources/index.ts';
 
-export class CldCtlProviderStore implements ProviderStore {
+export class ArcctlProviderStore implements ProviderStore {
   private _providers?: Provider[];
 
   constructor(
     private config_dir: string = Deno.makeTempDirSync(),
     private provider_filename: string = 'providers.json',
   ) {
-    this.getProviders();
+    this.list();
   }
 
   private get providers_config_file() {
@@ -28,7 +30,7 @@ export class CldCtlProviderStore implements ProviderStore {
     return file_path;
   }
 
-  getProvider(name: string): Provider | undefined {
+  get(name: string): Provider | undefined {
     if (this._providers) {
       return this._providers.find((item) => item.name === name);
     }
@@ -48,7 +50,7 @@ export class CldCtlProviderStore implements ProviderStore {
     return undefined;
   }
 
-  getProviders(): Provider[] {
+  list(): Provider[] {
     if (this._providers) {
       return this._providers;
     }
@@ -70,8 +72,8 @@ export class CldCtlProviderStore implements ProviderStore {
     return this._providers;
   }
 
-  saveProvider(provider: Provider): void {
-    const allProviders = this.getProviders();
+  save(provider: Provider): void {
+    const allProviders = this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === provider.name);
     if (foundIndex >= 0) {
       allProviders[foundIndex] = provider;
@@ -81,8 +83,8 @@ export class CldCtlProviderStore implements ProviderStore {
     this.saveProviders(allProviders);
   }
 
-  deleteProvider(name: string): void {
-    const allProviders = this.getProviders();
+  delete(name: string): void {
+    const allProviders = this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === name);
     if (foundIndex < 0) {
       throw new Error(`The ${name} provider was not found`);
@@ -92,7 +94,43 @@ export class CldCtlProviderStore implements ProviderStore {
     this.saveProviders(allProviders);
   }
 
-  saveProviders(providers: Provider[]): void {
+  getService<T extends ResourceType>(accountName: string, type: T): ResourceService<T, any> {
+    const account = this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    return service;
+  }
+
+  getWritableService<T extends ResourceType>(accountName: string, type: T): WritableResourceService<T, any> {
+    const account = this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    if (!('construct' in service) && !('create' in service)) {
+      throw new Error(`The ${account.type} provider cannot create service resources`);
+    }
+
+    return service as unknown as WritableResourceService<T, any>;
+  }
+
+  private saveProviders(providers: Provider[]): void {
     Deno.mkdirSync(path.dirname(this.providers_config_file), {
       recursive: true,
     });

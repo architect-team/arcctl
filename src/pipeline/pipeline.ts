@@ -98,8 +98,8 @@ export class Pipeline {
   edges: CloudEdge[];
 
   constructor(options?: PipelineOptions) {
-    this.steps = options?.steps || [];
-    this.edges = options?.edges || [];
+    this.steps = options?.steps?.map((step: any) => new PipelineStep(step)) || [];
+    this.edges = options?.edges?.map((edge: any) => new CloudEdge(edge)) || [];
   }
 
   /**

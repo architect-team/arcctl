@@ -1,6 +1,4 @@
-import { CloudEdge } from '../cloud-graph/edge.ts';
 import { Pipeline } from '../pipeline/pipeline.ts';
-import { PipelineStep } from '../pipeline/step.ts';
 import { BaseStore } from '../secrets/base-store.ts';
 import { SecretStore } from '../secrets/store.ts';
 import { Datacenter } from './datacenter.ts';
@@ -22,14 +20,10 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
 
   public async find(): Promise<DatacenterRecord[]> {
     await this.load(async (raw: any) => {
-      const pipeline = new Pipeline({
-        steps: raw.lastPipeline.steps.map((step: any) => new PipelineStep(step)),
-        edges: raw.lastPipeline.edges.map((edge: any) => new CloudEdge(edge)),
-      });
       return {
         name: raw.name,
         config: await parseDatacenter(raw.config),
-        lastPipeline: pipeline,
+        lastPipeline: new Pipeline(raw.lastPipeline),
       };
     });
 

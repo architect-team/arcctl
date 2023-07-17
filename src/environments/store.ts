@@ -1,6 +1,4 @@
-import { CloudEdge } from '../cloud-graph/edge.ts';
 import { Pipeline } from '../pipeline/pipeline.ts';
-import { PipelineStep } from '../pipeline/step.ts';
 import { BaseStore } from '../secrets/base-store.ts';
 import { SecretStore } from '../secrets/store.ts';
 import { Environment } from './environment.ts';
@@ -22,15 +20,11 @@ export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
 
   public async find(): Promise<EnvironmentRecord[]> {
     await this.load(async (raw: any) => {
-      const pipeline = new Pipeline({
-        steps: raw.lastPipeline.steps.map((step: any) => new PipelineStep(step)),
-        edges: raw.lastPipeline.edges.map((edge: any) => new CloudEdge(edge)),
-      });
       return {
         name: raw.name,
         datacenter: raw.datacenter,
         config: await parseEnvironment(raw.config),
-        lastPipeline: pipeline,
+        lastPipeline: new Pipeline(raw.lastPipeline),
       };
     });
     return this._records!;

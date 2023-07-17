@@ -1,14 +1,15 @@
-name: Testing
+name: Pull requests
+
 on:
-  push:
-    branches-ignore:
-      - "main"
+  pull_request:
+    branches:
+      - main
 
 env:
   DENO_DIR: deno_cache
 
 jobs:
-  test:
+  codecov:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,3 +30,11 @@ jobs:
         run: deno task typecheck
       - name: Run unit tests
         run: deno task test
+      - name: Generate coverage report
+        run: deno coverage ./coverage --lcov > coverage.lcov
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          file: ./coverage.lcov

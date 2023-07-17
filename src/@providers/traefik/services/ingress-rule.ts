@@ -85,6 +85,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
   }
 
   async get(id: string): Promise<ResourceOutputs['ingressRule'] | undefined> {
+    const normalizedId = id.replaceAll('/', '--');
     const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
     if (!contents) {
       return undefined;
@@ -94,13 +95,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     if (config.http) {
       let host = '';
-      const hostMatches = config.http.routers[id + ROUTER_SUFFIX].rule.match(/Host\(`([^\s]+)`\)/);
+      const hostMatches = config.http.routers[normalizedId + ROUTER_SUFFIX].rule.match(/Host\(`([^\s]+)`\)/);
       if (hostMatches && hostMatches.length > 1) {
         host = hostMatches[1];
       }
 
       let ingressPath = '/';
-      const pathMatches = config.http.routers[id + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
+      const pathMatches = config.http.routers[normalizedId + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
@@ -115,13 +116,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       };
     } else if (config.tcp) {
       let host = '';
-      const hostSNIMatches = config.tcp.routers[id + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
+      const hostSNIMatches = config.tcp.routers[normalizedId + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
       if (hostSNIMatches && hostSNIMatches.length > 1) {
         host = hostSNIMatches[1];
       }
 
       let ingressPath = '/';
-      const pathMatches = config.tcp.routers[id + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
+      const pathMatches = config.tcp.routers[normalizedId + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
@@ -144,28 +145,29 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const configFiles = await this.taskService.listConfigFiles(MOUNT_PATH, FILE_SUFFIX);
     const configs = await Promise.all<ResourceOutputs['ingressRule']>(configFiles.map(async (filename) => {
       const id = filename.replace(new RegExp('^' + MOUNT_PATH + '(.*)' + FILE_SUFFIX + '$'), '$1');
+      const normalizedId = id.replaceAll('/', '--');
       const contents = await this.taskService.getContents(filename);
       const config = yaml.load(contents) as TraefikFormattedIngressRule;
 
       let host = '';
       let ingressPath = '/';
       if (config.http) {
-        const hostMatches = config.http.routers[id + ROUTER_SUFFIX].rule.match(/Host\(`([^\s]+)`\)/);
+        const hostMatches = config.http.routers[normalizedId + ROUTER_SUFFIX].rule.match(/Host\(`([^\s]+)`\)/);
         if (hostMatches && hostMatches.length > 1) {
           host = hostMatches[1];
         }
 
-        const pathMatches = config.http.routers[id + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
+        const pathMatches = config.http.routers[normalizedId + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
         if (pathMatches && pathMatches.length > 1) {
           ingressPath = pathMatches[1];
         }
       } else if (config.tcp) {
-        const hostSNIMatches = config.tcp.routers[id + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
+        const hostSNIMatches = config.tcp.routers[normalizedId + ROUTER_SUFFIX].rule.match(/HostSNI\(`([^\s]+)`\)/);
         if (hostSNIMatches && hostSNIMatches.length > 1) {
           host = hostSNIMatches[1];
         }
 
-        const pathMatches = config.tcp.routers[id + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
+        const pathMatches = config.tcp.routers[normalizedId + ROUTER_SUFFIX].rule.match(/PathPrefix\(`([^\s]+)`\)/);
         if (pathMatches && pathMatches.length > 1) {
           ingressPath = pathMatches[1];
         }
@@ -191,7 +193,11 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['ingressRule'],
   ): Promise<ResourceOutputs['ingressRule']> {
-    const normalizedId = inputs.name.replaceAll('/', '--');
+    let id = inputs.name;
+    if (inputs.namespace) {
+      id = inputs.namespace + '/' + id;
+    }
+    const normalizedId = id.replaceAll('/', '--');
 
     const hostParts = [];
     if (inputs.subdomain) {
@@ -218,7 +224,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
           routers: {
             [normalizedId + ROUTER_SUFFIX]: {
               rule: rules.join(' && '),
-              service: inputs.service,
+              service: inputs.service.replaceAll('/', '--'),
               tls: {
                 passthrough: true,
               },
@@ -233,7 +239,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
           routers: {
             [normalizedId + ROUTER_SUFFIX]: {
               rule: rules.join(' && '),
-              service: inputs.service,
+              service: inputs.service.replaceAll('/', '--'),
             },
           },
         },
@@ -281,21 +287,25 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     id: string,
     inputs: DeepPartial<ResourceInputs['ingressRule']>,
   ): Promise<ResourceOutputs['ingressRule']> {
+    const normalizedPreviousId = id.replaceAll('/', '--');
     const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
 
     const existingConfig = yaml.load(contents) as TraefikFormattedIngressRule;
 
-    let previousName = '';
     let previousService = '';
     if (existingConfig.http) {
-      previousName = Object.keys(existingConfig.http.routers)[0];
-      previousService = existingConfig.http.routers[previousName].service;
+      previousService = existingConfig.http.routers[normalizedPreviousId + ROUTER_SUFFIX].service;
     } else if (existingConfig.tcp) {
-      previousName = Object.keys(existingConfig.tcp.routers)[0];
-      previousService = existingConfig.tcp.routers[previousName].service;
+      previousService = existingConfig.tcp.routers[normalizedPreviousId + ROUTER_SUFFIX].service;
     }
 
-    const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
+    let newId = id;
+    if (inputs.name && inputs.namespace) {
+      newId = inputs.namespace + '/' + inputs.name;
+    } else if (inputs.name) {
+      newId = inputs.name;
+    }
+    const normalizedNewId = newId.replaceAll('/', '--');
 
     const hostParts = [];
     if (inputs.subdomain) {
@@ -320,7 +330,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       newEntry = {
         tcp: {
           routers: {
-            [normalizedId + ROUTER_SUFFIX]: {
+            [normalizedNewId + ROUTER_SUFFIX]: {
               rule: rules.join(' && '),
               service: inputs.service || previousService,
               tls: {
@@ -335,7 +345,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       newEntry = {
         http: {
           routers: {
-            [normalizedId + ROUTER_SUFFIX]: {
+            [normalizedNewId + ROUTER_SUFFIX]: {
               rule: rules.join(' && '),
               service: inputs.service || previousService,
             },
@@ -345,19 +355,19 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
       if (inputs.headers && Object.keys(inputs.headers).length > 0) {
         newEntry.http!.middlewares = {
-          [normalizedId + ROUTER_SUFFIX]: this.headersToMiddleware(inputs.headers as Record<string, string>),
+          [normalizedNewId + ROUTER_SUFFIX]: this.headersToMiddleware(inputs.headers as Record<string, string>),
         };
-        newEntry.http!.routers[normalizedId + ROUTER_SUFFIX].middlewares = [normalizedId + ROUTER_SUFFIX];
+        newEntry.http!.routers[normalizedNewId + ROUTER_SUFFIX].middlewares = [normalizedNewId + ROUTER_SUFFIX];
       }
     }
 
-    if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
-      subscriber.next('Removing old ingressRule');
-      await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
-      subscriber.next('Registering new ingressRule');
+    if (newId !== id) {
+      subscriber.next('Removing old ingressRule: ' + id);
+      await this.taskService.deleteFile(path.join(MOUNT_PATH, id + FILE_SUFFIX));
     }
 
-    await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
+    subscriber.next('Registering new ingressRule: ' + newId);
+    await this.taskService.writeFile(path.join(MOUNT_PATH, newId + FILE_SUFFIX), yaml.dump(newEntry));
 
     let urlPath = inputs.path || '/';
     if (!urlPath.endsWith('/')) {
@@ -373,7 +383,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     subscriber.next(url);
     return {
-      id: normalizedId,
+      id: newId,
       host,
       port: 80,
       path: urlPath,
@@ -385,6 +395,6 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
   }
 
   async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
-    await this.taskService.deleteFile(path.join(MOUNT_PATH, id.replaceAll('/', '--') + FILE_SUFFIX));
+    await this.taskService.deleteFile(path.join(MOUNT_PATH, id + FILE_SUFFIX));
   }
 }

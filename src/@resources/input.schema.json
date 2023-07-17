@@ -657,7 +657,6 @@
                     }
                   },
                   "required": [
-                    "port",
                     "target_port"
                   ],
                   "type": "object"
@@ -1463,12 +1462,8 @@
                 "description": "Basic auth password",
                 "type": "string"
               },
-              "port": {
-                "description": "Port to listen on",
-                "type": "number"
-              },
               "target_deployment": {
-                "description": "Target deployment name",
+                "description": "A deployment the service should point to",
                 "type": "string"
               },
               "target_port": {
@@ -1479,6 +1474,13 @@
                 "default": "http",
                 "description": "Protocol",
                 "type": "string"
+              },
+              "target_servers": {
+                "description": "The servers the service should load balance between",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "type": {
                 "const": "service",
@@ -1491,7 +1493,6 @@
             },
             "required": [
               "name",
-              "target_deployment",
               "target_port",
               "type"
             ],

@@ -16,15 +16,9 @@ resources:
     account: ${{ variables.account }}
     name: traefik-volume
 
-  network:
-    type: namespace
-    account: ${{ variables.account }}
-    name: local
-
   gateway:
     type: deployment
     name: my-gateway
-    namespace: ${{ resources.network.id }}
     account: ${{ variables.account }}
     exposed_ports:
       - port: 80
@@ -80,12 +74,14 @@ environment:
     - when:
         type: service
       account: ${{ accounts.gateway.id }}
-      dnsZone: 172.17.0.1.nip.io
+      dnsZone: ${{ environment.name }}.172.17.0.1.nip.io
+      namespace: ${{ environment.name }}
     - when:
         type: ingressRule
       account: ${{ accounts.gateway.id }}
       registry: ${{ resources.service-registry.id }}
-      dnsZone: 127.0.0.1.nip.io
+      dnsZone: ${{ environment.name }}.127.0.0.1.nip.io
+      namespace: ${{ environment.name }}
     - when:
         type: databaseSchema
       account: ${{ environment.accounts.pg.id }}
@@ -97,4 +93,4 @@ environment:
         type: secret
       account: ${{ variables.secretAccount }}
     - account: ${{ variables.account }}
-      namespace: ${{ resources.network.id }}
+      namespace: ${{ environment.name }}

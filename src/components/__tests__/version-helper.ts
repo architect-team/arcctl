@@ -294,6 +294,7 @@ export const testServiceGeneration = (
         {
           id: `\${{ ${service_node.id}.id }}`,
           account: `\${{ ${service_node.id}.account }}`,
+          port: `\${{ ${service_node.id}.target_port }}`,
         },
       ],
       volume_mounts: [],

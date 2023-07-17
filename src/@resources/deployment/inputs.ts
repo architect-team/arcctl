@@ -151,7 +151,7 @@ export type DeploymentInputs = {
    * Port that the deployment should expose on all nodes
    */
   exposed_ports?: {
-    port: number;
+    port?: number;
     target_port: number;
   }[];
 

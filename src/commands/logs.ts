@@ -28,7 +28,7 @@ export const streamLogs = async (options: LogsOptions, environment: string): Pro
   }> = {};
 
   for (const step of activeSteps) {
-    const account = command_helper.providerStore.getProvider(step.inputs!.account!);
+    const account = command_helper.providerStore.get(step.inputs!.account!);
     if (!account) {
       console.error(`The ${step.id} resource is using an invalid account: ${step.inputs!.account}`);
       Deno.exit(1);
@@ -61,7 +61,7 @@ export const streamLogs = async (options: LogsOptions, environment: string): Pro
       Deno.exit(1);
     }
 
-    const account = command_helper.providerStore.getProvider(step.inputs!.account!);
+    const account = command_helper.providerStore.get(step.inputs!.account!);
     if (!account) {
       console.error(`The ${step.id} resource is using an invalid account: ${step.inputs!.account}`);
       Deno.exit(1);

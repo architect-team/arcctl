@@ -909,7 +909,7 @@ export class CommandHelper {
   public async promptForVariables(
     graph: CloudGraph,
     variables: ParsedVariablesType,
-    user_inputs?: Record<string, string>,
+    user_inputs: Record<string, string> = {},
   ): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
 
@@ -924,7 +924,7 @@ export class CommandHelper {
         graph,
         variable.name,
         variable.metadata,
-        user_inputs ? user_inputs[variable.name] : undefined,
+        user_inputs[variable.name],
       );
 
       variable_inputs[variable.name] = variable_value;

@@ -5,9 +5,9 @@ export type DatabaseUserApplyInputs = {
   username: string;
 
   /**
-   * The schema the user should have access to
+   * The database the user should have access to
    */
-  databaseSchema: string;
+  database: string;
 };
 
 export default DatabaseUserApplyInputs;

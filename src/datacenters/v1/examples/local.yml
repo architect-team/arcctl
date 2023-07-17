@@ -95,7 +95,7 @@ environment:
         port: ${{ environment.resources.pg.port }}
         username: ${{ environment.resources.pg.username }}
         password: ${{ environment.resources.pg.password }}
-        database: architect
+        databaseCluster: architect
 
   hooks:
     - when:

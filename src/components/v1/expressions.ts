@@ -56,7 +56,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
             type: 'databaseUser',
             account: `\${{ ${database_schema_node_id}.account }}`,
             username: name.replaceAll('/', '--'),
-            databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
+            database: `\${{ ${database_schema_node_id}.id }}`,
           },
         });
 

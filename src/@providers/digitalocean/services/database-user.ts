@@ -49,7 +49,7 @@ export class DigitaloceanDatabaseUserService extends TerraformResourceService<'d
       password,
       host,
       port,
-      database: cluster.database.connection.database,
+      databaseCluster: cluster.database.connection.database,
       url: `${protocol}://${username}:${password}@${host}:${port}/${cluster.database.connection.database}`,
     };
   }
@@ -84,7 +84,7 @@ export class DigitaloceanDatabaseUserService extends TerraformResourceService<'d
             username,
             password,
             protocol,
-            database: cluster.connection.database,
+            databaseCluster: cluster.connection.database,
             url: `${protocol}://${username}:${password}@${host}:${port}/${cluster.connection.database}`,
           });
         });

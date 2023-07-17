@@ -132,7 +132,7 @@
 //           - when:
 //               type: database
 //             account: test
-//             database: database-id
+//             databaseCluster: database-id
 //       `),
 //     );
 
@@ -148,13 +148,13 @@
 //       ),
 //     );
 
-//     const databaseSchemaNode = new CloudNode({
+//     const databaseNode = new CloudNode({
 //       name: 'main',
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
 //         type: 'database',
-//         database: '',
+//         databaseCluster: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
 //         name: CloudNode.genResourceId({
@@ -167,7 +167,7 @@
 
 //     const graph = await datacenter.enrichGraph(
 //       new CloudGraph({
-//         nodes: [databaseSchemaNode],
+//         nodes: [databaseNode],
 //       }),
 //       'environment',
 //     );
@@ -179,7 +179,7 @@
 //       inputs: {
 //         type: 'database',
 //         account: 'test',
-//         database: 'database-id',
+//         databaseCluster: 'database-id',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
 //         name: CloudNode.genResourceId({
@@ -215,13 +215,13 @@
 //       ),
 //     );
 
-//     const databaseSchemaNode = new CloudNode({
+//     const databaseNode = new CloudNode({
 //       name: 'main',
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
 //         type: 'database',
-//         database: '',
+//         databaseCluster: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
 //         name: CloudNode.genResourceId({
@@ -234,12 +234,12 @@
 
 //     const graph = await datacenter.enrichGraph(
 //       new CloudGraph({
-//         nodes: [databaseSchemaNode],
+//         nodes: [databaseNode],
 //       }),
 //       'environment',
 //     );
 
-//     assertArrayIncludes(graph.nodes, [databaseSchemaNode]);
+//     assertArrayIncludes(graph.nodes, [databaseNode]);
 //   });
 
 //   it('should create inline resources', async () => {
@@ -273,13 +273,13 @@
 //       ),
 //     );
 
-//     const databaseSchemaNode = new CloudNode({
+//     const databaseNode = new CloudNode({
 //       name: 'main',
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
 //         type: 'database',
-//         database: '',
+//         databaseCluster: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
 //         name: CloudNode.genResourceId({
@@ -292,7 +292,7 @@
 
 //     const graph = await datacenter.enrichGraph(
 //       new CloudGraph({
-//         nodes: [databaseSchemaNode],
+//         nodes: [databaseNode],
 //       }),
 //       'account/environment',
 //     );
@@ -331,7 +331,7 @@
 //                 databaseVersion: '13'
 //                 vpc: vpc-1
 //                 region: us-east-1
-//             database: \${{ this.resources.test.id }}
+//             databaseCluster: \${{ this.resources.test.id }}
 //       `),
 //     );
 
@@ -347,13 +347,13 @@
 //       ),
 //     );
 
-//     const databaseSchemaNode = new CloudNode({
+//     const databaseNode = new CloudNode({
 //       name: 'main',
 //       component: 'account/component',
 //       environment: 'account/environment',
 //       inputs: {
 //         type: 'database',
-//         database: '',
+//         databaseCluster: '',
 //         databaseType: 'postgres',
 //         databaseVersion: '13',
 //         name: CloudNode.genResourceId({
@@ -366,12 +366,12 @@
 
 //     const graph = await datacenter.enrichGraph(
 //       new CloudGraph({
-//         nodes: [databaseSchemaNode],
+//         nodes: [databaseNode],
 //       }),
 //       'account/environment',
 //     );
 
-//     (databaseSchemaNode as CloudNode<'database'>).inputs.database = '${{ this.resources.test.id }}';
+//     (databaseNode as CloudNode<'database'>).inputs.databaseCluster = '${{ this.resources.test.id }}';
 
 //     const expectedDatabaseNode = new CloudNode({
 //       name: 'hook-0-test',
@@ -388,10 +388,10 @@
 //       },
 //     });
 
-//     assertArrayIncludes(graph.nodes, [databaseSchemaNode, expectedDatabaseNode]);
+//     assertArrayIncludes(graph.nodes, [databaseNode, expectedDatabaseNode]);
 //     assertArrayIncludes(graph.edges, [
 //       new CloudEdge({
-//         from: databaseSchemaNode.id,
+//         from: databaseNode.id,
 //         to: expectedDatabaseNode.id,
 //         required: true,
 //       }),

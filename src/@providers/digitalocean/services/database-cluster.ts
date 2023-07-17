@@ -18,7 +18,7 @@ export class DigitaloceanDatabaseClusterService
     super(accountName, credentials, providerStore);
   }
 
-  private normalizeDatabase(database: any): ResourceOutputs['databaseCluster'] {
+  private normalizeDatabase(databaseCluster: any): ResourceOutputs['databaseCluster'] {
     return {
       id: database.id,
       host: database.connection.host,

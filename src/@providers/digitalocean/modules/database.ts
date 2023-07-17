@@ -14,7 +14,7 @@ export class DigitaloceanDatabaseModule extends ResourceModule<'database', Digit
     super(scope, options);
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
-      name: this.inputs?.database || 'unknown',
+      name: this.inputs?.databaseCluster || 'unknown',
     });
 
     this.db = new DatabaseDb(this, 'databaseCluster', {

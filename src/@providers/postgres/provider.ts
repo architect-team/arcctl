@@ -10,7 +10,7 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
   static readonly CredentialsSchema = PostgresCredentialsSchema;
 
   readonly resources: ProviderResources<PostgresCredentials> = {
-    database: new PostgresDatabaseService(this.name, this.credentials, this.providerStore),
+    databaseCluster: new PostgresDatabaseService(this.name, this.credentials, this.providerStore),
     databaseUser: new PostgresDatabaseUserService(this.name, this.credentials, this.providerStore),
   };
 

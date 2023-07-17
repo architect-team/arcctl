@@ -643,7 +643,7 @@ export default class ComponentV1 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          database: '',
+          databaseCluster: '',
           databaseType: engine,
           databaseVersion: version,
         },

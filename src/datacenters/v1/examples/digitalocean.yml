@@ -71,7 +71,7 @@ environment:
           vpc: ${{ resources.vpc.id }}
           region: ${{ variables.region }}
       account: ${{ variables.doAccount }}
-      database: ${{ this.resources.db.id }}
+      databaseCluster: ${{ this.resources.db.id }}
     - when:
         type: ingressRule
       resources:

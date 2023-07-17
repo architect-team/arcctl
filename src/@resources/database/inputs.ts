@@ -5,9 +5,9 @@ export type DatabaseApplyInputs = {
   name: string;
 
   /**
-   * Unique ID of the database backing this schema
+   * Unique ID of the database cluster backing this schema
    */
-  database: string;
+  databaseCluster: string;
 
   /**
    * Type of database required by the schema

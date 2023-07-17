@@ -298,7 +298,7 @@ export default class ComponentV2 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          database: '',
+          databaseCluster: '',
           databaseType: engine,
           databaseVersion: version,
         },

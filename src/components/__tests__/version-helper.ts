@@ -123,7 +123,7 @@ export const testDatabaseGeneration = (
         component: 'component',
         environment: 'environment',
       }),
-      database: '',
+      databaseCluster: '',
       databaseType: options.database_type,
       databaseVersion: options.database_version,
     },
@@ -168,7 +168,7 @@ export const testDatabaseIntegration = (
     inputs: {
       type: 'databaseUser',
       username: name.replaceAll('/', '--'),
-      databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
+      database: `\${{ ${database_schema_node_id}.id }}`,
       account: `\${{ ${database_schema_node_id}.account }}`,
     },
   });

@@ -248,8 +248,8 @@
               "account": {
                 "type": "string"
               },
-              "database": {
-                "description": "Unique ID of the database backing this schema",
+              "databaseCluster": {
+                "description": "Unique ID of the database cluster backing this schema",
                 "type": "string"
               },
               "databaseType": {
@@ -270,7 +270,7 @@
               }
             },
             "required": [
-              "database",
+              "databaseCluster",
               "databaseType",
               "databaseVersion",
               "name",
@@ -406,8 +406,8 @@
               "account": {
                 "type": "string"
               },
-              "databaseSchema": {
-                "description": "The schema the user should have access to",
+              "database": {
+                "description": "The database the user should have access to",
                 "type": "string"
               },
               "type": {
@@ -420,7 +420,7 @@
               }
             },
             "required": [
-              "databaseSchema",
+              "database",
               "type",
               "username"
             ],

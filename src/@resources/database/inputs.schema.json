@@ -5,8 +5,8 @@
     "DatabaseApplyInputs": {
       "additionalProperties": false,
       "properties": {
-        "database": {
-          "description": "Unique ID of the database backing this schema",
+        "databaseCluster": {
+          "description": "Unique ID of the database cluster backing this schema",
           "type": "string"
         },
         "databaseType": {
@@ -24,7 +24,7 @@
       },
       "required": [
         "name",
-        "database",
+        "databaseCluster",
         "databaseType",
         "databaseVersion"
       ],

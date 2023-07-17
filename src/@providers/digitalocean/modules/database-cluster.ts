@@ -7,7 +7,7 @@ import { DatabaseCluster } from '../.gen/providers/digitalocean/database-cluster
 import { DigitaloceanCredentials } from '../credentials.ts';
 
 export class DigitaloceanDatabaseClusterModule extends ResourceModule<'databaseCluster', DigitaloceanCredentials> {
-  database: DatabaseCluster;
+  databaseCluster: DatabaseCluster;
   outputs: ResourceOutputs['databaseCluster'];
 
   constructor(scope: Construct, options: ResourceModuleOptions<'databaseCluster', DigitaloceanCredentials>) {

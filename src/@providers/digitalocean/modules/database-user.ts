@@ -13,7 +13,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
   constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser', DigitaloceanCredentials>) {
     super(scope, options);
 
-    const [instance_name, database_name] = this.inputs?.databaseSchema.split('/') || ['unknown', 'unknown'];
+    const [instance_name, database_name] = this.inputs?.database.split('/') || ['unknown', 'unknown'];
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
       name: instance_name,
@@ -31,7 +31,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
     const protocol = `\${ ${instance.engine} == "pg" ? "postgresql" : ${instance.engine} }`;
     this.outputs = {
       id: this.user.id,
-      database: database_name,
+      databaseCluster: database_name,
       host: instance.host,
       port: instance.port,
       username: this.user.name,

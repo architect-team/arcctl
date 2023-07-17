@@ -138,7 +138,7 @@ environment:
         port: ${{ environment.resources.pg.port }}
         username: ${{ environment.resources.pg.username }}
         password: ${{ environment.resources.pg.password }}
-        database: architect
+        databaseCluster: architect
 ```
 
 ### Resource hooks
@@ -177,7 +177,7 @@ hooks:
     account: ${{ variables.doAccount }}
     # The matching resource can also refer to the inline resource to populate
     # its configuration
-    database: ${{ this.resources.db.id }}
+    databaseCluster: ${{ this.resources.db.id }}
   - when:
       type: ingressRule
     resources:

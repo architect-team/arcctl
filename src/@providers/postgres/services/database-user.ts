@@ -47,7 +47,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
         id: r.usename,
         username: r.usename,
         password: '',
-        database: '',
+        databaseCluster: '',
         protocol: 'postgresql',
         host: this.credentials.host,
         port: this.credentials.port,

@@ -59,7 +59,7 @@ environment:
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
       account: ${{ this.resources.db.account }}
-      database: ${{ this.resources.db.id }}
+      databaseCluster: ${{ this.resources.db.id }}
       host: ${{ this.resources.db.host }}
       port: ${{ this.resources.db.port }}
       protocol: ${{ this.resources.db.protocol }}

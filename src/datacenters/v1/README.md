@@ -120,7 +120,7 @@ that broker access to environment-scoped resources:
 environment:
   resources:
     pg:
-      type: database
+      type: databaseCluster
       account: ${{ variables.account }}
       name: ${{ environment.name }}-pg
       databaseType: postgres
@@ -128,7 +128,7 @@ environment:
       databaseSize: n/a
       vpc: n/a
       region: n/a
-  
+
   accounts:
     pg:
       name: ${{ environment.name }}-postgres-db
@@ -158,15 +158,15 @@ hooks:
       type: secret
     account: local
   - when:
-      type: databaseSchema
+      type: database
       databaseType: postgres
     # Hooks can define inline resources that should be created
     # whenever an application resource matches the hook
     resources:
       db:
-        type: database
+        type: databaseCluster
         account: ${{ variables.doAccount }}
-        # Inline resources can reference fields from the application 
+        # Inline resources can reference fields from the application
         # resource node like .id, .inputs.*, and .outputs.*
         name: ${{ this.id }}
         databaseVersion: ${{ this.inputs.databaseVersion }}

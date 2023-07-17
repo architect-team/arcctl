@@ -58,11 +58,11 @@ environment:
         type: secret
       account: local
     - when:
-        type: databaseSchema
+        type: database
         databaseType: postgres
       resources:
         db:
-          type: database
+          type: databaseCluster
           account: ${{ variables.doAccount }}
           name: ${{ this.id }}
           databaseVersion: ${{ this.inputs.databaseVersion }}

@@ -46,11 +46,11 @@ environment:
 
   hooks:
     - when:
-        type: databaseSchema
+        type: database
         databaseType: postgres
       resources:
         db:
-          type: database
+          type: databaseCluster
           account: aws-architect
           region: us-west-2
           name: ${{ this.id }}

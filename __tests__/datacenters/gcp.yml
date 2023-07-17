@@ -59,11 +59,11 @@ environment:
 
   hooks:
     - when:
-        type: databaseSchema
+        type: database
         databaseType: postgres
       resources:
         db:
-          type: database
+          type: databaseCluster
           account: ${{ variables.gcpAccount }}
           region: ${{ variables.region }}
           name: ${{ this.id }}

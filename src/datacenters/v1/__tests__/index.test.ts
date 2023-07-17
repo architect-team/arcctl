@@ -130,7 +130,7 @@
 //       yaml.load(`
 //         hooks:
 //           - when:
-//               type: databaseSchema
+//               type: database
 //             account: test
 //             database: database-id
 //       `),
@@ -247,10 +247,10 @@
 //       yaml.load(`
 //         hooks:
 //           - when:
-//               type: databaseSchema
+//               type: database
 //             resources:
 //               test:
-//                 type: database
+//                 type: databaseCluster
 //                 account: test
 //                 name: test
 //                 databaseSize: size-slug
@@ -320,10 +320,10 @@
 //       yaml.load(`
 //         hooks:
 //           - when:
-//               type: databaseSchema
+//               type: database
 //             resources:
 //               test:
-//                 type: database
+//                 type: databaseCluster
 //                 account: test
 //                 name: test
 //                 databaseSize: size-slug

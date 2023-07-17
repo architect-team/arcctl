@@ -48,11 +48,11 @@ accounts:
 environment:
   resources:
     pg:
-      type: database
+      type: databaseCluster
       account: ${{ variables.account }}
       name: ${{ environment.name }}-pg
       databaseType: postgres
-      databaseVersion: '13'
+      databaseVersion: "13"
       databaseSize: n/a
       vpc: n/a
       region: n/a
@@ -81,7 +81,7 @@ environment:
       dnsZone: ${{ environment.name }}.127.0.0.1.nip.io
       namespace: ${{ environment.name }}
     - when:
-        type: databaseSchema
+        type: database
       account: ${{ environment.accounts.pg.id }}
     - when:
         type: deployment

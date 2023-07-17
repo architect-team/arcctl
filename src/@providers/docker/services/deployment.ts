@@ -160,7 +160,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
 
     for (const serviceConfig of inputs.services || []) {
-      const account = this.providerStore.getProvider(serviceConfig.account);
+      const account = this.providerStore.get(serviceConfig.account);
       if (!account) {
         throw new Error(`Cannot be registered w/ service. Account does not exist: ${serviceConfig.account}`);
       }
@@ -325,7 +325,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
 
     for (const serviceConfig of (inputs.services as ResourceInputs['deployment']['services'] || [])) {
-      const account = this.providerStore.getProvider(serviceConfig.account);
+      const account = this.providerStore.get(serviceConfig.account);
       if (!account) {
         throw new Error(`Cannot be registered w/ service. Account does not exist: ${serviceConfig.account}`);
       }

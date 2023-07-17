@@ -11,20 +11,20 @@ export interface ProviderStore {
   /**
    * Retrieve the provider matching the specified name. Otherwise, returns undefined.
    */
-  getProvider(name: string): Provider | undefined;
+  get(name: string): Provider | undefined;
 
   /**
    * Return a list of the available providers
    */
-  getProviders(): Provider[];
+  list(): Provider[];
 
   /**
    * Save the specified provider to the store
    */
-  saveProvider(provider: Provider): void;
+  save(provider: Provider): void;
 
   /**
    * Remove the specified provider from the store. Throws an error if the provider doesn't exist.
    */
-  deleteProvider(name: string): void;
+  delete(name: string): void;
 }

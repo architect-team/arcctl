@@ -17,7 +17,7 @@ export class TraefikTaskService {
   private mountPath: string;
 
   public constructor(options: TraefikTaskServiceOptions) {
-    const account = options.providerStore.getProvider(options.account);
+    const account = options.providerStore.get(options.account);
     if (!account) {
       throw new Error(`Invalid account name: ${options.account}`);
     } else if (!account.resources.task || !('apply' in account.resources.task)) {

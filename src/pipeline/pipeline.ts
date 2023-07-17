@@ -401,7 +401,7 @@ export class Pipeline {
             endTime: Date.now(),
           };
 
-          options.providerStore.deleteProvider(step.inputs.name);
+          options.providerStore.delete(step.inputs.name);
         } else {
           step.status = {
             state: 'applying',
@@ -410,7 +410,7 @@ export class Pipeline {
             endTime: Date.now(),
           };
 
-          options.providerStore.saveProvider(
+          options.providerStore.save(
             new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
               step.inputs.name,
               step.inputs.credentials as any,

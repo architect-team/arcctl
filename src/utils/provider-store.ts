@@ -10,7 +10,7 @@ export class CldCtlProviderStore implements ProviderStore {
     private config_dir: string = Deno.makeTempDirSync(),
     private provider_filename: string = 'providers.json',
   ) {
-    this.getProviders();
+    this.list();
   }
 
   private get providers_config_file() {
@@ -28,7 +28,7 @@ export class CldCtlProviderStore implements ProviderStore {
     return file_path;
   }
 
-  getProvider(name: string): Provider | undefined {
+  get(name: string): Provider | undefined {
     if (this._providers) {
       return this._providers.find((item) => item.name === name);
     }
@@ -48,7 +48,7 @@ export class CldCtlProviderStore implements ProviderStore {
     return undefined;
   }
 
-  getProviders(): Provider[] {
+  list(): Provider[] {
     if (this._providers) {
       return this._providers;
     }
@@ -70,8 +70,8 @@ export class CldCtlProviderStore implements ProviderStore {
     return this._providers;
   }
 
-  saveProvider(provider: Provider): void {
-    const allProviders = this.getProviders();
+  save(provider: Provider): void {
+    const allProviders = this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === provider.name);
     if (foundIndex >= 0) {
       allProviders[foundIndex] = provider;
@@ -81,8 +81,8 @@ export class CldCtlProviderStore implements ProviderStore {
     this.saveProviders(allProviders);
   }
 
-  deleteProvider(name: string): void {
-    const allProviders = this.getProviders();
+  delete(name: string): void {
+    const allProviders = this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === name);
     if (foundIndex < 0) {
       throw new Error(`The ${name} provider was not found`);
@@ -92,7 +92,7 @@ export class CldCtlProviderStore implements ProviderStore {
     this.saveProviders(allProviders);
   }
 
-  saveProviders(providers: Provider[]): void {
+  private saveProviders(providers: Provider[]): void {
     Deno.mkdirSync(path.dirname(this.providers_config_file), {
       recursive: true,
     });

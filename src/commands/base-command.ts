@@ -227,7 +227,7 @@ export class CommandHelper {
   }
 
   public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+    const secretAccount = this.providerStore.get(record.lastPipeline.account);
     if (!secretAccount) {
       console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
       Deno.exit(1);
@@ -253,7 +253,7 @@ export class CommandHelper {
   }
 
   public async getPipelineForEnvironment(record: EnvironmentRecord): Promise<Pipeline> {
-    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+    const secretAccount = this.providerStore.get(record.lastPipeline.account);
     if (!secretAccount) {
       console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
       Deno.exit(1);
@@ -664,7 +664,7 @@ export class CommandHelper {
       message?: string;
     } = {},
   ): Promise<Provider> {
-    const allAccounts = this.providerStore.getProviders();
+    const allAccounts = this.providerStore.list();
     let filteredAccounts: Provider[] = [];
     if (!options.prompt_accounts) {
       for (const p of allAccounts) {
@@ -846,7 +846,7 @@ export class CommandHelper {
   }
 
   private async createAccount(): Promise<Provider> {
-    const allAccounts = this.providerStore.getProviders();
+    const allAccounts = this.providerStore.list();
     const providers = Object.keys(SupportedProviders);
 
     const res = await prompt([
@@ -884,7 +884,7 @@ export class CommandHelper {
     }
 
     try {
-      this.providerStore.saveProvider(account);
+      this.providerStore.save(account);
       console.log(`${account.name} account registered`);
     } catch (ex: any) {
       console.error(ex.message);
@@ -940,7 +940,7 @@ export class CommandHelper {
     } else if (metadata.type === 'number') {
       return NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
-      const existing_accounts = this.providerStore.getProviders();
+      const existing_accounts = this.providerStore.list();
       const query_accounts = metadata.provider
         ? existing_accounts.filter((p) => p.type === metadata.provider)
         : existing_accounts;
@@ -954,7 +954,7 @@ export class CommandHelper {
       if (!metadata.arcctlAccount) {
         throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
       }
-      const provider = this.providerStore.getProvider(metadata.arcctlAccount);
+      const provider = this.providerStore.get(metadata.arcctlAccount);
       if (!provider) {
         throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
       }

@@ -530,24 +530,28 @@ export class CommandHelper {
     if (options.length === 1) {
       answer = options[0].id;
     } else if (options.length > 1) {
-      answer = await Select.prompt({
-        message: property.schema.description || property.name,
-        options: [
-          ...options.map((row) => ({
-            name: row.id,
-            value: row.id,
-          })),
-          ...('apply' in service
-            ? [
-              Select.separator(),
-              {
-                value: 'create-new',
-                name: `Create a new ${property.name}`,
-              },
-            ]
-            : []),
-        ],
-      });
+      if (data[property.name]) {
+        answer = options.find((row) => row.id === data[property.name])?.id;
+      } else {
+        answer = await Select.prompt({
+          message: property.schema.description || property.name,
+          options: [
+            ...options.map((row) => ({
+              name: row.id,
+              value: row.id,
+            })),
+            ...('apply' in service
+              ? [
+                Select.separator(),
+                {
+                  value: 'create-new',
+                  name: `Create a new ${property.name}`,
+                },
+              ]
+              : []),
+          ],
+        });
+      }
     }
 
     if (answer === 'create-new') {
@@ -557,6 +561,9 @@ export class CommandHelper {
       return `\${{ ${node.id}.id }}`;
     } else if (answer === 'none') {
       return undefined;
+    } else if (answer === undefined && data[property.name]) {
+      console.log(`Invalid value for ${property.name}: ${data[property.name]}`);
+      Deno.exit(1);
     } else {
       return answer;
     }
@@ -899,20 +906,29 @@ export class CommandHelper {
    * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
    * an error is thrown.
    */
-  public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
+  public async promptForVariables(
+    graph: CloudGraph,
+    variables: ParsedVariablesType,
+    user_inputs?: Record<string, string>,
+  ): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
+
     const sorted_vars = this.sortVariables(variables);
 
     while (sorted_vars.length > 0) {
       const variable = sorted_vars.shift()!;
 
+      // If the variable input was passed in by the user, this will validate that their
+      // input matches a given resource/account if necessary.
       const variable_value = await this.promptForVariableFromMetadata(
         graph,
         variable.name,
         variable.metadata,
+        user_inputs ? user_inputs[variable.name] : undefined,
       );
 
       variable_inputs[variable.name] = variable_value;
+
       // Fill in metadata that relied on this variable
       for (const next_variable of sorted_vars) {
         if (next_variable.dependencies.has(variable.name)) {
@@ -931,14 +947,15 @@ export class CommandHelper {
     graph: CloudGraph,
     name: string,
     metadata: ParsedVariablesMetadata,
+    value?: string,
   ): Promise<string | boolean | number | undefined> {
     const message = `${name}: ${metadata.description}`;
     if (metadata.type === 'string') {
-      return Input.prompt({ message });
+      return value || Input.prompt({ message });
     } else if (metadata.type === 'boolean') {
-      return Confirm.prompt({ message });
+      return value || Confirm.prompt({ message });
     } else if (metadata.type === 'number') {
-      return NumberPrompt.prompt({ message });
+      return value || NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
       const existing_accounts = this.providerStore.getProviders();
       const query_accounts = metadata.provider
@@ -947,6 +964,7 @@ export class CommandHelper {
       const account = await this.promptForAccount({
         prompt_accounts: query_accounts,
         message: message,
+        account: value,
       });
       return account.name;
     } else {
@@ -962,6 +980,8 @@ export class CommandHelper {
       return this.promptForResourceID(graph, provider, {
         name: name as ResourceType,
         schema: { description: message } as any,
+      }, {
+        [name]: value,
       });
     }
   }

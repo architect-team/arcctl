@@ -31,8 +31,10 @@ export class GoogleCloudServiceService extends TerraformResourceService<'service
       });
       return {
         id: backend.name || '',
+        name: backend.name || '',
         protocol: backend.protocol || 'unknown',
-        port: backend.port || 0,
+        port: backend.port || 80,
+        target_port: backend.port || 80,
         host: '',
         url: '',
         account: this.accountName,
@@ -59,10 +61,11 @@ export class GoogleCloudServiceService extends TerraformResourceService<'service
           id: backend.name || '',
           name: backend.name || '',
           protocol: backend.protocol || 'unknown',
-          port: backend.port || 0,
+          port: backend.port || 80,
           host: '',
           url: '',
           account: this.accountName,
+          target_port: backend.port || 0,
         };
       }),
     };

@@ -17,7 +17,7 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
 
     const service_name = this.inputs?.name.replaceAll('/', '--') || 'deleting';
     const service_port = this.inputs?.target_port || 80;
-    const function_name = (this.inputs?.target_deployment.replaceAll('/', '--') || 'deleting') +
+    const function_name = (this.inputs?.target_deployment?.replaceAll('/', '--') || 'deleting') +
       `--${service_port}`;
 
     let region = '';
@@ -52,6 +52,8 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
       username: '',
       password: '',
       account: this.inputs?.account || '',
+      name: service_name,
+      target_port: service_port,
     };
   }
 

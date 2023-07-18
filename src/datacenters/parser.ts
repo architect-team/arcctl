@@ -7,7 +7,7 @@ import { buildDatacenter, DatacenterSchema } from './schema.ts';
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
-const datacenter_validator = ajv.compile<DatacenterSchema>(DatacenterSchemaContents);
+const datacenter_validator = ajv.compile<DatacenterSchema>(DatacenterSchemaContents.default);
 
 export const parseDatacenter = async (input: Record<string, unknown> | string): Promise<Datacenter> => {
   let raw_obj: any;

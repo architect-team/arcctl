@@ -6,7 +6,7 @@ import { InputSchema, ResourceInputs, ResourceType } from './types.ts';
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
-const input_validator = ajv.compile<InputSchema>(InputSchemaContents);
+const input_validator = ajv.compile<InputSchema>(InputSchemaContents.default);
 
 export const parseResourceInputs = async (input: Record<string, unknown> | string): Promise<InputSchema> => {
   let raw_obj: any;
@@ -56,7 +56,7 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
     raw_obj = input;
   }
 
-  const resource_validator = ajv.compile<ResourceInputs[T]>((InputsSchemaContents as any)[type]);
+  const resource_validator = ajv.compile<ResourceInputs[T]>((InputsSchemaContents.default as any)[type]);
 
   if (!resource_validator(raw_obj)) {
     throw resource_validator.errors;

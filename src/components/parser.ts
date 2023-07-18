@@ -8,7 +8,7 @@ import { buildComponent, ComponentSchema } from './schema.ts';
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
-const component_validator = ajv.compile<ComponentSchema>(ComponentSchemaContents);
+const component_validator = ajv.compile<ComponentSchema>(ComponentSchemaContents.default);
 
 export const parseComponent = async (input: Record<string, unknown> | string): Promise<Component> => {
   let raw_obj: any;

@@ -8,7 +8,7 @@ const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 const __dirname = new URL('.', import.meta.url).pathname;
 
-const environment_validator = ajv.compile<EnvironmentSchema>(EnvironmentSchemaContents);
+const environment_validator = ajv.compile<EnvironmentSchema>(EnvironmentSchemaContents.default);
 
 export const parseEnvironment = async (input: Record<string, unknown> | string): Promise<Environment> => {
   let raw_obj: any;

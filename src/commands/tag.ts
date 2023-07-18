@@ -1,27 +1,43 @@
-import * as path from 'std/path/mod.ts';
+import { lastValueFrom } from 'rxjs';
 import { verifyDocker } from '../docker/helper.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
+
+type TagOptions = GlobalOptions & {
+  containerAccount: string;
+};
 
 const TagCommand = BaseCommand()
   .description('Tag a component and its associated build artifacts')
   .arguments('<source:string> <target:string>')
+  .option('-c, --container-account <containerAccount:string>', 'Account used to build docker images', {
+    required: true,
+  })
   .action(tag_action);
 
-async function tag_action(options: GlobalOptions, source: string, target: string) {
+async function tag_action(options: TagOptions, source: string, target: string) {
   verifyDocker();
   const command_helper = new CommandHelper(options);
 
   try {
     const component = await command_helper.componentStore.getComponentConfig(source);
+    const tagService = command_helper.providerStore.getWritableService(options.containerAccount, 'containerTag');
 
     component.tag(async (sourceRef: string, targetName: string) => {
       const imageRepository = new ImageRepository(target);
-      const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-      const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
+      imageRepository.repository = `${imageRepository.repository}-${targetName}`;
+      const targetRef = imageRepository.toString();
 
-      await exec('docker', { args: ['tag', sourceRef, targetRef] });
+      await lastValueFrom(tagService.apply({
+        type: 'containerTag',
+        account: options.containerAccount,
+        source: sourceRef,
+        target: targetRef,
+      }, {
+        id: '',
+        providerStore: command_helper.providerStore,
+      }));
+      console.log(`Image Tagged: ${targetRef}`);
       return targetRef;
     }, async (digest: string, deploymentName: string, volumeName: string) => {
       console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);

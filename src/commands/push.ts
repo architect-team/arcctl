@@ -1,14 +1,16 @@
+import { lastValueFrom } from 'rxjs';
+import winston, { Logger } from 'winston';
 import { verifyDocker } from '../docker/helper.ts';
-import { exec, execVerbose } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type BuildOptions = {
-  verbose: boolean;
+  account: string;
 } & GlobalOptions;
 
 const PushCommand = BaseCommand()
   .description('Push a component up to the registry')
   .arguments('<tag:string>')
+  .option('-a, --account <account:string>', 'Account used to push docker images', { required: true })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .action(push_action);
 
@@ -16,23 +18,29 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
   verifyDocker();
   const command_helper = new CommandHelper(options);
 
+  const pushService = command_helper.providerStore.getWritableService(options.account, 'containerPush');
   const component = await command_helper.componentStore.getComponentConfig(tag);
+
+  let logger: Logger | undefined;
+  if (options.verbose) {
+    logger = winston.createLogger({
+      level: 'info',
+      format: winston.format.printf(({ message }) => message),
+    });
+  }
+
   await component.push(async (image: string) => {
-    if (options.verbose) {
-      const { code } = await execVerbose('docker', { args: ['push', image] });
-      if (code != 0) {
-        Deno.exit(code);
-      }
-    } else {
-      const { code, stderr } = await exec('docker', { args: ['push', image] });
+    const { outputs } = await lastValueFrom(pushService.apply({
+      type: 'containerPush',
+      account: options.account,
+      image,
+    }, {
+      id: '',
+      providerStore: command_helper.providerStore,
+      logger,
+    }));
 
-      if (stderr && stderr.length > 0) {
-        console.error(stderr);
-        Deno.exit(code);
-      }
-    }
-
-    console.log(`Pushed image: ${image}`);
+    console.log(`Pushed image: ${outputs?.id}`);
   }, async (deploymentName: string, volumeName: string, image: string, host_path: string, mount_path: string) => {
     const [name, version] = tag.split(':');
     const ref = `${name}/${deploymentName}/volume/${volumeName}:${version}`;
@@ -47,6 +55,7 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
     );
     console.log(`Pushed Volume ${ref}`);
   });
+
   console.log(`Pushed Component: ${tag}`);
 }
 

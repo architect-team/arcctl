@@ -27,6 +27,7 @@ import { createTable } from '../utils/table.ts';
 
 export type GlobalOptions = {
   configHome?: string;
+  verbose?: boolean;
 };
 
 export function BaseCommand() {
@@ -46,7 +47,7 @@ export class CommandHelper {
 
   get componentStore(): ComponentStore {
     const config_dir = CloudCtlConfig.getConfigDirectory();
-    return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
+    return new ComponentStore(path.join(config_dir, 'component-store'));
   }
 
   get providerStore(): ProviderStore {

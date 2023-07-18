@@ -1,5 +1,6 @@
 import { Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ImageRepository } from '../../../oci/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
@@ -25,30 +26,6 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['containerPush'],
   ): Promise<ResourceOutputs['containerPush']> {
-    if (!inputs.namespace) {
-      subscriber.next(inputs.digest);
-      return Promise.resolve({
-        id: inputs.digest,
-      });
-    }
-
-    const tagParts = [];
-    if (inputs.namespace) {
-      tagParts.push(inputs.namespace.replaceAll('/', '-'));
-    }
-
-    tagParts.push(inputs.name.replaceAll('/', '-'));
-
-    let tag = tagParts.join('/');
-    if (inputs.tag) {
-      tag += ':' + inputs.tag;
-    }
-
-    const { code } = await exec('docker', { args: ['tag', inputs.digest, tag] });
-    if (code !== 0) {
-      throw new Error(`Failed to create tag, ${tag}, from digest, ${inputs.digest}.`);
-    }
-
     const { code: loginCode } = await exec('docker', {
       args: ['login', '-u', this.credentials.username, '-p', this.credentials.password],
     });
@@ -56,16 +33,28 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
       throw new Error(`Failed to login to Docker Hub.`);
     }
 
-    const { code: pushCode } = await exec('docker', { args: ['push', tag] });
+    const image = new ImageRepository(inputs.image);
+    if (image.registry) {
+      const source = image.toString();
+      delete image.registry;
+      const target = image.toString();
+
+      const { code: tagCode } = await exec('docker', { args: ['tag', source, target] });
+      if (tagCode !== 0) {
+        throw new Error(`Something went wrong tagging the image for DockerHub: tag ${source} ${target}`);
+      }
+    }
+
+    const { code: pushCode } = await exec('docker', { args: ['push', image.toString()] });
     if (pushCode !== 0) {
-      throw new Error(`Failed to push image: ${tag}`);
+      throw new Error(`Failed to push image: ${image.toString()}`);
     }
 
     await exec('docker', { args: ['logout'] });
 
-    subscriber.next(tag);
+    subscriber.next(image.toString());
     return {
-      id: tag,
+      id: image.toString(),
     };
   }
 
@@ -74,21 +63,10 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
     id: string,
     inputs: DeepPartial<ResourceInputs['containerPush']>,
   ): Promise<ResourceOutputs['containerPush']> {
-    let name = id;
-    let namespace: string | undefined;
-    if (name.includes('/')) {
-      const parts = name.split('/');
-      namespace = parts[0];
-      name = parts[1];
-    }
-
     return this.create(subscriber, {
       type: 'containerPush',
       account: this.accountName,
-      namespace: inputs.namespace || namespace,
-      name: inputs.name || name,
-      digest: inputs.digest || id,
-      tag: inputs.tag,
+      image: inputs.image || id,
     });
   }
 

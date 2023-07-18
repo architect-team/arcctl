@@ -6,6 +6,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
+import { DockerContainerTagService } from './containerTag.ts';
 
 export class DockerBuildService extends CrudResourceService<'containerBuild', DockerCredentials> {
   get(id: string): Promise<ResourceOutputs['containerBuild'] | undefined> {
@@ -42,6 +43,7 @@ export class DockerBuildService extends CrudResourceService<'containerBuild', Do
       args,
       cwd: context,
     });
+
     if (code !== 0) {
       throw new Error(stderr || 'Build failed');
     }
@@ -54,11 +56,28 @@ export class DockerBuildService extends CrudResourceService<'containerBuild', Do
         parts.unshift(inputs.push.namespace);
       }
 
-      const writableService = this.providerStore.getWritableService(inputs.push.account, 'containerPush');
-      const { outputs } = await lastValueFrom(writableService.apply({
+      let tag = inputs.push.name;
+      if (inputs.push.namespace) {
+        tag = `${inputs.push.namespace}/${tag}`;
+      }
+
+      if (inputs.push.tag) {
+        tag = `${tag}:${inputs.push.tag}`;
+      }
+
+      const tagService = new DockerContainerTagService(this.accountName, this.credentials, this.providerStore);
+      const { id: image } = await tagService.create(subscriber, {
+        type: 'containerTag',
+        account: this.accountName,
+        source: digest,
+        target: tag,
+      });
+
+      const pushService = this.providerStore.getWritableService(inputs.push.account, 'containerPush');
+      const { outputs } = await lastValueFrom(pushService.apply({
         type: 'containerPush',
-        ...inputs.push,
-        digest: digest,
+        account: inputs.push.account,
+        image,
       }, {
         id: '',
         providerStore: this.providerStore,

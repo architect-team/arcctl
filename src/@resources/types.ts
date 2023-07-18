@@ -4,6 +4,8 @@ import type containerBuildInputs from './containerBuild/inputs.ts';
 import type containerBuildOutputs from './containerBuild/outputs.ts';
 import type containerPushInputs from './containerPush/inputs.ts';
 import type containerPushOutputs from './containerPush/outputs.ts';
+import type containerTagInputs from './containerTag/inputs.ts';
+import type containerTagOutputs from './containerTag/outputs.ts';
 import type cronjobInputs from './cronjob/inputs.ts';
 import type cronjobOutputs from './cronjob/outputs.ts';
 import type databaseInputs from './database/inputs.ts';
@@ -57,6 +59,7 @@ export type ResourceType =
   | 'arcctlAccount'
   | 'containerBuild'
   | 'containerPush'
+  | 'containerTag'
   | 'cronjob'
   | 'database'
   | 'databaseSchema'
@@ -86,6 +89,7 @@ export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
   'containerBuild',
   'containerPush',
+  'containerTag',
   'cronjob',
   'database',
   'databaseSchema',
@@ -125,6 +129,10 @@ export type ResourceInputs = {
     type: 'containerPush';
     account?: string;
   } & containerPushInputs;
+  'containerTag': {
+    type: 'containerTag';
+    account?: string;
+  } & containerTagInputs;
   'cronjob': {
     type: 'cronjob';
     account?: string;
@@ -233,6 +241,9 @@ export type ResourceOutputs = {
   'containerPush': {
     id: string;
   } & containerPushOutputs;
+  'containerTag': {
+    id: string;
+  } & containerTagOutputs;
   'cronjob': {
     id: string;
   } & cronjobOutputs;

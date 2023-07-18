@@ -1,8 +1,5 @@
 export type ContainerPushInputs = {
-  digest: string;
-  name: string;
-  namespace?: string;
-  tag?: string;
+  image: string;
 };
 
 export default ContainerPushInputs;

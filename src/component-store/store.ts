@@ -36,9 +36,9 @@ class MissingComponentRef extends Error {
 export class ComponentStore {
   private cache_dir: string;
   private db: ComponentStoreDB;
-  private default_registry: string;
+  private default_registry?: string;
 
-  constructor(cache_dir: string, default_registry: string) {
+  constructor(cache_dir: string, default_registry?: string) {
     this.cache_dir = cache_dir;
     this.default_registry = default_registry;
 

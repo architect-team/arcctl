@@ -10,7 +10,7 @@ import { fileToBinaryData, IMAGE_REGEXP } from './utils.ts';
 
 export class ImageRepository<C extends any = any> {
   protocol: string;
-  registry: string;
+  registry?: string;
   repository: string;
   tag?: string;
   digest?: string;
@@ -25,7 +25,7 @@ export class ImageRepository<C extends any = any> {
       throw new InvalidImageFormat(ref_string);
     }
 
-    this.default_registry = default_registry || 'registry.docker.com';
+    this.default_registry = default_registry || 'registry-1.docker.io';
     this.registry = match[1] || '';
     this.repository = match[2];
     this.protocol = this.boldlyAssumeProtocol();
@@ -69,6 +69,11 @@ export class ImageRepository<C extends any = any> {
 
   async checkForOciSupport() {
     try {
+      const registry = this.getRegistryUrl();
+      if (registry.includes('registry-1.docker.io')) {
+        return;
+      }
+
       await fetch(`${this.getRegistryUrl()}/v2/`);
     } catch (err: any) {
       if (err.code === 'ECONNREFUSED') {
@@ -98,6 +103,7 @@ export class ImageRepository<C extends any = any> {
           Accept: media_type,
         },
       });
+      console.log(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`);
       this.manifest = await res.json() as ImageManifest;
     }
 
@@ -107,6 +113,7 @@ export class ImageRepository<C extends any = any> {
   async getConfig(media_type: string): Promise<C> {
     if (!this.config) {
       const manifest = await this.getManifest(media_type);
+      console.log(manifest);
       const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`);
       this.config = await res.json() as C;
     }

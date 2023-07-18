@@ -154,9 +154,6 @@
               "namespace": {
                 "type": "string"
               },
-              "registry": {
-                "type": "string"
-              },
               "tag": {
                 "type": "string"
               },
@@ -168,6 +165,40 @@
             "required": [
               "digest",
               "name",
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "containerTag",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "type": {
+                "const": "containerTag",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "target",
               "type"
             ],
             "type": "object"
@@ -1788,6 +1819,7 @@
             "arcctlAccount",
             "containerBuild",
             "containerPush",
+            "containerTag",
             "cronjob",
             "database",
             "databaseSchema",

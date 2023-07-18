@@ -2,7 +2,8 @@ import { RequiresDocker } from '../../docker/helper.ts';
 import { exec } from '../../utils/command.ts';
 import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
-import { DockerBuildService } from './services/build.ts';
+import { DockerBuildService } from './services/containerBuild.ts';
+import { DockerContainerTagService } from './services/containerTag.ts';
 import { DockerDatabaseService } from './services/database.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
@@ -22,6 +23,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     volume: new DockerVolumeService(this.name, this.credentials, this.providerStore),
     database: new DockerDatabaseService(this.name, this.credentials, this.providerStore),
     containerBuild: new DockerBuildService(this.name, this.credentials, this.providerStore),
+    containerTag: new DockerContainerTagService(this.name, this.credentials, this.providerStore),
   };
 
   @RequiresDocker()

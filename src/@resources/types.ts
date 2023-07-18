@@ -74,8 +74,7 @@ export type ResourceType =
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc'
-;
+  | 'vpc';
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',

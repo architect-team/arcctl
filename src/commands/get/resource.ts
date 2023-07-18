@@ -1,7 +1,7 @@
 import { EnumType } from 'cliffy/command/mod.ts';
-import { Select } from 'cliffy/prompt/mod.ts';
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -19,7 +19,7 @@ const GetResourceCommand = BaseCommand()
 async function get_resource_action(options: GetResourceOption, resource_type?: ResourceType, resource_id?: string) {
   const command_helper = new CommandHelper(options);
 
-  const provider = await command_helper.promptForAccount({
+  const provider = await command_helper.accountInputUtils.promptForAccount({
     account: options.account,
     type: resource_type,
     action: 'list',
@@ -29,7 +29,7 @@ async function get_resource_action(options: GetResourceOption, resource_type?: R
     throw new Error(`Unable to list resources for ${provider.name} because the credentials are invalid`);
   }
 
-  const type = await command_helper.promptForResourceType(provider, 'list', resource_type);
+  const type = await command_helper.resourceInputUtils.promptForResourceType(provider, 'list', resource_type);
 
   if (!resource_id) {
     if (!provider.resources[type]?.list) {
@@ -40,7 +40,7 @@ async function get_resource_action(options: GetResourceOption, resource_type?: R
       rows: [],
     };
 
-    resource_id = await Select.prompt({
+    resource_id = await Inputs.promptSelection({
       message: `Which ${type}?`,
       options: results.rows.map((r) => r.id),
     });

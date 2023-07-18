@@ -1,7 +1,8 @@
-import { Input, Select } from 'cliffy/prompt/mod.ts';
+import { Input } from 'cliffy/prompt/mod.ts';
 import { SupportedProviders } from '../../@providers/index.ts';
 import CloudCtlConfig from '../../utils/config.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 type SetStateBackendOptions = {
   provider?: string;
@@ -20,7 +21,7 @@ async function set_state_backend(options: SetStateBackendOptions) {
   const command_helper = new CommandHelper(options);
 
   const providerName = options.provider ||
-    (await Select.prompt({
+    (await Inputs.promptSelection({
       message: 'What provider will this account connect to?',
       options: Object.keys(SupportedProviders),
     }));
@@ -45,7 +46,7 @@ async function set_state_backend(options: SetStateBackendOptions) {
     providedCredentials[key] = value;
   }
 
-  const credentials = await command_helper.promptForCredentials(providerType, providedCredentials);
+  const credentials = await command_helper.accountInputUtils.promptForCredentials(providerType, providedCredentials);
 
   const namespace = options.namespace || await Input.prompt({
     message: 'What namespace should this account use?',

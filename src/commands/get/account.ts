@@ -1,6 +1,6 @@
 import { ResourceType } from '../../@resources/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const GetAccountCommand = BaseCommand()
   .description('Get the details of an account by name')
@@ -10,7 +10,7 @@ const GetAccountCommand = BaseCommand()
 async function get_account_action(options: GlobalOptions, name?: string) {
   const command_helper = new CommandHelper(options);
 
-  const account = await command_helper.promptForAccount({
+  const account = await command_helper.accountInputUtils.promptForAccount({
     account: name,
   });
 

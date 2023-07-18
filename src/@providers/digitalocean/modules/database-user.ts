@@ -31,7 +31,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
     const protocol = `\${ ${instance.engine} == "pg" ? "postgresql" : ${instance.engine} }`;
     this.outputs = {
       id: this.user.id,
-      databaseCluster: database_name,
+      database: database_name,
       host: instance.host,
       port: instance.port,
       username: this.user.name,

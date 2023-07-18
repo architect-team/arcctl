@@ -10,7 +10,7 @@ import { SqlUser } from '../.gen/providers/google/sql-user/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 
 export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCluster', GoogleCloudCredentials> {
-  databaseCluster: SqlDatabaseInstance;
+  database: SqlDatabaseInstance;
   user: SqlUser;
   outputs: ResourceOutputs['databaseCluster'];
 

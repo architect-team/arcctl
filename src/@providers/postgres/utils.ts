@@ -7,6 +7,6 @@ export function getPgClient(credentials: PostgresCredentials): pg.Client {
     port: credentials.port,
     user: credentials.username,
     password: credentials.password,
-    databaseCluster: credentials.database,
+    database: credentials.database,
   });
 }

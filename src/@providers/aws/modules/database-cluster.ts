@@ -13,7 +13,7 @@ import { AwsCredentials } from '../credentials.ts';
 
 export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', AwsCredentials> {
   outputs: ResourceOutputs['databaseCluster'];
-  databaseCluster: Rds;
+  database: Rds;
   private username: TerraformOutput;
   private password: TerraformOutput;
 
@@ -137,7 +137,7 @@ export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', 
           port,
           username,
           password,
-          databaseCluster: 'postgres',
+          database: 'postgres',
         }, providerStore),
       );
     },

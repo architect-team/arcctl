@@ -31,7 +31,7 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
     nodeSize: new DigitaloceanNodeSizeService(this.name, this.credentials, this.providerStore),
     kubernetesVersion: new DigitaloceanKubernetesVersionService(this.name, this.credentials, this.providerStore),
     kubernetesCluster: new DigitaloceanKubernetesClusterService(this.name, this.credentials, this.providerStore),
-    databaseCluster: new DigitaloceanDatabaseService(this.name, this.credentials, this.providerStore),
+    database: new DigitaloceanDatabaseService(this.name, this.credentials, this.providerStore),
     databaseCluster: new DigitaloceanDatabaseClusterService(this.name, this.credentials, this.providerStore),
     databaseSize: new DigitaloceanDatabaseSizeService(this.name, this.credentials, this.providerStore),
     databaseType: new DigitaloceanDatabaseTypeService(this.name, this.credentials, this.providerStore),

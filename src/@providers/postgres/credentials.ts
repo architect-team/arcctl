@@ -5,7 +5,7 @@ export interface PostgresCredentials extends ProviderCredentials {
   port: number;
   username: string;
   password: string;
-  databaseCluster: string;
+  database: string;
 }
 
 export const PostgresCredentialsSchema: ProviderCredentialsSchema<PostgresCredentials> = {
@@ -30,11 +30,11 @@ export const PostgresCredentialsSchema: ProviderCredentialsSchema<PostgresCreden
       type: 'string',
       description: '',
     },
-    databaseCluster: {
+    database: {
       type: 'string',
       description: 'Default database to connect to',
     },
   },
-  required: ['host', 'port', 'username', 'password', 'databaseCluster'],
+  required: ['host', 'port', 'username', 'password', 'database'],
   additionalProperties: false,
 };

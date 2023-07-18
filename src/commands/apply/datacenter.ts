@@ -9,17 +9,33 @@ import { apply_environment_action } from './environment.ts';
 type ApplyDatacenterOptions = {
   verbose: boolean;
   autoApprove: boolean;
+  var?: string[];
 } & GlobalOptions;
 
 const ApplyDatacenterCommand = BaseCommand()
   .description('Create or update a datacenter')
   .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
+  .option(
+    '--var <var:string>',
+    'Provide value for a datacenter variable - e.g. --var account=my-account-123 sets the `account` variable',
+    { collect: true },
+  )
   .arguments('<name:string> <config_path:string>')
   .action(apply_datacenter_action);
 
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
   const command_helper = new CommandHelper(options);
+
+  const flag_vars: Record<string, string> = {};
+  for (const v of options.var || []) {
+    const var_option = v.split('=');
+    if (var_option.length !== 2) {
+      console.log(`Invalid variable argument: '${v}'. Must be formatted: VAR_NAME=VAR_VALUE`);
+      Deno.exit(1);
+    }
+    flag_vars[var_option[0]] = var_option[1];
+  }
 
   const existingDatacenter = await command_helper.datacenterStore.get(name);
   const originalPipeline = existingDatacenter
@@ -32,7 +48,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     const datacenter = await parseDatacenter(config_path);
 
     let graph = new CloudGraph();
-    const vars = await command_helper.promptForVariables(graph, datacenter.getVariables());
+    const vars = await command_helper.promptForVariables(graph, datacenter.getVariables(), flag_vars);
     datacenter.setVariableValues(vars);
     graph = await datacenter.enrichGraph(graph);
 
@@ -61,28 +77,31 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       });
     }
 
-    await command_helper.applyDatacenter(name, datacenter, pipeline, logger);
-
-    if (interval) {
-      clearInterval(interval);
-    }
-
-    await command_helper.saveDatacenter(name, datacenter, pipeline);
-    command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-    command_helper.doneRenderingPipeline();
-    console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
-
-    if (datacenterEnvironments.length > 0) {
-      for (const environment of datacenterEnvironments) {
-        await apply_environment_action({
-          verbose: options.verbose,
-          datacenter: name,
-          autoApprove: true,
-        }, environment.name);
-      }
-      console.log('Environments updated successfully');
-      command_helper.doneRenderingPipeline();
-    }
+    command_helper.applyDatacenter(name, datacenter, pipeline, logger)
+      .then(async () => {
+        console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
+        if (datacenterEnvironments.length > 0) {
+          for (const environmet of datacenterEnvironments) {
+            await apply_environment_action({
+              verbose: options.verbose,
+              datacenter: name,
+              autoApprove: true,
+            }, environmet.name);
+          }
+          console.log('Environments updated successfully');
+          command_helper.doneRenderingPipeline();
+        }
+      }).catch((err) => {
+        console.error(err);
+        Deno.exit(1);
+      }).finally(async () => {
+        if (interval) {
+          clearInterval(interval);
+          await command_helper.saveDatacenter(name, datacenter, pipeline);
+          command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+          command_helper.doneRenderingPipeline();
+        }
+      });
   } catch (err: any) {
     if (Array.isArray(err)) {
       for (const e of err) {

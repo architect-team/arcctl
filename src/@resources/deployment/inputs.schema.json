@@ -93,7 +93,6 @@
               }
             },
             "required": [
-              "port",
               "target_port"
             ],
             "type": "object"

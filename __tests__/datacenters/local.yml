@@ -70,8 +70,6 @@ environment:
 
   hooks:
     - when:
-        type: containerPush
-    - when:
         type: service
       account: ${{ accounts.gateway.id }}
       dnsZone: ${{ environment.name }}.172.17.0.1.nip.io
@@ -85,10 +83,6 @@ environment:
     - when:
         type: databaseSchema
       account: ${{ environment.accounts.pg.id }}
-    - when:
-        type: deployment
-        image: oryd/kratos-selfservice-ui-node:v0.13.0
-      platform: linux/amd64
     - when:
         type: secret
       account: ${{ variables.secretAccount }}

@@ -1,4 +1,4 @@
-import { Subscriber } from 'rxjs';
+import { lastValueFrom, Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
@@ -46,9 +46,38 @@ export class DockerBuildService extends CrudResourceService<'containerBuild', Do
       throw new Error(stderr || 'Build failed');
     }
 
-    return {
-      id: stdout.replace(/^\s+|\s+$/g, ''),
-    };
+    const digest = stdout.replace(/\n+$/, '').replace(/^\s+|\s+$/g, '');
+
+    if (inputs.push) {
+      const parts = [inputs.push.name];
+      if (inputs.push.namespace) {
+        parts.unshift(inputs.push.namespace);
+      }
+
+      const writableService = this.providerStore.getWritableService(inputs.push.account, 'containerPush');
+      const { outputs } = await lastValueFrom(writableService.apply({
+        type: 'containerPush',
+        ...inputs.push,
+        digest: digest,
+      }, {
+        id: '',
+        providerStore: this.providerStore,
+      }));
+
+      if (!outputs) {
+        throw new Error('Failed to push image');
+      }
+
+      subscriber.next(outputs.id!);
+      return {
+        id: outputs!.id,
+      };
+    } else {
+      subscriber.next(digest);
+      return {
+        id: digest,
+      };
+    }
   }
 
   update(
@@ -64,7 +93,6 @@ export class DockerBuildService extends CrudResourceService<'containerBuild', Do
   }
 
   delete(subscriber: Subscriber<string>, id: string): Promise<void> {
-    subscriber.next('Nothing to delete');
     return Promise.resolve();
   }
 }

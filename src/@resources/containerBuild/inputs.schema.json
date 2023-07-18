@@ -26,6 +26,34 @@
           "description": "Path to the dockerfile relative to the context",
           "type": "string"
         },
+        "push": {
+          "additionalProperties": false,
+          "description": "Configuration specifying if/how to push to a remote registry",
+          "properties": {
+            "account": {
+              "description": "Account that provides access to the registry",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the repository to push to",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace to put the image in",
+              "type": "string"
+            },
+            "tag": {
+              "default": "latest",
+              "description": "Tag to apply to the image",
+              "type": "string"
+            }
+          },
+          "required": [
+            "account",
+            "name"
+          ],
+          "type": "object"
+        },
         "target": {
           "description": "Name of a intermediate build stage to target",
           "type": "string"

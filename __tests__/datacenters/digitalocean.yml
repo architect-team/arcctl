@@ -13,6 +13,9 @@ variables:
   dnsZone:
     type: string
     description: Name of DNS zone for DNS records
+  registryAccount:
+    type: arcctlAccount
+    description: Account used to push images to a registry
 
 resources:
   vpc:
@@ -57,6 +60,13 @@ environment:
     - when:
         type: secret
       account: local
+    - when:
+        type: containerBuild
+      push:
+        account: ${{ variables.registryAccount }}
+        name: ${{ this.name }}
+        namespace: davidthor
+        tag: ${{ environment.name }}
     - when:
         type: databaseSchema
         databaseType: postgres

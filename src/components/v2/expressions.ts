@@ -91,8 +91,8 @@ const parseBuildRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?builds\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, build_name, key) => {
-        const push_node_id = CloudNode.genId({
-          type: 'containerPush',
+        const build_node_id = CloudNode.genId({
+          type: 'containerBuild',
           name: build_name,
           component: context.component.name,
           environment: context.environment,
@@ -101,12 +101,12 @@ const parseBuildRefs = <T extends Record<string, any>>(
         graph.insertEdges(
           new CloudEdge({
             from: from_id,
-            to: push_node_id,
+            to: build_node_id,
             required: true,
           }),
         );
 
-        return `\${{ ${push_node_id}.${key} }}`;
+        return `\${{ ${build_node_id}.${key} }}`;
       },
     ),
   );

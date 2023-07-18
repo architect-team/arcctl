@@ -101,30 +101,7 @@ describe('Component Schema: v2', () => {
       },
     });
 
-    const push_node = new CloudNode({
-      name: 'test',
-      component: 'component',
-      environment: 'environment',
-      inputs: {
-        type: 'containerPush',
-        name: CloudNode.genResourceId({
-          name: 'test',
-          component: 'account/component',
-          environment: 'account/environment',
-        }),
-        digest: `\${{ ${build_node.id}.id }}`,
-        tag: 'latest',
-      },
-    });
-
-    assertArrayIncludes(graph.nodes, [build_node, push_node]);
-    assertArrayIncludes(graph.edges, [
-      new CloudEdge({
-        from: push_node.id,
-        to: build_node.id,
-        required: true,
-      }),
-    ]);
+    assertArrayIncludes(graph.nodes, [build_node]);
   });
 
   it('should generate variables', () =>

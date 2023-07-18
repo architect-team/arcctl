@@ -170,37 +170,15 @@ export default class ComponentV1 extends Component {
         build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
         graph.insertNodes(build_node);
 
-        const push_node = new CloudNode({
-          name: service_name,
-          component: context.component.name,
-          environment: context.environment,
-          inputs: {
-            type: 'containerPush',
-            name: CloudNode.genResourceId({
-              name: service_name,
-              component: context.component.name,
-              environment: context.environment,
-            }),
-            tag: 'latest',
-            digest: `\${{ ${build_node.id}.id }}`,
-          },
-        });
-        graph.insertNodes(push_node);
-
         graph.insertEdges(
           new CloudEdge({
-            from: push_node.id,
-            to: build_node.id,
-            required: true,
-          }),
-          new CloudEdge({
             from: deployment_node_id,
-            to: push_node.id,
+            to: build_node.id,
             required: true,
           }),
         );
 
-        image = `\${{ ${push_node.id}.id }}`;
+        image = `\${{ ${build_node.id}.id }}`;
       } else {
         image = service_config.image;
       }
@@ -446,37 +424,15 @@ export default class ComponentV1 extends Component {
         build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
         graph.insertNodes(build_node);
 
-        const push_node = new CloudNode({
-          name: task_name,
-          component: context.component.name,
-          environment: context.environment,
-          inputs: {
-            type: 'containerPush',
-            name: CloudNode.genResourceId({
-              name: task_name,
-              component: context.component.name,
-              environment: context.environment,
-            }),
-            tag: 'latest',
-            digest: `\${{ ${build_node.id}.id }}`,
-          },
-        });
-        graph.insertNodes(push_node);
-
         graph.insertEdges(
           new CloudEdge({
-            from: push_node.id,
-            to: build_node.id,
-            required: true,
-          }),
-          new CloudEdge({
             from: cronjob_node_id,
-            to: push_node.id,
+            to: build_node.id,
             required: true,
           }),
         );
 
-        image = `\${{ ${push_node.id}.id }}`;
+        image = `\${{ ${build_node.id}.id }}`;
       } else {
         image = task_config.image;
       }

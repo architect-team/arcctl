@@ -25,6 +25,32 @@ export type DockerBuildInputs = {
    * Name of a intermediate build stage to target
    */
   target?: string;
+
+  /**
+   * Configuration specifying if/how to push to a remote registry
+   */
+  push?: {
+    /**
+     * Account that provides access to the registry
+     */
+    account: string;
+
+    /**
+     * Name of the repository to push to
+     */
+    name: string;
+
+    /**
+     * Namespace to put the image in
+     */
+    namespace?: string;
+
+    /**
+     * Tag to apply to the image
+     * @default latest
+     */
+    tag?: string;
+  };
 };
 
 export default DockerBuildInputs;

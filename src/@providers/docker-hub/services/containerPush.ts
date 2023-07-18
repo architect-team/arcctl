@@ -25,7 +25,7 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['containerPush'],
   ): Promise<ResourceOutputs['containerPush']> {
-    if (!inputs.registry && !inputs.namespace) {
+    if (!inputs.namespace) {
       subscriber.next(inputs.digest);
       return Promise.resolve({
         id: inputs.digest,
@@ -33,10 +33,6 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
     }
 
     const tagParts = [];
-    if (inputs.registry) {
-      tagParts.push(inputs.registry);
-    }
-
     if (inputs.namespace) {
       tagParts.push(inputs.namespace.replaceAll('/', '-'));
     }
@@ -65,12 +61,7 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
       throw new Error(`Failed to push image: ${tag}`);
     }
 
-    const logoutArgs = ['logout'];
-    if (inputs.registry) {
-      logoutArgs.push(inputs.registry);
-    }
-
-    await exec('docker', { args: logoutArgs });
+    await exec('docker', { args: ['logout'] });
 
     subscriber.next(tag);
     return {
@@ -94,7 +85,6 @@ export class DockerHubContainerPushService extends CrudResourceService<'containe
     return this.create(subscriber, {
       type: 'containerPush',
       account: this.accountName,
-      registry: inputs.registry,
       namespace: inputs.namespace || namespace,
       name: inputs.name || name,
       digest: inputs.digest || id,

@@ -61,22 +61,6 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    const push_node = new CloudNode({
-      name: 'api',
-      component: 'account/component',
-      environment: 'account/environment',
-      inputs: {
-        type: 'containerPush',
-        name: CloudNode.genResourceId({
-          name: 'api',
-          component: 'account/component',
-          environment: 'account/environment',
-        }),
-        tag: 'latest',
-        digest: `\${{ ${build_node.id}.id }}`,
-      },
-    });
-
     const deployment_node = new CloudNode({
       name: 'api',
       component: 'account/component',
@@ -89,12 +73,19 @@ describe('Component Schema: v1', () => {
           environment: 'account/environment',
         }),
         replicas: 1,
-        image: `\${{ ${push_node.id}.id }}`,
+        image: `\${{ ${build_node.id}.id }}`,
         volume_mounts: [],
       },
     });
 
-    assertArrayIncludes(graph.nodes, [build_node, push_node, deployment_node]);
+    assertArrayIncludes(graph.nodes, [build_node, deployment_node]);
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: deployment_node.id,
+        to: build_node.id,
+        required: true,
+      }),
+    ]);
   });
 
   it('should create edge for explicit depends_on', () => {

@@ -2104,8 +2104,7 @@
                     "additionalProperties": false,
                     "properties": {
                       "account": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "type": "string"
                       },
                       "args": {
                         "additionalProperties": false,
@@ -2115,83 +2114,237 @@
                         "additionalProperties": false,
                         "properties": {
                           "max_replicas": {
-                            "additionalProperties": false,
-                            "type": "object"
+                            "type": "number"
                           },
                           "min_replicas": {
-                            "additionalProperties": false,
-                            "type": "object"
+                            "type": "number"
                           }
                         },
                         "type": "object"
                       },
                       "chart": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Chart to be installed",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "command": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "component_source": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Source of the component that contains the build context",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "content": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "context": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Docker build context relative to the component root",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "cpu": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "description": "Number of CPUs to allocate to the container",
+                            "minimum": 0.1,
+                            "type": "number"
+                          }
+                        ]
                       },
                       "credentials": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "data": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Data to populate the secret with",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "database": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The database the user should have access to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseCluster": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Unique ID of the database cluster backing this schema",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseSize": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Size of the database instance to create",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseType": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Type of database required by the schema",
+                            "type": "string"
+                          },
+                          {
+                            "description": "The type of database engine to use",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseVersion": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Version of the database type the schema creation process expects",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Refers to the unique ID of a `databaseVersion` response",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "description": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Human-readable description of the database",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Description of the cluster",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Description for the VPC",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "dnsZone": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Optional DNS zone to use for listeners",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "dockerfile": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "Dockerfile",
+                            "description": "Path to the dockerfile relative to the context",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "entrypoint": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "environment": {
                         "additionalProperties": false,
@@ -2202,68 +2355,250 @@
                         "type": "object"
                       },
                       "external_hostname": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "External address to point to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "headers": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "hostPath": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Path on the host machine to mount the volume to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "image": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Image the container runs from",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "internal": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": false,
+                            "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+                            "type": "boolean"
+                          }
+                        ]
                       },
                       "kubernetesVersion": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Version of the kubernetes control plane to use",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "labels": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "memory": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Amount of memory to allocate to the container",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "merge": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": false,
+                            "description": "Whether or not to merge the input data from multiple sources into an array of values",
+                            "type": "boolean"
+                          }
+                        ]
                       },
                       "name": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Name of the new account",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name to give to the new schema",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Unique name for the database",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Deployment name",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name of the helm release",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name to give to the ingress rule resource",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name of the cluster",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name for the secret",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Hostname to listen on",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name to give to the volume resource",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name of the VPC",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "namespace": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Namespace the deployment should be in",
+                            "type": "string"
+                          },
+                          {
+                            "default": "default",
+                            "description": "The namespace to install the release in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Namespace to put the ingress rule in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Namespace the secret should be place in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Resource namespace",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "nodePools": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "password": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Basic auth password",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "path": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "/",
+                            "description": "The path the ingress rule listens on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "platform": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Target platform the deployment will run on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "port": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Port that the ingress rule listens for traffic on",
+                            "type": [
+                              "string",
+                              "number"
+                            ]
+                          }
+                        ]
                       },
                       "probes": {
                         "additionalProperties": false,
@@ -2273,26 +2608,22 @@
                             "properties": {
                               "command": {
                                 "items": {
-                                  "additionalProperties": false,
-                                  "type": "object"
+                                  "type": "string"
                                 },
                                 "type": "array"
                               },
                               "failure_threshold": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "number"
                               },
                               "headers": {
                                 "items": {
                                   "additionalProperties": false,
                                   "properties": {
                                     "name": {
-                                      "additionalProperties": false,
-                                      "type": "object"
+                                      "type": "string"
                                     },
                                     "value": {
-                                      "additionalProperties": false,
-                                      "type": "object"
+                                      "type": "string"
                                     }
                                   },
                                   "type": "object"
@@ -2300,36 +2631,32 @@
                                 "type": "array"
                               },
                               "initial_delay": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "number"
                               },
                               "interval": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "number"
                               },
                               "path": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "string"
                               },
                               "port": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "number"
                               },
                               "scheme": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "string"
                               },
                               "success_threshold": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "number"
                               },
                               "timeout": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "type": "number"
                               },
                               "type": {
-                                "additionalProperties": false,
-                                "type": "object"
+                                "enum": [
+                                  "exec",
+                                  "http"
+                                ],
+                                "type": "string"
                               }
                             },
                             "type": "object"
@@ -2338,48 +2665,155 @@
                         "type": "object"
                       },
                       "protocol": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "http",
+                            "description": "The protocol the ingress rule listens for traffic on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "provider": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Cloud provider the account connects to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "recordType": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "region": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Unique ID of the region to run the database in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Region the cluster should live in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Region the VPC exists in",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "registry": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "registry.architect.io",
+                            "description": "Registry the artifact will be pushed to",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Unique ID of the service registry this rule will be stored in",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "replicas": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": 1,
+                            "description": "Number of replicas of the deployment to run",
+                            "type": "number"
+                          }
+                        ]
                       },
                       "repository": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The repository to push the artifact to",
+                            "type": "string"
+                          },
+                          {
+                            "description": "The URL of the repository where the chart lives",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "required": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": false,
+                            "description": "Whether or not the secret is required",
+                            "type": "boolean"
+                          }
+                        ]
                       },
                       "schedule": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "sensitive": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": false,
+                            "description": "Whether or not the data is to be considered sensitive and stripped from logs",
+                            "type": "boolean"
+                          }
+                        ]
                       },
                       "service": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Service the ingress forwards traffic to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "services": {
                         "additionalProperties": false,
@@ -2390,36 +2824,96 @@
                         "type": "object"
                       },
                       "subdomain": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "The subdomain the ingress rule listens on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "tag": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "latest",
+                            "description": "Tag to assign to the image",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Name of a intermediate build stage to target",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target_deployment": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "A deployment the service should point to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target_port": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Target port",
+                            "type": "number"
+                          }
+                        ]
                       },
                       "target_protocol": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "http",
+                            "description": "Protocol",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target_servers": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "ttl": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
                       },
                       "type": {
                         "enum": [
@@ -2452,24 +2946,56 @@
                         "type": "string"
                       },
                       "username": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Username of the user to create",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Basic auth username",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "values": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "version": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The exact chart version to install. Otherwise will use the latest.",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "volume_mounts": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "vpc": {
-                        "additionalProperties": false,
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Unique ID of the VPC to run the database in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "VPC the cluster should live in",
+                            "type": "string"
+                          }
+                        ]
                       }
                     },
                     "required": [

@@ -85,3 +85,17 @@ $ arcctl get <resource> <id>
 $ arcctl create <resource>
 $ arcctl delete <resource> <id>
 ```
+
+## Remote State
+
+CloudCtl uses persisted state to keep track of your accounts, datacenters and environments. These statefiles represent all of your cloud resources. By default these statefiles are kept on your local machine. Though, if you want to share these resources with multiple people across machines, then you will need to use a remote state. Any provider that supports a secret resource type, can be used as a remote backend.
+
+To configure a remote backend you can run the command, which will run you through creating an account.
+```
+$ arcctl set state.backend
+```
+
+To use arcctl in CI flows you can automate the configuration process.
+```
+$ arcctl set secretAccount --cred accessKeyId=myAccessKeyId --cred secretAccessKey=mySecretAccessKey --cred endpoint=https://nyc3.digitaloceanspaces.com --cred region=nyc3 --provider s3 --namespace=mybucket
+```

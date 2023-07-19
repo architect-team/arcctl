@@ -124,7 +124,7 @@ export class DatacenterUtils {
    * depend on other variables get resolved first. If no valid order exists (e.g., there are cycles),
    * this raises an error.
    */
-  protected sortVariables(
+  public sortVariables(
     variables: ParsedVariablesType,
   ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
     const variable_graph: Record<string, Set<string>> = {};

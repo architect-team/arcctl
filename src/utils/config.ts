@@ -79,7 +79,7 @@ export default class CloudCtlConfig {
       // ignore error if directory doesn't exist as existsSync will throw an error - https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
     }
     if (!directory_exists) {
-      Deno.mkdirSync(config_directory);
+      Deno.mkdirSync(config_directory, { recursive: true });
     }
 
     Deno.writeTextFileSync( // TODO: this doesn't create a new file if needed when shimmed in esm

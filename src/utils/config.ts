@@ -1,5 +1,5 @@
-import * as path from 'std/path/mod.ts';
 import { home_dir } from 'deps';
+import * as path from 'std/path/mod.ts';
 
 export default class CloudCtlConfig {
   private static dev: boolean;

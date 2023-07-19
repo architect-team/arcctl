@@ -1,6 +1,6 @@
+import * as path from 'std/path/mod.ts';
 import { Datacenter } from './datacenter.ts';
 import { parseDatacenter } from './parser.ts';
-import * as path from 'std/path/mod.ts';
 
 export type DatacenterRecord = {
   name: string;

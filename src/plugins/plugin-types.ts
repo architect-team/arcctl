@@ -31,6 +31,6 @@ export interface PluginBinary {
 export interface ArchitectPlugin {
   versions: { [version: string]: PluginBinary[] };
   name: string;
-  setup(pluginDirectory: string, binary: PluginBinary): Promise<void>;
+  setup(pluginDirectory: string, binary: PluginBinary): void;
   exec(args: string[], opts: PluginOptions): Deno.ChildProcess;
 }

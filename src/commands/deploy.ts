@@ -117,6 +117,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           providerStore: command_helper.providerStore,
           logger,
         })
+        .toPromise()
         .then(async () => {
           await command_helper.saveEnvironment(
             datacenterRecord.name,

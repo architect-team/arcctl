@@ -20,11 +20,11 @@ const BuildCommand = BaseCommand()
 async function build_action(options: BuildOptions, context_file: string): Promise<void> {
   verifyDocker();
   const command_helper = new CommandHelper(options);
-  const context = Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
+  const context = !Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
 
   let component: Component;
   try {
-    component = await parseComponent(context);
+    component = await parseComponent(context_file);
   } catch (err: unknown) {
     if (Array.isArray(err)) {
       for (const e of err) {

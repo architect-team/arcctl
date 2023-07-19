@@ -14,3 +14,4 @@ coverage
 /build
 .local
 .secrets
+package-lock.json

@@ -9,41 +9,19 @@ const git = [
       'CHANGELOG.md',
       'README.md',
       'package.json',
-      'package-lock.json',
-      'yarn.lock',
+      'deno.json',
+      'deno.lock',
     ],
-  },
-];
-const exec = [
-  '@semantic-release/exec',
-  {
-    publishCmd: 'npm run pack',
   },
 ];
 const npm = '@semantic-release/npm';
 const github = [
   '@semantic-release/github',
-  {
-    assets: [
-      {
-        path: 'dist/*.tar.gz',
-        label: 'Architect-CLI ${nextRelease.version}',
-      },
-    ],
-  },
 ];
 const changelog = [
   '@semantic-release/changelog',
   {
     changelogFile: 'CHANGELOG.md',
-  },
-];
-const backmerge = [
-  '@saithodev/semantic-release-backmerge',
-  {
-    branches: ['rc'],
-    // Makes sure that only pushed changes are backmerged
-    clearWorkspace: true,
   },
 ];
 
@@ -58,19 +36,15 @@ const mainPlugins = [
   commitAnalyzer,
   releaseNotesGenerator,
   changelog,
-  exec,
   npm,
   git,
   github,
 ];
 
 module.exports = {
+  dryRun: true,
   branches: [
     'main',
-    {
-      name: 'rc',
-      prerelease: true,
-    },
     {
       name: 'arcctl-*',
       prerelease: true,

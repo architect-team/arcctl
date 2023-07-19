@@ -1,4 +1,4 @@
-import Ajv2019 from 'ajv/dist/2019.js';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as InputSchemaContents from './input-schema.ts';
 import * as InputsSchemaContents from './inputs-schema.ts';
@@ -6,9 +6,11 @@ import { InputSchema, ResourceInputs, ResourceType } from './types.ts';
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
-const input_validator = ajv.compile<InputSchema>(InputSchemaContents.default);
+export const parseResourceInputs = async (
+  input: Record<string, unknown> | string,
+): Promise<InputSchema> => {
+  const input_validator = ajv.compile<InputSchema>(InputSchemaContents.default);
 
-export const parseResourceInputs = async (input: Record<string, unknown> | string): Promise<InputSchema> => {
   let raw_obj: any;
   if (typeof input === 'string') {
     const filename = input;

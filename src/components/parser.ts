@@ -1,4 +1,4 @@
-import Ajv2019 from 'ajv/dist/2019.js';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 import * as ComponentSchemaContents from './component-schema.ts';
@@ -8,9 +8,11 @@ import { buildComponent, ComponentSchema } from './schema.ts';
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
-const component_validator = ajv.compile<ComponentSchema>(ComponentSchemaContents.default);
+export const parseComponent = async (
+  input: Record<string, unknown> | string,
+): Promise<Component> => {
+  const component_validator = ajv.compile<ComponentSchema>(ComponentSchemaContents.default);
 
-export const parseComponent = async (input: Record<string, unknown> | string): Promise<Component> => {
   let raw_obj: any;
   if (typeof input === 'string') {
     let filename = input;

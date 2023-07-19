@@ -76,6 +76,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       providerStore: command_helper.providerStore,
       logger: logger,
     })
+    .toPromise()
     .then(async () => {
       clearInterval(interval);
       await command_helper.datacenterUtils.removeDatacenter(datacenterRecord);

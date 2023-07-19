@@ -47,6 +47,7 @@ export class EnvironmentUtils {
         providerStore: this.providerStore,
         logger: options?.logger,
       })
+      .toPromise()
       .then(async () => {
         await this.saveEnvironment(
           datacenterRecord.name,

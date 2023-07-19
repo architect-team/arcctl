@@ -1,5 +1,6 @@
 secrets:
-  account: local
+  account: s3
+  namespace: arcctl-backend
 
 variables:
   region:

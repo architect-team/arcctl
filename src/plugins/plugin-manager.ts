@@ -1,5 +1,5 @@
-import * as path from 'std/path/mod.ts';
 import { existsSync } from 'std/fs/exists.ts';
+import * as path from 'std/path/mod.ts';
 import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 import PluginUtils from './plugin-utils.ts';
 
@@ -70,9 +70,24 @@ export default class PluginManager {
     );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);
-    if (!existsSync(executablePath)) {
-      await PluginUtils.downloadFile(binary.url, downloadedFilePath, binary.sha256);
-      await PluginUtils.extractFile(downloadedFilePath, versionPath, binary.bundleType);
+    let directory_exists = false;
+    try {
+      if (existsSync(executablePath)) {
+        directory_exists = true;
+      }
+    } catch {
+      // ignore error if directory doesn't exist as existsSync will throw an error - https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
+    }
+    if (!directory_exists) {
+      await PluginUtils.downloadFile(
+        binary.url,
+        downloadedFilePath,
+      );
+      await PluginUtils.extractFile(
+        downloadedFilePath,
+        versionPath,
+        binary.bundleType,
+      );
       await Deno.chmod(executablePath, 0o755);
       await Deno.remove(downloadedFilePath);
     }

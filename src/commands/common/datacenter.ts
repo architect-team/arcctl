@@ -39,20 +39,29 @@ export class DatacenterUtils {
    * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
    * an error is thrown.
    */
-  public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
+  public async promptForVariables(
+    graph: CloudGraph,
+    variables: ParsedVariablesType,
+    user_inputs: Record<string, string> = {},
+  ): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
+
     const sorted_vars = this.sortVariables(variables);
 
     while (sorted_vars.length > 0) {
       const variable = sorted_vars.shift()!;
 
+      // If the variable input was passed in by the user, this will validate that their
+      // input matches a given resource/account if necessary.
       const variable_value = await this.promptForVariableFromMetadata(
         graph,
         variable.name,
         variable.metadata,
+        user_inputs[variable.name],
       );
 
       variable_inputs[variable.name] = variable_value;
+
       // Fill in metadata that relied on this variable
       for (const next_variable of sorted_vars) {
         if (next_variable.dependencies.has(variable.name)) {
@@ -71,14 +80,15 @@ export class DatacenterUtils {
     graph: CloudGraph,
     name: string,
     metadata: ParsedVariablesMetadata,
+    value?: string,
   ): Promise<string | boolean | number | undefined> {
     const message = `${name}: ${metadata.description}`;
     if (metadata.type === 'string') {
-      return Inputs.promptString(message);
+      return value || Inputs.promptString(message);
     } else if (metadata.type === 'boolean') {
-      return await Inputs.promptBoolean(message);
+      return value || Inputs.promptBoolean(message);
     } else if (metadata.type === 'number') {
-      return Inputs.promptNumber(message);
+      return value || Inputs.promptNumber(message);
     } else if (metadata.type === 'arcctlAccount') {
       const existing_accounts = await this.providerStore.list();
       const query_accounts = metadata.provider
@@ -87,6 +97,7 @@ export class DatacenterUtils {
       const account = await this.accountInputUtils.promptForAccount({
         prompt_accounts: query_accounts,
         message: message,
+        account: value,
       });
       return account.name;
     } else {
@@ -102,6 +113,8 @@ export class DatacenterUtils {
       return this.resourceInputUtils.promptForResourceID(graph, provider, {
         name: name as ResourceType,
         schema: { description: message } as any,
+      }, {
+        [name]: value,
       });
     }
   }
@@ -150,6 +163,7 @@ export class DatacenterUtils {
         providerStore: this.providerStore,
         logger: logger,
       })
+      .toPromise()
       .then(async () => {
         await this.saveDatacenter(name, datacenter, pipeline);
       })

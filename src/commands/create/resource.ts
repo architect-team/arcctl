@@ -75,6 +75,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
       providerStore: command_helper.providerStore,
       logger: logger,
     })
+    .toPromise()
     .then(() => {
       command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !logger, disableSpinner: true });
       clearInterval(interval);

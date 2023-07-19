@@ -1,4 +1,4 @@
-import Ajv2019 from 'ajv/dist/2019.js';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as EnvironmentSchemaContents from './environment-schema.ts';
 import { Environment } from './environment.ts';
@@ -7,9 +7,11 @@ import { buildEnvironment, EnvironmentSchema } from './schema.ts';
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
-const environment_validator = ajv.compile<EnvironmentSchema>(EnvironmentSchemaContents.default);
+export const parseEnvironment = async (
+  input: Record<string, unknown> | string,
+): Promise<Environment> => {
+  const environment_validator = ajv.compile<EnvironmentSchema>(EnvironmentSchemaContents.default);
 
-export const parseEnvironment = async (input: Record<string, unknown> | string): Promise<Environment> => {
   let raw_obj: any;
   if (typeof input === 'string') {
     let raw_contents: string;

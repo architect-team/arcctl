@@ -6,7 +6,6 @@ export default class PluginUtils {
   static downloadFile(
     url: string,
     location: string,
-    sha256: string,
   ): Promise<void> {
     return fetch(url).then(async (response) => {
       const file = await Deno.create(location);

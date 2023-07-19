@@ -1,17 +1,22 @@
-import Ajv2019 from 'ajv/dist/2019.js';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
+import component_schema_contents from './component.schema.json' assert {
+  type: 'json',
+};
 import { Component } from './component.ts';
 import { buildComponent, ComponentSchema } from './schema.ts';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = new URL('.', import.meta.url).pathname;
 
-const component_schema_contents = Deno.readTextFileSync(path.join(__dirname, './component.schema.json'));
-const component_validator = ajv.compile<ComponentSchema>(JSON.parse(component_schema_contents));
+export const parseComponent = async (
+  input: Record<string, unknown> | string,
+): Promise<Component> => {
+  const component_validator = ajv.compile<ComponentSchema>(
+    component_schema_contents,
+  );
 
-export const parseComponent = async (input: Record<string, unknown> | string): Promise<Component> => {
   let raw_obj: any;
   if (typeof input === 'string') {
     let filename = input;

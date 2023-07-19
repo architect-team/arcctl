@@ -123,6 +123,7 @@ export abstract class TerraformResourceService<
     const cmd = terraform.plan(cwd, 'plan', options);
     const stdout = new Buffer();
     const stderr = new Buffer();
+
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -155,6 +156,7 @@ export abstract class TerraformResourceService<
     const cmd = terraform.apply(cwd, 'plan');
     const stdout = new Buffer();
     const stderr = new Buffer();
+
     cmd.stdout.pipeTo(
       new WritableStream({
         write(chunk) {
@@ -260,7 +262,11 @@ export abstract class TerraformResourceService<
       const imports = await stack.genImports(options.state.id);
 
       // We have to run this before we can run `terraform import`
-      await this.tfInit(cwd, stack, options.logger);
+      const { stderr: init_stderr } = await this.tfInit(cwd, stack, options.logger);
+      if (init_stderr && init_stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(init_stderr));
+        return;
+      }
       initRan = true;
 
       const terraform = await this.getTerraformPlugin();
@@ -278,7 +284,11 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfInit(cwd, stack, options.logger);
+      const { stderr: init_stderr } = await this.tfInit(cwd, stack, options.logger);
+      if (init_stderr && init_stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(init_stderr));
+        return;
+      }
     }
 
     subscriber.next({
@@ -289,9 +299,13 @@ export abstract class TerraformResourceService<
       },
     });
 
-    await this.tfPlan(cwd, {
+    const { stderr: plan_stderr } = await this.tfPlan(cwd, {
       logger: options.logger,
     });
+    if (plan_stderr && plan_stderr.length > 0) {
+      subscriber.error(new TextDecoder().decode(plan_stderr));
+      return;
+    }
 
     subscriber.next({
       status: {
@@ -301,9 +315,9 @@ export abstract class TerraformResourceService<
       },
     });
 
-    const { stderr } = await this.tfApply(cwd, options.logger);
-    if (stderr && stderr.length > 0) {
-      subscriber.error(new TextDecoder().decode(stderr));
+    const { stderr: apply_stderr } = await this.tfApply(cwd, options.logger);
+    if (apply_stderr && apply_stderr.length > 0) {
+      subscriber.error(new TextDecoder().decode(apply_stderr));
       return;
     }
 
@@ -324,7 +338,11 @@ export abstract class TerraformResourceService<
       lockFile: new TextDecoder().decode(lockFileBuffer),
     };
 
-    const { stdout: rawOutputs } = await this.tfOutput(cwd, options.logger);
+    const { stdout: rawOutputs, stderr: output_stderr } = await this.tfOutput(cwd, options.logger);
+    if (output_stderr && output_stderr.length > 0) {
+      subscriber.error(new TextDecoder().decode(output_stderr));
+      return;
+    }
     const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
 
     await Deno.remove(cwd, { recursive: true });
@@ -332,7 +350,11 @@ export abstract class TerraformResourceService<
     if (!parsedOutputs) {
       subscriber.error(new Error('Failed to retrieve terraform outputs'));
     } else if (!(moduleOutput.friendlyUniqueId in parsedOutputs)) {
-      subscriber.error(new Error(`Terraform outputs don't contain required key: ${moduleOutput.friendlyUniqueId}`));
+      subscriber.error(
+        new Error(
+          `Terraform outputs don't contain required key: ${moduleOutput.friendlyUniqueId}`,
+        ),
+      );
       return;
     }
 
@@ -391,7 +413,11 @@ export abstract class TerraformResourceService<
         const imports = await stack.genImports(options.state.id);
 
         // We have to run this before we can run `terraform import`
-        await this.tfInit(cwd, stack, options.logger);
+        const { stderr: init_stderr } = await this.tfInit(cwd, stack, options.logger);
+        if (init_stderr && init_stderr.length > 0) {
+          subscriber.error(new TextDecoder().decode(init_stderr));
+          return;
+        }
 
         const terraform = await this.getTerraformPlugin();
         for (const [key, value] of Object.entries(imports)) {
@@ -409,7 +435,11 @@ export abstract class TerraformResourceService<
         },
       });
 
-      await this.tfInit(cwd, stack, options.logger);
+      const { stderr: init_stderr } = await this.tfInit(cwd, stack, options.logger);
+      if (init_stderr && init_stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(init_stderr));
+        return;
+      }
 
       subscriber.next({
         status: {
@@ -436,9 +466,9 @@ export abstract class TerraformResourceService<
         },
       });
 
-      const { stderr } = await this.tfApply(options.cwd, options.logger);
-      if (stderr && stderr.length > 0) {
-        subscriber.error(new TextDecoder().decode(stderr));
+      const { stderr: apply_stderr } = await this.tfApply(options.cwd, options.logger);
+      if (apply_stderr && apply_stderr.length > 0) {
+        subscriber.error(new TextDecoder().decode(apply_stderr));
         return;
       }
 

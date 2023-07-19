@@ -1,4 +1,6 @@
-import { ProviderStore, SupportedProviders } from '../@providers/index.ts';
+import { Observable } from 'rxjs';
+import { ProviderStore } from '../@providers/store.ts';
+import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
@@ -44,7 +46,9 @@ const setNoopSteps = (
 
   do {
     done = true;
-    for (let step of nextPipeline.steps.filter((step) => step.action === 'update')) {
+    for (
+      let step of nextPipeline.steps.filter((step) => step.action === 'update')
+    ) {
       const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
 
       const allDependencies = nextPipeline.getDependencies(step.id);
@@ -146,7 +150,9 @@ export class Pipeline {
         if (!step || !outputs) {
           throw new Error(`Missing outputs for ${step_id}`);
         } else if ((outputs as any)[key] === undefined) {
-          throw new Error(`Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`);
+          throw new Error(
+            `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
+          );
         }
 
         return (String((outputs as any)[key]) || '').replaceAll('"', '\\"');
@@ -157,7 +163,7 @@ export class Pipeline {
   /**
    * Returns a pipeline step that is ready to be applied
    */
-  private getNextStep(...seenIds: string[]): PipelineStep | undefined {
+  public getNextStep(...seenIds: string[]): PipelineStep | undefined {
     const availableSteps = this.steps
       .sort(
         (first, second) =>
@@ -223,7 +229,8 @@ export class Pipeline {
           options.to &&
           this.edges[index].from === options.from &&
           this.edges[index].to === options.to) ||
-        (options.from && !options.to && this.edges[index].from === options.from) ||
+        (options.from && !options.to &&
+          this.edges[index].from === options.from) ||
         (options.to && !options.from && this.edges[index].to === options.to)
       ) {
         this.edges.splice(Number(index), 1);
@@ -231,7 +238,9 @@ export class Pipeline {
       }
     }
 
-    throw new Error(`No edge found matching options: ${JSON.stringify(options)}`);
+    throw new Error(
+      `No edge found matching options: ${JSON.stringify(options)}`,
+    );
   }
 
   public validate(): void {
@@ -243,37 +252,51 @@ export class Pipeline {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
       } else if (!this.steps.some((n) => n.id === edge.to)) {
-        throw new Error(`${edge.to} is missing from the pipeline, but required by ${edge.from}`);
+        throw new Error(
+          `${edge.to} is missing from the pipeline, but required by ${edge.from}`,
+        );
       }
     }
   }
 
   public getDependencies(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) => step.id !== step_id && this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
+      (step) =>
+        step.id !== step_id &&
+        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
     );
   }
 
   public getDependents(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) => step.id !== step_id && this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
+      (step) =>
+        step.id !== step_id &&
+        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
     );
   }
 
   /**
    * Returns a new pipeline by comparing the old pipeline to a new target graph
    */
-  public static plan(options: PlanOptions, providerStore: ProviderStore): Pipeline {
+  public static plan(
+    options: PlanOptions,
+    providerStore: ProviderStore,
+  ): Pipeline {
     const pipeline = new Pipeline({
       edges: [...options.after.edges],
     });
 
     const replacements: Record<string, string> = {};
     for (const newNode of options.after.nodes) {
-      const previousStep = options.before.steps.find((n) => n.id.startsWith(newNode.id));
+      const previousStep = options.before.steps.find((n) => {
+        return n.id.startsWith(newNode.id);
+      });
 
       const oldId = newNode.id;
-      if (!previousStep || previousStep.status.state !== 'complete' || previousStep.action === 'delete') {
+      if (
+        !previousStep || previousStep.status.state !== 'complete' ||
+        previousStep.action === 'delete'
+      ) {
         const newStep = new PipelineStep({
           ...newNode,
           type: newNode.type,
@@ -312,9 +335,11 @@ export class Pipeline {
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
       if (
-        (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
+        (previousStep.action === 'delete' &&
+          previousStep.status.state === 'complete') ||
         (previousStep.action === 'create' &&
-          (previousStep.status.state === 'pending' || previousStep.status.state === 'error'))
+          (previousStep.status.state === 'pending' ||
+            previousStep.status.state === 'error'))
       ) {
         continue;
       }
@@ -354,107 +379,136 @@ export class Pipeline {
     }
 
     // Check for nodes that can be no-op'd
-    return setNoopSteps(providerStore, options.before, pipeline, options.contextFilter);
+    return setNoopSteps(
+      providerStore,
+      options.before,
+      pipeline,
+      options.contextFilter,
+    );
   }
 
   /**
    * Kick off the pipeline
    */
-  public async apply(options: ApplyOptions): Promise<void> {
+  public apply(options: ApplyOptions): Observable<Pipeline> {
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
-    let step: PipelineStep | undefined;
-    while (
-      (step = this.getNextStep(
-        ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
-      ))
-    ) {
-      if (!step) {
-        throw new Error(`Something went wrong queuing up a node to apply`);
-      }
-
-      if (step.inputs) {
-        try {
-          if (step.action !== 'delete') {
-            step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+    return new Observable((subscriber) => {
+      (async () => {
+        let step: PipelineStep | undefined;
+        while (
+          (step = this.getNextStep(
+            ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
+          ))
+        ) {
+          if (!step) {
+            subscriber.error(`Something went wrong queuing up a node to apply`);
+            return;
           }
-        } catch (err: any) {
-          step.status.state = 'error';
-          step.status.message = err.message;
-          throw err;
-        }
-      }
 
-      // Hijack the arcctl account type to execute w/out a provider
-      if (step.inputs?.type === 'arcctlAccount') {
-        if (!Object.keys(SupportedProviders).includes(step.inputs.provider)) {
-          step.status.state = 'error';
-          step.status.message = 'Invalid provider specified';
-          throw new Error(`Invalid provider specified: ${step.inputs.provider}`);
-        }
+          if (step.inputs) {
+            try {
+              if (step.action !== 'delete') {
+                step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+              }
+            } catch (err: any) {
+              step.status.state = 'error';
+              step.status.message = err.message;
+              subscriber.error(err.message);
+              return;
+            }
+          }
 
-        if (step.action === 'delete') {
-          step.status = {
-            state: 'destroying',
-            message: '',
-            startTime: Date.now(),
-            endTime: Date.now(),
-          };
+          // Hijack the arcctl account type to execute w/out a provider
+          if (step.inputs?.type === 'arcctlAccount') {
+            if (
+              !Object.keys(SupportedProviders).includes(step.inputs.provider)
+            ) {
+              step.status.state = 'error';
+              step.status.message = 'Invalid provider specified';
+              throw new Error(
+                `Invalid provider specified: ${step.inputs.provider}`,
+              );
+            }
 
-          options.providerStore.delete(step.inputs.name);
-        } else {
-          step.status = {
-            state: 'applying',
-            message: '',
-            startTime: Date.now(),
-            endTime: Date.now(),
-          };
+            if (step.action === 'delete') {
+              step.status = {
+                state: 'destroying',
+                message: '',
+                startTime: Date.now(),
+                endTime: Date.now(),
+              };
 
-          options.providerStore.save(
-            new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
-              step.inputs.name,
-              step.inputs.credentials as any,
-              options.providerStore,
-            ),
-          );
-        }
+              options.providerStore.delete(step.inputs.name);
+            } else {
+              step.status = {
+                state: 'applying',
+                message: '',
+                startTime: Date.now(),
+                endTime: Date.now(),
+              };
 
-        step.outputs = {
-          id: step.inputs.name,
-        };
-        step.state = {
-          id: step.inputs.name,
-        };
+              options.providerStore.save(
+                new SupportedProviders[
+                  step.inputs.provider as keyof typeof SupportedProviders
+                ](
+                  step.inputs.name,
+                  step.inputs.credentials as any,
+                  options.providerStore,
+                ),
+              );
+            }
 
-        step.status = {
-          state: 'complete',
-          message: '',
-          startTime: Date.now(),
-          endTime: Date.now(),
-        };
-        continue;
-      }
+            step.outputs = {
+              id: step.inputs.name,
+            };
+            step.state = {
+              id: step.inputs.name,
+            };
 
-      await new Promise<void>((resolve, reject) => {
-        step!
-          .apply({
-            ...options,
-            cwd,
-          })
-          .subscribe({
-            next: (res) => {
-              this.insertSteps(res);
-            },
-            error: reject,
-            complete: resolve,
+            step.status = {
+              state: 'complete',
+              message: '',
+              startTime: Date.now(),
+              endTime: Date.now(),
+            };
+            continue;
+          }
+
+          await new Promise<void>((resolve, reject) => {
+            step!
+              .apply({
+                ...options,
+                cwd,
+              })
+              .subscribe({
+                next: (res) => {
+                  this.insertSteps(res);
+                },
+                error: (err) => {
+                  reject(err);
+                  return;
+                },
+                complete: () => {
+                  resolve();
+                  return;
+                },
+              });
           });
-      });
-    }
-
-    for (const step of this.steps) {
-      if (step.status.state !== 'complete') {
-        throw Error(`Pipeline finished with an unfinished step`);
-      }
-    }
+          subscriber.next(this);
+        }
+      })()
+        .then(() => {
+          for (const step of this.steps) {
+            if (step.status.state !== 'complete') {
+              throw Error(`Pipeline finished with an unfinished step`);
+            }
+          }
+          subscriber.complete();
+        })
+        .catch((err) => {
+          subscriber.error(err);
+        });
+    });
   }
 }

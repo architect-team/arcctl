@@ -1030,6 +1030,7 @@ export class CommandHelper {
         providerStore: this.providerStore,
         logger: logger,
       })
+      .toPromise()
       .then(async () => {
         await this.saveDatacenter(name, datacenter, pipeline);
       })
@@ -1054,6 +1055,7 @@ export class CommandHelper {
         providerStore: this.providerStore,
         logger: options?.logger,
       })
+      .toPromise()
       .then(async () => {
         await this.saveEnvironment(
           datacenterRecord.name,

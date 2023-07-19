@@ -91,7 +91,6 @@ async function destroy_resource_action(
       id: resource_id,
     },
   });
-
   const pipeline = new Pipeline({ steps: [step] });
 
   let interval: number;
@@ -116,6 +115,7 @@ async function destroy_resource_action(
       providerStore: command_helper.providerStore,
       logger: logger,
     })
+    .toPromise()
     .then(() => {
       command_helper.renderPipeline(pipeline, { clear: true, disableSpinner: true });
       clearInterval(interval);

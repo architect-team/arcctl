@@ -1,5 +1,5 @@
-import { ProviderStore } from '../@providers/index.ts';
 import { Logger } from 'winston';
+import { ProviderStore } from '../@providers/index.ts';
 
 export type ApplyOptions = {
   providerStore: ProviderStore;

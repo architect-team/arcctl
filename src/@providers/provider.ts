@@ -1,11 +1,14 @@
-import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
-import * as fs from 'std/fs/mod.ts';
-import * as path from 'std/path/mod.ts';
-import { ResourceType } from '../@resources/index.ts';
-import { ResourceService } from './base.service.ts';
-import { ProviderCredentials, ProviderCredentialsSchema } from './credentials.ts';
-import { ProviderStore } from './store.ts';
-import { CldctlTestResource } from './tests.ts';
+import * as crypto from "https://deno.land/std@0.177.0/node/crypto.ts";
+import * as fs from "std/fs/mod.ts";
+import * as path from "std/path/mod.ts";
+import { ResourceType } from "../@resources/index.ts";
+import { ResourceService } from "./base.service.ts";
+import {
+  ProviderCredentials,
+  ProviderCredentialsSchema,
+} from "./credentials.ts";
+import { ProviderStore } from "./store.ts";
+import { CldctlTestResource } from "./tests.ts";
 
 export type ProviderResources<C extends ProviderCredentials> = {
   [T in ResourceType]?: ResourceService<T, C>;
@@ -72,13 +75,16 @@ export abstract class Provider<
     >;
   }
 
-  private replaceHashesWithFileReferences(record: any, lookupTable: Record<string, string>): void {
+  private replaceHashesWithFileReferences(
+    record: any,
+    lookupTable: Record<string, string>,
+  ): void {
     for (const [key, value] of Object.entries(record)) {
-      if (typeof value === 'object') {
+      if (typeof value === "object") {
         this.replaceHashesWithFileReferences(value, lookupTable);
         continue;
       }
-      const file = lookupTable[value?.toString() || ''];
+      const file = lookupTable[value?.toString() || ""];
       if (file) {
         record[key] = file;
       }
@@ -88,18 +94,29 @@ export abstract class Provider<
   private replaceFileReferencesWithHashes(record: any): Record<string, string> {
     let results: Record<string, string> = {};
     for (const [key, value] of Object.entries(record)) {
-      if (typeof value === 'object') {
+      if (typeof value === "object") {
         results = {
           ...results,
           ...this.replaceFileReferencesWithHashes(value),
         };
         continue;
       }
-      if (fs.existsSync(value as string) && Deno.statSync(value as string).isFile) {
-        const fileContents = Deno.readFileSync(value as string);
-        const hashSum = crypto.createHash('sha256');
+
+      const value_string = value as string;
+      let directory_exists = false;
+      try {
+        if (fs.existsSync(value_string)) {
+          directory_exists = true;
+        }
+      } catch {
+        // ignore error if directory doesn't exist as existsSync will throw an error - https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
+      }
+
+      if (directory_exists && Deno.statSync(value_string).isFile) {
+        const fileContents = Deno.readFileSync(value_string);
+        const hashSum = crypto.createHash("sha256");
         hashSum.update(fileContents);
-        const hash = hashSum.setEncoding('utf-8').digest('hex') as string;
+        const hash = hashSum.setEncoding("utf-8").digest("hex") as string;
         results[hash] = new TextDecoder().decode(fileContents);
         record[key] = hash;
       }

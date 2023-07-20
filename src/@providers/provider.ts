@@ -60,9 +60,9 @@ export abstract class Provider<
 
   public abstract testCredentials(): Promise<boolean>;
 
-  public testCredentialsTest(): Promise<string> {
-    return new Promise((resolve, reject) => resolve(''));
-  }
+  // public testCredentialsTest(): Promise<string> {
+  //   return new Promise((resolve, reject) => resolve(''));
+  // } // TODO: remove
 
   public getResourceEntries(): Entries<
     {

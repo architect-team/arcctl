@@ -20,7 +20,7 @@ import {
 } from '../datacenters/index.ts';
 import { Environment, EnvironmentRecord, EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
-import CloudCtlConfig from '../utils/config.ts';
+import ArcCtlConfig from '../utils/config.ts';
 import { ArcctlProviderStore } from '../utils/provider-store.ts';
 import { topologicalSort } from '../utils/sorting.ts';
 import { createTable } from '../utils/table.ts';
@@ -41,24 +41,24 @@ export class CommandHelper {
 
   constructor(options: GlobalOptions) {
     this.options = options;
-    CloudCtlConfig.setConfigDirectory(options.configHome);
+    ArcCtlConfig.setConfigDirectory(options.configHome);
   }
 
   get componentStore(): ComponentStore {
-    const config_dir = CloudCtlConfig.getConfigDirectory();
+    const config_dir = ArcCtlConfig.getConfigDirectory();
     return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
   }
 
   get providerStore(): ProviderStore {
-    return new ArcctlProviderStore(CloudCtlConfig.getConfigDirectory());
+    return new ArcctlProviderStore(ArcCtlConfig.getConfigDirectory());
   }
 
   get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(CloudCtlConfig.getConfigDirectory());
+    return new DatacenterStore(ArcCtlConfig.getConfigDirectory());
   }
 
   get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore(CloudCtlConfig.getConfigDirectory());
+    return new EnvironmentStore(ArcCtlConfig.getConfigDirectory());
   }
 
   /**

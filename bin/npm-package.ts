@@ -35,7 +35,7 @@ await build({
       'semantic-release': './node_modules/semantic-release/bin/semantic-release.js',
     },
     main: 'esm/index.js',
-    version: '0.0.66-rc',
+    version: '0.0.67-rc',
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
   scriptModule: false,

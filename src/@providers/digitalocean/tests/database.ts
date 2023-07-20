@@ -8,7 +8,7 @@ export class DigitalOceanDatabaseTest implements CldctlTest<DigitaloceanCredenti
   stacks = [
     {
       inputs: {
-        type: 'database' as any,
+        type: 'databaseCluster' as any,
         name: 'test-kubernetes-cluster',
         region: 'nyc1',
         vpc: '',
@@ -16,7 +16,7 @@ export class DigitalOceanDatabaseTest implements CldctlTest<DigitaloceanCredenti
         databaseVersion: '8',
         provider: 'digitalocean',
       },
-      serviceType: 'database' as ResourceType,
+      serviceType: 'databaseCluster' as ResourceType,
       children: [
         {
           inputs: {

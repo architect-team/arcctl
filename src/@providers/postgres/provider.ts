@@ -1,7 +1,7 @@
 import { Provider, ProviderResources } from '../provider.ts';
 import { PostgresCredentials, PostgresCredentialsSchema } from './credentials.ts';
-import { PostgresDatabaseSchemaService } from './services/database-schema.ts';
 import { PostgresDatabaseUserService } from './services/database-user.ts';
+import { PostgresDatabaseService } from './services/database.ts';
 import { getPgClient } from './utils.ts';
 
 export default class PostgresProvider extends Provider<PostgresCredentials> {
@@ -10,7 +10,7 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
   static readonly CredentialsSchema = PostgresCredentialsSchema;
 
   readonly resources: ProviderResources<PostgresCredentials> = {
-    databaseSchema: new PostgresDatabaseSchemaService(this.name, this.credentials, this.providerStore),
+    database: new PostgresDatabaseService(this.name, this.credentials, this.providerStore),
     databaseUser: new PostgresDatabaseUserService(this.name, this.credentials, this.providerStore),
   };
 

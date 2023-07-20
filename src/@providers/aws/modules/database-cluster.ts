@@ -11,13 +11,13 @@ import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { SecurityGroup } from '../.gen/providers/aws/security-group/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 
-export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials> {
-  outputs: ResourceOutputs['database'];
+export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', AwsCredentials> {
+  outputs: ResourceOutputs['databaseCluster'];
   database: Rds;
   private username: TerraformOutput;
   private password: TerraformOutput;
 
-  constructor(private scope: Construct, options: ResourceModuleOptions<'database', AwsCredentials>) {
+  constructor(private scope: Construct, options: ResourceModuleOptions<'databaseCluster', AwsCredentials>) {
     super(scope, options);
 
     const name = this.inputs?.name.replaceAll('/', '-').toLowerCase() || 'unknown';
@@ -124,7 +124,7 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
   hooks = {
     afterCreate: async (
       providerStore: ProviderStore,
-      outputs: ResourceOutputs['database'],
+      outputs: ResourceOutputs['databaseCluster'],
       getOutputValue: (id: string) => Promise<any>,
     ) => {
       const username = await getOutputValue(this.username.friendlyUniqueId);

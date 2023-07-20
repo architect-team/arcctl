@@ -59,11 +59,11 @@ environment:
         type: secret
       account: local
     - when:
-        type: databaseSchema
+        type: database
         databaseType: postgres
       resources:
         db:
-          type: database
+          type: databaseCluster
           account: ${{ variables.doAccount }}
           name: ${{ this.id }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
@@ -72,7 +72,7 @@ environment:
           vpc: ${{ resources.vpc.id }}
           region: ${{ variables.region }}
       account: ${{ variables.doAccount }}
-      database: ${{ this.resources.db.id }}
+      databaseCluster: ${{ this.resources.db.id }}
     - when:
         type: ingressRule
       resources:

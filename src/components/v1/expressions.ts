@@ -41,7 +41,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
       /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, database_name, key) => {
         const database_schema_node_id = CloudNode.genId({
-          type: 'databaseSchema',
+          type: 'database',
           name: database_name,
           component: context.component.name,
           environment: context.environment,
@@ -56,7 +56,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
             type: 'databaseUser',
             account: `\${{ ${database_schema_node_id}.account }}`,
             username: name.replaceAll('/', '--'),
-            databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
+            database: `\${{ ${database_schema_node_id}.id }}`,
           },
         });
 

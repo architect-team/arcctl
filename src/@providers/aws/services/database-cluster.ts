@@ -5,13 +5,13 @@ import { ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
-import { AwsDatabaseModule } from '../modules/database.ts';
+import { AwsDatabaseClusterModule } from '../modules/database-cluster.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
 
-export class AwsDatabaseService extends TerraformResourceService<'database', AwsCredentials> {
+export class AwsDatabaseClusterService extends TerraformResourceService<'databaseCluster', AwsCredentials> {
   readonly terraform_version = '1.4.5';
-  readonly construct = AwsDatabaseModule;
+  readonly construct = AwsDatabaseClusterModule;
 
   public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
     return new TerraformAwsProvider(scope, 'aws', {
@@ -20,18 +20,18 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     });
   }
 
-  get(_id: string): Promise<ResourceOutputs['database'] | undefined> {
+  get(_id: string): Promise<ResourceOutputs['databaseCluster'] | undefined> {
     return Promise.resolve(undefined);
   }
 
   async list(
-    _filterOptions?: Partial<ResourceOutputs['database']>,
+    _filterOptions?: Partial<ResourceOutputs['databaseCluster']>,
     _pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['database']>> {
+  ): Promise<PagingResponse<ResourceOutputs['databaseCluster']>> {
     const regions = await new AwsRegionService(this.accountName, this.credentials, this.providerStore).list();
 
     const databasePromises = [];
-    const databases: ResourceOutputs['database'][] = [];
+    const databases: ResourceOutputs['databaseCluster'][] = [];
     for (const region of regions.rows) {
       databasePromises.push(
         // deno-lint-ignore no-async-promise-executor
@@ -60,7 +60,7 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     };
   }
 
-  get presets(): ResourcePresets<'database'> {
+  get presets(): ResourcePresets<'databaseCluster'> {
     return [
       {
         display: 'Development',

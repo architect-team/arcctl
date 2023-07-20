@@ -1,9 +1,8 @@
 # Databases
 
-Databases represent an database instance or cluster – something with a dedicated address
-that applications can access and use for data storage. The [type](../databaseType/) of
-databases that can be created may vary based on which [cloud provider](../../%40providers/)
-the database is created on.
+Databases are effectively namespaces within a database cluster. Each database has its own set of
+tables so as to remain isolated from other database namespaces despite residing on the same instance or cluster.
+This helps operators consolidate the effort needed to manage database instances without causing developers creating tables to collide with one another.
 
 ```sh
 $ arcctl list database

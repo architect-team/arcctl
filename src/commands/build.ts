@@ -24,7 +24,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
   let component: Component;
   try {
-    component = await parseComponent(context);
+    component = await parseComponent(context_file);
   } catch (err: unknown) {
     if (Array.isArray(err)) {
       for (const e of err) {

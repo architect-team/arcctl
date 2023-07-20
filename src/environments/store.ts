@@ -23,7 +23,7 @@ export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
       return {
         name: raw.name,
         datacenter: raw.datacenter,
-        config: await parseEnvironment(raw.config),
+        config: raw.config ? await parseEnvironment(raw.config) : undefined,
         lastPipeline: new Pipeline(raw.lastPipeline),
       };
     });

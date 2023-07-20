@@ -353,6 +353,53 @@
                               "account": {
                                 "type": "string"
                               },
+                              "databaseCluster": {
+                                "description": "Unique ID of the database cluster backing this schema",
+                                "type": "string"
+                              },
+                              "databaseType": {
+                                "description": "Type of database required by the schema",
+                                "type": "string"
+                              },
+                              "databaseVersion": {
+                                "description": "Version of the database type the schema creation process expects",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name to give to the new schema",
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "database",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "databaseCluster",
+                              "databaseType",
+                              "databaseVersion",
+                              "name",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "databaseCluster",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
                               "databaseSize": {
                                 "description": "Size of the database instance to create",
                                 "type": "string"
@@ -378,7 +425,7 @@
                                 "type": "string"
                               },
                               "type": {
-                                "const": "database",
+                                "const": "databaseCluster",
                                 "type": "string"
                               },
                               "vpc": {
@@ -395,53 +442,6 @@
                               "region",
                               "type",
                               "vpc"
-                            ],
-                            "type": "object"
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "type": {
-                                "const": "databaseSchema",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "then": {
-                            "additionalProperties": false,
-                            "properties": {
-                              "account": {
-                                "type": "string"
-                              },
-                              "database": {
-                                "description": "Unique ID of the database backing this schema",
-                                "type": "string"
-                              },
-                              "databaseType": {
-                                "description": "Type of database required by the schema",
-                                "type": "string"
-                              },
-                              "databaseVersion": {
-                                "description": "Version of the database type the schema creation process expects",
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "Name to give to the new schema",
-                                "type": "string"
-                              },
-                              "type": {
-                                "const": "databaseSchema",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "account",
-                              "database",
-                              "databaseType",
-                              "databaseVersion",
-                              "name",
-                              "type"
                             ],
                             "type": "object"
                           }
@@ -515,8 +515,8 @@
                               "account": {
                                 "type": "string"
                               },
-                              "databaseSchema": {
-                                "description": "The schema the user should have access to",
+                              "database": {
+                                "description": "The database the user should have access to",
                                 "type": "string"
                               },
                               "type": {
@@ -530,7 +530,7 @@
                             },
                             "required": [
                               "account",
-                              "databaseSchema",
+                              "database",
                               "type",
                               "username"
                             ],
@@ -860,11 +860,16 @@
                                     "id": {
                                       "description": "Unique ID of the service the deployment should attach itself to",
                                       "type": "string"
+                                    },
+                                    "port": {
+                                      "description": "The port the service deployment is listening on",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "id",
-                                    "account"
+                                    "account",
+                                    "port"
                                   ],
                                   "type": "object"
                                 },
@@ -2069,7 +2074,7 @@
                             "arcctlAccount",
                             "cronjob",
                             "database",
-                            "databaseSchema",
+                            "databaseCluster",
                             "databaseUser",
                             "databaseVersion",
                             "deployment",
@@ -2214,19 +2219,19 @@
                             "type": "object"
                           },
                           {
-                            "description": "Unique ID of the database backing this schema",
+                            "description": "The database the user should have access to",
                             "type": "string"
                           }
                         ]
                       },
-                      "databaseSchema": {
+                      "databaseCluster": {
                         "anyOf": [
                           {
                             "additionalProperties": false,
                             "type": "object"
                           },
                           {
-                            "description": "The schema the user should have access to",
+                            "description": "Unique ID of the database cluster backing this schema",
                             "type": "string"
                           }
                         ]
@@ -2250,11 +2255,11 @@
                             "type": "object"
                           },
                           {
-                            "description": "The type of database engine to use",
+                            "description": "Type of database required by the schema",
                             "type": "string"
                           },
                           {
-                            "description": "Type of database required by the schema",
+                            "description": "The type of database engine to use",
                             "type": "string"
                           },
                           {
@@ -2269,11 +2274,11 @@
                             "type": "object"
                           },
                           {
-                            "description": "Refers to the unique ID of a `databaseVersion` response",
+                            "description": "Version of the database type the schema creation process expects",
                             "type": "string"
                           },
                           {
-                            "description": "Version of the database type the schema creation process expects",
+                            "description": "Refers to the unique ID of a `databaseVersion` response",
                             "type": "string"
                           }
                         ]
@@ -2460,11 +2465,11 @@
                             "type": "string"
                           },
                           {
-                            "description": "Unique name for the database",
+                            "description": "Name to give to the new schema",
                             "type": "string"
                           },
                           {
-                            "description": "Name to give to the new schema",
+                            "description": "Unique name for the database",
                             "type": "string"
                           },
                           {
@@ -2915,7 +2920,7 @@
                           "arcctlAccount",
                           "cronjob",
                           "database",
-                          "databaseSchema",
+                          "databaseCluster",
                           "databaseSize",
                           "databaseType",
                           "databaseUser",
@@ -3264,6 +3269,53 @@
                         "account": {
                           "type": "string"
                         },
+                        "databaseCluster": {
+                          "description": "Unique ID of the database cluster backing this schema",
+                          "type": "string"
+                        },
+                        "databaseType": {
+                          "description": "Type of database required by the schema",
+                          "type": "string"
+                        },
+                        "databaseVersion": {
+                          "description": "Version of the database type the schema creation process expects",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Name to give to the new schema",
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "database",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "databaseCluster",
+                        "databaseType",
+                        "databaseVersion",
+                        "name",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "databaseCluster",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
                         "databaseSize": {
                           "description": "Size of the database instance to create",
                           "type": "string"
@@ -3289,7 +3341,7 @@
                           "type": "string"
                         },
                         "type": {
-                          "const": "database",
+                          "const": "databaseCluster",
                           "type": "string"
                         },
                         "vpc": {
@@ -3306,53 +3358,6 @@
                         "region",
                         "type",
                         "vpc"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "type": {
-                          "const": "databaseSchema",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "then": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "account": {
-                          "type": "string"
-                        },
-                        "database": {
-                          "description": "Unique ID of the database backing this schema",
-                          "type": "string"
-                        },
-                        "databaseType": {
-                          "description": "Type of database required by the schema",
-                          "type": "string"
-                        },
-                        "databaseVersion": {
-                          "description": "Version of the database type the schema creation process expects",
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "Name to give to the new schema",
-                          "type": "string"
-                        },
-                        "type": {
-                          "const": "databaseSchema",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "account",
-                        "database",
-                        "databaseType",
-                        "databaseVersion",
-                        "name",
-                        "type"
                       ],
                       "type": "object"
                     }
@@ -3426,8 +3431,8 @@
                         "account": {
                           "type": "string"
                         },
-                        "databaseSchema": {
-                          "description": "The schema the user should have access to",
+                        "database": {
+                          "description": "The database the user should have access to",
                           "type": "string"
                         },
                         "type": {
@@ -3441,7 +3446,7 @@
                       },
                       "required": [
                         "account",
-                        "databaseSchema",
+                        "database",
                         "type",
                         "username"
                       ],
@@ -3771,11 +3776,16 @@
                               "id": {
                                 "description": "Unique ID of the service the deployment should attach itself to",
                                 "type": "string"
+                              },
+                              "port": {
+                                "description": "The port the service deployment is listening on",
+                                "type": "string"
                               }
                             },
                             "required": [
                               "id",
-                              "account"
+                              "account",
+                              "port"
                             ],
                             "type": "object"
                           },
@@ -4980,7 +4990,7 @@
                       "arcctlAccount",
                       "cronjob",
                       "database",
-                      "databaseSchema",
+                      "databaseCluster",
                       "databaseUser",
                       "databaseVersion",
                       "deployment",
@@ -5271,6 +5281,53 @@
                     "account": {
                       "type": "string"
                     },
+                    "databaseCluster": {
+                      "description": "Unique ID of the database cluster backing this schema",
+                      "type": "string"
+                    },
+                    "databaseType": {
+                      "description": "Type of database required by the schema",
+                      "type": "string"
+                    },
+                    "databaseVersion": {
+                      "description": "Version of the database type the schema creation process expects",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name to give to the new schema",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "database",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "databaseCluster",
+                    "databaseType",
+                    "databaseVersion",
+                    "name",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "databaseCluster",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "databaseSize": {
                       "description": "Size of the database instance to create",
                       "type": "string"
@@ -5296,7 +5353,7 @@
                       "type": "string"
                     },
                     "type": {
-                      "const": "database",
+                      "const": "databaseCluster",
                       "type": "string"
                     },
                     "vpc": {
@@ -5313,53 +5370,6 @@
                     "region",
                     "type",
                     "vpc"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
-                      "const": "databaseSchema",
-                      "type": "string"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "account": {
-                      "type": "string"
-                    },
-                    "database": {
-                      "description": "Unique ID of the database backing this schema",
-                      "type": "string"
-                    },
-                    "databaseType": {
-                      "description": "Type of database required by the schema",
-                      "type": "string"
-                    },
-                    "databaseVersion": {
-                      "description": "Version of the database type the schema creation process expects",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Name to give to the new schema",
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "databaseSchema",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "database",
-                    "databaseType",
-                    "databaseVersion",
-                    "name",
-                    "type"
                   ],
                   "type": "object"
                 }
@@ -5433,8 +5443,8 @@
                     "account": {
                       "type": "string"
                     },
-                    "databaseSchema": {
-                      "description": "The schema the user should have access to",
+                    "database": {
+                      "description": "The database the user should have access to",
                       "type": "string"
                     },
                     "type": {
@@ -5448,7 +5458,7 @@
                   },
                   "required": [
                     "account",
-                    "databaseSchema",
+                    "database",
                     "type",
                     "username"
                   ],
@@ -5778,11 +5788,16 @@
                           "id": {
                             "description": "Unique ID of the service the deployment should attach itself to",
                             "type": "string"
+                          },
+                          "port": {
+                            "description": "The port the service deployment is listening on",
+                            "type": "string"
                           }
                         },
                         "required": [
                           "id",
-                          "account"
+                          "account",
+                          "port"
                         ],
                         "type": "object"
                       },
@@ -6987,7 +7002,7 @@
                   "arcctlAccount",
                   "cronjob",
                   "database",
-                  "databaseSchema",
+                  "databaseCluster",
                   "databaseUser",
                   "databaseVersion",
                   "deployment",
@@ -7045,7 +7060,7 @@
               "database": {
                 "type": "string"
               },
-              "databaseSchema": {
+              "databaseCluster": {
                 "type": "string"
               },
               "databaseSize": {
@@ -7116,7 +7131,7 @@
                   "arcctlAccount",
                   "cronjob",
                   "database",
-                  "databaseSchema",
+                  "databaseCluster",
                   "databaseSize",
                   "databaseType",
                   "databaseUser",

@@ -4,7 +4,7 @@ import { ProviderStore } from '../@providers/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
 import { DatacenterStore } from '../datacenters/index.ts';
 import { EnvironmentStore } from '../environments/index.ts';
-import CloudCtlConfig from '../utils/config.ts';
+import ArcCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import { AccountInputUtils } from './common/account-inputs.ts';
 import { DatacenterUtils } from './common/datacenter.ts';
@@ -32,7 +32,7 @@ export class CommandHelper {
   constructor(
     options: GlobalOptions,
   ) {
-    CloudCtlConfig.load(options.configHome);
+    ArcCtlConfig.load(options.configHome);
     this.account_input_utils = new AccountInputUtils(this.providerStore);
     this.resource_input_utils = new ResourceInputUtils();
     this.pipeline_renderer = new PipelineRenderer();
@@ -46,20 +46,20 @@ export class CommandHelper {
   }
 
   get componentStore(): ComponentStore {
-    const config_dir = CloudCtlConfig.getConfigDirectory();
+    const config_dir = ArcCtlConfig.getConfigDirectory();
     return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
   }
 
   get providerStore(): ProviderStore {
-    return new CldCtlProviderStore(CloudCtlConfig.getStateBackend());
+    return new CldCtlProviderStore(ArcCtlConfig.getStateBackend());
   }
 
   get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(CloudCtlConfig.getStateBackend());
+    return new DatacenterStore(ArcCtlConfig.getStateBackend());
   }
 
   get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore(CloudCtlConfig.getStateBackend());
+    return new EnvironmentStore(ArcCtlConfig.getStateBackend());
   }
 
   get accountInputUtils(): AccountInputUtils {

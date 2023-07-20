@@ -117,13 +117,13 @@ export const testDatabaseGeneration = (
     component: 'component',
     environment: 'environment',
     inputs: {
-      type: 'databaseSchema',
+      type: 'database',
       name: CloudNode.genResourceId({
         name: options.database_name,
         component: 'component',
         environment: 'environment',
       }),
-      database: '',
+      databaseCluster: '',
       databaseType: options.database_type,
       databaseVersion: options.database_version,
     },
@@ -147,7 +147,7 @@ export const testDatabaseIntegration = (
   });
 
   const database_schema_node_id = CloudNode.genId({
-    type: 'databaseSchema',
+    type: 'database',
     name: options.database_name,
     component: 'component',
     environment: 'environment',
@@ -168,7 +168,7 @@ export const testDatabaseIntegration = (
     inputs: {
       type: 'databaseUser',
       username: name.replaceAll('/', '--'),
-      databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
+      database: `\${{ ${database_schema_node_id}.id }}`,
       account: `\${{ ${database_schema_node_id}.account }}`,
     },
   });

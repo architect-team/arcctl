@@ -48,7 +48,7 @@ environment:
       registry: ${{ resources.service-registry.id }}
       dnsZone: localhost
     - when:
-        type: databaseSchema
+        type: database
       account: ${{ environment.accounts.pg.id }}
     - when:
         type: deployment

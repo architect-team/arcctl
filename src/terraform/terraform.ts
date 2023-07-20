@@ -1,6 +1,7 @@
 import { TerraformStack } from 'cdktf';
 import * as path from 'std/path/mod.ts';
 import PluginManager from '../plugins/plugin-manager.ts';
+import ArcCtlConfig from '../utils/config.ts';
 import { TerraformPlugin, TerraformVersion } from './plugin.ts';
 
 export class Terraform {
@@ -19,12 +20,16 @@ export class Terraform {
   public init(cwd: string, stack: TerraformStack): Deno.ChildProcess {
     const moduleFile = path.join(cwd, 'main.tf.json');
     Deno.mkdirSync(cwd, { recursive: true });
+    Deno.mkdirSync(ArcCtlConfig.getTerraformCacheDirectory(), { recursive: true });
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
 
     return this.plugin.exec(['init', '-input=false'], {
       stdout: false,
       commandOptions: {
         cwd,
+        env: {
+          'TF_PLUGIN_CACHE_DIR': Deno.env.get('TF_PLUGIN_CACHE_DIR') || ArcCtlConfig.getTerraformCacheDirectory(),
+        },
       },
     });
   }

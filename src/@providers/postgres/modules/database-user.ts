@@ -19,7 +19,7 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
       port: this.credentials.port,
       username: this.credentials.username,
       password: this.credentials.password,
-      database: this.inputs?.databaseSchema,
+      database: this.inputs?.database,
       superuser: false,
       sslMode: 'disable',
     });
@@ -43,8 +43,8 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
       port: this.credentials.port,
       protocol,
       url:
-        `${protocol}://${this.role.name}:${this.role.password}@${this.credentials.host}:${this.credentials.port}/${this.inputs?.databaseSchema}`,
-      database: this.inputs?.databaseSchema || 'unknown',
+        `${protocol}://${this.role.name}:${this.role.password}@${this.credentials.host}:${this.credentials.port}/${this.inputs?.database}`,
+      database: this.inputs?.database || 'unknown',
     };
   }
 

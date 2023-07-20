@@ -9,7 +9,7 @@ import { DockerCredentials } from '../credentials.ts';
 import { DockerDeploymentService } from './deployment.ts';
 import { DockerVolumeService } from './volume.ts';
 
-export class DockerDatabaseService extends CrudResourceService<'database', DockerCredentials> {
+export class DockerDatabaseClusterService extends CrudResourceService<'databaseCluster', DockerCredentials> {
   volumeService: DockerVolumeService;
   deploymentService: DockerDeploymentService;
 
@@ -21,8 +21,8 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
   private async createPostgresDb(
     subscriber: Subscriber<string>,
-    inputs: ResourceInputs['database'],
-  ): Promise<ResourceOutputs['database']> {
+    inputs: ResourceInputs['databaseCluster'],
+  ): Promise<ResourceOutputs['databaseCluster']> {
     const normalizedName = inputs.name.replaceAll('/', '--');
 
     const volumeRes = await this.volumeService.create(subscriber, {
@@ -87,8 +87,8 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
   private async createRedisDb(
     subscriber: Subscriber<string>,
-    inputs: ResourceInputs['database'],
-  ): Promise<ResourceOutputs['database']> {
+    inputs: ResourceInputs['databaseCluster'],
+  ): Promise<ResourceOutputs['databaseCluster']> {
     const normalizedName = inputs.name.replaceAll('/', '--');
 
     const { id } = await this.deploymentService.create(subscriber, {
@@ -131,15 +131,15 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     };
   }
 
-  async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['databaseCluster'] | undefined> {
     const listRes = await this.list();
     return listRes.rows.find((row) => row.id === id);
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['database']>,
+    filterOptions?: Partial<ResourceOutputs['databaseCluster']>,
     pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['database']>> {
+  ): Promise<PagingResponse<ResourceOutputs['databaseCluster']>> {
     const res = await this.deploymentService.list({
       labels: {
         'io.architect': 'arcctl',
@@ -183,8 +183,8 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
   async create(
     subscriber: Subscriber<string>,
-    inputs: ResourceInputs['database'],
-  ): Promise<ResourceOutputs['database']> {
+    inputs: ResourceInputs['databaseCluster'],
+  ): Promise<ResourceOutputs['databaseCluster']> {
     if (inputs.databaseType === 'postgres') {
       return this.createPostgresDb(subscriber, inputs);
     } else if (inputs.databaseType === 'redis') {
@@ -197,8 +197,8 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
   async update(
     subscriber: Subscriber<string>,
     id: string,
-    inputs: DeepPartial<ResourceInputs['database']>,
-  ): Promise<ResourceOutputs['database']> {
+    inputs: DeepPartial<ResourceInputs['databaseCluster']>,
+  ): Promise<ResourceOutputs['databaseCluster']> {
     const deployments = await this.deploymentService.list({
       id,
       labels: {
@@ -215,7 +215,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     switch (databaseType) {
       case 'postgres': {
         return this.createPostgresDb(subscriber, {
-          type: 'database',
+          type: 'databaseCluster',
           name: inputs.name || existingDeployment.labels?.['io.architect.arcctl.database'] || 'unknown',
           databaseType,
           databaseVersion: inputs.databaseVersion ||
@@ -229,7 +229,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
       }
       case 'redis': {
         return this.createRedisDb(subscriber, {
-          type: 'database',
+          type: 'databaseCluster',
           name: inputs.name || existingDeployment.labels?.['io.architect.arcctl.database'] || 'unknown',
           databaseType,
           databaseVersion: inputs.databaseVersion ||

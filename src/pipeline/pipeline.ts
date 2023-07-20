@@ -60,19 +60,23 @@ const setNoopSteps = async (
         continue;
       }
 
-      step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
+      try {
+        step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
 
-      if (
-        isNoop ||
-        (await step.getHash(providerStore) === previousStep?.hash &&
-          previousStep.status.state === 'complete')
-      ) {
-        step.action = PIPELINE_NO_OP;
-        step.status.state = 'complete';
-        step.state = previousStep?.state;
-        step.outputs = previousStep?.outputs;
-        nextPipeline.insertSteps(step);
-        done = false;
+        if (
+          isNoop ||
+          (await step.getHash(providerStore) === previousStep?.hash &&
+            previousStep.status.state === 'complete')
+        ) {
+          step.action = PIPELINE_NO_OP;
+          step.status.state = 'complete';
+          step.state = previousStep?.state;
+          step.outputs = previousStep?.outputs;
+          nextPipeline.insertSteps(step);
+          done = false;
+        }
+      } catch {
+        // noop
       }
     }
   } while (!done);

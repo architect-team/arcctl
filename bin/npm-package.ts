@@ -32,11 +32,10 @@ await build({
     repository: 'architect-team/arcctl',
     bugs: 'https://github.com/architect-team/arcctl/issues',
     scripts: {
-      'semantic-release':
-        './node_modules/semantic-release/bin/semantic-release.js',
+      'semantic-release': './node_modules/semantic-release/bin/semantic-release.js',
     },
     main: 'esm/index.js',
-    version: '0.0.62-rc',
+    version: '0.0.63-rc',
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
   scriptModule: false,

@@ -16,6 +16,10 @@ export default class S3Provider extends Provider<S3Credentials> {
 
   public testCredentials(): Promise<boolean> {
     const client = S3Utils.getS3Client(this.credentials);
-    return client.listBuckets().promise().then(() => true).catch(() => false);
+    return client.listBuckets().promise().then(() => true).catch((err) => {
+      console.log('****S3 provider error');
+      console.log(err);
+      return false;
+    });
   }
 }

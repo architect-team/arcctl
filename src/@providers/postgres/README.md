@@ -20,5 +20,5 @@ $ arcctl add account <account-name> --provider postgres
 
 ## Supported resources
 
-- [x] [`databaseSchema`](../../%40resources/databaseSchema/)
+- [x] [`database`](../../%40resources/database/)
 - [x] [`databaseUser`](../../%40resources/databaseUser/)

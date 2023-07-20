@@ -68,12 +68,12 @@ The first reponsibility of this CLI is to define a set of standard schemas for c
 - [x] [kubernetesCluster](./src/%40resources/kubernetesCluster/)
 - [x] [dnsZone](./src/%40resources/dnsZone/)
 - [x] [dnsRecord](./src/%40resources/dnsRecord/)
-- [x] [database](./src/%40resources/database/)
+- [x] [databaseCluster](./src/%40resources/databaseCluster/)
 - [x] [databaseType](./src/%40resources/databaseType/)
 - [x] [databaseVersion](./src/%40resources/databaseVersion/)
 - [x] [databaseSize](./src/%40resources/databaseSize/)
 - [ ] [kubernetesNamespace](./src/%40resources/kubernetesNamespace/)
-- [ ] [databaseSchema](./src/%40resources/databaseSchema/)
+- [ ] [database](./src/%40resources/database/)
 - [ ] [databaseUser](./src/%40resources/databaseUser/)
 
 ### Interacting with resources

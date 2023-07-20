@@ -309,7 +309,7 @@ export default class ComponentV1 extends Component {
         (deployment_node as CloudNode<'deployment'>).inputs.services?.push({
           id: `\${{ ${service_node.id}.id }}`,
           account: `\${{ ${service_node.id}.account }}`,
-          port: `\${{ ${service_node.id}.port }}`,
+          port: `\${{ ${service_node.id}.target_port }}`,
         });
 
         if (typeof interface_config === 'object' && interface_config.ingress) {

@@ -17,7 +17,14 @@ export class GoogleCloudIngressRuleModule extends ResourceModule<'ingressRule', 
 
     GcpUtils.configureProvider(this);
 
-    const service_name = this.inputs?.name.replaceAll('/', '--') || '';
+    // The input service name looks like:
+    // `projects--{proj_name}--global--backendServices--tyleraldrich--{service_name}--backend`
+    let service_name = this.inputs?.service.replaceAll('/', '--') || '';
+    const backend_service_str = '--backendServices--';
+    if (service_name.indexOf(backend_service_str) >= 0) {
+      service_name = service_name.slice(service_name.indexOf(backend_service_str) + backend_service_str.length);
+      service_name = service_name.substring(0, service_name.length - '--backend'.length);
+    }
 
     const backend_service = new DataGoogleComputeBackendService(this, 'backend-neg', {
       name: `${service_name}--backend`,

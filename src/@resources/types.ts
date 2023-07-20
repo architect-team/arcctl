@@ -40,6 +40,12 @@ import type nodeInputs from './node/inputs.ts';
 import type nodeOutputs from './node/outputs.ts';
 import type nodeSizeInputs from './nodeSize/inputs.ts';
 import type nodeSizeOutputs from './nodeSize/outputs.ts';
+import type ociBuildInputs from './ociBuild/inputs.ts';
+import type ociBuildOutputs from './ociBuild/outputs.ts';
+import type ociPushInputs from './ociPush/inputs.ts';
+import type ociPushOutputs from './ociPush/outputs.ts';
+import type ociTagInputs from './ociTag/inputs.ts';
+import type ociTagOutputs from './ociTag/outputs.ts';
 import type regionInputs from './region/inputs.ts';
 import type regionOutputs from './region/outputs.ts';
 import type repositoryInputs from './repository/inputs.ts';
@@ -77,13 +83,17 @@ export type ResourceType =
   | 'namespace'
   | 'node'
   | 'nodeSize'
+  | 'ociBuild'
+  | 'ociPush'
+  | 'ociTag'
   | 'region'
   | 'repository'
   | 'secret'
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc';
+  | 'vpc'
+;
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
@@ -107,6 +117,9 @@ export const ResourceTypeList: ResourceType[] = [
   'namespace',
   'node',
   'nodeSize',
+  'ociBuild',
+  'ociPush',
+  'ociTag',
   'region',
   'repository',
   'secret',
@@ -201,6 +214,18 @@ export type ResourceInputs = {
     type: 'nodeSize';
     account?: string;
   } & nodeSizeInputs;
+  'ociBuild': {
+    type: 'ociBuild';
+    account?: string;
+  } & ociBuildInputs;
+  'ociPush': {
+    type: 'ociPush';
+    account?: string;
+  } & ociPushInputs;
+  'ociTag': {
+    type: 'ociTag';
+    account?: string;
+  } & ociTagInputs;
   'region': {
     type: 'region';
     account?: string;
@@ -295,6 +320,15 @@ export type ResourceOutputs = {
   'nodeSize': {
     id: string;
   } & nodeSizeOutputs;
+  'ociBuild': {
+    id: string;
+  } & ociBuildOutputs;
+  'ociPush': {
+    id: string;
+  } & ociPushOutputs;
+  'ociTag': {
+    id: string;
+  } & ociTagOutputs;
   'region': {
     id: string;
   } & regionOutputs;

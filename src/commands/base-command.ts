@@ -398,7 +398,8 @@ export class CommandHelper {
         } else if (property.schema.maximum && val > property.schema.maximum) {
           return `${property.name} must be less than ${property.schema.maximum}`;
         }
-        return false;
+
+        return true;
       },
     });
 

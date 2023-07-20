@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/OciPushInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "OciPushInputs": {
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

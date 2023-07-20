@@ -145,16 +145,7 @@
               "account": {
                 "type": "string"
               },
-              "digest": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "namespace": {
-                "type": "string"
-              },
-              "tag": {
+              "image": {
                 "type": "string"
               },
               "type": {
@@ -163,8 +154,7 @@
               }
             },
             "required": [
-              "digest",
-              "name",
+              "image",
               "type"
             ],
             "type": "object"
@@ -1363,6 +1353,120 @@
           "if": {
             "properties": {
               "type": {
+                "const": "ociBuild",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "config": {
+                "additionalProperties": false,
+                "description": "Custom config file configuration",
+                "properties": {
+                  "file": {
+                    "description": "Path to the config file",
+                    "type": "string"
+                  },
+                  "mediaType": {
+                    "description": "Media type of the config file",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "file",
+                  "mediaType"
+                ],
+                "type": "object"
+              },
+              "files": {
+                "description": "Paths to files to package",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "type": {
+                "const": "ociBuild",
+                "type": "string"
+              }
+            },
+            "required": [
+              "files",
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ociPush",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "type": {
+                "const": "ociPush",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ociTag",
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": false,
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "type": {
+                "const": "ociTag",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "target",
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "properties": {},
                 "type": "object"
               }
@@ -1832,6 +1936,9 @@
             "ingressRule",
             "kubernetesCluster",
             "namespace",
+            "ociBuild",
+            "ociPush",
+            "ociTag",
             "repository",
             "secret",
             "service",

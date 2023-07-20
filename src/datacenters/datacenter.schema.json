@@ -189,6 +189,34 @@
                                 "description": "Path to the dockerfile relative to the context",
                                 "type": "string"
                               },
+                              "push": {
+                                "additionalProperties": false,
+                                "description": "Configuration specifying if/how to push to a remote registry",
+                                "properties": {
+                                  "account": {
+                                    "description": "Account that provides access to the registry",
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "description": "Name of the repository to push to",
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "description": "Namespace to put the image in",
+                                    "type": "string"
+                                  },
+                                  "tag": {
+                                    "default": "latest",
+                                    "description": "Tag to apply to the image",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "account",
+                                  "name"
+                                ],
+                                "type": "object"
+                              },
                               "target": {
                                 "description": "Name of a intermediate build stage to target",
                                 "type": "string"
@@ -222,19 +250,7 @@
                               "account": {
                                 "type": "string"
                               },
-                              "digest": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "namespace": {
-                                "type": "string"
-                              },
-                              "registry": {
-                                "type": "string"
-                              },
-                              "tag": {
+                              "image": {
                                 "type": "string"
                               },
                               "type": {
@@ -244,8 +260,42 @@
                             },
                             "required": [
                               "account",
-                              "digest",
-                              "name",
+                              "image",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "containerTag",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "source": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "containerTag",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "source",
+                              "target",
                               "type"
                             ],
                             "type": "object"
@@ -1685,6 +1735,87 @@
                           "if": {
                             "properties": {
                               "type": {
+                                "const": "ociBuild",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "ociBuild",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "ociPush",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "ociPush",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "ociTag",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "ociTag",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
                                 "properties": {},
                                 "type": "object"
                               }
@@ -2148,6 +2279,7 @@
                             "arcctlAccount",
                             "containerBuild",
                             "containerPush",
+                            "containerTag",
                             "cronjob",
                             "database",
                             "databaseSchema",
@@ -2160,6 +2292,9 @@
                             "ingressRule",
                             "kubernetesCluster",
                             "namespace",
+                            "ociBuild",
+                            "ociPush",
+                            "ociTag",
                             "repository",
                             "secret",
                             "service",
@@ -2254,10 +2389,6 @@
                         "type": "object"
                       },
                       "description": {
-                        "additionalProperties": false,
-                        "type": "object"
-                      },
-                      "digest": {
                         "additionalProperties": false,
                         "type": "object"
                       },
@@ -2429,6 +2560,28 @@
                         "additionalProperties": false,
                         "type": "object"
                       },
+                      "push": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "account": {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          "name": {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          "namespace": {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          "tag": {
+                            "additionalProperties": false,
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
                       "recordType": {
                         "additionalProperties": false,
                         "type": "object"
@@ -2473,11 +2626,11 @@
                         "additionalProperties": false,
                         "type": "object"
                       },
-                      "subdomain": {
+                      "source": {
                         "additionalProperties": false,
                         "type": "object"
                       },
-                      "tag": {
+                      "subdomain": {
                         "additionalProperties": false,
                         "type": "object"
                       },
@@ -2510,6 +2663,7 @@
                           "arcctlAccount",
                           "containerBuild",
                           "containerPush",
+                          "containerTag",
                           "cronjob",
                           "database",
                           "databaseSchema",
@@ -2527,6 +2681,9 @@
                           "namespace",
                           "node",
                           "nodeSize",
+                          "ociBuild",
+                          "ociPush",
+                          "ociTag",
                           "region",
                           "repository",
                           "secret",
@@ -2665,6 +2822,34 @@
                           "description": "Path to the dockerfile relative to the context",
                           "type": "string"
                         },
+                        "push": {
+                          "additionalProperties": false,
+                          "description": "Configuration specifying if/how to push to a remote registry",
+                          "properties": {
+                            "account": {
+                              "description": "Account that provides access to the registry",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the repository to push to",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace to put the image in",
+                              "type": "string"
+                            },
+                            "tag": {
+                              "default": "latest",
+                              "description": "Tag to apply to the image",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "account",
+                            "name"
+                          ],
+                          "type": "object"
+                        },
                         "target": {
                           "description": "Name of a intermediate build stage to target",
                           "type": "string"
@@ -2698,19 +2883,7 @@
                         "account": {
                           "type": "string"
                         },
-                        "digest": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "namespace": {
-                          "type": "string"
-                        },
-                        "registry": {
-                          "type": "string"
-                        },
-                        "tag": {
+                        "image": {
                           "type": "string"
                         },
                         "type": {
@@ -2720,8 +2893,42 @@
                       },
                       "required": [
                         "account",
-                        "digest",
-                        "name",
+                        "image",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "containerTag",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "target": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "containerTag",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "source",
+                        "target",
                         "type"
                       ],
                       "type": "object"
@@ -4161,6 +4368,87 @@
                     "if": {
                       "properties": {
                         "type": {
+                          "const": "ociBuild",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "ociBuild",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "ociPush",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "ociPush",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "ociTag",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "ociTag",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
                           "properties": {},
                           "type": "object"
                         }
@@ -4624,6 +4912,7 @@
                       "arcctlAccount",
                       "containerBuild",
                       "containerPush",
+                      "containerTag",
                       "cronjob",
                       "database",
                       "databaseSchema",
@@ -4636,6 +4925,9 @@
                       "ingressRule",
                       "kubernetesCluster",
                       "namespace",
+                      "ociBuild",
+                      "ociPush",
+                      "ociTag",
                       "repository",
                       "secret",
                       "service",
@@ -4753,6 +5045,34 @@
                       "description": "Path to the dockerfile relative to the context",
                       "type": "string"
                     },
+                    "push": {
+                      "additionalProperties": false,
+                      "description": "Configuration specifying if/how to push to a remote registry",
+                      "properties": {
+                        "account": {
+                          "description": "Account that provides access to the registry",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Name of the repository to push to",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "Namespace to put the image in",
+                          "type": "string"
+                        },
+                        "tag": {
+                          "default": "latest",
+                          "description": "Tag to apply to the image",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "name"
+                      ],
+                      "type": "object"
+                    },
                     "target": {
                       "description": "Name of a intermediate build stage to target",
                       "type": "string"
@@ -4786,19 +5106,7 @@
                     "account": {
                       "type": "string"
                     },
-                    "digest": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "namespace": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
-                    "tag": {
+                    "image": {
                       "type": "string"
                     },
                     "type": {
@@ -4808,8 +5116,42 @@
                   },
                   "required": [
                     "account",
-                    "digest",
-                    "name",
+                    "image",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "containerTag",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "target": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "containerTag",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "source",
+                    "target",
                     "type"
                   ],
                   "type": "object"
@@ -6249,6 +6591,87 @@
                 "if": {
                   "properties": {
                     "type": {
+                      "const": "ociBuild",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "ociBuild",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "ociPush",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "ociPush",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "ociTag",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "ociTag",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
                       "properties": {},
                       "type": "object"
                     }
@@ -6712,6 +7135,7 @@
                   "arcctlAccount",
                   "containerBuild",
                   "containerPush",
+                  "containerTag",
                   "cronjob",
                   "database",
                   "databaseSchema",
@@ -6724,6 +7148,9 @@
                   "ingressRule",
                   "kubernetesCluster",
                   "namespace",
+                  "ociBuild",
+                  "ociPush",
+                  "ociTag",
                   "repository",
                   "secret",
                   "service",
@@ -6770,6 +7197,9 @@
                 "type": "string"
               },
               "containerPush": {
+                "type": "string"
+              },
+              "containerTag": {
                 "type": "string"
               },
               "cronjob": {
@@ -6826,6 +7256,15 @@
               "nodeSize": {
                 "type": "string"
               },
+              "ociBuild": {
+                "type": "string"
+              },
+              "ociPush": {
+                "type": "string"
+              },
+              "ociTag": {
+                "type": "string"
+              },
               "provider": {
                 "type": "string"
               },
@@ -6849,6 +7288,7 @@
                   "arcctlAccount",
                   "containerBuild",
                   "containerPush",
+                  "containerTag",
                   "cronjob",
                   "database",
                   "databaseSchema",
@@ -6866,6 +7306,9 @@
                   "namespace",
                   "node",
                   "nodeSize",
+                  "ociBuild",
+                  "ociPush",
+                  "ociTag",
                   "region",
                   "repository",
                   "secret",

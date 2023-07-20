@@ -1,0 +1,42 @@
+{
+  "$ref": "#/definitions/OciBuildInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "OciBuildInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "additionalProperties": false,
+          "description": "Custom config file configuration",
+          "properties": {
+            "file": {
+              "description": "Path to the config file",
+              "type": "string"
+            },
+            "mediaType": {
+              "description": "Media type of the config file",
+              "type": "string"
+            }
+          },
+          "required": [
+            "file",
+            "mediaType"
+          ],
+          "type": "object"
+        },
+        "files": {
+          "description": "Paths to files to package",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "files"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -8,6 +8,15 @@ import { InvalidImageFormat } from './errors.ts';
 import { ImageManifest } from './image-manifest.ts';
 import { fileToBinaryData, IMAGE_REGEXP } from './utils.ts';
 
+type AuthScheme = {
+  type: 'basic';
+  username: string;
+  password: string;
+} | {
+  type: 'bearer';
+  token: string;
+};
+
 export class ImageRepository<C extends any = any> {
   protocol: string;
   registry?: string;
@@ -18,6 +27,7 @@ export class ImageRepository<C extends any = any> {
   private default_registry: string;
   private manifest?: ImageManifest;
   private config?: C;
+  private _scheme?: AuthScheme;
 
   constructor(ref_string: string, default_registry?: string) {
     const match = ref_string.match(IMAGE_REGEXP);
@@ -37,6 +47,73 @@ export class ImageRepository<C extends any = any> {
     } else {
       this.tag = match[3].substring(1);
     }
+  }
+
+  private async fetch(
+    input: URL | Request | string,
+    init?: RequestInit,
+  ): Promise<Response> {
+    const res = await fetch(input, {
+      ...init,
+      ...(this._scheme?.type === 'bearer'
+        ? {
+          headers: {
+            ...init?.headers,
+            Authentication: `Bearer ${this._scheme.token}`,
+          },
+        }
+        : {
+          headers: {
+            ...init?.headers,
+            Authorization: 'Basic ' + Buffer.from('davidthor' + ':' + 'DThor041290').toString('base64'),
+          },
+        }),
+    });
+    if (res.status === 401 && !this._scheme) {
+      const auth_header = res.headers.get('www-authenticate');
+      if (!auth_header) {
+        throw new Error('No authentication scheme provided');
+      }
+
+      const [scheme, rest] = auth_header.split(' ');
+      if (scheme.toLowerCase() === 'bearer') {
+        const data: Record<string, string> = {};
+        for (const pair of rest.split(',')) {
+          const [key, value] = pair.split('=');
+          data[key] = value.replace(/^"/, '').replace(/"$/, '');
+        }
+
+        const params = new URLSearchParams({
+          grant_type: 'password',
+          client_id: 'arcctl',
+        });
+        if (data.service) params.set('service', data.service);
+        if (data.scope) params.set('scope', data.scope);
+
+        const authRes = await fetch(data['realm'] + '?' + params.toString(), {
+          headers: {
+            Authorization: 'Basic ' + Buffer.from('davidthor' + ':' + 'DThor041290').toString('base64'),
+          },
+        });
+        if (authRes.status >= 400) {
+          throw new Error(
+            `Authentication failed: ${authRes.status} ${authRes.statusText}`,
+          );
+        }
+
+        const authData = await authRes.json();
+        this._scheme = {
+          type: 'bearer',
+          token: authData.access_token,
+        };
+
+        return this.fetch(input, init);
+      } else {
+        throw new Error(`Unsupported authentication scheme: ${scheme}`);
+      }
+    }
+
+    return res;
   }
 
   private boldlyAssumeProtocol() {
@@ -74,7 +151,7 @@ export class ImageRepository<C extends any = any> {
         return;
       }
 
-      await fetch(`${this.getRegistryUrl()}/v2/`);
+      await this.fetch(`${this.getRegistryUrl()}/v2/`);
     } catch (err: any) {
       if (err.code === 'ECONNREFUSED') {
         throw new Error(
@@ -98,12 +175,11 @@ export class ImageRepository<C extends any = any> {
   async getManifest(media_type: string): Promise<ImageManifest> {
     if (!this.manifest) {
       const manifest_id = this.tag || this.digest;
-      const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`, {
+      const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`, {
         headers: {
           Accept: media_type,
         },
       });
-      console.log(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`);
       this.manifest = await res.json() as ImageManifest;
     }
 
@@ -113,8 +189,7 @@ export class ImageRepository<C extends any = any> {
   async getConfig(media_type: string): Promise<C> {
     if (!this.config) {
       const manifest = await this.getManifest(media_type);
-      console.log(manifest);
-      const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`);
+      const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`);
       this.config = await res.json() as C;
     }
 
@@ -125,7 +200,7 @@ export class ImageRepository<C extends any = any> {
     digest: string,
   ): Promise<{ digest: string; size: number } | null> {
     try {
-      const { headers } = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
+      const { headers } = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
         method: 'HEAD',
       });
 
@@ -142,7 +217,7 @@ export class ImageRepository<C extends any = any> {
     const filepath = path.join(os.tmpdir(), digest);
     const ws = createWriteStream(filepath);
 
-    const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
+    const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
       headers: {
         responseType: 'stream',
       },
@@ -165,7 +240,7 @@ export class ImageRepository<C extends any = any> {
         return existing;
       }
 
-      const { headers } = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/uploads/`, {
+      const { headers } = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/uploads/`, {
         method: 'POST',
       });
 
@@ -174,7 +249,7 @@ export class ImageRepository<C extends any = any> {
 
       const file_binary = await Deno.open(file, { read: true });
 
-      const res = await fetch(location.href, {
+      const res = await this.fetch(location.href, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/octet-stream',
@@ -199,7 +274,7 @@ export class ImageRepository<C extends any = any> {
         .update(manifest_buffer)
         .digest('hex');
 
-      const res = await fetch(
+      const res = await this.fetch(
         `${this.getRegistryUrl()}/v2/${this.repository}/manifests/${this.tag || manifest_digest}`,
         {
           method: 'PUT',

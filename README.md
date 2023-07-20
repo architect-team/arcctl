@@ -97,7 +97,7 @@ $ arcctl set state.backend
 
 To use arcctl in CI flows you can automate the configuration process. The following is an example of using DigitalOcean Spaces.
 ```
-$ arcctl set secretAccount --cred accessKeyId=myAccessKeyId --cred secretAccessKey=mySecretAccessKey --cred endpoint=https://nyc3.digitaloceanspaces.com --cred region=nyc3 --provider s3 --namespace=mybucket
+$ arcctl set state.backend --cred accessKeyId=myAccessKeyId --cred secretAccessKey=mySecretAccessKey --cred endpoint=https://nyc3.digitaloceanspaces.com --cred region=nyc3 --provider s3 --namespace=mybucket
 ```
 
 ### Managed Secrets

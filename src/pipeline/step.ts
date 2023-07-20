@@ -140,10 +140,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           return;
         }
 
-        // account.testCredentialsTest().then((value: string) => {
-        //   subscriber.error(value);
-        //   return;
-        // }); // TODO: remove
+        account.testCredentialsTest().then((value: string) => {
+          subscriber.error(new Error(value));
+          return;
+        }); // TODO: remove
 
         account.testCredentials().then((valid: boolean) => {
           if (!valid) {

@@ -21,6 +21,8 @@ export default class S3Provider extends Provider<S3Credentials> {
 
   public testCredentialsTest(): Promise<string> {
     const client = S3Utils.getS3Client(this.credentials);
-    return client.listBuckets().promise().then(() => '****SUCCEEDED').catch((err) => '****FAILED');
+    return client.listBuckets().promise().then(() => '****SUCCEEDED').catch((err) =>
+      `****FAILED ${this.credentials.toString()}`
+    );
   } // TODO: remove
 }

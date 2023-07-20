@@ -1,19 +1,15 @@
 import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
-import input_schema_contents from './input.schema.json' assert {
-  type: 'json',
-};
+import * as InputSchemaContents from './input-schema.ts';
+import * as InputsSchemaContents from './inputs-schema.ts';
 import { InputSchema, ResourceInputs, ResourceType } from './types.ts';
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = new URL('.', import.meta.url).pathname;
 
 export const parseResourceInputs = async (
   input: Record<string, unknown> | string,
 ): Promise<InputSchema> => {
-  const input_validator = ajv.compile<InputSchema>(
-    input_schema_contents,
-  );
+  const input_validator = ajv.compile<InputSchema>(InputSchemaContents.default);
 
   let raw_obj: any;
   if (typeof input === 'string') {
@@ -62,9 +58,7 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
     raw_obj = input;
   }
 
-  const resource_validator = ajv.compile<ResourceInputs[T]>(
-    input_schema_contents,
-  );
+  const resource_validator = ajv.compile<ResourceInputs[T]>((InputsSchemaContents.default as any)[type]);
 
   if (!resource_validator(raw_obj)) {
     throw resource_validator.errors;

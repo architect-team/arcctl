@@ -1,7 +1,7 @@
 import { EnumType } from 'cliffy/command/mod.ts';
-import { Select } from 'cliffy/prompt/mod.ts';
 import { SupportedProviders } from '../../@providers/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 const providerType = new EnumType(Object.keys(SupportedProviders));
 
@@ -19,7 +19,7 @@ const AddAccountCommand = BaseCommand()
 async function add_account_action(options: AddAccountOptions, account_name?: string) {
   const command_helper = new CommandHelper(options);
 
-  const name = await command_helper.promptForStringInputs(
+  const name = await command_helper.resourceInputUtils.promptForStringInputs(
     {
       name: 'name',
       schema: {
@@ -30,24 +30,25 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
     undefined,
     { name: account_name },
   );
-  if (command_helper.providerStore.get(name)) {
+  if (await command_helper.providerStore.get(name)) {
     console.error(`An account named ${name} already exists`);
     Deno.exit(1);
   }
 
   const providerName = options.provider ||
-    (await Select.prompt({
+    (await Inputs.promptSelection({
       message: 'What provider will this account connect to?',
       options: Object.keys(SupportedProviders),
     }));
 
   const providerType = providerName as keyof typeof SupportedProviders;
 
-  const credentials = await command_helper.promptForCredentials(providerType);
+  const credentials = await command_helper.accountInputUtils.promptForCredentials(providerType);
   const account = new SupportedProviders[providerType](
     name,
     credentials as any,
     command_helper.providerStore,
+    {},
   );
   const validCredentials = await account.testCredentials();
   if (!validCredentials) {
@@ -55,7 +56,7 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
   }
 
   try {
-    command_helper.providerStore.save(account);
+    await command_helper.providerStore.save(account);
     console.log(`${account.name} account registered`);
   } catch (ex: any) {
     console.error(ex.message);

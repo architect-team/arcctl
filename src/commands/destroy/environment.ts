@@ -1,10 +1,11 @@
 import cliSpinners from 'cli-spinners';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
 import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
@@ -17,14 +18,18 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   const environmentRecord = await promptForEnvironment(command_helper, name);
   const datacenterRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
   if (!datacenterRecord) {
-    const confirmed = options.autoApprove || await Confirm.prompt(
+    const confirmed = options.autoApprove || await Inputs.promptForContinuation(
       'The environment is pointed to an invalid datacenter. ' +
         'The environment can be removed, but the resources can\'t be destroyed. Would you like to proceed?',
     );
 
     if (confirmed) {
       // TODO: This won't work. Need to change how we remove environments when we don't have a datacenter
-      await command_helper.removeEnvironment(environmentRecord.name, datacenterRecord!.name, datacenterRecord!.config);
+      await command_helper.environmentUtils.removeEnvironment(
+        environmentRecord.name,
+        datacenterRecord!.name,
+        datacenterRecord!.config,
+      );
       console.log(`Environment removed. Resources may still be dangling.`);
       return;
     } else {
@@ -33,10 +38,9 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     }
   }
 
-  const lastPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
-
+  const lastPipeline = environmentRecord.lastPipeline;
   const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph(), {});
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
@@ -44,18 +48,18 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
 
   pipeline.validate();
 
-  await command_helper.confirmPipeline(pipeline, options.autoApprove);
+  await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -71,21 +75,24 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     .toPromise()
     .then(async () => {
       clearInterval(interval);
-      await command_helper.removeEnvironment(environmentRecord.name, datacenterRecord.name, datacenterRecord.config);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-      command_helper.doneRenderingPipeline();
+      await command_helper.environmentUtils.removeEnvironment(
+        environmentRecord.name,
+        datacenterRecord.name,
+        datacenterRecord.config,
+      );
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+      command_helper.pipelineRenderer.doneRenderingPipeline();
       console.log(`Environment ${name} destroyed successfully`);
     })
     .catch(async (err) => {
       clearInterval(interval);
-      await command_helper.saveEnvironment(
+      await command_helper.environmentUtils.saveEnvironment(
         datacenterRecord.name,
         environmentRecord.name,
-        datacenterRecord.config,
         environmentRecord.config!,
         pipeline,
       );
-      command_helper.doneRenderingPipeline();
+      command_helper.pipelineRenderer.doneRenderingPipeline();
       console.error(err);
       Deno.exit(1);
     });

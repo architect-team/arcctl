@@ -85,3 +85,29 @@ $ arcctl get <resource> <id>
 $ arcctl create <resource>
 $ arcctl delete <resource> <id>
 ```
+
+## Remote State
+
+ArcCtl uses persisted state to keep track of your accounts, datacenters and environments. These statefiles represent all of your cloud resources. By default these statefiles are kept on your local machine. Though, if you want to share these resources with multiple people across machines, then you will need to use a remote state. Any provider that supports a secret resource type, can be used as a remote backend.
+
+To configure a remote backend you can run the command, which will run you through creating an account.
+```
+$ arcctl set state.backend
+```
+
+To use arcctl in CI flows you can automate the configuration process. The following is an example of using DigitalOcean Spaces.
+```
+$ arcctl set state.backend --cred accessKeyId=myAccessKeyId --cred secretAccessKey=mySecretAccessKey --cred endpoint=https://nyc3.digitaloceanspaces.com --cred region=nyc3 --provider s3 --namespace=mybucket
+```
+
+### Managed Secrets
+
+Once you configure a new backend, ArcCtl will use that to store any stateful information from the commands you run. At the moment we store 3 secrets.
+
+| Name         | Description                                                                                                               |
+|--------------|---------------------------------------------------------------------------------------------------------------------------|
+| providers    | A list of all accounts that have been added either through `arcctl add account` or dynamically through resource creation. |
+| datacenters  | A list of all managed datacenters and their current state.                                                                |
+| environments | A list of all managed environments and their current state.
+
+These secrets contain senesitive information such as account credentials and terraform state files, so it is highly recommended to restrict who has access to these secrets.

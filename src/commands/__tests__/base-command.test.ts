@@ -1,19 +1,15 @@
 import { assertArrayIncludes, assertEquals, assertThrows } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { ParsedVariablesMetadata, ParsedVariablesType } from '../../datacenters/index.ts';
-import { CommandHelper } from '../base-command.ts';
+import { ParsedVariablesType } from '../../datacenters/index.ts';
+import { DatacenterUtils } from '../common/datacenter.ts';
 
-class TestCommandHelper extends CommandHelper {
-  public sortVariablesPublic(
-    variables: ParsedVariablesType,
-  ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
-    return this.sortVariables(variables);
-  }
+function getDatacenterUtils(): DatacenterUtils {
+  return new DatacenterUtils({} as any, {} as any, {} as any, {} as any);
 }
 
 describe('CommandHelper methods', () => {
   it('correctly sorts no order necessary', () => {
-    const command_helper = new TestCommandHelper({});
+    const datacenterUtils = getDatacenterUtils();
 
     const variables: ParsedVariablesType = {
       var1: {
@@ -25,7 +21,7 @@ describe('CommandHelper methods', () => {
       },
     };
 
-    const result = command_helper.sortVariablesPublic(variables);
+    const result = datacenterUtils.sortVariables(variables);
     // Order doesn't matter here, neither relies on each other
     assertArrayIncludes(result, [
       {
@@ -42,7 +38,7 @@ describe('CommandHelper methods', () => {
   });
 
   it('correctly sorts a single dependnecy', () => {
-    const command_helper = new TestCommandHelper({});
+    const datacenterUtils = getDatacenterUtils();
 
     const variables: ParsedVariablesType = {
       var1: {
@@ -56,7 +52,7 @@ describe('CommandHelper methods', () => {
       },
     };
 
-    const result = command_helper.sortVariablesPublic(variables);
+    const result = datacenterUtils.sortVariables(variables);
     // Var2 comes before Var1 in prompting order
     assertEquals(result, [
       {
@@ -73,7 +69,7 @@ describe('CommandHelper methods', () => {
   });
 
   it('correctly sorts variables with dependency chain', () => {
-    const command_helper = new TestCommandHelper({});
+    const datacenterUtils = getDatacenterUtils();
 
     const variables: ParsedVariablesType = {
       var1: {
@@ -91,7 +87,7 @@ describe('CommandHelper methods', () => {
       },
     };
 
-    const result = command_helper.sortVariablesPublic(variables);
+    const result = datacenterUtils.sortVariables(variables);
     // Var2 comes before Var1, var3 comes before var2 in prompting order
     assertEquals(result, [
       {
@@ -113,7 +109,7 @@ describe('CommandHelper methods', () => {
   });
 
   it('correctly sorts variables with multiple dependencies', () => {
-    const command_helper = new TestCommandHelper({});
+    const datacenterUtils = getDatacenterUtils();
 
     const variables: ParsedVariablesType = {
       var1: {
@@ -130,7 +126,7 @@ describe('CommandHelper methods', () => {
       },
     };
 
-    const result = command_helper.sortVariablesPublic(variables);
+    const result = datacenterUtils.sortVariables(variables);
     // var1 and var2 can be in any order, but are both before var3
     assertEquals(result.length, 3);
     assertArrayIncludes([result[0], result[1]], [
@@ -154,7 +150,7 @@ describe('CommandHelper methods', () => {
   });
 
   it('correctly throws error when variable dependencies are circular', () => {
-    const command_helper = new TestCommandHelper({});
+    const datacenterUtils = getDatacenterUtils();
 
     const variables: ParsedVariablesType = {
       var1: {
@@ -170,12 +166,12 @@ describe('CommandHelper methods', () => {
     };
 
     assertThrows(() => {
-      command_helper.sortVariablesPublic(variables);
+      datacenterUtils.sortVariables(variables);
     });
   });
 
   it('correctly throws error when more complex variable dependencies are circular', () => {
-    const command_helper = new TestCommandHelper({});
+    const datacenterUtils = getDatacenterUtils();
 
     const variables: ParsedVariablesType = {
       var1: {
@@ -196,7 +192,7 @@ describe('CommandHelper methods', () => {
     };
 
     assertThrows(() => {
-      command_helper.sortVariablesPublic(variables);
+      datacenterUtils.sortVariables(variables);
     });
   });
 });

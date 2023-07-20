@@ -5,6 +5,7 @@ import gcp from './gcp/provider.ts';
 import kubernetes from './kubernetes/provider.ts';
 import local from './local/provider.ts';
 import postgres from './postgres/provider.ts';
+import s3 from './s3/provider.ts';
 import traefik from './traefik/provider.ts';
 
 export const SupportedProviders = {
@@ -16,4 +17,5 @@ export const SupportedProviders = {
   'local': local,
   'postgres': postgres,
   'traefik': traefik,
+  's3': s3,
 };

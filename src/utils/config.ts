@@ -1,13 +1,9 @@
-import { home_dir } from "deps";
-import * as fs from "std/fs/mod.ts";
-import * as path from "std/path/mod.ts";
-import { SupportedProviders } from "../@providers/index.ts";
+import { home_dir } from 'deps';
+import * as fs from 'std/fs/mod.ts';
+import * as path from 'std/path/mod.ts';
+import { SupportedProviders } from '../@providers/index.ts';
 
-const DEFAULT_CONFIG_DIRECTORY = path.join(
-  home_dir() || "~",
-  ".config",
-  "arcctl",
-);
+const DEFAULT_CONFIG_DIRECTORY = path.join(home_dir() || '~', '.config', 'arcctl');
 
 export type StateBackend = {
   provider: keyof typeof SupportedProviders;
@@ -24,17 +20,15 @@ export default class CloudCtlConfig {
   private static dev: boolean;
   private static tfDirectory?: string;
   private static noCleanup: boolean;
-  private static configOptions: CloudCtlConfigOptions = this.getDefaultConfig(
-    DEFAULT_CONFIG_DIRECTORY,
-  );
+  private static configOptions: CloudCtlConfigOptions = this.getDefaultConfig(DEFAULT_CONFIG_DIRECTORY);
 
   private static getDefaultStateBackend(directory: string): StateBackend {
     return {
-      provider: "local",
+      provider: 'local',
       credentials: {
         directory,
       },
-      namespace: "arcctl-state",
+      namespace: 'arcctl-state',
     };
   }
 
@@ -48,10 +42,8 @@ export default class CloudCtlConfig {
   public static load(directory?: string): void {
     directory = directory || DEFAULT_CONFIG_DIRECTORY;
     try {
-      if (Deno.statSync(path.join(directory, "config.json")).isFile) {
-        this.configOptions = JSON.parse(
-          Deno.readTextFileSync(path.join(directory, "config.json")),
-        );
+      if (Deno.statSync(path.join(directory, 'config.json')).isFile) {
+        this.configOptions = JSON.parse(Deno.readTextFileSync(path.join(directory, 'config.json')));
         return;
       }
     } catch {
@@ -83,7 +75,7 @@ export default class CloudCtlConfig {
     }
 
     Deno.writeTextFileSync( // TODO: this doesn't create a new file if needed when shimmed in esm
-      path.join(config_directory, "config.json"),
+      path.join(config_directory, 'config.json'),
       JSON.stringify(this.configOptions, null, 2),
     );
   }
@@ -94,17 +86,13 @@ export default class CloudCtlConfig {
 
   public static getTerraformDirectory(): string {
     if (!this.tfDirectory) {
-      this.tfDirectory = path.join(
-        this.getConfigDirectory(),
-        "/tf/",
-        `/${crypto.randomUUID()}/`,
-      );
+      this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${crypto.randomUUID()}/`);
     }
     return this.tfDirectory!;
   }
 
   public static getPluginDirectory(): string {
-    return path.join(this.getConfigDirectory(), "/plugins/");
+    return path.join(this.getConfigDirectory(), '/plugins/');
   }
 
   static setDev(dev: boolean): void {

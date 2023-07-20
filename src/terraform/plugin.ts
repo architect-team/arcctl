@@ -120,7 +120,7 @@ export class TerraformPlugin implements ArchitectPlugin {
   private binaryDir?: string;
   private binary?: PluginBinary;
 
-  async setup(binaryDir: string, binary: PluginBinary): Promise<void> {
+  setup(binaryDir: string, binary: PluginBinary): void {
     this.binaryDir = binaryDir;
     this.binary = binary;
   }

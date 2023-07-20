@@ -3,10 +3,10 @@ import { ProviderCredentials } from '../credentials.ts';
 import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
 import { AwsCredentials, AwsCredentialsSchema } from './credentials.ts';
+import { AwsDatabaseClusterService } from './services/database-cluster.ts';
 import { AwsDatabaseSizeService } from './services/database-size.ts';
 import { AwsDatabaseTypeService } from './services/database-type.ts';
 import { AwsDatabaseVersionService } from './services/database-version.ts';
-import { AwsDatabaseService } from './services/database.ts';
 import { AwsDnsRecordService } from './services/dns-record.ts';
 import { AwsDnsZoneService } from './services/dns-zone.ts';
 import { AwsKubernetesClusterService } from './services/kubernetes-cluster.ts';
@@ -31,7 +31,7 @@ export default class AwsProvider extends Provider<AwsCredentials> {
     databaseType: new AwsDatabaseTypeService(this.name, this.credentials, this.providerStore),
     databaseVersion: new AwsDatabaseVersionService(this.name, this.credentials, this.providerStore),
     databaseSize: new AwsDatabaseSizeService(this.name, this.credentials, this.providerStore),
-    database: new AwsDatabaseService(this.name, this.credentials, this.providerStore),
+    databaseCluster: new AwsDatabaseClusterService(this.name, this.credentials, this.providerStore),
     dnsZone: new AwsDnsZoneService(this.name, this.credentials, this.providerStore),
     dnsRecord: new AwsDnsRecordService(this.name, this.credentials, this.providerStore),
   };

@@ -10,12 +10,12 @@ import { SqlUser } from '../.gen/providers/google/sql-user/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 import GcpUtils from '../utils.ts';
 
-export class GoogleCloudDatabaseModule extends ResourceModule<'database', GoogleCloudCredentials> {
+export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCluster', GoogleCloudCredentials> {
   database: SqlDatabaseInstance;
   user: SqlUser;
-  outputs: ResourceOutputs['database'];
+  outputs: ResourceOutputs['databaseCluster'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'database', GoogleCloudCredentials>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseCluster', GoogleCloudCredentials>) {
     super(scope, options);
 
     GcpUtils.configureProvider(this);
@@ -29,7 +29,7 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
       ]
       : [];
 
-    this.database = new SqlDatabaseInstance(this, 'database', {
+    this.database = new SqlDatabaseInstance(this, 'databaseCluster', {
       dependsOn: depends_on,
       name: this.inputs?.name || 'deleting',
       databaseVersion: !this.inputs?.databaseType

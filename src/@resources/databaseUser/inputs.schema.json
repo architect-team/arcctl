@@ -5,8 +5,8 @@
     "DatabaseUserApplyInputs": {
       "additionalProperties": false,
       "properties": {
-        "databaseSchema": {
-          "description": "The schema the user should have access to",
+        "database": {
+          "description": "The database the user should have access to",
           "type": "string"
         },
         "username": {
@@ -16,7 +16,7 @@
       },
       "required": [
         "username",
-        "databaseSchema"
+        "database"
       ],
       "type": "object"
     }

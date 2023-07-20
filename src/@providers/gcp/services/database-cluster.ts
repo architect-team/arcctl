@@ -4,12 +4,13 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
-import { GoogleCloudDatabaseModule } from '../modules/database.ts';
+import { GoogleCloudDatabaseClusterModule } from '../modules/database-cluster.ts';
 
-export class GoogleCloudDatabaseService extends TerraformResourceService<'database', GoogleCloudCredentials> {
+export class GoogleCloudDatabaseClusterService
+  extends TerraformResourceService<'databaseCluster', GoogleCloudCredentials> {
   private auth: Auth.GoogleAuth;
   readonly terraform_version = '1.4.5';
-  readonly construct = GoogleCloudDatabaseModule;
+  readonly construct = GoogleCloudDatabaseClusterModule;
 
   constructor(accountName: string, credentials: GoogleCloudCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
@@ -21,7 +22,7 @@ export class GoogleCloudDatabaseService extends TerraformResourceService<'databa
 
   async get(
     id: string,
-  ): Promise<ResourceOutputs['database'] | undefined> {
+  ): Promise<ResourceOutputs['databaseCluster'] | undefined> {
     try {
       const { data } = await google.sql('v1beta4').databases.get({
         auth: this.auth,
@@ -44,15 +45,15 @@ export class GoogleCloudDatabaseService extends TerraformResourceService<'databa
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['database']>,
+    filterOptions?: Partial<ResourceOutputs['databaseCluster']>,
     pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['database']>> {
+  ): Promise<PagingResponse<ResourceOutputs['databaseCluster']>> {
     const { data } = await google.sql('v1beta4').instances.list({
       auth: this.auth,
       project: this.credentials.project,
     });
 
-    const databases: ResourceOutputs['database'][] = [];
+    const databases: ResourceOutputs['databaseCluster'][] = [];
     for (const instance of (data.items || [])) {
       // TODO: Fix database gets
       databases.push({

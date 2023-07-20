@@ -13,7 +13,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
   constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser', DigitaloceanCredentials>) {
     super(scope, options);
 
-    const [instance_name, database_name] = this.inputs?.databaseSchema.split('/') || ['unknown', 'unknown'];
+    const [instance_name, database_name] = this.inputs?.database.split('/') || ['unknown', 'unknown'];
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
       name: instance_name,

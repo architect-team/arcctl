@@ -142,7 +142,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
         account.testCredentialsTest().then((value: string) => {
           if (value) {
-            subscriber.error(new Error(value));
+            subscriber.error(value);
             return; // TODO: remove
           }
 

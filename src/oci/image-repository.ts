@@ -1,9 +1,12 @@
 import { Buffer } from 'https://deno.land/std@0.153.0/node/buffer.ts';
 import * as crypto from 'https://deno.land/std@0.153.0/node/crypto.ts';
+import { encode as base64Encode } from 'https://deno.land/std@0.195.0/encoding/base64.ts';
 import { createWriteStream } from 'node:fs';
 import os from 'node:os';
 import { URL } from 'node:url';
 import * as path from 'std/path/mod.ts';
+import { Config } from './config/config.ts';
+import { AuthConfig } from './config/types/auth.ts';
 import { InvalidImageFormat } from './errors.ts';
 import { ImageManifest } from './image-manifest.ts';
 import { fileToBinaryData, IMAGE_REGEXP } from './utils.ts';
@@ -25,7 +28,7 @@ export class ImageRepository<C extends any = any> {
       throw new InvalidImageFormat(ref_string);
     }
 
-    this.default_registry = default_registry || 'registry.docker.com';
+    this.default_registry = default_registry || 'registry-1.docker.io';
     this.registry = match[1] || '';
     this.repository = match[2];
     this.protocol = this.boldlyAssumeProtocol();
@@ -52,6 +55,83 @@ export class ImageRepository<C extends any = any> {
     return 'https';
   }
 
+  private parseChallenge(challenge: string): { scheme: string; params: Record<string, string> } {
+    const [scheme, paramsStr] = challenge.split(' ');
+
+    const params: Record<string, string> = {};
+    for (const row of paramsStr.match(/([a-zA-Z]+)=\"([^"]+)\"/g) || []) {
+      const [key, value] = row.split('=');
+      params[key] = value.replace(/^\"(.*)\"$/, '$1');
+    }
+
+    return { scheme, params };
+  }
+
+  private async fetchBearerToken(
+    realm: string,
+    service: string,
+    scope: string,
+    creds: AuthConfig,
+  ): Promise<string> {
+    const res = await fetch(`${realm}?service=${service}&scope=${scope}`, {
+      headers: {
+        Authorization: `Basic ${base64Encode(`${creds.username}:${creds.password}`)}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    const { token } = await res.json();
+    return token;
+  }
+
+  private async fetch(url: string, options: RequestInit = {}): Promise<Response> {
+    const body = options.body;
+    delete options.body;
+    const config = await Config.loadDefaultConfigFile();
+    const creds = await config.getAuthConfig(this.getRegistry());
+
+    const headers: Record<string, string> = {
+      ...options.headers,
+      Accept: 'application/json',
+    };
+    headers['Authorization'] = headers['Authorization'] ||
+      (creds ? `Basic ${base64Encode(`${creds.username}:${creds.password}`)}` : '');
+
+    const res = await fetch(url, {
+      ...options,
+      headers,
+    });
+
+    if (res.status !== 401 || !creds) {
+      return res;
+    }
+
+    const challenge = res.headers.get('www-authenticate');
+    if (!challenge) {
+      throw new Error('No authentication challenge provided. Is this really a registry?');
+    }
+
+    const { scheme, params } = this.parseChallenge(challenge!);
+    switch (scheme) {
+      case 'Bearer': {
+        const realm = params['realm'];
+        const service = params['service'];
+        const scope = params['scope'];
+
+        const token = await this.fetchBearerToken(realm, service, scope, creds);
+        headers['Authorization'] = `Bearer ${token}`;
+
+        options.body = body;
+        return fetch(url, {
+          ...options,
+          headers,
+        });
+      }
+    }
+
+    return res;
+  }
+
   getRegistry() {
     return this.registry || this.default_registry;
   }
@@ -67,9 +147,17 @@ export class ImageRepository<C extends any = any> {
     return res;
   }
 
-  async checkForOciSupport() {
+  async checkForOciSupport(): Promise<void> {
     try {
-      await fetch(`${this.getRegistryUrl()}/v2/`);
+      const { status } = await this.fetch(`${this.getRegistryUrl()}/v2/`);
+      switch (status) {
+        case 404: {
+          throw new Error(`Unsupported registry: ${this.getRegistryUrl()}`);
+        }
+        case 401: {
+          throw new Error(`Authentication required to access registry: ${this.getRegistryUrl()}`);
+        }
+      }
     } catch (err: any) {
       if (err.code === 'ECONNREFUSED') {
         throw new Error(
@@ -77,23 +165,14 @@ export class ImageRepository<C extends any = any> {
         );
       }
 
-      switch (err.response.status) {
-        case '404':
-          throw new Error(`Unsupported registry: ${this.getRegistryUrl()}`);
-        case '401':
-          throw new Error(
-            `Authentication required to access registry: ${this.getRegistryUrl()}`,
-          );
-        default:
-          throw new Error(`Unsupported registry: ${this.getRegistryUrl()}`);
-      }
+      throw new Error(`Unsupported registry: ${this.getRegistryUrl()}`);
     }
   }
 
   async getManifest(media_type: string): Promise<ImageManifest> {
     if (!this.manifest) {
       const manifest_id = this.tag || this.digest;
-      const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`, {
+      const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`, {
         headers: {
           Accept: media_type,
         },
@@ -107,7 +186,7 @@ export class ImageRepository<C extends any = any> {
   async getConfig(media_type: string): Promise<C> {
     if (!this.config) {
       const manifest = await this.getManifest(media_type);
-      const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`);
+      const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`);
       this.config = await res.json() as C;
     }
 
@@ -118,7 +197,7 @@ export class ImageRepository<C extends any = any> {
     digest: string,
   ): Promise<{ digest: string; size: number } | null> {
     try {
-      const { headers } = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
+      const { headers } = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
         method: 'HEAD',
       });
 
@@ -135,7 +214,7 @@ export class ImageRepository<C extends any = any> {
     const filepath = path.join(os.tmpdir(), digest);
     const ws = createWriteStream(filepath);
 
-    const res = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
+    const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${digest}`, {
       headers: {
         responseType: 'stream',
       },
@@ -158,7 +237,7 @@ export class ImageRepository<C extends any = any> {
         return existing;
       }
 
-      const { headers } = await fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/uploads/`, {
+      const { headers } = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/uploads/`, {
         method: 'POST',
       });
 
@@ -167,7 +246,7 @@ export class ImageRepository<C extends any = any> {
 
       const file_binary = await Deno.open(file, { read: true });
 
-      const res = await fetch(location.href, {
+      const res = await this.fetch(location.href, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/octet-stream',
@@ -180,6 +259,7 @@ export class ImageRepository<C extends any = any> {
         digest: res.headers.get('docker-content-digest')!,
       };
     } catch (err) {
+      console.error(err);
       throw new Error('Failed to upload blob to registry');
     }
   }
@@ -192,7 +272,7 @@ export class ImageRepository<C extends any = any> {
         .update(manifest_buffer)
         .digest('hex');
 
-      const res = await fetch(
+      const res = await this.fetch(
         `${this.getRegistryUrl()}/v2/${this.repository}/manifests/${this.tag || manifest_digest}`,
         {
           method: 'PUT',

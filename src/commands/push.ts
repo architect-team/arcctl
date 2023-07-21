@@ -47,6 +47,9 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
     );
     console.log(`Pushed Volume ${ref}`);
   });
+
+  await command_helper.componentStore.push(tag);
+
   console.log(`Pushed Component: ${tag}`);
 }
 

@@ -40,10 +40,12 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     Deno.exit(1);
   }
 
-  let targetEnvironment: Environment | undefined;
+  let targetEnvironment: Environment | undefined = environmentRecord?.config;
   let targetGraph = new CloudGraph();
   if (config_path) {
     targetEnvironment = await parseEnvironment(config_path);
+  }
+  if (targetEnvironment) {
     targetGraph = await targetEnvironment.getGraph(name, command_helper.componentStore);
   }
 

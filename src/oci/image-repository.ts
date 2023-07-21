@@ -259,7 +259,6 @@ export class ImageRepository<C extends any = any> {
         digest: res.headers.get('docker-content-digest')!,
       };
     } catch (err) {
-      console.error(err);
       throw new Error('Failed to upload blob to registry');
     }
   }

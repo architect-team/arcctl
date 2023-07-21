@@ -11,6 +11,32 @@ type BuildOptions = {
   verbose: boolean;
 } & GlobalOptions;
 
+const getDigest = async (buildArgs: string[], verbose?: boolean): Promise<string> => {
+  if (verbose) {
+    const { code, stdout, stderr } = await execVerbose('docker', { args: buildArgs });
+
+    if (code !== 0) {
+      // Error is already displayed on screen for the user in verbose mode
+      Deno.exit(code);
+    }
+
+    // Docker build seems to output progress to stderr?
+    const merged_output = stdout + stderr;
+    const matches = merged_output.match(/.*writing.*(sha256:\w+).*/);
+
+    if (!matches || !matches[1]) {
+      throw new Error('No digest found.');
+    }
+    return matches[1];
+  } else {
+    const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
+    if (code !== 0) {
+      throw new Error(stderr);
+    }
+    return stdout.replace(/^\s+|\s+$/g, '');
+  }
+};
+
 const BuildCommand = BaseCommand()
   .description('Build a component and relevant source services')
   .arguments('<context:string>') // 'Path to the component to build'
@@ -64,31 +90,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
       buildArgs.push(path.join(Deno.cwd(), context, build_options.context));
     }
 
-    console.log('Running: docker', ...buildArgs);
-
-    if (options.verbose) {
-      const { code, stdout, stderr } = await execVerbose('docker', { args: buildArgs });
-
-      if (code !== 0) {
-        // Error is already displayed on screen for the user in verbose mode
-        Deno.exit(code);
-      }
-
-      // Docker build seems to output progress to stderr?
-      const merged_output = stdout + stderr;
-      const matches = merged_output.match(/.*writing.*(sha256:\w+).*/);
-
-      if (!matches || !matches[1]) {
-        throw new Error('No digest found.');
-      }
-      return matches[1];
-    } else {
-      const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
-      if (code !== 0) {
-        throw new Error(stderr);
-      }
-      return stdout.replace(/^\s+|\s+$/g, '');
-    }
+    return getDigest(buildArgs, options.verbose);
   }, async (build_options) => {
     console.log('Building image for volume', build_options.deployment_name + '.volumes.' + build_options.volume_name);
 
@@ -106,30 +108,13 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     );
 
     // Publish the volume container
+    const buildArgs = ['build'];
     if (options.verbose) {
-      const { code, stdout, stderr } = await execVerbose('docker', { args: ['build', tmpDir] });
-
-      if (code !== 0) {
-        // Error is already displayed on screen for the user in verbose mode
-        Deno.exit(code);
-      }
-
-      // Docker build seems to output progress to stderr?
-      const merged_output = stdout + stderr;
-      const matches = merged_output.match(/.*writing.*(sha256:\w+).*/);
-
-      if (!matches || !matches[1]) {
-        throw new Error('No digest found.');
-      }
-
-      return matches[1];
-    } else {
-      const { code, stdout, stderr } = await exec('docker', { args: ['build', '--quiet', tmpDir] });
-      if (code !== 0) {
-        throw new Error(stderr);
-      }
-      return stdout.replace(/^\s+|\s+$/g, '');
+      buildArgs.push('--quiet');
     }
+    buildArgs.push(tmpDir);
+
+    return getDigest(buildArgs, options.verbose);
   });
 
   const digest = await command_helper.componentStore.add(component);

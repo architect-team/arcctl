@@ -33,19 +33,6 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
     }
 
     console.log(`Pushed image: ${image}`);
-  }, async (deploymentName: string, volumeName: string, image: string, host_path: string, mount_path: string) => {
-    const [name, version] = tag.split(':');
-    const ref = `${name}/${deploymentName}/volume/${volumeName}:${version}`;
-    await command_helper.componentStore.pushVolume(
-      {
-        component: deploymentName,
-        mount_path,
-        host_path,
-      },
-      image,
-      ref,
-    );
-    console.log(`Pushed Volume ${ref}`);
   });
 
   await command_helper.componentStore.push(tag);

@@ -1,4 +1,3 @@
-import * as path from 'std/path/mod.ts';
 import { verifyDocker } from '../docker/helper.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { exec } from '../utils/command.ts';
@@ -18,16 +17,17 @@ async function tag_action(options: GlobalOptions, source: string, target: string
 
     component.tag(async (sourceRef: string, targetName: string) => {
       const imageRepository = new ImageRepository(target);
-      const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-      const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
+      const targetRef = imageRepository.toString() + '-deployments-' + targetName;
+      await exec('docker', { args: ['tag', sourceRef, targetRef] });
+      console.log(`Deployment Tagged: ${targetRef}`);
+      return targetRef;
+    }, async (sourceRef: string, deploymentName: string, volumeName: string) => {
+      const imageRepository = new ImageRepository(target);
+      const targetRef = imageRepository.toString() + '-deployments-' + deploymentName + '-volumes-' + volumeName;
 
       await exec('docker', { args: ['tag', sourceRef, targetRef] });
+      console.log(`Volume Tagged: ${targetRef}`);
       return targetRef;
-    }, async (digest: string, deploymentName: string, volumeName: string) => {
-      console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);
-      const [tagName, tagVersion] = target.split(':');
-      const volumeTag = `${tagName}/${deploymentName}/volume/${volumeName}:${tagVersion}`;
-      return volumeTag;
     });
 
     command_helper.componentStore.tag(source, target);

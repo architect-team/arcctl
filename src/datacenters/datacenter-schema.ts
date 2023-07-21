@@ -353,6 +353,53 @@ export default {
                               'account': {
                                 'type': 'string',
                               },
+                              'databaseCluster': {
+                                'description': 'Unique ID of the database cluster backing this schema',
+                                'type': 'string',
+                              },
+                              'databaseType': {
+                                'description': 'Type of database required by the schema',
+                                'type': 'string',
+                              },
+                              'databaseVersion': {
+                                'description': 'Version of the database type the schema creation process expects',
+                                'type': 'string',
+                              },
+                              'name': {
+                                'description': 'Name to give to the new schema',
+                                'type': 'string',
+                              },
+                              'type': {
+                                'const': 'database',
+                                'type': 'string',
+                              },
+                            },
+                            'required': [
+                              'account',
+                              'databaseCluster',
+                              'databaseType',
+                              'databaseVersion',
+                              'name',
+                              'type',
+                            ],
+                            'type': 'object',
+                          },
+                        },
+                        {
+                          'if': {
+                            'properties': {
+                              'type': {
+                                'const': 'databaseCluster',
+                                'type': 'string',
+                              },
+                            },
+                          },
+                          'then': {
+                            'additionalProperties': false,
+                            'properties': {
+                              'account': {
+                                'type': 'string',
+                              },
                               'databaseSize': {
                                 'description': 'Size of the database instance to create',
                                 'type': 'string',
@@ -378,7 +425,7 @@ export default {
                                 'type': 'string',
                               },
                               'type': {
-                                'const': 'database',
+                                'const': 'databaseCluster',
                                 'type': 'string',
                               },
                               'vpc': {
@@ -395,53 +442,6 @@ export default {
                               'region',
                               'type',
                               'vpc',
-                            ],
-                            'type': 'object',
-                          },
-                        },
-                        {
-                          'if': {
-                            'properties': {
-                              'type': {
-                                'const': 'databaseSchema',
-                                'type': 'string',
-                              },
-                            },
-                          },
-                          'then': {
-                            'additionalProperties': false,
-                            'properties': {
-                              'account': {
-                                'type': 'string',
-                              },
-                              'database': {
-                                'description': 'Unique ID of the database backing this schema',
-                                'type': 'string',
-                              },
-                              'databaseType': {
-                                'description': 'Type of database required by the schema',
-                                'type': 'string',
-                              },
-                              'databaseVersion': {
-                                'description': 'Version of the database type the schema creation process expects',
-                                'type': 'string',
-                              },
-                              'name': {
-                                'description': 'Name to give to the new schema',
-                                'type': 'string',
-                              },
-                              'type': {
-                                'const': 'databaseSchema',
-                                'type': 'string',
-                              },
-                            },
-                            'required': [
-                              'account',
-                              'database',
-                              'databaseType',
-                              'databaseVersion',
-                              'name',
-                              'type',
                             ],
                             'type': 'object',
                           },
@@ -515,8 +515,8 @@ export default {
                               'account': {
                                 'type': 'string',
                               },
-                              'databaseSchema': {
-                                'description': 'The schema the user should have access to',
+                              'database': {
+                                'description': 'The database the user should have access to',
                                 'type': 'string',
                               },
                               'type': {
@@ -530,7 +530,7 @@ export default {
                             },
                             'required': [
                               'account',
-                              'databaseSchema',
+                              'database',
                               'type',
                               'username',
                             ],
@@ -672,7 +672,6 @@ export default {
                                     },
                                   },
                                   'required': [
-                                    'port',
                                     'target_port',
                                   ],
                                   'type': 'object',
@@ -870,10 +869,15 @@ export default {
                                       'description': 'Unique ID of the service the deployment should attach itself to',
                                       'type': 'string',
                                     },
+                                    'port': {
+                                      'description': 'The port the service deployment is listening on',
+                                      'type': 'string',
+                                    },
                                   },
                                   'required': [
                                     'id',
                                     'account',
+                                    'port',
                                   ],
                                   'type': 'object',
                                 },
@@ -1099,7 +1103,7 @@ export default {
                                       'items': {
                                         'additionalProperties': false,
                                         'properties': {
-                                          'local_image': {
+                                          'image': {
                                             'type': 'string',
                                           },
                                           'mount_path': {
@@ -1107,9 +1111,6 @@ export default {
                                           },
                                           'readonly': {
                                             'type': 'boolean',
-                                          },
-                                          'remote_image': {
-                                            'type': 'string',
                                           },
                                           'volume': {
                                             'type': 'string',
@@ -1142,7 +1143,7 @@ export default {
                                 'items': {
                                   'additionalProperties': false,
                                   'properties': {
-                                    'local_image': {
+                                    'image': {
                                       'type': 'string',
                                     },
                                     'mount_path': {
@@ -1150,9 +1151,6 @@ export default {
                                     },
                                     'readonly': {
                                       'type': 'boolean',
-                                    },
-                                    'remote_image': {
-                                      'type': 'string',
                                     },
                                     'volume': {
                                       'type': 'string',
@@ -1792,12 +1790,8 @@ export default {
                                 'description': 'Basic auth password',
                                 'type': 'string',
                               },
-                              'port': {
-                                'description': 'Port to listen on',
-                                'type': 'number',
-                              },
                               'target_deployment': {
-                                'description': 'Target deployment name',
+                                'description': 'A deployment the service should point to',
                                 'type': 'string',
                               },
                               'target_port': {
@@ -1808,6 +1802,13 @@ export default {
                                 'default': 'http',
                                 'description': 'Protocol',
                                 'type': 'string',
+                              },
+                              'target_servers': {
+                                'description': 'The servers the service should load balance between',
+                                'items': {
+                                  'type': 'string',
+                                },
+                                'type': 'array',
                               },
                               'type': {
                                 'const': 'service',
@@ -1821,7 +1822,6 @@ export default {
                             'required': [
                               'account',
                               'name',
-                              'target_deployment',
                               'target_port',
                               'type',
                             ],
@@ -2087,7 +2087,7 @@ export default {
                             'arcctlAccount',
                             'cronjob',
                             'database',
-                            'databaseSchema',
+                            'databaseCluster',
                             'databaseUser',
                             'databaseVersion',
                             'deployment',
@@ -2232,19 +2232,19 @@ export default {
                             'type': 'object',
                           },
                           {
-                            'description': 'Unique ID of the database backing this schema',
+                            'description': 'The database the user should have access to',
                             'type': 'string',
                           },
                         ],
                       },
-                      'databaseSchema': {
+                      'databaseCluster': {
                         'anyOf': [
                           {
                             'additionalProperties': false,
                             'type': 'object',
                           },
                           {
-                            'description': 'The schema the user should have access to',
+                            'description': 'Unique ID of the database cluster backing this schema',
                             'type': 'string',
                           },
                         ],
@@ -2268,11 +2268,11 @@ export default {
                             'type': 'object',
                           },
                           {
-                            'description': 'The type of database engine to use',
+                            'description': 'Type of database required by the schema',
                             'type': 'string',
                           },
                           {
-                            'description': 'Type of database required by the schema',
+                            'description': 'The type of database engine to use',
                             'type': 'string',
                           },
                           {
@@ -2287,11 +2287,11 @@ export default {
                             'type': 'object',
                           },
                           {
-                            'description': 'Refers to the unique ID of a `databaseVersion` response',
+                            'description': 'Version of the database type the schema creation process expects',
                             'type': 'string',
                           },
                           {
-                            'description': 'Version of the database type the schema creation process expects',
+                            'description': 'Refers to the unique ID of a `databaseVersion` response',
                             'type': 'string',
                           },
                         ],
@@ -2480,11 +2480,11 @@ export default {
                             'type': 'string',
                           },
                           {
-                            'description': 'Unique name for the database',
+                            'description': 'Name to give to the new schema',
                             'type': 'string',
                           },
                           {
-                            'description': 'Name to give to the new schema',
+                            'description': 'Unique name for the database',
                             'type': 'string',
                           },
                           {
@@ -2612,10 +2612,6 @@ export default {
                               'string',
                               'number',
                             ],
-                          },
-                          {
-                            'description': 'Port to listen on',
-                            'type': 'number',
                           },
                         ],
                       },
@@ -2890,7 +2886,7 @@ export default {
                             'type': 'object',
                           },
                           {
-                            'description': 'Target deployment name',
+                            'description': 'A deployment the service should point to',
                             'type': 'string',
                           },
                         ],
@@ -2920,6 +2916,10 @@ export default {
                           },
                         ],
                       },
+                      'target_servers': {
+                        'additionalProperties': false,
+                        'type': 'object',
+                      },
                       'ttl': {
                         'anyOf': [
                           {
@@ -2936,7 +2936,7 @@ export default {
                           'arcctlAccount',
                           'cronjob',
                           'database',
-                          'databaseSchema',
+                          'databaseCluster',
                           'databaseSize',
                           'databaseType',
                           'databaseUser',
@@ -3285,6 +3285,53 @@ export default {
                         'account': {
                           'type': 'string',
                         },
+                        'databaseCluster': {
+                          'description': 'Unique ID of the database cluster backing this schema',
+                          'type': 'string',
+                        },
+                        'databaseType': {
+                          'description': 'Type of database required by the schema',
+                          'type': 'string',
+                        },
+                        'databaseVersion': {
+                          'description': 'Version of the database type the schema creation process expects',
+                          'type': 'string',
+                        },
+                        'name': {
+                          'description': 'Name to give to the new schema',
+                          'type': 'string',
+                        },
+                        'type': {
+                          'const': 'database',
+                          'type': 'string',
+                        },
+                      },
+                      'required': [
+                        'account',
+                        'databaseCluster',
+                        'databaseType',
+                        'databaseVersion',
+                        'name',
+                        'type',
+                      ],
+                      'type': 'object',
+                    },
+                  },
+                  {
+                    'if': {
+                      'properties': {
+                        'type': {
+                          'const': 'databaseCluster',
+                          'type': 'string',
+                        },
+                      },
+                    },
+                    'then': {
+                      'additionalProperties': false,
+                      'properties': {
+                        'account': {
+                          'type': 'string',
+                        },
                         'databaseSize': {
                           'description': 'Size of the database instance to create',
                           'type': 'string',
@@ -3310,7 +3357,7 @@ export default {
                           'type': 'string',
                         },
                         'type': {
-                          'const': 'database',
+                          'const': 'databaseCluster',
                           'type': 'string',
                         },
                         'vpc': {
@@ -3327,53 +3374,6 @@ export default {
                         'region',
                         'type',
                         'vpc',
-                      ],
-                      'type': 'object',
-                    },
-                  },
-                  {
-                    'if': {
-                      'properties': {
-                        'type': {
-                          'const': 'databaseSchema',
-                          'type': 'string',
-                        },
-                      },
-                    },
-                    'then': {
-                      'additionalProperties': false,
-                      'properties': {
-                        'account': {
-                          'type': 'string',
-                        },
-                        'database': {
-                          'description': 'Unique ID of the database backing this schema',
-                          'type': 'string',
-                        },
-                        'databaseType': {
-                          'description': 'Type of database required by the schema',
-                          'type': 'string',
-                        },
-                        'databaseVersion': {
-                          'description': 'Version of the database type the schema creation process expects',
-                          'type': 'string',
-                        },
-                        'name': {
-                          'description': 'Name to give to the new schema',
-                          'type': 'string',
-                        },
-                        'type': {
-                          'const': 'databaseSchema',
-                          'type': 'string',
-                        },
-                      },
-                      'required': [
-                        'account',
-                        'database',
-                        'databaseType',
-                        'databaseVersion',
-                        'name',
-                        'type',
                       ],
                       'type': 'object',
                     },
@@ -3447,8 +3447,8 @@ export default {
                         'account': {
                           'type': 'string',
                         },
-                        'databaseSchema': {
-                          'description': 'The schema the user should have access to',
+                        'database': {
+                          'description': 'The database the user should have access to',
                           'type': 'string',
                         },
                         'type': {
@@ -3462,7 +3462,7 @@ export default {
                       },
                       'required': [
                         'account',
-                        'databaseSchema',
+                        'database',
                         'type',
                         'username',
                       ],
@@ -3604,7 +3604,6 @@ export default {
                               },
                             },
                             'required': [
-                              'port',
                               'target_port',
                             ],
                             'type': 'object',
@@ -3801,10 +3800,15 @@ export default {
                                 'description': 'Unique ID of the service the deployment should attach itself to',
                                 'type': 'string',
                               },
+                              'port': {
+                                'description': 'The port the service deployment is listening on',
+                                'type': 'string',
+                              },
                             },
                             'required': [
                               'id',
                               'account',
+                              'port',
                             ],
                             'type': 'object',
                           },
@@ -4029,7 +4033,7 @@ export default {
                                 'items': {
                                   'additionalProperties': false,
                                   'properties': {
-                                    'local_image': {
+                                    'image': {
                                       'type': 'string',
                                     },
                                     'mount_path': {
@@ -4037,9 +4041,6 @@ export default {
                                     },
                                     'readonly': {
                                       'type': 'boolean',
-                                    },
-                                    'remote_image': {
-                                      'type': 'string',
                                     },
                                     'volume': {
                                       'type': 'string',
@@ -4072,7 +4073,7 @@ export default {
                           'items': {
                             'additionalProperties': false,
                             'properties': {
-                              'local_image': {
+                              'image': {
                                 'type': 'string',
                               },
                               'mount_path': {
@@ -4080,9 +4081,6 @@ export default {
                               },
                               'readonly': {
                                 'type': 'boolean',
-                              },
-                              'remote_image': {
-                                'type': 'string',
                               },
                               'volume': {
                                 'type': 'string',
@@ -4721,12 +4719,8 @@ export default {
                           'description': 'Basic auth password',
                           'type': 'string',
                         },
-                        'port': {
-                          'description': 'Port to listen on',
-                          'type': 'number',
-                        },
                         'target_deployment': {
-                          'description': 'Target deployment name',
+                          'description': 'A deployment the service should point to',
                           'type': 'string',
                         },
                         'target_port': {
@@ -4737,6 +4731,13 @@ export default {
                           'default': 'http',
                           'description': 'Protocol',
                           'type': 'string',
+                        },
+                        'target_servers': {
+                          'description': 'The servers the service should load balance between',
+                          'items': {
+                            'type': 'string',
+                          },
+                          'type': 'array',
                         },
                         'type': {
                           'const': 'service',
@@ -4750,7 +4751,6 @@ export default {
                       'required': [
                         'account',
                         'name',
-                        'target_deployment',
                         'target_port',
                         'type',
                       ],
@@ -5016,7 +5016,7 @@ export default {
                       'arcctlAccount',
                       'cronjob',
                       'database',
-                      'databaseSchema',
+                      'databaseCluster',
                       'databaseUser',
                       'databaseVersion',
                       'deployment',
@@ -5307,6 +5307,53 @@ export default {
                     'account': {
                       'type': 'string',
                     },
+                    'databaseCluster': {
+                      'description': 'Unique ID of the database cluster backing this schema',
+                      'type': 'string',
+                    },
+                    'databaseType': {
+                      'description': 'Type of database required by the schema',
+                      'type': 'string',
+                    },
+                    'databaseVersion': {
+                      'description': 'Version of the database type the schema creation process expects',
+                      'type': 'string',
+                    },
+                    'name': {
+                      'description': 'Name to give to the new schema',
+                      'type': 'string',
+                    },
+                    'type': {
+                      'const': 'database',
+                      'type': 'string',
+                    },
+                  },
+                  'required': [
+                    'account',
+                    'databaseCluster',
+                    'databaseType',
+                    'databaseVersion',
+                    'name',
+                    'type',
+                  ],
+                  'type': 'object',
+                },
+              },
+              {
+                'if': {
+                  'properties': {
+                    'type': {
+                      'const': 'databaseCluster',
+                      'type': 'string',
+                    },
+                  },
+                },
+                'then': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'account': {
+                      'type': 'string',
+                    },
                     'databaseSize': {
                       'description': 'Size of the database instance to create',
                       'type': 'string',
@@ -5332,7 +5379,7 @@ export default {
                       'type': 'string',
                     },
                     'type': {
-                      'const': 'database',
+                      'const': 'databaseCluster',
                       'type': 'string',
                     },
                     'vpc': {
@@ -5349,53 +5396,6 @@ export default {
                     'region',
                     'type',
                     'vpc',
-                  ],
-                  'type': 'object',
-                },
-              },
-              {
-                'if': {
-                  'properties': {
-                    'type': {
-                      'const': 'databaseSchema',
-                      'type': 'string',
-                    },
-                  },
-                },
-                'then': {
-                  'additionalProperties': false,
-                  'properties': {
-                    'account': {
-                      'type': 'string',
-                    },
-                    'database': {
-                      'description': 'Unique ID of the database backing this schema',
-                      'type': 'string',
-                    },
-                    'databaseType': {
-                      'description': 'Type of database required by the schema',
-                      'type': 'string',
-                    },
-                    'databaseVersion': {
-                      'description': 'Version of the database type the schema creation process expects',
-                      'type': 'string',
-                    },
-                    'name': {
-                      'description': 'Name to give to the new schema',
-                      'type': 'string',
-                    },
-                    'type': {
-                      'const': 'databaseSchema',
-                      'type': 'string',
-                    },
-                  },
-                  'required': [
-                    'account',
-                    'database',
-                    'databaseType',
-                    'databaseVersion',
-                    'name',
-                    'type',
                   ],
                   'type': 'object',
                 },
@@ -5469,8 +5469,8 @@ export default {
                     'account': {
                       'type': 'string',
                     },
-                    'databaseSchema': {
-                      'description': 'The schema the user should have access to',
+                    'database': {
+                      'description': 'The database the user should have access to',
                       'type': 'string',
                     },
                     'type': {
@@ -5484,7 +5484,7 @@ export default {
                   },
                   'required': [
                     'account',
-                    'databaseSchema',
+                    'database',
                     'type',
                     'username',
                   ],
@@ -5626,7 +5626,6 @@ export default {
                           },
                         },
                         'required': [
-                          'port',
                           'target_port',
                         ],
                         'type': 'object',
@@ -5822,10 +5821,15 @@ export default {
                             'description': 'Unique ID of the service the deployment should attach itself to',
                             'type': 'string',
                           },
+                          'port': {
+                            'description': 'The port the service deployment is listening on',
+                            'type': 'string',
+                          },
                         },
                         'required': [
                           'id',
                           'account',
+                          'port',
                         ],
                         'type': 'object',
                       },
@@ -6050,7 +6054,7 @@ export default {
                             'items': {
                               'additionalProperties': false,
                               'properties': {
-                                'local_image': {
+                                'image': {
                                   'type': 'string',
                                 },
                                 'mount_path': {
@@ -6058,9 +6062,6 @@ export default {
                                 },
                                 'readonly': {
                                   'type': 'boolean',
-                                },
-                                'remote_image': {
-                                  'type': 'string',
                                 },
                                 'volume': {
                                   'type': 'string',
@@ -6093,7 +6094,7 @@ export default {
                       'items': {
                         'additionalProperties': false,
                         'properties': {
-                          'local_image': {
+                          'image': {
                             'type': 'string',
                           },
                           'mount_path': {
@@ -6101,9 +6102,6 @@ export default {
                           },
                           'readonly': {
                             'type': 'boolean',
-                          },
-                          'remote_image': {
-                            'type': 'string',
                           },
                           'volume': {
                             'type': 'string',
@@ -6742,12 +6740,8 @@ export default {
                       'description': 'Basic auth password',
                       'type': 'string',
                     },
-                    'port': {
-                      'description': 'Port to listen on',
-                      'type': 'number',
-                    },
                     'target_deployment': {
-                      'description': 'Target deployment name',
+                      'description': 'A deployment the service should point to',
                       'type': 'string',
                     },
                     'target_port': {
@@ -6758,6 +6752,13 @@ export default {
                       'default': 'http',
                       'description': 'Protocol',
                       'type': 'string',
+                    },
+                    'target_servers': {
+                      'description': 'The servers the service should load balance between',
+                      'items': {
+                        'type': 'string',
+                      },
+                      'type': 'array',
                     },
                     'type': {
                       'const': 'service',
@@ -6771,7 +6772,6 @@ export default {
                   'required': [
                     'account',
                     'name',
-                    'target_deployment',
                     'target_port',
                     'type',
                   ],
@@ -7037,7 +7037,7 @@ export default {
                   'arcctlAccount',
                   'cronjob',
                   'database',
-                  'databaseSchema',
+                  'databaseCluster',
                   'databaseUser',
                   'databaseVersion',
                   'deployment',
@@ -7095,7 +7095,7 @@ export default {
               'database': {
                 'type': 'string',
               },
-              'databaseSchema': {
+              'databaseCluster': {
                 'type': 'string',
               },
               'databaseSize': {
@@ -7166,7 +7166,7 @@ export default {
                   'arcctlAccount',
                   'cronjob',
                   'database',
-                  'databaseSchema',
+                  'databaseCluster',
                   'databaseSize',
                   'databaseType',
                   'databaseUser',

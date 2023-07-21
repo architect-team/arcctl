@@ -8,6 +8,7 @@ import {
   DockerTagFn,
   GraphContext,
   VolumeBuildFn,
+  VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DatabaseSchemaV1 } from './database-schema-v1.ts';
@@ -743,6 +744,16 @@ export default class ComponentV1 extends Component {
         rawSvc.image = digest;
         this.services![svcName] = rawSvc;
       }
+
+      for (const [volumeName, volumeConfig] of Object.entries(svcConfig.volumes || {})) {
+        if (volumeConfig.host_path) {
+          volumeConfig.image = await volumeBuildFn({
+            host_path: volumeConfig.host_path,
+            volume_name: volumeName,
+            deployment_name: svcName,
+          });
+        }
+      }
     }
 
     for (const [taskName, taskConfig] of Object.entries(this.tasks || {})) {
@@ -758,23 +769,45 @@ export default class ComponentV1 extends Component {
         rawSvc.image = digest;
         this.services![taskName] = rawSvc;
       }
+
+      for (const [volumeName, volumeConfig] of Object.entries(taskConfig.volumes || {})) {
+        if (volumeConfig.host_path) {
+          volumeConfig.image = await volumeBuildFn({
+            host_path: volumeConfig.host_path,
+            volume_name: volumeName,
+            deployment_name: taskName,
+          });
+        }
+      }
     }
 
     return this;
   }
 
-  public async tag(tagFn: DockerTagFn): Promise<Component> {
+  public async tag(dockerTagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component> {
     for (const [svcName, svcConfig] of Object.entries(this.services || {})) {
-      if ('build' in svcConfig && 'image' in svcConfig) {
-        svcConfig.image = await tagFn(svcConfig.image, svcName);
+      if ('image' in svcConfig) {
+        svcConfig.image = await dockerTagFn(svcConfig.image, svcName);
         this.services![svcName] = svcConfig;
+      }
+
+      for (const [volumeName, volumeConfig] of Object.entries(svcConfig.volumes || {})) {
+        if (volumeConfig.image) {
+          svcConfig.volumes![volumeName].image = await volumeTagFn(volumeConfig.image, svcName, volumeName);
+        }
       }
     }
 
     for (const [taskName, taskConfig] of Object.entries(this.tasks || {})) {
-      if ('build' in taskConfig && 'image' in taskConfig) {
-        taskConfig.image = await tagFn(taskConfig.image, taskName);
+      if ('image' in taskConfig) {
+        taskConfig.image = await dockerTagFn(taskConfig.image, taskName);
         this.tasks![taskName] = taskConfig;
+      }
+
+      for (const [volumeName, volumeConfig] of Object.entries(taskConfig.volumes || {})) {
+        if (volumeConfig.image) {
+          taskConfig.volumes![volumeName].image = await volumeTagFn(volumeConfig.image, taskName, volumeName);
+        }
       }
     }
 
@@ -785,6 +818,12 @@ export default class ComponentV1 extends Component {
     for (const svcConfig of Object.values(this.services || {})) {
       if ('build' in svcConfig && 'image' in svcConfig) {
         await pushFn(svcConfig.image);
+      }
+
+      for (const volumeConfig of Object.values(svcConfig.volumes || {})) {
+        if (volumeConfig.image) {
+          await pushFn(volumeConfig.image);
+        }
       }
     }
 

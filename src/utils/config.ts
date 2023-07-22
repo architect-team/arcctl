@@ -22,6 +22,7 @@ export default class ArcCtlConfig {
   private static configOptions: CloudCtlConfigOptions = this.getDefaultConfig(DEFAULT_CONFIG_DIRECTORY);
 
   private static getDefaultStateBackend(directory: string): StateBackend {
+    Deno.mkdirSync(directory, { recursive: true });
     return {
       provider: 'local',
       credentials: {

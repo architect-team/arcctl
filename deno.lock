@@ -571,6 +571,7 @@
     "https://deno.land/x/ts_morph@18.0.0/common/mod.ts": "01985d2ee7da8d1caee318a9d07664774fbee4e31602bc2bb6bb62c3489555ed",
     "https://deno.land/x/ts_morph@18.0.0/common/ts_morph_common.js": "845671ca951073400ce142f8acefa2d39ea9a51e29ca80928642f3f8cf2b7700",
     "https://deno.land/x/ts_morph@18.0.0/common/typescript.js": "d5c598b6a2db2202d0428fca5fd79fc9a301a71880831a805d778797d2413c59",
+    "https://esm.sh/ansi-escapes@6.2.0": "00fdbed756d3ba8ef7ccf24efc6f905a999143a628321f070356c436346bd055",
     "https://esm.sh/mustache@4.2.0": "da4f1d45c3fec1e78a516e6ce01ab4582ffc5b868ace8a244cc640fc25282c60",
     "https://esm.sh/v124/*log-update@5.0.1": "49199324effae77a660f21ea75937847315fdb5f67a86881496717314bb95b2a",
     "https://esm.sh/v124/@colors/colors@1.5.0/denonext/safe.js": "0ac89c10d0d3772a939e427ec2ec8d5c98a2ea06f3e37dfbf73a34f22789d9bc",
@@ -777,6 +778,7 @@
     "https://esm.sh/v124/wrap-ansi@8.1.0": "da576a84619b45bf324bfb582b74f3c38b23deb5abb204d3b3aca329f6cd970d",
     "https://esm.sh/v124/wrap-ansi@8.1.0/denonext/wrap-ansi.mjs": "1804d60795c6034323e4b8dc92425aa9ab28385b87bb700772e16cb92bb0d8f8",
     "https://esm.sh/v124/yallist@4.0.0/denonext/yallist.mjs": "61f180d807dda50bac17028eda05d5722a3fecef6e98a9064e2353ea6864fd82",
+    "https://esm.sh/v127/ansi-escapes@6.2.0/denonext/ansi-escapes.mjs": "c51ff8e102b6fa2b747553ee1d22932a358ba878b851cd228161386c19016cf2",
     "https://esm.sh/v128/mustache@4.2.0/denonext/mustache.mjs": "8c046aa4755b9beb2f203e01fdab7d36e4c75dd1bc22021be44ac31723ead9f0"
   },
   "npm": {

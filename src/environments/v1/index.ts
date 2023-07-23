@@ -263,7 +263,6 @@ export default class EnvironmentV1 extends Environment {
                 }
               }
             } catch (err) {
-              console.error(err);
               throw new Error(`Failed to load component: ${source}`);
             }
           } else if (component_config.source) {

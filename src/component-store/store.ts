@@ -1,4 +1,3 @@
-import { Buffer } from 'https://deno.land/std@0.153.0/node/buffer.ts';
 import * as crypto from 'https://deno.land/std@0.153.0/node/crypto.ts';
 import { copy } from 'std/fs/copy.ts';
 import { existsSync } from 'std/fs/exists.ts';
@@ -13,12 +12,6 @@ const CACHE_DB_FILENAME = 'component.db.json';
 
 enum MEDIA_TYPES {
   OCI_MANIFEST = 'application/vnd.oci.image.manifest.v1+json',
-}
-
-interface BinaryData {
-  digest: string;
-  size: number;
-  data: Buffer;
 }
 
 export interface VolumeConfig {

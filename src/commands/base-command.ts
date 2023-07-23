@@ -23,7 +23,7 @@ export function BaseCommand() {
 }
 
 export class CommandHelper {
-  private readonly providerStore: ProviderStore;
+  public readonly providerStore: ProviderStore;
   private account_input_utils: AccountInputUtils;
   private resource_input_utils: ResourceInputUtils;
   private pipeline_renderer: PipelineRenderer;

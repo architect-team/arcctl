@@ -49,7 +49,7 @@ export class CommandHelper {
 
   get componentStore(): ComponentStore {
     const config_dir = ArcCtlConfig.getConfigDirectory();
-    return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
+    return new ComponentStore(path.join(config_dir, 'component-store'));
   }
 
   get datacenterStore(): DatacenterStore {

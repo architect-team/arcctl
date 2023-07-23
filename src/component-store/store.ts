@@ -38,9 +38,9 @@ export class ComponentStore {
   private db: ComponentStoreDB;
   private default_registry: string;
 
-  constructor(cache_dir: string, default_registry: string) {
+  constructor(cache_dir: string, default_registry?: string) {
     this.cache_dir = cache_dir;
-    this.default_registry = default_registry;
+    this.default_registry = default_registry || 'registry-1.docker.io';
 
     try {
       this.db = JSON.parse(Deno.readTextFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME)));

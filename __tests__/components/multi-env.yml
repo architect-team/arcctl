@@ -1,5 +1,0 @@
-version: v2
-
-deployments:
-  ui:
-    image: oryd/kratos-selfservice-ui-node:v0.11.1

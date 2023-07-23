@@ -1,3 +1,4 @@
+import * as mod from 'https://deno.land/std@0.195.0/fs/copy.ts';
 import * as path from 'std/path/mod.ts';
 import { Component, parseComponent } from '../components/index.ts';
 import { verifyDocker } from '../docker/helper.ts';
@@ -9,6 +10,32 @@ type BuildOptions = {
   tag?: string[];
   verbose: boolean;
 } & GlobalOptions;
+
+const getDigest = async (buildArgs: string[], verbose?: boolean): Promise<string> => {
+  if (verbose) {
+    const { code, stdout, stderr } = await execVerbose('docker', { args: buildArgs });
+
+    if (code !== 0) {
+      // Error is already displayed on screen for the user in verbose mode
+      Deno.exit(code);
+    }
+
+    // Docker build seems to output progress to stderr?
+    const merged_output = stdout + stderr;
+    const matches = merged_output.match(/.*writing.*(sha256:\w+).*/);
+
+    if (!matches || !matches[1]) {
+      throw new Error('No digest found.');
+    }
+    return matches[1];
+  } else {
+    const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
+    if (code !== 0) {
+      throw new Error(stderr);
+    }
+    return stdout.replace(/^\s+|\s+$/g, '');
+  }
+};
 
 const BuildCommand = BaseCommand()
   .description('Build a component and relevant source services')
@@ -63,31 +90,31 @@ async function build_action(options: BuildOptions, context_file: string): Promis
       buildArgs.push(path.join(Deno.cwd(), context, build_options.context));
     }
 
+    return getDigest(buildArgs, options.verbose);
+  }, async (build_options) => {
+    console.log('Building image for volume', build_options.deployment_name + '.volumes.' + build_options.volume_name);
+
+    // Create the directory for the new volume container
+    const tmpDir = await Deno.makeTempDir();
+    await mod.copy(build_options.host_path, path.join(tmpDir, 'contents'));
+    Deno.writeTextFileSync(
+      path.join(tmpDir, 'Dockerfile'),
+      `
+        FROM alpine:latest
+        WORKDIR /app
+        COPY ./contents .
+        CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+      `,
+    );
+
+    // Publish the volume container
+    const buildArgs = ['build'];
     if (options.verbose) {
-      const { code, stdout, stderr } = await execVerbose('docker', { args: buildArgs });
-
-      if (code !== 0) {
-        // Error is already displayed on screen for the user in verbose mode
-        Deno.exit(code);
-      }
-
-      // Docker build seems to output progress to stderr?
-      const merged_output = stdout + stderr;
-      const matches = merged_output.match(/.*writing.*(sha256:\w+).*/);
-
-      if (!matches || !matches[1]) {
-        throw new Error('No digest found.');
-      }
-      return matches[1];
-    } else {
-      const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
-      if (code !== 0) {
-        throw new Error(stderr);
-      }
-      return stdout.replace(/^\s+|\s+$/g, '');
+      buildArgs.push('--quiet');
     }
-  }, async (options) => {
-    return await command_helper.componentStore.addVolume(options.host_path);
+    buildArgs.push(tmpDir);
+
+    return getDigest(buildArgs, options.verbose);
   });
 
   const digest = await command_helper.componentStore.add(component);
@@ -96,17 +123,17 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     for (const tag of options.tag) {
       component = await component.tag(async (sourceRef: string, targetName: string) => {
         const imageRepository = new ImageRepository(tag);
-        const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-        const targetRef = path.join(imageRepository.registry, `${imageRepository.repository}-${targetName}${suffix}`);
-
+        const targetRef = imageRepository.toString() + '-deployments-' + targetName;
         await exec('docker', { args: ['tag', sourceRef, targetRef] });
-        console.log(`Image Tagged: ${targetRef}`);
+        console.log(`Deployment Tagged: ${targetRef}`);
         return targetRef;
       }, async (digest: string, deploymentName: string, volumeName: string) => {
-        console.log(`Tagging volume ${volumeName} for deployment ${deploymentName} with digest ${digest}`);
-        const [tagName, tagVersion] = tag.split(':');
-        const volumeTag = `${tagName}/${deploymentName}/volume/${volumeName}:${tagVersion}`;
-        return volumeTag;
+        const imageRepository = new ImageRepository(tag);
+        const targetRef = imageRepository.toString() + '-deployments-' + deploymentName + '-volumes-' + volumeName;
+
+        await exec('docker', { args: ['tag', digest, targetRef] });
+        console.log(`Volume Tagged: ${targetRef}`);
+        return targetRef;
       });
 
       const component_digest = await command_helper.componentStore.add(component);

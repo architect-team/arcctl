@@ -22,7 +22,8 @@
     "which": "https://esm.sh/v124/which@3.0.1",
     "winston": "https://esm.sh/v124/winston@3.8.2",
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
-    "aws-sdk": "npm:aws-sdk@2.1229.0"
+    "aws-sdk": "npm:aws-sdk@2.1229.0",
+    "mustache": "https://esm.sh/mustache@4.2.0"
   },
   "scopes": {
     "https://esm.sh/v124/": {

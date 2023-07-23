@@ -36,6 +36,7 @@ export type RuntimeSchemaV1 = DockerSchemaV1 & {
       mount_path: string;
       host_path?: string;
       readonly?: boolean | string;
+      image?: string;
     }
   >;
 };

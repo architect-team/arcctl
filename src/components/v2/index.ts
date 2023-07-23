@@ -10,7 +10,6 @@ import {
   DockerTagFn,
   GraphContext,
   VolumeBuildFn,
-  VolumePushFn,
   VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
@@ -355,7 +354,7 @@ export default class ComponentV2 extends Component {
         volume_mounts.push({
           volume: `\${{ ${volume_node.id}.id }}`,
           mount_path: volumeConfig.mount_path!,
-          remote_image: volumeConfig.image,
+          image: volumeConfig.image,
           readonly: false,
         });
 
@@ -668,23 +667,17 @@ export default class ComponentV2 extends Component {
     return this;
   }
 
-  public async push(pushFn: DockerPushFn, volumePushFn: VolumePushFn): Promise<Component> {
+  public async push(pushFn: DockerPushFn): Promise<Component> {
     for (const buildConfig of Object.values(this.builds || {})) {
       if (buildConfig.image) {
         await pushFn(buildConfig.image);
       }
     }
 
-    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
-      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+    for (const deploymentConfig of Object.values(this.deployments || {})) {
+      for (const volumeConfig of Object.values(deploymentConfig.volumes || {})) {
         if (volumeConfig.image && volumeConfig.host_path) {
-          await volumePushFn(
-            deploymentName,
-            volumeName,
-            volumeConfig.image,
-            volumeConfig.host_path,
-            volumeConfig.mount_path,
-          );
+          await pushFn(volumeConfig.image);
         }
       }
     }

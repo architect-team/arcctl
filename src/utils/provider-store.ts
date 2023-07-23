@@ -7,7 +7,7 @@ import { ResourceType } from '../@resources/index.ts';
 import { BaseStore } from '../secrets/base-store.ts';
 import { StateBackend } from './config.ts';
 
-export class CldCtlProviderStore extends BaseStore<Provider> implements ProviderStore {
+export class ArcctlProviderStore extends BaseStore<Provider> implements ProviderStore {
   constructor(
     stateBackend: StateBackend,
     private config_dir: string = Deno.makeTempDirSync(),

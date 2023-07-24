@@ -328,12 +328,17 @@ export default class ComponentV2 extends Component {
         );
       }
       for (const [volumeKey, volumeConfig] of Object.entries(volumes)) {
-        const is_directory = Deno.statSync(context.component.source).isDirectory;
         let host_path = undefined;
-        if (volumeConfig.host_path && !is_directory) {
-          host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
-        } else if (volumeConfig.host_path) {
-          host_path = path.join(context.component.source, volumeConfig.host_path);
+
+        try {
+          const is_directory = Deno.statSync(context.component.source).isDirectory;
+          if (volumeConfig.host_path && !is_directory) {
+            host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
+          } else if (volumeConfig.host_path) {
+            host_path = path.join(context.component.source, volumeConfig.host_path);
+          }
+        } catch {
+          // Source is remote, so no host path
         }
 
         const volume_node = new CloudNode({

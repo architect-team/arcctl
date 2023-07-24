@@ -92,7 +92,6 @@ export class ImageRepository<C extends any = any> {
 
     const headers: Record<string, string> = {
       ...options.headers,
-      Accept: 'application/json',
     };
     headers['Authorization'] = headers['Authorization'] ||
       (creds ? `Basic ${base64Encode(`${creds.username}:${creds.password}`)}` : '');
@@ -177,6 +176,11 @@ export class ImageRepository<C extends any = any> {
           Accept: media_type,
         },
       });
+
+      if (res.status >= 400) {
+        throw new Error(`Failed to fetch manifest: ${await res.text()}`);
+      }
+
       this.manifest = await res.json() as ImageManifest;
     }
 
@@ -186,7 +190,11 @@ export class ImageRepository<C extends any = any> {
   async getConfig(media_type: string): Promise<C> {
     if (!this.config) {
       const manifest = await this.getManifest(media_type);
-      const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`);
+      const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/blobs/${manifest.config.digest}`, {
+        headers: {
+          Accept: media_type,
+        },
+      });
       this.config = await res.json() as C;
     }
 

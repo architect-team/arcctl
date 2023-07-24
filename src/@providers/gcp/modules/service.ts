@@ -15,14 +15,15 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
 
     GcpUtils.configureProvider(this);
 
-    const service_name = this.inputs?.name.replaceAll('/', '--') || 'deleting';
+    const namespace = this.inputs?.namespace || 'ns';
+    const service_name = namespace + '--' + this.inputs?.name.replaceAll('/', '-') || 'deleting';
     const service_port = this.inputs?.target_port || 80;
-    const function_name = (this.inputs?.target_deployment?.replaceAll('/', '--') || 'deleting') +
+    const function_name = (this.inputs?.target_deployment?.replaceAll('/', '-') || 'deleting') +
       `--${service_port}`;
 
     let region = '';
-    if (this.inputs?.namespace) {
-      region = this.inputs.namespace.split('-').slice(0, -1).join('-');
+    if (this.inputs?.labels?.region) {
+      region = this.inputs?.labels?.region.split('-').slice(0, -1).join('-');
     }
 
     const serverless_neg = new ComputeRegionNetworkEndpointGroup(this, 'serverless-neg', {

@@ -33,15 +33,16 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       : [];
 
     let region = 'deleting';
-    if (this.inputs?.namespace) {
-      region = this.inputs.namespace.split('-').slice(0, -1).join('-');
+    if (this.inputs?.labels?.region) {
+      region = this.inputs.labels?.region.split('-').slice(0, -1).join('-');
     }
 
     this.deployments = [];
     const labels: Record<string, string> = {};
 
     for (const service of this.inputs?.services || []) {
-      const deployment_name = (this.inputs?.name.replaceAll('/', '--') || 'deleting') + `--${service.port}`;
+      const deployment_name = (this.inputs?.namespace || 'ns') +
+        (this.inputs?.name.replaceAll('/', '-') || 'deleting') + `--${service.port}`;
       const deployment = new CloudRunV2Service(this, `${deployment_name}-deployment`, {
         dependsOn: depends_on,
         name: deployment_name,

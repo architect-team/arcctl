@@ -27,10 +27,13 @@ environment:
       type: dnsZone
       account: ${{ variables.gcpAccount }}
       name: ${{ variables.dnsZone }}
+
   hooks:
     - when:
         type: deployment
-      namespace: ${{ variables.region }}
+      namespace: ${{ environment.name }}
+      labels:
+        region: ${{ variables.region }}
       account: ${{ variables.gcpAccount }}
     - when:
         type: ingressRule
@@ -43,9 +46,11 @@ environment:
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}
       dnsZone: ${{ variables.dnsZone }}
-      namespace: ${{ variables.region }}
+      namespace: ${{ environment.name }}
     - when:
         type: service
-      namespace: ${{ variables.region }
+      namespace: ${{ environment.name }}
+      labels:
+        region: ${{ variables.region }}
     - account: ${{ variables.gcpAccount }}
-      namespace: ${{ variables.region }}
+      namespace: ${{ environment.name }}

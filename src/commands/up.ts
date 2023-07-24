@@ -40,7 +40,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     Deno.exit(1);
   }
 
-  const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+  const lastPipeline = datacenterRecord.lastPipeline;
   const environment = await parseEnvironment({});
 
   for (let tag_or_path of components) {
@@ -70,7 +70,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   });
   targetGraph.validate();
 
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
@@ -80,13 +80,13 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   let interval: number | undefined;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -94,7 +94,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     });
   }
 
-  const success = await command_helper.applyEnvironment(
+  const success = await command_helper.environmentUtils.applyEnvironment(
     options.environment,
     datacenterRecord,
     environment,
@@ -108,8 +108,8 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     clearInterval(interval);
   }
 
-  command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-  command_helper.doneRenderingPipeline();
+  command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+  command_helper.pipelineRenderer.doneRenderingPipeline();
 
   if (success) {
     Deno.addSignalListener('SIGINT', async () => {
@@ -124,7 +124,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       new CloudGraph(),
       {},
     );
-    const revertedPipeline = Pipeline.plan({
+    const revertedPipeline = await Pipeline.plan({
       before: pipeline,
       after: targetGraph,
       contextFilter: PlanContextLevel.Environment,
@@ -134,11 +134,11 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
     if (!options.verbose) {
       interval = setInterval(() => {
-        command_helper.renderPipeline(revertedPipeline, { clear: true });
+        command_helper.pipelineRenderer.renderPipeline(revertedPipeline, { clear: true });
       }, 1000 / cliSpinners.dots.frames.length);
     }
 
-    const revertSuccessful = await command_helper.applyEnvironment(
+    const revertSuccessful = await command_helper.environmentUtils.applyEnvironment(
       options.environment,
       datacenterRecord,
       emptyEnvironment,
@@ -149,12 +149,15 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     );
 
     if (revertSuccessful) {
-      await command_helper.removeEnvironment(options.environment, datacenterRecord.name, datacenterRecord.config);
+      await command_helper.environmentUtils.removeEnvironment(
+        options.environment,
+        datacenterRecord.name,
+        datacenterRecord.config,
+      );
     } else {
-      await command_helper.saveEnvironment(
+      await command_helper.environmentUtils.saveEnvironment(
         datacenterRecord.name,
         options.environment,
-        datacenterRecord.config,
         emptyEnvironment,
         revertedPipeline,
       );
@@ -164,8 +167,8 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       clearInterval(interval);
     }
 
-    command_helper.renderPipeline(revertedPipeline, { clear: !options.verbose, disableSpinner: true });
-    command_helper.doneRenderingPipeline();
+    command_helper.pipelineRenderer.renderPipeline(revertedPipeline, { clear: !options.verbose, disableSpinner: true });
+    command_helper.pipelineRenderer.doneRenderingPipeline();
   }
 }
 

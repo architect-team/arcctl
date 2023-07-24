@@ -31,8 +31,6 @@ export class DockerDatabaseClusterService extends CrudResourceService<'databaseC
       account: this.accountName,
     });
 
-    subscriber.next('Starting database server');
-
     const volume_mounts = [];
     if (inputs.databaseType === 'postgres' && volumeRes.id) {
       volume_mounts.push({
@@ -249,7 +247,6 @@ export class DockerDatabaseClusterService extends CrudResourceService<'databaseC
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
     const res = await this.get(id);
     if (!res) {
-      subscriber.next('Database not found. Skipping.');
       return Promise.resolve();
     }
 
@@ -260,7 +257,6 @@ export class DockerDatabaseClusterService extends CrudResourceService<'databaseC
 
     const volumeId = deployment.labels['io.architect.arcctl.volume'];
     await this.deploymentService.delete(subscriber, res.id);
-    subscriber.next('Cleaning up database volume');
     await this.volumeService.delete(subscriber, volumeId);
   }
 }

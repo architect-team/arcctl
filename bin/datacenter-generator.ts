@@ -88,6 +88,8 @@ if (type_schema.definitions.DatacenterSchema.anyOf) {
 }
 
 await Deno.writeTextFile(path.join(datacenters_dir, './datacenter.schema.json'), JSON.stringify(type_schema, null, 2));
+await Deno.writeTextFile(path.join(datacenters_dir, './datacenter-schema.ts'), `export default ${JSON.stringify(type_schema, null, 2)}`);
+
 console.log(`Done! Updated schema is located at ${path.join(datacenters_dir, './datacenter.schema.json')}`);
 
 Deno.removeSync(build_dir, { recursive: true });

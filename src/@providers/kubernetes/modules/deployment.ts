@@ -59,42 +59,28 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
             },
           },
           spec: {
-            initContainer: this.inputs?.volume_mounts?.map((volume) => {
-              const [repo, tag] = (volume.remote_image || '').split(':');
-              const repoParts = repo.split('/');
-              repoParts.splice(1, 0, 'v2');
-              const fullRepo = repoParts.join('/');
-
-              const manifest_url = `${fullRepo}/manifests/${tag}`;
-              return {
-                name: `${normalizedName}-volume-${volume.volume.split('-').pop()}`,
-                image: 'cydrive/volume:latest',
-                env: [
-                  {
-                    name: 'MANIFEST_URL',
-                    value: manifest_url,
-                  },
-                  {
-                    name: 'OUTPUT_DIR',
-                    value: volume.mount_path,
-                  },
-                ],
-                volumeMount: [
-                  {
-                    name: volume.volume,
-                    mountPath: volume.mount_path,
-                  },
-                ],
-              };
-            }),
-            volume: this.inputs?.volume_mounts?.map((volume) => {
-              return {
-                name: volume.volume,
-                persistentVolumeClaim: {
-                  claimName: this.volumeClaims[volume.volume].metadata.name,
+            initContainer: this.inputs?.volume_mounts?.filter((v) => v.image).map((volume) => ({
+              name: `${normalizedName}-volume-${volume.volume.split('-').pop()}`,
+              image: volume.image!,
+              env: [
+                {
+                  name: 'TARGET_DIR',
+                  value: volume.mount_path,
                 },
-              };
-            }),
+              ],
+              volumeMount: [
+                {
+                  name: volume.volume,
+                  mountPath: volume.mount_path,
+                },
+              ],
+            })),
+            volume: this.inputs?.volume_mounts?.map((volume) => ({
+              name: volume.volume,
+              persistentVolumeClaim: {
+                claimName: this.volumeClaims[volume.volume].metadata.name,
+              },
+            })),
             container: [
               {
                 name: normalizedName,

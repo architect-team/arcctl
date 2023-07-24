@@ -66,7 +66,7 @@ const { stdout: type_schema_string, stderr: err } = await exec('deno', {
 });
 
 if (err.length > 0) {
-  console.error('Failed to generate datacenter schema!')
+  console.error('Failed to generate environment schema!')
   console.error(err);
   Deno.exit(1);
 }
@@ -91,6 +91,11 @@ if (type_schema.definitions.EnvironmentSchema.anyOf) {
 await Deno.writeTextFile(
   path.join(environments_dir, './environment.schema.json'),
   JSON.stringify(type_schema, null, 2),
+);
+
+await Deno.writeTextFile(
+  path.join(environments_dir, './environment-schema.ts'),
+  `export default ${JSON.stringify(type_schema, null, 2)}`,
 );
 console.log(`Done! Updated schema is located at ${path.join(environments_dir, './environment.schema.json')}`);
 

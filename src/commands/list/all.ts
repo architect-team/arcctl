@@ -19,7 +19,7 @@ const ListAllResourcesCommand = BaseCommand()
 async function list_all_resources_action(options: ListAllResourceOptions, resource_type?: ResourceType) {
   const command_helper = new CommandHelper(options);
 
-  const provider = await command_helper.promptForAccount({
+  const provider = await command_helper.accountInputUtils.promptForAccount({
     account: options.account,
     type: resource_type,
     action: 'list',

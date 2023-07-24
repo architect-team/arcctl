@@ -1,8 +1,6 @@
 import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
-import datacenter_schema_contents from './datacenter.schema.json' assert {
-  type: 'json',
-};
+import * as DatacenterSchemaContents from './datacenter-schema.ts';
 import { Datacenter } from './datacenter.ts';
 import { buildDatacenter, DatacenterSchema } from './schema.ts';
 
@@ -12,9 +10,7 @@ const ajv = new Ajv2019({ strict: false, discriminator: true });
 export const parseDatacenter = async (
   input: Record<string, unknown> | string,
 ): Promise<Datacenter> => {
-  const datacenter_validator = ajv.compile<DatacenterSchema>(
-    datacenter_schema_contents,
-  );
+  const datacenter_validator = ajv.compile<DatacenterSchema>(DatacenterSchemaContents.default);
 
   let raw_obj: any;
   if (typeof input === 'string') {

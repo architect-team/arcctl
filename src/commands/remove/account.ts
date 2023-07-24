@@ -8,12 +8,12 @@ const RemoveAccountCommand = BaseCommand()
 async function remove_account_action(options: GlobalOptions, name?: string) {
   const command_helper = new CommandHelper(options);
 
-  const provider = await command_helper.promptForAccount({
+  const provider = await command_helper.accountInputUtils.promptForAccount({
     account: name,
     message: 'Select the account to delete',
   });
 
-  command_helper.providerStore.delete(provider.name);
+  await command_helper.providerStore.delete(provider.name);
   console.log('Account deleted');
 }
 

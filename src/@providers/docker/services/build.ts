@@ -64,7 +64,6 @@ export class DockerBuildService extends CrudResourceService<'dockerBuild', Docke
   }
 
   delete(subscriber: Subscriber<string>, id: string): Promise<void> {
-    subscriber.next('Nothing to delete');
     return Promise.resolve();
   }
 }

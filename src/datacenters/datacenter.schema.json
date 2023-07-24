@@ -1087,7 +1087,7 @@
                                       "items": {
                                         "additionalProperties": false,
                                         "properties": {
-                                          "local_image": {
+                                          "image": {
                                             "type": "string"
                                           },
                                           "mount_path": {
@@ -1095,9 +1095,6 @@
                                           },
                                           "readonly": {
                                             "type": "boolean"
-                                          },
-                                          "remote_image": {
-                                            "type": "string"
                                           },
                                           "volume": {
                                             "type": "string"
@@ -1130,7 +1127,7 @@
                                 "items": {
                                   "additionalProperties": false,
                                   "properties": {
-                                    "local_image": {
+                                    "image": {
                                       "type": "string"
                                     },
                                     "mount_path": {
@@ -1138,9 +1135,6 @@
                                     },
                                     "readonly": {
                                       "type": "boolean"
-                                    },
-                                    "remote_image": {
-                                      "type": "string"
                                     },
                                     "volume": {
                                       "type": "string"
@@ -4003,7 +3997,7 @@
                                 "items": {
                                   "additionalProperties": false,
                                   "properties": {
-                                    "local_image": {
+                                    "image": {
                                       "type": "string"
                                     },
                                     "mount_path": {
@@ -4011,9 +4005,6 @@
                                     },
                                     "readonly": {
                                       "type": "boolean"
-                                    },
-                                    "remote_image": {
-                                      "type": "string"
                                     },
                                     "volume": {
                                       "type": "string"
@@ -4046,7 +4037,7 @@
                           "items": {
                             "additionalProperties": false,
                             "properties": {
-                              "local_image": {
+                              "image": {
                                 "type": "string"
                               },
                               "mount_path": {
@@ -4054,9 +4045,6 @@
                               },
                               "readonly": {
                                 "type": "boolean"
-                              },
-                              "remote_image": {
-                                "type": "string"
                               },
                               "volume": {
                                 "type": "string"
@@ -6015,7 +6003,7 @@
                             "items": {
                               "additionalProperties": false,
                               "properties": {
-                                "local_image": {
+                                "image": {
                                   "type": "string"
                                 },
                                 "mount_path": {
@@ -6023,9 +6011,6 @@
                                 },
                                 "readonly": {
                                   "type": "boolean"
-                                },
-                                "remote_image": {
-                                  "type": "string"
                                 },
                                 "volume": {
                                   "type": "string"
@@ -6058,7 +6043,7 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "local_image": {
+                          "image": {
                             "type": "string"
                           },
                           "mount_path": {
@@ -6066,9 +6051,6 @@
                           },
                           "readonly": {
                             "type": "boolean"
-                          },
-                          "remote_image": {
-                            "type": "string"
                           },
                           "volume": {
                             "type": "string"

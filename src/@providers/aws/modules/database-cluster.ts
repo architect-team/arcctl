@@ -131,14 +131,19 @@ export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', 
       const password = await getOutputValue(this.password.friendlyUniqueId);
       const host = outputs.host;
       const port = outputs.port;
-      providerStore.save(
-        new SupportedProviders.postgres(`postgres-${this.inputs?.name || 'unknown'}`, {
-          host,
-          port,
-          username,
-          password,
-          database: 'postgres',
-        }, providerStore),
+      await providerStore.save(
+        new SupportedProviders.postgres(
+          `postgres-${this.inputs?.name || 'unknown'}`,
+          {
+            host,
+            port,
+            username,
+            password,
+            database: 'postgres',
+          },
+          providerStore,
+          {},
+        ),
       );
     },
   };

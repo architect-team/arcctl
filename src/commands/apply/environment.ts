@@ -1,11 +1,11 @@
 import cliSpinners from 'cli-spinners';
-import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
 import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 type ApplyEnvironmentOptions = {
   datacenter?: string;
@@ -40,10 +40,12 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     Deno.exit(1);
   }
 
-  let targetEnvironment: Environment | undefined;
+  let targetEnvironment: Environment | undefined = environmentRecord?.config;
   let targetGraph = new CloudGraph();
   if (config_path) {
     targetEnvironment = await parseEnvironment(config_path);
+  }
+  if (targetEnvironment) {
     targetGraph = await targetEnvironment.getGraph(name, command_helper.componentStore);
   }
 
@@ -57,29 +59,27 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     environmentName: name,
   });
 
-  const startingPipeline = environmentRecord
-    ? await command_helper.getPipelineForEnvironment(environmentRecord)
-    : await command_helper.getPipelineForDatacenter(targetDatacenter);
+  const startingPipeline = environmentRecord ? environmentRecord.lastPipeline : targetDatacenter.lastPipeline;
 
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
   }, command_helper.providerStore);
 
   pipeline.validate();
-  await command_helper.confirmPipeline(pipeline, options.autoApprove);
+  await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 
   let interval: number | undefined = undefined;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -87,7 +87,7 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
     });
   }
 
-  const success = await command_helper.applyEnvironment(
+  const success = await command_helper.environmentUtils.applyEnvironment(
     name,
     startingDatacenter,
     targetEnvironment!,
@@ -100,8 +100,8 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   if (interval) {
     clearInterval(interval);
   }
-  command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-  command_helper.doneRenderingPipeline();
+  command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+  command_helper.pipelineRenderer.doneRenderingPipeline();
 
   if (!success) {
     console.log(`Environment ${environmentRecord ? 'update' : 'creation'} failed`);
@@ -119,7 +119,7 @@ async function promptForDatacenter(command_helper: CommandHelper, name?: string)
 
   let selected = datacenterRecords.find((d) => d.name === name);
   if (!selected) {
-    const datacenter = await Select.prompt({
+    const datacenter = await Inputs.promptSelection({
       message: 'Select a datacenter to host the environment',
       options: datacenterRecords.map((r) => ({
         name: r.name,

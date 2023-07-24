@@ -1,11 +1,12 @@
 import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { ResourceType, ResourceTypeList } from '../../@resources/types.ts';
 import { Pipeline, PipelineStep } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -28,13 +29,13 @@ async function destroy_resource_action(
   resource_id?: string,
 ) {
   const command_helper = new CommandHelper(options);
-  const account = await command_helper.promptForAccount({
+  const account = await command_helper.accountInputUtils.promptForAccount({
     account: options.account,
     type: resource_type,
     action: 'delete',
   });
 
-  const type = await command_helper.promptForResourceType(account, 'delete', resource_type);
+  const type = await command_helper.resourceInputUtils.promptForResourceType(account, 'delete', resource_type);
 
   const service = account.resources[type];
   if (!service) {
@@ -68,7 +69,7 @@ async function destroy_resource_action(
     Deno.exit(1);
   }
 
-  const proceed = await Confirm.prompt(
+  const proceed = await Inputs.promptForContinuation(
     `Are you sure you would like to delete this resource? Don't interrupt the process once it starts!`,
   );
 
@@ -96,13 +97,13 @@ async function destroy_resource_action(
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -117,7 +118,7 @@ async function destroy_resource_action(
     })
     .toPromise()
     .then(() => {
-      command_helper.renderPipeline(pipeline, { clear: true, disableSpinner: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true, disableSpinner: true });
       clearInterval(interval);
       console.log('');
       console.log(colors.green(`${type} destroyed successfully!`));

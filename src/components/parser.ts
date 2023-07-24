@@ -1,9 +1,7 @@
 import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
-import component_schema_contents from './component.schema.json' assert {
-  type: 'json',
-};
+import * as ComponentSchemaContents from './component-schema.ts';
 import { Component } from './component.ts';
 import { buildComponent, ComponentSchema } from './schema.ts';
 
@@ -13,9 +11,7 @@ const ajv = new Ajv2019({ strict: false, discriminator: true });
 export const parseComponent = async (
   input: Record<string, unknown> | string,
 ): Promise<Component> => {
-  const component_validator = ajv.compile<ComponentSchema>(
-    component_schema_contents,
-  );
+  const component_validator = ajv.compile<ComponentSchema>(ComponentSchemaContents.default);
 
   let raw_obj: any;
   if (typeof input === 'string') {

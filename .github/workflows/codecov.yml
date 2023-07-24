@@ -1,7 +1,7 @@
-name: Pull requests
+name: Codecov
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 

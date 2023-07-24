@@ -207,6 +207,40 @@ export default {
       'DatabaseApplyInputs': {
         'additionalProperties': false,
         'properties': {
+          'databaseCluster': {
+            'description': 'Unique ID of the database cluster backing this schema',
+            'type': 'string',
+          },
+          'databaseType': {
+            'description': 'Type of database required by the schema',
+            'type': 'string',
+          },
+          'databaseVersion': {
+            'description': 'Version of the database type the schema creation process expects',
+            'type': 'string',
+          },
+          'name': {
+            'description': 'Name to give to the new schema',
+            'type': 'string',
+          },
+        },
+        'required': [
+          'name',
+          'databaseCluster',
+          'databaseType',
+          'databaseVersion',
+        ],
+        'type': 'object',
+      },
+    },
+  },
+  'databaseCluster': {
+    '$ref': '#/definitions/DatabaseClusterApplyInputs',
+    '$schema': 'http://json-schema.org/draft-07/schema#',
+    'definitions': {
+      'DatabaseClusterApplyInputs': {
+        'additionalProperties': false,
+        'properties': {
           'databaseSize': {
             'description': 'Size of the database instance to create',
             'type': 'string',
@@ -248,40 +282,6 @@ export default {
       },
     },
   },
-  'databaseSchema': {
-    '$ref': '#/definitions/DatabaseSchemaInputs',
-    '$schema': 'http://json-schema.org/draft-07/schema#',
-    'definitions': {
-      'DatabaseSchemaInputs': {
-        'additionalProperties': false,
-        'properties': {
-          'database': {
-            'description': 'Unique ID of the database backing this schema',
-            'type': 'string',
-          },
-          'databaseType': {
-            'description': 'Type of database required by the schema',
-            'type': 'string',
-          },
-          'databaseVersion': {
-            'description': 'Version of the database type the schema creation process expects',
-            'type': 'string',
-          },
-          'name': {
-            'description': 'Name to give to the new schema',
-            'type': 'string',
-          },
-        },
-        'required': [
-          'name',
-          'database',
-          'databaseType',
-          'databaseVersion',
-        ],
-        'type': 'object',
-      },
-    },
-  },
   'databaseSize': {
     '$ref': '#/definitions/DatabaseSizeInputs',
     '$schema': 'http://json-schema.org/draft-07/schema#',
@@ -309,8 +309,8 @@ export default {
       'DatabaseUserApplyInputs': {
         'additionalProperties': false,
         'properties': {
-          'databaseSchema': {
-            'description': 'The schema the user should have access to',
+          'database': {
+            'description': 'The database the user should have access to',
             'type': 'string',
           },
           'username': {
@@ -320,7 +320,7 @@ export default {
         },
         'required': [
           'username',
-          'databaseSchema',
+          'database',
         ],
         'type': 'object',
       },
@@ -439,7 +439,6 @@ export default {
                 },
               },
               'required': [
-                'port',
                 'target_port',
               ],
               'type': 'object',
@@ -500,10 +499,15 @@ export default {
                   'description': 'Unique ID of the service the deployment should attach itself to',
                   'type': 'string',
                 },
+                'port': {
+                  'description': 'The port the service deployment is listening on',
+                  'type': 'string',
+                },
               },
               'required': [
                 'id',
                 'account',
+                'port',
               ],
               'type': 'object',
             },
@@ -592,7 +596,7 @@ export default {
                   'items': {
                     'additionalProperties': false,
                     'properties': {
-                      'local_image': {
+                      'image': {
                         'type': 'string',
                       },
                       'mount_path': {
@@ -600,9 +604,6 @@ export default {
                       },
                       'readonly': {
                         'type': 'boolean',
-                      },
-                      'remote_image': {
-                        'type': 'string',
                       },
                       'volume': {
                         'type': 'string',
@@ -631,7 +632,7 @@ export default {
             'items': {
               'additionalProperties': false,
               'properties': {
-                'local_image': {
+                'image': {
                   'type': 'string',
                 },
                 'mount_path': {
@@ -639,9 +640,6 @@ export default {
                 },
                 'readonly': {
                   'type': 'boolean',
-                },
-                'remote_image': {
-                  'type': 'string',
                 },
                 'volume': {
                   'type': 'string',
@@ -1233,12 +1231,8 @@ export default {
             'description': 'Basic auth password',
             'type': 'string',
           },
-          'port': {
-            'description': 'Port to listen on',
-            'type': 'number',
-          },
           'target_deployment': {
-            'description': 'Target deployment name',
+            'description': 'A deployment the service should point to',
             'type': 'string',
           },
           'target_port': {
@@ -1250,6 +1244,13 @@ export default {
             'description': 'Protocol',
             'type': 'string',
           },
+          'target_servers': {
+            'description': 'The servers the service should load balance between',
+            'items': {
+              'type': 'string',
+            },
+            'type': 'array',
+          },
           'username': {
             'description': 'Basic auth username',
             'type': 'string',
@@ -1257,7 +1258,6 @@ export default {
         },
         'required': [
           'name',
-          'target_deployment',
           'target_port',
         ],
         'type': 'object',

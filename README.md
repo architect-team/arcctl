@@ -58,7 +58,12 @@ Components are 100% portable, cloud-agnostic application bundles that can be run
 
 ### Getting Started
 
-The best way to get a taste of what Architect is all about is to deploy a component. However, before you can do so you need to create your first datacenter and environment to deploy to.
+The best way to get a taste of what Architect is all about is to deploy a component, but there are a few steps needed to get your local environment setup before we can do that. Don't worry, most of these steps are one-time burdens. Once you've gotten started all you need to do is deploy!
+
+1. [Create your first datacenter](#1-create-your-first-datacenter)
+2. [Create an environment](#2-create-an-environment)
+3. [Deploy](#3-deploy)
+4. [Bonus: Dev environments](#bonus-dev-environments)
 
 #### 1. Create your first datacenter
 
@@ -134,7 +139,7 @@ Once its done (speed will vary based on the datacenter configuration), you'll be
   auth                                         ingressRule      architectio/kratos       local        create  complete  0s    http://auth.local.127.0.0.1.nip.io/
 ```
 
-#### Bonus: Ephemeral environments
+#### Bonus: Dev environments
 
 Want to quickly test your components and application code? We've got you covered! Just run `arcctl up .` in the directory your component lives in andspecify a datacenter to power your environment. Architect will automatically create an environment, deploy the component to it in debug mode, and then stream the application logs to your terminal. Yes, this is just like docker-compose!
 

@@ -9,6 +9,7 @@ import { LocalCredentials } from '../credentials.ts';
 
 export class LocalSecretService extends CrudResourceService<'secret', LocalCredentials> {
   get(id: string): Promise<ResourceOutputs['secret'] | undefined> {
+    id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {
       return Promise.resolve(undefined);

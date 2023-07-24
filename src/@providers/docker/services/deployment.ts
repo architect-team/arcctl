@@ -160,7 +160,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
 
     for (const serviceConfig of inputs.services || []) {
-      const writableService = this.providerStore.getWritableService(serviceConfig.account, 'service');
+      const writableService = await this.providerStore.getWritableService(serviceConfig.account, 'service');
       const existingService = await writableService.get(serviceConfig.id);
       if (existingService?.target_servers) {
         const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
@@ -309,7 +309,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
 
     for (const serviceConfig of (inputs.services as ResourceInputs['deployment']['services'] || [])) {
-      const writableService = this.providerStore.getWritableService(serviceConfig.account, 'service');
+      const writableService = await this.providerStore.getWritableService(serviceConfig.account, 'service');
       const existingService = await writableService.get(serviceConfig.id);
       if (existingService?.target_servers) {
         const newUrl = `http://${ipAddress}:${serviceConfig.port}`;

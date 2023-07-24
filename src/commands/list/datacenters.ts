@@ -1,5 +1,5 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const ListDatacenterCommand = BaseCommand()
   .description('List datacenters registered with the CLI')
@@ -22,7 +22,7 @@ async function list_datacenter_action(options: GlobalOptions) {
   });
 
   for (const dc of datacenters) {
-    const pipeline = await command_helper.getPipelineForDatacenter(dc);
+    const pipeline = dc.lastPipeline;
     table.push([
       dc.name,
       environmentRecords

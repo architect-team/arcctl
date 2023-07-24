@@ -10,7 +10,6 @@ import {
   DockerTagFn,
   GraphContext,
   VolumeBuildFn,
-  VolumePushFn,
   VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
@@ -337,12 +336,17 @@ export default class ComponentV2 extends Component {
         );
       }
       for (const [volumeKey, volumeConfig] of Object.entries(volumes)) {
-        const is_directory = Deno.statSync(context.component.source).isDirectory;
         let host_path = undefined;
-        if (volumeConfig.host_path && !is_directory) {
-          host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
-        } else if (volumeConfig.host_path) {
-          host_path = path.join(context.component.source, volumeConfig.host_path);
+
+        try {
+          const is_directory = Deno.statSync(context.component.source).isDirectory;
+          if (volumeConfig.host_path && !is_directory) {
+            host_path = path.join(path.dirname(context.component.source), volumeConfig.host_path);
+          } else if (volumeConfig.host_path) {
+            host_path = path.join(context.component.source, volumeConfig.host_path);
+          }
+        } catch {
+          // Source is remote, so no host path
         }
 
         const volume_node = new CloudNode({
@@ -363,7 +367,7 @@ export default class ComponentV2 extends Component {
         volume_mounts.push({
           volume: `\${{ ${volume_node.id}.id }}`,
           mount_path: volumeConfig.mount_path!,
-          remote_image: volumeConfig.image,
+          image: volumeConfig.image,
           readonly: false,
         });
 
@@ -676,23 +680,17 @@ export default class ComponentV2 extends Component {
     return this;
   }
 
-  public async push(pushFn: DockerPushFn, volumePushFn: VolumePushFn): Promise<Component> {
+  public async push(pushFn: DockerPushFn): Promise<Component> {
     for (const buildConfig of Object.values(this.builds || {})) {
       if (buildConfig.image) {
         await pushFn(buildConfig.image);
       }
     }
 
-    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
-      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+    for (const deploymentConfig of Object.values(this.deployments || {})) {
+      for (const volumeConfig of Object.values(deploymentConfig.volumes || {})) {
         if (volumeConfig.image && volumeConfig.host_path) {
-          await volumePushFn(
-            deploymentName,
-            volumeName,
-            volumeConfig.image,
-            volumeConfig.host_path,
-            volumeConfig.mount_path,
-          );
+          await pushFn(volumeConfig.image);
         }
       }
     }

@@ -65,7 +65,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       JSON.stringify(this.inputs) === JSON.stringify(step.inputs);
   }
 
-  public getHash(providerStore: ProviderStore): string {
+  public async getHash(providerStore: ProviderStore): Promise<string> {
     const cwd = Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
@@ -74,7 +74,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       throw new Error('Unable to create execution directory for terraform');
     }
 
-    const account = providerStore.get(
+    const account = await providerStore.get(
       this.inputs?.account || '',
     );
     if (!account) {
@@ -115,95 +115,98 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         return;
       }
 
-      const account = options.providerStore.get(
+      options.providerStore.get(
         this.inputs?.account || '',
-      );
-      if (!account) {
-        subscriber.error(new Error(`Invalid account: ${this.inputs?.account}`));
-        return;
-      }
+      ).then((account) => {
+        if (!account) {
+          subscriber.error(new Error(`Invalid account: ${this.inputs?.account}`));
+          return;
+        }
 
-      const service = account.resources[this.type] as ResourceService<any, any>;
-      if (!service) {
-        subscriber.error(
-          new Error(
-            `The ${account.type} provider doesn't support the ${this.type} resource`,
-          ),
-        );
-        return;
-      } else if (!('apply' in service)) {
-        subscriber.error(
-          new Error(
-            `The ${account.type} provider cannnot ${this.action} the ${this.type} resource`,
-          ),
-        );
-        return;
-      }
-
-      account.testCredentials().then((valid) => {
-        if (!valid) {
+        const service = account.resources[this.type] as ResourceService<any, any>;
+        if (!service) {
           subscriber.error(
             new Error(
-              `The ${account.type} provider credentials are invalid`,
+              `The ${account.type} provider doesn't support the ${this.type} resource`,
+            ),
+          );
+          return;
+        } else if (!('apply' in service)) {
+          subscriber.error(
+            new Error(
+              `The ${account.type} provider cannnot ${this.action} the ${this.type} resource`,
             ),
           );
           return;
         }
 
-        const writableService = service as WritableResourceService<any, any>;
-        let applyObservable: Observable<ApplyOutputs<any>> | undefined;
+        account.testCredentials().then((valid: boolean) => {
+          if (!valid) {
+            subscriber.error(
+              new Error(
+                `The ${account.type} provider credentials are invalid`,
+              ),
+            );
+            return;
+          }
 
-        if (this.action === 'delete') {
-          applyObservable = writableService.destroy({
-            id: this.id,
-            cwd: nodeDir,
-            providerStore: options.providerStore,
-            logger: options.logger,
-            state: this.state ||
-              (this.outputs
-                ? {
-                  id: this.outputs.id,
-                }
-                : undefined),
-          }, this.inputs);
-        } else if (!this.inputs) {
-          subscriber.error(new Error(`Missing inputs for ${this.id}`));
-        } else {
-          applyObservable = writableService.apply(this.inputs, {
-            id: this.id,
-            cwd: nodeDir,
-            providerStore: options.providerStore,
-            logger: options.logger,
-            state: this.state,
+          const writableService = service as WritableResourceService<any, any>;
+          let applyObservable: Observable<ApplyOutputs<any>> | undefined;
+
+          if (this.action === 'delete') {
+            applyObservable = writableService.destroy({
+              id: this.id,
+              cwd: nodeDir,
+              providerStore: options.providerStore,
+              logger: options.logger,
+              state: this.state ||
+                (this.outputs
+                  ? {
+                    id: this.outputs.id,
+                  }
+                  : undefined),
+            }, this.inputs);
+          } else if (!this.inputs) {
+            subscriber.error(new Error(`Missing inputs for ${this.id}`));
+          } else {
+            applyObservable = writableService.apply(this.inputs, {
+              id: this.id,
+              cwd: nodeDir,
+              providerStore: options.providerStore,
+              logger: options.logger,
+              state: this.state,
+            });
+          }
+
+          applyObservable?.subscribe({
+            next: (res) => {
+              this.status = {
+                ...this.status,
+                ...res.status,
+              };
+              this.state = res.state;
+              this.outputs = res.outputs;
+
+              // Progogate the account if one was not specified
+              if (this.outputs && !(this.outputs as any).account) {
+                (this.outputs as any).account = this.inputs?.account;
+              }
+              subscriber.next(this);
+            },
+            complete: () => {
+              this.status.state = 'complete';
+              this.status.endTime = Date.now();
+              subscriber.next(this);
+              subscriber.complete();
+            },
+            error: (err) => {
+              this.status.state = 'error';
+              this.status.message = err.message;
+              this.status.endTime = Date.now();
+              subscriber.next(this);
+              subscriber.error(err);
+            },
           });
-        }
-
-        applyObservable?.subscribe({
-          next: (res) => {
-            this.status = res.status;
-            this.state = res.state;
-            this.outputs = res.outputs;
-
-            // Progogate the account if one was not specified
-            if (this.outputs && !(this.outputs as any).account) {
-              (this.outputs as any).account = this.inputs?.account;
-            }
-            subscriber.next(this);
-          },
-          complete: () => {
-            this.status.state = 'complete';
-            this.status.message = '';
-            this.status.endTime = Date.now();
-            subscriber.next(this);
-            subscriber.complete();
-          },
-          error: (err) => {
-            this.status.state = 'error';
-            this.status.message = err.message;
-            this.status.endTime = Date.now();
-            subscriber.next(this);
-            subscriber.error(err);
-          },
         });
       });
     });

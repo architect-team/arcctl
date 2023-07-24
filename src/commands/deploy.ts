@@ -60,7 +60,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         Deno.exit(1);
       }
 
-      const previousPipeline = await command_helper.getPipelineForEnvironment(environmentRecord);
+      const previousPipeline = environmentRecord.lastPipeline;
 
       const environment = environmentRecord.config || await parseEnvironment({});
 
@@ -83,19 +83,19 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         },
       );
 
-      const pipeline = Pipeline.plan({
+      const pipeline = await Pipeline.plan({
         before: previousPipeline,
         after: targetGraph,
         contextFilter: PlanContextLevel.Environment,
       }, command_helper.providerStore);
 
       pipeline.validate();
-      await command_helper.confirmPipeline(pipeline, options.autoApprove);
+      await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 
       let interval: number;
       if (!options.verbose) {
         interval = setInterval(() => {
-          command_helper.renderPipeline(pipeline, {
+          command_helper.pipelineRenderer.renderPipeline(pipeline, {
             clear: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
@@ -104,7 +104,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
 
       let logger: Logger | undefined;
       if (options.verbose) {
-        command_helper.renderPipeline(pipeline);
+        command_helper.pipelineRenderer.renderPipeline(pipeline);
         logger = winston.createLogger({
           level: 'info',
           format: winston.format.printf(({ message }) => message),
@@ -119,14 +119,13 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         })
         .toPromise()
         .then(async () => {
-          await command_helper.saveEnvironment(
+          await command_helper.environmentUtils.saveEnvironment(
             datacenterRecord.name,
             environmentRecord.name,
-            datacenterRecord.config,
             environment,
             pipeline,
           );
-          command_helper.renderPipeline(pipeline, {
+          command_helper.pipelineRenderer.renderPipeline(pipeline, {
             clear: !options.verbose,
             disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
@@ -134,14 +133,13 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
           clearInterval(interval);
         })
         .catch(async (err) => {
-          await command_helper.saveEnvironment(
+          await command_helper.environmentUtils.saveEnvironment(
             datacenterRecord.name,
             environmentRecord.name,
-            datacenterRecord.config,
             environment,
             pipeline,
           );
-          command_helper.renderPipeline(pipeline, {
+          command_helper.pipelineRenderer.renderPipeline(pipeline, {
             clear: !options.verbose,
             disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,

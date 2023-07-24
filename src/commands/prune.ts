@@ -10,7 +10,7 @@ async function prune_accounts_action(options: GlobalOptions) {
   const command_helper = new CommandHelper(options);
 
   const invalidAccounts: Provider[] = [];
-  for (const account of command_helper.providerStore.list()) {
+  for (const account of await command_helper.providerStore.list()) {
     const isValid = await account.testCredentials();
     if (!isValid) {
       invalidAccounts.push(account);
@@ -32,7 +32,7 @@ async function prune_accounts_action(options: GlobalOptions) {
   });
 
   for (const accountName of accountsToPrune) {
-    command_helper.providerStore.delete(accountName);
+    await command_helper.providerStore.delete(accountName);
   }
 
   console.log(`${accountsToPrune.length} accounts removed successfully`);

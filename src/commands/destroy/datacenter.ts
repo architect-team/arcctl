@@ -1,10 +1,11 @@
 import cliSpinners from 'cli-spinners';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 import { destroyEnvironment } from './environment.ts';
 
 type DestroyDatacenterOptions = {
@@ -23,8 +24,8 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   const command_helper = new CommandHelper(options);
 
   const datacenterRecord = await promptForDatacenter(command_helper, name);
-  const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
-  const pipeline = Pipeline.plan({
+  const lastPipeline = datacenterRecord.lastPipeline;
+  const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: new CloudGraph(),
   }, command_helper.providerStore);
@@ -39,7 +40,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     }
   }
 
-  const confirm = options.autoApprove || (await Confirm.prompt('Are you sure you want to proceed?'));
+  const confirm = options.autoApprove || (await Inputs.promptForContinuation('Are you sure you want to proceed?'));
 
   if (!confirm) {
     console.error('Datacenter destruction cancelled');
@@ -56,13 +57,13 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -78,16 +79,16 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     .toPromise()
     .then(async () => {
       clearInterval(interval);
-      await command_helper.removeDatacenter(datacenterRecord);
-      command_helper.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-      command_helper.doneRenderingPipeline();
+      await command_helper.datacenterUtils.removeDatacenter(datacenterRecord);
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+      command_helper.pipelineRenderer.doneRenderingPipeline();
       clearInterval(interval);
       console.log(`Datacenter ${name} destroyed successfully`);
     })
     .catch(async (err) => {
       clearInterval(interval);
-      await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
-      command_helper.doneRenderingPipeline();
+      await command_helper.datacenterUtils.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+      command_helper.pipelineRenderer.doneRenderingPipeline();
       console.error(err);
       Deno.exit(1);
     });

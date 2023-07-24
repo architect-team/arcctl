@@ -21,12 +21,13 @@ const ListResourceCommand = BaseCommand()
 async function list_resource_action(options: ListResourceOptions, resource_type?: ResourceType) {
   const command_helper = new CommandHelper(options);
 
-  const account = await command_helper.promptForAccount({
+  const account = await command_helper.accountInputUtils.promptForAccount({
     account: options.account,
     type: resource_type,
     action: 'list',
   });
-  const type = (await command_helper.promptForResourceType(account, 'list', resource_type)) as ResourceType;
+  const type =
+    (await command_helper.resourceInputUtils.promptForResourceType(account, 'list', resource_type)) as ResourceType;
 
   const filter: Record<string, string> = {};
   for (const f of options.filter || []) {

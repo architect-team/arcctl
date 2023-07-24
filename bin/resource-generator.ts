@@ -52,9 +52,9 @@ await (async () => {
 })();
 
 console.log('Create master resources input types schema');
-
 await (async () => {
   const inputSchemaPath = path.join(resources_dir, 'input.schema.json');
+  const inputSchemaTsPath = path.join(resources_dir, 'input-schema.ts');
   const inputSchemaString = await Deno.readTextFile(inputSchemaPath);
   const inputSchema = JSON.parse(inputSchemaString);
   const { stdout: newInputSchemaString } = await exec('deno', {
@@ -77,8 +77,10 @@ await (async () => {
   inputSchema.definitions = newInputSchema.definitions;
 
   await Deno.writeTextFile(inputSchemaPath, JSON.stringify(inputSchema, null, 2));
+  await Deno.writeTextFile(inputSchemaTsPath, `export default ${JSON.stringify(inputSchema, null, 2)}`);
 })();
 
+const inputSchemas: Record<string, unknown> = {};
 for (const type of all_types) {
   console.log(`Create ${type.name} input schema`);
   await (async () => {
@@ -97,13 +99,19 @@ for (const type of all_types) {
     ],
   });
 
-  const typeSchema = JSON.parse(typeSchemaString);
+    const typeSchema = JSON.parse(typeSchemaString);
+    inputSchemas[type.name] = typeSchema;
   await Deno.writeTextFile(
     path.join(resources_dir, type.name, './inputs.schema.json'),
     JSON.stringify(typeSchema, null, 2),
   );
   })();
 }
+
+await Deno.writeTextFile(
+    path.join(resources_dir, './inputs-schema.ts'),
+    `export default ${JSON.stringify(inputSchemas, null, 2)}`,
+  );
 
 console.log('Cleanup');
 

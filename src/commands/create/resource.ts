@@ -1,12 +1,12 @@
 import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
-import { Confirm } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { Inputs } from '../common/inputs.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -27,26 +27,26 @@ const CreateResourceCommand = BaseCommand()
 async function create_resource_action(options: CreateResourceOptions, resource_type?: ResourceType) {
   const command_helper = new CommandHelper(options);
 
-  const account = await command_helper.promptForAccount({
+  const account = await command_helper.accountInputUtils.promptForAccount({
     account: options.account,
     type: resource_type,
     action: 'create',
   });
 
-  const type = await command_helper.promptForResourceType(account, 'create', resource_type);
+  const type = await command_helper.resourceInputUtils.promptForResourceType(account, 'create', resource_type);
 
   const graph = new CloudGraph();
-  const rootNode = await command_helper.promptForNewResource(graph, account, type);
+  const rootNode = await command_helper.resourceInputUtils.promptForNewResource(graph, account, type);
 
-  const pipeline = Pipeline.plan({
+  const pipeline = await Pipeline.plan({
     before: new Pipeline(),
     after: graph,
   }, command_helper.providerStore);
 
   console.log('\nAbout to create the following resources:');
-  command_helper.renderPipeline(pipeline);
+  command_helper.pipelineRenderer.renderPipeline(pipeline);
   console.log('');
-  const proceed = await Confirm.prompt('Do you want to proceed?');
+  const proceed = await Inputs.promptForContinuation('Do you want to proceed?');
 
   if (!proceed) {
     console.log(`${type} creation cancelled`);
@@ -56,13 +56,13 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -77,7 +77,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
     })
     .toPromise()
     .then(() => {
-      command_helper.renderPipeline(pipeline, { clear: !logger, disableSpinner: true });
+      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !logger, disableSpinner: true });
       clearInterval(interval);
       const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
       console.log('');

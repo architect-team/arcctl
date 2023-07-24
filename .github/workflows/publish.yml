@@ -1,27 +1,27 @@
-# name: Publish CLI
+name: Publish CLI
 
-# on: push
+on: push
 
-# env:
-#   CI: true
+env:
+  CI: true
 
-# jobs:
-#   publish_cli:
-#     name: Publish CLI
-#     if: github.ref_name == 'main' || startsWith(github.ref_name, 'arcctl-')
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#         with:
-#           clean: true
-#           ref: ${{ github.ref_name }}
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: '18'
-#       - uses: denoland/setup-deno@v1.1.2
-#       - run: deno task generate:npm
-#       - run: |
-#           cd build
-#           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
-#           npm publish --access public
-#         # GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release
+jobs:
+  publish_cli:
+    name: Publish CLI
+    if: github.ref_name == 'main' || startsWith(github.ref_name, 'arcctl-')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          clean: true
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - uses: denoland/setup-deno@v1.1.2
+      - run: deno task generate:npm
+      - run: |
+          cd build
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
+          npm publish --access public
+        # GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release

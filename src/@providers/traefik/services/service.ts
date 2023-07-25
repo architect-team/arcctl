@@ -190,9 +190,12 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
         services: {
           [normalizedId]: {
             loadBalancer: {
-              servers: inputs.target_servers?.map((server) => ({
-                [isNotHttp ? 'address' : 'url']: server,
-              })) || [],
+              servers: inputs.target_servers?.map((server) => {
+                const url = new URL(server);
+                return {
+                  [isNotHttp ? 'address' : 'url']: isNotHttp ? url.host : url.toString(),
+                };
+              }) || [],
             },
           },
         },

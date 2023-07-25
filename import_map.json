@@ -24,7 +24,8 @@
     "winston": "https://esm.sh/v124/winston@3.8.2",
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
     "aws-sdk": "npm:aws-sdk@2.1229.0",
-    "mustache": "https://esm.sh/mustache@4.2.0"
+    "mustache": "https://esm.sh/mustache@4.2.0",
+    "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1"
   },
   "scopes": {
     "https://esm.sh/v124/": {

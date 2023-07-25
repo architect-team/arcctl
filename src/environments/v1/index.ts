@@ -1,4 +1,5 @@
 import * as path from 'std/path/mod.ts';
+import { adjectives, animals, uniqueNamesGenerator } from 'unique-names-generator';
 import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import type { ComponentStore } from '../../component-store/index.ts';
 import { Component, parseComponent } from '../../components/index.ts';
@@ -163,15 +164,19 @@ export default class EnvironmentV1 extends Environment {
   }
 
   private enrichIngressRule(node: CloudNode<'ingressRule'>): CloudNode<'ingressRule'> {
-    if (!node.component || !this.components) {
-      return node;
-    }
-
-    const component_config = this.components[node.component];
+    const component_config = this.components?.[node.component || ''];
     const ingress_config = component_config?.ingresses?.[node.name];
 
+    const randomName = uniqueNamesGenerator({
+      dictionaries: [adjectives, animals],
+      length: 2,
+      separator: '-',
+      style: 'lowerCase',
+      seed: node.id,
+    });
+
     node.inputs.path = ingress_config?.path || node.inputs.path;
-    node.inputs.subdomain = ingress_config?.subdomain || node.inputs.subdomain;
+    node.inputs.subdomain = ingress_config?.subdomain || node.inputs.subdomain || randomName;
     node.inputs.internal = ingress_config?.internal || node.inputs.internal;
 
     return node;

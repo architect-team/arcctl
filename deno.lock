@@ -645,6 +645,8 @@
     "https://esm.sh/v124/tar@6.1.11/denonext/tar.mjs": "55fbfc1ec198e58ffbf84ba207cfe1e8fef41034aa7135c10f2cd24501729ef8",
     "https://esm.sh/v124/triple-beam@1.4.1/denonext/triple-beam.mjs": "56c3bf240276d9392f9a7722d58af78bf96f1b919a95bfe2367cb79aa382358e",
     "https://esm.sh/v124/tslib@2.6.0/denonext/tslib.mjs": "2215292e6fcf28a7a081eee911f127bb3c44cdd61ff0651e3e384d7a49b4e42b",
+    "https://esm.sh/v124/unique-names-generator@4.7.1": "6d61270c703d91c6fb27bd9b68a06f241659c3f01df03f76f4e8b540acf45c44",
+    "https://esm.sh/v124/unique-names-generator@4.7.1/denonext/unique-names-generator.mjs": "b40a40ff6a8533a2f35c6a4b6883a5e5737d75287f2d635a863176247bcb7f19",
     "https://esm.sh/v124/uri-js@4.4.1/denonext/uri-js.mjs": "4b46d46cd678979debedbf2d05fa39b50ec17656e3960a9ec3418e7763aa7c34",
     "https://esm.sh/v124/url-template@2.0.8/denonext/url-template.mjs": "22c8531c42314fe0052f3d509d1413bfd733d375e5bc313400bb6c0c33f42fd9",
     "https://esm.sh/v124/util-deprecate@1.0.2/denonext/util-deprecate.mjs": "e7f4e3a1ec5eb3f2e04dbfaf90e4874f535ca298a7c91512f1d083e1ba765c37",
@@ -782,14 +784,10 @@
           "has-tostringtag": "has-tostringtag@1.0.0"
         }
       },
-      "is-typed-array@1.1.10": {
-        "integrity": "sha512-PJqgEHiWZvMpaFZ3uTc8kHPM4+4ADTlDniuQL7cU/UDA0Ql7F70yGfHph3cLNe+c9toaigv+DFzTJKhc2CtO6A==",
+      "is-typed-array@1.1.12": {
+        "integrity": "sha512-Z14TF2JNG8Lss5/HMqt0//T9JeHXttXy5pH/DBU4vi98ozO2btxzq9MwYDZYnKwU8nRsz/+GVFVRDq3DkVuSPg==",
         "dependencies": {
-          "available-typed-arrays": "available-typed-arrays@1.0.5",
-          "call-bind": "call-bind@1.0.2",
-          "for-each": "for-each@0.3.3",
-          "gopd": "gopd@1.0.1",
-          "has-tostringtag": "has-tostringtag@1.0.0"
+          "which-typed-array": "which-typed-array@1.1.11"
         }
       },
       "isarray@1.0.0": {
@@ -897,23 +895,22 @@
           "inherits": "inherits@2.0.4",
           "is-arguments": "is-arguments@1.1.1",
           "is-generator-function": "is-generator-function@1.0.10",
-          "is-typed-array": "is-typed-array@1.1.10",
-          "which-typed-array": "which-typed-array@1.1.9"
+          "is-typed-array": "is-typed-array@1.1.12",
+          "which-typed-array": "which-typed-array@1.1.11"
         }
       },
       "uuid@8.0.0": {
         "integrity": "sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==",
         "dependencies": {}
       },
-      "which-typed-array@1.1.9": {
-        "integrity": "sha512-w9c4xkx6mPidwp7180ckYWfMmvxpjlZuIudNtDf4N/tTAUB8VJbX25qZoAsrtGuYNnGw3pa0AXgbGKRB8/EceA==",
+      "which-typed-array@1.1.11": {
+        "integrity": "sha512-qe9UWWpkeG5yzZ0tNYxDmd7vo58HDBc39mZ0xWWpolAGADdFOzkfamWLDxkOWcvHQKVmdTyQdLD4NOfjLWTKew==",
         "dependencies": {
           "available-typed-arrays": "available-typed-arrays@1.0.5",
           "call-bind": "call-bind@1.0.2",
           "for-each": "for-each@0.3.3",
           "gopd": "gopd@1.0.1",
-          "has-tostringtag": "has-tostringtag@1.0.0",
-          "is-typed-array": "is-typed-array@1.1.10"
+          "has-tostringtag": "has-tostringtag@1.0.0"
         }
       },
       "xml2js@0.4.19": {

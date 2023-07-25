@@ -67,6 +67,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
   targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, {
     environmentName: options.environment,
+    datacenterName: datacenterRecord.name,
   });
   targetGraph.validate();
 
@@ -122,7 +123,9 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     const emptyEnvironment = await parseEnvironment({});
     const targetGraph = await datacenterRecord.config.enrichGraph(
       new CloudGraph(),
-      {},
+      {
+        datacenterName: datacenterRecord.name,
+      },
     );
     const revertedPipeline = await Pipeline.plan({
       before: pipeline,

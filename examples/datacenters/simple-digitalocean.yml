@@ -1,6 +1,3 @@
-secrets:
-  account: local
-
 variables:
   region:
     type: region

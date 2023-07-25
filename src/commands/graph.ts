@@ -50,9 +50,10 @@ async function graph_action(options: GraphOptions): Promise<void> {
     graph = await environment.getGraph(environment_name, command_helper.componentStore);
   }
 
-  if (datacenter) {
+  if (options.datacenter && datacenter) {
     graph = await datacenter.enrichGraph(graph, {
       environmentName: environment ? environment_name : undefined,
+      datacenterName: options.datacenter,
     });
   }
 

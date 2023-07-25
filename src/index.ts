@@ -9,5 +9,5 @@ export * from './pipeline/index.ts';
 export * from './plugins/index.ts';
 export { default as PluginManager } from './plugins/plugin-manager.ts';
 export * from './terraform/index.ts';
-export { default as CloudCtlConfig } from './utils/config.ts';
+export { default as ArcCtlConfig } from './utils/config.ts';
 export * from './utils/index.ts';

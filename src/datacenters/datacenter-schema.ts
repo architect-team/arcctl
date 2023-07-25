@@ -1103,7 +1103,7 @@ export default {
                                       'items': {
                                         'additionalProperties': false,
                                         'properties': {
-                                          'local_image': {
+                                          'image': {
                                             'type': 'string',
                                           },
                                           'mount_path': {
@@ -1111,9 +1111,6 @@ export default {
                                           },
                                           'readonly': {
                                             'type': 'boolean',
-                                          },
-                                          'remote_image': {
-                                            'type': 'string',
                                           },
                                           'volume': {
                                             'type': 'string',
@@ -1146,7 +1143,7 @@ export default {
                                 'items': {
                                   'additionalProperties': false,
                                   'properties': {
-                                    'local_image': {
+                                    'image': {
                                       'type': 'string',
                                     },
                                     'mount_path': {
@@ -1154,9 +1151,6 @@ export default {
                                     },
                                     'readonly': {
                                       'type': 'boolean',
-                                    },
-                                    'remote_image': {
-                                      'type': 'string',
                                     },
                                     'volume': {
                                       'type': 'string',
@@ -4039,7 +4033,7 @@ export default {
                                 'items': {
                                   'additionalProperties': false,
                                   'properties': {
-                                    'local_image': {
+                                    'image': {
                                       'type': 'string',
                                     },
                                     'mount_path': {
@@ -4047,9 +4041,6 @@ export default {
                                     },
                                     'readonly': {
                                       'type': 'boolean',
-                                    },
-                                    'remote_image': {
-                                      'type': 'string',
                                     },
                                     'volume': {
                                       'type': 'string',
@@ -4082,7 +4073,7 @@ export default {
                           'items': {
                             'additionalProperties': false,
                             'properties': {
-                              'local_image': {
+                              'image': {
                                 'type': 'string',
                               },
                               'mount_path': {
@@ -4090,9 +4081,6 @@ export default {
                               },
                               'readonly': {
                                 'type': 'boolean',
-                              },
-                              'remote_image': {
-                                'type': 'string',
                               },
                               'volume': {
                                 'type': 'string',
@@ -6066,7 +6054,7 @@ export default {
                             'items': {
                               'additionalProperties': false,
                               'properties': {
-                                'local_image': {
+                                'image': {
                                   'type': 'string',
                                 },
                                 'mount_path': {
@@ -6074,9 +6062,6 @@ export default {
                                 },
                                 'readonly': {
                                   'type': 'boolean',
-                                },
-                                'remote_image': {
-                                  'type': 'string',
                                 },
                                 'volume': {
                                   'type': 'string',
@@ -6109,7 +6094,7 @@ export default {
                       'items': {
                         'additionalProperties': false,
                         'properties': {
-                          'local_image': {
+                          'image': {
                             'type': 'string',
                           },
                           'mount_path': {
@@ -6117,9 +6102,6 @@ export default {
                           },
                           'readonly': {
                             'type': 'boolean',
-                          },
-                          'remote_image': {
-                            'type': 'string',
                           },
                           'volume': {
                             'type': 'string',

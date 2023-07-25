@@ -180,7 +180,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
           applyObservable?.subscribe({
             next: (res) => {
-              this.status = res.status;
+              this.status = {
+                ...this.status,
+                ...res.status,
+              };
               this.state = res.state;
               this.outputs = res.outputs;
 
@@ -192,7 +195,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
             },
             complete: () => {
               this.status.state = 'complete';
-              this.status.message = '';
               this.status.endTime = Date.now();
               subscriber.next(this);
               subscriber.complete();

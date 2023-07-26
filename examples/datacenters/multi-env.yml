@@ -1,6 +1,3 @@
-secrets:
-  account: local
-
 resources:
   service-registry:
     type: volume

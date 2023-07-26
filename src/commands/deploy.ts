@@ -80,6 +80,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         await environment.getGraph(environmentRecord.name, command_helper.componentStore, options.debug),
         {
           environmentName: environmentRecord.name,
+          datacenterName: datacenterRecord.name,
         },
       );
 

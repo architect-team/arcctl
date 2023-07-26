@@ -39,7 +39,9 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   }
 
   const lastPipeline = environmentRecord.lastPipeline;
-  const targetGraph = await datacenterRecord?.config.enrichGraph(new CloudGraph(), {});
+  const targetGraph = await datacenterRecord.config.enrichGraph(new CloudGraph(), {
+    datacenterName: datacenterRecord.name,
+  });
   const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,

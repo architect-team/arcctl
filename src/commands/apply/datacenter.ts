@@ -48,7 +48,9 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     let graph = new CloudGraph();
     const vars = await command_helper.datacenterUtils.promptForVariables(graph, datacenter.getVariables(), flag_vars);
     datacenter.setVariableValues(vars);
-    graph = await datacenter.enrichGraph(graph);
+    graph = await datacenter.enrichGraph(graph, {
+      datacenterName: name,
+    });
 
     const pipeline = await Pipeline.plan({
       before: originalPipeline,

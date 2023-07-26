@@ -42,6 +42,8 @@ export interface ProviderStore {
 }
 
 export class EmptyProviderStore implements ProviderStore {
+  private _providers: Provider[] = [];
+
   get storageDir(): string {
     return '';
   }
@@ -64,13 +66,20 @@ export class EmptyProviderStore implements ProviderStore {
    * Return a list of the available providers
    */
   list(): Promise<Provider[]> {
-    return Promise.resolve([]);
+    return Promise.resolve(this._providers);
   }
 
   /**
    * Save the specified provider to the store
    */
   save(provider: Provider): Promise<void> {
+    const existingIndex = this._providers.findIndex((p) => p.name === provider.name);
+    if (existingIndex >= 0) {
+      this._providers[existingIndex] = provider;
+    } else {
+      this._providers.push(provider);
+    }
+
     return Promise.resolve();
   }
 
@@ -78,13 +87,50 @@ export class EmptyProviderStore implements ProviderStore {
    * Remove the specified provider from the store. Throws an error if the provider doesn't exist.
    */
   delete(name: string): Promise<void> {
+    const existingIndex = this._providers.findIndex((p) => p.name === name);
+    if (existingIndex >= 0) {
+      this._providers.splice(existingIndex, 1);
+    }
+
     return Promise.resolve();
   }
 
-  getService<T extends ResourceType>(accountName: string, type: T): Promise<ResourceService<T, any>> {
-    throw new Error('Method not implemented.');
+  async getService<T extends ResourceType>(accountName: string, type: T): Promise<ResourceService<T, any>> {
+    const account = await this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    return service;
   }
-  getWritableService<T extends ResourceType>(accountName: string, type: T): Promise<WritableResourceService<T, any>> {
-    throw new Error('Method not implemented.');
+
+  async getWritableService<T extends ResourceType>(
+    accountName: string,
+    type: T,
+  ): Promise<WritableResourceService<T, any>> {
+    const account = await this.get(accountName);
+    if (!account) {
+      throw new Error(`Account does not exist: ${accountName}`);
+    }
+
+    const service = account.resources[type];
+    if (!service) {
+      throw new Error(
+        `${account.name} does not support ${type} resources.`,
+      );
+    }
+
+    if (!('construct' in service) && !('create' in service)) {
+      throw new Error(`The ${account.type} provider cannot create service resources`);
+    }
+
+    return service as unknown as WritableResourceService<T, any>;
   }
 }

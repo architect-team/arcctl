@@ -1,7 +1,3 @@
-secrets:
-  account: s3
-  namespace: arcctl-backend
-
 variables:
   region:
     type: region

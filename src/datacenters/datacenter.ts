@@ -39,6 +39,12 @@ export type DatacenterEnrichmentOptions = {
    * Name of an environment to enrich resources for
    */
   environmentName?: string;
+
+  /**
+   * Name of the datacenter itself
+   */
+  datacenterName: string;
+
   /**
    * Whether or not to build the graph using debug features
    */
@@ -54,10 +60,8 @@ export abstract class Datacenter {
     /**
      * Options used to enrich the environment
      */
-    options?: DatacenterEnrichmentOptions,
+    options: DatacenterEnrichmentOptions,
   ): Promise<CloudGraph>;
-
-  public abstract getSecretsConfig(): DatacenterSecretsConfig;
 
   public abstract getVariables(): ParsedVariablesType;
   public abstract setVariableValues(variables: Record<string, unknown>): void;

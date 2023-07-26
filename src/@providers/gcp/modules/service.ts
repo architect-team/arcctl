@@ -18,9 +18,8 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
     const namespace = this.inputs?.namespace || 'ns';
     const service_name = namespace + '--' + this.inputs?.name.replaceAll('/', '-') || 'deleting';
     const service_port = this.inputs?.target_port || 80;
-    const function_name = (this.inputs?.namespace || 'ns') +
-      (this.inputs?.target_deployment?.replaceAll('/', '-') || 'deleting') +
-      `--${service_port}`;
+    const function_name = (this.inputs?.namespace || 'ns') + '-' +
+      (this.inputs?.target_deployment?.replaceAll('/', '-') || 'deleting');
 
     let region = '';
     if (this.inputs?.labels?.region) {

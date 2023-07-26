@@ -41,7 +41,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
     const backend_service_name = `global/backendServices/${neg_name}`;
     const host_name = `${inputs.subdomain}.${inputs.dnsZone}`;
-    const ssl_cert_name = `${inputs.namespace}-${inputs.subdomain}-${service_name}`;
+    const ssl_cert_name = `${service_name}-cert`;
     const target_proxy_name = `${url_map_name}--target-proxy`;
     const loadbalancer_frontend_name = `${url_map_name}--frontend`;
 
@@ -138,9 +138,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     // Step 3: Create the TargetHttpsProxies resource if it doesn't already exist.
     // If it does exist, patch the existing proxy to add the cert for this service.
     subscriber.next('Updating Target Proxy');
-    let https_proxies;
     try {
-      https_proxies = await google.compute('v1').targetHttpsProxies.insert({
+      await google.compute('v1').targetHttpsProxies.insert({
         ...this.requestAuth(),
         requestBody: {
           name: target_proxy_name,
@@ -165,7 +164,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         // Cert isn't included yet, needs to be added to the proxy
         sslCertificates.push(`global/sslCertificates/${ssl_cert_name}`);
       }
-      https_proxies = await google.compute('v1').targetHttpsProxies.patch({
+      await google.compute('v1').targetHttpsProxies.patch({
         ...this.requestAuth(),
         targetHttpsProxy: target_proxy_name,
         requestBody: {
@@ -225,20 +224,26 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     id: string,
     inputs: DeepPartial<ResourceInputs['ingressRule']>,
   ): Promise<ResourceOutputs['ingressRule']> {
-    const res = await this.get(id);
-    if (!res) {
+    const existing_rule = await this.get(id);
+    if (!existing_rule) {
       throw new Error(`No ingressRule with ID: ${id}`);
     }
 
-    // TODO: If the inputs are different, we should actually update it instead of doing nothing.
-    // For now though, do nothing on update and make sure it works.
+    // If the required inputs exist, we can delete and re-create the resources.
+    // If things like subdomain or dnsZone are missing, we're unable to change
+    // anything and should not make any updates.
+    if (
+      inputs.namespace && inputs.subdomain && inputs.dnsZone && inputs.service &&
+      (existing_rule.host !== `${inputs.subdomain}.${inputs.dnsZone}` || !inputs.service.endsWith(existing_rule.id))
+    ) {
+      await this.delete(subscriber, id);
+      return this.create(subscriber, inputs as ResourceInputs['ingressRule']);
+    }
 
-    return res;
+    return existing_rule;
   }
 
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
-    // TODO: Should we delete SSL Certs?
-
     let url_map;
     try {
       const map = await this.getUrlMapForService(id);
@@ -258,7 +263,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       await this.deleteUrlMapRule(url_map, id);
     } else {
       subscriber.next('Deleting LoadBalancer');
-      await this.deleteLB(url_map);
+      await this.deleteLB(url_map, id);
     }
 
     subscriber.next('');
@@ -293,7 +298,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     });
   }
 
-  async deleteLB(url_map: compute_v1.Schema$UrlMap) {
+  async deleteLB(url_map: compute_v1.Schema$UrlMap, service_name: string) {
     if (!url_map.name) {
       return;
     }
@@ -347,6 +352,12 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     await google.compute('v1').urlMaps.delete({
       ...this.requestAuth(),
       urlMap: url_map.name,
+    });
+
+    // Delete the ssl cert
+    await google.compute('v1').sslCertificates.delete({
+      ...this.requestAuth(),
+      sslCertificate: `${service_name}-cert`,
     });
   }
 

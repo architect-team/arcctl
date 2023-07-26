@@ -1,4 +1,4 @@
-import { Auth, google } from 'googleapis';
+import { Auth, compute_v1, google } from 'googleapis';
 import { Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
@@ -39,7 +39,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     const neg_name = inputs.service.substring(inputs.service.lastIndexOf('/') + 1);
     const service_name = neg_name.substring(0, neg_name.length - '--backend'.length);
 
-    const backend_service_name = `global/backendServices/${service_name}--backend`;
+    const backend_service_name = `global/backendServices/${neg_name}`;
     const host_name = `${inputs.subdomain}.${inputs.dnsZone}`;
     const ssl_cert_name = `${inputs.namespace}-${inputs.subdomain}-${service_name}`;
     const target_proxy_name = `${url_map_name}--target-proxy`;
@@ -215,7 +215,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       host: forwarding_rule.data.IPAddress || '',
       port: inputs.port || 80,
       path: inputs.path || '/',
-      url: `https://${inputs.subdomain}.${inputs.dnsZone}/`,
+      url: `https://${inputs.subdomain}.${inputs.dnsZone}`,
       loadBalancerHostname: forwarding_rule.data.IPAddress || '',
     };
   }
@@ -237,48 +237,148 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
   }
 
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
-    const res = await this.get(id);
-    if (!res) {
-      return Promise.resolve();
+    // TODO: Should we delete SSL Certs?
+
+    let url_map;
+    try {
+      const map = await this.getUrlMapForService(id);
+      url_map = map.url_map;
+    } catch (e) {
+      // Resource was already deleted
+      return;
     }
+
+    // In order to delete an ingress rule, there are two possible paths:
+    // 1. If the URLMap contains >= 2 rules:
+    //       Remove the rule for the given ID from the URLMap
+    // 2. If the URLMap contains only 1 rule:
+    //       Delete the URLMap, TargetHTTPSProxy, and GlobalForwardingRules objects (i.e. the entire load balancer)
+    if ((url_map.hostRules || []).length >= 2) {
+      subscriber.next('Deleting URLMap rule');
+      await this.deleteUrlMapRule(url_map, id);
+    } else {
+      subscriber.next('Deleting LoadBalancer');
+      await this.deleteLB(url_map);
+    }
+
+    subscriber.next('');
+  }
+
+  async deleteUrlMapRule(url_map: compute_v1.Schema$UrlMap, service_name: string) {
+    if (!url_map.name) {
+      return;
+    }
+
+    let path_matchers = [...(url_map.pathMatchers || [])];
+    let host_rules = [...(url_map.hostRules || [])];
+
+    for (const path_matcher of url_map.pathMatchers || []) {
+      if (path_matcher.defaultService && path_matcher.defaultService.endsWith(`${service_name}--backend`)) {
+        const path_matcher_name = path_matcher.name;
+        if (path_matcher_name) {
+          // Remove the hostRule/pathMatcher for this service
+          path_matchers = path_matchers.filter((m) => m.name !== path_matcher_name);
+          host_rules = host_rules.filter((h) => h.pathMatcher !== path_matcher_name);
+        }
+      }
+    }
+
+    await google.compute('v1').urlMaps.patch({
+      ...this.requestAuth(),
+      urlMap: url_map.name,
+      requestBody: {
+        hostRules: host_rules,
+        pathMatchers: path_matchers,
+      },
+    });
+  }
+
+  async deleteLB(url_map: compute_v1.Schema$UrlMap) {
+    if (!url_map.name) {
+      return;
+    }
+
+    // Find the TargetHttpsProxy to delete
+    const target_proxies = await google.compute('v1').targetHttpsProxies.list({
+      ...this.requestAuth(),
+    });
+
+    let proxy_to_delete_name;
+    let forwarding_rule_to_delete_name;
+    for (const target_proxy of target_proxies.data.items || []) {
+      if (target_proxy.urlMap?.endsWith(url_map.name)) {
+        proxy_to_delete_name = target_proxy.name;
+
+        const forwarding_rules = await google.compute('v1').globalForwardingRules.list({
+          ...this.requestAuth(),
+        });
+
+        for (const forwarding_rule of forwarding_rules.data.items || []) {
+          if (target_proxy.name && forwarding_rule.target?.endsWith(target_proxy.name)) {
+            forwarding_rule_to_delete_name = forwarding_rule.name;
+            break;
+          }
+        }
+        break;
+      }
+    }
+
+    // Resources need to be deleted in reverse order of creation
+    if (forwarding_rule_to_delete_name) {
+      await google.compute('v1').globalForwardingRules.delete({
+        ...this.requestAuth(),
+        forwardingRule: forwarding_rule_to_delete_name,
+      });
+
+      // Need to wait otherwise attemping to delete the TargetHttpsProxy too early will error
+      await new Promise((f) => setTimeout(f, 20000));
+    }
+
+    if (proxy_to_delete_name) {
+      await google.compute('v1').targetHttpsProxies.delete({
+        ...this.requestAuth(),
+        targetHttpsProxy: proxy_to_delete_name,
+      });
+
+      // Need to wait otherwise attemping to delete the UrlMap too early will error
+      await new Promise((f) => setTimeout(f, 20000));
+    }
+
+    await google.compute('v1').urlMaps.delete({
+      ...this.requestAuth(),
+      urlMap: url_map.name,
+    });
+  }
+
+  /**
+   * Given the CloudRun Function name, return the UrlMap that directs traffic to that service
+   * and it's hostname
+   */
+  async getUrlMapForService(service_name: string) {
+    // The UrlMap's pathMatcher defaultService points to a NetworkEndpointGroup
+    // which is named the same as the service with '--backend' appended.
+    const neg_name = `${service_name}--backend`;
+    const url_maps = await google.compute('v1').urlMaps.list({ ...this.requestAuth() });
+
+    for (const url_map of url_maps.data.items || []) {
+      for (const path_matcher of url_map.pathMatchers || []) {
+        if (path_matcher.defaultService && path_matcher.defaultService.endsWith(neg_name)) {
+          for (const host_rule of url_map.hostRules || []) {
+            if (host_rule.hosts && host_rule.hosts.length > 0 && host_rule.pathMatcher === path_matcher.name) {
+              return { url_map, hostname: host_rule.hosts[0] };
+            }
+          }
+        }
+      }
+    }
+
+    throw Error(`No URLMap exists for service: ${service_name}`);
   }
 
   async get(
     id: string,
   ): Promise<ResourceOutputs['ingressRule'] | undefined> {
-    const service_name = id;
-    const neg_name = `${service_name}--backend`;
-
-    const url_maps = await google.compute('v1').urlMaps.list({ ...this.requestAuth() });
-
-    let target_url_map;
-    let url;
-    for (const url_map of url_maps.data.items || []) {
-      let path_matcher_name;
-      for (const path_matcher of url_map.pathMatchers || []) {
-        if (path_matcher.defaultService && path_matcher.defaultService.endsWith(neg_name)) {
-          target_url_map = url_map;
-          path_matcher_name = path_matcher.name || '';
-          break;
-        }
-      }
-
-      if (path_matcher_name) {
-        for (const host_rule of url_map.hostRules || []) {
-          if (host_rule.hosts && host_rule.hosts.length > 0 && host_rule.pathMatcher === path_matcher_name) {
-            url = host_rule.hosts[0];
-          }
-        }
-      }
-
-      if (target_url_map && url) {
-        break;
-      }
-    }
-
-    if (!target_url_map || !target_url_map.name) {
-      throw Error(`Unable to find a URLMap containing the service: ${id}`);
-    }
+    const { url_map: target_url_map, hostname } = await this.getUrlMapForService(id);
 
     const target_proxies = await google.compute('v1').targetHttpsProxies.list({
       ...this.requestAuth(),
@@ -286,7 +386,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
     let rule;
     for (const target_proxy of target_proxies.data.items || []) {
-      if (target_proxy.urlMap?.endsWith(target_url_map.name)) {
+      if (target_url_map.name && target_proxy.urlMap?.endsWith(target_url_map.name)) {
         const forwarding_rules = await google.compute('v1').globalForwardingRules.list({
           ...this.requestAuth(),
         });
@@ -305,10 +405,10 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     return {
       id: id,
       loadBalancerHostname: rule?.IPAddress || '',
-      host: rule?.IPAddress || '',
+      host: hostname || '',
       port: rule?.portRange || 80,
       path: '/',
-      url: `https://${url}` || '',
+      url: `https://${hostname}`,
     };
   }
 
@@ -349,14 +449,15 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
             if (host_rule.hosts && host_rule.hosts.length > 0 && host_rule.pathMatcher) {
               const neg_name = path_services[host_rule.pathMatcher];
               const service_name = neg_name.substring(0, neg_name.length - '--backend'.length);
+              const hostname = host_rule.hosts[0];
 
               ingress_rules.push({
                 id: service_name || '',
                 loadBalancerHostname: rule.IPAddress || '',
-                host: rule.IPAddress || '',
+                host: hostname,
                 port: rule.portRange || 80,
                 path: '/',
-                url: `https://${host_rule.hosts[0]}`,
+                url: `https://${hostname}`,
               });
             }
           }

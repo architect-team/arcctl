@@ -32,7 +32,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['ingressRule'],
   ): Promise<ResourceOutputs['ingressRule']> {
-    const url_map_name = `${inputs.namespace}-lb`;
+    const url_map_name = `${inputs.namespace}--lb`;
 
     // The input service name is the NetworkEndpointGroup and looks like:
     // `projects/{proj_name}/global/backendServices/{service_name}--backend`

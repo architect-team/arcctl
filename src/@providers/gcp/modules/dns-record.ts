@@ -32,9 +32,10 @@ export class GoogleCloudDnsRecordModule extends ResourceModule<'dnsRecord', Goog
         rrdatas: [],
       });
     } else { // creating
+      const dns_zone_name = this.inputs.dnsZone.replace('.', '-');
       const dns_zone = new DataGoogleDnsManagedZone(this, 'dns-zone', {
         dependsOn: depends_on,
-        name: this.inputs.dnsZone,
+        name: dns_zone_name,
       });
       const name = this.inputs.subdomain.endsWith('.') ? this.inputs.subdomain : `${this.inputs.subdomain}.`;
       this.dns_record = new DnsRecordSet(this, 'dns-record', {

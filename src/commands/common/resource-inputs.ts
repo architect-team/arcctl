@@ -167,24 +167,28 @@ export class ResourceInputUtils {
     if (options.length === 1) {
       answer = options[0].id;
     } else if (options.length > 1) {
-      answer = await Select.prompt({
-        message: property.schema.description || property.name,
-        options: [
-          ...options.map((row) => ({
-            name: row.id,
-            value: row.id,
-          })),
-          ...('apply' in service
-            ? [
-              Select.separator(),
-              {
-                value: 'create-new',
-                name: `Create a new ${property.name}`,
-              },
-            ]
-            : []),
-        ],
-      });
+      if (data[property.name]) {
+        answer = options.find((row) => row.id === data[property.name])?.id;
+      } else {
+        answer = await Select.prompt({
+          message: property.schema.description || property.name,
+          options: [
+            ...options.map((row) => ({
+              name: row.id,
+              value: row.id,
+            })),
+            ...('apply' in service
+              ? [
+                Select.separator(),
+                {
+                  value: 'create-new',
+                  name: `Create a new ${property.name}`,
+                },
+              ]
+              : []),
+          ],
+        });
+      }
     }
 
     if (answer === 'create-new') {
@@ -194,6 +198,8 @@ export class ResourceInputUtils {
       return `\${{ ${node.id}.id }}`;
     } else if (answer === 'none') {
       return undefined;
+    } else if (answer === undefined && data[property.name]) {
+      throw Error(`Invalid value for ${property.name}: ${data[property.name]}`);
     } else {
       return answer;
     }

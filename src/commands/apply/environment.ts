@@ -23,7 +23,7 @@ const ApplyEnvironmentCommand = BaseCommand()
   )
   .action(apply_environment_action);
 
-export async function apply_environment_action(options: ApplyEnvironmentOptions, name: string, config_path?: string) {
+export async function apply_environment_action(options: ApplyEnvironmentOptions, name: string, config_path?: string): Promise<boolean> {
   const command_helper = new CommandHelper(options);
 
   const environmentRecord = await command_helper.environmentStore.get(name);
@@ -110,6 +110,8 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   } else {
     console.log(`Environment ${name} ${environmentRecord ? 'updated' : 'created'} successfully`);
   }
+
+  return success;
 }
 
 async function promptForDatacenter(command_helper: CommandHelper, name?: string): Promise<DatacenterRecord> {

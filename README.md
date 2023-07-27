@@ -21,13 +21,13 @@
 <p align="center">
   <a href="#what-is-architect">What is Architect?</a> •
   <a href="#install">Install</a> •
-  <a href="#for-developers">For Developers</a> •
-  <a href="#for-devops">For DevOps</a>
+  <a href="#for-developers">Getting started: Developers</a> •
+  <a href="#for-devops">Getting started: DevOps</a>
 </p>
 
 ## What is Architect?
 
-Architect is a next-generation toolset to help teams building cloud applications automate CI/CD for their entire organization. It takes the best of infrastructure-as-Code (IaC), like declarative configuration, execution plans, resource graphs, and change automation, and splits it into a pair of sibling frameworks: the [Component framework](./src/components) to allow developers to design, develop, and integrate cloud-native applications, and the [Datacenter framework](./src/datacenters/) to allow DevOps/Platform Engineers to control how applications should behave in their cloud.
+Architect is a next-gen toolset that helps teams automate CI/CD for their entire organization. It takes the best of infrastructure-as-Code (IaC), like declarative configuration, execution plans, resource graphs, and change automation, and splits it into a pair of sibling frameworks: the [Component framework](./src/components) to allow developers to design, develop, and integrate cloud-native applications, and the [Datacenter framework](./src/datacenters/) to allow DevOps/Platform Engineers to control how applications should behave in their cloud.
 
 ## Install
 
@@ -47,7 +47,7 @@ $ curl -sSL https://arcctl-backend.nyc3.digitaloceanspaces.com/arcctl --output a
 
 For developers, infrastructure and CI/CD is a nuisance. Once it "works on my machine", cloud applications should be able to run anywhere. Docker and containers have made that true for application runtimes, but developers still spend too much time writing CI workflows and IaC templates. That's why we created the [component framework](./src/components/).
 
-Components are 100% portable, cloud-agnostic application bundles that can be run anywhere and always deploy everything they need to run. Creating a component doesn't require developers to learn any infrastructure, and instead focuses on the details they already know about their applications: What database(s) does it need? What APIs does it connect to? What events does it subscribe to, and more. By cataloging the application's _dependencies_, Architect is able to guarantee the existance of those dependencies every time the component is deployed. If they can't be found, Architect will deploy those too!
+Components are application bundles that can be run anywhere and always deploy everything they need to run. Creating a component doesn't require developers to learn any cloud infrastructure, and instead focuses on the details they already know about their applications: What database(s) does it need? What APIs does it connect to? What APIs does it expose, and more. By cataloging the application's _dependencies_, Architect is able to guarantee the existance of those dependencies every time the component is deployed. If they can't be found, Architect will deploy those too!
 
 ### Key features
 
@@ -79,7 +79,7 @@ Datacenters are designed to be a home for many environments, now and in the futu
 
 #### 2. Create an environment
 
-Once you've created a datacenter, you'll need to create an [environment](./src/environments) that you can deploy into. Environments are basically namespaces that can allow datacenters to power more than one environment (populate for non-production use cases). Go ahead and create one on the datacenter you just created:
+Once you've created a datacenter, you'll need to create an [environment](./src/environments) that you can deploy into. Environments are basically namespaces that can allow datacenters to power more than one environment (popular for non-production use cases). Go ahead and create one on the datacenter you just created:
 
 ```sh
 $ arcctl create environment my-env --datacenter local

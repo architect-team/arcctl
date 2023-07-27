@@ -43,7 +43,7 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
     } else {
       allDatacenters.push(input);
     }
-    this.saveAll(allDatacenters);
+    await this.saveAll(allDatacenters);
   }
 
   public async remove(name: string): Promise<void> {

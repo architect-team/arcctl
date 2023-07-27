@@ -236,7 +236,13 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       inputs.namespace && inputs.subdomain && inputs.dnsZone && inputs.service &&
       (existing_rule.host !== `${inputs.subdomain}.${inputs.dnsZone}` || !inputs.service.endsWith(existing_rule.id))
     ) {
+      subscriber.next('Updating ingressRule');
       await this.delete(subscriber, id);
+
+      // Wait after potentially deleting the URLMap before it gets recreated.
+      // Otherwise, the old map will be returned from the GET request and will attempt to PATCH it.
+      await new Promise((f) => setTimeout(f, 10000));
+
       return this.create(subscriber, inputs as ResourceInputs['ingressRule']);
     }
 

@@ -12,7 +12,6 @@ export enum PlanContextLevel {
   None = 0,
   Datacenter = 1,
   Environment = 2,
-  Component = 3,
 }
 
 export type PlanOptions = {
@@ -27,9 +26,6 @@ export type PipelineOptions = {
 };
 
 const getContextLevel = (step: PipelineStep): PlanContextLevel => {
-  if (step.component) {
-    return PlanContextLevel.Component;
-  }
   if (step.environment) {
     return PlanContextLevel.Environment;
   }
@@ -54,7 +50,7 @@ const setNoopSteps = async (
       const allDependencies = nextPipeline.getDependencies(step.id);
       const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
 
-      const isNoop = !contextFilter ? false : getContextLevel(step) < contextFilter;
+      const isNoop = !contextFilter ? false : getContextLevel(step) <= contextFilter;
 
       if (!isNoop && allDependencies.length !== completeDependencies.length) {
         continue;
@@ -287,6 +283,7 @@ export class Pipeline {
       edges: [...options.after.edges],
     });
 
+    // Insert hashes and generate map of IDs to replace with color-coded IDs
     const replacements: Record<string, string> = {};
     for (const newNode of options.after.nodes) {
       const previousStep = options.before.steps.find((n) => {

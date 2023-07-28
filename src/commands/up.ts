@@ -1,9 +1,11 @@
 import cliSpinners from 'cli-spinners';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
+import { animals, uniqueNamesGenerator } from 'unique-names-generator';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../cloud-graph/index.ts';
-import { parseEnvironment } from '../environments/index.ts';
+import { DatacenterRecord } from '../datacenters/store.ts';
+import { Environment, parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { Pipeline, PlanContextLevel } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
@@ -11,18 +13,22 @@ import { destroyEnvironment } from './destroy/environment.ts';
 import { streamLogs } from './logs.ts';
 
 type UpOptions = GlobalOptions & {
-  datacenter: string;
-  environment: string;
   verbose: boolean;
   debug: boolean;
   ingress?: string[];
-};
+} & ({ environment: string } | { datacenter: string });
 
 const UpCommand = BaseCommand()
   .description('Spin up an environment that will clean itself up when you terminate the process')
   .arguments('[...components:string]')
-  .option('-d, --datacenter <datacenter:string>', 'The datacenter to use for the environment', { required: true })
-  .option('-e, --environment <environment:string>', 'The name of your tmp environment', { default: 'local' })
+  .option('-d, --datacenter <datacenter:string>', 'The datacenter to use for the environment', {
+    required: true,
+    conflicts: ['environment'],
+  })
+  .option('-e, --environment <environment:string>', 'The name of your tmp environment', {
+    default: 'local',
+    conflicts: ['datacenter'],
+  })
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
     collect: true,
   })
@@ -32,20 +38,36 @@ const UpCommand = BaseCommand()
 
 async function up_action(options: UpOptions, ...components: string[]): Promise<void> {
   const command_helper = new CommandHelper(options);
-  const datacenterRecord = await command_helper.datacenterStore.get(options.datacenter);
-  if (!datacenterRecord) {
-    console.error('Datacenter not found');
-    Deno.exit(1);
-  }
 
-  const existingEnv = await command_helper.environmentStore.get(options.environment);
-  if (existingEnv) {
-    console.error(`Environment already exists with the name ${options.environment}`);
-    Deno.exit(1);
-  }
+  let environment: Environment;
+  let datacenterRecord: DatacenterRecord;
+  let sourcePipeline: Pipeline | undefined;
 
-  const lastPipeline = datacenterRecord.lastPipeline;
-  const environment = await parseEnvironment({});
+  if ('environment' in options) {
+    const environmentRecord = await command_helper.environmentStore.get(options.environment);
+    if (!environmentRecord) {
+      throw new Error(`Environment ${options.environment} not found`);
+    }
+
+    const dcRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
+    if (!dcRecord) {
+      throw new Error(
+        `The ${environmentRecord.name} environment is associated with the ${environmentRecord.datacenter} datacenter, but the datacenter was not found.`,
+      );
+    }
+    datacenterRecord = dcRecord;
+    environment = environmentRecord.config || await parseEnvironment({});
+    sourcePipeline = environmentRecord.lastPipeline;
+  } else {
+    const dcRecord = await command_helper.datacenterStore.get(options.datacenter);
+    if (!dcRecord) {
+      throw new Error(`Datacenter ${options.datacenter} not found`);
+    }
+
+    datacenterRecord = dcRecord;
+    environment = await parseEnvironment({});
+    sourcePipeline = datacenterRecord.lastPipeline;
+  }
 
   for (let tag_or_path of components) {
     let componentPath: string | undefined;
@@ -70,15 +92,23 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     });
   }
 
-  let targetGraph = await environment.getGraph(options.environment, command_helper.componentStore, options.debug);
+  const envName = 'environment' in options ? options.environment : uniqueNamesGenerator({
+    dictionaries: [animals],
+    length: 1,
+    separator: '-',
+    style: 'lowerCase',
+    seed: Deno.cwd(),
+  });
+
+  let targetGraph = await environment.getGraph(envName, command_helper.componentStore, options.debug);
   targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, {
-    environmentName: options.environment,
+    environmentName: envName,
     datacenterName: datacenterRecord.name,
   });
   targetGraph.validate();
 
   const pipeline = await Pipeline.plan({
-    before: lastPipeline,
+    before: sourcePipeline,
     after: targetGraph,
     contextFilter: PlanContextLevel.Environment,
   }, command_helper.providerStore);
@@ -102,7 +132,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   }
 
   const success = await command_helper.environmentUtils.applyEnvironment(
-    options.environment,
+    envName,
     datacenterRecord,
     environment,
     pipeline,
@@ -120,11 +150,11 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
   if (success) {
     Deno.addSignalListener('SIGINT', async () => {
-      await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, options.environment);
+      await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
       Deno.exit();
     });
 
-    await streamLogs({ follow: true }, options.environment);
+    await streamLogs({ follow: true }, envName);
   } else {
     const emptyEnvironment = await parseEnvironment({});
     const targetGraph = await datacenterRecord.config.enrichGraph(
@@ -148,7 +178,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     }
 
     const revertSuccessful = await command_helper.environmentUtils.applyEnvironment(
-      options.environment,
+      envName,
       datacenterRecord,
       emptyEnvironment,
       revertedPipeline,
@@ -159,14 +189,14 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
     if (revertSuccessful) {
       await command_helper.environmentUtils.removeEnvironment(
-        options.environment,
+        envName,
         datacenterRecord.name,
         datacenterRecord.config,
       );
     } else {
       await command_helper.environmentUtils.saveEnvironment(
         datacenterRecord.name,
-        options.environment,
+        envName,
         emptyEnvironment,
         revertedPipeline,
       );

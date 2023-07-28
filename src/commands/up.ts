@@ -16,7 +16,7 @@ type UpOptions = GlobalOptions & {
   verbose: boolean;
   debug: boolean;
   ingress?: string[];
-} & ({ environment: string } | { datacenter: string });
+} & ({ environment: string; datacenter?: never } | { datacenter: string; environment?: never });
 
 const UpCommand = BaseCommand()
   .description('Spin up an environment that will clean itself up when you terminate the process')
@@ -26,7 +26,7 @@ const UpCommand = BaseCommand()
     conflicts: ['environment'],
   })
   .option('-e, --environment <environment:string>', 'The name of your tmp environment', {
-    default: 'local',
+    required: true,
     conflicts: ['datacenter'],
   })
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
@@ -34,7 +34,7 @@ const UpCommand = BaseCommand()
   })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--debug [debug:boolean]', 'Deploy component in debug mode', { default: true })
-  .action(up_action);
+  .action(up_action as any);
 
 async function up_action(options: UpOptions, ...components: string[]): Promise<void> {
   const command_helper = new CommandHelper(options);
@@ -43,7 +43,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   let datacenterRecord: DatacenterRecord;
   let sourcePipeline: Pipeline | undefined;
 
-  if ('environment' in options) {
+  if (options.environment) {
     const environmentRecord = await command_helper.environmentStore.get(options.environment);
     if (!environmentRecord) {
       throw new Error(`Environment ${options.environment} not found`);
@@ -58,7 +58,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     datacenterRecord = dcRecord;
     environment = environmentRecord.config || await parseEnvironment({});
     sourcePipeline = environmentRecord.lastPipeline;
-  } else {
+  } else if (options.datacenter) {
     const dcRecord = await command_helper.datacenterStore.get(options.datacenter);
     if (!dcRecord) {
       throw new Error(`Datacenter ${options.datacenter} not found`);
@@ -67,6 +67,8 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     datacenterRecord = dcRecord;
     environment = await parseEnvironment({});
     sourcePipeline = datacenterRecord.lastPipeline;
+  } else {
+    throw new Error('Either a datacenter or environment must be specified');
   }
 
   for (let tag_or_path of components) {
@@ -92,7 +94,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     });
   }
 
-  const envName = 'environment' in options ? options.environment : uniqueNamesGenerator({
+  const envName = options.environment || uniqueNamesGenerator({
     dictionaries: [animals],
     length: 1,
     separator: '-',

@@ -6,18 +6,17 @@ import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
 
-export const PIPELINE_NO_OP = 'no-op';
-
-export enum PlanContextLevel {
-  None = 0,
+export enum PlanContext {
   Datacenter = 1,
   Environment = 2,
+  Component = 3,
 }
 
 export type PlanOptions = {
   before: Pipeline;
   after: CloudGraph;
-  contextFilter?: PlanContextLevel;
+  context?: PlanContext;
+  refresh?: boolean;
 };
 
 export type PipelineOptions = {
@@ -25,18 +24,12 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
-const getContextLevel = (step: PipelineStep): PlanContextLevel => {
-  if (step.environment) {
-    return PlanContextLevel.Environment;
-  }
-  return PlanContextLevel.Datacenter;
-};
-
 const setNoopSteps = async (
   providerStore: ProviderStore,
   previousPipeline: Pipeline,
   nextPipeline: Pipeline,
-  contextFilter?: PlanContextLevel,
+  context?: PlanContext,
+  refresh?: boolean,
 ): Promise<Pipeline> => {
   let done = false;
 
@@ -49,22 +42,25 @@ const setNoopSteps = async (
 
       const allDependencies = nextPipeline.getDependencies(step.id);
       const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
+      const allDependenciesCompleted = allDependencies.length === completeDependencies.length;
+      const doesMatchContext = !context ||
+        (context === PlanContext.Component && Boolean(step.component)) ||
+        (context === PlanContext.Environment && Boolean(step.environment)) ||
+        (context === PlanContext.Datacenter && !step.environment && !step.component);
 
-      const isNoop = !contextFilter ? false : getContextLevel(step) <= contextFilter;
-
-      if (!isNoop && allDependencies.length !== completeDependencies.length) {
+      // Definitely cant no-op if there are incomplete dependencies
+      if (!allDependenciesCompleted && doesMatchContext) {
         continue;
       }
 
       try {
         step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
-
-        if (
-          isNoop ||
-          (await step.getHash(providerStore) === previousStep?.hash &&
-            previousStep.status.state === 'complete')
-        ) {
-          step.action = PIPELINE_NO_OP;
+        const newHash = await step.getHash(providerStore);
+        const previousHash = await previousStep?.getHash(providerStore);
+        const doesHashMatch = newHash === previousHash;
+        const wasPreviouslyCompleted = previousStep?.status.state === 'complete';
+        if (!doesMatchContext || (!refresh && doesHashMatch && wasPreviouslyCompleted)) {
+          step.action = 'no-op';
           step.status.state = 'complete';
           step.state = previousStep?.state;
           step.outputs = previousStep?.outputs;
@@ -263,7 +259,7 @@ export class Pipeline {
     return this.steps.filter(
       (step) =>
         step.id !== step_id &&
-        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
+        this.edges.some((edge) => edge.from === step_id && edge.to === step.id && edge.required),
     );
   }
 
@@ -271,7 +267,7 @@ export class Pipeline {
     return this.steps.filter(
       (step) =>
         step.id !== step_id &&
-        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
+        this.edges.some((edge) => edge.to === step_id && edge.from === step.id && edge.required),
     );
   }
 
@@ -381,7 +377,8 @@ export class Pipeline {
       providerStore,
       options.before,
       pipeline,
-      options.contextFilter,
+      options.context,
+      options.refresh,
     );
   }
 

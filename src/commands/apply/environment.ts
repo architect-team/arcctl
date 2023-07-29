@@ -3,7 +3,7 @@ import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
-import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
+import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { Inputs } from '../common/inputs.ts';
 
@@ -21,9 +21,9 @@ const ApplyEnvironmentCommand = BaseCommand()
   .arguments(
     '<name:string> [config_path:string]',
   )
-  .action(apply_environment_action);
+  .action(applyEnvironmentAction);
 
-export async function apply_environment_action(options: ApplyEnvironmentOptions, name: string, config_path?: string) {
+export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, name: string, config_path?: string) {
   const command_helper = new CommandHelper(options);
 
   const environmentRecord = await command_helper.environmentStore.get(name);
@@ -66,7 +66,7 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
   const pipeline = await Pipeline.plan({
     before: startingPipeline,
     after: targetGraph,
-    contextFilter: PlanContextLevel.Environment,
+    context: PlanContext.Environment,
   }, command_helper.providerStore);
 
   pipeline.validate();

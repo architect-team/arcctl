@@ -5,9 +5,10 @@ import { animals, uniqueNamesGenerator } from 'unique-names-generator';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../cloud-graph/index.ts';
 import { DatacenterRecord } from '../datacenters/store.ts';
-import { Environment, parseEnvironment } from '../environments/index.ts';
+import { Environment, EnvironmentRecord, parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { Pipeline, PlanContextLevel } from '../pipeline/index.ts';
+import { Pipeline, PlanContext } from '../pipeline/index.ts';
+import { applyEnvironmentAction } from './apply/environment.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { destroyEnvironment } from './destroy/environment.ts';
 import { streamLogs } from './logs.ts';
@@ -39,12 +40,22 @@ const UpCommand = BaseCommand()
 async function up_action(options: UpOptions, ...components: string[]): Promise<void> {
   const command_helper = new CommandHelper(options);
 
+  const envName = options.environment || uniqueNamesGenerator({
+    dictionaries: [animals],
+    length: 1,
+    separator: '-',
+    style: 'lowerCase',
+    seed: Deno.cwd(),
+  });
+
   let environment: Environment;
+  let environmentRecord: EnvironmentRecord | undefined;
   let datacenterRecord: DatacenterRecord;
-  let sourcePipeline: Pipeline | undefined;
+  let sourcePipeline: Pipeline;
+  let sourceGraph: CloudGraph;
 
   if (options.environment) {
-    const environmentRecord = await command_helper.environmentStore.get(options.environment);
+    environmentRecord = await command_helper.environmentStore.get(options.environment);
     if (!environmentRecord) {
       throw new Error(`Environment ${options.environment} not found`);
     }
@@ -58,6 +69,11 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     datacenterRecord = dcRecord;
     environment = environmentRecord.config || await parseEnvironment({});
     sourcePipeline = environmentRecord.lastPipeline;
+    sourceGraph = await environment.getGraph(environmentRecord.name, command_helper.componentStore);
+    sourceGraph = await datacenterRecord.config.enrichGraph(sourceGraph, {
+      datacenterName: datacenterRecord.name,
+      environmentName: environmentRecord.name,
+    });
   } else if (options.datacenter) {
     const dcRecord = await command_helper.datacenterStore.get(options.datacenter);
     if (!dcRecord) {
@@ -67,6 +83,11 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     datacenterRecord = dcRecord;
     environment = await parseEnvironment({});
     sourcePipeline = datacenterRecord.lastPipeline;
+    sourceGraph = new CloudGraph();
+    sourceGraph = await datacenterRecord.config.enrichGraph(sourceGraph, {
+      datacenterName: datacenterRecord.name,
+      environmentName: envName,
+    });
   } else {
     throw new Error('Either a datacenter or environment must be specified');
   }
@@ -94,14 +115,6 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     });
   }
 
-  const envName = options.environment || uniqueNamesGenerator({
-    dictionaries: [animals],
-    length: 1,
-    separator: '-',
-    style: 'lowerCase',
-    seed: Deno.cwd(),
-  });
-
   let targetGraph = await environment.getGraph(envName, command_helper.componentStore, options.debug);
   targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, {
     environmentName: envName,
@@ -112,7 +125,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   const pipeline = await Pipeline.plan({
     before: sourcePipeline,
     after: targetGraph,
-    contextFilter: PlanContextLevel.Environment,
+    context: PlanContext.Environment,
   }, command_helper.providerStore);
   pipeline.validate();
 
@@ -152,64 +165,36 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
   if (success) {
     Deno.addSignalListener('SIGINT', async () => {
-      await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
+      if (environmentRecord) {
+        let tmpFile: string | undefined;
+        if (environmentRecord.config) {
+          tmpFile = Deno.makeTempFileSync();
+          Deno.writeTextFileSync(tmpFile, JSON.stringify(environmentRecord.config));
+        }
+
+        await applyEnvironmentAction({ verbose: options.verbose, autoApprove: true }, environmentRecord.name, tmpFile);
+      } else {
+        await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
+      }
+
       Deno.exit();
     });
 
     await streamLogs({ follow: true }, envName);
   } else {
-    const emptyEnvironment = await parseEnvironment({});
-    const targetGraph = await datacenterRecord.config.enrichGraph(
-      new CloudGraph(),
-      {
-        datacenterName: datacenterRecord.name,
-      },
-    );
-    const revertedPipeline = await Pipeline.plan({
-      before: pipeline,
-      after: targetGraph,
-      contextFilter: PlanContextLevel.Environment,
-    }, command_helper.providerStore);
+    if (environmentRecord) {
+      let tmpFile: string | undefined;
+      if (environmentRecord.config) {
+        tmpFile = Deno.makeTempFileSync();
+        Deno.writeTextFileSync(tmpFile, JSON.stringify(environmentRecord.config));
+      }
 
-    revertedPipeline.validate();
-
-    if (!options.verbose) {
-      interval = setInterval(() => {
-        command_helper.pipelineRenderer.renderPipeline(revertedPipeline, { clear: true });
-      }, 1000 / cliSpinners.dots.frames.length);
-    }
-
-    const revertSuccessful = await command_helper.environmentUtils.applyEnvironment(
-      envName,
-      datacenterRecord,
-      emptyEnvironment,
-      revertedPipeline,
-      {
-        logger,
-      },
-    );
-
-    if (revertSuccessful) {
-      await command_helper.environmentUtils.removeEnvironment(
-        envName,
-        datacenterRecord.name,
-        datacenterRecord.config,
-      );
+      await applyEnvironmentAction({ verbose: options.verbose, autoApprove: true }, environmentRecord.name, tmpFile);
     } else {
-      await command_helper.environmentUtils.saveEnvironment(
-        datacenterRecord.name,
-        envName,
-        emptyEnvironment,
-        revertedPipeline,
-      );
+      await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
     }
 
-    if (interval) {
-      clearInterval(interval);
-    }
-
-    command_helper.pipelineRenderer.renderPipeline(revertedPipeline, { clear: !options.verbose, disableSpinner: true });
-    command_helper.pipelineRenderer.doneRenderingPipeline();
+    Deno.exit(1);
   }
 }
 

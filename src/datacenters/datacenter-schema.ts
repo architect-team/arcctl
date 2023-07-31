@@ -7064,24 +7064,6 @@ export default {
           'description': 'Create resources that live and die with the lifecycle of the datacenter',
           'type': 'object',
         },
-        'secrets': {
-          'additionalProperties': false,
-          'description': 'Configure how secrets should be stored.',
-          'properties': {
-            'account': {
-              'description': 'Which account secrets should be stored in',
-              'type': 'string',
-            },
-            'namespace': {
-              'description': 'What additional namespacing to use for secrets hosted by the datacenter',
-              'type': 'string',
-            },
-          },
-          'required': [
-            'account',
-          ],
-          'type': 'object',
-        },
         'variables': {
           'additionalProperties': {
             'additionalProperties': false,
@@ -7222,7 +7204,6 @@ export default {
         },
       },
       'required': [
-        'secrets',
         'version',
       ],
       'type': 'object',

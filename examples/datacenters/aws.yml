@@ -1,6 +1,3 @@
-secrets:
-  account: local
-
 resources:
   vpc:
     type: vpc

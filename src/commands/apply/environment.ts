@@ -51,12 +51,14 @@ export async function apply_environment_action(options: ApplyEnvironmentOptions,
 
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {
     environmentName: name,
+    datacenterName: targetDatacenter.name,
   });
   targetGraph.validate();
 
   const startingDatacenter = (await command_helper.datacenterStore.get(targetDatacenterName!))!;
   startingDatacenter.config.enrichGraph(targetGraph, {
     environmentName: name,
+    datacenterName: targetDatacenter.name,
   });
 
   const startingPipeline = environmentRecord ? environmentRecord.lastPipeline : targetDatacenter.lastPipeline;

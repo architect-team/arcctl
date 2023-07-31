@@ -33,10 +33,7 @@ const setNoopSteps = async (
 ): Promise<Pipeline> => {
   let done = false;
 
-  let loop = 0;
   do {
-    console.log('-- Loop:', loop, '--');
-    loop++;
     done = true;
     for (
       let step of nextPipeline.steps.filter((step) => step.action === 'update')

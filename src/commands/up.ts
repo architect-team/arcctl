@@ -40,12 +40,22 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     throw new Error(`Must specify either an environment to update or datacenter to create one on`);
   }
 
+  const resolvedComponents = components.map((c) => {
+    try {
+      const stats = Deno.statSync(c);
+      const res = path.isAbsolute(c) ? c : path.join(Deno.cwd(), c);
+      return (stats.isFile ? path.dirname(res) : res).replace(/\/$/, '');
+    } catch {
+      return c;
+    }
+  });
+
   const envName = options.environment || uniqueNamesGenerator({
     dictionaries: [animals],
     length: 1,
     separator: '-',
     style: 'lowerCase',
-    seed: Deno.cwd(),
+    seed: resolvedComponents.sort().join(','),
   });
 
   let environment: Environment;
@@ -100,10 +110,10 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
   const originalEnvironment = await parseEnvironment({ ...environment });
 
-  for (let tag_or_path of components) {
+  for (let tag_or_path of resolvedComponents) {
     let componentPath: string | undefined;
     if (existsSync(tag_or_path)) {
-      componentPath = path.join(Deno.cwd(), tag_or_path);
+      componentPath = path.isAbsolute(tag_or_path) ? tag_or_path : path.join(Deno.cwd(), tag_or_path);
       tag_or_path = await command_helper.componentStore.add(tag_or_path);
     }
 

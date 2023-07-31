@@ -1,5 +1,5 @@
 import winston, { Logger } from 'winston';
-import { parseEnvironment } from '../../environments/index.ts';
+import { parseEnvironment } from '../../environments/parser.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { applyEnvironment } from './utils.ts';
 

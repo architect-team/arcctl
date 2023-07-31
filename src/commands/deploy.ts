@@ -92,7 +92,6 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         context: PlanContext.Component,
         refresh: options.refresh,
       }, command_helper.providerStore);
-
       pipeline.validate();
       await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 

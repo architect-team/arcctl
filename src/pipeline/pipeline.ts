@@ -33,7 +33,10 @@ const setNoopSteps = async (
 ): Promise<Pipeline> => {
   let done = false;
 
+  let loop = 0;
   do {
+    console.log('-- Loop:', loop, '--');
+    loop++;
     done = true;
     for (
       let step of nextPipeline.steps.filter((step) => step.action === 'update')
@@ -59,6 +62,11 @@ const setNoopSteps = async (
         const previousHash = await previousStep?.getHash(providerStore);
         const doesHashMatch = newHash === previousHash;
         const wasPreviouslyCompleted = previousStep?.status.state === 'complete';
+        if (step.id === 'architectio/kratos/ingressRule/kratos-public-blue') {
+          console.log(step.inputs);
+          console.log(previousStep?.inputs);
+        }
+
         if (!doesMatchContext || (!refresh && doesHashMatch && wasPreviouslyCompleted)) {
           step.action = 'no-op';
           step.status.state = 'complete';

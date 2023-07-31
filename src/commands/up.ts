@@ -8,7 +8,7 @@ import { DatacenterRecord } from '../datacenters/store.ts';
 import { Environment, EnvironmentRecord, parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { Pipeline, PlanContext } from '../pipeline/index.ts';
-import { applyEnvironmentAction } from './apply/environment.ts';
+import { applyEnvironment } from './apply/utils.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { destroyEnvironment } from './destroy/environment.ts';
 import { streamLogs } from './logs.ts';
@@ -17,19 +17,15 @@ type UpOptions = GlobalOptions & {
   verbose: boolean;
   debug: boolean;
   ingress?: string[];
-} & ({ environment: string; datacenter?: never } | { datacenter: string; environment?: never });
+  environment?: string;
+  datacenter?: string;
+};
 
 const UpCommand = BaseCommand()
   .description('Spin up an environment that will clean itself up when you terminate the process')
   .arguments('[...components:string]')
-  .option('-d, --datacenter <datacenter:string>', 'The datacenter to use for the environment', {
-    required: true,
-    conflicts: ['environment'],
-  })
-  .option('-e, --environment <environment:string>', 'The name of your tmp environment', {
-    required: true,
-    conflicts: ['datacenter'],
-  })
+  .option('-d, --datacenter <datacenter:string>', 'The datacenter to use for the environment')
+  .option('-e, --environment <environment:string>', 'The name of your tmp environment')
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
     collect: true,
   })
@@ -39,6 +35,10 @@ const UpCommand = BaseCommand()
 
 async function up_action(options: UpOptions, ...components: string[]): Promise<void> {
   const command_helper = new CommandHelper(options);
+
+  if (!options.environment && !options.datacenter) {
+    throw new Error(`Must specify either an environment to update or datacenter to create one on`);
+  }
 
   const envName = options.environment || uniqueNamesGenerator({
     dictionaries: [animals],
@@ -56,16 +56,22 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
   if (options.environment) {
     environmentRecord = await command_helper.environmentStore.get(options.environment);
-    if (!environmentRecord) {
+    if (!environmentRecord && !options.datacenter) {
       throw new Error(`Environment ${options.environment} not found`);
     }
 
-    const dcRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
-    if (!dcRecord) {
+    const dcRecord = await command_helper.datacenterStore.get((environmentRecord?.datacenter || options.datacenter)!);
+    if (!dcRecord && options.datacenter) {
+      throw new Error(`No datacenter found named ${options.datacenter}`);
+    } else if (!dcRecord) {
       throw new Error(
-        `The ${environmentRecord.name} environment is associated with the ${environmentRecord.datacenter} datacenter, but the datacenter was not found.`,
+        `The ${options.environment} environment is associated with an invalid datacenter: ${environmentRecord?.datacenter}`,
       );
+    } else if (!environmentRecord) {
+      // This should never be hit, but typescript can't infer the types from the conditionals above correctly.
+      throw new Error(`Environment ${options.environment} not found`);
     }
+
     datacenterRecord = dcRecord;
     environment = environmentRecord.config || await parseEnvironment({});
     sourcePipeline = environmentRecord.lastPipeline;
@@ -91,6 +97,8 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   } else {
     throw new Error('Either a datacenter or environment must be specified');
   }
+
+  const originalEnvironment = await parseEnvironment({ ...environment });
 
   for (let tag_or_path of components) {
     let componentPath: string | undefined;
@@ -166,13 +174,13 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   if (success) {
     Deno.addSignalListener('SIGINT', async () => {
       if (environmentRecord) {
-        let tmpFile: string | undefined;
-        if (environmentRecord.config) {
-          tmpFile = Deno.makeTempFileSync();
-          Deno.writeTextFileSync(tmpFile, JSON.stringify(environmentRecord.config));
-        }
-
-        await applyEnvironmentAction({ verbose: options.verbose, autoApprove: true }, environmentRecord.name, tmpFile);
+        await applyEnvironment({
+          logger,
+          autoApprove: true,
+          name: environmentRecord.name,
+          targetEnvironment: originalEnvironment,
+          command_helper,
+        });
       } else {
         await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
       }
@@ -183,13 +191,13 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     await streamLogs({ follow: true }, envName);
   } else {
     if (environmentRecord) {
-      let tmpFile: string | undefined;
-      if (environmentRecord.config) {
-        tmpFile = Deno.makeTempFileSync();
-        Deno.writeTextFileSync(tmpFile, JSON.stringify(environmentRecord.config));
-      }
-
-      await applyEnvironmentAction({ verbose: options.verbose, autoApprove: true }, environmentRecord.name, tmpFile);
+      await applyEnvironment({
+        logger,
+        autoApprove: true,
+        name: environmentRecord.name,
+        targetEnvironment: originalEnvironment,
+        command_helper,
+      });
     } else {
       await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
     }

@@ -4,7 +4,7 @@ import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { Pipeline, PlanContextLevel } from '../pipeline/index.ts';
+import { Pipeline, PlanContext } from '../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type DeployOptions = {
@@ -13,6 +13,7 @@ type DeployOptions = {
   verbose: boolean;
   debug: boolean;
   autoApprove: boolean;
+  refresh: boolean;
 } & GlobalOptions;
 
 const DeployCommand = BaseCommand()
@@ -26,6 +27,7 @@ const DeployCommand = BaseCommand()
   })
   .option('-d, --debug [debug:boolean]', 'Use the components debug configuration', { default: false })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
+  .option('-r, --refresh [refresh:boolean]', 'Force update all resources', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .action(deploy_action);
 
@@ -87,9 +89,9 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
       const pipeline = await Pipeline.plan({
         before: previousPipeline,
         after: targetGraph,
-        contextFilter: PlanContextLevel.Environment,
+        context: PlanContext.Component,
+        refresh: options.refresh,
       }, command_helper.providerStore);
-
       pipeline.validate();
       await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 

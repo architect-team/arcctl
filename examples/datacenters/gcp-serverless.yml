@@ -14,7 +14,7 @@ variables:
 resources:
   vpc:
     type: vpc
-    name: gcp-datacenter
+    name: ${{ datacenter.name }}-dc
     account: ${{ variables.gcpAccount }}
     region: ${{ variables.region }}
 
@@ -43,5 +43,29 @@ environment:
       namespace: ${{ environment.name }}
       labels:
         region: ${{ variables.region }}
+    - when:
+        type: database
+        databaseType: postgres
+      resources:
+        db-cluster:
+          type: databaseCluster
+          account: ${{ variables.gcpAccount }}
+          name: ${{ this.name }}
+          databaseSize: db-f1-micro
+          databaseType: ${{ this.inputs.databaseType }}
+          databaseVersion: ${{ this.inputs.databaseVersion }}
+          region: ${{ variables.region }}
+          vpc: ${{ resources.vpc.id }}
+      accounts:
+        db-cluster:
+          provider: postgres
+          name: ${{ this.name }}-db-cluster
+          credentials:
+            host: ${{ this.resources.db-cluster.host }}
+            port: ${{ this.resources.db-cluster.port }}
+            username: ${{ this.resources.db-cluster.username }}
+            password: ${{ this.resources.db-cluster.password }}
+            database: postgres
+      account: ${{ this.accounts.db-cluster.id }}
     - account: ${{ variables.gcpAccount }}
       namespace: ${{ environment.name }}

@@ -42,10 +42,12 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
 
     for (const service of this.inputs?.services || []) {
       const deployment_name = (this.inputs?.namespace || 'ns') + '-' +
-        (this.inputs?.name.replaceAll('/', '-') || 'deleting') + `-${service.port || 80}`;
-      const deployment = new CloudRunV2Service(this, `${deployment_name}-deployment`, {
+        (this.inputs?.name.replaceAll('/', '-') || 'deleting');
+      const resource_name = `${deployment_name}-${service.port || 80}`;
+
+      const deployment = new CloudRunV2Service(this, `${resource_name}-deployment`, {
         dependsOn: depends_on,
-        name: deployment_name,
+        name: resource_name,
         location: region,
         ingress: 'INGRESS_TRAFFIC_ALL',
         template: {
@@ -76,10 +78,10 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
         },
       });
 
-      const _access_policy = new CloudRunV2ServiceIamBinding(this, `${deployment_name}-noauth-policy`, {
+      new CloudRunV2ServiceIamBinding(this, `${resource_name}-service-binding`, {
         project: deployment.project,
         location: deployment.location,
-        name: deployment.name,
+        name: resource_name,
         role: 'roles/run.invoker',
         members: [
           'allUsers',

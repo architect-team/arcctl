@@ -50,7 +50,7 @@ environment:
         db-cluster:
           type: databaseCluster
           account: ${{ variables.gcpAccount }}
-          name: ${{ this.id }}
+          name: ${{ this.name }}
           databaseSize: db-f1-micro
           databaseType: ${{ this.inputs.databaseType }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
@@ -59,7 +59,7 @@ environment:
       accounts:
         db-cluster:
           provider: postgres
-          name: ${{ this.id }}-db-cluster
+          name: ${{ this.name }}-db-cluster
           credentials:
             host: ${{ this.resources.db-cluster.host }}
             port: ${{ this.resources.db-cluster.port }}

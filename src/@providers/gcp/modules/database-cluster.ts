@@ -63,8 +63,8 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
     this.outputs = {
       id: this.database.id,
       protocol: this.inputs?.databaseType || '',
-      host: this.database.connectionName,
-      port: 0,
+      host: this.database.publicIpAddress,
+      port: 5432,
       username: this.user.name,
       password: this.user.password,
       certificate: cert,

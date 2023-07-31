@@ -40,12 +40,13 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
     this.deployments = [];
     const labels: Record<string, string> = {};
 
-    for (const service of this.inputs?.services || []) {
+    for (const [index, service] of (this.inputs?.services || []).entries()) {
       const deployment_name = (this.inputs?.namespace || 'ns') + '-' +
         (this.inputs?.name.replaceAll('/', '-') || 'deleting');
-      const deployment = new CloudRunV2Service(this, `${deployment_name}-deployment`, {
+      const resource_name = `${deployment_name}-svc-${index}`;
+      const deployment = new CloudRunV2Service(this, `${resource_name}-deployment`, {
         dependsOn: depends_on,
-        name: deployment_name,
+        name: resource_name,
         location: region,
         ingress: 'INGRESS_TRAFFIC_ALL',
         template: {
@@ -76,10 +77,10 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
         },
       });
 
-      const _access_policy = new CloudRunV2ServiceIamBinding(this, `${deployment_name}-noauth-policy`, {
+      new CloudRunV2ServiceIamBinding(this, `${resource_name}-service-binding`, {
         project: deployment.project,
         location: deployment.location,
-        name: deployment.name,
+        name: resource_name,
         role: 'roles/run.invoker',
         members: [
           'allUsers',

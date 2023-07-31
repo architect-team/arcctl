@@ -559,6 +559,7 @@ export default class DatacenterV1 extends Datacenter {
               component: node.component,
               environment: options?.environmentName,
             });
+
             graph.insertNodes(
               new CloudNode({
                 name: newResourceName,
@@ -588,22 +589,26 @@ export default class DatacenterV1 extends Datacenter {
                               hook.accounts || {},
                               newResourceName,
                               hook_node_id,
-                              JSON.parse(
-                                JSON.stringify(account_config).replace(
-                                  /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
-                                  (_, key: string) => {
-                                    graph.insertEdges(
-                                      new CloudEdge({
-                                        from: hook_node_id,
-                                        to: node.id,
-                                        required: true,
-                                      }),
-                                    );
+                              {
+                                type: 'arcctlAccount',
+                                account: 'n/a', // Helps it skip hook mutations
+                                ...JSON.parse(
+                                  JSON.stringify(account_config).replace(
+                                    /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
+                                    (_, key: string) => {
+                                      graph.insertEdges(
+                                        new CloudEdge({
+                                          from: hook_node_id,
+                                          to: node.id,
+                                          required: true,
+                                        }),
+                                      );
 
-                                    return `\${{ ${node.id}.${key} }}`;
-                                  },
+                                      return `\${{ ${node.id}.${key} }}`;
+                                    },
+                                  ),
                                 ),
-                              ),
+                              },
                             ),
                           ),
                         ),

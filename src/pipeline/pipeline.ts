@@ -321,6 +321,7 @@ export class Pipeline {
             state: 'pending',
           },
         });
+
         newExecutable.hash = await newExecutable.getHash(providerStore);
         pipeline.insertSteps(newExecutable);
         replacements[oldId] = newExecutable.id;

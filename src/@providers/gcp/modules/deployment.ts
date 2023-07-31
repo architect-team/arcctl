@@ -42,7 +42,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
 
     for (const service of this.inputs?.services || []) {
       const deployment_name = (this.inputs?.namespace || 'ns') + '-' +
-        (this.inputs?.name.replaceAll('/', '-') || 'deleting');
+        (this.inputs?.name.replaceAll('/', '-') || 'deleting') + `-${service.port || 80}`;
       const deployment = new CloudRunV2Service(this, `${deployment_name}-deployment`, {
         dependsOn: depends_on,
         name: deployment_name,

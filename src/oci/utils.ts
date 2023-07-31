@@ -16,4 +16,4 @@ export const fileToBinaryData = async (file: string): Promise<BinaryData> => {
 };
 
 export const IMAGE_REGEXP =
-  /^(?:((?:[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)+|localhost)(?::[0-9]{1,5})?)\/)?([a-zA-Z0-9]+(?:\/[a-zA-Z0-9]+)*)(:[a-zA-Z0-9][a-zA-Z0-9_.-]*|@[a-zA-Z0-9]+:[a-fA-F0-9]+)?$/;
+  /^(?:((?:[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)+|localhost)(?::[0-9]{1,5})?)\/)?([a-zA-Z0-9]+(?:\/[a-zA-Z0-9_-]+)*)(:[a-zA-Z0-9][a-zA-Z0-9_.-]*|@[a-zA-Z0-9]+:[a-fA-F0-9]+)?$/;

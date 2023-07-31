@@ -3,7 +3,7 @@ import * as path from 'std/path/mod.ts';
 import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 import PluginUtils from './plugin-utils.ts';
 
-type Dictionary<T> = { [key: string]: T };
+export type Dictionary<T> = { [key: string]: T };
 
 export default class PluginManager {
   private static readonly plugins: Dictionary<ArchitectPlugin> = {};

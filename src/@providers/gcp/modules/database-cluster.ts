@@ -59,7 +59,6 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
       cert = '';
     }
 
-    // TODO: Fix outputs
     this.outputs = {
       id: this.database.id,
       protocol: this.inputs?.databaseType || '',

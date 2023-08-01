@@ -22,12 +22,12 @@
   <a href="#what-is-architect">What is Architect?</a> •
   <a href="#install">Install</a> •
   <a href="#for-developers">Getting started: Developers</a> •
-  <a href="#for-devops">Getting started: DevOps</a>
+  <a href="#for-platform-engineers">Getting started: Platform engineers</a>
 </p>
 
 ## What is Architect?
 
-Architect is a next-gen toolset that helps teams automate CI/CD for their entire organization. It takes the best of infrastructure-as-Code (IaC), like declarative configuration, execution plans, resource graphs, and change automation, and splits it into a pair of sibling frameworks: the [Component framework](./src/components) to allow developers to design, develop, and integrate cloud-native applications, and the [Datacenter framework](./src/datacenters/) to allow DevOps/Platform Engineers to control how applications should behave in their cloud.
+Architect is a next-gen toolset that helps teams automate CI/CD for their entire organization. It takes the best of infrastructure-as-Code (IaC), like declarative configuration, execution plans, resource graphs, and change automation, and splits it into a pair of sibling frameworks: the [Component framework](./src/components) to allow developers to design, develop, and integrate cloud-native applications, and the [Datacenter framework](./src/datacenters/) to allow Platform Engineers to control how applications should behave in their cloud.
 
 ## Install
 
@@ -58,7 +58,7 @@ Components are application bundles that can be run anywhere and always deploy ev
 
 ### Getting Started
 
-The best way to get a taste of what Architect is all about is to deploy a component, but there are a few steps needed to get your local environment setup before we can do that. Don't worry, most of these steps are one-time burdens. Once you've gotten started all you need to do is deploy!
+The best way to get a taste of what Architect is all about is to deploy a component, but there are a few steps needed to get your local environment setup before we can do that (most of which you'll only need to do once). Once you've gotten started all you need to do is deploy!
 
 1. [Create your first datacenter](#1-create-your-first-datacenter)
 2. [Create an environment](#2-create-an-environment)
@@ -67,7 +67,7 @@ The best way to get a taste of what Architect is all about is to deploy a compon
 
 #### 1. Create your first datacenter
 
-DevOps, platform, and infrastructure teams can have all sorts of requirements for how applications need to behave inside their environments. This is why we created the [datacenters framework](./src/datacenters). This is mostly noise for developers who just want to focus on their app though, so we've create a set of example datacenters you can use to get started.
+Platform, DevOps, and infrastructure teams can have all sorts of requirements for how applications need to behave inside their environments. This is why we created the [datacenters framework](./src/datacenters). This is mostly noise for developers who just want to focus on their app though, so we've create a set of example datacenters you can use to get started.
 
 The datacenter schema used below doesn't use a cloud provider at all. Instead, it runs your applications using docker for deployments and databases, traefik for your API gateway and service mesh, and the local filesystem to store secrets. That means it won't cost you a dime to run the applications and the data never leaves your device:
 
@@ -141,21 +141,32 @@ Once its done (speed will vary based on the datacenter configuration), you'll be
 
 #### Bonus: Dev environments
 
-Want to quickly test your components and application code? We've got you covered! Just run `arcctl up .` in the directory your component lives in andspecify a datacenter to power your environment. Architect will automatically create an environment, deploy the component to it in debug mode, and then stream the application logs to your terminal. Yes, this is just like docker-compose!
+Want to quickly test your components and application code? We've got you covered! Just run `arcctl up .` in the directory your component lives in and specify a datacenter to power your environment. Architect will automatically create an environment, deploy the component to it in debug mode, and then stream the application logs to your terminal. Yes, this is just like docker-compose!
 
 ```sh
 $ arcctl up . --datacenter local
 ```
 
-## For DevOps
+## For Platform Engineers
+
+Creating a strong internal developer platform takes time and experience to do right. Once you create one golden path, like workflows and IaC templates for a Java monolith, developers quickly ask for more. They ask for things like microservices, event-driven architecture, ephemeral environments, logging, observability, and the list just keeps growing. If that wasn't enough, you still have the other half of your job to do: managing costs, keeping things secure, evaluating tools like gateways, service meshes, secret managers, and more. That's why we created the [Datacenters framework](./src/datacenters/) – to help platform engineers offer the developer benefits of [components](./src/components)
+
+Datacenters are packages of configuration and rules dictating how cloud resources should behave. They allow platform engineers to specify resources that should live inside every cloud environment to support multi-tenancy (e.g. namespaces, scoped databases, messaging queues, etc), as well rules for how application resources should behave when they land (e.g. where do secrets get stored, where should container workloads be run, etc). The ability to codify these rules allows platform teams to offer true self-service to developers without loosing control of their cloud. Developers can create their own environments and deploy w/out worrying about infrastructure or workflows, and platform teams can intrument, monitor, and scale cloud infrastructure w/out worrying about applications or developers. 
 
 ### Key features
+
+* Give developers the power to create their own on-demand environments
+* Automate zero-trust security for every application (both networking and credentials)
+* Experiment with and swap out key tools (like gateways, service meshes, secret managers, and more) without needing to coordinate with developers
+* Built on top of a tool you already know and trust: Terraform
 
 ### Getting started
 
 #### 1. Create a few datacenters
 
-Every datacenter you create becomes someone that you or your team can create and run cloud environments on top of. We've created a few sample datacenters for you to try, but they all use our [datacenters framework](./src/datacenters/) which means you're able to tweak them or create entirely new ones.
+Every datacenter you create becomes something that you or your team can create and run cloud environments on top of. We've created a few sample datacenters templates for you to try, but they all use our [datacenters framework](./src/datacenters/) which means you're able to tweak them or create entirely new ones.
+
+_Note: the second two datacenters both use Google Cloud. You'll be prompted to setup credentials which you can learn how to do by checking out the [GCP provider docs](./src/@providers/gcp/README.md)._
 
 ```sh
 # A datacenter that runs components locally
@@ -194,7 +205,7 @@ $ arcctl deploy architectio/auth-example:latest --environment k8s
 
 ## State management
 
-ArcCtl uses persisted state to keep track of your accounts, datacenters and environments. These statefiles represent all of your cloud resources. By default these statefiles are kept on your local machine. Though, if you want to share these resources with multiple people across machines, then you will need to use a remote state. Any provider that supports a secret resource type, can be used as a remote backend.
+Architect uses persisted state to keep track of your accounts, datacenters and environments. These statefiles represent all of your cloud resources. By default these statefiles are kept on your local machine. Though, if you want to share these resources with multiple people across machines, then you will need to use a remote state. Any provider that supports a secret resource type, can be used as a remote backend.
 
 To configure a remote backend you can run the command, which will run you through creating an account.
 ```

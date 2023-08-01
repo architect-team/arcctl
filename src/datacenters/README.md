@@ -1,9 +1,6 @@
 # Architect Datacenters
 
-Architect Datacenters are packages of configuration and rules dictating how
-cloud resources should behave. Datacenters can create datacenter-wide
-resources, environment-scoped resources, and can even mutate application
-resources derived from components deployed to the datacenter.
+Architect Datacenters are packages of configuration and rules dictating how cloud resources should behave. Datacenters can create datacenter-wide resources, environment-scoped resources, and can even mutate application resources derived from components deployed to the datacenter.
 
 The separation of datacenters from [components](../components/) and [environments](../environments/)
 was done for two reasons:

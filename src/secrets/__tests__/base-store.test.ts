@@ -138,6 +138,7 @@ describe('Base Store', () => {
       const contents = Deno.readTextFileSync(path.join(directory, key));
       assertEquals(value, contents);
     }
+
     assertEquals(testArray[0], path.join(directory, 'aaaaaaaaaaa'));
     assertEquals((testArray[1] as any).file2, path.join(directory, 'bbbbbbbbbbb'));
     assertEquals((testArray[2] as any)[0], path.join(directory, 'ccccccccccc'));

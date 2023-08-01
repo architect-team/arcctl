@@ -22,7 +22,7 @@ export class BaseStore<T> {
     private stateBackend: StateBackend,
   ) {}
 
-  private replaceHashesWithFileReferences(record: any, lookupTable: Record<string, string>): void {
+  private replaceHashesWithFileReferences(directory: string, record: any, lookupTable: Record<string, string>): void {
     if (!record) {
       return;
     }
@@ -31,12 +31,12 @@ export class BaseStore<T> {
         continue;
       }
       if (typeof value === 'object' || Array.isArray(value)) {
-        this.replaceHashesWithFileReferences(value, lookupTable);
+        this.replaceHashesWithFileReferences(directory, value, lookupTable);
         continue;
       }
       const fileContents = lookupTable[value?.toString() || ''];
       if (fileContents) {
-        const file = path.join(tmpDir, value.toString());
+        const file = path.join(directory, value.toString());
         Deno.writeTextFileSync(file, fileContents);
         record[key] = file;
       }
@@ -44,6 +44,9 @@ export class BaseStore<T> {
   }
 
   private replaceFileReferencesWithHashes(record: any): Record<string, string> {
+    if (record === undefined) {
+      return {};
+    }
     let results: Record<string, string> = {};
     for (const [key, value] of Object.entries(record)) {
       if (value == undefined) {
@@ -155,7 +158,7 @@ export class BaseStore<T> {
 
     const storage = JSON.parse(secret.data);
 
-    this.replaceHashesWithFileReferences(storage.records, storage.files);
+    this.replaceHashesWithFileReferences(tmpDir, storage.records, storage.files);
 
     const records = [];
     for (const record of storage.records) {

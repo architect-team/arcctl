@@ -154,7 +154,7 @@ export class Pipeline {
       return undefined;
     }
     const initialType = typeof key;
-    return key.toString().replace(/\${{\s?(.*?)\s}}/g, (_, ref) => {
+    return key.toString().replace(/\${{\s*(.*?)\s}}/g, (_, ref) => {
       ref = ref.trim();
       const step_id = ref.substring(0, ref.lastIndexOf('.'));
       const key = ref.substring(ref.lastIndexOf('.') + 1);
@@ -179,7 +179,7 @@ export class Pipeline {
       return undefined as T;
     }
     const output = JSON.parse(JSON.stringify(input));
-    for (const [key, value] of Object.entries(input as any)) {
+    for (const [key, value] of Object.entries(output)) {
       if (typeof value === 'object' || Array.isArray(value)) {
         output[key] = this.replaceRefsWithOutputValues(value);
         continue;

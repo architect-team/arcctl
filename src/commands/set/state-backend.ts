@@ -20,7 +20,7 @@ const SetStateBackendCommand = BaseCommand()
 function getSecretProviderTypes(): string[] {
   const results = [];
   for (const [name, providerType] of Object.entries(SupportedProviders)) {
-    const provider = new providerType('test', {} as any, {} as any, {});
+    const provider = new providerType('test', {} as any, {} as any);
     const service = (provider.resources as any)['secret'];
     if (service) {
       results.push(name);
@@ -68,7 +68,6 @@ async function set_state_backend(options: SetStateBackendOptions) {
     'secret',
     credentials as any,
     command_helper.providerStore,
-    {},
   );
   const validCredentials = await account.testCredentials();
   if (!validCredentials) {

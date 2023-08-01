@@ -58,7 +58,6 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
   }
 
   const targetEnvironment = options.targetEnvironment || await parseEnvironment({});
-  console.log(targetEnvironment);
 
   let targetGraph = await targetEnvironment.getGraph(options.name, options.command_helper.componentStore);
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {

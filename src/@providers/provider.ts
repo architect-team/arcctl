@@ -1,6 +1,3 @@
-import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
-import * as fs from 'std/fs/mod.ts';
-import * as path from 'std/path/mod.ts';
 import { ResourceType } from '../@resources/index.ts';
 import { ResourceService } from './base.service.ts';
 import { ProviderCredentials, ProviderCredentialsSchema } from './credentials.ts';
@@ -43,20 +40,7 @@ export abstract class Provider<
     readonly name: string,
     readonly credentials: C,
     readonly providerStore: ProviderStore,
-    readonly files: Record<string, string>,
-  ) {
-    if (Object.entries(files).length == 0) {
-      return;
-    }
-    const fileLookup: Record<string, string> = {};
-    const folder = Deno.makeTempDirSync();
-    for (const [hash, contents] of Object.entries(files)) {
-      const file = path.join(folder, hash);
-      Deno.writeFileSync(file, new TextEncoder().encode(contents));
-      fileLookup[hash] = file;
-    }
-    this.replaceHashesWithFileReferences(this.credentials, fileLookup);
-  }
+  ) {}
 
   public abstract testCredentials(): Promise<boolean>;
 
@@ -72,49 +56,12 @@ export abstract class Provider<
     >;
   }
 
-  private replaceHashesWithFileReferences(record: any, lookupTable: Record<string, string>): void {
-    for (const [key, value] of Object.entries(record)) {
-      if (typeof value === 'object') {
-        this.replaceHashesWithFileReferences(value, lookupTable);
-        continue;
-      }
-      const file = lookupTable[value?.toString() || ''];
-      if (file) {
-        record[key] = file;
-      }
-    }
-  }
-
-  private replaceFileReferencesWithHashes(record: any): Record<string, string> {
-    let results: Record<string, string> = {};
-    for (const [key, value] of Object.entries(record)) {
-      if (typeof value === 'object') {
-        results = {
-          ...results,
-          ...this.replaceFileReferencesWithHashes(value),
-        };
-        continue;
-      }
-      if (fs.existsSync(value as string) && Deno.statSync(value as string).isFile) {
-        const fileContents = Deno.readFileSync(value as string);
-        const hashSum = crypto.createHash('sha256');
-        hashSum.update(fileContents);
-        const hash = hashSum.setEncoding('utf-8').digest('hex') as string;
-        results[hash] = new TextDecoder().decode(fileContents);
-        record[key] = hash;
-      }
-    }
-    return results;
-  }
-
   public toJSON(): Record<string, unknown> {
     const copy = JSON.parse(JSON.stringify({
       name: this.name,
       type: this.type,
       credentials: this.credentials,
-      files: this.files,
     }));
-    copy.files = this.replaceFileReferencesWithHashes(copy.credentials);
     return copy;
   }
 }

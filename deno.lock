@@ -775,6 +775,8 @@
     "https://esm.sh/v124/url@0.10.3": "07386e574238e0e64451b25c1d699146b6bace90f58e1e751dae337d003fe44c",
     "https://esm.sh/v124/url@0.10.3/denonext/url.mjs": "ba58c05c534164ab58a98e7e9f9ba67400750a2d71031658c4580d7112ac4144",
     "https://esm.sh/v124/util-deprecate@1.0.2/denonext/util-deprecate.mjs": "e7f4e3a1ec5eb3f2e04dbfaf90e4874f535ca298a7c91512f1d083e1ba765c37",
+    "https://esm.sh/v124/uuid@8.0.0": "c74ce56a334c74d5923e652e429e46fd2e86a6e59f7e394ccecef878291ae50c",
+    "https://esm.sh/v124/uuid@8.0.0/deno/uuid.mjs": "18a4a933149569979aabf1be3bd4f0ccf19b5ae770b978147d796e8aa3014e40",
     "https://esm.sh/v124/uuid@9.0.0/denonext/uuid.mjs": "c9af3bdfb79cd00c1eefc61f93dfaba9a5468c44245fb31a40d6bcaf21165603",
     "https://esm.sh/v124/which@3.0.1": "f27ee01cac772029a95d37fad83158ebe6a6cc4222ee9396f5f54bfe4903da6c",
     "https://esm.sh/v124/which@3.0.1/denonext/which.mjs": "8dbd9dfb50443fa820cbe5812838014939e71660be6310ceec17668ab2a0ec50",

@@ -58,10 +58,6 @@ const setNoopSteps = async (
         const previousHash = await previousStep?.getHash(providerStore);
         const doesHashMatch = newHash === previousHash;
         const wasPreviouslyCompleted = previousStep?.status.state === 'complete';
-        if (step.id === 'architectio/kratos/ingressRule/kratos-public-blue') {
-          console.log(step.inputs);
-          console.log(previousStep?.inputs);
-        }
 
         if (!doesMatchContext || (!refresh && doesHashMatch && wasPreviouslyCompleted)) {
           step.action = 'no-op';

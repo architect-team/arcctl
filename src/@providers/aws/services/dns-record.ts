@@ -5,19 +5,10 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsRecordModule } from '../modules/dns-record.ts';
 import AwsUtils from '../utils.ts';
-import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
-import { Construct } from 'constructs';
 
 export class AwsDnsRecordService extends TerraformResourceService<'dnsRecord', AwsCredentials> {
   readonly terraform_version = '1.4.5';
   readonly construct = AwsDnsRecordModule;
-
-  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
-    return new TerraformAwsProvider(scope, 'aws', {
-      accessKey: this.credentials.accessKeyId,
-      secretKey: this.credentials.secretAccessKey,
-    });
-  }
 
   async get(id: string): Promise<ResourceOutputs['dnsRecord'] | undefined> {
     const [managed_zone, name, record_type] = id.split('_');

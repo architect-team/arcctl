@@ -4,6 +4,7 @@ import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
 import { Observable, Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
+import { v4 as uuidv4 } from 'uuid';
 import { Logger } from 'winston';
 import { ResourceInputs, ResourceType } from '../@resources/index.ts';
 import { createProviderFileConstructor } from '../cdktf-modules/provider-file.ts';
@@ -500,24 +501,29 @@ export abstract class TerraformResourceService<
   }
 
   public getHash(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): string {
-    const app = new App({
-      outdir: options.cwd,
-    });
-    const stack = new CldCtlTerraformStack(app, 'arcctl');
-    this.configureTerraformProviders(stack);
-    const fileStorageDir = path.join(options.providerStore.storageDir, options.id.replaceAll('/', '--'));
-    Deno.mkdirSync(fileStorageDir, { recursive: true });
-    stack.addModule(this.construct, {
-      id: options.id,
-      inputs,
-      accountName: this.accountName,
-      credentials: this.credentials,
-      providerStore: this.providerStore,
-      FileConstruct: createProviderFileConstructor(fileStorageDir),
-    });
-    const terraform = stack.toTerraform();
-    const stringStack = typeof terraform === 'string' ? terraform : JSON.stringify(terraform);
-    return crypto.createHash('sha256').update(stringStack).digest('hex').toString();
+    try {
+      const app = new App({
+        outdir: options.cwd,
+      });
+      const stack = new CldCtlTerraformStack(app, 'arcctl');
+      this.configureTerraformProviders(stack);
+      const fileStorageDir = path.join(options.providerStore.storageDir, options.id.replaceAll('/', '--'));
+      Deno.mkdirSync(fileStorageDir, { recursive: true });
+      stack.addModule(this.construct, {
+        id: options.id,
+        inputs,
+        accountName: this.accountName,
+        credentials: this.credentials,
+        providerStore: this.providerStore,
+        FileConstruct: createProviderFileConstructor(fileStorageDir),
+      });
+      const terraform = stack.toTerraform();
+      const stringStack = typeof terraform === 'string' ? terraform : JSON.stringify(terraform);
+      return crypto.createHash('sha256').update(stringStack).digest('hex').toString();
+    } catch {
+      const stringStack = uuidv4();
+      return crypto.createHash('sha256').update(stringStack).digest('hex').toString();
+    }
   }
 
   public apply(inputs: ResourceInputs[T], options: ApplyOptions<TerraformResourceState>): Observable<ApplyOutputs<T>> {

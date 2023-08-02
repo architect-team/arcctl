@@ -1,9 +1,7 @@
-import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
-import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsVpcModule } from '../modules/vpc.ts';
 import AwsUtils from '../utils.ts';
@@ -20,13 +18,6 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
       description: vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
       region: region,
     };
-  }
-
-  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
-    return new TerraformAwsProvider(scope, 'aws', {
-      accessKey: this.credentials.accessKeyId,
-      secretKey: this.credentials.secretAccessKey,
-    });
   }
 
   get(id: string): Promise<ResourceOutputs['vpc'] | undefined> {

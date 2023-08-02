@@ -5,7 +5,7 @@ import { Eks } from '../.gen/modules/eks.ts';
 import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.ts';
 import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.ts';
 import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.ts';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { Sleep } from '../.gen/providers/time/sleep/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
@@ -20,10 +20,11 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
   constructor(private scope: Construct, options: ResourceModuleOptions<'kubernetesCluster', AwsCredentials>) {
     super(scope, options);
 
-    if (this.inputs) {
-      const aws_provider = scope.node.children.find((child) => child instanceof AwsProvider) as any;
-      aws_provider.region = this.inputs.region;
-    }
+    new TerraformAwsProvider(this, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+      region: this.inputs?.region,
+    });
 
     const vpc_parts = this.inputs?.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/) || ['unknown', 'unknown'];
     if (this.inputs && vpc_parts[1] === 'unknown') {
@@ -170,7 +171,7 @@ users:
 
     const ids = await AwsUtils.getEksIds(this.credentials, region, clusterId);
 
-    const aws_provider = this.scope.node.children[0] as AwsProvider;
+    const aws_provider = this.scope.node.children[0] as TerraformAwsProvider;
     aws_provider.region = region;
 
     this.eks.vpcId = ids.vpcId;

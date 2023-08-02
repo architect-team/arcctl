@@ -1,12 +1,9 @@
 import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
 import { DigitaloceanCredentials, DigitaloceanCredentialsSchema } from './credentials.ts';
-import { DigitaloceanDatabaseClusterService } from './services/database-cluster.ts';
 import { DigitaloceanDatabaseSizeService } from './services/database-size.ts';
 import { DigitaloceanDatabaseTypeService } from './services/database-type.ts';
-import { DigitaloceanDatabaseUserService } from './services/database-user.ts';
 import { DigitaloceanDatabaseVersionService } from './services/database-version.ts';
-import { DigitaloceanDatabaseService } from './services/database.ts';
 import { DigitaloceanDnsRecordService } from './services/dns-record.ts';
 import { DigitaloceanDnsZoneService } from './services/dns-zone.ts';
 import { DigitaloceanKubernetesClusterService } from './services/kubernetes-cluster.ts';
@@ -31,11 +28,8 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
     nodeSize: new DigitaloceanNodeSizeService(this.name, this.credentials, this.providerStore),
     kubernetesVersion: new DigitaloceanKubernetesVersionService(this.name, this.credentials, this.providerStore),
     kubernetesCluster: new DigitaloceanKubernetesClusterService(this.name, this.credentials, this.providerStore),
-    database: new DigitaloceanDatabaseService(this.name, this.credentials, this.providerStore),
-    databaseCluster: new DigitaloceanDatabaseClusterService(this.name, this.credentials, this.providerStore),
     databaseSize: new DigitaloceanDatabaseSizeService(this.name, this.credentials, this.providerStore),
     databaseType: new DigitaloceanDatabaseTypeService(this.name, this.credentials, this.providerStore),
-    databaseUser: new DigitaloceanDatabaseUserService(this.name, this.credentials, this.providerStore),
     databaseVersion: new DigitaloceanDatabaseVersionService(this.name, this.credentials, this.providerStore),
     dnsZone: new DigitaloceanDnsZoneService(this.name, this.credentials, this.providerStore),
     dnsRecord: new DigitaloceanDnsRecordService(this.name, this.credentials, this.providerStore),

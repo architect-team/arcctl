@@ -48,7 +48,6 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
     name,
     credentials as any,
     command_helper.providerStore,
-    {},
   );
   const validCredentials = await account.testCredentials();
   if (!validCredentials) {

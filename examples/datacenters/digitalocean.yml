@@ -20,7 +20,7 @@ resources:
   cluster:
     type: kubernetesCluster
     name: arcctl-datacenter
-    kubernetesVersion: 1.26.5-do.0
+    kubernetesVersion: 1.27.4-do.0
     account: ${{ variables.doAccount }}
     region: ${{ variables.region }}
     vpc: ${{ resources.vpc.id }}

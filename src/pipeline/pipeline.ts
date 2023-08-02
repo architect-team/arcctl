@@ -32,7 +32,6 @@ const setNoopSteps = async (
   refresh?: boolean,
 ): Promise<Pipeline> => {
   let done = false;
-
   do {
     done = true;
     for (
@@ -137,28 +136,57 @@ export class Pipeline {
     });
   }
 
+  private convertStringToType(input: string, type: string): any {
+    switch (type) {
+      case 'string':
+        return String(input);
+      case 'number':
+        return Number(input);
+      case 'boolean':
+        return Boolean(input);
+      default:
+        throw new Error(`Invalid type: ${type}`);
+    }
+  }
+
+  private getOutputValueForReference(key: string | undefined): any {
+    if (key === undefined) {
+      return undefined;
+    }
+    const initialType = typeof key;
+    return key.toString().replace(/\${{\s*(.*?)\s}}/g, (_, ref) => {
+      ref = ref.trim();
+      const step_id = ref.substring(0, ref.lastIndexOf('.'));
+      const key = ref.substring(ref.lastIndexOf('.') + 1);
+      const step = this.steps.find((s) => s.id === step_id);
+      const outputs = step?.outputs;
+      if (!step || !outputs) {
+        throw new Error(`Missing outputs for ${step_id}`);
+      } else if ((outputs as any)[key] === undefined) {
+        throw new Error(
+          `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
+        );
+      }
+      return this.convertStringToType(String((outputs as any)[key]) || '', initialType);
+    });
+  }
+
   /**
    * Replace step references with actual output values
    */
   public replaceRefsWithOutputValues<T>(input: T): T {
-    return JSON.parse(
-      JSON.stringify(input).replace(/\${{\s?(.*?)\s}}/g, (_, ref) => {
-        ref = ref.trim();
-        const step_id = ref.substring(0, ref.lastIndexOf('.'));
-        const key = ref.substring(ref.lastIndexOf('.') + 1);
-        const step = this.steps.find((s) => s.id === step_id);
-        const outputs = step?.outputs;
-        if (!step || !outputs) {
-          throw new Error(`Missing outputs for ${step_id}`);
-        } else if ((outputs as any)[key] === undefined) {
-          throw new Error(
-            `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
-          );
-        }
-
-        return (String((outputs as any)[key]) || '').replaceAll('"', '\\"');
-      }),
-    );
+    if (input == undefined) {
+      return undefined as T;
+    }
+    const output = JSON.parse(JSON.stringify(input));
+    for (const [key, value] of Object.entries(output)) {
+      if (typeof value === 'object' || Array.isArray(value)) {
+        output[key] = this.replaceRefsWithOutputValues(value);
+        continue;
+      }
+      output[key] = this.getOutputValueForReference(value as string);
+    }
+    return output;
   }
 
   /**
@@ -447,7 +475,6 @@ export class Pipeline {
                 startTime: Date.now(),
                 endTime: Date.now(),
               };
-
               await options.providerStore.save(
                 new SupportedProviders[
                   step.inputs.provider as keyof typeof SupportedProviders
@@ -455,7 +482,6 @@ export class Pipeline {
                   step.inputs.name,
                   step.inputs.credentials as any,
                   options.providerStore,
-                  {},
                 ),
               );
             }

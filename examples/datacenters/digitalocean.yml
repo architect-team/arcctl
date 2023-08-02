@@ -1,3 +1,5 @@
+# The digital ocean datacenter does not currently support databases. This will be added with the v0.2 release.
+
 variables:
   region:
     type: region
@@ -54,21 +56,6 @@ environment:
     - when:
         type: secret
       account: local
-    - when:
-        type: database
-        databaseType: postgres
-      resources:
-        db:
-          type: databaseCluster
-          account: ${{ variables.doAccount }}
-          name: ${{ this.id }}
-          databaseVersion: ${{ this.inputs.databaseVersion }}
-          databaseSize: db-s-1vcpu-1gb
-          databaseType: ${{ this.inputs.databaseType }}
-          vpc: ${{ resources.vpc.id }}
-          region: ${{ variables.region }}
-      account: ${{ variables.doAccount }}
-      databaseCluster: ${{ this.resources.db.id }}
     - when:
         type: ingressRule
       resources:

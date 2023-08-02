@@ -3,7 +3,6 @@ import { exec } from '../../utils/command.ts';
 import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
 import { DockerBuildService } from './services/build.ts';
-import { DockerDatabaseClusterService } from './services/database-cluster.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
 import { DockerTaskService } from './services/task.ts';
@@ -20,7 +19,6 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     deployment: new DockerDeploymentService(this.name, this.credentials, this.providerStore),
     task: new DockerTaskService(this.name, this.credentials, this.providerStore),
     volume: new DockerVolumeService(this.name, this.credentials, this.providerStore),
-    databaseCluster: new DockerDatabaseClusterService(this.name, this.credentials, this.providerStore),
     dockerBuild: new DockerBuildService(this.name, this.credentials, this.providerStore),
   };
 

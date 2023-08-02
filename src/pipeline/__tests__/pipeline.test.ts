@@ -173,7 +173,7 @@ describe('Pipeline', () => {
     // a subsequent pipeline should attempt to "create" the node again.
 
     const providerStore = new EmptyProviderStore();
-    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore, {}));
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
 
     const previousStepPending = new PipelineStep({
       name: 'test',
@@ -220,7 +220,7 @@ describe('Pipeline', () => {
     // a subsequent pipeline should attempt to "update" the node again.
 
     const providerStore = new EmptyProviderStore();
-    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore, {}));
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
 
     const previousStep = new PipelineStep({
       name: 'test',

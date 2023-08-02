@@ -346,6 +346,7 @@ export default class DatacenterV1 extends Datacenter {
       });
 
       node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
+      node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
 
       graph.insertNodes(node);
     }

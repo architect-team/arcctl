@@ -22,6 +22,8 @@ jobs:
         with:
           path: ${{ env.DENO_DIR }}
           key: ${{ hashFiles('deno.lock') }}
+      - name: FILE
+        run: cat /home/runner/work/arcctl/arcctl/src/pipeline/__tests__/pipeline.test.ts
       - name: Deno Cache
         run: deno task cache
       - name: Check formatting

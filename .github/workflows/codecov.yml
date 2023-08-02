@@ -21,6 +21,8 @@ jobs:
         with:
           path: ${{ env.DENO_DIR }}
           key: ${{ hashFiles('deno.lock') }}
+      - name: Deno Cache
+        run: deno task cache
       - name: Check formatting
         run: deno fmt --check
       - name: Check linting

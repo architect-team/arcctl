@@ -3,7 +3,7 @@ import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Vpc } from '../.gen/modules/vpc.ts';
 import { DataAwsAvailabilityZones } from '../.gen/providers/aws/data-aws-availability-zones/index.ts';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
@@ -14,10 +14,11 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
   constructor(private scope: Construct, options: ResourceModuleOptions<'vpc', AwsCredentials>) {
     super(scope, options);
 
-    if (this.inputs?.region) {
-      const aws_provider = this.scope.node.children.find((child) => child instanceof AwsProvider) as any;
-      aws_provider.region = this.inputs.region;
-    }
+    new TerraformAwsProvider(this, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+      region: this.inputs?.region,
+    });
 
     const ipRange = '10.0.0.0/16';
 
@@ -75,7 +76,7 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
 
     const [_, region, vpcId] = match;
 
-    const aws_provider = this.scope.node.children[0] as AwsProvider;
+    const aws_provider = this.scope.node.children[0] as TerraformAwsProvider;
     aws_provider.region = region;
 
     const moduleId = ['module', this.vpc.friendlyUniqueId].join('.');

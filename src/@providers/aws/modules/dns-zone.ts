@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { Route53Zone } from '../.gen/providers/aws/route53-zone/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsZoneService } from '../services/dns-zone.ts';
@@ -11,6 +12,11 @@ export class AwsDnsZoneModule extends ResourceModule<'dnsZone', AwsCredentials> 
 
   constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone', AwsCredentials>) {
     super(scope, options);
+
+    new TerraformAwsProvider(this, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
 
     this.dns_zone = new Route53Zone(this, 'zone', {
       name: this.inputs?.name || 'unknown',

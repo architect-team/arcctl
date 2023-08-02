@@ -1,9 +1,7 @@
-import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
-import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import AwsUtils from '../utils.ts';
@@ -12,13 +10,6 @@ import { AwsRegionService } from './region.ts';
 export class AwsKubernetesClusterService extends TerraformResourceService<'kubernetesCluster', AwsCredentials> {
   readonly terraform_version = '1.4.5';
   readonly construct = AwsKubernetesClusterModule;
-
-  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
-    return new TerraformAwsProvider(scope, 'aws', {
-      accessKey: this.credentials.accessKeyId,
-      secretKey: this.credentials.secretAccessKey,
-    });
-  }
 
   get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     const match = id.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);

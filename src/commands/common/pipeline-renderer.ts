@@ -98,11 +98,11 @@ export class PipelineRenderer {
     this.current_pipeline = pipeline;
     const error_steps = pipeline.steps.filter((step) => step.status.state === 'error');
     for (const step of error_steps) {
-      if (this.finished_steps.includes(step.name)) {
+      if (this.finished_steps.includes(step.id)) {
         continue;
       }
-      this.finished_steps.push(step.name);
-      console.log(`${step.name} failed: ${step.status.message}`);
+      this.finished_steps.push(step.id);
+      console.log(`${step.id}: failed with error [ ${step.status.message} ]`);
     }
     if (!forcePrint && Date.now() - this.last_rendered_nontinteractive < 5000) {
       return;
@@ -113,17 +113,17 @@ export class PipelineRenderer {
     }
     const running_steps = pipeline.steps.filter((step) => step.status.state === 'applying');
     const completed_steps = pipeline.steps.filter((step) => step.status.state === 'complete');
-    for (const step of running_steps) {
-      const action = step.action === 'delete' ? 'deleting' : 'applying';
-      console.log(`Currently ${action} ${step.name} for ${this.getDuration(step)}...`);
-    }
     for (const step of completed_steps) {
-      if (this.finished_steps.includes(step.name)) {
+      if (this.finished_steps.includes(step.id)) {
         continue;
       }
-      this.finished_steps.push(step.name);
+      this.finished_steps.push(step.id);
       const action = step.action === 'delete' ? 'deleting' : 'applying';
-      console.log(`Finsihed ${action} ${step.name} in ${this.getDuration(step)}`);
+      console.log(`${step.id}: Finished ${action} in ${this.getDuration(step)}`);
+    }
+    for (const step of running_steps) {
+      const action = step.action === 'delete' ? 'deleting' : 'applying';
+      console.log(`${step.id}: Still ${action}... [${this.getDuration(step)} elapsed]`);
     }
   }
 
@@ -165,12 +165,12 @@ export class PipelineRenderer {
    * Helper method to indicate the rendering pipeline is complete
    */
   public doneRenderingPipeline(): void {
-    this.finished_steps = [];
-    this.last_rendered_nontinteractive = 0;
     if (!Inputs.isInteractiveShell() && this.current_pipeline) {
       this.renderPipelineNonInteractive(this.current_pipeline!, true);
       this.current_pipeline = undefined;
     }
+    this.finished_steps = [];
+    this.last_rendered_nontinteractive = 0;
     logUpdate.done();
   }
 }

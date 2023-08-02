@@ -39,7 +39,6 @@ describe('Pipeline', () => {
         required: true,
       }),
     );
-
     pipeline.removeEdge({
       to: 'b',
       from: 'a',

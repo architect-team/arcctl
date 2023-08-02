@@ -29,7 +29,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -83,7 +82,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -152,7 +150,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -224,7 +221,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -287,7 +283,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -367,7 +362,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -447,7 +441,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -491,7 +484,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 

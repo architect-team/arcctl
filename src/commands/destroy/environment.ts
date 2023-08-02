@@ -3,7 +3,7 @@ import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
-import { Pipeline, PlanContextLevel } from '../../pipeline/index.ts';
+import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { Inputs } from '../common/inputs.ts';
 
@@ -45,7 +45,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   const pipeline = await Pipeline.plan({
     before: lastPipeline,
     after: targetGraph,
-    contextFilter: PlanContextLevel.Environment,
+    context: PlanContext.Environment,
   }, command_helper.providerStore);
 
   pipeline.validate();

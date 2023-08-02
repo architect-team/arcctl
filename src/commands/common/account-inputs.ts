@@ -40,7 +40,6 @@ export class AccountInputUtils {
       res.name!,
       credentials as any,
       this.providerStore,
-      {},
     );
 
     const validCredentials = await account.testCredentials();

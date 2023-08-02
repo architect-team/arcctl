@@ -28,14 +28,16 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
   }
 
   private headersToMiddleware(headers: Record<string, string>): TraefikMiddleware {
+    const _headers = { ...headers };
+
     const res: TraefikMiddleware = {
       headers: {},
     };
 
-    if (headers['Access-Control-Allow-Origin']) {
+    if (_headers['Access-Control-Allow-Origin']) {
       res.headers = res.headers || {};
-      if (headers['Access-Control-Allow-Origin'] !== '*') {
-        const value = JSON.parse(headers['Access-Control-Allow-Origin']);
+      if (_headers['Access-Control-Allow-Origin'] !== '*') {
+        const value = JSON.parse(_headers['Access-Control-Allow-Origin']);
         if (Array.isArray(value)) {
           res.headers['accessControlAllowOriginList'] = value.map((item) => item.replace(/\/$/, ''));
         } else {
@@ -46,13 +48,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       }
 
       res.headers.addVaryHeader = true;
-      delete headers['Access-Control-Allow-Origin'];
+      delete _headers['Access-Control-Allow-Origin'];
     }
 
-    if (headers['Access-Control-Allow-Methods']) {
+    if (_headers['Access-Control-Allow-Methods']) {
       res.headers = res.headers || {};
-      if (headers['Access-Control-Allow-Methods'] !== '*') {
-        const value = JSON.parse(headers['Access-Control-Allow-Methods']);
+      if (_headers['Access-Control-Allow-Methods'] !== '*') {
+        const value = JSON.parse(_headers['Access-Control-Allow-Methods']);
         if (Array.isArray(value)) {
           res.headers['accessControlAllowMethods'] = value;
         } else {
@@ -62,23 +64,23 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
         res.headers['accessControlAllowMethods'] = ['*'];
       }
 
-      delete headers['Access-Control-Allow-Methods'];
+      delete _headers['Access-Control-Allow-Methods'];
     }
 
-    if (headers['Access-Control-Allow-Headers']) {
+    if (_headers['Access-Control-Allow-Headers']) {
       res.headers = res.headers || {};
-      res.headers.accessControlAllowHeaders = headers['Access-Control-Allow-Headers'];
-      delete headers['Access-Control-Allow-Headers'];
+      res.headers.accessControlAllowHeaders = _headers['Access-Control-Allow-Headers'];
+      delete _headers['Access-Control-Allow-Headers'];
     }
 
-    if (headers['Access-Control-Allow-Credentials']) {
+    if (_headers['Access-Control-Allow-Credentials']) {
       res.headers = res.headers || {};
-      res.headers.accessControlAllowCredentials = headers['Access-Control-Allow-Credentials'] !== 'false';
-      delete headers['Access-Control-Allow-Credentials'];
+      res.headers.accessControlAllowCredentials = _headers['Access-Control-Allow-Credentials'] !== 'false';
+      delete _headers['Access-Control-Allow-Credentials'];
     }
 
-    if (Object.keys(headers).length > 0) {
-      res.headers!.customResponseHeaders = headers;
+    if (Object.keys(_headers).length > 0) {
+      res.headers!.customResponseHeaders = _headers;
     }
 
     return res;

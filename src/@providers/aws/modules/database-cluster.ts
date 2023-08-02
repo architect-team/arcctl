@@ -142,7 +142,6 @@ export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', 
             database: 'postgres',
           },
           providerStore,
-          {},
         ),
       );
     },

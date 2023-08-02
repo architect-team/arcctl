@@ -2,9 +2,9 @@ import cliSpinners from 'cli-spinners';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { apply_environment_action } from './environment.ts';
+import { applyEnvironment } from './utils.ts';
 
 type ApplyDatacenterOptions = {
   verbose: boolean;
@@ -55,6 +55,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     const pipeline = await Pipeline.plan({
       before: originalPipeline,
       after: graph,
+      context: PlanContext.Datacenter,
     }, command_helper.providerStore);
 
     pipeline.validate();
@@ -81,12 +82,14 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       .then(async () => {
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
         if (datacenterEnvironments.length > 0) {
-          for (const environmet of datacenterEnvironments) {
-            await apply_environment_action({
-              verbose: options.verbose,
-              datacenter: name,
+          for (const environmentRecord of datacenterEnvironments) {
+            await applyEnvironment({
+              command_helper,
+              name: environmentRecord.name,
+              logger,
               autoApprove: true,
-            }, environmet.name);
+              targetEnvironment: environmentRecord.config,
+            });
           }
           console.log('Environments updated successfully');
           command_helper.pipelineRenderer.doneRenderingPipeline();

@@ -435,6 +435,18 @@ describe('Datacenter Schema: v1', () => {
             provider: kubernetes
             credentials:
               configPath: test
+        environment:
+          resources:
+            namespace:
+              type: namespace
+              account: aws
+              name: \${{ datacenter.name }}-namespace
+          accounts:
+            cluster:
+              name: \${{ datacenter.name }}-dc-cluster-env
+              provider: kubernetes
+              credentials:
+                configPath: test
       `) as any,
     );
 

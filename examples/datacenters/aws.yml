@@ -20,7 +20,7 @@ resources:
     region: ${{ variables.region }}
   cluster:
     type: kubernetesCluster
-    name: aws-datacenter
+    name: ${{ datacenter.name }}-architect-dc
     kubernetesVersion: "1.27"
     account: ${{ variables.aws-account }}
     region: ${{ variables.region }}

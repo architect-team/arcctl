@@ -29,7 +29,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -83,7 +82,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -152,7 +150,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -224,7 +221,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -287,7 +283,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -367,7 +362,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -435,6 +429,24 @@ describe('Datacenter Schema: v1', () => {
             account: aws
             name: \${{ datacenter.name }}
             region: us-east-1
+        accounts:
+          cluster:
+            name: \${{ datacenter.name }}-dc-cluster
+            provider: kubernetes
+            credentials:
+              configPath: test
+        environment:
+          resources:
+            namespace:
+              type: namespace
+              account: aws
+              name: \${{ datacenter.name }}-namespace
+          accounts:
+            cluster:
+              name: \${{ datacenter.name }}-dc-cluster-env
+              provider: kubernetes
+              credentials:
+                configPath: test
       `) as any,
     );
 
@@ -447,7 +459,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 
@@ -457,6 +468,18 @@ describe('Datacenter Schema: v1', () => {
     });
 
     assertArrayIncludes(graph.nodes, [
+      new CloudNode({
+        inputs: {
+          account: 'n/a',
+          credentials: {
+            configPath: 'test',
+          },
+          name: 'dc-name-dc-cluster',
+          provider: 'kubernetes',
+          type: 'arcctlAccount',
+        },
+        name: 'dc-name-dc-cluster',
+      }),
       new CloudNode({
         name: 'gateway',
         inputs: {
@@ -491,7 +514,6 @@ describe('Datacenter Schema: v1', () => {
           secretAccessKey: '',
         },
         providerStore,
-        {},
       ),
     );
 

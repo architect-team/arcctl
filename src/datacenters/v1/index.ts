@@ -135,7 +135,12 @@ export default class DatacenterV1 extends Datacenter {
     );
   }
 
-  private replaceDatacenterAccountRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
+  private replaceDatacenterAccountRefs<T>(
+    graph: CloudGraph,
+    datacenterName: string,
+    from_node_id: string,
+    contents: T,
+  ): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
         /\${{\s*?accounts\.([\w-]+)\.(\S+)\s*?}}/g,
@@ -147,7 +152,7 @@ export default class DatacenterV1 extends Datacenter {
 
           const target_node_id = CloudNode.genId({
             type: 'arcctlAccount',
-            name: account.name,
+            name: this.replaceDatacenterNameRefs(datacenterName, account.name),
           });
 
           graph.insertEdges(
@@ -328,7 +333,7 @@ export default class DatacenterV1 extends Datacenter {
       });
 
       node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterAccountRefs(graph, node.id, node.inputs);
+      node.inputs = this.replaceDatacenterAccountRefs(graph, options.datacenterName, node.id, node.inputs);
       node.inputs = this.replaceDatacenterNameRefs(options?.datacenterName || '', node.inputs);
 
       graph.insertNodes(node);
@@ -337,7 +342,7 @@ export default class DatacenterV1 extends Datacenter {
     // Create nodes for datacenter accounts
     for (const value of Object.values(this.accounts || {})) {
       const node = new CloudNode({
-        name: value.name,
+        name: this.replaceDatacenterNameRefs(options.datacenterName, value.name),
         inputs: {
           type: 'arcctlAccount',
           account: 'n/a', // Helps it skip hook mutations
@@ -346,6 +351,7 @@ export default class DatacenterV1 extends Datacenter {
       });
 
       node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
+      node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
 
       graph.insertNodes(node);
     }
@@ -360,9 +366,6 @@ export default class DatacenterV1 extends Datacenter {
           inputs: value,
         });
 
-        node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-        node.inputs = this.replaceDatacenterAccountRefs(graph, node.id, node.inputs);
         node.inputs = this.replaceEnvironmentResourceRefs(graph, options?.environmentName, node.id, node.inputs);
         node.inputs = this.replaceEnvironmentAccountRefs(
           graph,
@@ -372,6 +375,9 @@ export default class DatacenterV1 extends Datacenter {
           node.inputs,
         );
         node.inputs = this.replaceEnvironmentNameRefs(options?.environmentName, node.inputs);
+        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
+        node.inputs = this.replaceDatacenterAccountRefs(graph, options.datacenterName, node.id, node.inputs);
+        node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
 
         graph.insertNodes(node);
       }
@@ -564,6 +570,7 @@ export default class DatacenterV1 extends Datacenter {
             );
             newNode.inputs = this.replaceDatacenterAccountRefs(
               graph,
+              options.datacenterName,
               hook_node_id,
               newNode.inputs,
             );
@@ -644,6 +651,10 @@ export default class DatacenterV1 extends Datacenter {
             );
             newNode.inputs = this.replaceDatacenterAccountRefs(
               graph,
+              // HEAD
+              //
+              options.datacenterName,
+              //c0bd969ebb3e6f235ca522bc8b61f0f3ba3b2cc2
               hook_node_id,
               newNode.inputs,
             );
@@ -691,6 +702,7 @@ export default class DatacenterV1 extends Datacenter {
           );
           node.inputs = this.replaceDatacenterAccountRefs(
             graph,
+            options.datacenterName,
             node.id,
             node.inputs,
           );

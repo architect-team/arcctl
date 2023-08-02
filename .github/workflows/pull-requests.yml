@@ -9,7 +9,7 @@ env:
   DENO_DIR: deno_cache
 
 jobs:
-  codecov:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,6 +22,8 @@ jobs:
         with:
           path: ${{ env.DENO_DIR }}
           key: ${{ hashFiles('deno.lock') }}
+      - name: Deno Cache
+        run: deno task cache
       - name: Check formatting
         run: deno fmt --check
       - name: Check linting

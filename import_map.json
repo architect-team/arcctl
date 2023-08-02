@@ -25,7 +25,8 @@
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
     "aws-sdk": "npm:aws-sdk@2.1229.0",
     "mustache": "https://esm.sh/mustache@4.2.0",
-    "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1"
+    "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1",
+    "uuid": "https://esm.sh/v124/uuid@8.0.0"
   },
   "scopes": {
     "https://esm.sh/v124/": {

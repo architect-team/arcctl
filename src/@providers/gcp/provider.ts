@@ -17,7 +17,7 @@ import { GoogleCloudKubernetesClusterService } from './services/kubernetes-clust
 import { GoogleCloudKubernetesVersionService } from './services/kubernetes-version.ts';
 import { GoogleCloudNodeSizeService } from './services/node-size.ts';
 import { GoogleCloudRegionService } from './services/region.ts';
-import { GoogleCloudSecretService } from "./services/secret.ts";
+import { GoogleCloudSecretService } from './services/secret.ts';
 import { GoogleCloudServiceService } from './services/service.ts';
 import { GoogleCloudVpcService } from './services/vpc.ts';
 import { GoogleCloudDnsRecordTest } from './tests/dns-record.ts';

@@ -34,7 +34,7 @@ export class ArcctlProviderStore extends BaseStore<Provider> implements Provider
 
     await this.load(async (raw) => {
       const type = raw.type as keyof typeof SupportedProviders;
-      return new SupportedProviders[type](raw.name, raw.credentials, this, raw.files);
+      return new SupportedProviders[type](raw.name, raw.credentials, this);
     });
 
     return this._records!.find((item) => item.name === name);
@@ -43,7 +43,7 @@ export class ArcctlProviderStore extends BaseStore<Provider> implements Provider
   list(): Promise<Provider[]> {
     return this.load(async (raw) => {
       const type = raw.type as keyof typeof SupportedProviders;
-      return new SupportedProviders[type](raw.name, raw.credentials, this, raw.files);
+      return new SupportedProviders[type](raw.name, raw.credentials, this);
     });
   }
 

@@ -167,4 +167,85 @@ describe('Pipeline', () => {
     assertEquals(plannedPipeline.steps.length, 1);
     assertEquals(plannedPipeline.steps[0].action, 'no-op');
   });
+
+  it('should attempt to create node that was previously set to create but unable to', async () => {
+    // If a node was set to "create" in the previous pipeline but the step never ran,
+    // a subsequent pipeline should attempt to "create" the node again.
+
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore, {}));
+
+    const previousStepPending = new PipelineStep({
+      name: 'test',
+      action: 'create',
+      type: 'namespace',
+      color: 'blue',
+      status: { state: 'pending' },
+      inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
+    });
+    const previousStepErrored = new PipelineStep({
+      name: 'test-2',
+      action: 'create',
+      type: 'namespace',
+      color: 'blue',
+      status: { state: 'error' },
+      inputs: { type: 'namespace', account: 'test-account', name: 'test-ns-2' },
+    });
+
+    const previousPipeline = new Pipeline({ steps: [previousStepPending, previousStepErrored] });
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph({
+        edges: previousPipeline.edges,
+        nodes: [
+          new CloudNode({
+            name: 'test',
+            inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
+          }),
+          new CloudNode({
+            name: 'test-2',
+            inputs: { type: 'namespace', account: 'test-account', name: 'test-ns-2' },
+          }),
+        ],
+      }),
+    }, providerStore);
+
+    assertEquals(plannedPipeline.steps.length, 2);
+    assertEquals(plannedPipeline.steps[0].action, 'create');
+    assertEquals(plannedPipeline.steps[1].action, 'create');
+  });
+
+  it('should attempt to update node that was previously set to update but unable to', async () => {
+    // If a node was set to "update" in the previous pipeline but the step never ran,
+    // a subsequent pipeline should attempt to "update" the node again.
+
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore, {}));
+
+    const previousStep = new PipelineStep({
+      name: 'test',
+      action: 'update',
+      type: 'namespace',
+      color: 'blue',
+      status: { state: 'pending' },
+      inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
+    });
+
+    const previousPipeline = new Pipeline({ steps: [previousStep] });
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph({
+        edges: previousPipeline.edges,
+        nodes: [
+          new CloudNode({
+            name: 'test',
+            inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
+          }),
+        ],
+      }),
+    }, providerStore);
+
+    assertEquals(plannedPipeline.steps.length, 1);
+    assertEquals(plannedPipeline.steps[0].action, 'update');
+  });
 });

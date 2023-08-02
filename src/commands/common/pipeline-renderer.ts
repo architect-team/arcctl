@@ -76,11 +76,15 @@ export class PipelineRenderer {
     pipeline: Pipeline,
     autoApprove?: boolean,
   ): Promise<void> {
-    const tableStr = this.pipelineToTableOutput(pipeline);
-    console.log(tableStr);
+    if (!Inputs.isInteractiveShell()) {
+      const tableStr = this.pipelineToTableOutput(pipeline);
+      console.log(tableStr);
+    }
     if (autoApprove) {
       return;
     }
+    const tableStr = this.pipelineToTableOutput(pipeline);
+    console.log(tableStr);
     Inputs.assertInteractiveShell('Use the flag \'--auto-approve\' to skip interactive approval');
     const shouldContinue = await Inputs.promptForContinuation('Do you want to apply the above changes?');
     if (!shouldContinue) {

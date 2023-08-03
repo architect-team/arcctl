@@ -20,6 +20,8 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
 
     GcpUtils.configureProvider(this);
 
+    const db_name = (this.inputs?.name || 'unknown').replaceAll('/', '-');
+
     const depends_on = this.inputs?.name
       ? [
         new ProjectService(this, 'database-service', {
@@ -31,7 +33,7 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
 
     this.database = new SqlDatabaseInstance(this, 'databaseCluster', {
       dependsOn: depends_on,
-      name: this.inputs?.name || 'deleting',
+      name: db_name,
       databaseVersion: !this.inputs?.databaseType
         ? 'POSTGRES_14'
         : `${this.inputs.databaseType}_${this.inputs.databaseVersion}`,

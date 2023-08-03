@@ -447,7 +447,9 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         });
 
         if (target_proxy.data.urlMap) {
-          const url_map_name = target_proxy.data.urlMap.substring(target_proxy.data.urlMap.lastIndexOf('/') + 1);
+          const url_map_name = target_proxy.data.urlMap.substring(
+            target_proxy.data.urlMap.lastIndexOf('/') + 1,
+          );
           const url_map = await google.compute('v1').urlMaps.get({
             ...this.requestAuth(),
             urlMap: url_map_name,

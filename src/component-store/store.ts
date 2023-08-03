@@ -1,11 +1,11 @@
 import * as crypto from 'https://deno.land/std@0.153.0/node/crypto.ts';
 import { copy } from 'std/fs/copy.ts';
-import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import tar from 'tar';
 import { Component } from '../components/component.ts';
 import { parseComponent } from '../components/parser.ts';
 import { ImageManifest, ImageRepository } from '../oci/index.ts';
+import { pathExistsSync } from '../utils/filesystem.ts';
 import { ComponentStoreDB } from './db.ts';
 
 const CACHE_DB_FILENAME = 'component.db.json';
@@ -80,7 +80,7 @@ export class ComponentStore {
     // If the input is an image ID, look for it in the filesystem
     if (/^[\dA-Fa-f]{12}/.test(ref_or_id)) {
       const src_path = path.join(this.cache_dir, ref_or_id, 'architect.json');
-      if (!existsSync(src_path)) {
+      if (!pathExistsSync(src_path)) {
         throw new MissingComponentRef(ref_or_id);
       }
 
@@ -114,7 +114,7 @@ export class ComponentStore {
       .setEncoding('utf-8')
       .digest('hex') as string).substring(0, 12);
     const new_path = path.join(this.cache_dir, artifact_id);
-    if (!existsSync(new_path)) {
+    if (!pathExistsSync(new_path)) {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     Deno.writeTextFileSync(path.join(new_path, 'architect.json'), component_contents);
@@ -145,7 +145,7 @@ export class ComponentStore {
       .setEncoding('utf-8')
       .digest('hex') as string;
     const new_path = path.join(this.cache_dir, artifact_id);
-    if (!existsSync(new_path)) {
+    if (!pathExistsSync(new_path)) {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     await copy(host_path, new_path, { overwrite: true });
@@ -162,7 +162,7 @@ export class ComponentStore {
       if (/^[\dA-Fa-f]{12}/.test(ref_string)) {
         // If the input is an image ID, look for it in the filesystem
         const src_path = path.join(this.cache_dir, ref_string);
-        if (!existsSync(src_path)) {
+        if (!pathExistsSync(src_path)) {
           throw new MissingComponentRef(ref_string);
         }
 
@@ -197,7 +197,7 @@ export class ComponentStore {
     if (/^[\dA-Fa-f]{12}/.test(src_ref_or_id)) {
       // If the input is an image ID, look for it in the filesystem
       const src_path = path.join(this.cache_dir, src_ref_or_id, 'architect.json');
-      if (!existsSync(src_path)) {
+      if (!pathExistsSync(src_path)) {
         throw new MissingComponentRef(src_ref_or_id);
       }
 
@@ -325,7 +325,7 @@ export class ComponentStore {
     const layer = manifest.layers[0];
     const file = await repository.downloadBlob(layer.digest);
     const store_dir = path.join(this.cache_dir, manifest.config.digest.replace(/^sha256:/, ''));
-    if (!existsSync(store_dir)) {
+    if (!pathExistsSync(store_dir)) {
       Deno.mkdirSync(store_dir, { recursive: true });
     }
 

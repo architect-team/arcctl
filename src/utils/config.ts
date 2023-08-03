@@ -2,6 +2,7 @@ import { home_dir } from 'deps';
 import * as fs from 'std/fs/mod.ts';
 import * as path from 'std/path/mod.ts';
 import { SupportedProviders } from '../@providers/index.ts';
+import { pathExistsSync } from './filesystem.ts';
 
 const DEFAULT_CONFIG_DIRECTORY = path.join(home_dir() || '~', '.config', 'arcctl');
 
@@ -63,15 +64,7 @@ export default class ArcCtlConfig {
 
   public static save(): void {
     const config_directory = this.getConfigDirectory();
-    let directory_exists = false;
-    try {
-      if (fs.existsSync(config_directory)) {
-        directory_exists = true;
-      }
-    } catch {
-      // ignore error if directory doesn't exist as existsSync will throw an error - https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
-    }
-    if (!directory_exists) {
+    if (!pathExistsSync(config_directory)) {
       Deno.mkdirSync(config_directory, { recursive: true });
     }
 

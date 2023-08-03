@@ -6,6 +6,7 @@ import { Provider } from '../@providers/provider.ts';
 import { EmptyProviderStore } from '../@providers/store.ts';
 import { PipelineStep } from '../pipeline/step.ts';
 import { StateBackend } from '../utils/config.ts';
+import { pathExistsSync } from "../utils/filesystem.ts";
 
 const tmpDir = Deno.makeTempDirSync();
 
@@ -60,7 +61,7 @@ export class BaseStore<T> {
         continue;
       }
       try {
-        if (fs.existsSync(value.toString()) && Deno.statSync(value.toString()).isFile) {
+        if (pathExistsSync(value.toString()) && Deno.statSync(value.toString()).isFile) {
           const fileContents = Deno.readFileSync(value as string);
           const hashSum = crypto.createHash('sha256');
           hashSum.update(fileContents);

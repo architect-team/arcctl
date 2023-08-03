@@ -1,5 +1,4 @@
 import cliSpinners from 'cli-spinners';
-import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import { animals, uniqueNamesGenerator } from 'unique-names-generator';
 import winston, { Logger } from 'winston';
@@ -8,6 +7,7 @@ import { DatacenterRecord } from '../datacenters/store.ts';
 import { Environment, EnvironmentRecord, parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { Pipeline, PlanContext } from '../pipeline/index.ts';
+import { pathExistsSync } from '../utils/filesystem.ts';
 import { applyEnvironment } from './apply/utils.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { destroyEnvironment } from './destroy/environment.ts';
@@ -112,7 +112,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
 
   for (let tag_or_path of resolvedComponents) {
     let componentPath: string | undefined;
-    if (existsSync(tag_or_path)) {
+    if (pathExistsSync(tag_or_path)) {
       componentPath = path.isAbsolute(tag_or_path) ? tag_or_path : path.join(Deno.cwd(), tag_or_path);
       tag_or_path = await command_helper.componentStore.add(tag_or_path);
     }

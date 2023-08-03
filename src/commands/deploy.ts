@@ -1,10 +1,10 @@
 import cliSpinners from 'cli-spinners';
-import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 import { Pipeline, PlanContext } from '../pipeline/index.ts';
+import { pathExistsSync } from '../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type DeployOptions = {
@@ -36,7 +36,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
 
   try {
     let componentPath: string | undefined;
-    if (existsSync(tag_or_path)) {
+    if (pathExistsSync(tag_or_path)) {
       componentPath = path.join(Deno.cwd(), tag_or_path);
       tag_or_path = await command_helper.componentStore.add(tag_or_path);
     }
@@ -45,7 +45,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
     await command_helper.componentStore.getComponentConfig(tag_or_path);
 
     if (!options.environment || options.environment.length <= 0) {
-      console.error('Must specify at least one environment to deploy to');
+      console.error('Must specify at least one environment to deploy to'); // TODO: why don't we list environment options here if one wasn't included?
       Deno.exit(1);
     }
 

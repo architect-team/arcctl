@@ -1,7 +1,7 @@
-import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 import PluginUtils from './plugin-utils.ts';
+import { pathExistsSync } from '../utils/filesystem.ts';
 
 export type Dictionary<T> = { [key: string]: T };
 
@@ -28,7 +28,7 @@ export default class PluginManager {
   }
 
   private static async removeOldPluginVersions(pluginDirectory: string, plugin: ArchitectPlugin) {
-    if (!existsSync(pluginDirectory)) {
+    if (!pathExistsSync(pluginDirectory)) {
       return;
     }
     const usedVersions = Object.keys(plugin.versions);
@@ -70,15 +70,7 @@ export default class PluginManager {
     );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);
-    let directory_exists = false;
-    try {
-      if (existsSync(executablePath)) {
-        directory_exists = true;
-      }
-    } catch {
-      // ignore error if directory doesn't exist as existsSync will throw an error - https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
-    }
-    if (!directory_exists) {
+    if (!pathExistsSync(executablePath)) {
       await PluginUtils.downloadFile(
         binary.url,
         downloadedFilePath,

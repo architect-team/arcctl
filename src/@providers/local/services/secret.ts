@@ -1,7 +1,7 @@
 import { Subscriber } from 'rxjs';
-import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { pathExistsSync } from '../../../utils/filesystem.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
@@ -11,7 +11,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   get(id: string): Promise<ResourceOutputs['secret'] | undefined> {
     id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
-    if (!existsSync(file)) {
+    if (!pathExistsSync(file)) {
       return Promise.resolve(undefined);
     }
 
@@ -103,7 +103,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
     id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
-    if (!existsSync(file)) {
+    if (!pathExistsSync(file)) {
       throw new Error(`The ${id} secret does not exist`);
     }
 

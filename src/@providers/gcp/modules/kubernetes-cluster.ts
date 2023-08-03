@@ -45,6 +45,10 @@ export class GoogleCloudKubernetesClusterModule extends ResourceModule<
           issueClientCertificate: true,
         },
       },
+      networkingMode: 'VPC_NATIVE',
+      ipAllocationPolicy: {
+        stackType: 'IPV4',
+      },
       network: this.inputs?.vpc,
       description: this.inputs?.description,
       removeDefaultNodePool: true,

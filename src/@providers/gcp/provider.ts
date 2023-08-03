@@ -8,6 +8,7 @@ import { GoogleCloudCredentials, GoogleCloudCredentialsSchema } from './credenti
 import { GoogleCloudDatabaseClusterService } from './services/database-cluster.ts';
 import { GoogleCloudDatabaseSizeService } from './services/database-size.ts';
 import { GoogleCloudDatabaseTypeService } from './services/database-type.ts';
+import { GoogleCloudDatabaseUserService } from './services/database-user.ts';
 import { GoogleCloudDatabaseVersionService } from './services/database-version.ts';
 import { GoogleCloudDeploymentService } from './services/deployment.ts';
 import { GoogleCloudDnsRecordService } from './services/dns-record.ts';
@@ -65,6 +66,7 @@ export default class GoogleCloudProvider extends Provider<GoogleCloudCredentials
     databaseType: new GoogleCloudDatabaseTypeService(this.name, this.credentials, this.providerStore),
     databaseVersion: new GoogleCloudDatabaseVersionService(this.name, this.credentials, this.providerStore),
     databaseCluster: new GoogleCloudDatabaseClusterService(this.name, this.credentials, this.providerStore),
+    databaseUser: new GoogleCloudDatabaseUserService(this.name, this.credentials, this.providerStore),
     deployment: new GoogleCloudDeploymentService(this.name, this.credentials, this.providerStore),
     ingressRule: new GoogleCloudIngressRuleService(this.name, this.credentials, this.providerStore),
     service: new GoogleCloudServiceService(this.name, this.credentials, this.providerStore),

@@ -15,23 +15,14 @@ variables:
 resources:
   vpc:
     type: vpc
-<<<<<<< HEAD
     name: ${{ datacenter.name }}-dc-vpc
-=======
-    name: ${{ datacenter.name }}-dc
->>>>>>> bb20b401 (Update VPC to create a private network and update DatabaseCluster to use that network)
     account: ${{ variables.gcpAccount }}
     region: ${{ variables.region }}
   cluster:
     type: kubernetesCluster
     account: ${{ variables.gcpAccount }}
-<<<<<<< HEAD
     name: ${{ datacenter.name }}-dc-cluster
     kubernetesVersion: 1.27.3-gke.1700
-=======
-    name: ${{ datacenter.name }}-datacenter-cluster
-    kubernetesVersion: 1.25.8-gke.1000
->>>>>>> bb20b401 (Update VPC to create a private network and update DatabaseCluster to use that network)
     region: ${{ variables.region }}
     vpc: ${{ resources.vpc.id }}
     nodePools:

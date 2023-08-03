@@ -1,16 +1,15 @@
 import { Auth, google } from 'googleapis';
-import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
-import { GoogleCloudDatabaseClusterModule } from '../modules/database-cluster.ts';
+import { GoogleCloudDatabaseUserModule } from '../modules/database-user.ts';
 
-export class GoogleCloudDatabaseClusterService
-  extends TerraformResourceService<'databaseCluster', GoogleCloudCredentials> {
+export class GoogleCloudDatabaseUserService extends TerraformResourceService<'databaseUser', GoogleCloudCredentials> {
   private auth: Auth.GoogleAuth;
   readonly terraform_version = '1.4.5';
-  readonly construct = GoogleCloudDatabaseClusterModule;
+  readonly construct = GoogleCloudDatabaseUserModule;
 
   constructor(accountName: string, credentials: GoogleCloudCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
@@ -20,9 +19,7 @@ export class GoogleCloudDatabaseClusterService
     });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['databaseCluster'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['databaseUser'] | undefined> {
     const results = (await this.list()).rows.filter((r) => r.id === id);
     if (results.length > 0) {
       return results[0];
@@ -32,16 +29,16 @@ export class GoogleCloudDatabaseClusterService
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['databaseCluster']>,
-    pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['databaseCluster']>> {
-    const { data } = await google.sql('v1beta4').instances.list({
+    filterOptions?: Partial<ResourceOutputs['databaseUser']>,
+    _pagingOptions?: Partial<PagingOptions>,
+  ): Promise<PagingResponse<ResourceOutputs['databaseUser']>> {
+    const { data: database_data } = await google.sql('v1beta4').instances.list({
       auth: this.auth,
       project: this.credentials.project,
     });
 
-    const databases: ResourceOutputs['databaseCluster'][] = [];
-    for (const instance of (data.items || [])) {
+    const users: ResourceOutputs['databaseUser'][] = [];
+    for (const instance of (database_data.items || [])) {
       const host = instance.ipAddresses?.filter((ip_mapping) =>
         ip_mapping.type === 'PRIVATE'
       ).map((ip_mapping) => ip_mapping.ipAddress).at(0) || '';
@@ -58,19 +55,29 @@ export class GoogleCloudDatabaseClusterService
         protocol = 'sqlserver';
       }
 
-      databases.push({
-        id: instance.name || '',
-        host: host,
-        port: port,
-        username: 'admin',
-        password: '[omitted]',
-        protocol,
+      const { data } = await google.sql('v1beta4').users.list({
+        auth: this.auth,
+        project: this.credentials.project,
+        instance: instance.name || '',
       });
+
+      for (const user of (data.items || [])) {
+        users.push({
+          id: user.name || 'unknown',
+          username: user.name || 'unknown',
+          password: '[omitted]',
+          database: instance.name || 'unknown',
+          protocol,
+          host,
+          port,
+          url: `${protocol}://${host}:${port}/${instance.name}`,
+        });
+      }
     }
 
     return {
-      total: databases.length,
-      rows: databases,
+      total: users.length,
+      rows: users,
     };
   }
 }

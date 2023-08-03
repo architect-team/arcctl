@@ -34,7 +34,7 @@ export class GoogleCloudDatabaseClusterService
       return {
         id: data.instance || '',
         host: data.selfLink || '',
-        port: 0,
+        port: 5432,
         username: '',
         password: '',
         protocol: data.instance || '',

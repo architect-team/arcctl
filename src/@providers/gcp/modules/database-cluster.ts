@@ -42,6 +42,10 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
       settings: {
         tier: this.inputs?.databaseSize || 'db-f1-micro',
         deletionProtectionEnabled: false,
+        ipConfiguration: {
+          privateNetwork: this.inputs?.vpc,
+          enablePrivatePathForGoogleCloudServices: true,
+        },
       },
     });
 
@@ -64,7 +68,7 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
     this.outputs = {
       id: this.database.id,
       protocol: this.inputs?.databaseType || '',
-      host: this.database.publicIpAddress,
+      host: this.database.privateIpAddress,
       port: 5432,
       username: this.user.name,
       password: this.user.password,

@@ -82,15 +82,18 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       .then(async () => {
         if (interval) {
           clearInterval(interval);
-          await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
-          command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-          command_helper.pipelineRenderer.doneRenderingPipeline();
+          // Prevents interval from being cleared again and datacenter pipeline data being printed again in the
+          // finally() statement if we've made it here.
+          interval = undefined;
         }
+        command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+        command_helper.pipelineRenderer.doneRenderingPipeline();
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
+
+        let success = true;
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {
-            console.log(`Updating environment ${environmentRecord.name}`);
-            await applyEnvironment({
+            success = await applyEnvironment({
               command_helper,
               name: environmentRecord.name,
               logger,
@@ -98,8 +101,9 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
               targetEnvironment: environmentRecord.config,
             });
           }
-          console.log('Environments updated successfully');
-          command_helper.pipelineRenderer.doneRenderingPipeline();
+          if (success) {
+            console.log('Environments updated successfully');
+          } // Environment command handles logging the failures if necessary
         }
       }).catch(async (err) => {
         console.error(err);

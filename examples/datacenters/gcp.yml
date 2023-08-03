@@ -15,14 +15,23 @@ variables:
 resources:
   vpc:
     type: vpc
+<<<<<<< HEAD
     name: ${{ datacenter.name }}-dc-vpc
+=======
+    name: ${{ datacenter.name }}-dc
+>>>>>>> bb20b401 (Update VPC to create a private network and update DatabaseCluster to use that network)
     account: ${{ variables.gcpAccount }}
     region: ${{ variables.region }}
   cluster:
     type: kubernetesCluster
     account: ${{ variables.gcpAccount }}
+<<<<<<< HEAD
     name: ${{ datacenter.name }}-dc-cluster
     kubernetesVersion: 1.27.3-gke.1700
+=======
+    name: ${{ datacenter.name }}-datacenter-cluster
+    kubernetesVersion: 1.25.8-gke.1000
+>>>>>>> bb20b401 (Update VPC to create a private network and update DatabaseCluster to use that network)
     region: ${{ variables.region }}
     vpc: ${{ resources.vpc.id }}
     nodePools:
@@ -50,36 +59,30 @@ environment:
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
+    # zone:
+    #   type: dnsZone
+    #   account: ${{ variables.gcpAccount }}
+    #   name: ${{ variables.dnsZone }}
 
   hooks:
+    - when:
+        type: secret
+      account: ${{ variables.gcpAccount }}
     - when:
         type: database
         databaseType: postgres
       resources:
-        db:
+        db-cluster:
           type: databaseCluster
           account: ${{ variables.gcpAccount }}
-          region: ${{ variables.region }}
-          name: ${{ this.id }}
-          databaseVersion: ${{ this.inputs.databaseVersion }}
+          name: ${{ this.name }}
           databaseSize: db-f1-micro
           databaseType: ${{ this.inputs.databaseType }}
+          databaseVersion: ${{ this.inputs.databaseVersion }}
+          region: ${{ variables.region }}
           vpc: ${{ resources.vpc.id }}
-      accounts:
-        db:
-          provider: postgres
-          name: ${{ this.name }}-db-cluster
-          credentials:
-            host: ${{ this.resources.db.host }}
-            port: ${{ this.resources.db.port }}
-            username: ${{ this.resources.db.username }}
-            password: ${{ this.resources.db.password }}
-            database: postgres
-      account: ${{ this.accounts.db.id }}
-      databaseCluster: ${{ this.resources.db.id }}
-      host: ${{ this.resources.db.host }}
-      port: ${{ this.resources.db.port }}
-      protocol: ${{ this.resources.db.protocol }}
+      databaseCluster: ${{ this.resources.db-cluster.id }}
+      account: ${{ variables.gcpAccount }}
     - when:
         type: ingressRule
       resources:

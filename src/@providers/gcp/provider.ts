@@ -10,7 +10,7 @@ import { GoogleCloudDatabaseSizeService } from './services/database-size.ts';
 import { GoogleCloudDatabaseTypeService } from './services/database-type.ts';
 import { GoogleCloudDatabaseUserService } from './services/database-user.ts';
 import { GoogleCloudDatabaseVersionService } from './services/database-version.ts';
-import { GoogleCloudDatabaseService } from "./services/database.ts";
+import { GoogleCloudDatabaseService } from './services/database.ts';
 import { GoogleCloudDeploymentService } from './services/deployment.ts';
 import { GoogleCloudDnsRecordService } from './services/dns-record.ts';
 import { GoogleCloudDnsZoneService } from './services/dns-zone.ts';

@@ -5,7 +5,7 @@ import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 import { GoogleCloudDatabaseUserModule } from '../modules/database-user.ts';
-import GcpUtils from "../utils.ts";
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudDatabaseUserService extends TerraformResourceService<'databaseUser', GoogleCloudCredentials> {
   private auth: Auth.GoogleAuth;

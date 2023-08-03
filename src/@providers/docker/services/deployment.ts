@@ -91,7 +91,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
   }
 
   async create(
-    _subscriber: Subscriber<string>,
+    subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
     let containerName = inputs.name.replaceAll('/', '--');
@@ -181,6 +181,8 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       }
     }
 
+    subscriber.next('');
+
     return {
       id: containerName,
       labels,
@@ -197,7 +199,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(`No deployment with ID ${id}`);
     }
 
-    subscriber.next(`Stopping old container: ${inspection.Id}`);
+    subscriber.next('Stopping old container');
 
     const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', inspection.Id] });
     if (stopCode !== 0) {
@@ -209,7 +211,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(rmStderr);
     }
 
-    subscriber.next(`Starting new container`);
+    subscriber.next('Starting new container');
 
     return this.create(subscriber, inputs as ResourceInputs['deployment']);
   }
@@ -217,7 +219,6 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
     const match = await this.get(id);
     if (!match) {
-      subscriber.next('No matching deployment. Skipping.');
       return Promise.resolve();
     }
 

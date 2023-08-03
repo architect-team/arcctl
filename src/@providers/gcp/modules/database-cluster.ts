@@ -20,7 +20,7 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
 
     GcpUtils.configureProvider(this);
 
-    const db_name = (this.inputs?.name || 'unknown').replaceAll('/', '-');
+    const database_instance_name = (this.inputs?.name || 'unknown').replaceAll('/', '-');
 
     const depends_on = this.inputs?.name
       ? [
@@ -33,7 +33,7 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
 
     this.database = new SqlDatabaseInstance(this, 'databaseCluster', {
       dependsOn: depends_on,
-      name: db_name,
+      name: database_instance_name,
       databaseVersion: !this.inputs?.databaseType
         ? 'POSTGRES_14'
         : `${this.inputs.databaseType}_${this.inputs.databaseVersion}`,
@@ -65,11 +65,15 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
       cert = '';
     }
 
+    const protocol = this.inputs?.databaseType || '';
+    const host = this.database.privateIpAddress;
+    const port = 5432;
+
     this.outputs = {
-      id: this.database.id,
-      protocol: this.inputs?.databaseType || '',
-      host: this.database.privateIpAddress,
-      port: 5432,
+      id: `${protocol}/${database_instance_name}/${host}/${port}`,
+      protocol,
+      host,
+      port,
       username: this.user.name,
       password: this.user.password,
       certificate: cert,

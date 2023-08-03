@@ -22,7 +22,7 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
 
   public async testCredentials(): Promise<boolean> {
     try {
-      const { code, stdout } = await kubectlExec(this.credentials, ['version']);
+      const { code, stdout } = await kubectlExec(this.credentials, ['version', '--request-timeout', '5s']);
       if (code !== 0) {
         return false;
       }

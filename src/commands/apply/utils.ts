@@ -42,7 +42,7 @@ export const promptForDatacenter = async (command_helper: CommandHelper, name?: 
   return selected;
 };
 
-export const applyEnvironment = async (options: ApplyEnvironmentOptions): boolean => {
+export const applyEnvironment = async (options: ApplyEnvironmentOptions): Promise<boolean> => {
   const environmentRecord = await options.command_helper.environmentStore.get(options.name);
   const notHasDatacenter = !options.datacenter && !environmentRecord;
 
@@ -114,6 +114,5 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions): boolea
   } else {
     console.log(`Environment ${options.name} ${environmentRecord ? 'updated' : 'created'} successfully`);
   }
-
   return success;
 };

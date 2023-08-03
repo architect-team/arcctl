@@ -103,7 +103,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
           }
           if (success) {
             console.log('Environments updated successfully');
-          } // Environment command handles logging the failures if necessary
+          }
         }
       }).catch(async (err) => {
         console.error(err);

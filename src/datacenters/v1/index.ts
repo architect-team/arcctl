@@ -651,10 +651,7 @@ export default class DatacenterV1 extends Datacenter {
             );
             newNode.inputs = this.replaceDatacenterAccountRefs(
               graph,
-              // HEAD
-              //
               options.datacenterName,
-              //c0bd969ebb3e6f235ca522bc8b61f0f3ba3b2cc2
               hook_node_id,
               newNode.inputs,
             );

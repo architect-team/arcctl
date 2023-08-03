@@ -4,13 +4,13 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
-import { GoogleCloudDatabaseUserModule } from '../modules/database-user.ts';
-import GcpUtils from "../utils.ts";
+import { GoogleCloudDatabaseModule } from '../modules/database.ts';
+import GcpUtils from '../utils.ts';
 
-export class GoogleCloudDatabaseUserService extends TerraformResourceService<'databaseUser', GoogleCloudCredentials> {
+export class GoogleCloudDatabaseService extends TerraformResourceService<'database', GoogleCloudCredentials> {
   private auth: Auth.GoogleAuth;
   readonly terraform_version = '1.4.5';
-  readonly construct = GoogleCloudDatabaseUserModule;
+  readonly construct = GoogleCloudDatabaseModule;
 
   constructor(accountName: string, credentials: GoogleCloudCredentials, providerStore: ProviderStore) {
     super(accountName, credentials, providerStore);
@@ -20,7 +20,7 @@ export class GoogleCloudDatabaseUserService extends TerraformResourceService<'da
     });
   }
 
-  async get(id: string): Promise<ResourceOutputs['databaseUser'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
     const results = (await this.list()).rows.filter((r) => r.id === id);
     if (results.length > 0) {
       return results[0];
@@ -30,44 +30,45 @@ export class GoogleCloudDatabaseUserService extends TerraformResourceService<'da
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['databaseUser']>,
+    filterOptions?: Partial<ResourceOutputs['database']>,
     _pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['databaseUser']>> {
+  ): Promise<PagingResponse<ResourceOutputs['database']>> {
     const { data: database_data } = await google.sql('v1beta4').instances.list({
       auth: this.auth,
       project: this.credentials.project,
     });
 
-    const users: ResourceOutputs['databaseUser'][] = [];
+    const databases: ResourceOutputs['database'][] = [];
     for (const instance of (database_data.items || [])) {
       const host = instance.ipAddresses?.filter((ip_mapping) =>
         ip_mapping.type === 'PRIVATE'
       ).map((ip_mapping) => ip_mapping.ipAddress).at(0) || '';
       const { port, protocol } = GcpUtils.databasePortAndProtocol(instance.databaseVersion || '');
 
-      const { data } = await google.sql('v1beta4').users.list({
+      const { data } = await google.sql('v1beta4').databases.list({
         auth: this.auth,
         project: this.credentials.project,
         instance: instance.name || '',
       });
 
-      for (const user of (data.items || [])) {
-        users.push({
-          id: user.name || 'unknown',
-          username: user.name || 'unknown',
-          password: '[omitted]',
-          database: instance.name || 'unknown',
-          protocol,
+      for (const database of (data.items || [])) {
+        databases.push({
+          id: `${instance.name}/${database.name}`,
+          name: database.name || 'unknown',
           host,
           port,
+          protocol,
+          username: '',
+          password: '',
+          account: this.accountName,
           url: `${protocol}://${host}:${port}/${instance.name}`,
         });
       }
     }
 
     return {
-      total: users.length,
-      rows: users,
+      total: databases.length,
+      rows: databases,
     };
   }
 }

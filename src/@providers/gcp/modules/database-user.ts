@@ -2,6 +2,7 @@ import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { DataGoogleSqlDatabaseInstance } from '../.gen/providers/google/data-google-sql-database-instance/index.ts';
+import { DataGoogleSqlDatabase } from '../.gen/providers/google/data-google-sql-database/index.ts';
 import { SqlUser } from '../.gen/providers/google/sql-user/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 import GcpUtils from '../utils.ts';
@@ -17,8 +18,15 @@ export class GoogleCloudDatabaseUserModule extends ResourceModule<'databaseUser'
 
     GcpUtils.configureProvider(this);
 
-    const instance = new DataGoogleSqlDatabaseInstance(this, 'database', {
-      name: this.inputs?.database || 'unknown',
+    const [instance_name, database_name] = this.inputs?.database.split('/') || ['unknown', 'unknown'];
+
+    const instance = new DataGoogleSqlDatabaseInstance(this, 'database-cluster', {
+      name: instance_name,
+    });
+
+    const database = new DataGoogleSqlDatabase(this, 'database', {
+      name: database_name,
+      instance: instance.name,
     });
 
     this.sql_user = new SqlUser(this, 'user', {
@@ -28,18 +36,7 @@ export class GoogleCloudDatabaseUserModule extends ResourceModule<'databaseUser'
     });
 
     const host = instance.privateIpAddress;
-    let port;
-    let protocol;
-    if (instance.databaseVersion.toLowerCase().includes('mysql')) {
-      port = 3306;
-      protocol = 'mysql';
-    } else if (instance.databaseVersion.toLowerCase().includes('postgres')) {
-      port = 5432;
-      protocol = 'postgresql';
-    } else {
-      port = 1433;
-      protocol = 'sqlserver';
-    }
+    const { port, protocol } = GcpUtils.databasePortAndProtocol(instance.databaseVersion);
 
     this.outputs = {
       id: this.sql_user.name,
@@ -49,7 +46,7 @@ export class GoogleCloudDatabaseUserModule extends ResourceModule<'databaseUser'
       port,
       protocol,
       url: `${protocol}://${this.sql_user.name}:${this.sql_user.password}@${host}:${port}/${instance.name}`,
-      database: instance.name,
+      database: database.name,
     };
   }
 

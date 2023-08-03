@@ -35,7 +35,7 @@ export type DatabaseApplyOutputs = {
   username: string;
 
   /**
-   * Passowrd used to authenticate with the schema
+   * Password used to authenticate with the schema
    */
   password: string;
 

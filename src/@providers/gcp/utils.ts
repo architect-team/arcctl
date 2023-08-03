@@ -117,4 +117,24 @@ export default class GcpUtils {
       credentials: resource_module.credentials.serviceAccountCredentialsFile,
     });
   }
+
+  /**
+   * Given a GCP databaseVersion, return the port and protocol.
+   */
+  public static databasePortAndProtocol(databaseVersion: string): { port: number; protocol: string } {
+    let port;
+    let protocol;
+    if (databaseVersion.toLowerCase().includes('mysql')) {
+      port = 3306;
+      protocol = 'mysql';
+    } else if (databaseVersion.toLowerCase().includes('postgres')) {
+      port = 5432;
+      protocol = 'postgresql';
+    } else {
+      port = 1433;
+      protocol = 'sqlserver';
+    }
+
+    return { port, protocol };
+  }
 }

@@ -5,6 +5,7 @@ import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
 import { GoogleCloudDatabaseClusterModule } from '../modules/database-cluster.ts';
+import GcpUtils from '../utils.ts';
 
 export class GoogleCloudDatabaseClusterService
   extends TerraformResourceService<'databaseCluster', GoogleCloudCredentials> {
@@ -45,18 +46,7 @@ export class GoogleCloudDatabaseClusterService
       const host = instance.ipAddresses?.filter((ip_mapping) =>
         ip_mapping.type === 'PRIVATE'
       ).map((ip_mapping) => ip_mapping.ipAddress).at(0) || '';
-      let port;
-      let protocol;
-      if (instance.databaseVersion?.toLowerCase().includes('mysql')) {
-        port = 3306;
-        protocol = 'mysql';
-      } else if (instance.databaseVersion?.toLowerCase().includes('postgres')) {
-        port = 5432;
-        protocol = 'postgresql';
-      } else {
-        port = 1433;
-        protocol = 'sqlserver';
-      }
+      const { port, protocol } = GcpUtils.databasePortAndProtocol(instance.databaseVersion || '');
 
       databases.push({
         id: instance.name || '',

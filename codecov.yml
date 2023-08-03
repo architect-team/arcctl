@@ -1,0 +1,30 @@
+component_management:
+  individual_components:
+    - component_id: graph
+      paths:
+        - src/cloud-graph
+    - component_id: pipeline
+      paths:
+        - src/pipeline
+    - component_id: components
+      paths:
+        - src/components
+    - component_id: environments
+      paths:
+        - src/environments
+    - component_id: datacenters
+      paths:
+        - src/datacenters
+    - component_id: component-store
+      paths:
+        - src/component-store
+        - src/oci
+    - component_id: state
+      paths:
+        - src/secrets
+
+ignore:
+  - src/@providers
+
+comment:
+  layout: "header, diff, components, files" # show component info in the PR comment

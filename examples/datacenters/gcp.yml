@@ -8,20 +8,21 @@ variables:
     type: arcctlAccount
     provider: gcp
   dnsZone:
-    type: string
+    type: dnsZone
+    arcctlAccount: ${{ variables.gcpAccount }}
     description: Name of DNS zone for DNS records
 
 resources:
   vpc:
     type: vpc
-    name: gcp-datacenter
+    name: ${{ datacenter.name }}-dc-vpc
     account: ${{ variables.gcpAccount }}
     region: ${{ variables.region }}
   cluster:
     type: kubernetesCluster
     account: ${{ variables.gcpAccount }}
-    name: gcp-datacenter
-    kubernetesVersion: 1.25.8-gke.1000
+    name: ${{ datacenter.name }}-dc-cluster
+    kubernetesVersion: 1.27.3-gke.1700
     region: ${{ variables.region }}
     vpc: ${{ resources.vpc.id }}
     nodePools:
@@ -31,7 +32,7 @@ resources:
 
 accounts:
   cluster:
-    name: gcp-cluster
+    name: ${{ datacenter.name }}-dc-cluster
     provider: kubernetes
     credentials:
       configPath: ${{ resources.cluster.configPath }}
@@ -49,10 +50,6 @@ environment:
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
-    zone:
-      type: dnsZone
-      account: ${{ variables.gcpAccount }}
-      name: ${{ variables.dnsZone }}
 
   hooks:
     - when:
@@ -68,7 +65,17 @@ environment:
           databaseSize: db-f1-micro
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
-      account: ${{ this.resources.db.account }}
+      accounts:
+        db:
+          provider: postgres
+          name: ${{ this.name }}-db-cluster
+          credentials:
+            host: ${{ this.resources.db.host }}
+            port: ${{ this.resources.db.port }}
+            username: ${{ this.resources.db.username }}
+            password: ${{ this.resources.db.password }}
+            database: postgres
+      account: ${{ this.accounts.db.id }}
       databaseCluster: ${{ this.resources.db.id }}
       host: ${{ this.resources.db.host }}
       port: ${{ this.resources.db.port }}
@@ -79,7 +86,7 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: ${{ variables.gcpAccount }}
-          dnsZone: ${{ environment.resources.zone.id }}
+          dnsZone: ${{ variables.dnsZone }}
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}

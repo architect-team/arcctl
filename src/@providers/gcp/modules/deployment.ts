@@ -37,13 +37,17 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       region = this.inputs.labels?.region.split('-').slice(0, -1).join('-');
     }
 
+    const vpc_name = this.inputs?.labels?.vpc || 'deleting';
+    const namespace = this.inputs?.namespace || 'ns';
+    const name = this.inputs?.name.replaceAll('/', '-') || 'deleting';
+
     this.deployments = [];
     const labels: Record<string, string> = {};
 
     for (const service of this.inputs?.services || []) {
-      const deployment_name = (this.inputs?.namespace || 'ns') + '-' +
-        (this.inputs?.name.replaceAll('/', '-') || 'deleting');
-      const resource_name = `${deployment_name}-${service.port || 80}`;
+      const deployment_name = `${namespace}-${name}`;
+      const service_port = Number(service.port || 80);
+      const resource_name = `${deployment_name}-${service_port}`;
 
       const deployment = new CloudRunV2Service(this, `${resource_name}-deployment`, {
         dependsOn: depends_on,
@@ -51,6 +55,12 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
         location: region,
         ingress: 'INGRESS_TRAFFIC_ALL',
         template: {
+          vpcAccess: {
+            connector: `projects/${this.credentials.project}/locations/${region}/connectors/${
+              vpc_name.substring(0, 15)
+            }-connector`,
+            egress: 'PRIVATE_RANGES_ONLY',
+          },
           containers: [{
             image: this.inputs?.image || 'deleting',
             args: typeof this.inputs?.entrypoint === 'string'
@@ -61,7 +71,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
               name: key,
               value: String(value),
             })),
-            ports: [{ containerPort: Number(service.port || 80) }],
+            ports: [{ containerPort: service_port }],
             resources: {
               limits: {
                 ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),

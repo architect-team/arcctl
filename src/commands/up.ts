@@ -184,8 +184,6 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   if (success) {
     Deno.addSignalListener('SIGINT', async () => {
       if (environmentRecord) {
-        console.log(originalEnvironment);
-
         await applyEnvironment({
           logger,
           autoApprove: true,

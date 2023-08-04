@@ -108,7 +108,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
     throw new Error('Either a datacenter or environment must be specified');
   }
 
-  const originalEnvironment = await parseEnvironment({ ...environment });
+  const originalEnvironment = await parseEnvironment(JSON.parse(JSON.stringify(environment)));
 
   for (let tag_or_path of resolvedComponents) {
     let componentPath: string | undefined;
@@ -190,6 +190,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
           name: environmentRecord.name,
           targetEnvironment: originalEnvironment,
           command_helper,
+          debug: options.debug,
         });
       } else {
         await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);
@@ -207,6 +208,7 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
         name: environmentRecord.name,
         targetEnvironment: originalEnvironment,
         command_helper,
+        debug: options.debug,
       });
     } else {
       await destroyEnvironment({ verbose: options.verbose, autoApprove: true }, envName);

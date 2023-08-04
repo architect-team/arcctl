@@ -1,6 +1,7 @@
 import { Checkbox } from 'cliffy/prompt/mod.ts';
 import { Provider } from '../@providers/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
+import { Spinner } from './common/spinner.ts';
 
 const PruneAccountsCommand = BaseCommand()
   .description('Remove accounts that are no longer active')
@@ -9,13 +10,20 @@ const PruneAccountsCommand = BaseCommand()
 async function prune_accounts_action(options: GlobalOptions) {
   const command_helper = new CommandHelper(options);
 
+  const allAccounts = await command_helper.providerStore.list();
   const invalidAccounts: Provider[] = [];
-  for (const account of await command_helper.providerStore.list()) {
-    const isValid = await account.testCredentials();
-    if (!isValid) {
-      invalidAccounts.push(account);
-    }
-  }
+
+  await Spinner.all(
+    allAccounts.map(async (account) => {
+      const isValid = await account.testCredentials();
+      if (!isValid) {
+        invalidAccounts.push(account);
+      }
+    }),
+    {
+      message: 'Checking account credentials...',
+    },
+  );
 
   if (invalidAccounts.length <= 0) {
     console.log('All accounts are active. Nothing to prune.');

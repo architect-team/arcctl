@@ -13,6 +13,7 @@ export type ApplyEnvironmentOptions = {
   datacenter?: string;
   logger?: Logger;
   autoApprove?: boolean;
+  debug?: boolean;
 };
 
 export const promptForDatacenter = async (command_helper: CommandHelper, name?: string): Promise<DatacenterRecord> => {
@@ -59,7 +60,11 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions): Promis
 
   const targetEnvironment = options.targetEnvironment || await parseEnvironment({});
 
-  let targetGraph = await targetEnvironment.getGraph(options.name, options.command_helper.componentStore);
+  let targetGraph = await targetEnvironment.getGraph(
+    options.name,
+    options.command_helper.componentStore,
+    options.debug,
+  );
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {
     environmentName: options.name,
     datacenterName: targetDatacenter.name,

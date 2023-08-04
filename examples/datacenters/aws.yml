@@ -1,15 +1,29 @@
+variables:
+  aws-account:
+    type: arcctlAccount
+    provider: aws
+    description: AWS account
+  region:
+    type: region
+    description: Region to run datacenter in
+    arcctlAccount: ${{ variables.aws-account }}
+  dns-zone:
+    type: dnsZone
+    description: DNS zone for ingress rules
+    arcctlAccount: ${{ variables.aws-account }}
+
 resources:
   vpc:
     type: vpc
-    name: aws-datacenter
-    account: aws-architect
-    region: us-west-2
+    name: ${{ datacenter.name }}-architect-dc
+    account: ${{ variables.aws-account }}
+    region: ${{ variables.region }}
   cluster:
     type: kubernetesCluster
-    account: aws-architect
-    name: aws-datacenter
-    kubernetesVersion: "1.25"
-    region: us-west-2
+    name: ${{ datacenter.name }}-architect-dc
+    kubernetesVersion: "1.27"
+    account: ${{ variables.aws-account }}
+    region: ${{ variables.region }}
     vpc: ${{ resources.vpc.id }}
     nodePools:
       - name: pool1
@@ -18,7 +32,7 @@ resources:
 
 accounts:
   cluster:
-    name: do-personal-cluster
+    name: ${{ datacenter.name }}-dc-cluster
     provider: kubernetes
     credentials:
       configPath: ${{ resources.cluster.configPath }}
@@ -38,8 +52,8 @@ environment:
       chart: ingress-nginx
     zone:
       type: dnsZone
-      account: aws-architect
-      name: davidthor.me
+      account: ${{ variables.aws-account }}
+      name: ${{ variables.dns-zone }}
 
   hooks:
     - when:
@@ -48,8 +62,8 @@ environment:
       resources:
         db:
           type: databaseCluster
-          account: aws-architect
-          region: us-west-2
+          account: ${{ variables.aws-account }}
+          region: ${{ variables.region }}
           name: ${{ this.id }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
           databaseSize: db.t3.medium
@@ -65,7 +79,7 @@ environment:
       resources:
         dnsRecord:
           type: dnsRecord
-          account: aws-architect
+          account: ${{ variables.aws-account }}
           dnsZone: ${{ environment.resources.zone.id }}
           subdomain: ${{ this.inputs.subdomain }}
           recordType: CNAME

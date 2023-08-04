@@ -1,94 +1,210 @@
-<p align="center">
+<h1 align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://cdn.architect.io/logo/horizontal-inverted.png"/>
     <source media="(prefers-color-scheme: light)" srcset="https://cdn.architect.io/logo/horizontal.png"/>
     <img width="320" alt="Architect Logo" src="https://cdn.architect.io/logo/horizontal.png"/>
   </picture>
+  <br>
+</h1>
+
+<h4 align="center">
+  Next-generation CI/CD automation to help developers deploy any app, anywhere.
+</h4>
+
+<p align="center">
+  <a href="./LICENSE.md">
+    <img alt="GitHub" src="https://img.shields.io/github/license/architect-team/arcctl">
+  </a>
 </p>
 
 <p align="center">
-  <a href="https://oclif.io"><img src="https://img.shields.io/badge/cli-oclif-brightgreen.svg" alt="oclif" /></a>
-  <a href="https://npmjs.org/package/@architect-io/arcctl"><img src="https://img.shields.io/npm/v/@architect-io/arcctl.svg" alt="Version" /></a>
-  <a href="https://github.com/architect-team/arcctl/blob/main/package.json"><img src="https://img.shields.io/github/license/architect-team/arcctl.svg" alt="License" /></a>
+  <a href="#what-is-architect">What is Architect?</a> •
+  <a href="#install">Install</a> •
+  <a href="#for-developers">Getting started: Developers</a> •
+  <a href="#for-platform-engineers">Getting started: Platform engineers</a>
 </p>
 
-<h1 style="text-align: center">
-  arcctl - for creating on-demand cloud infrastructure
-</h1>
+## What is Architect?
 
-arcctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure. With this CLI, you'll be able to `list`, `get`, `create`, or `delete` supported resources from your favorite cloud providers and tools without learning the API calls or language used by each individual provider.
+Architect is a next-gen toolset that helps teams automate CI/CD for their entire organization. It takes the best of infrastructure-as-Code (IaC), like declarative configuration, execution plans, resource graphs, and change automation, and splits it into a pair of sibling frameworks: the [Component framework](./src/components) to allow developers to design, develop, and integrate cloud-native applications, and the [Datacenter framework](./src/datacenters/) to allow Platform Engineers to control how applications should behave in their cloud.
 
-## Prerequisites
+## Install
 
-Please make sure to install
-
-[ ] [NodeJS](https://nodejs.org/en/)
-
-## Usage
+### MacOS / Linux
 
 ```sh
-# Install the CLI
-$ npm install -g @architect-io/arcctl
-
-# Register your first provider
-$ arcctl add account --name my-credentials
-
-# List some resources
-$ arcctl list vpc --credentials my-credentials
-
-# Create a resource
-$ arcctl create vpc
+$ curl -sSL https://arcctl-backend.nyc3.digitaloceanspaces.com/arcctl --output arcctl && chmod +x ./arcctl && mv ./arcctl /usr/local/bin/
 ```
 
-## Cloud Providers
-
-Before you'll be able to interact with any cloud resources, you'll need to register your cloud credentials with arcctl:
+### Windows
 
 ```sh
-# The CLI will prompt you for available provider types and required credentials
-$ arcctl add account
+$ curl -sSL https://arcctl-backend.nyc3.digitaloceanspaces.com/arcctl --output arcctl && chmod +x ./arcctl && mv ./arcctl /usr/local/bin/
 ```
 
-Scroll down to see more information about how to register each provider. **We highly recommend taking the time to read through our Readme for your desired cloud provider.** While arcctl can help to simplify the managment of resources, each cloud provider has it's own quirks that can still add some complexity to getting started. Our step by step guide can help make sure everything wroks smoothly the first time.
+## For Developers
 
-### Supported providers
-- [x] [digitalocean](./src/%40providers/digitalocean/)
-- [x] [aws](./src/%40providers/aws/)
-- [ ] gcp
-- [ ] azure
+For developers, infrastructure and CI/CD is a nuisance. Once it "works on my machine", cloud applications should be able to run anywhere. Docker and containers have made that true for application runtimes, but developers still spend too much time writing CI workflows and IaC templates. That's why we created the [component framework](./src/components/).
 
-## Resource types
+Components are application bundles that can be run anywhere and always deploy everything they need to run. Creating a component doesn't require developers to learn any cloud infrastructure, and instead focuses on the details they already know about their applications: What database(s) does it need? What APIs does it connect to? What APIs does it expose, and more. By cataloging the application's _dependencies_, Architect is able to guarantee the existance of those dependencies every time the component is deployed. If they can't be found, Architect will deploy those too!
 
-The first reponsibility of this CLI is to define a set of standard schemas for common cloud resources, like VPCs, Regions, managed kubernetes clusters, and more. Below is the current list of supported schemas as well as some insights into future plans for support:
+### Key features
 
-### Supported resources
+* Local development environments
+* On-demand test environments (aka. feature/preview/ephermeral environments)
+* Recursive delivery – automatically deploy component dependencies into fresh environments
+* No need to learn infrastructure or CI pipelines
 
-- [x] [region](./src/%40resources/region/)
-- [x] [vpc](./src/%40resources/vpc/)
-- [x] [kubernetesCluster](./src/%40resources/kubernetesCluster/)
-- [x] [dnsZone](./src/%40resources/dnsZone/)
-- [x] [dnsRecord](./src/%40resources/dnsRecord/)
-- [x] [databaseCluster](./src/%40resources/databaseCluster/)
-- [x] [databaseType](./src/%40resources/databaseType/)
-- [x] [databaseVersion](./src/%40resources/databaseVersion/)
-- [x] [databaseSize](./src/%40resources/databaseSize/)
-- [ ] [kubernetesNamespace](./src/%40resources/kubernetesNamespace/)
-- [ ] [database](./src/%40resources/database/)
-- [ ] [databaseUser](./src/%40resources/databaseUser/)
+### Getting Started
 
-### Interacting with resources
+The best way to get a taste of what Architect is all about is to deploy a component, but there are a few steps needed to get your local environment setup before we can do that (most of which you'll only need to do once). Once you've gotten started all you need to do is deploy!
+
+1. [Create your first datacenter](#1-create-your-first-datacenter)
+2. [Create an environment](#2-create-an-environment)
+3. [Deploy](#3-deploy)
+4. [Bonus: Dev environments](#bonus-dev-environments)
+
+#### 1. Create your first datacenter
+
+Platform, DevOps, and infrastructure teams can have all sorts of requirements for how applications need to behave inside their environments. This is why we created the [datacenters framework](./src/datacenters). This is mostly noise for developers who just want to focus on their app though, so we've create a set of example datacenters you can use to get started.
+
+The datacenter schema used below doesn't use a cloud provider at all. Instead, it runs your applications using docker for deployments and databases, traefik for your API gateway and service mesh, and the local filesystem to store secrets. That means it won't cost you a dime to run the applications and the data never leaves your device:
 
 ```sh
-$ arcctl list <resource>
-$ arcctl list all
-$ arcctl get <resource> <id>
-$ arcctl create <resource>
-$ arcctl delete <resource> <id>
+$ arcctl apply datacenter local https://raw.githubusercontent.com/architect-team/arcctl/main/examples/datacenters/local.yml
 ```
 
-## Remote State
+Datacenters are designed to be a home for many environments, now and in the future. You can leave your datacenter running indefinitely to make it easier to create new test environments.
 
-ArcCtl uses persisted state to keep track of your accounts, datacenters and environments. These statefiles represent all of your cloud resources. By default these statefiles are kept on your local machine. Though, if you want to share these resources with multiple people across machines, then you will need to use a remote state. Any provider that supports a secret resource type, can be used as a remote backend.
+#### 2. Create an environment
+
+Once you've created a datacenter, you'll need to create an [environment](./src/environments) that you can deploy into. Environments are basically namespaces that can allow datacenters to power more than one environment (popular for non-production use cases). Go ahead and create one on the datacenter you just created:
+
+```sh
+$ arcctl create environment my-env --datacenter local
+```
+
+#### 3. Deploy
+
+Finally we can test out deploying a component! We've curated a sample application designed to show off the power of dependencies, [architect-team/auth-example](https://github.com:architect-team/auth-example). This component is a full-stack web application that connects our [Ory Kratos component](https://github.com/architect-team/kratos-selfservice-ui-node) to handle user registration and login, which in turn connects to our [Mailslurper component](https://github.com/architect-team/mailslurper) to handle SMTP for email verification. The component architecture looks a bit like this:
+
+```
+[Auth example] --> [Ory Kratos] --> [Mailslurper]
+```
+
+The beauty of Architect's dependency management feature is that each component is responsible for its own portion of the architecture. They can declare their own databases, volumes, deployments, and more, while the components that depend on them don't have to worry about any of the details. That means you can just deploy the auth example and Architect will take care of deploying and integrating the other two components:
+
+```sh
+$ git clone git@github.com:architect-team/auth-example.git
+$ cd auth-example
+$ arcctl deploy . --environment my-env
+```
+
+Once you press enter, you'll immediately be shown a table-view of every individual cloud resource Architect identified that is required by your deployment. You'll be prompted to approve the changes to the environment, and then arcctl will get started landing the changes. 
+
+Once its done (speed will vary based on the datacenter configuration), you'll be able to navigate to the URLs associated with each ingressRule:
+
+```sh
+  Name                                         Type             Component                Environment  Action  Status    Time                                                
+  service-registry                             volume                                                 no-op   complete  0s                                                  
+  gateway                                      deployment                                             no-op   complete  0s                                                  
+  local-gateway                                arcctlAccount                                          no-op   complete  0s                                                  
+  pg                                           databaseCluster                           local        create  complete  0s                                                  
+  local-postgres-db                            arcctlAccount                             local        create  complete  0s                                                  
+  frontend                                     dockerBuild      ebbd092d354f             local        create  complete  5s                                                  
+  main                                         database         ebbd092d354f             local        create  complete  1s                                                  
+  frontend-app                                 volume           ebbd092d354f             local        create  complete  0s                                                  
+  frontend-public                              volume           ebbd092d354f             local        create  complete  0s                                                  
+  frontend-prisma                              volume           ebbd092d354f             local        create  complete  0s                                                  
+  ebbd092d354f/deployment/frontend/main        databaseUser     ebbd092d354f             local        create  complete  1s                                                  
+  frontend                                     deployment       ebbd092d354f             local        create  complete  0s                                                  
+  frontend                                     service          ebbd092d354f             local        create  complete  0s                                                  
+  app                                          ingressRule      ebbd092d354f             local        create  complete  0s    http://app.local.127.0.0.1.nip.io/            
+  mailslurper                                  deployment       architectio/mailslurper  local        create  complete  2s                                                  
+  smtp                                         service          architectio/mailslurper  local        create  complete  0s                                                  
+  mailslurper                                  service          architectio/mailslurper  local        create  complete  0s                                                  
+  mailslurper-api                              service          architectio/mailslurper  local        create  complete  0s                                                  
+  mailslurper                                  ingressRule      architectio/mailslurper  local        create  complete  0s    http://mailslurper.local.127.0.0.1.nip.io/    
+  mailslurper-api                              ingressRule      architectio/mailslurper  local        create  complete  0s    http://mailslurper-api.local.127.0.0.1.nip.io/
+  allowed_return_urls                          secret           architectio/kratos       local        create  complete  0s                                                  
+  kratos                                       database         architectio/kratos       local        create  complete  2s                                                  
+  architectio/kratos/deployment/kratos/kratos  databaseUser     architectio/kratos       local        create  complete  1s                                                  
+  kratos                                       deployment       architectio/kratos       local        create  complete  1s                                                  
+  ui                                           deployment       architectio/kratos       local        create  complete  0s                                                  
+  kratos-public                                service          architectio/kratos       local        create  complete  0s                                                  
+  kratos-admin                                 service          architectio/kratos       local        create  complete  0s                                                  
+  frontend                                     service          architectio/kratos       local        create  complete  0s                                                  
+  kratos-public                                ingressRule      architectio/kratos       local        create  complete  0s    http://kratos-public.local.127.0.0.1.nip.io/  
+  auth                                         ingressRule      architectio/kratos       local        create  complete  0s    http://auth.local.127.0.0.1.nip.io/
+```
+
+#### Bonus: Dev environments
+
+Want to quickly test your components and application code? We've got you covered! Just run `arcctl up .` in the directory your component lives in and specify a datacenter to power your environment. Architect will automatically create an environment, deploy the component to it in debug mode, and then stream the application logs to your terminal. Yes, this is just like docker-compose!
+
+```sh
+$ arcctl up . --datacenter local
+```
+
+## For Platform Engineers
+
+Creating a strong internal developer platform takes time and experience to do right. Once you create one golden path, like workflows and IaC templates for a Java monolith, developers quickly ask for more. They ask for things like microservices, event-driven architecture, ephemeral environments, logging, observability, and the list just keeps growing. If that wasn't enough, you still have the other half of your job to do: managing costs, keeping things secure, evaluating tools like gateways, service meshes, secret managers, and more. That's why we created the [Datacenters framework](./src/datacenters/) – to help platform engineers offer the developer benefits of [components](./src/components)
+
+Datacenters are packages of configuration and rules dictating how cloud resources should behave. They allow platform engineers to specify resources that should live inside every cloud environment to support multi-tenancy (e.g. namespaces, scoped databases, messaging queues, etc), as well rules for how application resources should behave when they land (e.g. where do secrets get stored, where should container workloads be run, etc). The ability to codify these rules allows platform teams to offer true self-service to developers without loosing control of their cloud. Developers can create their own environments and deploy w/out worrying about infrastructure or workflows, and platform teams can intrument, monitor, and scale cloud infrastructure w/out worrying about applications or developers. 
+
+### Key features
+
+* Give developers the power to create their own on-demand environments
+* Automate zero-trust security for every application (both networking and credentials)
+* Experiment with and swap out key tools (like gateways, service meshes, secret managers, and more) without needing to coordinate with developers
+* Built on top of a tool you already know and trust: Terraform
+
+### Getting started
+
+#### 1. Create a few datacenters
+
+Every datacenter you create becomes something that you or your team can create and run cloud environments on top of. We've created a few sample datacenters templates for you to try, but they all use our [datacenters framework](./src/datacenters/) which means you're able to tweak them or create entirely new ones.
+
+_Note: the second two datacenters both use Google Cloud. You'll be prompted to setup credentials which you can learn how to do by checking out the [GCP provider docs](./src/@providers/gcp/README.md)._
+
+```sh
+# A datacenter that runs components locally
+$ arcctl apply datacenter local https://raw.githubusercontent.com/architect-team/arcctl/main/examples/datacenters/local.yml
+
+# A datacenter that runs workloads on GCP Cloud Run
+$ arcclt apply datacenter gcp-serverless https://raw.githubusercontent.com/architect-team/arcctl/main/examples/datacenters/gcp-serverless.yml
+
+# A datacenter that creates a new k8s cluster to host workloads
+$ arcctl apply datacenter gcp-k8s https://raw.githubusercontent.com/architect-team/arcctl/main/examples/datacenters/gcp.yml
+```
+
+#### 2. Create an environment in each datacenter
+
+Environments are a practical way for you to offer your developers a way to deploy into shared namespaces. When components are deployed to the same environment, they'll automatically use existing components to fulfill dependency claims instead of re-deploying. This is great for collaboration amongst your stakeholders.
+
+Let's go ahead and create an environment in each datacenter. Note that each datacenter may need different resources to exist per-environment – something that is also controllable as part of the [datacenters framework](./src/datacenters):
+
+```sh
+$ arcctl create environment local --datacenter local
+$ arcctl create environment serverless --datacenter gcp-serverless
+$ arcctl create environment k8s --datacenter gcp-k8s
+```
+
+#### 3. Deploy!
+
+Finally, you're ready to deploy! Components are portable across ANY datacenter, so you don't even really need to know what's inside a component in order to deploy it. As a datacenter author, you have full control over how application resources behave within the environment thanks to the [`hooks`](./src/datacenters/v1#resource-hooks) feature of datacenters.
+
+Components get published to any OCI-compliant registry (e.g. dockerhub) so you can deploy them as if they were docker containers:
+
+```sh
+$ arcctl deploy architectio/auth-example:latest --environment local
+$ arcctl deploy architectio/auth-example:latest --environment serverless
+$ arcctl deploy architectio/auth-example:latest --environment k8s
+```
+
+## State management
+
+Architect uses persisted state to keep track of your accounts, datacenters and environments. These statefiles represent all of your cloud resources. By default these statefiles are kept on your local machine. Though, if you want to share these resources with multiple people across machines, then you will need to use a remote state. Any provider that supports a secret resource type, can be used as a remote backend.
 
 To configure a remote backend you can run the command, which will run you through creating an account.
 ```

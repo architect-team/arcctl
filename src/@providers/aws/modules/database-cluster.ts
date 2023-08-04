@@ -7,7 +7,7 @@ import { SupportedProviders } from '../../supported-providers.ts';
 import { Rds } from '../.gen/modules/rds.ts';
 import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.ts';
 import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.ts';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { SecurityGroup } from '../.gen/providers/aws/security-group/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 
@@ -26,13 +26,11 @@ export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', 
     }
     const [region, vpc_id] = (this.inputs?.vpc || 'unknown/unknown').split('/');
 
-    if (region) {
-      const aws_provider = scope.node.children.find((child) => child instanceof AwsProvider) as AwsProvider | undefined;
-      if (!aws_provider) {
-        throw new Error('Unable to set region on AWS provider.');
-      }
-      aws_provider.region = region;
-    }
+    new TerraformAwsProvider(this, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+      region,
+    });
 
     const database_security_group = new SecurityGroup(this, `database-security-group-${name}`, {
       name: `database-${name}`,
@@ -106,7 +104,7 @@ export class AwsDatabaseClusterModule extends ResourceModule<'databaseCluster', 
     const moduleId = ['module', this.database.friendlyUniqueId].join('.');
 
     const [region, id] = resourceId.split('/');
-    const aws_provider = this.scope.node.children[0] as AwsProvider;
+    const aws_provider = this.scope.node.children[0] as TerraformAwsProvider;
     aws_provider.region = region;
 
     return Promise.resolve({

@@ -91,7 +91,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
   }
 
   async create(
-    _subscriber: Subscriber<string>,
+    subscriber: Subscriber<string>,
     inputs: ResourceInputs['deployment'],
   ): Promise<ResourceOutputs['deployment']> {
     let containerName = inputs.name.replaceAll('/', '--');
@@ -181,6 +181,8 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       }
     }
 
+    subscriber.next('');
+
     return {
       id: containerName,
       labels,
@@ -197,7 +199,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(`No deployment with ID ${id}`);
     }
 
-    subscriber.next(`Stopping old container: ${inspection.Id}`);
+    subscriber.next('Stopping old container');
 
     const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', inspection.Id] });
     if (stopCode !== 0) {
@@ -209,137 +211,14 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(rmStderr);
     }
 
-    subscriber.next(`Starting new container`);
+    subscriber.next('Starting new container');
 
-    let containerName = inspection.Name;
-    if (inputs.name) {
-      containerName = inputs.name;
-      if (inputs.namespace) {
-        containerName = `${inputs.namespace}--` + containerName;
-      }
-
-      containerName = containerName.replaceAll('/', '--');
-    }
-
-    const args: string[] = ['run', '--detach', '--name', containerName];
-
-    const network = Object.keys(inspection.NetworkSettings.Networks)[0];
-    args.push('--network', network);
-
-    const existingEnv: Record<string, string> = {};
-    for (const item of inspection.Config.Env || []) {
-      const [key, value] = item.split('=');
-      existingEnv[key] = value;
-    }
-
-    if (inputs.platform) {
-      args.push('--platform', inputs.platform);
-    }
-
-    for (const [key, value] of Object.entries(inputs.environment || existingEnv)) {
-      args.push('--env', `${key}=${String(value)}`);
-    }
-
-    const entrypoint = inputs.entrypoint || inspection.Config.Entrypoint;
-    if (entrypoint) {
-      args.push(
-        '--entrypoint',
-        typeof entrypoint === 'string' ? `${entrypoint}` : `${entrypoint.join(' ')}`,
-      );
-    }
-
-    const exposedPorts = inputs.exposed_ports || [];
-    if (!inputs.exposed_ports) {
-      Object.keys(inspection.HostConfig.PortBindings).forEach((existingPort) => {
-        const [targetPort] = existingPort.split('/');
-        const hostPort = inspection.HostConfig.PortBindings[existingPort][0].HostPort;
-        exposedPorts.push({
-          port: Number(hostPort),
-          target_port: Number(targetPort),
-        });
-      });
-    }
-
-    for (const port of exposedPorts) {
-      let value = String(port!.target_port);
-      if (port?.port) {
-        value = `${port.port}:${value}`;
-      }
-      args.push('-p', value);
-    }
-
-    let labels = inspection.Config.Labels;
-    if (inputs.labels && inputs.name) {
-      labels = {
-        ...inputs.labels,
-        'io.architect': 'arcctl',
-        'io.architect.arcctl.deployment': containerName,
-      };
-    } else if (inputs.labels) {
-      labels = {
-        ...labels,
-        ...inputs.labels as Record<string, string>,
-      };
-    }
-
-    for (const [key, value] of Object.entries(labels)) {
-      args.push('--label', `${key}=${value}`);
-    }
-
-    if (inputs.volume_mounts) {
-      for (const mount of inputs.volume_mounts) {
-        args.push('--volume', `${mount?.volume}:${mount?.mount_path}`);
-      }
-    }
-
-    args.push(inputs.image || inspection.Image);
-
-    const command = (inputs.command || inspection.Config.Cmd) as string | string[];
-    if (command) {
-      args.push(...(typeof command === 'string' ? [command] : command));
-    }
-
-    const { code, stderr } = await exec('docker', { args });
-    if (code !== 0) {
-      throw new Error(stderr || 'Deployment failed');
-    }
-
-    const inspectionRes = await this.inspect(containerName);
-    const networks = Object.keys(inspectionRes?.NetworkSettings.Networks || {});
-    const ipAddress = inspectionRes?.NetworkSettings.Networks[networks[0]].IPAddress;
-
-    for (const serviceConfig of (inputs.services as ResourceInputs['deployment']['services'] || [])) {
-      const writableService = await this.providerStore.getWritableService(serviceConfig.account, 'service');
-      const existingService = await writableService.get(serviceConfig.id);
-      if (existingService?.target_servers) {
-        const newUrl = `http://${ipAddress}:${serviceConfig.port}`;
-
-        const target_servers = existingService.target_servers;
-        if (!target_servers.includes(newUrl)) {
-          target_servers.push(newUrl);
-        }
-
-        await lastValueFrom(writableService.apply({
-          ...existingService,
-          type: 'service',
-          target_servers,
-        }, {
-          id: serviceConfig.id,
-          providerStore: this.providerStore,
-        }));
-      }
-    }
-
-    return {
-      id: containerName,
-      labels,
-    };
+    return this.create(subscriber, inputs as ResourceInputs['deployment']);
   }
 
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
     const match = await this.get(id);
     if (!match) {
-      subscriber.next('No matching deployment. Skipping.');
       return Promise.resolve();
     }
 

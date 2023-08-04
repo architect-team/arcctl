@@ -80,9 +80,16 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
 
     command_helper.datacenterUtils.applyDatacenter(name, datacenter, pipeline, logger)
       .then(async () => {
+        if (interval) {
+          clearInterval(interval);
+          await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
+          command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
+          command_helper.pipelineRenderer.doneRenderingPipeline();
+        }
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {
+            console.log(`Updating environment ${environmentRecord.name}`);
             await applyEnvironment({
               command_helper,
               name: environmentRecord.name,
@@ -94,16 +101,10 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
           console.log('Environments updated successfully');
           command_helper.pipelineRenderer.doneRenderingPipeline();
         }
-      }).catch((err) => {
+      }).catch(async (err) => {
         console.error(err);
+        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
         Deno.exit(1);
-      }).finally(async () => {
-        if (interval) {
-          clearInterval(interval);
-          await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
-          command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-          command_helper.pipelineRenderer.doneRenderingPipeline();
-        }
       });
   } catch (err: any) {
     if (Array.isArray(err)) {

@@ -18,7 +18,6 @@ host, you'll have to provide the address and in some cases the SSL certificate d
 ## Supported resources
 
 - [x] [`dockerBuild`](../../%40resources/dockerBuild/)
-- [x] [`database`](../../%40resources/database/)
 - [x] [`deployment`](../../%40resources/deployment/)
 - [x] [`namespace`](../../%40resources/namespace/)
 - [x] [`task`](../../%40resources/task/)

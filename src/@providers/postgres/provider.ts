@@ -18,7 +18,7 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
     let failureCount = 0;
     while (failureCount < 3) {
       try {
-        const client = getPgClient(this.credentials);
+        const client = getPgClient(this.credentials, { connectionTimeout: 1000 });
 
         await client.connect();
         await client.query('SELECT NOW()');

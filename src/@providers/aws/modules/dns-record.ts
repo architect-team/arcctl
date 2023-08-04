@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { Route53Record } from '../.gen/providers/aws/route53-record/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsRecordService } from '../services/dns-record.ts';
@@ -11,6 +12,11 @@ export class AwsDnsRecordModule extends ResourceModule<'dnsRecord', AwsCredentia
 
   constructor(scope: Construct, options: ResourceModuleOptions<'dnsRecord', AwsCredentials>) {
     super(scope, options);
+
+    new TerraformAwsProvider(this, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
 
     if (!this.inputs) {
       // deleting

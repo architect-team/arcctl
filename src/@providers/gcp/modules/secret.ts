@@ -16,7 +16,10 @@ export class GoogleCloudSecretModule extends ResourceModule<'secret', GoogleClou
 
     GcpUtils.configureProvider(this);
 
-    const secret_name = (options.inputs?.name || 'unknown').replaceAll('/', '-');
+    let secret_name = (options.inputs?.name || 'unknown').replaceAll('/', '-');
+    if (options.inputs?.namespace) {
+      secret_name = options.inputs.namespace + '-' + secret_name;
+    }
 
     this.secret = new SecretManagerSecret(this, 'secret', {
       secretId: secret_name,

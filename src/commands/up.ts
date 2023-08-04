@@ -109,7 +109,6 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   }
 
   const originalEnvironment = await parseEnvironment({ ...environment });
-  console.log(originalEnvironment);
 
   for (let tag_or_path of resolvedComponents) {
     let componentPath: string | undefined;
@@ -133,8 +132,6 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
       ingresses: ingressRules,
     });
   }
-
-  console.log(originalEnvironment);
 
   let targetGraph = await environment.getGraph(envName, command_helper.componentStore, options.debug);
   targetGraph = await datacenterRecord.config.enrichGraph(targetGraph, {

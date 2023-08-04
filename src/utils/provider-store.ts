@@ -63,6 +63,7 @@ export class ArcctlProviderStore extends BaseStore<Provider> implements Provider
     const foundIndex = allProviders.findIndex((p) => p.name === name);
     if (foundIndex < 0) {
       return;
+      // TODO: if this isn't found, it's already deleted, so why do we need to throw an error?
       // throw new Error(`The ${name} provider was not found`); // TODO: should this throw an error? if the provider data is already deleted, this keeps the store in an unrecoverable bad state because it's called during pipeline execution
     }
 

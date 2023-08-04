@@ -306,11 +306,11 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     };
 
     if (normalizedNewId !== normalizedPreviousId) {
-      subscriber.next('Removing old service: ' + normalizedPreviousId);
+      subscriber.next('Removing old service');
       await this.taskService.deleteFile(path.join(MOUNT_PATH, normalizedPreviousId + FILE_SUFFIX));
     }
 
-    subscriber.next('Registering new service: ' + normalizedNewId);
+    subscriber.next('Registering new service');
     await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedNewId + FILE_SUFFIX), yaml.dump(newEntry));
 
     const port = 80;
@@ -325,6 +325,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       url += `:${port}`;
     }
 
+    subscriber.next('');
     return {
       ...newEntry.architect,
       id: normalizedNewId,

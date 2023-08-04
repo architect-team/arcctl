@@ -62,7 +62,8 @@ export class ArcctlProviderStore extends BaseStore<Provider> implements Provider
     const allProviders = await this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === name);
     if (foundIndex < 0) {
-      throw new Error(`The ${name} provider was not found`);
+      return;
+      // throw new Error(`The ${name} provider was not found`); // TODO: should this throw an error? if the provider data is already deleted, this keeps the store in an unrecoverable bad state because it's called during pipeline execution
     }
 
     this._records?.splice(foundIndex, 1);

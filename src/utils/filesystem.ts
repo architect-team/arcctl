@@ -11,5 +11,3 @@ export const pathExistsSync = (path: string): boolean => {
   }
   return directory_exists;
 };
-
-// TODO: throw a testing error or something if existsSync is used?

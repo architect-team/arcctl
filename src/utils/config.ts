@@ -1,5 +1,4 @@
 import { home_dir } from 'deps';
-import * as fs from 'std/fs/mod.ts';
 import * as path from 'std/path/mod.ts';
 import { SupportedProviders } from '../@providers/index.ts';
 import { pathExistsSync } from './filesystem.ts';
@@ -68,7 +67,7 @@ export default class ArcCtlConfig {
       Deno.mkdirSync(config_directory, { recursive: true });
     }
 
-    Deno.writeTextFileSync( // TODO: this doesn't create a new file if needed when shimmed in esm
+    Deno.writeTextFileSync(
       path.join(config_directory, 'config.json'),
       JSON.stringify(this.configOptions, null, 2),
     );

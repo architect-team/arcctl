@@ -45,7 +45,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
     await command_helper.componentStore.getComponentConfig(tag_or_path);
 
     if (!options.environment || options.environment.length <= 0) {
-      console.error('Must specify at least one environment to deploy to'); // TODO: why don't we list environment options here if one wasn't included?
+      console.error('Must specify at least one environment to deploy to');
       Deno.exit(1);
     }
 

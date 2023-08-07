@@ -1,12 +1,11 @@
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
-import * as fs from 'std/fs/mod.ts';
 import * as path from 'std/path/mod.ts';
 import { SupportedProviders } from '../@providers/index.ts';
 import { Provider } from '../@providers/provider.ts';
 import { EmptyProviderStore } from '../@providers/store.ts';
 import { PipelineStep } from '../pipeline/step.ts';
 import { StateBackend } from '../utils/config.ts';
-import { pathExistsSync } from "../utils/filesystem.ts";
+import { pathExistsSync } from '../utils/filesystem.ts';
 
 const tmpDir = Deno.makeTempDirSync();
 

@@ -21,11 +21,16 @@ resources:
 environment:
   hooks:
     - when:
+        type: service
+      namespace: ${{ environment.name }}
+      labels:
+        region: ${{ variables.region }}
+    - when:
         type: deployment
       namespace: ${{ environment.name }}
       labels:
         region: ${{ variables.region }}
-      account: ${{ variables.gcpAccount }}
+        vpc: ${{ resources.vpc.name }}
     - when:
         type: ingressRule
       resources:
@@ -38,11 +43,6 @@ environment:
           content: ${{ this.outputs.loadBalancerHostname }}
       dnsZone: ${{ variables.dnsZone }}
       namespace: ${{ environment.name }}
-    - when:
-        type: service
-      namespace: ${{ environment.name }}
-      labels:
-        region: ${{ variables.region }}
     - when:
         type: database
         databaseType: postgres

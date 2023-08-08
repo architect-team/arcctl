@@ -45,7 +45,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
     const labels: Record<string, string> = {};
 
     for (const service of this.inputs?.services || []) {
-      const deployment_name = `${namespace}-${name}`;
+      const deployment_name = `${namespace.substring(0, 20)}-${name.substring(0, 20)}`;
       const service_port = Number(service.port || 80);
       const resource_name = `${deployment_name}-${service_port}`;
 

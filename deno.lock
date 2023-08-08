@@ -585,6 +585,8 @@
     "https://esm.sh/v124/ajv@8.11.0/dist/core": "7af19c4e1b07edc97c97d9a4e1b2859154d626fc9d10b618c8fda3b178ce26c0",
     "https://esm.sh/v124/ansi-escapes@5.0.0": "51e52b40ca0d5af961e771d91fdd22f6afc5bf152a7ac600cfb4062d0c98960b",
     "https://esm.sh/v124/ansi-escapes@5.0.0/denonext/ansi-escapes.mjs": "37c5b040cac1f7636b1ed3c81113a016e16445af9a68ea215f5333653cabbcf9",
+    "https://esm.sh/v124/ansi-escapes@6.2.0": "f5574028c9452a2679141a2970b09229857dc836f8cc801286b0b2d2256603a3",
+    "https://esm.sh/v124/ansi-escapes@6.2.0/denonext/ansi-escapes.mjs": "c51ff8e102b6fa2b747553ee1d22932a358ba878b851cd228161386c19016cf2",
     "https://esm.sh/v124/ansi-regex@6.0.1/denonext/ansi-regex.mjs": "9b72c27d642eff10be605f8b170084bdf8a9729e1fd525aad5139977fc80dc59",
     "https://esm.sh/v124/ansi-styles@6.2.1/denonext/ansi-styles.mjs": "d40ccc0e5be3eced4c723f48dbdb5249efa00b7f8561a90999b7487db3ee5c09",
     "https://esm.sh/v124/arrify@2.0.1/denonext/arrify.mjs": "bd53e56469fcc31150fa4f371d83207a08e463662a4359256228f9cd8fe04164",

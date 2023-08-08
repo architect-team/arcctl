@@ -16,10 +16,11 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
     GcpUtils.configureProvider(this);
 
     const namespace = this.inputs?.namespace || 'ns';
-    const service_name = namespace + '--' + this.inputs?.name.replaceAll('/', '-') || 'deleting';
+    // Max length for resource names is ~60 characters
+    const service_name = (namespace + '--' + this.inputs?.name.replaceAll('/', '-') || 'deleting').substring(0, 50);
     const service_port = this.inputs?.target_port || 80;
-    const function_name = (this.inputs?.namespace || 'ns') + '-' +
-      (this.inputs?.target_deployment?.replaceAll('/', '-') || 'deleting') + `-${service_port}`;
+    const deployment_name = this.inputs?.target_deployment?.replaceAll('/', '-') || 'deleting';
+    const function_name = `${namespace.substring(0, 20)}-${deployment_name.substring(0, 20)}-${service_port}`;
 
     let region = '';
     if (this.inputs?.labels?.region) {

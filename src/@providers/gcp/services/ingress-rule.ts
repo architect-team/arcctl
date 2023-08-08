@@ -67,11 +67,11 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
           defaultService: backend_service_name,
           hostRules: [{
             hosts: [host_name],
-            pathMatcher: 'path-matcher-1',
+            pathMatcher: service_name,
           }],
           pathMatchers: [{
             defaultService: backend_service_name,
-            name: 'path-matcher-1',
+            name: service_name,
           }],
         },
       });
@@ -81,16 +81,13 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
       const existing_rule = host_rules.find((rule) => rule.hosts && rule.hosts[0] === host_name);
       if (!existing_rule) {
-        const next_rule_number = (url_map.data.hostRules?.length || 0) + 1;
-        const patch_matcher_name = `path-matcher-${next_rule_number}`;
-
         host_rules.push({
           hosts: [host_name],
-          pathMatcher: patch_matcher_name,
+          pathMatcher: service_name,
         });
         path_matchers.push({
           defaultService: backend_service_name,
-          name: patch_matcher_name,
+          name: service_name,
         });
       }
 

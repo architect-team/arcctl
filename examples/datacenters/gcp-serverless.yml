@@ -9,7 +9,7 @@ variables:
     arcctlAccount: ${{ variables.gcpAccount }}
   dnsZone:
     type: string
-    description: Name of DNS zone for DNS records. This zone must already exist within GCP.
+    description: DNS name for DNS records (ex. architest.dev). The DNS zone must already exist within GCP.
 
 resources:
   vpc:

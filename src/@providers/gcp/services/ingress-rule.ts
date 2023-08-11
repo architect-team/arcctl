@@ -2,6 +2,7 @@ import { Auth, compute_v1, google } from 'googleapis';
 import { Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { simpleRetry } from '../../../utils/retry.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
@@ -128,22 +129,22 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       });
     }
 
-    // Need to wait a little bit after creating the SSL cert for it to be
-    // usable in the HttpsProxy
-    await new Promise((f) => setTimeout(f, 5000));
-
     // Step 3: Create the TargetHttpsProxies resource if it doesn't already exist.
     // If it does exist, patch the existing proxy to add the cert for this service.
     subscriber.next('Updating Target Proxy');
     try {
-      await google.compute('v1').targetHttpsProxies.insert({
-        ...this.requestAuth(),
-        requestBody: {
-          name: target_proxy_name,
-          sslCertificates: [`global/sslCertificates/${ssl_cert_name}`],
-          urlMap: `global/urlMaps/${url_map_name}`,
+      await simpleRetry( // Need to wait after creating the SSL cert for it to be usable in the https proxy
+        async () => {
+          await google.compute('v1').targetHttpsProxies.insert({
+            ...this.requestAuth(),
+            requestBody: {
+              name: target_proxy_name,
+              sslCertificates: [`global/sslCertificates/${ssl_cert_name}`],
+              urlMap: `global/urlMaps/${url_map_name}`,
+            },
+          });
         },
-      });
+      );
     } catch (e) {
       // 409 indicates the resource already exists and we can patch it instead
       if (e.code !== 409) {
@@ -171,25 +172,23 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       });
     }
 
-    // Need to wait again so that the resource is ready before using it.
-    await new Promise((f) => setTimeout(f, 5000));
-
     // Step 4: Create the ForwardingRules. This doesn't need to be updated, so if
     // it already exists there is nothing that needs to be done.
     subscriber.next('Updating GlobalForwardingRule');
     try {
-      await google.compute('v1').globalForwardingRules.insert({
-        ...this.requestAuth(),
-        requestBody: {
-          loadBalancingScheme: 'EXTERNAL_MANAGED',
-          name: loadbalancer_frontend_name,
-          target: `global/targetHttpsProxies/${target_proxy_name}`,
-          portRange: '443',
+      await simpleRetry( // Need to wait again so that the target https proxy is ready before using it.
+        async () => {
+          await google.compute('v1').globalForwardingRules.insert({
+            ...this.requestAuth(),
+            requestBody: {
+              loadBalancingScheme: 'EXTERNAL_MANAGED',
+              name: loadbalancer_frontend_name,
+              target: `global/targetHttpsProxies/${target_proxy_name}`,
+              portRange: '443',
+            },
+          });
         },
-      });
-
-      // Wait after creation so the GET request afterwards returns the IP address
-      await new Promise((f) => setTimeout(f, 5000));
+      );
     } catch (e) {
       // 409 indicates the ForwardingRules resource already exists.
       // Any other error should be raised to the user.
@@ -199,11 +198,14 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     }
 
     subscriber.next('');
-
-    const forwarding_rule = await google.compute('v1').globalForwardingRules.get({
-      ...this.requestAuth(),
-      forwardingRule: loadbalancer_frontend_name,
-    });
+    const forwarding_rule = await simpleRetry( // Wait after forwarding rule creation so the GET request afterwards returns the IP address
+      async () => {
+        return await google.compute('v1').globalForwardingRules.get({
+          ...this.requestAuth(),
+          forwardingRule: loadbalancer_frontend_name,
+        });
+      },
+    );
 
     // ID is the service name so that it can be distinguished in the URL map later for get/update
     return {
@@ -238,7 +240,16 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
       // Wait after potentially deleting the URLMap before it gets recreated.
       // Otherwise, the old map will be returned from the GET request and will attempt to PATCH it.
-      await new Promise((f) => setTimeout(f, 10000));
+      await simpleRetry(
+        async () => {
+          const url_map_name = `${inputs.namespace}--lb`;
+          await google.compute('v1').urlMaps.get({
+            ...this.requestAuth(),
+            urlMap: url_map_name,
+          });
+          throw new Error(`URL map ${url_map_name} should be deleted.`);
+        },
+      );
 
       return this.create(subscriber, inputs as ResourceInputs['ingressRule']);
     }
@@ -311,8 +322,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       ...this.requestAuth(),
     });
 
-    let proxy_to_delete_name;
-    let forwarding_rule_to_delete_name;
+    let proxy_to_delete_name: string | undefined | null;
+    let forwarding_rule_to_delete_name: string | undefined | null;
     for (const target_proxy of target_proxies.data.items || []) {
       if (target_proxy.urlMap?.endsWith(url_map.name)) {
         proxy_to_delete_name = target_proxy.name;
@@ -337,25 +348,27 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         ...this.requestAuth(),
         forwardingRule: forwarding_rule_to_delete_name,
       });
-
-      // Need to wait otherwise attemping to delete the TargetHttpsProxy too early will error
-      await new Promise((f) => setTimeout(f, 20000));
     }
 
     if (proxy_to_delete_name) {
-      await google.compute('v1').targetHttpsProxies.delete({
-        ...this.requestAuth(),
-        targetHttpsProxy: proxy_to_delete_name,
-      });
-
-      // Need to wait otherwise attemping to delete the UrlMap too early will error
-      await new Promise((f) => setTimeout(f, 20000));
+      await simpleRetry( // Need to wait after deleting the global forwarding rule otherwise attemping to delete the TargetHttpsProxy too early will error
+        async () => {
+          await google.compute('v1').targetHttpsProxies.delete({
+            ...this.requestAuth(),
+            targetHttpsProxy: proxy_to_delete_name as string,
+          });
+        },
+      );
     }
 
-    await google.compute('v1').urlMaps.delete({
-      ...this.requestAuth(),
-      urlMap: url_map.name,
-    });
+    await simpleRetry( // Need to wait after deleting the target https proxy otherwise attemping to delete the UrlMap too early will error
+      async () => {
+        await google.compute('v1').urlMaps.delete({
+          ...this.requestAuth(),
+          urlMap: url_map.name as string,
+        });
+      },
+    );
 
     // Delete the ssl cert
     await google.compute('v1').sslCertificates.delete({

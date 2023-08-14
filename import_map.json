@@ -4,6 +4,8 @@
     "std/": "https://deno.land/std@0.192.0/",
     "cliffy/": "https://deno.land/x/cliffy@v0.25.7/",
     "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
+    "ansi-escapes": "https://esm.sh/ansi-escapes@6.2.0",
+    "mustache": "https://esm.sh/mustache@4.2.0",
     "adm-zip": "https://esm.sh/v124/adm-zip@0.5.9",
     "ajv": "https://esm.sh/v124/ajv@8.11.0",
     "cdktf": "https://esm.sh/v124/cdktf@0.15.5",
@@ -11,27 +13,25 @@
     "constructs": "https://esm.sh/v124/constructs@10.2.27",
     "d3-node": "https://esm.sh/v124/*d3-node@3.0.0",
     "googleapis": "https://esm.sh/v124/googleapis@118.0.0",
+    "hcl2-parser": "https://esm.sh/v124/hcl2-parser@1.0.3",
     "js-yaml": "https://esm.sh/v124/js-yaml@4.1.0",
     "listr": "https://esm.sh/v124/listr@0.14.3",
     "log-update": "https://esm.sh/v124/*log-update@5.0.1",
-    "ansi-escapes": "https://esm.sh/ansi-escapes@6.2.0",
     "node-plantuml": "https://esm.sh/v124/*node-plantuml@0.9.0",
     "rxjs": "https://esm.sh/v124/rxjs@7.5.6",
     "semver": "https://esm.sh/v124/semver@7.5.3",
     "strip-ansi": "https://esm.sh/v124/strip-ansi@7.0.1",
     "tar": "https://esm.sh/v124/tar@6.1.11",
+    "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1",
+    "uuid": "https://esm.sh/v124/uuid@8.0.0",
     "which": "https://esm.sh/v124/which@3.0.1",
     "winston": "https://esm.sh/v124/winston@3.8.2",
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
-    "aws-sdk": "npm:aws-sdk@2.1229.0",
-    "mustache": "https://esm.sh/mustache@4.2.0",
-    "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1",
-    "uuid": "https://esm.sh/v124/uuid@8.0.0"
+    "aws-sdk": "npm:aws-sdk@2.1229.0"
   },
   "scopes": {
     "https://esm.sh/v124/": {
       "@samverschueren/stream-to-observable": "https://esm.sh/v124/@samverschueren/stream-to-observable@0.3.1",
-      "ansi-escapes": "https://esm.sh/v124/ansi-escapes@5.0.0",
       "archiver": "https://esm.sh/v124/archiver@5.3.1",
       "argparse": "https://esm.sh/v124/argparse@2.0.1",
       "buffer": "https://esm.sh/v124/buffer@4.9.2",
@@ -85,7 +85,6 @@
       "uri-js": "https://esm.sh/v124/uri-js@4.4.1",
       "url": "https://esm.sh/v124/url@0.10.3",
       "util": "https://esm.sh/v124/util@0.12.5",
-      "uuid": "https://esm.sh/v124/uuid@8.0.0",
       "wrap-ansi": "https://esm.sh/v124/wrap-ansi@8.1.0",
       "xml2js": "https://esm.sh/v124/xml2js@0.4.19"
     }

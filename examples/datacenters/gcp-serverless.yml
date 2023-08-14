@@ -25,6 +25,7 @@ environment:
       namespace: ${{ environment.name }}
       labels:
         region: ${{ variables.region }}
+        vpc: ${{ resources.vpc.name }}
     - when:
         type: deployment
       namespace: ${{ environment.name }}
@@ -42,6 +43,8 @@ environment:
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}
       dnsZone: ${{ variables.dnsZone }}
+      vpc: ${{ resources.vpc.name }}
+      region: ${{ variables.region }}
       namespace: ${{ environment.name }}
     - when:
         type: database
@@ -58,5 +61,19 @@ environment:
           vpc: ${{ resources.vpc.id }}
       databaseCluster: ${{ this.resources.db-cluster.id }}
       account: ${{ variables.gcpAccount }}
+    # Rules for deploying smtp4dev to GCE instead of CloudRun
+    - when:
+        type: deployment
+        image: rnwood/smtp4dev:v3
+      strategy: gce
+    # Note: component name was hardcoded here, can't target deployment name as defined in component yaml because we change it
+    - when:
+        type: service
+        target_deployment: tyleraldrich/smtp4dev
+      strategy: gce
+    - when:
+        type: ingressRule
+        name: tyleraldrich/smtp4dev/smtp-http
+      strategy: gce
     - account: ${{ variables.gcpAccount }}
       namespace: ${{ environment.name }}

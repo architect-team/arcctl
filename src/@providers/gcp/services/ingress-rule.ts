@@ -6,6 +6,9 @@ import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
+import GcpUtils from '../utils.ts';
+
+const GCE_PREFIX = 'gce/';
 
 export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressRule', GoogleCloudCredentials> {
   private auth: Auth.GoogleAuth;
@@ -29,6 +32,28 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
   }
 
   async create(
+    subscriber: Subscriber<string>,
+    inputs: ResourceInputs['ingressRule'],
+  ): Promise<ResourceOutputs['ingressRule']> {
+    if (inputs.strategy === 'gce') {
+      return this.createGCE(subscriber, inputs);
+    }
+
+    return this.createCloudRun(subscriber, inputs);
+  }
+
+  async update(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['ingressRule']>,
+  ): Promise<ResourceOutputs['ingressRule']> {
+    if (inputs.strategy === 'gce') {
+      return this.updateGCE(subscriber, id, inputs);
+    }
+    return this.updateCloudRun(subscriber, id, inputs);
+  }
+
+  async createCloudRun(
     subscriber: Subscriber<string>,
     inputs: ResourceInputs['ingressRule'],
   ): Promise<ResourceOutputs['ingressRule']> {
@@ -184,7 +209,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
           loadBalancingScheme: 'EXTERNAL_MANAGED',
           name: loadbalancer_frontend_name,
           target: `global/targetHttpsProxies/${target_proxy_name}`,
-          portRange: '443',
+          portRange: '443', // This portRange can be changed to map to various ports of GCE instance I think
         },
       });
 
@@ -216,7 +241,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     };
   }
 
-  async update(
+  async updateCloudRun(
     subscriber: Subscriber<string>,
     id: string,
     inputs: DeepPartial<ResourceInputs['ingressRule']>,
@@ -247,6 +272,9 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
   }
 
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
+    if (id.startsWith(GCE_PREFIX)) {
+      return this.deleteGCE(subscriber, id);
+    }
     let url_map;
     try {
       const map = await this.getUrlMapForService(id);
@@ -389,7 +417,232 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     throw Error(`No URLMap exists for service: ${service_name}`);
   }
 
+  async createGCE(
+    subscriber: Subscriber<string>,
+    inputs: ResourceInputs['ingressRule'],
+  ): Promise<ResourceOutputs['ingressRule']> {
+    const [deployment_name, _service_id_port] = inputs.service.split('--');
+    const resource_name = `${deployment_name}-public`;
+
+    const zone = inputs.region || '';
+    const region = zone.split('-').slice(0, -1).join('-');
+
+    let static_ip;
+    try {
+      await google.compute('v1').addresses.insert({
+        ...this.requestAuth(),
+        region,
+        requestBody: {
+          name: resource_name,
+        },
+      });
+
+      await new Promise((f) => setTimeout(f, 5000));
+
+      const result = await google.compute('v1').addresses.get({
+        ...this.requestAuth(),
+        region,
+        address: resource_name,
+      });
+      static_ip = result.data;
+
+      if (!static_ip.address) {
+        throw Error('Failed to get a Static IP address for GCE instance');
+      }
+    } catch (e) {
+      if (e.code !== 409) {
+        throw e;
+      }
+      // Static IP already exists and is attached, so we can just return it
+      const result = await google.compute('v1').addresses.get({
+        ...this.requestAuth(),
+        region,
+        address: resource_name,
+      });
+      static_ip = result.data;
+    }
+
+    // Must first remove the existing accessConfig that is empty
+    await google.compute('v1').instances.deleteAccessConfig({
+      ...this.requestAuth(),
+      instance: deployment_name,
+      zone,
+      networkInterface: 'nic0',
+      accessConfig: 'external-nat', // default access config name
+    });
+
+    // Attach this static IP to our GCE instance
+    await google.compute('v1').instances.addAccessConfig({
+      ...this.requestAuth(),
+      instance: deployment_name,
+      zone,
+      networkInterface: 'nic0', // default network interface
+      requestBody: {
+        name: 'external-nat',
+        natIP: static_ip.address,
+      },
+    });
+
+    try {
+      const { data: firewall } = await google.compute('v1').firewalls.get({
+        ...this.requestAuth(),
+        firewall: resource_name,
+      });
+
+      const allowed = firewall.allowed || [];
+      if (allowed.length > 0 && allowed[0].ports && allowed[0].ports.length > 0) {
+        allowed[0].ports.push(`${inputs.port}`);
+      }
+      await google.compute('v1').firewalls.patch({
+        ...this.requestAuth(),
+        firewall: resource_name,
+        requestBody: {
+          allowed,
+        },
+      });
+    } catch {
+      // If a firewall doesn't already exist, create it now
+      await google.compute('v1').firewalls.insert({
+        ...this.requestAuth(),
+        requestBody: {
+          name: resource_name,
+          allowed: [{
+            IPProtocol: 'tcp',
+            ports: [`${inputs.port}`],
+          }],
+          targetTags: [deployment_name],
+          network: `global/networks/${inputs.vpc}`,
+          sourceRanges: ['0.0.0.0/0'],
+        },
+      });
+    }
+
+    // ID is prefixed with GCE_PREFIX so it can be differentiated from cloudrun configuration
+    // for gets/deletes/updates
+    return {
+      id: `${GCE_PREFIX}${resource_name}--${inputs.port}`,
+      host: static_ip.address || '',
+      port: inputs.port,
+      path: inputs.path || '/',
+      url: `http://${static_ip}:${inputs.port}`,
+      loadBalancerHostname: static_ip.address || '',
+    };
+  }
+
+  async updateGCE(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['ingressRule']>,
+  ): Promise<ResourceOutputs['ingressRule']> {
+    const existing_rule = await this.getGCE(id);
+    if (!existing_rule) {
+      throw new Error(`No ingressRule with ID: ${id}`);
+    }
+    return existing_rule;
+  }
+
+  async deleteGCE(subscriber: Subscriber<string>, id: string): Promise<void> {
+    // Look for a firewall rule with the given ID - if it doesn't exist,
+    // it was already deleted or it was a cloud run LB that was already deleted
+    const [_, resource_name_and_port] = id.split('/');
+    const [resource_name, port] = resource_name_and_port.split('--');
+
+    let firewall;
+    try {
+      const result = await google.compute('v1').firewalls.get({
+        ...this.requestAuth(),
+        firewall: resource_name,
+      });
+      firewall = result.data;
+    } catch {
+      // Already deleted
+      return;
+    }
+
+    const firewall_allowed = firewall.allowed || [];
+    if (firewall_allowed.length > 0 && firewall_allowed[0].ports && firewall_allowed[0].ports.length > 0) {
+      // Just need to remove the port for this resource, don't need to remove the entire rule or static IP.
+      firewall_allowed[0].ports = firewall_allowed[0].ports.filter((p) => p !== port);
+      await google.compute('v1').firewalls.patch({
+        ...this.requestAuth(),
+        firewall: resource_name,
+        requestBody: {
+          allowed: firewall_allowed,
+        },
+      });
+    } else {
+      await google.compute('v1').firewalls.delete({
+        ...this.requestAuth(),
+        firewall: resource_name,
+      });
+
+      const regions = await GcpUtils.getProjectRegions(this.credentials, this.credentials.project);
+
+      for (const region of regions) {
+        // TODO: Maybe this will fail if it's still attached to the GCE instance
+        try {
+          await google.compute('v1').addresses.delete({
+            ...this.requestAuth(),
+            address: resource_name,
+            region,
+          });
+        } catch {
+          // wrong region, oh well
+        }
+      }
+    }
+  }
+
   async get(
+    id: string,
+  ): Promise<ResourceOutputs['ingressRule'] | undefined> {
+    if (id.startsWith('gce/')) {
+      return this.getGCE(id);
+    } else {
+      return this.getCloudRun(id);
+    }
+  }
+
+  async getGCE(
+    id: string,
+  ): Promise<ResourceOutputs['ingressRule'] | undefined> {
+    // TODO: Need to be able to list this too
+    const [_, resource_name_and_port] = id.split('/');
+    const [resource_name, port] = resource_name_and_port.split('--');
+    const regions = await GcpUtils.getProjectRegions(this.credentials, this.credentials.project);
+
+    const { data: firewall } = await google.compute('v1').firewalls.get({
+      ...this.requestAuth(),
+      firewall: resource_name,
+    });
+
+    if (firewall.allowed?.at(0)?.ports?.filter((p) => p === port).length === 0) {
+      throw Error(`Unable to find firewall rule that allows port ${port}`);
+    }
+
+    for (const region of regions) {
+      try {
+        const { data: static_ip } = await google.compute('v1').addresses.get({
+          ...this.requestAuth(),
+          region,
+          address: resource_name,
+        });
+
+        return {
+          id: `gce/${static_ip.name}--${port}`,
+          host: static_ip.address || '',
+          port: firewall.allowed?.at(0)?.ports?.at(0) || '',
+          path: '/',
+          url: `http://${static_ip}:${port}`,
+          loadBalancerHostname: static_ip.address || '',
+        };
+      } catch {
+        // Do nothing, must not be in this region
+      }
+    }
+  }
+
+  async getCloudRun(
     id: string,
   ): Promise<ResourceOutputs['ingressRule'] | undefined> {
     const { url_map: target_url_map, hostname } = await this.getUrlMapForService(id);

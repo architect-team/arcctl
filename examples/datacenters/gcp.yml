@@ -8,9 +8,8 @@ variables:
     type: arcctlAccount
     provider: gcp
   dnsZone:
-    type: dnsZone
-    arcctlAccount: ${{ variables.gcpAccount }}
-    description: Name of DNS zone for DNS records
+    type: string
+    description: Name of DNS zone for DNS records. This zone must already exist within GCP.
 
 resources:
   vpc:
@@ -50,10 +49,6 @@ environment:
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
-    # zone:
-    #   type: dnsZone
-    #   account: ${{ variables.gcpAccount }}
-    #   name: ${{ variables.dnsZone }}
 
   hooks:
     - when:

@@ -27,7 +27,12 @@ export class CloudNode<T extends ResourceType = ResourceType> {
         res = `${component_name}/${res}`;
       }
     } else if (options.component) {
-      res = `${options.component}/${res}`;
+      const [component_account, component_name] = options.component.split('/');
+      if (component_name === options.name) {
+        res = `${component_account}/${res}`;
+      } else {
+        res = `${options.component}/${res}`;
+      }
     }
 
     return res;

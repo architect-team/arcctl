@@ -198,7 +198,17 @@ export type DeploymentInputs = {
      * The port the service deployment is listening on
      */
     port: string;
+
+    /**
+     * The protocol used by the service.
+     */
+    protocol?: string;
   }>;
+
+  /**
+   * The strategy used to create this resource.
+   */
+  strategy?: 'gce' | 'cloudrun';
 } & Container;
 
 export default DeploymentInputs;

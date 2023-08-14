@@ -62,7 +62,7 @@ export class ArcctlProviderStore extends BaseStore<Provider> implements Provider
     const allProviders = await this.list();
     const foundIndex = allProviders.findIndex((p) => p.name === name);
     if (foundIndex < 0) {
-      throw new Error(`The ${name} provider was not found`);
+      return; // already deleted if not found
     }
 
     this._records?.splice(foundIndex, 1);

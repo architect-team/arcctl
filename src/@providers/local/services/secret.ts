@@ -1,7 +1,7 @@
 import { Subscriber } from 'rxjs';
-import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { pathExistsSync } from '../../../utils/filesystem.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
@@ -11,7 +11,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   get(id: string): Promise<ResourceOutputs['secret'] | undefined> {
     id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
-    if (!existsSync(file)) {
+    if (!pathExistsSync(file)) {
       return Promise.resolve(undefined);
     }
 
@@ -62,7 +62,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   }
 
   update(
-    _subscriber: Subscriber<string>,
+    subscriber: Subscriber<string>,
     id: string,
     inputs: DeepPartial<ResourceInputs['secret']>,
   ): Promise<ResourceOutputs['secret']> {
@@ -75,15 +75,15 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
     }
 
     const newNamespace = inputs.namespace || originalNamespace;
-    const newName = inputs.name || originalName;
-    const newId = newNamespace ? `${newNamespace}/${newName}` : newName;
+    const newName = inputs.name ? inputs.name.replaceAll('/', '--') : originalName;
+    const newId = newNamespace ? `${newNamespace}--${newName}` : newName;
 
     const originalFile = path.join(this.credentials.directory, id);
     const newFile = path.join(this.credentials.directory, newId);
     Deno.mkdirSync(path.dirname(newFile), { recursive: true });
     if (inputs.data) {
-      Deno.writeTextFileSync(newFile, inputs.data);
       Deno.removeSync(originalFile);
+      Deno.writeTextFileSync(newFile, inputs.data);
 
       return Promise.resolve({
         id: newId,
@@ -103,11 +103,15 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
     id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
-    if (!existsSync(file)) {
-      throw new Error(`The ${id} secret does not exist`);
-    }
+    try {
+      Deno.removeSync(file);
+      return Promise.resolve();
+    } catch (err) {
+      if (err instanceof Deno.errors.NotFound) {
+        return Promise.resolve();
+      }
 
-    Deno.removeSync(file);
-    return Promise.resolve();
+      return Promise.reject(err);
+    }
   }
 }

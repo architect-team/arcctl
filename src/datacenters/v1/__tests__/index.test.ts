@@ -1,11 +1,12 @@
+import * as hclParser from 'hcl2-parser';
 import yaml from 'js-yaml';
-import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { EmptyProviderStore } from '../../../@providers/index.ts';
 import { SupportedProviders } from '../../../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../parser.ts';
-import DatacenterV1 from '../index.ts';
+import DatacenterV1, { convertHclToJSON } from '../index.ts';
 
 describe('Datacenter Schema: v1', () => {
   it('should add root resources to graph', async () => {
@@ -534,5 +535,257 @@ describe('Datacenter Schema: v1', () => {
         },
       }),
     ]);
+  });
+});
+
+const hclString = `
+variable "account" {
+  type = "arcctlAccount"
+  description = "The docker account to use for this datacenter"
+  provider = "docker"
+}
+
+variable "secretAccount" {
+  type = "arcctlAccount"
+  description = "The account used to store secrets"
+}
+
+volume "service-registry" {
+  name = "traefik-volume"
+  account = variable.account
+}
+
+deployment "gateway" {
+  name = "my-gateway"
+  account = variable.account
+  exposed_ports = [
+    {
+      port = 80
+      target_port = 80
+    },
+    {
+      port = 8080
+      target_port = 8080
+    }
+  ]
+  image = "traefik:v2.10"
+  command = [
+    "--providers.file.directory=/etc/traefik",
+    "--providers.file.watch=true",
+    "--api.insecure=true",
+    "--api.dashboard=true"
+  ]
+  volume_mounts = [
+    {
+      mount_path = "/etc/traefik"
+      readonly = true
+      volume = volume.service-registry.id
+    }
+  ]
+}
+
+account "gateway" {
+  name = "local-gateway"
+  provider = "traefik"
+  credentials = {
+    type = "volume"
+    volume = volume.service-registry.id
+    account = variable.account
+  }
+}
+
+environment {
+
+  defaults {
+    account = variable.account
+    namespace = environment.name
+  }
+
+  databaseCluster "pg" {
+    account = variable.account
+    name = "\${environment.name}-pg"
+    databaseType = "postgres"
+    databaseVersion = "13"
+    databaseSize = "n/a"
+    vpc = "n/a"
+    region = "n/a"
+  }
+
+  account "pg" {
+    name = "\${environment.name}-postgres-db"
+    provider = "postgres"
+    credentials = {
+      host = environment.databaseCluster.pg.host
+      port = environment.databaseCluster.pg.port
+      username = environment.databaseCluster.pg.username
+      password = environment.databaseCluster.pg.password
+      databaseCluster = "architect"
+    }
+  }
+
+  hook "service" {
+    when = {
+      type = "service"
+    }
+    account = account.gateway.id
+    dnsZone = "\${environment.name}.172.17.0.1.nip.io"
+    namespace = environment.name
+  }
+
+  hook "ingressRule" {
+    when = {
+      type = "ingressRule"
+    }
+    account = account.gateway.id
+    registry = volume.service-registry.id
+    dnsZone = "\${environment.name}.127.0.0.1.nip.io"
+    namespace = environment.name
+  }
+
+  hook "database" {
+    when = {
+      type = "database"
+    }
+    account = environment.account.pg.id
+  }
+
+  hook "kratos-deployment" {
+    when = {
+      type = "deployment"
+      image = "oryd/kratos-selfservice-ui-node:v0.13.0"
+    }
+    platform = "linux/amd64"
+  }
+
+  hook "secrets" {
+    when = {
+      type = "secret"
+    }
+    account = variable.secretAccount
+  }
+}`;
+
+const expectedJSON = {
+  variables: {
+    account: {
+      type: 'arcctlAccount',
+      description: 'The docker account to use for this datacenter',
+      provider: 'docker',
+    },
+    secretAccount: {
+      type: 'arcctlAccount',
+      description: 'The account used to store secrets',
+    },
+  },
+  resources: {
+    'service-registry': {
+      type: 'volume',
+      account: '${{ variables.account }}',
+      name: 'traefik-volume',
+    },
+    gateway: {
+      type: 'deployment',
+      name: 'my-gateway',
+      account: '${{ variables.account }}',
+      exposed_ports: [
+        { port: 80, target_port: 80 },
+        { port: 8080, target_port: 8080 },
+      ],
+      image: 'traefik:v2.10',
+      command: [
+        '--providers.file.directory=/etc/traefik',
+        '--providers.file.watch=true',
+        '--api.insecure=true',
+        '--api.dashboard=true',
+      ],
+      volume_mounts: [
+        {
+          mount_path: '/etc/traefik',
+          readonly: true,
+          volume: '${{ resources.service-registry.id }}',
+        },
+      ],
+    },
+  },
+  accounts: {
+    gateway: {
+      name: 'local-gateway',
+      provider: 'traefik',
+      credentials: {
+        type: 'volume',
+        volume: '${{ resources.service-registry.id }}',
+        account: '${{ variables.account }}',
+      },
+    },
+  },
+  environment: {
+    resources: {
+      pg: {
+        type: 'databaseCluster',
+        account: '${{ variables.account }}',
+        name: '${{ environment.name }}-pg',
+        databaseType: 'postgres',
+        databaseVersion: '13',
+        databaseSize: 'n/a',
+        vpc: 'n/a',
+        region: 'n/a',
+      },
+    },
+    accounts: {
+      pg: {
+        name: '${{ environment.name }}-postgres-db',
+        provider: 'postgres',
+        credentials: {
+          host: '${{ environment.resources.pg.host }}',
+          port: '${{ environment.resources.pg.port }}',
+          username: '${{ environment.resources.pg.username }}',
+          password: '${{ environment.resources.pg.password }}',
+          databaseCluster: 'architect',
+        },
+      },
+    },
+    hooks: [
+      {
+        when: { type: 'database' },
+        account: '${{ environment.accounts.pg.id }}',
+      },
+      {
+        when: { type: 'ingressRule' },
+        account: '${{ accounts.gateway.id }}',
+        registry: '${{ resources.service-registry.id }}',
+        dnsZone: '${{ environment.name }}.127.0.0.1.nip.io',
+        namespace: '${{ environment.name }}',
+      },
+      {
+        when: {
+          type: 'deployment',
+          image: 'oryd/kratos-selfservice-ui-node:v0.13.0',
+        },
+        platform: 'linux/amd64',
+      },
+      {
+        when: { type: 'secret' },
+        account: '${{ variables.secretAccount }}',
+      },
+      {
+        when: { type: 'service' },
+        account: '${{ accounts.gateway.id }}',
+        dnsZone: '${{ environment.name }}.172.17.0.1.nip.io',
+        namespace: '${{ environment.name }}',
+      },
+      {
+        account: '${{ variables.account }}',
+        namespace: '${{ environment.name }}',
+      },
+    ],
+  },
+};
+
+describe('HCL Datacenter parser', () => {
+  it(`should properly convert HCL to JSON`, () => {
+    const raw_obj = hclParser.default.parseToObject(hclString)[0];
+    raw_obj.input_type = 'hcl';
+    const parsedHcl = convertHclToJSON(raw_obj);
+    assertEquals(parsedHcl as any, expectedJSON as any);
   });
 });

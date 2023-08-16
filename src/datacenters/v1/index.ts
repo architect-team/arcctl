@@ -1,6 +1,7 @@
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
 import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
+import { ResourceTypeList } from '../../@resources/types.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
 import { Datacenter, DatacenterEnrichmentOptions, ParsedVariablesType, VariablesMetadata } from '../datacenter.ts';
@@ -24,6 +25,123 @@ type Hook<T extends ResourceType = ResourceType> = {
     } & Record<string, unknown>;
   };
 } & Record<string, any>;
+
+type HclConvertableObject = Partial<DatacenterV1 | Environment>;
+
+const convertAccounts = (obj: Record<string, any>, resultObj: HclConvertableObject): HclConvertableObject => {
+  if (obj.account) {
+    resultObj.accounts = {};
+    for (const [name, value] of Object.entries(obj.account)) {
+      resultObj.accounts[name] = (value as any)[0];
+    }
+  }
+  return resultObj;
+};
+
+const convertVariables = (obj: Record<string, any>, resultObj: Partial<DatacenterV1>): Partial<DatacenterV1> => {
+  if (obj.variable) {
+    resultObj.variables = {};
+    for (const [name, value] of Object.entries(obj.variable)) {
+      resultObj.variables[name] = (value as any)[0];
+    }
+  }
+  return resultObj;
+};
+
+const convertResources = (obj: Record<string, any>, resultObj: HclConvertableObject): HclConvertableObject => {
+  const resources: Record<string, any> = {};
+  for (const resourceType of ResourceTypeList) {
+    if (obj[resourceType]) {
+      for (const [name, value] of Object.entries(obj[resourceType])) {
+        resources[name] = {
+          type: resourceType,
+          ...(value as any)[0],
+        };
+      }
+    }
+  }
+  if (Object.keys(resources).length > 0) {
+    resultObj.resources = resources;
+  }
+  return resultObj;
+};
+
+const convertHooks = (obj: Record<string, any>, resultObj: Partial<Environment>): Partial<Environment> => {
+  if (obj.hook) {
+    resultObj.hooks = [];
+    for (const [_, value] of Object.entries(obj.hook)) {
+      resultObj.hooks.push((value as any)[0]);
+    }
+    if (obj.defaults) {
+      resultObj.hooks.push(obj.defaults[0]);
+    }
+  }
+  return resultObj;
+};
+
+export const convertHclToJSON = (contents: Record<string, any>): DatacenterV1 => {
+  const jsonResultObj: Partial<DatacenterV1> = {};
+  convertVariables(contents, jsonResultObj);
+  convertAccounts(contents, jsonResultObj);
+  convertResources(contents, jsonResultObj);
+  if (contents.environment) {
+    const env_results: Partial<Environment> = {};
+    const env = contents.environment[0];
+    convertAccounts(env, env_results);
+    convertResources(env, env_results);
+    convertHooks(env, env_results);
+    jsonResultObj.environment = env_results;
+  }
+  return JSON.parse(
+    JSON.stringify(jsonResultObj).replace(
+      /\${(.+?)}/g,
+      (_, p1) => {
+        const parts = p1.split('.');
+        const replacementIndexCheck = parts[0] === 'environment' ? 1 : 0;
+        if (ResourceTypeList.includes(parts[replacementIndexCheck])) {
+          parts[replacementIndexCheck] = 'resources';
+        }
+        if (parts[replacementIndexCheck] === 'account') {
+          parts[replacementIndexCheck] = 'accounts';
+        }
+        if (parts[0] === 'variable') {
+          parts[0] = 'variables';
+        }
+        return `\${{ ${parts.join('.')} }}`;
+      },
+    ),
+  );
+};
+
+class Environment {
+  /**
+   * Configure what resources must exist in each environment in the datacenter
+   */
+  resources?: {
+    [key: string]: FullResource;
+  };
+
+  /**
+   * Cloud accounts to register and remove with the lifecycle of the environment
+   */
+  accounts?: {
+    [key: string]: ArcctlAccountInputs;
+  };
+
+  /**
+   * Create terraform modules that should be applied to each environment in the datacenter
+   */
+  modules?: {
+    [key: string]: {
+      source: string;
+    } & Record<string, unknown>;
+  };
+
+  /**
+   * Configure rules for how application resources should behave in the environment
+   */
+  hooks?: Hook[];
+}
 
 export default class DatacenterV1 extends Datacenter {
   /**
@@ -57,38 +175,13 @@ export default class DatacenterV1 extends Datacenter {
   /**
    * A template for how environments inside the datacenter should behave
    */
-  environment?: {
-    /**
-     * Configure what resources must exist in each environment in the datacenter
-     */
-    resources?: {
-      [key: string]: FullResource;
-    };
-
-    /**
-     * Cloud accounts to register and remove with the lifecycle of the environment
-     */
-    accounts?: {
-      [key: string]: ArcctlAccountInputs;
-    };
-
-    /**
-     * Create terraform modules that should be applied to each environment in the datacenter
-     */
-    modules?: {
-      [key: string]: {
-        source: string;
-      } & Record<string, unknown>;
-    };
-
-    /**
-     * Configure rules for how application resources should behave in the environment
-     */
-    hooks?: Hook[];
-  };
+  environment?: Environment;
 
   public constructor(data: Record<string, any>) {
     super();
+    if (data.input_type === 'hcl') {
+      data = convertHclToJSON(data);
+    }
     Object.assign(this, data);
   }
 
@@ -317,7 +410,7 @@ export default class DatacenterV1 extends Datacenter {
 
     replace_variable_values(this.resources || {});
     replace_variable_values(this.accounts || {});
-    replace_variable_values(this.environment || {});
+    replace_variable_values(this.environment as Record<string, any> || {});
 
     for (const [variable_name, variable_metadata] of Object.entries(this.variables || {})) {
       variable_metadata.value = variables[variable_name];

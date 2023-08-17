@@ -129,33 +129,43 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       });
     }
 
+    simpleRetry(async () => { // Need to wait after creating the SSL cert for it to be usable in the https proxy
+      const ssl_cert_check = await google.compute('v1').sslCertificates.get({
+        ...this.requestAuth(),
+        sslCertificate: ssl_cert_name,
+      });
+      if (ssl_cert_check.data.managed?.status === 'MANAGED_CERTIFICATE_STATUS_UNSPECIFIED') {
+        subscriber.next('Waiting for certificate to be ready');
+        throw new Error(`SSL cert ${ssl_cert_check.data.name} readiness check timed out`);
+      }
+    }, 5);
+
     // Step 3: Create the TargetHttpsProxies resource if it doesn't already exist.
     // If it does exist, patch the existing proxy to add the cert for this service.
     subscriber.next('Updating Target Proxy');
-    try {
-      await simpleRetry( // Need to wait after creating the SSL cert for it to be usable in the https proxy
-        async () => {
-          await google.compute('v1').targetHttpsProxies.insert({
-            ...this.requestAuth(),
-            requestBody: {
-              name: target_proxy_name,
-              sslCertificates: [`global/sslCertificates/${ssl_cert_name}`],
-              urlMap: `global/urlMaps/${url_map_name}`,
-            },
-          });
-        },
-      );
-    } catch (e) {
-      // 409 indicates the resource already exists and we can patch it instead
-      if (e.code !== 409) {
-        throw e;
-      }
 
-      const existing_proxy = await google.compute('v1').targetHttpsProxies.get({
+    let existing_proxy;
+    try {
+      existing_proxy = await google.compute('v1').targetHttpsProxies.get({
         ...this.requestAuth(),
         targetHttpsProxy: target_proxy_name,
       });
+    } catch (err) {
+      if (err.code !== 404) { // 404 indicates the resource already exists and we can patch it instead
+        throw err;
+      }
+    }
 
+    if (!existing_proxy) {
+      await google.compute('v1').targetHttpsProxies.insert({
+        ...this.requestAuth(),
+        requestBody: {
+          name: target_proxy_name,
+          sslCertificates: [`global/sslCertificates/${ssl_cert_name}`],
+          urlMap: `global/urlMaps/${url_map_name}`,
+        },
+      });
+    } else {
       const existing_certs = existing_proxy.data.sslCertificates || [];
       const sslCertificates = [...existing_certs];
       if (!existing_certs.find((cert) => cert.includes(ssl_cert_name))) {
@@ -188,6 +198,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
             },
           });
         },
+        5,
       );
     } catch (e) {
       // 409 indicates the ForwardingRules resource already exists.
@@ -198,14 +209,19 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     }
 
     subscriber.next('');
-    const forwarding_rule = await simpleRetry( // Wait after forwarding rule creation so the GET request afterwards returns the IP address
-      async () => {
-        return await google.compute('v1').globalForwardingRules.get({
-          ...this.requestAuth(),
-          forwardingRule: loadbalancer_frontend_name,
-        });
-      },
-    );
+    // const forwarding_rule = await simpleRetry( // Wait after forwarding rule creation so the GET request afterwards returns the IP address
+    //   async () => {
+    //     return await google.compute('v1').globalForwardingRules.get({
+    //       ...this.requestAuth(),
+    //       forwardingRule: loadbalancer_frontend_name,
+    //     });
+    //   },
+    // );
+
+    const forwarding_rule = await google.compute('v1').globalForwardingRules.get({
+      ...this.requestAuth(),
+      forwardingRule: loadbalancer_frontend_name,
+    });
 
     // ID is the service name so that it can be distinguished in the URL map later for get/update
     return {
@@ -240,16 +256,17 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
       // Wait after potentially deleting the URLMap before it gets recreated.
       // Otherwise, the old map will be returned from the GET request and will attempt to PATCH it.
-      await simpleRetry(
-        async () => {
-          const url_map_name = `${inputs.namespace}--lb`;
-          await google.compute('v1').urlMaps.get({
-            ...this.requestAuth(),
-            urlMap: url_map_name,
-          });
-          throw new Error(`URL map ${url_map_name} should be deleted.`);
-        },
-      );
+      await new Promise((f) => setTimeout(f, 10000));
+      // await simpleRetry(
+      //   async () => {
+      // const url_map_name = `${inputs.namespace}--lb`;
+      // await google.compute('v1').urlMaps.get({
+      //   ...this.requestAuth(),
+      //   urlMap: url_map_name,
+      // });
+      //     throw new Error(`URL map ${url_map_name} should be deleted.`);
+      //   },
+      // );
 
       return this.create(subscriber, inputs as ResourceInputs['ingressRule']);
     }
@@ -351,24 +368,19 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     }
 
     if (proxy_to_delete_name) {
-      await simpleRetry( // Need to wait after deleting the global forwarding rule otherwise attemping to delete the TargetHttpsProxy too early will error
-        async () => {
-          await google.compute('v1').targetHttpsProxies.delete({
-            ...this.requestAuth(),
-            targetHttpsProxy: proxy_to_delete_name as string,
-          });
-        },
-      );
+      await google.compute('v1').targetHttpsProxies.delete({
+        ...this.requestAuth(),
+        targetHttpsProxy: proxy_to_delete_name,
+      });
+
+      // Need to wait otherwise attemping to delete the UrlMap too early will error
+      await new Promise((f) => setTimeout(f, 20000));
     }
 
-    await simpleRetry( // Need to wait after deleting the target https proxy otherwise attemping to delete the UrlMap too early will error
-      async () => {
-        await google.compute('v1').urlMaps.delete({
-          ...this.requestAuth(),
-          urlMap: url_map.name as string,
-        });
-      },
-    );
+    await google.compute('v1').urlMaps.delete({
+      ...this.requestAuth(),
+      urlMap: url_map.name,
+    });
 
     // Delete the ssl cert
     await google.compute('v1').sslCertificates.delete({
@@ -500,3 +512,5 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     };
   }
 }
+
+// TODO: why tf aren't we just creating terraform modules instead of writing things like this?

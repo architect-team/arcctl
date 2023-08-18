@@ -5,7 +5,6 @@ import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { Inputs } from '../common/inputs.ts';
 import { destroyEnvironment } from './environment.ts';
 
 type DestroyDatacenterOptions = {
@@ -41,12 +40,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     }
   }
 
-  const confirm = options.autoApprove || (await Inputs.promptForContinuation('Are you sure you want to proceed?'));
-
-  if (!confirm) {
-    console.error('Datacenter destruction cancelled');
-    Deno.exit(1);
-  }
+  await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 
   for (const env of datacenterEnvs) {
     await destroyEnvironment({

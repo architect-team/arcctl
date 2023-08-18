@@ -328,6 +328,7 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          state: previousStep?.state, // May exist if a create step error'd and was only partially applied
         });
         newStep.hash = await newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);

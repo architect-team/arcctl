@@ -317,8 +317,19 @@ export abstract class TerraformResourceService<
     });
 
     const { stderr: apply_stderr } = await this.tfApply(cwd, options.logger);
+    options.state = await loadState(stateFile, lockFile);
     if (apply_stderr && apply_stderr.length > 0) {
-      subscriber.error(new TextDecoder().decode(apply_stderr));
+      const error_message = new TextDecoder().decode(apply_stderr);
+      // It's possible this apply was partially successful and some resources now exist.
+      subscriber.next({
+        status: {
+          state: 'error',
+          message: error_message,
+          startTime,
+        },
+        state: options.state,
+      });
+      subscriber.error(error_message);
       return;
     }
 
@@ -329,15 +340,6 @@ export abstract class TerraformResourceService<
         startTime,
       },
     });
-
-    const stateFileBuffer = await Deno.readFile(stateFile);
-    const lockFileBuffer = await Deno.readFile(lockFile);
-    const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
-    options.state = {
-      terraform_version: stateFileContents.terraform_version,
-      stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
-      lockFile: new TextDecoder().decode(lockFileBuffer),
-    };
 
     const { stdout: rawOutputs, stderr: output_stderr } = await this.tfOutput(cwd, options.logger);
     if (output_stderr && output_stderr.length > 0) {
@@ -540,4 +542,15 @@ export abstract class TerraformResourceService<
       this.destroyAsync(subscriber, options, inputs);
     });
   }
+}
+
+async function loadState(stateFile: string, lockFile: string): Promise<TerraformResourceState> {
+  const stateFileBuffer = await Deno.readFile(stateFile);
+  const lockFileBuffer = await Deno.readFile(lockFile);
+  const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+  return {
+    terraform_version: stateFileContents.terraform_version,
+    stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
+    lockFile: new TextDecoder().decode(lockFileBuffer),
+  };
 }

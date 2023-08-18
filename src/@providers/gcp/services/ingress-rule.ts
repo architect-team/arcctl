@@ -560,7 +560,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     }
 
     const firewall_allowed = firewall.allowed || [];
-    if (firewall_allowed.length > 0 && firewall_allowed[0].ports && firewall_allowed[0].ports.length > 0) {
+    if (firewall_allowed.length > 0 && firewall_allowed[0].ports && firewall_allowed[0].ports.length > 1) {
       // Just need to remove the port for this resource, don't need to remove the entire rule or static IP.
       firewall_allowed[0].ports = firewall_allowed[0].ports.filter((p) => p !== port);
       await google.compute('v1').firewalls.patch({

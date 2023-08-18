@@ -53,12 +53,12 @@ environment:
         db-cluster:
           type: databaseCluster
           account: ${{ variables.gcpAccount }}
-          name: ${{ this.name }}
+          name: ${{ environment.name }}-${{ this.name }}
           databaseSize: db-f1-micro
           databaseType: ${{ this.inputs.databaseType }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
           region: ${{ variables.region }}
-          vpc: ${{ resources.vpc.id }}
+          vpc: ${{ resources.vpc.name }}
       databaseCluster: ${{ this.resources.db-cluster.id }}
       account: ${{ variables.gcpAccount }}
     # Rules for deploying smtp4dev to GCE instead of CloudRun

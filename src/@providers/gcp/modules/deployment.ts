@@ -166,7 +166,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       }
 
       this.outputs = {
-        id: this.deployments.at(0)?.uid || '',
+        id: this.deployments.at(0)?.id || '',
         labels,
       };
     }

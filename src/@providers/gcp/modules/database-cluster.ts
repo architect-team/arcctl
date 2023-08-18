@@ -43,7 +43,7 @@ export class GoogleCloudDatabaseClusterModule extends ResourceModule<'databaseCl
         tier: this.inputs?.databaseSize || 'db-f1-micro',
         deletionProtectionEnabled: false,
         ipConfiguration: {
-          privateNetwork: this.inputs?.vpc,
+          privateNetwork: `projects/${this.credentials.project}/global/networks/${this.inputs?.vpc}`,
           enablePrivatePathForGoogleCloudServices: true,
         },
       },

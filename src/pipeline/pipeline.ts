@@ -362,9 +362,7 @@ export class Pipeline {
       if (
         (previousStep.action === 'delete' &&
           previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' &&
-          (previousStep.status.state === 'pending' ||
-            previousStep.status.state === 'error'))
+        (previousStep.action === 'create' && previousStep.status.state === 'pending')
       ) {
         continue;
       }

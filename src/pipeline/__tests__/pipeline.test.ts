@@ -158,11 +158,41 @@ describe('Pipeline', () => {
       after: new CloudGraph(),
     }, providerStore);
 
-    console.log(plannedPipeline);
-
     assertEquals(plannedPipeline.steps.length, 1);
     assertEquals(plannedPipeline.steps[0].action, 'delete');
     assertEquals(plannedPipeline.steps[0].name, 'test-2');
+  });
+
+  it('should delete a node that was previously created and errored', async () => {
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
+
+    const previousPipeline = new Pipeline({
+      steps: [
+        new PipelineStep({
+          name: 'test',
+          action: 'create',
+          type: 'vpc',
+          color: 'blue',
+          status: {
+            state: 'error',
+          },
+          inputs: {
+            type: 'vpc',
+            name: 'foo',
+            region: 'bar',
+          },
+        }),
+      ],
+    });
+
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph(),
+    }, providerStore);
+
+    assertEquals(plannedPipeline.steps.length, 1);
+    assertEquals(plannedPipeline.steps[0].action, 'delete');
   });
 
   it('should set leaf update step as no-op w/out changes', async () => {

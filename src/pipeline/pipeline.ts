@@ -379,8 +379,11 @@ export class Pipeline {
 
         pipeline.insertSteps(rmStep);
 
-        for (const oldEdge of options.before.edges) {
-          if (oldEdge.to === rmStep.id) {
+        const previousStepEdges = options.before.edges.filter((edge) => edge.to === rmStep.id);
+        if (previousStep.action !== 'delete') {
+          // If the previous pipeline was create or update, we need to flip the edge
+          // so we delete dependencies in the right order.
+          for (const oldEdge of previousStepEdges) {
             potentialEdges.push(
               new CloudEdge({
                 from: oldEdge.to,
@@ -389,6 +392,9 @@ export class Pipeline {
               }),
             );
           }
+        } else {
+          // If the previous pipeline was delete, the edges are already correct and have been flipped.
+          potentialEdges.push(...previousStepEdges);
         }
       }
     }

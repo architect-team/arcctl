@@ -469,20 +469,22 @@ export abstract class TerraformResourceService<
         },
       });
 
-      const { stderr: apply_stderr } = await this.tfApply(options.cwd, options.logger);
+      const { stderr: apply_stderr } = await this.tfApply(cwd, options.logger);
+      options.state = await loadState(stateFile, lockFile);
       if (apply_stderr && apply_stderr.length > 0) {
-        subscriber.error(new TextDecoder().decode(apply_stderr));
+        const error_message = new TextDecoder().decode(apply_stderr);
+        // It's possible this apply was partially successful and some resources now don't exist.
+        subscriber.next({
+          status: {
+            state: 'error',
+            message: error_message,
+            startTime,
+          },
+          state: options.state,
+        });
+        subscriber.error(error_message);
         return;
       }
-
-      const stateFileBuffer = await Deno.readFile(stateFile);
-      const lockFileBuffer = await Deno.readFile(lockFile);
-      const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
-      options.state = {
-        terraform_version: stateFileContents.terraform_version,
-        stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
-        lockFile: new TextDecoder().decode(lockFileBuffer),
-      };
 
       await Deno.remove(cwd, { recursive: true });
 
@@ -544,13 +546,17 @@ export abstract class TerraformResourceService<
   }
 }
 
-async function loadState(stateFile: string, lockFile: string): Promise<TerraformResourceState> {
-  const stateFileBuffer = await Deno.readFile(stateFile);
-  const lockFileBuffer = await Deno.readFile(lockFile);
-  const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
-  return {
-    terraform_version: stateFileContents.terraform_version,
-    stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
-    lockFile: new TextDecoder().decode(lockFileBuffer),
-  };
+async function loadState(stateFile: string, lockFile: string): Promise<TerraformResourceState | undefined> {
+  try {
+    const stateFileBuffer = await Deno.readFile(stateFile);
+    const lockFileBuffer = await Deno.readFile(lockFile);
+    const stateFileContents = JSON.parse(new TextDecoder().decode(stateFileBuffer));
+    return {
+      terraform_version: stateFileContents.terraform_version,
+      stateFile: JSON.parse(new TextDecoder().decode(stateFileBuffer)),
+      lockFile: new TextDecoder().decode(lockFileBuffer),
+    };
+  } catch {
+    return;
+  }
 }

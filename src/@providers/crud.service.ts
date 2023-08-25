@@ -117,6 +117,7 @@ export abstract class CrudResourceService<
               startTime,
               endTime: Date.now(),
             },
+            state: options.state,
           });
           res.error(err);
         });

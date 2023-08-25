@@ -305,8 +305,39 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       return;
     }
 
+    // Remove Cert from TargetHTTPSProxy and delete the Cert
+    const target_proxy_name = `${url_map.name}--target-proxy`;
+    const ssl_cert_name = `${service_name}-cert`;
+
+    const target_proxy = await google.compute('v1').targetHttpsProxies.get({
+      ...this.requestAuth(),
+      targetHttpsProxy: target_proxy_name,
+    });
+
+    const ssl_certs = target_proxy.data.sslCertificates;
+    const updated_ssl_certs = ssl_certs?.filter((cert) => !cert.includes(ssl_cert_name));
+
+    await google.compute('v1').targetHttpsProxies.patch({
+      ...this.requestAuth(),
+      targetHttpsProxy: target_proxy_name,
+      requestBody: {
+        sslCertificates: updated_ssl_certs,
+        fingerprint: target_proxy.data.fingerprint,
+      },
+    });
+
+    await new Promise((f) => setTimeout(f, 20000));
+
+    await google.compute('v1').sslCertificates.delete({
+      ...this.requestAuth(),
+      sslCertificate: ssl_cert_name,
+    });
+
+    // Update the URLMap to remove this service.
     let path_matchers = [...(url_map.pathMatchers || [])];
     let host_rules = [...(url_map.hostRules || [])];
+    let default_service = url_map.defaultService;
+    let removed_service;
 
     for (const path_matcher of url_map.pathMatchers || []) {
       if (path_matcher.defaultService && path_matcher.defaultService.endsWith(`${service_name}--backend`)) {
@@ -315,14 +346,24 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
           // Remove the hostRule/pathMatcher for this service
           path_matchers = path_matchers.filter((m) => m.name !== path_matcher_name);
           host_rules = host_rules.filter((h) => h.pathMatcher !== path_matcher_name);
+          // Keep track of the removed service so that if it's the URLMap's default service,
+          // the default service can be modified.
+          removed_service = path_matcher.defaultService;
         }
       }
+    }
+
+    if (removed_service === default_service) {
+      // There will always be at least 1 item in path_matchers because this
+      // function only runs when the length of the urlmap rules >= 2
+      default_service = path_matchers[0].defaultService;
     }
 
     await google.compute('v1').urlMaps.patch({
       ...this.requestAuth(),
       urlMap: url_map.name,
       requestBody: {
+        defaultService: default_service,
         hostRules: host_rules,
         pathMatchers: path_matchers,
       },
@@ -471,6 +512,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       accessConfig: 'external-nat', // default access config name
     });
 
+    await new Promise((f) => setTimeout(f, 2000));
+
     // Attach this static IP to our GCE instance
     await google.compute('v1').instances.addAccessConfig({
       ...this.requestAuth(),
@@ -576,8 +619,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         firewall: resource_name,
       });
 
+      // We don't know what region this address was created for, delete can only access the ID :(
       const regions = await GcpUtils.getProjectRegions(this.credentials, this.credentials.project);
-
       for (const region of regions) {
         // TODO: Maybe this will fail if it's still attached to the GCE instance
         try {

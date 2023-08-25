@@ -11,8 +11,10 @@ export type StepAction = 'no-op' | 'create' | 'update' | 'delete';
 
 export type StepColor = 'blue' | 'green';
 
+export type StepStatusState = 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
+
 export type StepStatus = {
-  state: 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
+  state: StepStatusState;
   message?: string;
   startTime?: number;
   endTime?: number;

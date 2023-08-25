@@ -384,17 +384,18 @@ export class Pipeline {
           // If the previous pipeline was create or update, we need to flip the edge
           // so we delete dependencies in the right order.
           for (const oldEdge of previousStepEdges) {
-            potentialEdges.push(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-                required: oldEdge.required,
-              }),
-            );
+            potentialEdges.push(oldEdge.reverse());
           }
         } else {
           // If the previous pipeline was delete, the edges are already correct and have been flipped.
-          potentialEdges.push(...previousStepEdges);
+          // We just need to remove any edges from the previous pipeline that may have had their nodes
+          // deleted.
+          for (const oldEdge of previousStepEdges) {
+            // If there's no step for the oldEdge.from, the node's already removed so we can axe the edge.
+            if (pipeline.steps.some((s) => s.id === oldEdge.from)) {
+              potentialEdges.push(oldEdge);
+            }
+          }
         }
       }
     }

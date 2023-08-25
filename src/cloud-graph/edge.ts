@@ -18,4 +18,15 @@ export class CloudEdge {
   get id(): string {
     return `${this.from}-${this.to}`;
   }
+
+  /**
+   * Returns a CloudEdge that points in the opposite direction as this edge.
+   */
+  reverse(): CloudEdge {
+    return new CloudEdge({
+      from: this.to,
+      to: this.from,
+      required: this.required,
+    });
+  }
 }

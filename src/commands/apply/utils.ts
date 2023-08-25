@@ -93,9 +93,6 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions): Promis
     interval = setInterval(() => {
       options.command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
-  } else {
-    options.command_helper.pipelineRenderer.renderPipeline(pipeline);
-    options.command_helper.pipelineRenderer.doneRenderingPipeline();
   }
 
   const success = await options.command_helper.environmentUtils.applyEnvironment(

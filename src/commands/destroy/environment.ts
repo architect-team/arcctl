@@ -61,7 +61,6 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),

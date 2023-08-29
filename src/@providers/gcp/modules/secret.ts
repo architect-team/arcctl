@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { ProjectService } from '../.gen/providers/google/project-service/index.ts';
 import { SecretManagerSecretVersion } from '../.gen/providers/google/secret-manager-secret-version/index.ts';
 import { SecretManagerSecret } from '../.gen/providers/google/secret-manager-secret/index.ts';
 import { GoogleCloudCredentials } from '../credentials.ts';
@@ -29,6 +30,12 @@ export class GoogleCloudSecretModule extends ResourceModule<'secret', GoogleClou
     });
 
     this.secretVersion = new SecretManagerSecretVersion(this, 'version', {
+      dependsOn: [
+        new ProjectService(this, 'secret-service', {
+          service: 'secretmanager.googleapis.com',
+          disableOnDestroy: false,
+        }),
+      ],
       secret: this.secret.id,
       secretData: options.inputs?.data || '',
     });

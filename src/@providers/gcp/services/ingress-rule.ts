@@ -66,7 +66,6 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
     const backend_service_name = `global/backendServices/${neg_name}`;
     const host_name = `${inputs.subdomain}.${inputs.dnsZone}`;
-    const ssl_cert_name = `${service_name}-cert`;
     const target_proxy_name = `${url_map_name}--target-proxy`;
     const loadbalancer_frontend_name = `${url_map_name}--frontend`;
 
@@ -128,78 +127,30 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       });
     }
 
-    // Step 2: Create the SSLCert if one does not already exist for this subdomain.
-    let ssl_cert;
-    try {
-      ssl_cert = await google.compute('v1').sslCertificates.get({
-        ...this.requestAuth(),
-        sslCertificate: ssl_cert_name,
-      });
-    } catch (e) {
-      if (e.code !== 404) {
-        throw e;
-      }
-
-      subscriber.next('Generating SSL Cert');
-      ssl_cert = await google.compute('v1').sslCertificates.insert({
-        ...this.requestAuth(),
-        requestBody: {
-          name: ssl_cert_name,
-          type: 'MANAGED',
-          managed: {
-            domains: [host_name],
-          },
-        },
-      });
-    }
-
-    // Need to wait a little bit after creating the SSL cert for it to be
-    // usable in the HttpsProxy
+    // Need to wait so that the resource is ready before using it.
     await new Promise((f) => setTimeout(f, 5000));
 
-    // Step 3: Create the TargetHttpsProxies resource if it doesn't already exist.
-    // If it does exist, patch the existing proxy to add the cert for this service.
+    // Step 2: Create the TargetHttpProxies resource if it doesn't already exist.
     subscriber.next('Updating Target Proxy');
     try {
-      await google.compute('v1').targetHttpsProxies.insert({
+      await google.compute('v1').targetHttpProxies.insert({
         ...this.requestAuth(),
         requestBody: {
           name: target_proxy_name,
-          sslCertificates: [`global/sslCertificates/${ssl_cert_name}`],
           urlMap: `global/urlMaps/${url_map_name}`,
         },
       });
     } catch (e) {
-      // 409 indicates the resource already exists and we can patch it instead
+      // 409 indicates the resource already exists
       if (e.code !== 409) {
         throw e;
       }
-
-      const existing_proxy = await google.compute('v1').targetHttpsProxies.get({
-        ...this.requestAuth(),
-        targetHttpsProxy: target_proxy_name,
-      });
-
-      const existing_certs = existing_proxy.data.sslCertificates || [];
-      const sslCertificates = [...existing_certs];
-      if (!existing_certs.find((cert) => cert.includes(ssl_cert_name))) {
-        // Cert isn't included yet, needs to be added to the proxy
-        sslCertificates.push(`global/sslCertificates/${ssl_cert_name}`);
-      }
-      await google.compute('v1').targetHttpsProxies.patch({
-        ...this.requestAuth(),
-        targetHttpsProxy: target_proxy_name,
-        requestBody: {
-          sslCertificates,
-          fingerprint: existing_proxy.data.fingerprint,
-        },
-      });
     }
 
     // Need to wait again so that the resource is ready before using it.
     await new Promise((f) => setTimeout(f, 5000));
 
-    // Step 4: Create the ForwardingRules. This doesn't need to be updated, so if
+    // Step 3: Create the ForwardingRules. This doesn't need to be updated, so if
     // it already exists there is nothing that needs to be done.
     subscriber.next('Updating GlobalForwardingRule');
     try {
@@ -208,8 +159,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         requestBody: {
           loadBalancingScheme: 'EXTERNAL_MANAGED',
           name: loadbalancer_frontend_name,
-          target: `global/targetHttpsProxies/${target_proxy_name}`,
-          portRange: '443', // This portRange can be changed to map to various ports of GCE instance I think
+          target: `global/targetHttpProxies/${target_proxy_name}`,
+          portRange: '80',
         },
       });
 
@@ -236,7 +187,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       host: forwarding_rule.data.IPAddress || '',
       port: inputs.port || 80,
       path: inputs.path || '/',
-      url: `https://${inputs.subdomain}.${inputs.dnsZone}`,
+      url: `http://${inputs.subdomain}.${inputs.dnsZone}`,
       loadBalancerHostname: forwarding_rule.data.IPAddress || '',
     };
   }
@@ -305,34 +256,6 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       return;
     }
 
-    // Remove Cert from TargetHTTPSProxy and delete the Cert
-    const target_proxy_name = `${url_map.name}--target-proxy`;
-    const ssl_cert_name = `${service_name}-cert`;
-
-    const target_proxy = await google.compute('v1').targetHttpsProxies.get({
-      ...this.requestAuth(),
-      targetHttpsProxy: target_proxy_name,
-    });
-
-    const ssl_certs = target_proxy.data.sslCertificates;
-    const updated_ssl_certs = ssl_certs?.filter((cert) => !cert.includes(ssl_cert_name));
-
-    await google.compute('v1').targetHttpsProxies.patch({
-      ...this.requestAuth(),
-      targetHttpsProxy: target_proxy_name,
-      requestBody: {
-        sslCertificates: updated_ssl_certs,
-        fingerprint: target_proxy.data.fingerprint,
-      },
-    });
-
-    await new Promise((f) => setTimeout(f, 20000));
-
-    await google.compute('v1').sslCertificates.delete({
-      ...this.requestAuth(),
-      sslCertificate: ssl_cert_name,
-    });
-
     // Update the URLMap to remove this service.
     let path_matchers = [...(url_map.pathMatchers || [])];
     let host_rules = [...(url_map.hostRules || [])];
@@ -375,8 +298,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       return;
     }
 
-    // Find the TargetHttpsProxy to delete
-    const target_proxies = await google.compute('v1').targetHttpsProxies.list({
+    // Find the TargetHttpProxy to delete
+    const target_proxies = await google.compute('v1').targetHttpProxies.list({
       ...this.requestAuth(),
     });
 
@@ -407,14 +330,14 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         forwardingRule: forwarding_rule_to_delete_name,
       });
 
-      // Need to wait otherwise attemping to delete the TargetHttpsProxy too early will error
+      // Need to wait otherwise attemping to delete the TargetHttpProxy too early will error
       await new Promise((f) => setTimeout(f, 20000));
     }
 
     if (proxy_to_delete_name) {
-      await google.compute('v1').targetHttpsProxies.delete({
+      await google.compute('v1').targetHttpProxies.delete({
         ...this.requestAuth(),
-        targetHttpsProxy: proxy_to_delete_name,
+        targetHttpProxy: proxy_to_delete_name,
       });
 
       // Need to wait otherwise attemping to delete the UrlMap too early will error
@@ -424,12 +347,6 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     await google.compute('v1').urlMaps.delete({
       ...this.requestAuth(),
       urlMap: url_map.name,
-    });
-
-    // Delete the ssl cert
-    await google.compute('v1').sslCertificates.delete({
-      ...this.requestAuth(),
-      sslCertificate: `${service_name}-cert`,
     });
   }
 
@@ -690,7 +607,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
   ): Promise<ResourceOutputs['ingressRule'] | undefined> {
     const { url_map: target_url_map, hostname } = await this.getUrlMapForService(id);
 
-    const target_proxies = await google.compute('v1').targetHttpsProxies.list({
+    const target_proxies = await google.compute('v1').targetHttpProxies.list({
       ...this.requestAuth(),
     });
 
@@ -718,7 +635,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       host: hostname || '',
       port: rule?.portRange || 80,
       path: '/',
-      url: `https://${hostname}`,
+      url: `http://${hostname}`,
     };
   }
 
@@ -733,10 +650,10 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     const ingress_rules = [];
     for (const rule of forwarding_rules.data.items || []) {
       if (rule.target) {
-        const targetHttpsProxy = rule.target.substring(rule.target.lastIndexOf('/') + 1);
-        const target_proxy = await google.compute('v1').targetHttpsProxies.get({
+        const targetHttpProxy = rule.target.substring(rule.target.lastIndexOf('/') + 1);
+        const target_proxy = await google.compute('v1').targetHttpProxies.get({
           ...this.requestAuth(),
-          targetHttpsProxy,
+          targetHttpProxy,
         });
 
         if (target_proxy.data.urlMap) {
@@ -769,7 +686,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
                 host: hostname,
                 port: rule.portRange || 80,
                 path: '/',
-                url: `https://${hostname}`,
+                url: `http://${hostname}`,
               });
             }
           }

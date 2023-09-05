@@ -45,14 +45,14 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
     }
 
     const vpc_name = this.inputs?.labels?.vpc || 'deleting';
-    const namespace = this.inputs?.namespace || 'ns';
+    const namespace = (this.inputs?.namespace || 'ns').substring(0, 20);
     const name = this.inputs?.name.replaceAll('/', '-') || 'deleting';
 
     this.deployments = [];
     const labels: Record<string, string> = {};
 
     if (this.inputs?.strategy === 'gce') {
-      const deployment_name = `${namespace.substring(0, 20)}-${name.substring(0, 40)}`;
+      const deployment_name = `${namespace}-${name.slice(-40)}`;
       const container = new GoogleContainerVm(this, 'gce-container-vm', {
         container: {
           image: this.inputs?.image || 'deleting',
@@ -106,7 +106,7 @@ export class GoogleCloudDeploymentModule extends ResourceModule<
       };
     } else {
       // Create a CloudRun deployment for each service (Each deployment can only expose a single port)
-      const deployment_name = `${namespace.substring(0, 20)}-${name.substring(0, 20)}`;
+      const deployment_name = `${namespace}-${name.slice(-20)}`;
       const services = this.inputs?.services || [];
       for (const service of services) {
         const service_port = Number(service.port || 80);

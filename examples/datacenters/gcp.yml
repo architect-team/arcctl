@@ -9,7 +9,7 @@ variables:
     provider: gcp
   dnsZone:
     type: string
-    description: Name of DNS zone for DNS records. This zone must already exist within GCP.
+    description: Name of DNS zone for DNS records
 
 resources:
   vpc:
@@ -34,6 +34,8 @@ accounts:
     name: ${{ datacenter.name }}-dc-cluster
     provider: kubernetes
     credentials:
+      # TODO: Project name is hardcoded
+      # refreshCommand: gcloud container clusters get-credentials ${{ datacenter.name}}-dc-cluster --zone ${{ variables.region }} --project permanent-environment-testing
       configPath: ${{ resources.cluster.configPath }}
 
 environment:
@@ -49,6 +51,10 @@ environment:
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
+    zone:
+      type: dnsZone
+      account: ${{ variables.gcpAccount }}
+      name: ${{ variables.dnsZone }}
 
   hooks:
     - when:
@@ -61,12 +67,12 @@ environment:
         db-cluster:
           type: databaseCluster
           account: ${{ variables.gcpAccount }}
-          name: ${{ this.name }}
+          name: ${{ environment.name }}-${{ this.name }}
           databaseSize: db-f1-micro
           databaseType: ${{ this.inputs.databaseType }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
           region: ${{ variables.region }}
-          vpc: ${{ resources.vpc.id }}
+          vpc: ${{ resources.vpc.name }}
       databaseCluster: ${{ this.resources.db-cluster.id }}
       account: ${{ variables.gcpAccount }}
     - when:
@@ -75,7 +81,7 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: ${{ variables.gcpAccount }}
-          dnsZone: ${{ variables.dnsZone }}
+          dnsZone: ${{ environment.resources.zone.id }}
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}

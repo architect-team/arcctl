@@ -16,9 +16,12 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
 
     GcpUtils.configureProvider(this);
 
-    const namespace = this.inputs?.namespace || 'ns';
+    // Use the last 30 characters of the service name, as this is the more unique part.
+    const name = (this.inputs?.name.replaceAll('/', '-') || 'deleting').slice(-30);
+    const namespace = (this.inputs?.namespace || 'ns').substring(0, 20);
     // Max length for resource names is ~60 characters
-    const service_name = (namespace + '--' + this.inputs?.name.replaceAll('/', '-') || 'deleting').substring(0, 50);
+    const service_name = `${namespace}--${name}`;
+
     const service_port = this.inputs?.target_port || 80;
     const deployment_name = this.inputs?.target_deployment?.replaceAll('/', '-') || 'deleting';
     let protocol = this.inputs?.target_protocol;
@@ -39,7 +42,7 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
 
     if (this.inputs?.strategy === 'gce') {
       // This deployment is a GCE instance, so we need to set firewall rules that allow routing to it
-      const gce_name = `${namespace.substring(0, 20)}-${deployment_name.substring(0, 40)}`;
+      const gce_name = `${namespace}-${deployment_name.slice(-40)}`;
 
       const vpc_name = this.inputs?.labels?.vpc || 'deleting';
 
@@ -73,7 +76,7 @@ export class GoogleCloudServiceModule extends ResourceModule<'service', GoogleCl
         target_port: service_port,
       };
     } else {
-      const function_name = `${namespace.substring(0, 20)}-${deployment_name.substring(0, 20)}-${service_port}`;
+      const function_name = `${namespace}-${deployment_name.slice(-20)}-${service_port}`;
 
       const serverless_neg = new ComputeRegionNetworkEndpointGroup(this, 'serverless-neg', {
         name: `${service_name}--neg`,

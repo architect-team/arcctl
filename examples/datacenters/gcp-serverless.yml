@@ -9,7 +9,7 @@ variables:
     arcctlAccount: ${{ variables.gcpAccount }}
   dnsZone:
     type: string
-    description: DNS name for DNS records (ex. architest.dev). The DNS zone must already exist within GCP.
+    description: Name of DNS zone for DNS records
 
 resources:
   vpc:
@@ -19,6 +19,11 @@ resources:
     region: ${{ variables.region }}
 
 environment:
+  resources:
+    zone:
+      type: dnsZone
+      account: ${{ variables.gcpAccount }}
+      name: ${{ variables.dnsZone }}
   hooks:
     - when:
         type: service
@@ -38,7 +43,7 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: ${{ variables.gcpAccount }}
-          dnsZone: ${{ variables.dnsZone }}
+          dnsZone: ${{ environment.resources.zone.id }}
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}

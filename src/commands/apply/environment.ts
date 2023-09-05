@@ -20,6 +20,12 @@ const ApplyEnvironmentCommand = BaseCommand()
   .action(applyEnvironmentAction);
 
 export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, name: string, config_path?: string) {
+
+  if (name.length > 20) {
+    console.error('Max length for an environment name is 20 characters');
+    Deno.exit(1);
+  }
+
   const command_helper = new CommandHelper(options);
 
   let logger: Logger | undefined;

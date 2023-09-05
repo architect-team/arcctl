@@ -11,13 +11,11 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
   constructor(scope: Construct, options: ResourceModuleOptions<'ingressRule', KubernetesCredentials>) {
     super(scope, options);
 
-    const hostParts = [];
-    if (this.inputs?.subdomain) {
-      hostParts.push(this.inputs.subdomain);
-    }
+    const rootHost = this.inputs?.dnsZone || '';
+    const hostParts = [rootHost];
 
-    if (this.inputs?.dnsZone) {
-      hostParts.push(this.inputs.dnsZone);
+    if (this.inputs?.subdomain) {
+      hostParts.unshift(this.inputs.subdomain);
     }
 
     const host = hostParts.join('.');
@@ -62,7 +60,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     if (this.inputs?.port && this.inputs.port !== 80) {
       url += ':' + this.inputs.port;
     }
-    url += this.inputs?.path || '/';
+    url += this.inputs?.path || '';
 
     const ip_address = this.ingress.status.get(0).loadBalancer.get(0).ingress.get(0).ip;
 
@@ -71,6 +69,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     this.outputs = {
       id: `${this.ingress.metadata.namespace}/${this.ingress.metadata.name}`,
       host,
+      rootHost,
       port: this.inputs?.port || 80,
       path: this.inputs?.path || '/',
       url,

@@ -185,6 +185,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     return {
       id: service_name,
       host: forwarding_rule.data.IPAddress || '',
+      rootHost: inputs.dnsZone || '',
       port: inputs.port || 80,
       path: inputs.path || '/',
       url: `http://${inputs.subdomain}.${inputs.dnsZone}`,
@@ -482,6 +483,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     return {
       id: `${GCE_PREFIX}${resource_name}--${inputs.port}`,
       host: static_ip.address || '',
+      rootHost: static_ip.address || '',
       port: inputs.port,
       path: inputs.path || '/',
       url: `http://${static_ip}:${inputs.port}`,
@@ -591,6 +593,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         return {
           id: `gce/${static_ip.name}--${port}`,
           host: static_ip.address || '',
+          rootHost: static_ip.address || '',
           port: firewall.allowed?.at(0)?.ports?.at(0) || '',
           path: '/',
           url: `http://${static_ip}:${port}`,
@@ -629,10 +632,13 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       }
     }
 
+    const rootHost = hostname.split('.').at(-1) || hostname;
+
     return {
       id: id,
       loadBalancerHostname: rule?.IPAddress || '',
-      host: hostname || '',
+      host: hostname,
+      rootHost,
       port: rule?.portRange || 80,
       path: '/',
       url: `http://${hostname}`,
@@ -678,15 +684,17 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
             if (host_rule.hosts && host_rule.hosts.length > 0 && host_rule.pathMatcher) {
               const neg_name = path_services[host_rule.pathMatcher];
               const service_name = neg_name.substring(0, neg_name.length - '--backend'.length);
-              const hostname = host_rule.hosts[0];
+              const host = host_rule.hosts[0];
+              const rootHost = host.split('.').at(-1) || host;
 
               ingress_rules.push({
                 id: service_name || '',
                 loadBalancerHostname: rule.IPAddress || '',
-                host: hostname,
+                host,
+                rootHost,
                 port: rule.portRange || 80,
                 path: '/',
-                url: `http://${hostname}`,
+                url: `http://${host}`,
               });
             }
           }

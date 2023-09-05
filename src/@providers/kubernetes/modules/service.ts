@@ -61,7 +61,7 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
     if (this.inputs?.username) {
       url += `${this.inputs.username}:${this.inputs.password}@`;
     }
-    url += host;
+    url += `${host}:${port}`;
 
     this.outputs = {
       ...this.inputs,

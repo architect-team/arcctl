@@ -185,7 +185,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     return {
       id: service_name,
       host: forwarding_rule.data.IPAddress || '',
-      rootHost: inputs.dnsZone || '',
+      dnsZone: inputs.dnsZone || '',
       port: inputs.port || 80,
       path: inputs.path || '/',
       url: `http://${inputs.subdomain}.${inputs.dnsZone}`,
@@ -483,7 +483,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     return {
       id: `${GCE_PREFIX}${resource_name}--${inputs.port}`,
       host: static_ip.address || '',
-      rootHost: static_ip.address || '',
+      dnsZone: static_ip.address || '',
       port: inputs.port,
       path: inputs.path || '/',
       url: `http://${static_ip}:${inputs.port}`,
@@ -593,7 +593,7 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
         return {
           id: `gce/${static_ip.name}--${port}`,
           host: static_ip.address || '',
-          rootHost: static_ip.address || '',
+          dnsZone: static_ip.address || '',
           port: firewall.allowed?.at(0)?.ports?.at(0) || '',
           path: '/',
           url: `http://${static_ip}:${port}`,
@@ -632,13 +632,13 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       }
     }
 
-    const rootHost = hostname.split('.').at(-1) || hostname;
+    const dnsZone = hostname.split('.').at(-1) || hostname;
 
     return {
       id: id,
       loadBalancerHostname: rule?.IPAddress || '',
       host: hostname,
-      rootHost,
+      dnsZone,
       port: rule?.portRange || 80,
       path: '/',
       url: `http://${hostname}`,
@@ -685,13 +685,13 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
               const neg_name = path_services[host_rule.pathMatcher];
               const service_name = neg_name.substring(0, neg_name.length - '--backend'.length);
               const host = host_rule.hosts[0];
-              const rootHost = host.split('.').at(-1) || host;
+              const dnsZone = host.split('.').at(-1) || host;
 
               ingress_rules.push({
                 id: service_name || '',
                 loadBalancerHostname: rule.IPAddress || '',
                 host,
-                rootHost,
+                dnsZone,
                 port: rule.portRange || 80,
                 path: '/',
                 url: `http://${host}`,

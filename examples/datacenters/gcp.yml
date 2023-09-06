@@ -34,8 +34,6 @@ accounts:
     name: ${{ datacenter.name }}-dc-cluster
     provider: kubernetes
     credentials:
-      # TODO: Project name is hardcoded
-      # refreshCommand: gcloud container clusters get-credentials ${{ datacenter.name}}-dc-cluster --zone ${{ variables.region }} --project permanent-environment-testing
       configPath: ${{ resources.cluster.configPath }}
 
 environment:

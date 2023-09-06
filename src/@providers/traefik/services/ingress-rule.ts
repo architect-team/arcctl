@@ -107,12 +107,12 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
-      const rootHost = host.split('.').at(-1) || host;
+      const dnsZone = host.split('.').at(-1) || host;
 
       return {
         id,
         host,
-        rootHost,
+        dnsZone,
         port: 80,
         url: `http://${host}:80${ingressPath}`,
         path: ingressPath,
@@ -130,12 +130,12 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
-      const rootHost = host.split('.').at(-1) || host;
+      const dnsZone = host.split('.').at(-1) || host;
 
       return {
         id,
         host,
-        rootHost,
+        dnsZone,
         port: 80,
         url: `tcp://${host}:80${ingressPath}`,
         path: ingressPath,
@@ -178,12 +178,12 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
           ingressPath = pathMatches[1];
         }
       }
-      const rootHost = host.split('.').at(-1) || host;
+      const dnsZone = host.split('.').at(-1) || host;
 
       return {
         id,
         host,
-        rootHost,
+        dnsZone,
         port: 80,
         url: `${config.http ? 'http' : 'tcp'}://${host}:80${ingressPath}`,
         path: ingressPath,
@@ -277,13 +277,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     url += `${host}${urlPath}`;
-    const rootHost = host.split('.').at(-1) || host;
+    const dnsZone = host.split('.').at(-1) || host;
 
     subscriber.next(url);
     return {
       id: normalizedId,
       host,
-      rootHost,
+      dnsZone,
       port: 80,
       path: urlPath,
       username: inputs.username,
@@ -391,13 +391,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     url += `${host}${urlPath}`;
-    const rootHost = host.split('.').at(-1) || host;
+    const dnsZone = host.split('.').at(-1) || host;
 
     subscriber.next(url);
     return {
       id: newId,
       host,
-      rootHost,
+      dnsZone,
       port: 80,
       path: urlPath,
       username: inputs.username,

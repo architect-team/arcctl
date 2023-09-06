@@ -1,6 +1,6 @@
 export type IngressRuleOutputs = {
   host: string;
-  rootHost: string;
+  dnsZone: string;
   port: string | number;
   username?: string;
   password?: string;

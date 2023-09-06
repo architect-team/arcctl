@@ -8,6 +8,22 @@ export type VariablesMetadata = {
   value?: string | number | boolean;
 } & { [key in keyof ResourceInputs]?: string };
 
+export type ModuleBuildFn = (options: {
+  tag: string;
+  directory: string;
+}) => Promise<string>;
+
+export type DockerBuildFn = (options: {
+  context: string;
+}) => Promise<string>;
+
+export type DockerTagFn = (
+  sourceRef: string,
+  targetName: string,
+) => Promise<string>;
+
+export type DockerPushFn = (image: string) => Promise<void>;
+
 /**
  * Returned by the Datacenter with additional metadata
  * not part of the datacenter schema to track variables
@@ -65,4 +81,8 @@ export abstract class Datacenter {
 
   public abstract getVariables(): ParsedVariablesType;
   public abstract setVariableValues(variables: Record<string, unknown>): void;
+
+  public abstract build(buildFn: DockerBuildFn): Promise<Datacenter>;
+  public abstract tag(tagFn: DockerTagFn): Promise<Datacenter>;
+  public abstract push(pushFn: DockerPushFn): Promise<Datacenter>;
 }

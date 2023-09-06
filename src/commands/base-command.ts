@@ -53,7 +53,8 @@ export class CommandHelper {
   }
 
   get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(ArcCtlConfig.getStateBackend());
+    const config_dir = ArcCtlConfig.getConfigDirectory();
+    return new DatacenterStore(ArcCtlConfig.getStateBackend(), path.join(config_dir, 'datacenter-store'));
   }
 
   get environmentStore(): EnvironmentStore {

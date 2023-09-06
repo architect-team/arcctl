@@ -5,7 +5,7 @@ import * as DatacenterSchemaContents from './datacenter-schema.ts';
 import { Datacenter } from './datacenter.ts';
 import { buildDatacenter, DatacenterSchema } from './schema.ts';
 
-const DEFAULT_SCHEMA_VERSION = 'v1';
+const DEFAULT_SCHEMA_VERSION = 'v2';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
 export const parseDatacenter = async (
@@ -41,9 +41,9 @@ export const parseDatacenter = async (
     raw_obj.version = DEFAULT_SCHEMA_VERSION;
   }
 
-  if (!datacenter_validator(raw_obj)) {
-    throw datacenter_validator.errors;
-  }
+  // if (!datacenter_validator(raw_obj)) {
+  //   throw datacenter_validator.errors;
+  // }
 
   return buildDatacenter(raw_obj);
 };

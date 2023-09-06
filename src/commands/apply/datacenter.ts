@@ -2,6 +2,9 @@ import cliSpinners from 'cli-spinners';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
+import { parseEnvironment } from '../../environments/parser.ts';
+import { Apply, Build } from '../../modules/index.ts';
+import { ImageRepository } from '../../oci/image-repository.ts';
 import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { applyEnvironment } from './utils.ts';
@@ -27,6 +30,35 @@ const ApplyDatacenterCommand = BaseCommand()
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
   const command_helper = new CommandHelper(options);
 
+  // const response = await Build({
+  //   directory: '/home/muesch/Architect/code/datacenter/vpc',
+  // });
+  // console.log(response);
+  // const applyResults = await Apply({
+  //   datacenterid: 'vpc',
+  //   image: response.image!,
+  //   inputs: {
+  //     'digitalocean:token': 'dop_v1_3194139c7055ad6f372465806fe70b75de84dc2fccec16b550e389a5df2f939a',
+  //     'region': 'nyc3',
+  //     'name': 'my-vpc7',
+  //   },
+  // });
+  // console.log(applyResults);
+  // console.log(
+  //   await Apply({
+  //     datacenterid: 'vpc',
+  //     image: response.image!,
+  //     inputs: {
+  //       'digitalocean:token': 'dop_v1_3194139c7055ad6f372465806fe70b75de84dc2fccec16b550e389a5df2f939a',
+  //       'region': 'nyc3',
+  //       'name': 'my-vpc7',
+  //     },
+  //     pulumistate: applyResults.pulumistate,
+  //     destroy: true,
+  //   }),
+  // );
+  // Deno.exit(0);
+
   const flag_vars: Record<string, string> = {};
   for (const v of options.var || []) {
     const var_option = v.split('=');
@@ -42,13 +74,27 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   const allEnvironments = await command_helper.environmentStore.find();
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
 
+  const targetEnvironment = await parseEnvironment({});
+  const tag = 'tyleraldrich/twitter-clone:latest';
+  const imageRepository = new ImageRepository(tag);
+  await command_helper.componentStore.getComponentConfig(tag);
+
+  targetEnvironment.addComponent({
+    image: imageRepository,
+  });
+
+  let targetGraph = await targetEnvironment.getGraph(
+    'my-env',
+    command_helper.componentStore,
+  );
+
   try {
     const datacenter = await parseDatacenter(config_path);
 
     let graph = new CloudGraph();
     const vars = await command_helper.datacenterUtils.promptForVariables(graph, datacenter.getVariables(), flag_vars);
     datacenter.setVariableValues(vars);
-    graph = await datacenter.enrichGraph(graph, {
+    graph = await datacenter.enrichGraph(targetGraph, {
       datacenterName: name,
     });
 

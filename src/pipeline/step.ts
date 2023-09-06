@@ -1,6 +1,7 @@
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
+import { v4 } from "uuid";
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
@@ -78,7 +79,8 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       this.inputs?.account || '',
     );
     if (!account) {
-      return crypto.createHash('sha256').update(JSON.stringify(this.inputs)).digest('hex').toString();
+      return crypto.createHash('sha256').update(JSON.stringify(this.inputs || { key: v4() })).digest('hex')
+        .toString();
     }
 
     const service = account.resources[this.type] as ResourceService<any, any>;

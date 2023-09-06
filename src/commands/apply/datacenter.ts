@@ -3,9 +3,9 @@ import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
 import { parseEnvironment } from '../../environments/parser.ts';
-import { Apply, Build } from '../../modules/index.ts';
 import { ImageRepository } from '../../oci/image-repository.ts';
 import { Pipeline, PlanContext } from '../../pipeline/index.ts';
+import { pathExistsSync } from '../../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { applyEnvironment } from './utils.ts';
 
@@ -89,8 +89,9 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   );
 
   try {
-    const datacenter = await parseDatacenter(config_path);
-
+    const datacenter = pathExistsSync(config_path)
+      ? await parseDatacenter(config_path)
+      : await command_helper.datacenterStore.getDatacenter(config_path);
     let graph = new CloudGraph();
     const vars = await command_helper.datacenterUtils.promptForVariables(graph, datacenter.getVariables(), flag_vars);
     datacenter.setVariableValues(vars);

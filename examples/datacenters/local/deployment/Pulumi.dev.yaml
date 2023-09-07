@@ -1,6 +1,1 @@
-encryptionsalt: v1:CK26h0uYzd0=:v1:mOdOA8EzmpInX50s:yrNknYKs2HRBSewqHLpIPKWCevKcuQ==
-config:
-  deployment:kubeConfig:
-    secure: v1:BZr/Hj4urGTjwKdY:rU2nJlqKPvncESEx7QeToMXCMPvh3AsCesJE6GsH08CxZX0Xrajq
-  kubernetes:kubeconfig:
-    secure: v1:TYdfFSbdOCI+7AsE:GFDmIEzUgbggyz55LRehTV+9ggaxAE/z2tlokNLqmLdWfoOoVxeC
+encryptionsalt: v1:VDZF3m8XEuo=:v1:aGDWvIEx6Kzj956e:aCPbxrZXrVznVMK5JxJRVZEXKDQ9JQ==

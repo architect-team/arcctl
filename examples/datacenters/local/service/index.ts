@@ -1,17 +1,23 @@
 import * as k8s from "@pulumi/kubernetes";
 import * as pulumi from "@pulumi/pulumi";
 
+const config = new pulumi.Config();
+const namespace = config.get("namespace")!;
+const deploymentName = config.get('name')!;
+const hostPort = config.getNumber('hostPort')!;
+const targetPort = config.getNumber('targetPort')!;
+
 // Create a kubernetes service
-const appLabels = { app: "nginx" };
-const service = new k8s.core.v1.Service("nginx", {
-    metadata: { name: "nginx" },
+const appLabels = { app: deploymentName };
+const service = new k8s.core.v1.Service(deploymentName, {
+    metadata: { name: deploymentName },
     spec: {
         selector: appLabels,
-        ports: [{ name: "http", port: 80, targetPort: 80 }]
+        ports: [{ name: "http", port: hostPort }]
     }
 });
 
-export const id = pulumi.interpolate`default/${service.metadata.name}`;
+export const id = pulumi.interpolate`${namespace}/${service.metadata.name}`;
 export const protocol = "http";
 export const host = service.spec.loadBalancerIP;
 export const port = service.spec.ports[0].port;

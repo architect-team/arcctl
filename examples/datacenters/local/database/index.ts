@@ -3,9 +3,12 @@ import * as pulumi from "@pulumi/pulumi";
 
 let config = new pulumi.Config();
 
-const vpc = new digitalocean.Vpc("my-vpc", {
+const database = new digitalocean.DatabaseCluster("my-database", {
+  engine: config.get('databaseType')!,
+  version: config.get('databaseVersion')!,
+  nodeCount: 1,
   region: config.get('region')!,
-  name: config.get('name'),
+  size: 'db-s-1vcpu-2gb',
 });
 
-export const id = vpc.id.apply(id => id.toString());
+export const id = database.id.apply(id => id.toString());

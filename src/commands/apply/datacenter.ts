@@ -88,6 +88,8 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     command_helper.componentStore,
   );
 
+  console.log(JSON.stringify(targetGraph, null, 2));
+
   try {
     const datacenter = pathExistsSync(config_path)
       ? await parseDatacenter(config_path)

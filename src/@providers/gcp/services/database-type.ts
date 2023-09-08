@@ -45,7 +45,7 @@ export class GoogleCloudDatabaseTypeService extends ResourceService<'databaseTyp
 
     return {
       total: engines.length,
-      rows: (engines).map((engine) => ({
+      rows: engines.map((engine) => ({
         type: 'databaseType',
         id: engine,
       })),

@@ -1,6 +1,7 @@
 import { home_dir } from 'deps';
 import * as path from 'std/path/mod.ts';
 import { SupportedProviders } from '../@providers/index.ts';
+import { pathExistsSync } from './filesystem.ts';
 
 const DEFAULT_CONFIG_DIRECTORY = path.join(home_dir() || '~', '.config', 'arcctl');
 
@@ -63,8 +64,13 @@ export default class ArcCtlConfig {
   }
 
   public static save(): void {
+    const config_directory = this.getConfigDirectory();
+    if (!pathExistsSync(config_directory)) {
+      Deno.mkdirSync(config_directory, { recursive: true });
+    }
+
     Deno.writeTextFileSync(
-      path.join(this.getConfigDirectory(), 'config.json'),
+      path.join(config_directory, 'config.json'),
       JSON.stringify(this.configOptions, null, 2),
     );
   }

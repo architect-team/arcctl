@@ -104,9 +104,6 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 
   if (environmentRecords.length <= 0) {
     console.error('There are no environments to destroy');
-    if (name) {
-      console.log(`Failed to find environment: ${name}`);
-    }
     Deno.exit(1);
   }
 

@@ -63,8 +63,6 @@ export default class PluginManager {
     await this.removeOldPluginVersions(currentPluginDirectory, plugin);
     await Deno.mkdir(versionPath, { recursive: true });
 
-    console.log(`Created plugin path: ${versionPath}`);
-
     const binary = PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture());
     const downloadedFilePath = path.join(
       versionPath,
@@ -81,7 +79,6 @@ export default class PluginManager {
       // ignore error if directory doesn't exist as existsSync will throw an error - https://github.com/denoland/deno_std/issues/1216, https://github.com/denoland/deno_std/issues/2494
     }
     if (!directory_exists) {
-      console.log(`Downloading TF plugin to: ${downloadedFilePath}`);
       await PluginUtils.downloadFile(
         binary.url,
         downloadedFilePath,
@@ -93,7 +90,6 @@ export default class PluginManager {
       );
       await Deno.chmod(executablePath, 0o755);
       await Deno.remove(downloadedFilePath);
-      console.log(`TF executable setup at: ${executablePath}`);
     }
 
     plugin.setup(

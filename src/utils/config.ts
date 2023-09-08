@@ -40,7 +40,9 @@ export default class ArcCtlConfig {
   }
 
   public static load(directory?: string): void {
-    directory = directory || DEFAULT_CONFIG_DIRECTORY;
+    // Ensure path is resolved so that any binaries we execute are located properly.
+    directory = path.resolve(directory || DEFAULT_CONFIG_DIRECTORY);
+
     try {
       if (Deno.statSync(path.join(directory, 'config.json')).isFile) {
         this.configOptions = JSON.parse(Deno.readTextFileSync(path.join(directory, 'config.json')));

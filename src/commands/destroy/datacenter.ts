@@ -52,6 +52,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       await destroyEnvironment({
         verbose: options.verbose,
         autoApprove: true,
+        configHome: options.configHome,
       }, env.name);
     }
   } else {

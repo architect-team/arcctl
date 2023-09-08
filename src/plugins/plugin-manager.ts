@@ -96,7 +96,7 @@ export default class PluginManager {
       console.log(`TF executable setup at: ${executablePath}`);
     }
 
-    await plugin.setup(
+    plugin.setup(
       versionPath,
       PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture()),
     );

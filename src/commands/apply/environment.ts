@@ -36,7 +36,7 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     });
   }
 
-  return applyEnvironment({
+  const success = applyEnvironment({
     command_helper,
     logger,
     name,
@@ -44,6 +44,10 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     datacenter: options.datacenter,
     targetEnvironment: await parseEnvironment(config_path || {}),
   });
+
+  if (!success) {
+    Deno.exit(1);
+  }
 }
 
 export default ApplyEnvironmentCommand;

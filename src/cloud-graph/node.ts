@@ -10,6 +10,7 @@ export type CloudNodeOptions<T extends ResourceType> = {
 export class CloudNode<T extends ResourceType = ResourceType> {
   name: string;
   inputs: ResourceInputs[T];
+  image?: string;
   component?: string;
   environment?: string;
 

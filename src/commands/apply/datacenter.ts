@@ -75,13 +75,13 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
 
   const targetEnvironment = await parseEnvironment({});
-  const tag = 'tyleraldrich/twitter-clone:latest';
-  const imageRepository = new ImageRepository(tag);
-  await command_helper.componentStore.getComponentConfig(tag);
+  // const tag = 'tyleraldrich/twitter-clone:latest';
+  // const imageRepository = new ImageRepository(tag);
+  // await command_helper.componentStore.getComponentConfig(tag);
 
-  targetEnvironment.addComponent({
-    image: imageRepository,
-  });
+  // targetEnvironment.addComponent({
+  //   image: imageRepository,
+  // });
 
   let targetGraph = await targetEnvironment.getGraph(
     'my-env',
@@ -106,9 +106,6 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     }, command_helper.providerStore);
 
     pipeline.validate();
-    console.log('Pipeline:');
-    console.log(JSON.stringify(pipeline, null, 2));
-    console.log('---------------------------------');
     await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 
     let interval: number | undefined = undefined;

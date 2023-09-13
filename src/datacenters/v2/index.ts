@@ -80,8 +80,14 @@ export default class DatacenterV2 extends Datacenter {
     for (const [key, value] of Object.entries(data.module)) {
       modules[key] = (value as any)[0] || value;
     }
+    const variables: Record<string, any> = {};
+    for (const [key, value] of Object.entries(data.variable)) {
+      variables[key] = (value as any)[0] || value;
+    }
     const datacenter: DatacenterDataV2 = {
-      variables: data.variables,
+      variables: {
+        ...variables,
+      },
       modules: {
         ...modules,
       },
@@ -176,6 +182,7 @@ export default class DatacenterV2 extends Datacenter {
         id: name,
         resource_id: name,
         name,
+        image: this.moduleImages[name],
         type: 'module',
         inputs: value.inputs as any,
       });
@@ -228,6 +235,7 @@ export default class DatacenterV2 extends Datacenter {
               id: name,
               resource_id: name,
               name: name,
+              image: this.moduleImages[module_name],
               type: 'module',
               inputs: (module as any).inputs as any,
             });
@@ -333,7 +341,16 @@ export default class DatacenterV2 extends Datacenter {
         this.replaceVariableValues(value as Record<string, unknown>, variables);
       } else if (typeof value === 'string') {
         obj[key] = value.replace(
-          /\${\s*?variables\.([\w-]+)\s*?}/g,
+          /\${\s*?variable\.([\w-]+)\s*?}/g,
+          (_full_ref, variable_name) => {
+            const variable_value = variables[variable_name];
+            if (variable_value === undefined) {
+              throw Error(`Variable ${variable_name} has no value`);
+            }
+            return variable_value as string;
+          },
+        ).replace(
+          /\s*?variable\.([\w-]+)/g,
           (_full_ref, variable_name) => {
             const variable_value = variables[variable_name];
             if (variable_value === undefined) {
@@ -348,6 +365,7 @@ export default class DatacenterV2 extends Datacenter {
 
   public setVariableValues(variables: Record<string, unknown>): void {
     this.replaceVariableValues(this.datacenter, variables);
+    console.log(this.datacenter);
   }
 
   public async build(buildFn: DockerBuildFn): Promise<Datacenter> {

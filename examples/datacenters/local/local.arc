@@ -1,5 +1,17 @@
-module "gateway" {
-  source = "./gateway"
+variable "dotoken" {
+  description = "The digital ocean API token"
+  type = "string"
+}
+
+module "vpc" {
+  source = "./vpc"
+  inputs = {
+    region = "nyc3"
+    name = "testpulumi"
+    digitalocean = {
+      token = variable.dotoken
+    }
+  }
 }
 
 environment {
@@ -62,7 +74,7 @@ environment {
       source = "./ingressRule"
       inputs = merge(node.inputs, {
         registry = module.gateway.outputs.registry
-        dnsZone = "${environment.name}.127.0.0.1.nip.io"
+        dnsZone = "${ environment.name }.127.0.0.1.nip.io"
         namespace = environment.name
       })
     }

@@ -1,7 +1,7 @@
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
-import { v4 } from "uuid";
+import { v4 } from 'uuid';
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
@@ -12,6 +12,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   name: string;
   type: T;
   action: StepAction;
+  image?: string;
   color?: StepColor;
   status?: StepStatus;
   hash?: string;
@@ -28,6 +29,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   action: StepAction;
   color: StepColor;
   status: StepStatus;
+  image?: string;
   hash?: string;
   component?: string;
   environment?: string;
@@ -49,6 +51,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.state = options.state;
     this.inputs = options.inputs;
     this.outputs = options.outputs;
+    this.image = options.image;
   }
 
   get id(): string {

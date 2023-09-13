@@ -218,7 +218,7 @@ export default class DatacenterV2 extends Datacenter {
           for (
             const [module_name, module] of Object.entries(
               {
-                ...hook,
+                ...copied_hook,
               }.modules,
             )
           ) {
@@ -229,7 +229,7 @@ export default class DatacenterV2 extends Datacenter {
               resource_id: name,
               name: name,
               type: 'module',
-              inputs: module.inputs as any,
+              inputs: (module as any).inputs as any,
             });
           }
         }

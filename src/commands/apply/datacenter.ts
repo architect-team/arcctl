@@ -88,8 +88,6 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     command_helper.componentStore,
   );
 
-  console.log(JSON.stringify(targetGraph, null, 2));
-
   try {
     const datacenter = pathExistsSync(config_path)
       ? await parseDatacenter(config_path)
@@ -108,6 +106,9 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     }, command_helper.providerStore);
 
     pipeline.validate();
+    console.log('Pipeline:');
+    console.log(JSON.stringify(pipeline, null, 2));
+    console.log('---------------------------------');
     await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 
     let interval: number | undefined = undefined;

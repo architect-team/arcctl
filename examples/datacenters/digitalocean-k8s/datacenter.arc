@@ -3,14 +3,27 @@ variable "dotoken" {
   type = "string"
 }
 
+variable "region" {
+  description = "The region to create resources in"
+  type = "string"
+  default = "nyc1"
+}
+
 module "vpc" {
   source = "./vpc"
   inputs = {
-    region = "nyc3"
+    region = variable.region
     name = "testpulumi"
     digitalocean = {
       token = variable.dotoken
     }
+  }
+}
+
+module "k8s" {
+  source = "./kcluster"
+  inputs = {
+    vpcId = module.vpc.id
   }
 }
 

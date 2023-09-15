@@ -132,6 +132,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
 
     // Step 2: Create the TargetHttpProxies resource if it doesn't already exist.
     subscriber.next('Updating Target Proxy');
+
+    let existing_proxy;
     try {
       await google.compute('v1').targetHttpProxies.insert({
         ...this.requestAuth(),
@@ -163,9 +165,6 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
           portRange: '80',
         },
       });
-
-      // Wait after creation so the GET request afterwards returns the IP address
-      await new Promise((f) => setTimeout(f, 5000));
     } catch (e) {
       // 409 indicates the ForwardingRules resource already exists.
       // Any other error should be raised to the user.
@@ -175,6 +174,14 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     }
 
     subscriber.next('');
+    // const forwarding_rule = await simpleRetry( // Wait after forwarding rule creation so the GET request afterwards returns the IP address
+    //   async () => {
+    //     return await google.compute('v1').globalForwardingRules.get({
+    //       ...this.requestAuth(),
+    //       forwardingRule: loadbalancer_frontend_name,
+    //     });
+    //   },
+    // );
 
     const forwarding_rule = await google.compute('v1').globalForwardingRules.get({
       ...this.requestAuth(),
@@ -216,6 +223,16 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       // Wait after potentially deleting the URLMap before it gets recreated.
       // Otherwise, the old map will be returned from the GET request and will attempt to PATCH it.
       await new Promise((f) => setTimeout(f, 10000));
+      // await simpleRetry(
+      //   async () => {
+      // const url_map_name = `${inputs.namespace}--lb`;
+      // await google.compute('v1').urlMaps.get({
+      //   ...this.requestAuth(),
+      //   urlMap: url_map_name,
+      // });
+      //     throw new Error(`URL map ${url_map_name} should be deleted.`);
+      //   },
+      // );
 
       return this.create(subscriber, inputs as ResourceInputs['ingressRule']);
     }

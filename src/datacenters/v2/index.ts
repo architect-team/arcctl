@@ -25,6 +25,7 @@ export type HookV2 = {
 
 export type EnvironmentV2 = {
   hooks: HookV2[];
+  modules: Record<string, DatacenterModuleV2>;
 };
 
 export type DatacenterVariableV2 = {
@@ -93,8 +94,18 @@ export default class DatacenterV2 extends Datacenter {
       },
       environment: {
         hooks: [],
+        modules: {},
       },
     };
+
+    if (data.environment[0]) {
+      if (data.environment[0].module) {
+        for (const [key, value] of Object.entries(data.environment[0].module)) {
+          datacenter.environment.modules[key] = (value as any)[0] || value;
+          modules[key] = datacenter.environment.modules[key];
+        }
+      }
+    }
 
     for (const type of COMPONENT_RESOURCES) {
       if (data.environment[0][type]) {
@@ -140,7 +151,7 @@ export default class DatacenterV2 extends Datacenter {
         }
         if (braceCount === 0) {
           const match = result.substring(index, i + 1);
-          const key = result.substring(index + 3, i);
+          const key = result.substring(index + 3, i - 1);
           const value = replacer(match, key.trim());
           result = result.substring(0, index) + value + result.substring(i + 2);
           start = index + value.length;
@@ -149,6 +160,10 @@ export default class DatacenterV2 extends Datacenter {
       }
     }
     return result;
+  }
+
+  private convertStringToMustach(str: string) {
+    return str.replaceAll('${', '${{').replaceAll('}', '}}');
   }
 
   private replaceObject(obj: any, replacer: (matcher: string, key: string) => string) {
@@ -164,6 +179,72 @@ export default class DatacenterV2 extends Datacenter {
     }
   }
 
+  private convertToMustache(obj: any) {
+    for (const [key, value] of Object.entries(obj)) {
+      if (!value) {
+        continue;
+      }
+      if (typeof value === 'object' || Array.isArray(value)) {
+        this.convertToMustache(value);
+      } else {
+        obj[key] = this.convertStringToMustach(value.toString());
+      }
+    }
+    return obj;
+  }
+
+  private addModules(
+    graph: CloudGraph,
+    resultGraph: CloudGraph,
+    modules: Record<string, any>,
+    nodeLookup: Record<string, CloudNode>,
+  ) {
+    const nodes: CloudNode[] = [];
+    for (const [name, value] of Object.entries(modules)) {
+      const copied_value = {
+        ...value,
+      };
+      applyContextRecursive(copied_value, {
+        node: {
+          ...value,
+          type: value.inputs.type,
+        },
+      });
+      const id = CloudNode.genId({
+        name: name,
+        type: 'module',
+      });
+      nodes.push({
+        account: undefined,
+        id,
+        resource_id: id,
+        name,
+        image: this.moduleImages[name],
+        type: 'module',
+        inputs: this.convertToMustache(copied_value.inputs as any),
+      });
+      nodeLookup[name] = nodes[nodes.length - 1];
+    }
+    for (const node of nodes) {
+      this.replaceObject(node, (match, key) => {
+        const key_parts = key.split('.');
+        const nodeTo = nodeLookup[key_parts[1]];
+        const toId = CloudNode.genId({
+          name: nodeTo.name,
+          type: 'module',
+        });
+        resultGraph.insertEdges({
+          id: `${node.id}-${toId}`,
+          from: `${node.id}-blue`,
+          to: `${toId}-blue`,
+          required: true,
+        });
+        return `\${{ ${[`${toId}-blue`, key_parts[3]].join('.')} }}`;
+      });
+    }
+    resultGraph.insertNodes(...nodes);
+  }
+
   public enrichGraph(
     graph: CloudGraph,
     options: DatacenterEnrichmentOptions,
@@ -176,19 +257,12 @@ export default class DatacenterV2 extends Datacenter {
       });
     }
     const resultGraph = new CloudGraph();
-    for (const [name, value] of Object.entries(this.datacenter.modules)) {
-      resultGraph.insertNodes({
-        account: undefined,
-        id: name,
-        resource_id: name,
-        name,
-        image: this.moduleImages[name],
-        type: 'module',
-        inputs: value.inputs as any,
-      });
+    const nodeLookup: Record<string, CloudNode> = {};
+    this.addModules(graph, resultGraph, this.datacenter.modules, nodeLookup);
+    if (options.environmentName && this.datacenter.environment && this.datacenter.environment.modules) {
+      this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeLookup);
     }
     graph = JSON.parse(JSON.stringify(graph).replace('${{', '${').replace('}}', '}'));
-    const nodeLookup: Record<string, CloudNode> = {};
     graph.nodes.forEach((node) => {
       if ('name' in node.inputs) {
         const id = CloudNode.genId({
@@ -230,6 +304,24 @@ export default class DatacenterV2 extends Datacenter {
             )
           ) {
             const name = `${module_name}/${id}`;
+            const duplicated_inputs = this.convertToMustache({
+              ...(module as any).inputs,
+            });
+            this.replaceObject(duplicated_inputs, (match, key) => {
+              const key_parts = key.split('.');
+              const nodeTo = nodeLookup[key_parts[1]];
+              const toId = CloudNode.genId({
+                name: nodeTo.name,
+                type: 'module',
+              });
+              resultGraph.insertEdges({
+                id: `${id}-${toId}`,
+                from: `${id}-blue`,
+                to: `${toId}-blue`,
+                required: true,
+              });
+              return `\${{ ${[`${toId}-blue`, key_parts[3]].join('.')} }}`;
+            });
             nodes.push({
               account: undefined,
               id: name,
@@ -237,7 +329,7 @@ export default class DatacenterV2 extends Datacenter {
               name: name,
               image: this.moduleImages[module_name],
               type: 'module',
-              inputs: (module as any).inputs as any,
+              inputs: duplicated_inputs,
             });
           }
         }
@@ -289,7 +381,7 @@ export default class DatacenterV2 extends Datacenter {
           required: true,
         });
         key_parts.shift();
-        return `\${{${[`module/${to}-blue`, ...key_parts].join('.')}}`;
+        return `\${{ ${[`module/${to}-blue`, ...key_parts].join('.')} }`;
       });
       resultGraph.insertNodes(node);
     }

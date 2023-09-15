@@ -3,9 +3,14 @@ variable "region" {
   description = "Region to deploy resources into"
 }
 
-variable "domain" {
+variable "publicDomain" {
   type        = "string"
-  description = "Base domain that should be used for DNS zones and records"
+  description = "Base domain that should be used for external DNS (e.g. ingresses)"
+}
+
+variable "privateDomain" {
+  type = "string"
+  description = "Base domain that should be used for internal DNS (e.g. services)"
 }
 
 module "vpc" {
@@ -16,35 +21,18 @@ module "vpc" {
   }
 }
 
-module "eksCluster" {
-  source = "./eks"
-  inputs = {
-    region  = variable.region
-    vpcId   = module.vpc.id
-    name    = "${datacenter.name}-cluster"
-
-    nodePools = [{
-      name          = "${datacenter.name}-pool-1"
-      count         = 3
-      size          = "t3.medium"
-      capacityType  = "ON_DEMAND"
-    }]
-  }
-}
-
 environment {
-  module "namespace" {
-    source = "./namespace"
+  module "publicDnsZone" {
+    source = "./dnsZone"
     inputs = {
-      name = environment.name
-      provider = module.eksCluster.provider
+      name = "${environment.name}.${variable.publicDomain}"
     }
   }
 
-  module "dnsZone" {
+  module "privateDnsZone" {
     source = "./dnsZone"
     inputs = {
-      name = "${environment.name}.${variable.domain}"
+      name = "${environment.name}.${variable.privateDomain}"
     }
   }
 

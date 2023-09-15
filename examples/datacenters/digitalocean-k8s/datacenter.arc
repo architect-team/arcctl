@@ -28,75 +28,26 @@ module "k8s" {
 }
 
 environment {
-  database {
-    when = node.inputs.databaseType == "postgres" && node.inputs.databaseVersion == "15"
 
-    module "database" {
-      source = "./database"
-      inputs = merge(node.inputs, {
-        name = "${environment.name}-pg"
-      })
-    }
-
-    module "databaseUser" {
-      source = "./databaseUser"
-      inputs = merge(node.inputs, {
-        host = module.database.outputs.host
-        username = module.database.outputs.username
-        password = module.database.outputs.password
-        database = module.database.outputs.database
-      })
-    }
-
-    outputs {
-      id = module.database.outputs.id
-      host = module.database.outputs.host
-      username = module.database.outputs.username
-      password = module.database.outputs.password
-      database = module.database.outputs.database
+  module "vpc3" {
+    source = "./vpc"
+    inputs = {
+      region = "nyc3"
+      name = module.vpc2.outputs.id
+      digitalocean = {
+        token = variable.dotoken
+      }
     }
   }
 
   deployment {
     module "deployment" {
       source = "./deployment"
-      inputs = node.inputs
-    }
-
-    outputs {
-      id = module.deployment.outputs.id
-    }
-  }
-
-  service {
-    module "service" {
-      source = "./service"
-      inputs = merge(node.inputs, {
-        dnsZone = "${environment.name}.172.17.0.1.nip.io"
-        namespace = environment.name
-      })
-    }
-
-    outputs {
-      id = module.service.outputs.id
-    }
-  }
-
-  ingressRule {
-    module "ingress" {
-      source = "./ingressRule"
-      inputs = merge(node.inputs, {
-        registry = module.gateway.outputs.registry
-        dnsZone = "${ environment.name }.127.0.0.1.nip.io"
-        namespace = environment.name
-      })
-    }
-  }
-
-  secret {
-    module "secret" {
-      source = "./secrets"
-      inputs = node.inputs
+      inputs = {
+        name = node.inputs.name
+        region = "nyc3"
+        test = module.vpc3.outputs.id
+      }
     }
   }
 }

@@ -401,6 +401,7 @@ export class Pipeline {
         pipeline.insertEdges(potentialEdge);
       }
     }
+    return pipeline;
 
     // Check for nodes that can be no-op'd
     return setNoopSteps(
@@ -478,6 +479,7 @@ export class Pipeline {
               destroy: step.action === 'delete',
             });
             step.state = response.pulumistate;
+            step.outputs = response.outputs as any || {};
             step.status = {
               state: 'complete',
               message: '',

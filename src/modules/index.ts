@@ -14,6 +14,7 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
   const command = new Deno.Command('docker', {
     args: [
       'run',
+      '--rm',
       '-it',
       '-p',
       '50051:50051',
@@ -64,6 +65,11 @@ export const Apply = async (
   const childProcess = await startContainer();
   const client = getModuleClient();
   const response = await client.Apply(options);
+  const tmp = {
+    ...response,
+  };
+  delete tmp.pulumistate;
+  console.log(JSON.stringify(tmp, null, 2));
   await stopContainer(childProcess);
   return response;
 };

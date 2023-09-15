@@ -328,6 +328,7 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          state: previousStep?.state, // May exist if a create step error'd and was only partially applied
         });
         newStep.hash = await newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
@@ -360,9 +361,7 @@ export class Pipeline {
       if (
         (previousStep.action === 'delete' &&
           previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' &&
-          (previousStep.status.state === 'pending' ||
-            previousStep.status.state === 'error'))
+        (previousStep.action === 'create' && previousStep.status.state === 'pending')
       ) {
         continue;
       }
@@ -379,15 +378,22 @@ export class Pipeline {
 
         pipeline.insertSteps(rmStep);
 
-        for (const oldEdge of options.before.edges) {
-          if (oldEdge.to === rmStep.id) {
-            potentialEdges.push(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-                required: oldEdge.required,
-              }),
-            );
+        const previousStepEdges = options.before.edges.filter((edge) => edge.to === rmStep.id);
+        if (previousStep.action !== 'delete') {
+          // If the previous pipeline was create or update, we need to flip the edge
+          // so we delete dependencies in the right order.
+          for (const oldEdge of previousStepEdges) {
+            potentialEdges.push(oldEdge.reverse());
+          }
+        } else {
+          // If the previous pipeline was delete, the edges are already correct and have been flipped.
+          // We just need to remove any edges from the previous pipeline that may have had their nodes
+          // deleted.
+          for (const oldEdge of previousStepEdges) {
+            // If there's no step for the oldEdge.from, the node's already removed so we can axe the edge.
+            if (pipeline.steps.some((s) => s.id === oldEdge.from)) {
+              potentialEdges.push(oldEdge);
+            }
           }
         }
       }

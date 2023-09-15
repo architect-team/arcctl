@@ -107,10 +107,12 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
+      const dnsZone = host.split('.').at(-1) || host;
 
       return {
         id,
         host,
+        dnsZone,
         port: 80,
         url: `http://${host}:80${ingressPath}`,
         path: ingressPath,
@@ -128,10 +130,12 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
+      const dnsZone = host.split('.').at(-1) || host;
 
       return {
         id,
         host,
+        dnsZone,
         port: 80,
         url: `tcp://${host}:80${ingressPath}`,
         path: ingressPath,
@@ -174,10 +178,12 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
           ingressPath = pathMatches[1];
         }
       }
+      const dnsZone = host.split('.').at(-1) || host;
 
       return {
         id,
         host,
+        dnsZone,
         port: 80,
         url: `${config.http ? 'http' : 'tcp'}://${host}:80${ingressPath}`,
         path: ingressPath,
@@ -260,7 +266,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       yaml.dump(entry),
     );
 
-    let urlPath = inputs.path || '/';
+    let urlPath = inputs.path || '';
     if (!urlPath.endsWith('/')) {
       urlPath += '/';
     }
@@ -271,11 +277,18 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     url += `${host}${urlPath}`;
+    const dnsZone = host.split('.').at(-1) || host;
+
+    // Don't return URL with a trailing slash, let users add that
+    if (url.endsWith('/')) {
+      url = url.substring(0, url.length - 1);
+    }
 
     subscriber.next(url);
     return {
       id: normalizedId,
       host,
+      dnsZone,
       port: 80,
       path: urlPath,
       username: inputs.username,
@@ -383,11 +396,17 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     url += `${host}${urlPath}`;
+    const dnsZone = host.split('.').at(-1) || host;
+
+    if (url.endsWith('/')) {
+      url = url.substring(0, url.length - 1);
+    }
 
     subscriber.next(url);
     return {
       id: newId,
       host,
+      dnsZone,
       port: 80,
       path: urlPath,
       username: inputs.username,

@@ -55,14 +55,15 @@ export class GoogleCloudKubernetesClusterModule extends ResourceModule<
     });
 
     const nodePools = [];
+    const region = this.inputs!.region;
     for (let i = 0; i < (this.inputs?.nodePools || []).length; i++) {
       const nodePool = this.inputs!.nodePools[i];
       nodePools.push(
         new ContainerNodePool(this, nodePool.name, {
           cluster: this.cluster.name,
           name: nodePool.name,
-          location: this.inputs!.region,
-          nodeLocations: [this.inputs!.region],
+          location: region,
+          nodeLocations: [region],
           initialNodeCount: nodePool.count,
           nodeConfig: {
             machineType: nodePool.nodeSize,
@@ -74,6 +75,9 @@ export class GoogleCloudKubernetesClusterModule extends ResourceModule<
 
     this.clientConfig = new DataGoogleClientConfig(this, 'client', {});
 
+    const clusterName = `gke_${this.credentials.project}_${region}_${this.cluster.name}`;
+
+    // https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#environments-without-gcloud
     const file = new options.FileConstruct(this, 'configFile', {
       filename: 'config.yml',
       content: `apiVersion: v1
@@ -81,19 +85,24 @@ clusters:
 - cluster:
     certificate-authority-data: ${this.cluster.masterAuth.clusterCaCertificate}
     server: https://${this.cluster.endpoint}
-  name: ${this.cluster.name}
+  name: ${clusterName}
 contexts:
 - context:
-    cluster:  ${this.cluster.name}
-    user:  ${this.cluster.name}
-  name:  ${this.cluster.name}
-current-context:  ${this.cluster.name}
+    cluster: ${clusterName}
+    user: ${clusterName}
+  name: ${clusterName}
+current-context: ${clusterName}
 kind: Config
 preferences: {}
 users:
-- name:  ${this.cluster.name}
+- name: ${clusterName}
   user:
-    token: ${this.clientConfig.accessToken}`,
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --use_application_default_credentials
+      command: gke-gcloud-auth-plugin
+      provideClusterInfo: true`,
     });
 
     this.outputs = {

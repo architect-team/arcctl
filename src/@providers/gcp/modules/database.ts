@@ -32,6 +32,9 @@ export class GoogleCloudDatabaseModule extends ResourceModule<'database', Google
       dependsOn: depends_on,
       name: normalizedName || 'unknown',
       instance: instance_name,
+      // For postgres, databases cannot be deleted from the API if there are
+      // users other than cloudsqlsuperuser with access
+      deletionPolicy: 'ABANDON',
     });
 
     this.outputs = {

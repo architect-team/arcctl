@@ -7,12 +7,14 @@ const providerType = new EnumType(Object.keys(SupportedProviders));
 
 type AddAccountOptions = {
   provider?: string;
+  creds?: string[];
 } & GlobalOptions;
 
 const AddAccountCommand = BaseCommand()
   .description('Register an account to use to provision resources')
   .type('providerType', providerType)
   .option('-p, --provider <provider:providerType>', 'Type of provider to register')
+  .option('--creds <creds:string>', 'A key value pair of credentials to use for the provider', { collect: true })
   .arguments('[account_name:string]')
   .action(add_account_action);
 
@@ -43,7 +45,25 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
 
   const providerType = providerName as keyof typeof SupportedProviders;
 
-  const credentials = await command_helper.accountInputUtils.promptForCredentials(providerType);
+  let providedCredentials: Record<string, string> = {};
+  for (const cred of options.creds || []) {
+    if (cred.indexOf('=') === -1) {
+      try {
+        const creds = JSON.parse(cred);
+        providedCredentials = {
+          ...providedCredentials,
+          ...creds,
+        };
+        continue;
+      } catch {
+        throw new Error('Invalid credentials');
+      }
+    }
+    const [key, value] = cred.split('=');
+    providedCredentials[key] = value;
+  }
+
+  const credentials = await command_helper.accountInputUtils.promptForCredentials(providerType, providedCredentials);
   const account = new SupportedProviders[providerType](
     name,
     credentials as any,

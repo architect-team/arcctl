@@ -34,6 +34,9 @@ export class GoogleCloudDatabaseUserModule extends ResourceModule<'databaseUser'
       name: this.inputs?.username || 'unknown',
       password,
       instance: instance_name,
+      // In Postgres, users cannot be deleted from the API if they have been granted SQL roles,
+      // so this must be set to 'ABANDON'
+      deletionPolicy: 'ABANDON',
     });
 
     this.outputs = {

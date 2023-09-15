@@ -84,7 +84,7 @@ export default class PluginManager {
       await Deno.remove(downloadedFilePath);
     }
 
-    await plugin.setup(
+    plugin.setup(
       versionPath,
       PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture()),
     );

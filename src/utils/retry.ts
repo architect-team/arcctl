@@ -1,4 +1,4 @@
-export const simpleRetry = async (func: Function, max_intervals = 60): Promise<any> => {
+export const simpleRetry = async (func: () => Promise<void>, max_intervals = 60): Promise<any> => {
   const interval = 1000;
   let current_intervals = 0;
   while (current_intervals < max_intervals) {

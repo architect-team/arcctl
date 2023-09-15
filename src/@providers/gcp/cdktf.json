@@ -1,7 +1,13 @@
 {
   "language": "typescript",
   "app": "<not-required>",
-  "terraformModules": [],
+  "terraformModules": [
+    {
+      "name": "google-container-vm",
+      "source": "terraform-google-modules/container-vm/google",
+      "version": "3.1.0"
+    }
+  ],
   "terraformProviders": [
     {
       "name": "google",

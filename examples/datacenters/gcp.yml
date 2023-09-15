@@ -8,8 +8,7 @@ variables:
     type: arcctlAccount
     provider: gcp
   dnsZone:
-    type: dnsZone
-    arcctlAccount: ${{ variables.gcpAccount }}
+    type: string
     description: Name of DNS zone for DNS records
 
 resources:
@@ -50,10 +49,10 @@ environment:
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
-    # zone:
-    #   type: dnsZone
-    #   account: ${{ variables.gcpAccount }}
-    #   name: ${{ variables.dnsZone }}
+    zone:
+      type: dnsZone
+      account: ${{ variables.gcpAccount }}
+      name: ${{ variables.dnsZone }}
 
   hooks:
     - when:
@@ -66,12 +65,12 @@ environment:
         db-cluster:
           type: databaseCluster
           account: ${{ variables.gcpAccount }}
-          name: ${{ this.name }}
+          name: ${{ environment.name }}-${{ this.name }}
           databaseSize: db-f1-micro
           databaseType: ${{ this.inputs.databaseType }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
           region: ${{ variables.region }}
-          vpc: ${{ resources.vpc.id }}
+          vpc: ${{ resources.vpc.name }}
       databaseCluster: ${{ this.resources.db-cluster.id }}
       account: ${{ variables.gcpAccount }}
     - when:
@@ -80,7 +79,7 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: ${{ variables.gcpAccount }}
-          dnsZone: ${{ variables.dnsZone }}
+          dnsZone: ${{ environment.resources.zone.id }}
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}

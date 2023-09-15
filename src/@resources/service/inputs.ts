@@ -54,6 +54,11 @@ export type ServiceInputs = {
    * The servers the service should load balance between
    */
   target_servers?: string[];
+
+  /**
+   * The strategy used to create this resource.
+   */
+  strategy?: 'gce' | 'cloudrun';
 };
 
 export default ServiceInputs;

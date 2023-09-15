@@ -121,7 +121,7 @@ export default class TerraformPlugin implements ArchitectPlugin {
     ],
   };
 
-  async setup(pluginDirectory: string, binary: PluginBinary): Promise<void> {
+  setup(pluginDirectory: string, binary: PluginBinary): void {
     this.binary = binary;
     this.pluginDirectory = pluginDirectory;
   }

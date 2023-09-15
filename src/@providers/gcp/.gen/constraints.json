@@ -1,6 +1,7 @@
 {
   "cdktf": "0.16.3",
   "providers": {
-    "google": "4.70.0"
+    "google": "4.70.0",
+    "google-container-vm": "3.1.0"
   }
 }

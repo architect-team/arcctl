@@ -20,6 +20,11 @@ const ApplyEnvironmentCommand = BaseCommand()
   .action(applyEnvironmentAction);
 
 export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, name: string, config_path?: string) {
+  if (name.length > 20) {
+    console.error('Max length for an environment name is 20 characters');
+    Deno.exit(1);
+  }
+
   const command_helper = new CommandHelper(options);
 
   let logger: Logger | undefined;
@@ -31,7 +36,7 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     });
   }
 
-  return applyEnvironment({
+  const success = applyEnvironment({
     command_helper,
     logger,
     name,
@@ -39,6 +44,10 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     datacenter: options.datacenter,
     targetEnvironment: await parseEnvironment(config_path || {}),
   });
+
+  if (!success) {
+    Deno.exit(1);
+  }
 }
 
 export default ApplyEnvironmentCommand;

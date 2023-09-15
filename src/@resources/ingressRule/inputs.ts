@@ -68,6 +68,21 @@ export type IngressRuleInputs = {
   headers?: {
     [key: string]: string;
   };
+
+  /**
+   * The strategy used to create this resource.
+   */
+  strategy?: string;
+
+  /**
+   * Name of the vpc this ingress rule is for
+   */
+  vpc?: string;
+
+  /**
+   * Name of the region this ingress rule is for
+   */
+  region?: string;
 };
 
 export default IngressRuleInputs;

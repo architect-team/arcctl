@@ -299,8 +299,16 @@ export default class EnvironmentV1 extends Environment {
     );
 
     // Populate implicit dependencies
+    const seen_dependencies = new Set();
     while (Object.keys(implicit_dependencies).length > 0) {
       const [name, inputs] = Object.entries(implicit_dependencies).shift()!;
+
+      if (seen_dependencies.has(name)) {
+        throw new Error(
+          `Infinite dependency cycle found with: ${name}. Ensure the component does not declare itself as a dependency.`,
+        );
+      }
+      seen_dependencies.add(name);
       delete implicit_dependencies[name];
 
       const component = await componentStore.getComponentConfig(`${name}:latest`);

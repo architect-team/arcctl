@@ -31,7 +31,7 @@ const UpCommand = BaseCommand()
   })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--debug [debug:boolean]', 'Deploy component in debug mode', { default: true })
-  .action(up_action as any);
+  .action(up_action);
 
 async function up_action(options: UpOptions, ...components: string[]): Promise<void> {
   const command_helper = new CommandHelper(options);

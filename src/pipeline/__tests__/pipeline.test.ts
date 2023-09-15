@@ -329,7 +329,7 @@ describe('Pipeline', () => {
     assertEquals(plannedPipeline.steps[0].action, 'update');
   });
 
-  it('pipeline edges are flipped when removing nodes and previous pipeline created/updated them', async () => {
+  it('should reverse edges when removing nodes', async () => {
     const providerStore = new EmptyProviderStore();
     providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
 
@@ -361,7 +361,7 @@ describe('Pipeline', () => {
     assertArrayIncludes(plannedPipeline.edges, [edgeAB.reverse(), edgeBC.reverse()]);
   });
 
-  it('pipeline edges are not flipped when removing nodes and previous pipeline tried to remove nodes', async () => {
+  it('hould NOT flip edges when removing if previous pipeline steps were already delete steps', async () => {
     const providerStore = new EmptyProviderStore();
     providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
 

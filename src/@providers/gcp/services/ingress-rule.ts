@@ -321,8 +321,8 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
       ...this.requestAuth(),
     });
 
-    let proxy_to_delete_name: string | undefined | null;
-    let forwarding_rule_to_delete_name: string | undefined | null;
+    let proxy_to_delete_name;
+    let forwarding_rule_to_delete_name;
     for (const target_proxy of target_proxies.data.items || []) {
       if (target_proxy.urlMap?.endsWith(url_map.name)) {
         proxy_to_delete_name = target_proxy.name;
@@ -725,5 +725,3 @@ export class GoogleCloudIngressRuleService extends CrudResourceService<'ingressR
     };
   }
 }
-
-// TODO: why tf aren't we just creating terraform modules instead of writing things like this?

@@ -21,6 +21,7 @@ export interface ApplyRequest {
 
 export interface ApplyResponse {
   pulumistate?: string;
+  outputs?: Record<string, string>;
 }
 
 export interface HelloReply {

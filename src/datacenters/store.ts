@@ -202,8 +202,6 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
     const { datacenter, config_path } = await this.getCachedDatacenterDetails(repository);
 
     // Upload the component config
-    console.log(datacenter);
-    console.log(config_path);
     Deno.writeTextFileSync(config_path, JSON.stringify(datacenter));
     const config_blob = await repository.uploadBlob(config_path);
 

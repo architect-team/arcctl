@@ -39,20 +39,26 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     for (const env of datacenterEnvs) {
       console.log(`- ${env.name}`);
     }
-  }
+    const confirm = options.autoApprove || (await Inputs.promptForContinuation('Are you sure you want to proceed?'));
+    if (!confirm) {
+      console.error('Datacenter destruction cancelled');
+      Deno.exit(1);
+    }
 
-  const confirm = options.autoApprove || (await Inputs.promptForContinuation('Are you sure you want to proceed?'));
-
-  if (!confirm) {
-    console.error('Datacenter destruction cancelled');
-    Deno.exit(1);
-  }
-
-  for (const env of datacenterEnvs) {
-    await destroyEnvironment({
-      verbose: options.verbose,
-      autoApprove: true,
-    }, env.name);
+    for (const env of datacenterEnvs) {
+      await destroyEnvironment({
+        verbose: options.verbose,
+        autoApprove: true,
+      }, env.name);
+    }
+  } else {
+    command_helper.pipelineRenderer.renderPipeline(pipeline);
+    command_helper.pipelineRenderer.doneRenderingPipeline();
+    const confirm = options.autoApprove || (await Inputs.promptForContinuation('Are you sure you want to proceed?'));
+    if (!confirm) {
+      console.error('Datacenter destruction cancelled');
+      Deno.exit(1);
+    }
   }
 
   let interval: number;

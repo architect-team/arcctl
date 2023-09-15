@@ -23,6 +23,7 @@ message ApplyRequest {
 
 message ApplyResponse {
   string pulumistate = 1;
+  map<string, string> outputs = 2;
 }`;
 
 export default proto;

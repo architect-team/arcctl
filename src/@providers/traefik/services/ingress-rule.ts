@@ -266,7 +266,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       yaml.dump(entry),
     );
 
-    let urlPath = inputs.path || '/';
+    let urlPath = inputs.path || '';
     if (!urlPath.endsWith('/')) {
       urlPath += '/';
     }
@@ -278,6 +278,11 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     url += `${host}${urlPath}`;
     const dnsZone = host.split('.').at(-1) || host;
+
+    // Don't return URL with a trailing slash, let users add that
+    if (url.endsWith('/')) {
+      url = url.substring(0, url.length - 1);
+    }
 
     subscriber.next(url);
     return {
@@ -392,6 +397,10 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     url += `${host}${urlPath}`;
     const dnsZone = host.split('.').at(-1) || host;
+
+    if (url.endsWith('/')) {
+      url = url.substring(0, url.length - 1);
+    }
 
     subscriber.next(url);
     return {

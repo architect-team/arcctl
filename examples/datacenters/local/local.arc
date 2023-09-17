@@ -40,11 +40,14 @@ environment {
 
   deployment {
     module "deployment" {
-      source = "./deployment"
+      source = "./vpc"
       inputs = {
         name = node.inputs.name
         region = "nyc3"
         test = module.vpc3.outputs.id
+        digitalocean = {
+          token = variable.dotoken
+        }
       }
     }
   }

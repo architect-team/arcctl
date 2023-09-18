@@ -13,7 +13,7 @@ module "vpc" {
   source = "./vpc"
   inputs = {
     region = variable.region
-    name = "testpulumi"
+    name = "${datacenter.name}-datacenter"
     digitalocean = {
       token = variable.dotoken
     }
@@ -21,36 +21,63 @@ module "vpc" {
 }
 
 module "k8s" {
-  source = "./kcluster"
+  source = "./k8s-cluster"
   inputs = {
+    name = "${datacenter.name}-cluster"
+    region = variable.region
     vpcId = module.vpc.id
+    digitalocean = {
+      token = variable.dotoken
+    }
   }
 }
 
 environment {
-
-  module "vpc3" {
-    source = "./vpc"
+  module "namespace" {
+    source = "./k8s-namespace"
     inputs = {
-      region = "nyc3"
-      name = module.vpc2.outputs.id
-      digitalocean = {
-        token = variable.dotoken
-      }
+      name = environment.name
+      kubeconfig = module.k8s.kubeconfig
     }
   }
 
   deployment {
     module "deployment" {
-      source = "./vpc"
-      inputs = {
-        name = node.inputs.name
-        region = "nyc3"
-        test = module.vpc3.outputs.id
-        digitalocean = {
-          token = variable.dotoken
+      source = "./k8s-deployment"
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+        labels = {
+          "io.architect.datacenter" = datacenter.name
+          "io.architect.environment" = environment.name
+          "io.architect.component" = node.component
         }
-      }
+      })
+    }
+
+    outputs = {
+      id = module.deployment.id
+    }
+  }
+
+  service {
+    module "service" {
+      source = "./k8s-service"
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+        labels = {
+          "io.architect.datacenter" = datacenter.name
+          "io.architect.environment" = environment.name
+          "io.architect.component" = node.component
+        }
+      })
+    }
+
+    outputs = {
+      id = module.service.id
+      host = module.service.host
+      port = module.service.port
     }
   }
 }

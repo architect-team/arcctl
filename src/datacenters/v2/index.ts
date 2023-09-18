@@ -226,7 +226,9 @@ export default class DatacenterV2 extends Datacenter {
       nodeLookup[name] = nodes[nodes.length - 1];
     }
     for (const node of nodes) {
+      console.log(node);
       this.replaceObject(node, (match, key) => {
+        console.log(key);
         const key_parts = key.split('.');
         const nodeTo = nodeLookup[key_parts[1]];
         const toId = CloudNode.genId({

@@ -1,4 +1,5 @@
 import { getClient } from 'https://deno.land/x/grpc_basic@0.4.7/client.ts';
+import { mergeReadableStreams } from 'std/streams/mod.ts';
 import { ArcctlPulumi } from './arcctl_proto.d.ts';
 import proto from './proto.ts';
 
@@ -25,18 +26,19 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
     stdout: 'piped',
     stderr: 'piped',
   });
-  const process = command.spawn();
+
+  const child = command.spawn();
   // deno-lint-ignore no-async-promise-executor
   return new Promise(async (resolve) => {
     const writable = new WritableStream<Uint8Array>({
       write: async (chunk) => {
         const output = new TextDecoder().decode(chunk);
         if (output.includes('Started server on port')) {
-          resolve(process);
+          resolve(child);
         }
       },
     });
-    process.stdout?.pipeTo(writable);
+    mergeReadableStreams(child.stdout, child.stderr).pipeTo(writable);
   });
 };
 

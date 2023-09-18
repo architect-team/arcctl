@@ -7,7 +7,6 @@ process.env["DIGITALOCEAN_TOKEN"] = config.get('token');
 
 const name = config.get('name')!.replace(/\//g, '-');
 
-
 const vpc = new digitalocean.Vpc("my-vpc", {
   region: config.get('region')!,
   name,

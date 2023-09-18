@@ -33,7 +33,7 @@ environment {
     source = "./vpc"
     inputs = {
       region = "nyc3"
-      name = module.vpc2.outputs.id
+      name = module.vpc.outputs.id
       digitalocean = {
         token = variable.dotoken
       }
@@ -46,6 +46,7 @@ environment {
       inputs = {
         name = node.inputs.name
         region = "nyc3"
+        other_test = datacenter.name
         test = module.vpc3.outputs.id
         digitalocean = {
           token = variable.dotoken

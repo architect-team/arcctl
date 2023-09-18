@@ -99,6 +99,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       datacenterName: name,
       environmentName: 'my-env',
     });
+    console.log(graph);
 
     const pipeline = await Pipeline.plan({
       before: originalPipeline,

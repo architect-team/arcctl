@@ -47,10 +47,15 @@ const stopContainer = async (child: Deno.ChildProcess): Promise<void> => {
 
 export const Build = async (options: { directory: string }) => {
   const childProcess = await startContainer(options.directory);
-  const client = getModuleClient();
-  const response = await client.Build(options);
-  await stopContainer(childProcess);
-  return response;
+  try {
+    const client = getModuleClient();
+    const response = await client.Build(options);
+    await stopContainer(childProcess);
+    return response;
+  } catch (e) {
+    await stopContainer(childProcess);
+    throw e;
+  }
 };
 
 export const Apply = async (
@@ -63,12 +68,17 @@ export const Apply = async (
   },
 ) => {
   const childProcess = await startContainer();
-  const client = getModuleClient();
-  const response = await client.Apply(options);
-  const tmp = {
-    ...response,
-  };
-  delete tmp.pulumistate;
-  await stopContainer(childProcess);
-  return response;
+  try {
+    const client = getModuleClient();
+    const response = await client.Apply(options);
+    const tmp = {
+      ...response,
+    };
+    delete tmp.pulumistate;
+    await stopContainer(childProcess);
+    return response;
+  } catch (e) {
+    await stopContainer(childProcess);
+    throw e;
+  }
 };

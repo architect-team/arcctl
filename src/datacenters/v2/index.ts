@@ -198,6 +198,7 @@ export default class DatacenterV2 extends Datacenter {
     resultGraph: CloudGraph,
     modules: Record<string, any>,
     nodeLookup: Record<string, CloudNode>,
+    options?: DatacenterEnrichmentOptions,
   ) {
     const nodes: CloudNode[] = [];
     for (const [name, value] of Object.entries(modules)) {
@@ -208,6 +209,12 @@ export default class DatacenterV2 extends Datacenter {
         node: {
           ...value,
           type: value.inputs.type,
+        },
+        datacenter: {
+          name: options?.datacenterName,
+        },
+        environment: {
+          name: options?.environmentName,
         },
       });
       const id = CloudNode.genId({
@@ -229,6 +236,9 @@ export default class DatacenterV2 extends Datacenter {
       this.replaceObject(node, (match, key) => {
         const key_parts = key.split('.');
         const nodeTo = nodeLookup[key_parts[1]];
+        if (!nodeTo) {
+          throw new Error(`Missing node for key: ${key_parts[1]}`);
+        }
         const toId = CloudNode.genId({
           name: nodeTo.name,
           type: nodeTo.inputs.type || 'module',
@@ -249,6 +259,11 @@ export default class DatacenterV2 extends Datacenter {
     graph: CloudGraph,
     options: DatacenterEnrichmentOptions,
   ): Promise<CloudGraph> {
+    applyContext(graph, {
+      datacenter: {
+        name: options.datacenterName,
+      },
+    });
     if (options.environmentName) {
       applyContext(graph, {
         environment: {
@@ -258,9 +273,9 @@ export default class DatacenterV2 extends Datacenter {
     }
     const resultGraph = new CloudGraph();
     const nodeLookup: Record<string, CloudNode> = {};
-    this.addModules(graph, resultGraph, this.datacenter.modules, nodeLookup);
+    this.addModules(graph, resultGraph, this.datacenter.modules, nodeLookup, options);
     if (options.environmentName && this.datacenter.environment && this.datacenter.environment.modules) {
-      this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeLookup);
+      this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeLookup, options);
     }
     graph = JSON.parse(JSON.stringify(graph).replace('${{', '${').replace('}}', '}'));
     graph.nodes.forEach((node) => {
@@ -283,6 +298,9 @@ export default class DatacenterV2 extends Datacenter {
           node: {
             ...node,
             type: node.inputs.type,
+          },
+          datacenter: {
+            name: options.datacenterName,
           },
           environment: {
             name: options.environmentName,

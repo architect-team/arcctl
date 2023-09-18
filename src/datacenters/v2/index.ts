@@ -231,15 +231,15 @@ export default class DatacenterV2 extends Datacenter {
         const nodeTo = nodeLookup[key_parts[1]];
         const toId = CloudNode.genId({
           name: nodeTo.name,
-          type: 'module',
+          type: nodeTo.inputs.type || 'module',
         });
         resultGraph.insertEdges({
           id: `${node.id}-${toId}`,
-          from: `${node.id}-blue`,
-          to: `${toId}-blue`,
+          from: `${node.id}`,
+          to: `${toId}`,
           required: true,
         });
-        return `\${{ ${[`${toId}-blue`, key_parts[3]].join('.')} }}`;
+        return `\${{ ${[`${toId}`, key_parts[3]].join('.')} }}`;
       });
     }
     resultGraph.insertNodes(...nodes);
@@ -303,7 +303,8 @@ export default class DatacenterV2 extends Datacenter {
               }.modules,
             )
           ) {
-            const name = `${module_name}/${id}`;
+            const name = `${id}`;
+            console.log(`Adding module: ${name}`);
             const duplicated_inputs = this.convertToMustache({
               ...(module as any).inputs,
             });
@@ -312,15 +313,15 @@ export default class DatacenterV2 extends Datacenter {
               const nodeTo = nodeLookup[key_parts[1]];
               const toId = CloudNode.genId({
                 name: nodeTo.name,
-                type: 'module',
+                type: nodeTo.inputs.type || 'module',
               });
               resultGraph.insertEdges({
                 id: `${id}-${toId}`,
-                from: `${id}-blue`,
-                to: `${toId}-blue`,
+                from: `${id}`,
+                to: `${toId}`,
                 required: true,
               });
-              return `\${{ ${[`${toId}-blue`, key_parts[3]].join('.')} }}`;
+              return `\${{ ${[`${toId}`, key_parts[3]].join('.')} }}`;
             });
             nodes.push({
               account: undefined,
@@ -376,12 +377,12 @@ export default class DatacenterV2 extends Datacenter {
         }
         resultGraph.insertEdges({
           id: `${node.id}-${to}`,
-          from: `module/${node.id}-blue`,
-          to: `module/${to}-blue`,
+          from: `${node.id}-blue`,
+          to: `${to}-blue`,
           required: true,
         });
         key_parts.shift();
-        return `\${{ ${[`module/${to}-blue`, ...key_parts].join('.')} }`;
+        return `\${{ ${[`${to}-blue`, ...key_parts].join('.')} }`;
       });
       resultGraph.insertNodes(node);
     }

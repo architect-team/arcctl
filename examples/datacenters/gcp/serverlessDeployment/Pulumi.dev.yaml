@@ -1,0 +1,9 @@
+encryptionsalt: v1:E/VyC0PLFNo=:v1:eG25YFlmvWn27tWB:15qJp0JKt7qQUOg1nt2bn63DobysWQ==
+config:
+  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
+  gcp:project: permanent-environment-testing
+  gcp:region: us-central1
+  serverlessDeployment:image: ryancahill444/hello-world
+  serverlessDeployment:labels: '{"vpc":"ryan","region":"us-central1-a"}'
+  serverlessDeployment:name: test-deployment
+  serverlessDeployment:services: '[{"port":3000,"protocol":"http","id":"test-id"}]'

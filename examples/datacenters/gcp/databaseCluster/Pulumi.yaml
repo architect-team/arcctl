@@ -1,0 +1,61 @@
+name: databaseCluster
+runtime: yaml
+
+config:
+  # instance
+  name: 
+    type: string
+  description: 
+    type: string
+  databaseSize: 
+    type: string
+  databaseVersion: 
+    type: string
+  databaseType: 
+    type: string
+  vpc: 
+    type: string
+  region: 
+    type: string
+
+  # user
+  password:
+    type: string
+
+resources:
+  project:
+    type: gcp:projects:Service
+    properties:
+      disableOnDestroy: false
+      service: compute.googleapis.com
+  instance:
+    type: gcp:sql:DatabaseInstance
+    properties:
+      name: ${name}
+      region: ${region}
+      databaseVersion: ${databaseVersion}
+      settings:
+        tier: ${databaseSize}
+        deletionProtectionEnabled: false
+        # requires private connections to services - will error if not previously enabled for the vpc
+        # https://cloud.google.com/sql/docs/mysql/private-ip#network_requirements
+        # https://cloud.google.com/sql/docs/mysql/configure-private-services-access
+        ipConfiguration:
+          privateNetwork: projects/${gcp:project}/global/networks/${vpc}
+          enablePrivatePathForGoogleCloudServices: true
+      deletionProtection: false
+  user:
+    type: gcp:sql:User
+    properties:
+      instance: ${instance}
+      name: admin
+      password: ${password}
+
+outputs: 
+  id: ${databaseType}/${name}/${instance.privateIpAddress}/5432
+  protocol: ${databaseType}
+  host: ${instance.privateIpAddress}
+  port: 5432
+  username: ${user.name}
+  password: ${user.password}
+  certificate: ${instance.serverCaCerts[0].cert}

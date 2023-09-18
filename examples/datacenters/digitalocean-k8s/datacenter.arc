@@ -23,16 +23,12 @@ module "vpc" {
 module "k8s" {
   source = "./k8s-cluster"
   inputs = {
-<<<<<<< HEAD
     name = "${datacenter.name}-cluster"
     region = variable.region
     vpcId = module.vpc.id
     digitalocean = {
       token = variable.dotoken
     }
-=======
-    vpcId = module.vpc.id
->>>>>>> 1a422a24a726588122ac56ff489d33dba81ee1cf
   }
 }
 
@@ -40,16 +36,8 @@ environment {
   module "namespace" {
     source = "./k8s-namespace"
     inputs = {
-<<<<<<< HEAD
       name = environment.name
       kubeconfig = module.k8s.kubeconfig
-=======
-      region = "nyc3"
-      name = module.vpc.id
-      digitalocean = {
-        token = variable.dotoken
-      }
->>>>>>> 1a422a24a726588122ac56ff489d33dba81ee1cf
     }
   }
 

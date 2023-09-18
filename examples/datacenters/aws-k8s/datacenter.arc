@@ -55,7 +55,7 @@ environment {
     }
 
     outputs {
-      id = module.deployment.outputs.id
+      id = module.deployment.id
     }
   }
 
@@ -66,7 +66,7 @@ environment {
     }
 
     outputs {
-      id = module.service.outputs.id
+      id = module.service.id
     }
   }
 

@@ -375,12 +375,12 @@ export default class DatacenterV2 extends Datacenter {
         }
         resultGraph.insertEdges({
           id: `${node.id}-${to}`,
-          from: `${node.id}-blue`,
-          to: `${to}-blue`,
+          from: `${node.id}`,
+          to: `${to}`,
           required: true,
         });
         key_parts.shift();
-        return `\${{ ${[`${to}-blue`, ...key_parts].join('.')} }`;
+        return `\${{ ${[`${to}`, ...key_parts].join('.')} }`;
       });
       resultGraph.insertNodes(node);
     }

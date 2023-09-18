@@ -249,7 +249,7 @@ export default class DatacenterV2 extends Datacenter {
           to: `${toId}`,
           required: true,
         });
-        return `\${{ ${[`${toId}`, key_parts[3]].join('.')} }}`;
+        return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
       });
     }
     resultGraph.insertNodes(...nodes);
@@ -338,7 +338,7 @@ export default class DatacenterV2 extends Datacenter {
                 to: `${toId}`,
                 required: true,
               });
-              return `\${{ ${[`${toId}`, key_parts[3]].join('.')} }}`;
+              return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
             });
             nodes.push({
               account: undefined,

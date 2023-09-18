@@ -23,7 +23,7 @@ module "vpc" {
 module "k8s" {
   source = "./kcluster"
   inputs = {
-    vpcId = module.vpc.outputs.id
+    vpcId = module.vpc.id
   }
 }
 
@@ -33,7 +33,7 @@ environment {
     source = "./vpc"
     inputs = {
       region = "nyc3"
-      name = module.vpc.outputs.id
+      name = module.vpc.id
       digitalocean = {
         token = variable.dotoken
       }
@@ -47,7 +47,7 @@ environment {
         name = node.inputs.name
         region = "nyc3"
         other_test = datacenter.name
-        test = module.vpc3.outputs.id
+        test = module.vpc3.id
         digitalocean = {
           token = variable.dotoken
         }

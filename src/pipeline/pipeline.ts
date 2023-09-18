@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
-import { Apply } from '../modules/index.ts';
+import { Apply } from "../modules/index.ts";
 import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
@@ -464,11 +464,11 @@ export class Pipeline {
 
           // Modules do not get run through the normal process
           if (step.type === 'module') {
+            const startTime = Date.now();
             step.status = {
               state: step.action === 'delete' ? 'destroying' : 'applying',
               message: '',
-              startTime: Date.now(),
-              endTime: Date.now(),
+              startTime,
             };
             const inputs = this.flattenObject(step.inputs as any || {});
             const response = await Apply({
@@ -478,12 +478,12 @@ export class Pipeline {
               pulumistate: step.state,
               destroy: step.action === 'delete',
             });
-            step.state = response.pulumistate;
+            step.state = step.action === 'delete' ? undefined : response.pulumistate;
             step.outputs = response.outputs as any || {};
             step.status = {
               state: 'complete',
               message: '',
-              startTime: Date.now(),
+              startTime,
               endTime: Date.now(),
             };
             continue;

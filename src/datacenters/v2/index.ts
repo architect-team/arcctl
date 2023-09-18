@@ -342,7 +342,6 @@ export default class DatacenterV2 extends Datacenter {
         const hook = hookLookup[key_parts[0]];
         const nodeTo = nodeLookup[key_parts[0]];
         if (!hook) {
-          console.log(`Missing hook for key: ${key_parts[0]}`);
           return match;
         }
         let to;

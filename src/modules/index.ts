@@ -15,7 +15,6 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
     args: [
       'run',
       '--rm',
-      '-it',
       '-p',
       '50051:50051',
       '-v',
@@ -24,6 +23,7 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
       'pulumi',
     ],
     stdout: 'piped',
+    stderr: 'piped',
   });
   const process = command.spawn();
   // deno-lint-ignore no-async-promise-executor
@@ -69,7 +69,6 @@ export const Apply = async (
     ...response,
   };
   delete tmp.pulumistate;
-  console.log(JSON.stringify(tmp, null, 2));
   await stopContainer(childProcess);
   return response;
 };

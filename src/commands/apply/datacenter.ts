@@ -83,7 +83,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     image: imageRepository,
   });
 
-  let targetGraph = await targetEnvironment.getGraph(
+  const targetGraph = await targetEnvironment.getGraph(
     'my-env',
     command_helper.componentStore,
   );
@@ -105,8 +105,6 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       after: graph,
       context: PlanContext.Datacenter,
     }, command_helper.providerStore);
-
-    console.log(JSON.stringify(graph, null, 2));
 
     pipeline.validate();
     await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
@@ -132,10 +130,10 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       .then(async () => {
         if (interval) {
           clearInterval(interval);
-          await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
           command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
           command_helper.pipelineRenderer.doneRenderingPipeline();
         }
+        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {

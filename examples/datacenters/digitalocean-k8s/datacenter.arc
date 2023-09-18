@@ -23,7 +23,7 @@ module "vpc" {
 module "k8s" {
   source = "./kcluster"
   inputs = {
-    vpcId = module.vpc.id
+    vpcId = module.vpc.outputs.id
   }
 }
 

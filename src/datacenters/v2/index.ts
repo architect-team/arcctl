@@ -304,7 +304,6 @@ export default class DatacenterV2 extends Datacenter {
             )
           ) {
             const name = `${id}`;
-            console.log(`Adding module: ${name}`);
             const duplicated_inputs = this.convertToMustache({
               ...(module as any).inputs,
             });
@@ -457,7 +456,6 @@ export default class DatacenterV2 extends Datacenter {
 
   public setVariableValues(variables: Record<string, unknown>): void {
     this.replaceVariableValues(this.datacenter, variables);
-    console.log(this.datacenter);
   }
 
   public async build(buildFn: DockerBuildFn): Promise<Datacenter> {

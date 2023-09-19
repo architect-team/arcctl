@@ -151,7 +151,7 @@ export default class DatacenterV2 extends Datacenter {
         }
         if (braceCount === 0) {
           const match = result.substring(index, i + 1);
-          const key = result.substring(index + 3, i - 1);
+          const key = result.substring(index + 3, i - 2);
           const value = replacer(match, key.trim());
           result = result.substring(0, index) + value + result.substring(i + 2);
           start = index + value.length;
@@ -163,7 +163,34 @@ export default class DatacenterV2 extends Datacenter {
   }
 
   private convertStringToMustach(str: string) {
-    return str.replaceAll('${', '${{').replaceAll('}', '}}');
+    let result = str;
+    let start = 0;
+    while (true) {
+      const index = result.indexOf('${', start);
+      if (index === -1) {
+        break;
+      }
+      if (result[index + 2] === '{') {
+        start += 2;
+        continue;
+      }
+      let braceCount = 1;
+      for (let i = index + 2; i < result.length; i++) {
+        if (result[i] === '{') {
+          braceCount++;
+        } else if (result[i] === '}') {
+          braceCount--;
+        }
+        if (braceCount === 0) {
+          const key = result.substring(index + 2, i);
+          const value = '${{ ' + key.trim() + ' }}';
+          result = result.substring(0, index) + value + result.substring(i + 1);
+          start = index + value.length;
+          break;
+        }
+      }
+    }
+    return result;
   }
 
   private replaceObject(obj: any, replacer: (matcher: string, key: string) => string) {
@@ -233,9 +260,7 @@ export default class DatacenterV2 extends Datacenter {
       nodeLookup[name] = nodes[nodes.length - 1];
     }
     for (const node of nodes) {
-      console.log(node);
       this.replaceObject(node, (match, key) => {
-        console.log(key);
         const key_parts = key.split('.');
         const nodeTo = nodeLookup[key_parts[1]];
         if (!nodeTo) {
@@ -329,7 +354,13 @@ export default class DatacenterV2 extends Datacenter {
             });
             this.replaceObject(duplicated_inputs, (match, key) => {
               const key_parts = key.split('.');
+              if (key_parts[0] !== 'module') {
+                return match;
+              }
               const nodeTo = nodeLookup[key_parts[1]];
+              if (!nodeTo) {
+                throw new Error(`Missing node for key: ${key_parts[1]}`);
+              }
               const toId = CloudNode.genId({
                 name: nodeTo.name,
                 type: nodeTo.inputs.type || 'module',
@@ -374,7 +405,7 @@ export default class DatacenterV2 extends Datacenter {
             component: nodeTo.component,
             environment: nodeTo.environment,
           });
-          to = `${key}/${id}`;
+          to = id;
         } else {
           if (!key_parts[1]) {
             key_parts.push('id');
@@ -400,7 +431,7 @@ export default class DatacenterV2 extends Datacenter {
           required: true,
         });
         key_parts.shift();
-        return `\${{ ${[`${to}`, ...key_parts].join('.')} }`;
+        return `\${{ ${[`${to}`, ...key_parts].join('.')} }}`;
       });
       resultGraph.insertNodes(node);
     }

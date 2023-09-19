@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
-import { Apply } from "../modules/index.ts";
+import { Apply } from '../modules/index.ts';
 import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';

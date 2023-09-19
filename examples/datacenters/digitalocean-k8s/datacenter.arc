@@ -23,7 +23,7 @@ module "vpc" {
 module "k8s" {
   source = "./k8s-cluster"
   inputs = {
-    name = "${datacenter.name}-cluster"
+    name = "${module.vpc.name}-cluster"
     region = variable.region
     vpcId = module.vpc.id
     digitalocean = {

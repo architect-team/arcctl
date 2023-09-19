@@ -10,7 +10,7 @@ const cluster = new digitalocean.KubernetesCluster("cluster", {
   name,
   region,
   vpcUuid: vpcId,
-  version: "1.27.4-do.0",
+  version: "1.28.2-do.0",
   nodePool: {
     name: `${name}-pool-1`,
     size: "s-1vcpu-2gb",

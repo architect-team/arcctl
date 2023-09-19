@@ -58,6 +58,9 @@ const convertEstreeNodeToObject = (node: ESTreeNode, context: any = {}): any => 
     case 'MemberExpression': {
       const objectPath = convertEstreeNodeToObject(node.object);
       const propertyPath = node.computed ? convertEstreeNodeToObject(node.property) : node.property.name;
+      if (objectPath.startsWith('module.')) {
+        return `\${ ${objectPath}.${propertyPath} }`;
+      }
       return `${objectPath}.${propertyPath}`;
     }
 

@@ -31,6 +31,10 @@ export class CloudGraph {
   public insertEdges(...args: CloudEdge[]): CloudGraph {
     for (const edge of args) {
       const index = this.edges.findIndex((item) => item.id === edge.id);
+      const isCircular = edge.from === edge.to;
+      if (isCircular) {
+        continue;
+      }
       if (index >= 0) {
         this.edges[index] = edge;
       } else {

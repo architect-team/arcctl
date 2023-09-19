@@ -12,6 +12,9 @@ const convertObjectExpressionToObject = (node: ESTree.ObjectExpression | ESTree.
   if (!node) {
     return undefined;
   }
+  if (node.type === 'Literal' && typeof node.value === 'object') {
+    return node.value;
+  }
   let obj: any = {};
   if ('properties' in node) {
     (node.properties as Array<ESTree.Property>).forEach((property: ESTree.Property) => {
@@ -27,6 +30,40 @@ const convertObjectExpressionToObject = (node: ESTree.ObjectExpression | ESTree.
     obj = node.value;
   }
   return obj;
+};
+
+type ESTreeNode = {
+  type: string;
+  [key: string]: any;
+};
+
+const convertEstreeNodeToObject = (node: ESTreeNode, context: any = {}): any => {
+  switch (node.type) {
+    case 'ObjectExpression':
+      return node.properties.reduce((obj: any, prop: ESTreeNode) => {
+        const key = prop.key.type === 'Identifier' ? prop.key.name : prop.key.value;
+        obj[key] = convertEstreeNodeToObject(prop.value);
+        return obj;
+      }, {});
+
+    case 'ArrayExpression':
+      return node.elements.map((element: ESTreeNode) => convertEstreeNodeToObject(element));
+
+    case 'Literal':
+      return node.value;
+
+    case 'Identifier':
+      return node.name;
+
+    case 'MemberExpression': {
+      const objectPath = convertEstreeNodeToObject(node.object);
+      const propertyPath = node.computed ? convertEstreeNodeToObject(node.property) : node.property.name;
+      return `${objectPath}.${propertyPath}`;
+    }
+
+    default:
+      throw new Error(`Unhandled ESTree node type: ${node.type}`);
+  }
 };
 
 const isNotPrimitive = (value: any) => typeof value === 'object' || Array.isArray(value);
@@ -228,8 +265,8 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
             throw new Error(`Unsupported node.arguments for node.type: ${node}`);
           }
           value = {
-            ...convertObjectExpressionToObject(node.arguments[0] as any),
-            ...convertObjectExpressionToObject(node.arguments[1] as any),
+            ...convertEstreeNodeToObject(node.arguments[0] as any),
+            ...convertEstreeNodeToObject(node.arguments[1] as any),
           };
         } else if (func_name === 'toUpper') {
           if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {

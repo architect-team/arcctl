@@ -41,7 +41,7 @@ export class CloudNode<T extends ResourceType = ResourceType> {
     environment?: string;
   }): string {
     return CloudNode.genResourceId({
-      name: `${options.type}/${options.name}`,
+      name: options.name,
       component: options.component,
       environment: options.environment,
     });

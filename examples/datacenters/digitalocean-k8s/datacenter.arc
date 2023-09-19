@@ -13,7 +13,7 @@ module "vpc" {
   source = "./vpc"
   inputs = {
     region = variable.region
-    name = "testpulumi"
+    name = "${datacenter.name}-datacenter"
     digitalocean = {
       token = variable.dotoken
     }
@@ -21,37 +21,57 @@ module "vpc" {
 }
 
 module "k8s" {
-  source = "./kcluster"
+  source = "./vpc"
   inputs = {
+    name = "${datacenter.name}-cluster"
+    region = variable.region
     vpcId = module.vpc.id
+    digitalocean = {
+      token = variable.dotoken
+    }
   }
 }
 
 environment {
-
-  module "vpc3" {
+  module "namespace" {
     source = "./vpc"
     inputs = {
-      region = "nyc3"
-      name = module.vpc.id
-      digitalocean = {
-        token = variable.dotoken
-      }
+      name = environment.name
+      kubeconfig = module.k8s.kubeconfig
+    }
+
+    outputs = {
+      id = module.namespace.id
     }
   }
 
   deployment {
     module "deployment" {
       source = "./vpc"
-      inputs = {
-        name = node.inputs.name
-        region = "nyc3"
-        other_test = datacenter.name
-        test = module.vpc3.id
-        digitalocean = {
-          token = variable.dotoken
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+        labels = {
+          "io.architect.datacenter" = datacenter.name
+          "io.architect.environment" = environment.name
+          "io.architect.component" = node.component
         }
-      }
+      })
+    }
+  }
+
+  service {
+    module "service" {
+      source = "./vpc"
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+        labels = {
+          "io.architect.datacenter" = datacenter.name
+          "io.architect.environment" = environment.name
+          "io.architect.component" = node.component
+        }
+      })
     }
   }
 }

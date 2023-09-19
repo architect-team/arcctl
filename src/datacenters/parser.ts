@@ -26,7 +26,7 @@ export const parseDatacenter = async (
     if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
       raw_obj.input_type = 'json';
-    } else if (input.endsWith('.arc')) {
+    } else if (input.endsWith('.arc') || input.endsWith('hcl')) {
       raw_obj = hclParser.default.parseToObject(raw_contents)[0];
       raw_obj.input_type = 'hcl';
     } else {

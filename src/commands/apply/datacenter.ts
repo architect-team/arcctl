@@ -1,7 +1,7 @@
 import cliSpinners from 'cli-spinners';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
-import { parseDatacenter } from '../../datacenters/index.ts';
+import { Datacenter, parseDatacenter } from '../../datacenters/index.ts';
 import { parseEnvironment } from '../../environments/parser.ts';
 import { ImageRepository } from '../../oci/image-repository.ts';
 import { Pipeline, PlanContext } from '../../pipeline/index.ts';

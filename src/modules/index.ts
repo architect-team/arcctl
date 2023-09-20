@@ -1,20 +1,56 @@
-import { getClient } from 'https://deno.land/x/grpc_basic@0.4.7/client.ts';
-import { ArcctlPulumi } from './arcctl_proto.d.ts';
-import proto from './proto.ts';
+type BuildRequest = {
+  directory: string;
+};
+
+type BuildResponse = {
+  image: string;
+};
+
+type ApplyRequest = {
+  datacenterid: string;
+  image: string;
+  inputs: [string, string][];
+  pulumistate?: string;
+  destroy?: boolean;
+};
+
+type ApplyResponse = {
+  pulumistate: string;
+  outputs: Record<string, string>;
+};
+
+class ModuleClient {
+  public async Build(body: BuildRequest): Promise<BuildResponse> {
+    const resp = await fetch('http://localhost:50051/build', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    return resp.json();
+  }
+
+  public async Apply(body: ApplyRequest): Promise<ApplyResponse> {
+    const resp = await fetch('http://localhost:50051/apply', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    return resp.json();
+  }
+}
 
 const getModuleClient = () => {
-  return getClient<ArcctlPulumi>({
-    port: 50051,
-    root: proto,
-    serviceName: 'ArcctlPulumi',
-  });
+  return new ModuleClient();
 };
 
 const startContainer = async (directory?: string): Promise<Deno.ChildProcess> => {
   const command = new Deno.Command('docker', {
     args: [
       'run',
-      '--rm',
       '-p',
       '50051:50051',
       '-v',
@@ -62,19 +98,15 @@ export const Apply = async (
   options: {
     datacenterid: string;
     image: string;
-    inputs: Record<string, string>;
+    inputs: [string, string][];
     pulumistate?: string;
     destroy?: boolean;
   },
-) => {
+): Promise<ApplyResponse> => {
   const childProcess = await startContainer();
   try {
     const client = getModuleClient();
     const response = await client.Apply(options);
-    const tmp = {
-      ...response,
-    };
-    delete tmp.pulumistate;
     await stopContainer(childProcess);
     return response;
   } catch (e) {

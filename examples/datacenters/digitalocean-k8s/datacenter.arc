@@ -21,7 +21,7 @@ module "vpc" {
 }
 
 module "k8s" {
-  source = "./vpc"
+  source = "./k8s-cluster"
   inputs = {
     name = "${datacenter.name}-cluster"
     region = variable.region
@@ -34,20 +34,16 @@ module "k8s" {
 
 environment {
   module "namespace" {
-    source = "./vpc"
+    source = "./k8s-namespace"
     inputs = {
       name = environment.name
       kubeconfig = module.k8s.kubeconfig
-    }
-
-    outputs = {
-      id = module.namespace.id
     }
   }
 
   deployment {
     module "deployment" {
-      source = "./vpc"
+      source = "./k8s-deployment"
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
@@ -58,11 +54,15 @@ environment {
         }
       })
     }
+
+    outputs = {
+      id = module.deployment.id
+    }
   }
 
   service {
     module "service" {
-      source = "./vpc"
+      source = "./k8s-service"
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
@@ -72,6 +72,12 @@ environment {
           "io.architect.component" = node.component
         }
       })
+    }
+
+    outputs = {
+      id = module.service.id
+      host = module.service.host
+      port = module.service.port
     }
   }
 }

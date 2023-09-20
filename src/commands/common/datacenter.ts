@@ -1,9 +1,11 @@
+import * as path from 'std/path/mod.ts';
 import winston from 'winston';
 import { ProviderStore } from '../../@providers/store.ts';
 import { ResourceType } from '../../@resources/index.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Datacenter, DatacenterRecord, ParsedVariablesMetadata, ParsedVariablesType } from '../../datacenters/index.ts';
 import { DatacenterStore } from '../../datacenters/store.ts';
+import { Build } from '../../modules/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
 import { AccountInputUtils } from './account-inputs.ts';
@@ -172,5 +174,15 @@ export class DatacenterUtils {
         console.error(err);
         Deno.exit(1);
       });
+  }
+
+  public async buildDatacenter(datacenter: Datacenter, context: string): Promise<Datacenter> {
+    return await datacenter.build(async (build_options) => {
+      const module_path = path.join(path.dirname(context), build_options.context);
+      console.log(`Building module: ${module_path}`);
+      return (await Build({
+        directory: module_path,
+      })).image!;
+    });
   }
 }

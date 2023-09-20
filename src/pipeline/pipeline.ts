@@ -473,7 +473,7 @@ export class Pipeline {
             const inputs = this.flattenObject(step.inputs as any || {});
             const response = await Apply({
               datacenterid: 'datacenter',
-              inputs,
+              inputs: Object.entries(inputs) as [string, string][],
               image: step.image!,
               pulumistate: step.state,
               destroy: step.action === 'delete',

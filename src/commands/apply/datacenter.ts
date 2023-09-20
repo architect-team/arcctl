@@ -27,6 +27,11 @@ const ApplyDatacenterCommand = BaseCommand()
   .arguments('<name:string> <config_path:string>')
   .action(apply_datacenter_action);
 
+async function buildDatacenterFromConfig(command_helper: CommandHelper, config_path: string): Promise<Datacenter> {
+  const datacenter = await parseDatacenter(config_path);
+  return await command_helper.datacenterUtils.buildDatacenter(datacenter, config_path);
+}
+
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
   const command_helper = new CommandHelper(options);
 
@@ -90,7 +95,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
 
   try {
     const datacenter = pathExistsSync(config_path)
-      ? await parseDatacenter(config_path)
+      ? await buildDatacenterFromConfig(command_helper, config_path)
       : await command_helper.datacenterStore.getDatacenter(config_path);
     let graph = new CloudGraph();
     const vars = await command_helper.datacenterUtils.promptForVariables(graph, datacenter.getVariables(), flag_vars);

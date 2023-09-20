@@ -54,6 +54,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
     const file = path.join(this.credentials.directory, id);
     Deno.mkdirSync(path.dirname(file), { recursive: true });
     Deno.writeTextFileSync(file, inputs.data);
+    console.log(`Created secret ${file}`);
 
     return Promise.resolve({
       id,
@@ -81,6 +82,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
     const originalFile = path.join(this.credentials.directory, id);
     const newFile = path.join(this.credentials.directory, newId);
     Deno.mkdirSync(path.dirname(newFile), { recursive: true });
+    console.log(`Created secret ${newFile}`);
     if (inputs.data) {
       Deno.removeSync(originalFile);
       Deno.writeTextFileSync(newFile, inputs.data);

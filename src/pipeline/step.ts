@@ -6,6 +6,7 @@ import { ApplyOutputs, ResourceService, WritableResourceService } from '../@prov
 import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
+import { Apply, ApplyResponse } from '../modules/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
 
 export type PipelineStepOptions<T extends ResourceType> = {
@@ -102,7 +103,55 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     });
   }
 
+  private flattenObject(obj: Record<string, any>, path: string[] = []): Record<string, any> {
+    return Object.keys(obj).reduce((acc: Record<string, any>, key) => {
+      if (typeof obj[key] === 'object' && obj[key] !== null) {
+        Object.assign(
+          acc,
+          this.flattenObject(obj[key], [
+            ...path,
+            key,
+          ]),
+        );
+      } else {
+        acc[[...path, key].join(':')] = obj[key];
+      }
+      return acc;
+    }, {});
+  }
+
+  public applyModule(): Observable<PipelineStep<T>> {
+    return new Observable((subscriber) => {
+      this.status.state = 'applying';
+      this.status.startTime = Date.now();
+      const inputs = this.flattenObject(this.inputs as any || {});
+      Apply({
+        datacenterid: 'datacenter',
+        inputs: Object.entries(inputs) as [string, string][],
+        image: this.image!,
+        pulumistate: this.state,
+        destroy: this.action === 'delete',
+      }).then((response: ApplyResponse) => {
+        this.state = this.action === 'delete' ? undefined : response.pulumistate;
+        this.outputs = response.outputs as any || {};
+        this.status.state = 'complete';
+        this.status.endTime = Date.now();
+        subscriber.next(this);
+        subscriber.complete();
+      }).catch((err: Error) => {
+        this.status.state = 'error';
+        this.status.message = err.message;
+        this.status.endTime = Date.now();
+        subscriber.next(this);
+        subscriber.error(err);
+      });
+    });
+  }
+
   public apply(options: ApplyOptions): Observable<PipelineStep<T>> {
+    if (this.type === 'module') {
+      return this.applyModule();
+    }
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     return new Observable((subscriber) => {

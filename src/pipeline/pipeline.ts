@@ -2,7 +2,6 @@ import { Observable } from 'rxjs';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
-import { Apply } from '../modules/index.ts';
 import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
@@ -413,23 +412,6 @@ export class Pipeline {
     );
   }
 
-  private flattenObject(obj: Record<string, any>, path: string[] = []): Record<string, any> {
-    return Object.keys(obj).reduce((acc: Record<string, any>, key) => {
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        Object.assign(
-          acc,
-          this.flattenObject(obj[key], [
-            ...path,
-            key,
-          ]),
-        );
-      } else {
-        acc[[...path, key].join(':')] = obj[key];
-      }
-      return acc;
-    }, {});
-  }
-
   /**
    * Kick off the pipeline
    */
@@ -460,33 +442,6 @@ export class Pipeline {
               subscriber.error(err.message);
               return;
             }
-          }
-
-          // Modules do not get run through the normal process
-          if (step.type === 'module') {
-            const startTime = Date.now();
-            step.status = {
-              state: step.action === 'delete' ? 'destroying' : 'applying',
-              message: '',
-              startTime,
-            };
-            const inputs = this.flattenObject(step.inputs as any || {});
-            const response = await Apply({
-              datacenterid: 'datacenter',
-              inputs: Object.entries(inputs) as [string, string][],
-              image: step.image!,
-              pulumistate: step.state,
-              destroy: step.action === 'delete',
-            });
-            step.state = step.action === 'delete' ? undefined : response.pulumistate;
-            step.outputs = response.outputs as any || {};
-            step.status = {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            };
-            continue;
           }
 
           // Hijack the arcctl account type to execute w/out a provider

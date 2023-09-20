@@ -160,20 +160,24 @@ export class DatacenterUtils {
     pipeline: Pipeline,
     logger: winston.Logger | undefined,
   ): Promise<void> {
-    return pipeline
-      .apply({
-        providerStore: this.providerStore,
-        logger: logger,
-      })
-      .toPromise()
-      .then(async () => {
-        await this.saveDatacenter(name, datacenter, pipeline);
-      })
-      .catch(async (err) => {
-        await this.saveDatacenter(name, datacenter, pipeline);
-        console.error(err);
-        Deno.exit(1);
-      });
+    return new Promise((resolve, reject) => {
+      return pipeline
+        .apply({
+          providerStore: this.providerStore,
+          logger: logger,
+        })
+        .subscribe({
+          complete: async () => {
+            await this.saveDatacenter(name, datacenter, pipeline);
+            resolve();
+          },
+          error: async (err) => {
+            await this.saveDatacenter(name, datacenter, pipeline);
+            console.error(err);
+            Deno.exit(1);
+          },
+        });
+    });
   }
 
   public async buildDatacenter(datacenter: Datacenter, context: string): Promise<Datacenter> {

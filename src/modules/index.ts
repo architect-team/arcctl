@@ -1,12 +1,12 @@
-type BuildRequest = {
+export type BuildRequest = {
   directory: string;
 };
 
-type BuildResponse = {
+export type BuildResponse = {
   image: string;
 };
 
-type ApplyRequest = {
+export type ApplyRequest = {
   datacenterid: string;
   image: string;
   inputs: [string, string][];
@@ -14,7 +14,7 @@ type ApplyRequest = {
   destroy?: boolean;
 };
 
-type ApplyResponse = {
+export type ApplyResponse = {
   pulumistate: string;
   outputs: Record<string, string>;
 };
@@ -51,6 +51,7 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
   const command = new Deno.Command('docker', {
     args: [
       'run',
+      '--rm',
       '-p',
       '50051:50051',
       '-v',

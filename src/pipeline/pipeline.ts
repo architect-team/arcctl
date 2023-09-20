@@ -53,7 +53,7 @@ const setNoopSteps = async (
       }
 
       try {
-        step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
+        step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step, ""));
         const newHash = await step.getHash(providerStore);
         const previousHash = await previousStep?.getHash(providerStore);
         const doesHashMatch = newHash === previousHash;
@@ -145,7 +145,7 @@ export class Pipeline {
     }
   }
 
-  private getOutputValueForReference(key: string | undefined): any {
+  private getOutputValueForReference(key: string | undefined, step_name: string): any {
     if (key === undefined) {
       return undefined;
     }
@@ -157,7 +157,7 @@ export class Pipeline {
       const step = this.steps.find((s) => s.id === step_id);
       const outputs = step?.outputs;
       if (!step || !outputs) {
-        throw new Error(`Missing outputs for ${ref}`);
+        throw new Error(`Missing outputs for ${ref} in ${step_name}`);
       } else if ((outputs as any)[key] === undefined) {
         throw new Error(
           `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
@@ -170,17 +170,17 @@ export class Pipeline {
   /**
    * Replace step references with actual output values
    */
-  public replaceRefsWithOutputValues<T>(input: T): T {
+  public replaceRefsWithOutputValues<T>(input: T, step_name: string): T {
     if (input == undefined) {
       return undefined as T;
     }
     const output = JSON.parse(JSON.stringify(input));
     for (const [key, value] of Object.entries(output)) {
       if (typeof value === 'object' || Array.isArray(value)) {
-        output[key] = this.replaceRefsWithOutputValues(value);
+        output[key] = this.replaceRefsWithOutputValues(value, step_name);
         continue;
       }
-      output[key] = this.getOutputValueForReference(value as string);
+      output[key] = this.getOutputValueForReference(value as string, step_name);
     }
     return output;
   }
@@ -434,7 +434,7 @@ export class Pipeline {
           if (step.inputs) {
             try {
               if (step.action !== 'delete') {
-                step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+                step.inputs = this.replaceRefsWithOutputValues(step.inputs, step.name);
               }
             } catch (err: any) {
               step.status.state = 'error';

@@ -56,7 +56,7 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
       '-v',
       '/var/run/docker.sock:/var/run/docker.sock',
       ...(directory ? ['-v', `${directory}:${directory}`] : []),
-      'pulumi',
+      'pulumi', // build this from https://github.com/architect-team/pulumi-module
     ],
     stdout: 'piped',
     stderr: 'piped',
@@ -82,6 +82,12 @@ const stopContainer = async (child: Deno.ChildProcess): Promise<void> => {
 };
 
 export const Build = async (options: { directory: string }) => {
+  try {
+    Deno.statSync(`${options.directory}/Dockerfile`);
+  } catch (err) {
+    throw new Error(`A Dockerfile must exist at ${options.directory}`);
+  }
+
   const childProcess = await startContainer(options.directory);
   try {
     const client = getModuleClient();

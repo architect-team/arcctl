@@ -78,11 +78,11 @@ export default class DatacenterV2 extends Datacenter {
 
   private convertToV2(data: any): DatacenterDataV2 {
     const modules: Record<string, any> = {};
-    for (const [key, value] of Object.entries(data.module)) {
+    for (const [key, value] of Object.entries(data.module || {})) {
       modules[key] = (value as any)[0] || value;
     }
     const variables: Record<string, any> = {};
-    for (const [key, value] of Object.entries(data.variable)) {
+    for (const [key, value] of Object.entries(data.variable || {})) {
       variables[key] = (value as any)[0] || value;
     }
     const datacenter: DatacenterDataV2 = {
@@ -98,7 +98,7 @@ export default class DatacenterV2 extends Datacenter {
       },
     };
 
-    if (data.environment[0]) {
+    if (data.environment?.length && data.environment[0]) {
       if (data.environment[0].module) {
         for (const [key, value] of Object.entries(data.environment[0].module)) {
           datacenter.environment.modules[key] = (value as any)[0] || value;
@@ -108,7 +108,7 @@ export default class DatacenterV2 extends Datacenter {
     }
 
     for (const type of COMPONENT_RESOURCES) {
-      if (data.environment[0][type]) {
+      if (data.environment?.length && data.environment[0][type]) {
         for (const entry of data.environment[0][type]) {
           const modules: Record<string, any> = {};
           for (const [key, value] of Object.entries(entry.module)) {

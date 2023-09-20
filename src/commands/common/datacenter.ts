@@ -178,7 +178,12 @@ export class DatacenterUtils {
 
   public async buildDatacenter(datacenter: Datacenter, context: string): Promise<Datacenter> {
     return await datacenter.build(async (build_options) => {
-      const module_path = path.join(path.dirname(context), build_options.context);
+      let module_path;
+      if (path.isAbsolute(path.dirname(context))) {
+        module_path = path.join(path.dirname(context), build_options.context);
+      } else {
+        module_path = path.join(Deno.cwd(), build_options.context);
+      }
       console.log(`Building module: ${module_path}`);
       return (await Build({
         directory: module_path,

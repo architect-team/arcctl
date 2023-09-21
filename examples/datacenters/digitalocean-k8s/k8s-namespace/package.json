@@ -1,5 +1,5 @@
 {
-    "name": "kcluster",
+    "name": "k8s-namespace",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^16"

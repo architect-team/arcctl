@@ -6,12 +6,11 @@ const config = new pulumi.Config();
 const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
-
 const name = config.require('name').replace(/\//g, '-');
 
-export const labels = {
-  "name": name,
-};
+export const labels = config.getObject('labels') || {} as any;
+labels['app'] = name;
+
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
     name: name,
@@ -30,7 +29,7 @@ const service = new kubernetes.core.v1.Service('service', {
     }]
   }
 }, {
-  provider
+  provider,
 });
 
 export const id = service.id;

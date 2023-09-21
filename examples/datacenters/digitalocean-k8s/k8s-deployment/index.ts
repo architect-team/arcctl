@@ -7,10 +7,9 @@ const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
 
-export const labels = {
-  ...(config.getObject('labels') || {}),
-  "name": config.require('name'),
-};
+export const labels = (config.getObject('labels') || {}) as any;
+labels['app'] = config.require('name');
+
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
     name: config.require('name'),
@@ -30,9 +29,10 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
         containers: [{
           name: 'main',
           image: config.require('image'),
+          command: config.getObject('command') || [],
           env: Object
             .entries(config.getObject('environment') || {})
-            .map(([name, value]) => ({ name, value })),
+            .map(([name, value]) => ({ name, value }) as { name: string; value: string; }),
         }],
       },
     },

@@ -63,17 +63,28 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
     stderr: 'piped',
   });
   const process = command.spawn();
-  // deno-lint-ignore no-async-promise-executor
-  return new Promise(async (resolve) => {
-    const writable = new WritableStream<Uint8Array>({
-      write: async (chunk) => {
-        const output = new TextDecoder().decode(chunk);
-        if (output.includes('Started server on port')) {
-          resolve(process);
-        }
-      },
-    });
-    process.stdout?.pipeTo(writable);
+
+  return new Promise((resolve, reject) => {
+    // Resolve once we see the server has started in the container.
+    process.stdout.pipeTo(
+      new WritableStream({
+        write: async (chunk) => {
+          const output = new TextDecoder().decode(chunk);
+          if (output.includes('Started server on port')) {
+            resolve(process);
+          }
+        },
+      }),
+    );
+
+    process.stderr.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          const error = new TextDecoder().decode(chunk);
+          reject(error);
+        },
+      }),
+    );
   });
 };
 

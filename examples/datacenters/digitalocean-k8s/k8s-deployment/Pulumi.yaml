@@ -1,3 +1,3 @@
-name: kcluster
+name: k8s-deployment
 runtime: nodejs
 description: A minimal DigitalOcean TypeScript Pulumi program

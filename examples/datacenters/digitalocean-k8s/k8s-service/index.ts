@@ -7,15 +7,18 @@ const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
 
-export const labels = {
-  ...(config.getObject('labels') || {}),
-  "name": config.require('name'),
-};
+export const labels = config.getObject('labels') || {} as any;
+
+labels['app'] = config.require('name');
+
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
     name: config.require('name'),
     namespace: config.require('namespace'),
     labels: labels as any,
+    annotations: {
+      'pulumi.com/skipAwait': 'true',
+    }
   },
   spec: {
     selector: {
@@ -26,7 +29,7 @@ const service = new kubernetes.core.v1.Service('service', {
     }]
   }
 }, {
-  provider
+  provider,
 });
 
 export const id = service.id;

@@ -74,6 +74,13 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     flag_vars[var_option[0]] = var_option[1];
   }
 
+  const envs = Deno.env.toObject();
+  for (const key of Object.keys(envs)) {
+    if (key.startsWith('ARC_')) {
+      flag_vars[key.replace('ARC_', '')] = envs[key];
+    }
+  }
+
   const existingDatacenter = await command_helper.datacenterStore.get(name);
   const originalPipeline = existingDatacenter ? existingDatacenter.lastPipeline : new Pipeline();
   const allEnvironments = await command_helper.environmentStore.find();

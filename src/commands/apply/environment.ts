@@ -7,12 +7,14 @@ type ApplyEnvironmentOptions = {
   datacenter?: string;
   verbose?: boolean;
   autoApprove: boolean;
+  refresh: boolean;
 } & GlobalOptions;
 
 const ApplyEnvironmentCommand = BaseCommand()
   .description('create or update an environment')
   .option('-d, --datacenter <datacenter:string>', 'Datacenter for the environment')
   .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
+  .option('-r, --refresh [refresh:boolean]', 'Force update all resources', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments(
     '<name:string> [config_path:string]',
@@ -36,13 +38,14 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     });
   }
 
-  const success = applyEnvironment({
+  const success = await applyEnvironment({
     command_helper,
     logger,
     name,
     autoApprove: options.autoApprove,
     datacenter: options.datacenter,
     targetEnvironment: await parseEnvironment(config_path || {}),
+    refresh: options.refresh,
   });
 
   if (!success) {

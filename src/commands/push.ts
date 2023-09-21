@@ -32,7 +32,24 @@ async function push_action(options: BuildOptions, tag: string): Promise<void> {
       }
     }
 
-    console.log(`Pushed image: ${image}`);
+    const { stdout } = await exec('docker', {
+      args: ['inspect', '--format=\'{{index .RepoDigests 0}}\'', image],
+    }); // Prints the repo digest wrapped in quotes, so remove those
+    const image_with_sha = stdout.replace(/'/g, '').trimEnd();
+
+    // Update the component so that it has a reference to the pushed sha
+    // This ensures the component digest is different and future deployments
+    // pick up changes.
+    const updated_component = await component.tag(async () => {
+      return image_with_sha;
+    }, async () => {
+      return image;
+    });
+
+    const component_digest = await command_helper.componentStore.add(updated_component);
+    command_helper.componentStore.tag(component_digest, tag);
+
+    console.log(`Pushed image: ${image_with_sha}`);
   });
 
   await command_helper.componentStore.push(tag);

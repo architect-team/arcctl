@@ -1,6 +1,6 @@
 import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import yaml from 'js-yaml';
-import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
+import { assertArrayIncludes, assertEquals, assertRejects } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import { ComponentStore } from '../../../component-store/index.ts';
@@ -643,7 +643,7 @@ describe('Environment schema: v1', () => {
         main:
           deployment: main
           port: 80
-      
+
       ingresses:
         main:
           service: main
@@ -799,7 +799,7 @@ describe('Environment schema: v1', () => {
       deployments:
         main:
           image: nginx:latest
-      
+
       services:
         main:
           deployment: main
@@ -863,5 +863,108 @@ describe('Environment schema: v1', () => {
         }),
       ],
     );
+  });
+
+  it('should error if dependencies cause a cycle', async () => {
+    const environment = await parseEnvironment(
+      yaml.load(`
+      components:
+        account/a:
+          source: account/a:latest
+    `) as Record<string, unknown>,
+    );
+
+    const component = `
+      version: v2
+      dependencies:
+        b:
+          component: account/b
+    `;
+
+    const dependency = `
+      version: v2
+      dependencies:
+        a:
+          component: account/a
+    `;
+
+    mockFile.prepareVirtualFile('/a/architect.yml', new TextEncoder().encode(component));
+    mockFile.prepareVirtualFile('/b/architect.yml', new TextEncoder().encode(dependency));
+
+    const tmp_dir = Deno.makeTempDirSync({ prefix: 'arc-store-' });
+    const store = new ComponentStore(tmp_dir, 'registry.architect.io');
+    const component_id = await store.add('/a/architect.yml');
+    store.tag(component_id, 'account/a:latest');
+    const dependency_id = await store.add('/a/architect.yml');
+    store.tag(dependency_id, 'account/b:latest');
+
+    assertRejects(async () => {
+      environment.getGraph('account/environment', store);
+    });
+  });
+
+  it('should succeed if implicit dependencies are declared explicitly', async () => {
+    // Note: This test exists because previously the cycle detection logic would think this was a
+    // circular dependency because it processed `account/dependency` as an implicit dependency multiple times.
+    // It's useful as a regression test to prevent explicit declaration of dependencies
+    // from ever tripping the cycle detection.
+    const environment = await parseEnvironment(
+      yaml.load(`
+      components:
+        account/dependency:
+          source: account/dependency:latest
+
+        account/component:
+          source: account/component:latest
+    `) as Record<string, unknown>,
+    );
+
+    const component = `
+      version: v2
+      dependencies:
+        b:
+          component: account/dependency
+          variables:
+            key:
+              - value1
+    `;
+
+    const dependency = `
+      version: v2
+
+      variables:
+        key:
+          merge: true
+    `;
+
+    mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component));
+    mockFile.prepareVirtualFile('/dependency/architect.yml', new TextEncoder().encode(dependency));
+
+    const tmp_dir = Deno.makeTempDirSync({ prefix: 'arc-store-' });
+    const store = new ComponentStore(tmp_dir, 'registry.architect.io');
+    const component_id = await store.add('/component/architect.yml');
+    store.tag(component_id, 'account/component:latest');
+    const dependency_id = await store.add('/dependency/architect.yml');
+    store.tag(dependency_id, 'account/dependency:latest');
+
+    const graph = await environment.getGraph('account/environment', store);
+
+    const secret_node = new CloudNode({
+      name: 'key',
+      component: 'account/dependency',
+      environment: 'account/environment',
+      inputs: {
+        type: 'secret',
+        name: CloudNode.genResourceId({
+          name: 'key',
+          component: 'account/dependency',
+          environment: 'account/environment',
+        }),
+        data: JSON.stringify(['value1']),
+        merge: true,
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [secret_node]);
   });
 });

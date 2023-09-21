@@ -14,6 +14,7 @@ export type ApplyEnvironmentOptions = {
   logger?: Logger;
   autoApprove?: boolean;
   debug?: boolean;
+  refresh?: boolean;
 };
 
 export const promptForDatacenter = async (command_helper: CommandHelper, name?: string): Promise<DatacenterRecord> => {
@@ -83,6 +84,7 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions): Promis
     before: startingPipeline,
     after: targetGraph,
     context: PlanContext.Environment,
+    refresh: options.refresh,
   }, options.command_helper.providerStore);
 
   pipeline.validate();

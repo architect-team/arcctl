@@ -238,9 +238,29 @@ export default class EnvironmentV1 extends Environment {
     // Replace all local values
     this.enrichLocal();
 
-    // Populate explicit components
     const found_components: Record<string, { component: Component; inputs: Record<string, string[]> }> = {};
     const implicit_dependencies: Record<string, Record<string, string[]>> = {};
+    function add_implicit_dependencies(component: Component, name: string, source: string) {
+      for (
+        const dependency of component.getDependencies(graph, {
+          environment: environment_name,
+          component: {
+            name,
+            source,
+            debug: debug,
+          },
+        })
+      ) {
+        implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
+        for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
+          implicit_dependencies[dependency.component][inputKey] =
+            implicit_dependencies[dependency.component][inputKey] || [];
+          implicit_dependencies[dependency.component][inputKey].push(...inputValues);
+        }
+      }
+    }
+
+    // Populate explicit components
     await Promise.all(
       Object.entries(this.components || {})
         .filter(([_, component_config]) => component_config.source)
@@ -250,23 +270,7 @@ export default class EnvironmentV1 extends Environment {
             try {
               const component = await parseComponent(source);
               found_components[component_key] = { component, inputs: {} };
-              for (
-                const dependency of component.getDependencies(graph, {
-                  environment: environment_name,
-                  component: {
-                    name: component_key,
-                    source,
-                    debug: debug,
-                  },
-                })
-              ) {
-                implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
-                for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
-                  implicit_dependencies[dependency.component][inputKey] =
-                    implicit_dependencies[dependency.component][inputKey] || [];
-                  implicit_dependencies[dependency.component][inputKey].push(...inputValues);
-                }
-              }
+              add_implicit_dependencies(component, component_key, source);
             } catch (err) {
               throw new Error(`Failed to load component: ${source}`);
             }
@@ -274,23 +278,7 @@ export default class EnvironmentV1 extends Environment {
             try {
               const component = await componentStore.getComponentConfig(component_config.source);
               found_components[component_key] = { component, inputs: {} };
-              for (
-                const dependency of component.getDependencies(graph, {
-                  environment: environment_name,
-                  component: {
-                    name: component_key,
-                    source: component_config.source,
-                    debug: debug,
-                  },
-                })
-              ) {
-                implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
-                for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
-                  implicit_dependencies[dependency.component][inputKey] =
-                    implicit_dependencies[dependency.component][inputKey] || [];
-                  implicit_dependencies[dependency.component][inputKey].push(...inputValues);
-                }
-              }
+              add_implicit_dependencies(component, component_key, component_config.source);
             } catch (err) {
               throw new Error(`Failed to get component: ${component_config.source}`);
             }
@@ -308,8 +296,6 @@ export default class EnvironmentV1 extends Environment {
           `Infinite dependency cycle found with: ${name}. Ensure the component does not declare itself as a dependency.`,
         );
       }
-      seen_dependencies.add(name);
-      delete implicit_dependencies[name];
 
       const component = await componentStore.getComponentConfig(`${name}:latest`);
       found_components[name] = found_components[name] || { component, inputs: {} };
@@ -326,24 +312,10 @@ export default class EnvironmentV1 extends Environment {
           source = path.dirname(source);
         }
       }
+      add_implicit_dependencies(component, name, source);
 
-      for (
-        const dependency of component.getDependencies(graph, {
-          environment: environment_name,
-          component: {
-            name: name,
-            source,
-            debug: debug,
-          },
-        })
-      ) {
-        implicit_dependencies[dependency.component] = implicit_dependencies[dependency.component] || {};
-        for (const [inputKey, inputValues] of Object.entries(dependency.inputs || {})) {
-          implicit_dependencies[dependency.component][inputKey] =
-            implicit_dependencies[dependency.component][inputKey] || [];
-          implicit_dependencies[dependency.component][inputKey].push(...inputValues);
-        }
-      }
+      seen_dependencies.add(name);
+      delete implicit_dependencies[name];
     }
 
     // Insert graph resources from found components

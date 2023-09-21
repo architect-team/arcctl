@@ -28,7 +28,12 @@ class ModuleClient {
       },
       body: JSON.stringify(body),
     });
-    return resp.json();
+
+    const result = await resp.json();
+    if (result.error) {
+      throw new Error(result.error);
+    }
+    return result;
   }
 
   public async Apply(body: ApplyRequest): Promise<ApplyResponse> {

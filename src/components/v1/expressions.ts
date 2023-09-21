@@ -21,7 +21,6 @@ const parseSecretRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: input_node_id,
-            required: true,
           }),
         );
         return `\${{ ${input_node_id}.data }}`;
@@ -65,12 +64,10 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: database_user_node.id,
             to: database_schema_node_id,
-            required: true,
           }),
           new CloudEdge({
             from: from_id,
             to: database_user_node.id,
-            required: true,
           }),
         );
 
@@ -99,7 +96,6 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: dependency_node_id,
-            required: true,
           }),
         );
         return `\${{ ${dependency_node_id}.value }}`;
@@ -128,7 +124,6 @@ const parseDependencyInterfaceRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: dependency_node_id,
-            required: true,
           }),
         );
 
@@ -158,7 +153,6 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: dependency_node_id,
-            required: true,
           }),
         );
         return `\${{ ${dependency_node_id}.${key} }}`;
@@ -187,7 +181,6 @@ const parseServiceInterfaceRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: service_node_id,
-            required: true,
           }),
         );
 
@@ -217,7 +210,6 @@ const parseComponentInterfaceRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: interface_node_id,
-            required: true,
           }),
         );
 
@@ -247,7 +239,6 @@ const parseComponentIngressRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: ingress_node_id,
-            required: true,
           }),
         );
         return `\${{ ${ingress_node_id}.${key} }}`;

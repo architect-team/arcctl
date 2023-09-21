@@ -51,7 +51,7 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
   const command = new Deno.Command('docker', {
     args: [
       'run',
-      '--rm',
+      //'--rm',
       '-p',
       '50051:50051',
       '-v',

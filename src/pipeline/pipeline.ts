@@ -53,7 +53,7 @@ const setNoopSteps = async (
       }
 
       try {
-        step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step, ""));
+        step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step, ''));
         const newHash = await step.getHash(providerStore);
         const previousHash = await previousStep?.getHash(providerStore);
         const doesHashMatch = newHash === previousHash;
@@ -79,10 +79,6 @@ const setNoopSteps = async (
 const checkCircularRequiredDependencies = (pipeline: Pipeline) => {
   const graph: Record<string, Set<string>> = {};
   for (const edge of pipeline.edges) {
-    if (!edge.required) {
-      continue;
-    }
-
     if (graph[edge.from] === undefined) {
       graph[edge.from] = new Set();
     }
@@ -198,7 +194,7 @@ export class Pipeline {
       )
       .filter((step) => {
         const isStepSeen = seenIds.includes(step.id);
-        const hasDeps = this.edges.some((edge) => edge.required && edge.from === step.id && !seenIds.includes(edge.to));
+        const hasDeps = this.edges.some((edge) => edge.from === step.id && !seenIds.includes(edge.to));
 
         return !isStepSeen && !hasDeps;
       });
@@ -288,7 +284,7 @@ export class Pipeline {
     return this.steps.filter(
       (step) =>
         step.id !== step_id &&
-        this.edges.some((edge) => edge.from === step_id && edge.to === step.id && edge.required),
+        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
     );
   }
 
@@ -296,7 +292,7 @@ export class Pipeline {
     return this.steps.filter(
       (step) =>
         step.id !== step_id &&
-        this.edges.some((edge) => edge.to === step_id && edge.from === step.id && edge.required),
+        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
     );
   }
 
@@ -385,7 +381,6 @@ export class Pipeline {
               new CloudEdge({
                 from: oldEdge.to,
                 to: oldEdge.from,
-                required: oldEdge.required,
               }),
             );
           }
@@ -394,12 +389,12 @@ export class Pipeline {
     }
 
     // Add edges for nodes being removed that are still valid
-    for (const potentialEdge of potentialEdges) {
-      const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
-      if (targetNode) {
-        pipeline.insertEdges(potentialEdge);
-      }
-    }
+    // for (const potentialEdge of potentialEdges) {
+    //   const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
+    //   if (targetNode) {
+    //     pipeline.insertEdges(potentialEdge);
+    //   }
+    // }
     return pipeline;
 
     // Check for nodes that can be no-op'd

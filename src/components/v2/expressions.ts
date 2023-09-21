@@ -22,7 +22,6 @@ const parseSecretRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: input_node_id,
-            required: true,
           }),
         );
         return `\${{ ${input_node_id}.data }}`;
@@ -66,12 +65,10 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: database_user_node.id,
             to: database_schema_node_id,
-            required: true,
           }),
           new CloudEdge({
             from: from_id,
             to: database_user_node.id,
-            required: true,
           }),
         );
 
@@ -102,7 +99,6 @@ const parseBuildRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: build_node_id,
-            required: true,
           }),
         );
 
@@ -132,7 +128,6 @@ const parseServiceRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: service_node_id,
-            required: true,
           }),
         );
 
@@ -162,7 +157,6 @@ const parseIngressRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: ingress_node_id,
-            required: true,
           }),
         );
 
@@ -196,7 +190,6 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: dependency_node_id,
-            required: true,
           }),
         );
         return `\${{ ${dependency_node_id}.value }}`;
@@ -231,7 +224,6 @@ const parseDependencyServiceRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: dependency_node_id,
-            required: true,
           }),
         );
 
@@ -267,7 +259,6 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
           new CloudEdge({
             from: from_id,
             to: dependency_node_id,
-            required: true,
           }),
         );
         return `\${{ ${dependency_node_id}.${key} }}`;

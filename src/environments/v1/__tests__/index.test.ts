@@ -191,14 +191,8 @@ describe('Environment schema: v1', () => {
 
     assertArrayIncludes(graph.edges, [
       new CloudEdge({
-        from: dependency_service_node_id,
-        to: dependency_deployment_node_id,
-        required: false,
-      }),
-      new CloudEdge({
         from: component_deployment_node_id,
         to: dependency_service_node_id,
-        required: true,
       }),
     ]);
   });
@@ -643,7 +637,7 @@ describe('Environment schema: v1', () => {
         main:
           deployment: main
           port: 80
-      
+
       ingresses:
         main:
           service: main
@@ -717,12 +711,10 @@ describe('Environment schema: v1', () => {
         new CloudEdge({
           from: secret_node.id,
           to: service_node_id,
-          required: true,
         }),
         new CloudEdge({
           from: secret_node.id,
           to: ingress_node_id,
-          required: true,
         }),
       ],
     );
@@ -799,7 +791,7 @@ describe('Environment schema: v1', () => {
       deployments:
         main:
           image: nginx:latest
-      
+
       services:
         main:
           deployment: main
@@ -859,7 +851,6 @@ describe('Environment schema: v1', () => {
         new CloudEdge({
           from: secret_node.id,
           to: service_node_id,
-          required: true,
         }),
       ],
     );

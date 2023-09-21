@@ -426,7 +426,6 @@ export default class ComponentV2 extends Component {
       for (const volume of volume_node_ids) {
         graph.insertEdges(
           new CloudEdge({
-            required: true,
             from: deployment_node.id,
             to: volume,
           }),
@@ -502,14 +501,8 @@ export default class ComponentV2 extends Component {
 
       graph.insertEdges(
         new CloudEdge({
-          from: service_node.id,
-          to: deployment_node.id,
-          required: false,
-        }),
-        new CloudEdge({
           from: deployment_node.id,
           to: service_node.id,
-          required: true,
         }),
       );
     }
@@ -569,7 +562,6 @@ export default class ComponentV2 extends Component {
         new CloudEdge({
           from: ingress_node.id,
           to: service_node.id,
-          required: true,
         }),
       );
     }

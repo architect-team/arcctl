@@ -13,7 +13,6 @@ describe('Pipeline', () => {
       new CloudEdge({
         from: 'a',
         to: 'b',
-        required: true,
       }),
     );
 
@@ -24,7 +23,6 @@ describe('Pipeline', () => {
         new CloudEdge({
           from: 'a',
           to: 'b',
-          required: true,
         }),
       ],
     );
@@ -36,7 +34,6 @@ describe('Pipeline', () => {
       new CloudEdge({
         from: 'a',
         to: 'b',
-        required: true,
       }),
     );
     pipeline.removeEdge({

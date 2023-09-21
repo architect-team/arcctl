@@ -89,7 +89,6 @@ export const testSecretIntegration = (
     new CloudEdge({
       from: deployment_node.id,
       to: secret_node.id,
-      required: true,
     }),
   ]);
 };
@@ -198,12 +197,10 @@ export const testDatabaseIntegration = (
     new CloudEdge({
       from: database_user_node.id,
       to: database_schema_node_id,
-      required: true,
     }),
     new CloudEdge({
       from: deployment_node.id,
       to: database_user_node.id,
-      required: true,
     }),
   ]);
 };
@@ -306,12 +303,10 @@ export const testServiceGeneration = (
     new CloudEdge({
       from: service_node.id,
       to: deployment_node.id,
-      required: false,
     }),
     new CloudEdge({
       from: deployment_node.id,
       to: service_node.id,
-      required: true,
     }),
   ]);
 };
@@ -365,7 +360,6 @@ export const testServiceIntegration = (
     new CloudEdge({
       from: second_deployment_node.id,
       to: first_service_node_id,
-      required: true,
     }),
   ]);
 };

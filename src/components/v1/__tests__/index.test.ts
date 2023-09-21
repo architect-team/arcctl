@@ -140,7 +140,6 @@ describe('Component Schema: v1', () => {
       new CloudEdge({
         from: app_node.id,
         to: api_node.id,
-        required: true,
       }),
     ]);
   });
@@ -329,7 +328,6 @@ describe('Component Schema: v1', () => {
       new CloudEdge({
         from: interface_node.id,
         to: deployment_node_id,
-        required: false,
       }),
     ]);
   });
@@ -442,7 +440,6 @@ describe('Component Schema: v1', () => {
       new CloudEdge({
         from: ingress_node.id,
         to: interface_node.id,
-        required: true,
       }),
     ]);
   });
@@ -520,7 +517,6 @@ describe('Component Schema: v1', () => {
       new CloudEdge({
         from: ingress_node.id,
         to: service_node.id,
-        required: true,
       }),
     ]);
   });

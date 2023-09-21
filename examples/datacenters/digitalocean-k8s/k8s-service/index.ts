@@ -7,19 +7,23 @@ const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
 
+const name = config.require('name').replace(/\//g, '-');
+
 export const labels = {
-  ...(config.getObject('labels') || {}),
-  "name": config.require('name'),
+  "name": name,
 };
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
-    name: config.require('name'),
+    name: name,
     namespace: config.require('namespace'),
     labels: labels as any,
+    annotations: {
+      "pulumi.com/skipAwait": "true"
+    },
   },
   spec: {
     selector: {
-      app: config.require('target_deployment'),
+      app: config.require('target_deployment').replace(/\//g, '-'),
     },
     ports: [{
       port: config.requireNumber('target_port'),
@@ -30,5 +34,6 @@ const service = new kubernetes.core.v1.Service('service', {
 });
 
 export const id = service.id;
-export const host = config.require('name');
+export const url = name;
+export const host = name;
 export const port = config.requireNumber('target_port');

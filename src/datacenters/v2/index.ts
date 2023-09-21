@@ -274,7 +274,6 @@ export default class DatacenterV2 extends Datacenter {
           id: `${node.id}-${toId}`,
           from: `${node.id}`,
           to: `${toId}`,
-          required: true,
         });
         return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
       });
@@ -369,7 +368,6 @@ export default class DatacenterV2 extends Datacenter {
                 id: `${id}-${toId}`,
                 from: `${id}`,
                 to: `${toId}`,
-                required: true,
               });
               return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
             });
@@ -394,7 +392,7 @@ export default class DatacenterV2 extends Datacenter {
         if (!hook) {
           return match;
         }
-        let to;
+        let to: string = '';
         if (!hook.outputs && Object.entries(hook.modules).length > 1) {
           throw new Error(`Missing outputs for hook: ${key_parts[0]}`);
         } else if (Object.entries(hook.modules).length === 1) {
@@ -424,11 +422,11 @@ export default class DatacenterV2 extends Datacenter {
           });
           to = `${path_parts[1]}/${key}/${id}`;
         }
+        //if (node.id.includes("tyleraldrich/twitter-clone/service/frontend"))
         resultGraph.insertEdges({
           id: `${node.id}-${to}`,
           from: `${node.id}`,
           to: `${to}`,
-          required: true,
         });
         key_parts.shift();
         return `\${{ ${[`${to}`, ...key_parts].join('.')} }}`;

@@ -218,7 +218,6 @@ export default class DatacenterV1 extends Datacenter {
             new CloudEdge({
               from: from_node_id,
               to: target_node_id,
-              required: true,
             }),
           );
 
@@ -252,7 +251,6 @@ export default class DatacenterV1 extends Datacenter {
             new CloudEdge({
               from: from_node_id,
               to: target_node_id,
-              required: true,
             }),
           );
 
@@ -287,7 +285,6 @@ export default class DatacenterV1 extends Datacenter {
             new CloudEdge({
               from: from_node_id,
               to: target_node_id,
-              required: true,
             }),
           );
 
@@ -326,7 +323,6 @@ export default class DatacenterV1 extends Datacenter {
             new CloudEdge({
               from: from_node_id,
               to: target_node_id,
-              required: true,
             }),
           );
 
@@ -556,7 +552,6 @@ export default class DatacenterV1 extends Datacenter {
                       new CloudEdge({
                         from: from_node_id,
                         to: target_node_id,
-                        required: true,
                       }),
                     );
 
@@ -584,7 +579,6 @@ export default class DatacenterV1 extends Datacenter {
                       new CloudEdge({
                         from: from_node_id,
                         to: target_node_id,
-                        required: true,
                       }),
                     );
 
@@ -619,7 +613,6 @@ export default class DatacenterV1 extends Datacenter {
                       new CloudEdge({
                         from: hook_node_id,
                         to: node.id,
-                        required: true,
                       }),
                     );
 
@@ -699,7 +692,6 @@ export default class DatacenterV1 extends Datacenter {
                         new CloudEdge({
                           from: hook_node_id,
                           to: node.id,
-                          required: true,
                         }),
                       );
 

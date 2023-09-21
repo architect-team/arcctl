@@ -234,7 +234,6 @@ describe('Component Schema: v2', () => {
       new CloudEdge({
         from: deployment_node.id,
         to: volume_node.id,
-        required: true,
       }),
     ]);
   });

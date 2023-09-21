@@ -175,7 +175,6 @@ export default class ComponentV1 extends Component {
           new CloudEdge({
             from: deployment_node_id,
             to: build_node.id,
-            required: true,
           }),
         );
 
@@ -237,7 +236,6 @@ export default class ComponentV1 extends Component {
                 new CloudEdge({
                   from: deployment_node.id,
                   to: volume_node.id,
-                  required: true,
                 }),
               );
 
@@ -296,14 +294,12 @@ export default class ComponentV1 extends Component {
           new CloudEdge({
             from: service_node.id,
             to: deployment_node.id,
-            required: false,
           }),
         );
         graph.insertEdges(
           new CloudEdge({
             from: deployment_node.id,
             to: service_node.id,
-            required: true,
           }),
         );
 
@@ -346,7 +342,6 @@ export default class ComponentV1 extends Component {
             new CloudEdge({
               from: ingress_node.id,
               to: service_node.id,
-              required: true,
             }),
           );
         }
@@ -366,7 +361,6 @@ export default class ComponentV1 extends Component {
               component: context.component.name,
               environment: context.environment,
             }),
-            required: true,
           }),
         );
       }
@@ -429,7 +423,6 @@ export default class ComponentV1 extends Component {
           new CloudEdge({
             from: cronjob_node_id,
             to: build_node.id,
-            required: true,
           }),
         );
 
@@ -484,7 +477,6 @@ export default class ComponentV1 extends Component {
                 new CloudEdge({
                   from: cronjob_node.id,
                   to: volume_node.id,
-                  required: true,
                 }),
               );
 
@@ -573,7 +565,6 @@ export default class ComponentV1 extends Component {
         new CloudEdge({
           from: interface_node.id,
           to: deployment_node_id,
-          required: false,
         }),
       );
 
@@ -608,7 +599,6 @@ export default class ComponentV1 extends Component {
           new CloudEdge({
             from: ingress_node.id,
             to: interface_node.id,
-            required: true,
           }),
         );
       }

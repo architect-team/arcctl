@@ -125,7 +125,6 @@ describe('Datacenter Schema: v1', () => {
       new CloudEdge({
         from: cluster_node.id,
         to: vpc_node.id,
-        required: true,
       }),
     ]);
   });
@@ -416,7 +415,6 @@ describe('Datacenter Schema: v1', () => {
       new CloudEdge({
         from: databaseNode.id,
         to: expectedDatabaseNode.id,
-        required: true,
       }),
     ]);
   });

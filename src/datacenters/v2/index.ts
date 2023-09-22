@@ -224,7 +224,7 @@ export default class DatacenterV2 extends Datacenter {
     graph: CloudGraph,
     resultGraph: CloudGraph,
     modules: Record<string, any>,
-    nodeLookup: Record<string, CloudNode>,
+    nodeNameToModuleLookup: Record<string, CloudNode>,
     options?: DatacenterEnrichmentOptions,
   ) {
     const nodes: CloudNode[] = [];
@@ -257,12 +257,12 @@ export default class DatacenterV2 extends Datacenter {
         type: 'module',
         inputs: this.convertToMustache(copied_value.inputs as any),
       });
-      nodeLookup[name] = nodes[nodes.length - 1];
+      nodeNameToModuleLookup[name] = nodes[nodes.length - 1];
     }
     for (const node of nodes) {
       this.replaceObject(node, (match, key) => {
         const key_parts = key.split('.');
-        const nodeTo = nodeLookup[key_parts[1]];
+        const nodeTo = nodeNameToModuleLookup[key_parts[1]];
         if (!nodeTo) {
           throw new Error(`Missing node for key: ${key_parts[1]}`);
         }
@@ -279,6 +279,104 @@ export default class DatacenterV2 extends Datacenter {
       });
     }
     resultGraph.insertNodes(...nodes);
+  }
+
+  private addHooks(
+    graph: CloudGraph,
+    resultGraph: CloudGraph,
+    nodeNameToModuleLookup: Record<string, CloudNode>,
+    options: DatacenterEnrichmentOptions,
+  ) {
+    const hookModuleNodes: CloudNode[] = [];
+    const moduleOutputContext: Record<string, string> = {};
+    for (const node of graph.nodes) {
+      for (const hook of this.datacenter.environment.hooks) {
+        const localHookModules: Record<string, CloudNode> = {};
+        const copied_hook = JSON.parse(JSON.stringify(hook));
+        applyContextRecursive(copied_hook, {
+          node: {
+            ...node,
+            type: node.inputs.type,
+          },
+          datacenter: {
+            name: options.datacenterName,
+          },
+          environment: {
+            name: options.environmentName,
+          },
+        });
+        if (copied_hook.when !== 'true') {
+          continue;
+        }
+        const lookupId = CloudNode.genId({
+          name: node.name,
+          type: node.inputs.type,
+          component: node.component,
+          environment: node.environment,
+        });
+        for (const [module_name, module] of Object.entries(copied_hook.modules)) {
+          const name = CloudNode.genId({
+            name: node.name,
+            type: module_name as any,
+            component: node.component,
+            environment: node.environment,
+          });
+          const moduleNode: CloudNode = {
+            account: undefined,
+            id: name,
+            resource_id: name,
+            name: name,
+            image: this.moduleImages[module_name],
+            type: 'module',
+            inputs: JSON.parse(JSON.stringify((module as any).inputs)),
+          };
+          localHookModules[module_name] = moduleNode;
+          hookModuleNodes.push(moduleNode);
+        }
+        // const hookOutputKeys = Object.keys(copied_hook.outputs);
+        // const missingKeys = hookOutputKeys.filter((k) => !resourceKeys.includes(k));
+        // if (missingKeys.length > 0) {
+        //   throw new Error(`Missing output keys: ${missingKeys.join(', ')}`);
+        // }
+        this.replaceObject(this.convertToMustache(copied_hook.outputs), (match, key) => {
+          const key_parts = key.split('.');
+          if (key_parts[0] !== 'module') {
+            return match;
+          }
+          const outputName = localHookModules[key_parts[1]]
+            ? localHookModules[key_parts[1]].name
+            : nodeNameToModuleLookup[key_parts[1]].name;
+          key_parts.shift();
+          key_parts.shift();
+          const identifier = key_parts.join('.');
+          const toId = `${outputName}.${identifier}`;
+          moduleOutputContext[`${lookupId}.${identifier}`] = toId;
+          return `\${{ ${toId} }}`;
+        });
+
+        // Only 1 hook can be used per module
+        break;
+      }
+    }
+    resultGraph.insertNodes(...hookModuleNodes);
+
+    for (const hookModuleNode of hookModuleNodes) {
+      this.replaceObject(hookModuleNode.inputs, (match: string, key: string) => {
+        if (!moduleOutputContext[key]) {
+          // TODO: Convert into error
+          console.log(`Missing module output for key: ${key}`);
+          return match;
+        }
+        const keyParts = key.split('.');
+        const id = keyParts[0];
+        resultGraph.insertEdges({
+          id: `${hookModuleNode.id}-${id}`,
+          from: `${hookModuleNode.id}`,
+          to: `${id}`,
+        });
+        return `\${{ ${moduleOutputContext[key]} }}`;
+      });
+    }
   }
 
   public enrichGraph(
@@ -298,141 +396,12 @@ export default class DatacenterV2 extends Datacenter {
       });
     }
     const resultGraph = new CloudGraph();
-    const nodeLookup: Record<string, CloudNode> = {};
-    this.addModules(graph, resultGraph, this.datacenter.modules, nodeLookup, options);
+    const nodeNameToModuleLookup: Record<string, CloudNode> = {};
+    this.addModules(graph, resultGraph, this.datacenter.modules, nodeNameToModuleLookup, options);
     if (options.environmentName && this.datacenter.environment && this.datacenter.environment.modules) {
-      this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeLookup, options);
+      this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeNameToModuleLookup, options);
     }
-    graph = JSON.parse(JSON.stringify(graph).replace('${{', '${').replace('}}', '}'));
-    graph.nodes.forEach((node) => {
-      if ('name' in node.inputs) {
-        const id = CloudNode.genId({
-          name: node.name,
-          type: node.inputs.type,
-          component: node.component,
-          environment: node.environment,
-        });
-        nodeLookup[id] = node;
-      }
-    });
-    const hookLookup: Record<string, HookV2> = {};
-    const nodes: CloudNode[] = [];
-    for (const node of graph.nodes) {
-      for (const hook of this.datacenter.environment.hooks) {
-        const copied_hook = JSON.parse(JSON.stringify(hook));
-        applyContextRecursive(copied_hook, {
-          node: {
-            ...node,
-            type: node.inputs.type,
-          },
-          datacenter: {
-            name: options.datacenterName,
-          },
-          environment: {
-            name: options.environmentName,
-          },
-        });
-        if (copied_hook.when === 'true') {
-          const id = CloudNode.genId({
-            name: node.name,
-            type: node.inputs.type,
-            component: node.component,
-            environment: node.environment,
-          });
-          hookLookup[id] = hook;
-          for (
-            const [module_name, module] of Object.entries(
-              {
-                ...copied_hook,
-              }.modules,
-            )
-          ) {
-            const name = `${id}`;
-            const duplicated_inputs = this.convertToMustache({
-              ...(module as any).inputs,
-            });
-            this.replaceObject(duplicated_inputs, (match, key) => {
-              const key_parts = key.split('.');
-              if (key_parts[0] !== 'module') {
-                return match;
-              }
-              const nodeTo = nodeLookup[key_parts[1]];
-              if (!nodeTo) {
-                throw new Error(`Missing node for key: ${key_parts[1]}`);
-              }
-              const toId = CloudNode.genId({
-                name: nodeTo.name,
-                type: nodeTo.inputs.type || 'module',
-              });
-              resultGraph.insertEdges({
-                id: `${id}-${toId}`,
-                from: `${id}`,
-                to: `${toId}`,
-              });
-              return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
-            });
-            nodes.push({
-              account: undefined,
-              id: name,
-              resource_id: name,
-              name: name,
-              image: this.moduleImages[module_name],
-              type: 'module',
-              inputs: duplicated_inputs,
-            });
-          }
-        }
-      }
-    }
-    for (const node of nodes) {
-      this.replaceObject(node, (match, key) => {
-        const key_parts = key.split('.');
-        const hook = hookLookup[key_parts[0]];
-        const nodeTo = nodeLookup[key_parts[0]];
-        if (!hook) {
-          return match;
-        }
-        let to: string = '';
-        if (!hook.outputs && Object.entries(hook.modules).length > 1) {
-          throw new Error(`Missing outputs for hook: ${key_parts[0]}`);
-        } else if (Object.entries(hook.modules).length === 1) {
-          const key = Object.keys(hook.modules)[0];
-          const id = CloudNode.genId({
-            name: nodeTo.name,
-            type: nodeTo.inputs.type,
-            component: nodeTo.component,
-            environment: nodeTo.environment,
-          });
-          to = id;
-        } else {
-          if (!key_parts[1]) {
-            key_parts.push('id');
-          }
-          const path = hook.outputs[key_parts[1]];
-          if (!path) {
-            console.log(`Missing output for key: ${key_parts}`);
-          }
-          const path_parts = path.split('.');
-          const key = Object.keys(hook.modules)[0];
-          const id = CloudNode.genId({
-            name: nodeTo.name,
-            type: nodeTo.inputs.type,
-            component: nodeTo.component,
-            environment: nodeTo.environment,
-          });
-          to = `${path_parts[1]}/${key}/${id}`;
-        }
-        //if (node.id.includes("tyleraldrich/twitter-clone/service/frontend"))
-        resultGraph.insertEdges({
-          id: `${node.id}-${to}`,
-          from: `${node.id}`,
-          to: `${to}`,
-        });
-        key_parts.shift();
-        return `\${{ ${[`${to}`, ...key_parts].join('.')} }}`;
-      });
-      resultGraph.insertNodes(node);
-    }
+    this.addHooks(graph, resultGraph, nodeNameToModuleLookup, options);
     return Promise.resolve(resultGraph);
   }
 

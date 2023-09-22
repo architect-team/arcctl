@@ -11,3 +11,4 @@ config:
   gcp:credentials: |-
     /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
   gcp:project: permanent-environment-testing
+  gcp:region: us-central1

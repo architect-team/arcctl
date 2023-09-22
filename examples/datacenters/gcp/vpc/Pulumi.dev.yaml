@@ -1,0 +1,8 @@
+encryptionsalt: v1:+cK6kPriK8U=:v1:WVx1854p79Z15XmM:+AhAHYAv/bhpUbcSS5vQK+FvLsG4Hg==
+config:
+  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
+  gcp:project: permanent-environment-testing
+  gcp:region: us-central1
+  vpc:description: ryan
+  vpc:name: ryan
+  vpc:region: us-central1

@@ -1,0 +1,9 @@
+encryptionsalt: v1:uG0rIZ1ESDI=:v1:t4DTG39EhIcvWmUm:YtqP/91m0DqaXXzqyNpJRKFJCg8dtA==
+config:
+  gceDeployment:image: ryancahill444/hello-world
+  gceDeployment:labels: '{"vpc":"ryan","zone":"us-central1-a"}'
+  gceDeployment:name: test-deployment
+  gceDeployment:services: '[{"port":3000,"protocol":"http","id":"test-id"}]'
+  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
+  gcp:project: permanent-environment-testing
+  gcp:region: us-central1

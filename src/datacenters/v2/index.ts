@@ -337,8 +337,8 @@ export default class DatacenterV2 extends Datacenter {
 
         const schemaDefinition = OutputsSchema[node.inputs.type].definitions;
         const schema = Object.entries(schemaDefinition)[0][1];
-        if ('properties' in schema) {
-          const schemaDefinitionKeys = Object.keys(schema.properties as any);
+        if ('required' in schema) {
+          const schemaDefinitionKeys = Object.values(schema.required as any);
           const hookOutputKeys = Object.keys(copied_hook.outputs);
           const missingKeys = schemaDefinitionKeys.filter((k) => !hookOutputKeys.includes(k));
           if (missingKeys.length > 0) {

@@ -1,0 +1,19 @@
+{
+  "$ref": "#/definitions/DeploymentOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DeploymentOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "A set of labels that were used to annotate the cloud resource",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

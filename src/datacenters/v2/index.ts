@@ -1,4 +1,5 @@
 import { InputSchema, ResourceInputs } from '../../@resources/index.ts';
+import OutputsSchema from '../../@resources/outputs-schema.ts';
 import { CloudGraph } from '../../cloud-graph/graph.ts';
 import { CloudNode } from '../../cloud-graph/node.ts';
 import {
@@ -333,11 +334,18 @@ export default class DatacenterV2 extends Datacenter {
           localHookModules[module_name] = moduleNode;
           hookModuleNodes.push(moduleNode);
         }
-        // const hookOutputKeys = Object.keys(copied_hook.outputs);
-        // const missingKeys = hookOutputKeys.filter((k) => !resourceKeys.includes(k));
-        // if (missingKeys.length > 0) {
-        //   throw new Error(`Missing output keys: ${missingKeys.join(', ')}`);
-        // }
+
+        const schemaDefinition = OutputsSchema[node.inputs.type].definitions;
+        const schema = Object.entries(schemaDefinition)[0][1];
+        if ('properties' in schema) {
+          const schemaDefinitionKeys = Object.keys(schema.properties as any);
+          const hookOutputKeys = Object.keys(copied_hook.outputs);
+          const missingKeys = schemaDefinitionKeys.filter((k) => !hookOutputKeys.includes(k));
+          if (missingKeys.length > 0) {
+            throw new Error(`Missing output keys: ${missingKeys.join(', ')} for ${node.id}`);
+          }
+        }
+
         this.replaceObject(this.convertToMustache(copied_hook.outputs), (match, key) => {
           const key_parts = key.split('.');
           if (key_parts[0] !== 'module') {

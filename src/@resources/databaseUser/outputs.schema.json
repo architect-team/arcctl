@@ -1,0 +1,45 @@
+{
+  "$ref": "#/definitions/DatabaseUserApplyOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DatabaseUserApplyOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol",
+        "host",
+        "port",
+        "database",
+        "username",
+        "password",
+        "url"
+      ],
+      "type": "object"
+    }
+  }
+}

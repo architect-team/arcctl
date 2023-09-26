@@ -1,8 +1,0 @@
-encryptionsalt: v1:ziH72Mb8EqM=:v1:Wvo2CeKd+Hj0SOps:GRi+Nf1zHqw8hr+qpq3ZJ3iNquMSpQ==
-config:
-  digitalocean:token:
-    secure: v1:6ziOcSRzYvCBqjU5:tV5WdPETh2X7kF0CQW+HZyA0Je5kuQuAvB5vDwwh1Cqo9KLjBLNqf+dOPLKAeK6Qav745s/FqOfcgU3MyO8ZdggZSk49rNM+XLb1OgW9HF/cPeNvbB5S
-  kcluster:vpc-id:
-    secure: v1:undue+2VQoJheOfw:eVY2C8m+uCIsc4SxBdjegY4GcGo63yBIhCTlC05bYS8ibv25EHh3vGsnrzab4WW+2kuWSw==
-  vpc:id:
-    secure: v1:JhdEKGgbjXGxmR9Y:I1O9PV1Pwc6aCFqIW3Gmdfpk99tFkGyZ/eBjNaep0nE1JX9v0upz7EKQl9O/6ZtW1grBiw==

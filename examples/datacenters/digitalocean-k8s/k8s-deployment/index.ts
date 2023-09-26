@@ -7,12 +7,14 @@ const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
 
+const name = config.require('name').replace(/\//g, '-');
+
 export const labels = (config.getObject('labels') || {}) as any;
-labels['app'] = config.require('name');
+labels['app'] = name;
 
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
-    name: config.require('name'),
+    name,
     namespace: config.require('namespace'),
     labels: labels as any,
   },
@@ -42,3 +44,4 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
 });
 
 export const id = deployment.id;
+export const url = name;

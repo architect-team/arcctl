@@ -1,14 +1,13 @@
-import * as digitalocean from "@pulumi/digitalocean";
 import * as pulumi from "@pulumi/pulumi";
 
 let config = new pulumi.Config();
 
-const database = new digitalocean.DatabaseCluster("my-database", {
-  engine: config.get('databaseType')!,
-  version: config.get('databaseVersion')!,
-  nodeCount: 1,
-  region: config.get('region')!,
-  size: 'db-s-1vcpu-2gb',
-});
-
-export const id = database.id.apply(id => id.toString());
+export const id = "";
+export const host = "host"
+export const port = 3333
+export const name = "host"
+export const protocol = "host"
+export const account = "host"
+export const username = "host"
+export const password = "host"
+export const url = "host"

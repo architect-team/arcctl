@@ -391,7 +391,7 @@ export default class DatacenterV2 extends Datacenter {
         keyParts.shift();
         const identifier = keyParts.join('.');
         if (nodeNameToModuleLookup[id]) {
-          return `\${{ ${nodeNameToModuleLookup[id].name}.${identifier} }}`;
+          return `\${{ module/${nodeNameToModuleLookup[id].name}.${identifier} }}`;
         }
         console.log(`Could not find module for key: ${key}`);
         return match;

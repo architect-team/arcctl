@@ -153,6 +153,7 @@ export class Pipeline {
       const step = this.steps.find((s) => s.id === step_id);
       const outputs = step?.outputs;
       if (!step || !outputs) {
+        console.log(JSON.stringify(this.steps.map(step => step.id), null, 2));
         throw new Error(`Missing outputs for ${ref} in ${step_name}`);
       } else if ((outputs as any)[key] === undefined) {
         throw new Error(

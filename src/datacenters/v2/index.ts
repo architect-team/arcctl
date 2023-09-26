@@ -351,15 +351,20 @@ export default class DatacenterV2 extends Datacenter {
           if (key_parts[0] !== 'module') {
             return match;
           }
-          const outputName = localHookModules[key_parts[1]]
-            ? localHookModules[key_parts[1]].name
-            : nodeNameToModuleLookup[key_parts[1]].name;
-          key_parts.shift();
-          key_parts.shift();
-          const identifier = key_parts.join('.');
-          const toId = `${outputName}.${identifier}`;
-          moduleOutputContext[`${lookupId}.${identifier}`] = toId;
-          return `\${{ ${toId} }}`;
+          try {
+            const outputName = localHookModules[key_parts[1]]
+              ? localHookModules[key_parts[1]].name
+              : nodeNameToModuleLookup[key_parts[1]].name;
+            key_parts.shift();
+            key_parts.shift();
+            const identifier = key_parts.join('.');
+            const toId = `${outputName}.${identifier}`;
+            moduleOutputContext[`${lookupId}.${identifier}`] = toId;
+            return `\${{ ${toId} }}`;
+          } catch (err) {
+            console.log(`Couold not find module output for key: ${key_parts[1]}`);
+            throw err;
+          }
         });
 
         // Only 1 hook can be used per module
@@ -369,20 +374,27 @@ export default class DatacenterV2 extends Datacenter {
     resultGraph.insertNodes(...hookModuleNodes);
 
     for (const hookModuleNode of hookModuleNodes) {
-      this.replaceObject(hookModuleNode.inputs, (match: string, key: string) => {
-        if (!moduleOutputContext[key]) {
-          // TODO: Convert into error
-          console.log(`Missing module output for key: ${key}`);
-          return match;
+      this.replaceObject(this.convertToMustache(hookModuleNode.inputs), (match: string, key: string) => {
+        if (moduleOutputContext[key]) {
+          const keyParts = key.split('.');
+          const id = keyParts[0];
+          resultGraph.insertEdges({
+            id: `${hookModuleNode.id}-${id}`,
+            from: `${hookModuleNode.id}`,
+            to: `${id}`,
+          });
+          return `\${{ ${moduleOutputContext[key]} }}`;
         }
         const keyParts = key.split('.');
-        const id = keyParts[0];
-        resultGraph.insertEdges({
-          id: `${hookModuleNode.id}-${id}`,
-          from: `${hookModuleNode.id}`,
-          to: `${id}`,
-        });
-        return `\${{ ${moduleOutputContext[key]} }}`;
+        const id = keyParts[1];
+        keyParts.shift();
+        keyParts.shift();
+        const identifier = keyParts.join('.');
+        if (nodeNameToModuleLookup[id]) {
+          return `\${{ ${nodeNameToModuleLookup[id].name}.${identifier} }}`;
+        }
+        console.log(`Could not find module for key: ${key}`);
+        return match;
       });
     }
   }

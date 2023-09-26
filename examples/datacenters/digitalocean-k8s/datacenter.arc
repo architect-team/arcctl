@@ -76,8 +76,13 @@ environment {
 
     outputs = {
       id = module.service.id
+      name = module.service.target_port
+      protocol = module.service.protocol
       host = module.service.host
       port = module.service.port
+      url = module.service.url
+      target_port = module.service.target_port
+      account = module.service.account
     }
   }
 }

@@ -153,7 +153,7 @@ export class Pipeline {
       const step = this.steps.find((s) => s.id === step_id);
       const outputs = step?.outputs;
       if (!step || !outputs) {
-        console.log(JSON.stringify(this.steps.map(step => step.id), null, 2));
+        console.log(JSON.stringify(this.steps.map((step) => step.id), null, 2));
         throw new Error(`Missing outputs for ${ref} in ${step_name}`);
       } else if ((outputs as any)[key] === undefined) {
         console.log(JSON.stringify(step, null, 2));
@@ -365,8 +365,14 @@ export class Pipeline {
         continue;
       }
 
-      const newNode = options.after.nodes.find((n) => previousStep.id.startsWith(n.id));
+      const newNode = options.after.nodes.find((n) =>
+        previousStep.id.startsWith('module/' + n.id) || previousStep.id.startsWith(n.id)
+      );
       if (!newNode) {
+        console.log(`Removing ${previousStep.id}`);
+        console.log(JSON.stringify(previousStep, null, 2));
+        console.log(JSON.stringify(options.after.nodes.map((node) => node.id), null, 2));
+        console.log(JSON.stringify(options.before.steps.map((node) => node.id), null, 2));
         const rmStep = new PipelineStep({
           ...previousStep,
           action: 'delete',

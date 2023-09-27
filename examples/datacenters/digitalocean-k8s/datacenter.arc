@@ -59,6 +59,9 @@ environment {
       source = "./database"
       inputs = merge(node.inputs, {
         region = variable.region
+        digitalocean = {
+          token = variable.dotoken
+        }
       })
     }
 
@@ -79,6 +82,9 @@ environment {
       source = "./databaseUser"
       inputs = merge(node.inputs, {
         region = variable.region
+        digitalocean = {
+          token = variable.dotoken
+        }
       })
     }
 

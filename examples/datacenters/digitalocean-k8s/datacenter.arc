@@ -91,6 +91,7 @@ environment {
       username = module.databaseUser.username
       password = module.databaseUser.password
       url = module.databaseUser.url
+      database = "test"
     }
   }
 

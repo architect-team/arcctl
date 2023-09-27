@@ -4,6 +4,7 @@ import * as pulumi from "@pulumi/pulumi";
 let config = new pulumi.Config();
 
 const database = new digitalocean.DatabaseCluster("my-database", {
+  name: config.get('databaseName')!,
   engine: config.get('databaseType')!,
   version: config.get('databaseVersion')!,
   nodeCount: 1,

@@ -51,6 +51,7 @@ const COMPONENT_RESOURCES = [
   'service',
   'ingressRule',
   'database',
+  'databaseUser',
   'secret',
 ];
 
@@ -108,6 +109,7 @@ export default class DatacenterV2 extends Datacenter {
       }
     }
 
+    console.log(COMPONENT_RESOURCES);
     for (const type of COMPONENT_RESOURCES) {
       if (data.environment?.length && data.environment[0][type]) {
         for (const entry of data.environment[0][type]) {
@@ -290,7 +292,11 @@ export default class DatacenterV2 extends Datacenter {
   ) {
     const hookModuleNodes: CloudNode[] = [];
     const moduleOutputContext: Record<string, string> = {};
+    // console.log(JSON.stringify(this.datacenter.environment.hooks, null, 2));
     for (const node of graph.nodes) {
+      // if (node.inputs.type === 'databaseUser') {
+      //   console.log('=================');
+      // }
       for (const hook of this.datacenter.environment.hooks) {
         const localHookModules: Record<string, CloudNode> = {};
         const copied_hook = JSON.parse(JSON.stringify(hook));
@@ -306,6 +312,10 @@ export default class DatacenterV2 extends Datacenter {
             name: options.environmentName,
           },
         });
+        // if (node.inputs.type === 'databaseUser') {
+        //   console.log(JSON.stringify(copied_hook, null, 2));
+        //   console.log(JSON.stringify(hook, null, 2));
+        // }
         if (copied_hook.when !== 'true') {
           continue;
         }

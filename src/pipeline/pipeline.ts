@@ -156,6 +156,7 @@ export class Pipeline {
         console.log(JSON.stringify(this.steps.map(step => step.id), null, 2));
         throw new Error(`Missing outputs for ${ref} in ${step_name}`);
       } else if ((outputs as any)[key] === undefined) {
+        console.log(JSON.stringify(step, null, 2));
         throw new Error(
           `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
         );

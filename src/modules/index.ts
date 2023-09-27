@@ -1,5 +1,11 @@
+import { Logger } from 'winston';
+
 export type BuildRequest = {
   directory: string;
+};
+
+export type BuildOptions = {
+  verbose?: boolean;
 };
 
 export type BuildResponse = {
@@ -10,48 +16,64 @@ export type ApplyRequest = {
   datacenterid: string;
   image: string;
   inputs: [string, string][];
-  pulumistate?: string;
+  state?: string;
   destroy?: boolean;
 };
 
 export type ApplyResponse = {
-  pulumistate: string;
+  state: string;
   outputs: Record<string, string>;
 };
 
-class ModuleClient {
-  public async Build(body: BuildRequest): Promise<BuildResponse> {
-    const resp = await fetch('http://localhost:50051/build', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
+export type ApplyOptions = {
+  logger?: Logger;
+};
+
+function wsPromise(
+  command: string,
+  request: BuildRequest | ApplyRequest,
+  verbose: boolean,
+  logger?: Logger,
+): Promise<BuildResponse | ApplyResponse> {
+  return new Promise((resolve, reject) => {
+    const socket = new WebSocket('ws://localhost:50051/ws');
+    socket.addEventListener('open', () => {
+      socket.send(JSON.stringify({
+        command,
+        request,
+      }));
     });
 
-    const result = await resp.json();
-    if (result.error) {
-      throw new Error(result.error);
-    }
-    return result;
+    socket.addEventListener('message', (event) => {
+      try {
+        const evt = JSON.parse(event.data);
+        if (evt.verboseOutput) {
+          if (verbose) {
+            console.log(evt.verboseOutput);
+          } else if (logger) {
+            logger.info(evt.verboseOutput);
+          }
+        } else if (evt.error) {
+          reject(evt.error);
+        } else if (evt.result) {
+          resolve(evt.result);
+        }
+      } catch (e) {
+        // Failed to parse message, invalid response
+        reject(e);
+      }
+    });
+  });
+}
+
+class ModuleClient {
+  public async Build(buildRequest: BuildRequest, options?: BuildOptions): Promise<BuildResponse> {
+    const verbose = Boolean(options && options.verbose);
+    return wsPromise('build', buildRequest, verbose) as Promise<BuildResponse>;
   }
 
-  public async Apply(body: ApplyRequest): Promise<ApplyResponse> {
-    const resp = await fetch('http://localhost:50051/apply', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-
-    const result = await resp.json();
-    console.log('Result');
-    console.log(result);
-    if (result.error) {
-      throw new Error(result.error);
-    }
-    return result;
+  public async Apply(applyRequest: ApplyRequest, options?: ApplyOptions): Promise<ApplyResponse> {
+    return wsPromise('apply', applyRequest, false, options?.logger) as Promise<ApplyResponse>;
   }
 }
 
@@ -105,17 +127,17 @@ const stopContainer = async (child: Deno.ChildProcess): Promise<void> => {
   await child.status;
 };
 
-export const Build = async (options: { directory: string }) => {
+export const Build = async (request: BuildRequest, options: BuildOptions) => {
   try {
-    Deno.statSync(`${options.directory}/Dockerfile`);
+    Deno.statSync(`${request.directory}/Dockerfile`);
   } catch (err) {
-    throw new Error(`A Dockerfile must exist at ${options.directory}`);
+    throw new Error(`A Dockerfile must exist at ${request.directory}`);
   }
 
-  const childProcess = await startContainer(options.directory);
+  const childProcess = await startContainer(request.directory);
   try {
     const client = getModuleClient();
-    const response = await client.Build(options);
+    const response = await client.Build(request, options);
     await stopContainer(childProcess);
     return response;
   } catch (e) {
@@ -125,18 +147,21 @@ export const Build = async (options: { directory: string }) => {
 };
 
 export const Apply = async (
-  options: {
+  request: {
     datacenterid: string;
     image: string;
     inputs: [string, string][];
-    pulumistate?: string;
+    state?: string;
     destroy?: boolean;
+  },
+  options: {
+    logger?: Logger;
   },
 ): Promise<ApplyResponse> => {
   const childProcess = await startContainer();
   try {
     const client = getModuleClient();
-    const response = await client.Apply(options);
+    const response = await client.Apply(request, { logger: options.logger });
     await stopContainer(childProcess);
     return response;
   } catch (e) {

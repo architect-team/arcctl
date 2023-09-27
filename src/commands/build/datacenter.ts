@@ -42,9 +42,8 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
   datacenter = await datacenter.build(async (build_options) => {
     console.log(`Building module: ${build_options.context}`);
-    return (await Build({
-      directory: path.join(context, build_options.context),
-    })).image!;
+    const build = await Build({ directory: path.join(context, build_options.context) }, { verbose: options.verbose });
+    return build.image;
   });
 
   const digest = await command_helper.datacenterStore.add(datacenter);

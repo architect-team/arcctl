@@ -120,7 +120,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     }, {});
   }
 
-  public applyModule(): Observable<PipelineStep<T>> {
+  public applyModule(options: ApplyOptions): Observable<PipelineStep<T>> {
     return new Observable((subscriber) => {
       this.status.state = 'applying';
       this.status.startTime = Date.now();
@@ -129,10 +129,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         datacenterid: 'datacenter',
         inputs: Object.entries(inputs) as [string, string][],
         image: this.image!,
-        pulumistate: this.state,
+        state: this.state,
         destroy: this.action === 'delete',
-      }).then((response: ApplyResponse) => {
-        this.state = this.action === 'delete' ? undefined : response.pulumistate;
+      }, { logger: options.logger }).then((response: ApplyResponse) => {
+        this.state = this.action === 'delete' ? undefined : response.state;
         this.outputs = response.outputs as any || {};
         this.status.state = 'complete';
         this.status.endTime = Date.now();
@@ -150,7 +150,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
   public apply(options: ApplyOptions): Observable<PipelineStep<T>> {
     if (this.type === 'module') {
-      return this.applyModule();
+      return this.applyModule(options);
     }
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 

@@ -66,7 +66,6 @@ export type ResourceType =
   | 'ingressRule'
   | 'kubernetesCluster'
   | 'kubernetesVersion'
-  | 'module'
   | 'namespace'
   | 'node'
   | 'nodeSize'
@@ -75,7 +74,8 @@ export type ResourceType =
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc';
+  | 'vpc'
+;
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
@@ -94,7 +94,6 @@ export const ResourceTypeList: ResourceType[] = [
   'ingressRule',
   'kubernetesCluster',
   'kubernetesVersion',
-  'module',
   'namespace',
   'node',
   'nodeSize',
@@ -171,10 +170,6 @@ export type ResourceInputs = {
     type: 'kubernetesVersion';
     account?: string;
   } & kubernetesVersionInputs;
-  'module': {
-    type: 'module';
-    account?: string;
-  };
   'namespace': {
     type: 'namespace';
     account?: string;
@@ -262,9 +257,6 @@ export type ResourceOutputs = {
   'kubernetesVersion': {
     id: string;
   } & kubernetesVersionOutputs;
-  'module': {
-    id: string;
-  };
   'namespace': {
     id: string;
   } & namespaceOutputs;

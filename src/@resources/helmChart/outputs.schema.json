@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/HelmChartOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "HelmChartOutputs": {
+      "additionalProperties": {},
+      "type": "object"
+    }
+  }
+}

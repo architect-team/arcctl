@@ -8,8 +8,23 @@ const provider = new kubernetes.Provider("provider", {
 });
 const name = config.require('name').replace(/\//g, '-');
 
-export const labels = config.getObject('labels') || {} as any;
-labels['app'] = name;
+const flatten = (obj: any, prefix: string = ''): any => {
+  const result: any = {};
+  for (const key of Object.keys(obj)) {
+    const value = obj[key];
+    if (typeof value === 'object') {
+      Object.assign(result, flatten(value, `${prefix}${key}.`));
+    } else {
+      result[`${prefix}${key}`.replace(/\//g, '-')] = value.replace(/\//g, '-');
+    }
+  }
+  return result;
+}
+
+export const labels = flatten(config.getObject('labels') || {} as any);
+labels['app'] = name.replace(/\//g, '-');
+
+pulumi.log.info(JSON.stringify(labels));
 
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {

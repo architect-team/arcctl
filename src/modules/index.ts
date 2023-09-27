@@ -46,6 +46,8 @@ class ModuleClient {
     });
 
     const result = await resp.json();
+    console.log('Result');
+    console.log(result);
     if (result.error) {
       throw new Error(result.error);
     }

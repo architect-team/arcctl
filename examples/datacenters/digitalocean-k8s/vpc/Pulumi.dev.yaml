@@ -1,6 +1,0 @@
-encryptionsalt: v1:JEOx0UsXJDg=:v1:IFjltjor3J3rodfn:6ADRwihdYaGvtaV42GNhFPIpvZ2tOQ==
-config:
-  digitalocean:token:
-    secure: v1:5IKiYRZRvWK1O/Fg:PJfgAKFnvVuGdv6fogfzt7NsM4VaJj1TqG+6mLqLdIAjcatqBZ6XbOqEAdpZieHA78hG4t+8d1xW+R/yOne1e1QzdADESzxI2qaSWkZ159HtN+8u6+I7
-  vpc:token:
-    secure: v1:IkobMl2Q/fcV4fVh:8B3bSEyTQHwZWwbYR1Hvv+4NTGAKCYkQYcZ1gF78+iV13dMpiS1ns5WZNijo7exysXh8cHZIYtn/p9u1JrwocIMmst9gzGvSDt9xkvTKGoZnfHz0onRs

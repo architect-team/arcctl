@@ -118,6 +118,8 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       context: PlanContext.Datacenter,
     }, command_helper.providerStore);
 
+    //console.log(JSON.stringify(targetGraph, null, 2));
+
     pipeline.validate();
     await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
 

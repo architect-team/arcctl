@@ -3,7 +3,7 @@ import * as pulumi from "@pulumi/pulumi";
 
 let config = new pulumi.Config();
 const name = config.get('name')!;
-const data = config.get('data')!;
+const configData = config.get('data')!;
 const namespace = config.get('namespace')!;
 
 const secret = new k8s.core.v1.Secret(name, {
@@ -12,8 +12,9 @@ const secret = new k8s.core.v1.Secret(name, {
     namespace: namespace,
   },
   data: {
-    "data": data,
+    "data": configData,
   },
 });
 
-export const id = secret.id.apply(id => id.toString());
+export const id = secret.id;
+export const data = configData;

@@ -32,12 +32,66 @@ module "k8s" {
   }
 }
 
+module "databaseCluster" {
+  source = "./databaseCluster"
+  inputs = {
+    name = "${datacenter.name}-database"
+    databaseType = "pg"
+    databaseVersion = 14
+    region = variable.region
+    digitalocean = {
+      token = variable.dotoken
+    }
+  }
+}
+
 environment {
   module "namespace" {
     source = "./k8s-namespace"
     inputs = {
       name = environment.name
       kubeconfig = module.k8s.kubeconfig
+    }
+  }
+
+  database {
+    module "database" {
+      source = "./database"
+      inputs = merge(node.inputs, {
+        region = variable.region
+      })
+    }
+
+    outputs = {
+      host = module.database.host
+      port = module.database.port
+      name = module.database.name
+      protocol = module.database.protocol
+      account = module.database.account
+      username = module.database.username
+      password = module.database.password
+      url = module.database.url
+    }
+  }
+
+  databaseUser {
+    module "databaseUser" {
+      source = "./databaseUser"
+      inputs = merge(node.inputs, {
+        region = variable.region
+      })
+    }
+
+    outputs = {
+      host = module.databaseUser.host
+      port = module.databaseUser.port
+      name = module.databaseUser.name
+      protocol = module.databaseUser.protocol
+      account = module.databaseUser.account
+      username = module.databaseUser.username
+      password = module.databaseUser.password
+      url = module.databaseUser.url
+      database = "test"
     }
   }
 
@@ -76,8 +130,13 @@ environment {
 
     outputs = {
       id = module.service.id
+      name = module.service.target_port
+      protocol = module.service.protocol
       host = module.service.host
       port = module.service.port
+      url = module.service.url
+      target_port = module.service.target_port
+      account = module.service.account
     }
   }
 }

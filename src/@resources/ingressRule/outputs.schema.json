@@ -1,0 +1,43 @@
+{
+  "$ref": "#/definitions/IngressRuleOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "IngressRuleOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "loadBalancerHostname": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "url": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "host",
+        "port",
+        "url",
+        "path",
+        "loadBalancerHostname"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -158,7 +158,7 @@ export class Pipeline {
       } else if ((outputs as any)[key] === undefined) {
         console.log(JSON.stringify(step, null, 2));
         throw new Error(
-          `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
+          `Invalid key, ${key}, for ${step.name}. ${JSON.stringify(outputs)}`,
         );
       }
       return this.convertStringToType(String((outputs as any)[key]) || '', initialType);

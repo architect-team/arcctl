@@ -364,7 +364,7 @@ export default class DatacenterV2 extends Datacenter {
           try {
             const outputName = localHookModules[key_parts[1]]
               ? localHookModules[key_parts[1]].name
-              : nodeNameToModuleLookup[key_parts[1]].name;
+              : 'module/' + nodeNameToModuleLookup[key_parts[1]].name;
             key_parts.shift();
             key_parts.shift();
             const identifier = key_parts.join('.');
@@ -401,7 +401,7 @@ export default class DatacenterV2 extends Datacenter {
         keyParts.shift();
         const identifier = keyParts.join('.');
         if (nodeNameToModuleLookup[id]) {
-          return `\${{ ${nodeNameToModuleLookup[id].name}.${identifier} }}`;
+          return `\${{ module/${nodeNameToModuleLookup[id].name}.${identifier} }}`;
         }
         console.log(`Could not find module for key: ${key}`);
         return match;

@@ -1,11 +1,12 @@
-import * as digitalocean from "@pulumi/digitalocean";
 import * as pulumi from "@pulumi/pulumi";
 
 let config = new pulumi.Config();
 
-const vpc = new digitalocean.Vpc("my-vpc", {
-  region: config.get('region')!,
-  name: config.get('name'),
-});
-
-export const id = vpc.id.apply(id => id.toString());
+export const id = "test";
+export const host = "test";
+export const port = "test";
+export const username = "test";
+export const password = "test";
+export const url = "test";
+export const path = "test";
+export const loadBalancerHostname = "test";

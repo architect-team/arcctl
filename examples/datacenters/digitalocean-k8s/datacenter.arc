@@ -54,6 +54,21 @@ environment {
     }
   }
 
+  secret {
+    module "secret" {
+      source = "./secrets"
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+      })
+    }
+
+    outputs = {
+      id = module.secret.id
+      data = module.secret.data
+    }
+  }
+
   database {
     module "database" {
       source = "./database"
@@ -74,6 +89,24 @@ environment {
       username = module.database.username
       password = module.database.password
       url = module.database.url
+    }
+  }
+
+  ingressRule {
+    module "ingressRule" {
+      source = "./ingressRule"
+      inputs = merge(node.inputs, {})
+    }
+
+    outputs = {
+      id = module.ingressRule.id
+      host = module.ingressRule.host
+      port = module.ingressRule.port
+      username = module.ingressRule.username
+      password = module.ingressRule.password
+      url = module.ingressRule.url
+      path = module.ingressRule.path
+      loadBalancerHostname = module.ingressRule.loadBalancerHostname
     }
   }
 
@@ -138,6 +171,8 @@ environment {
       id = module.service.id
       name = module.service.target_port
       protocol = module.service.protocol
+      username = module.service.username
+      password = module.service.password
       host = module.service.host
       port = module.service.port
       url = module.service.url

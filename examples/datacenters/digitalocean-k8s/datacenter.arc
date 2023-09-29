@@ -107,6 +107,7 @@ environment {
       url = module.ingressRule.url
       path = module.ingressRule.path
       loadBalancerHostname = module.ingressRule.loadBalancerHostname
+      dnsZone = module.ingressRule.dnsZone
     }
   }
 
@@ -140,11 +141,6 @@ environment {
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
-        labels = {
-          "io.architect.datacenter" = datacenter.name
-          "io.architect.environment" = environment.name
-          "io.architect.component" = node.component
-        }
       })
     }
 

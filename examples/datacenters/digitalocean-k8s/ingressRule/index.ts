@@ -10,3 +10,4 @@ export const password = "test";
 export const url = "test";
 export const path = "test";
 export const loadBalancerHostname = "test";
+export const dnsZone = "test";

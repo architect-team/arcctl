@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { Logger } from 'winston';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { StepStatusState } from '../pipeline/types.ts';
 import { PagingOptions, PagingResponse } from '../utils/paging.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ProviderStore } from './store.ts';
@@ -25,7 +26,7 @@ export type ApplyOptions<S = any> = {
 export type ApplyOutputs<T extends ResourceType> = {
   state?: any;
   status: {
-    state: 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
+    state: StepStatusState;
     message?: string;
     startTime?: number;
     endTime?: number;

@@ -326,6 +326,7 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          state: previousStep?.state, // May exist if a create step error'd and was only partially applied
         });
         newStep.hash = await newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
@@ -358,9 +359,7 @@ export class Pipeline {
       if (
         (previousStep.action === 'delete' &&
           previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' &&
-          (previousStep.status.state === 'pending' ||
-            previousStep.status.state === 'error'))
+        (previousStep.action === 'create' && previousStep.status.state === 'pending')
       ) {
         continue;
       }
@@ -369,10 +368,6 @@ export class Pipeline {
         previousStep.id.startsWith('module/' + n.id) || previousStep.id.startsWith(n.id)
       );
       if (!newNode) {
-        console.log(`Removing ${previousStep.id}`);
-        console.log(JSON.stringify(previousStep, null, 2));
-        console.log(JSON.stringify(options.after.nodes.map((node) => node.id), null, 2));
-        console.log(JSON.stringify(options.before.steps.map((node) => node.id), null, 2));
         const rmStep = new PipelineStep({
           ...previousStep,
           action: 'delete',
@@ -382,15 +377,22 @@ export class Pipeline {
         });
 
         pipeline.insertSteps(rmStep);
-
-        for (const oldEdge of options.before.edges) {
-          if (oldEdge.to === rmStep.id) {
-            potentialEdges.push(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-              }),
-            );
+        const previousStepEdges = options.before.edges.filter((edge) => edge.to === rmStep.id);
+        if (previousStep.action !== 'delete') {
+          // If the previous pipeline was create or update, we need to flip the edge
+          // so we delete dependencies in the right order.
+          for (const oldEdge of previousStepEdges) {
+            potentialEdges.push(oldEdge.reverse());
+          }
+        } else {
+          // If the previous pipeline was delete, the edges are already correct and have been flipped.
+          // We just need to remove any edges from the previous pipeline that may have had their nodes
+          // deleted.
+          for (const oldEdge of previousStepEdges) {
+            // If there's no step for the oldEdge.from, the node's already removed so we can axe the edge.
+            if (pipeline.steps.some((s) => s.id === oldEdge.from)) {
+              potentialEdges.push(oldEdge);
+            }
           }
         }
       }

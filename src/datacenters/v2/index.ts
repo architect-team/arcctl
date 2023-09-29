@@ -364,7 +364,7 @@ export default class DatacenterV2 extends Datacenter {
           try {
             const outputName = localHookModules[key_parts[1]]
               ? localHookModules[key_parts[1]].name
-              : nodeNameToModuleLookup[key_parts[1]].name;
+              : 'module/' + nodeNameToModuleLookup[key_parts[1]].name;
             key_parts.shift();
             key_parts.shift();
             const identifier = key_parts.join('.');

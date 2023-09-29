@@ -34,6 +34,8 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   const allEnvs = await command_helper.environmentStore.find();
   const datacenterEnvs = allEnvs.filter((env) => env.datacenter === datacenterRecord.name);
 
+  command_helper.pipelineRenderer.renderPipeline(pipeline);
+
   if (datacenterEnvs.length > 0) {
     console.log('This will also destroy all the following environments:');
     for (const env of datacenterEnvs) {
@@ -52,15 +54,8 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       }, env.name);
     }
   } else {
-    command_helper.pipelineRenderer.renderPipeline(pipeline);
-    command_helper.pipelineRenderer.doneRenderingPipeline();
-    const confirm = options.autoApprove || (await Inputs.promptForContinuation('Are you sure you want to proceed?'));
-    if (!confirm) {
-      console.error('Datacenter destruction cancelled');
-      Deno.exit(1);
-    }
+    await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
   }
-
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {

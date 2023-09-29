@@ -61,7 +61,6 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
 
   let logger: Logger | undefined;
   if (options.verbose) {
-    command_helper.pipelineRenderer.renderPipeline(pipeline);
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.printf(({ message }) => message),
@@ -127,7 +126,7 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 
 export default BaseCommand()
   .description('Destroy all the resources in the specified environment')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string>')
   .action(destroyEnvironment);

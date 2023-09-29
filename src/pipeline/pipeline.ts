@@ -153,12 +153,12 @@ export class Pipeline {
       const step = this.steps.find((s) => s.id === step_id);
       const outputs = step?.outputs;
       if (!step || !outputs) {
-        console.log(JSON.stringify(this.steps.map(step => step.id), null, 2));
+        console.log(JSON.stringify(this.steps.map((step) => step.id), null, 2));
         throw new Error(`Missing outputs for ${ref} in ${step_name}`);
       } else if ((outputs as any)[key] === undefined) {
         console.log(JSON.stringify(step, null, 2));
         throw new Error(
-          `Invalid key, ${key}, for ${step.type}. ${JSON.stringify(outputs)}`,
+          `Invalid key, ${key}, for ${step.name}. ${JSON.stringify(outputs)}`,
         );
       }
       return this.convertStringToType(String((outputs as any)[key]) || '', initialType);
@@ -326,6 +326,7 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          state: previousStep?.state, // May exist if a create step error'd and was only partially applied
         });
         newStep.hash = await newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
@@ -358,14 +359,14 @@ export class Pipeline {
       if (
         (previousStep.action === 'delete' &&
           previousStep.status.state === 'complete') ||
-        (previousStep.action === 'create' &&
-          (previousStep.status.state === 'pending' ||
-            previousStep.status.state === 'error'))
+        (previousStep.action === 'create' && previousStep.status.state === 'pending')
       ) {
         continue;
       }
 
-      const newNode = options.after.nodes.find((n) => previousStep.id.startsWith(n.id));
+      const newNode = options.after.nodes.find((n) =>
+        previousStep.id.startsWith('module/' + n.id) || previousStep.id.startsWith(n.id)
+      );
       if (!newNode) {
         const rmStep = new PipelineStep({
           ...previousStep,
@@ -376,15 +377,22 @@ export class Pipeline {
         });
 
         pipeline.insertSteps(rmStep);
-
-        for (const oldEdge of options.before.edges) {
-          if (oldEdge.to === rmStep.id) {
-            potentialEdges.push(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-              }),
-            );
+        const previousStepEdges = options.before.edges.filter((edge) => edge.to === rmStep.id);
+        if (previousStep.action !== 'delete') {
+          // If the previous pipeline was create or update, we need to flip the edge
+          // so we delete dependencies in the right order.
+          for (const oldEdge of previousStepEdges) {
+            potentialEdges.push(oldEdge.reverse());
+          }
+        } else {
+          // If the previous pipeline was delete, the edges are already correct and have been flipped.
+          // We just need to remove any edges from the previous pipeline that may have had their nodes
+          // deleted.
+          for (const oldEdge of previousStepEdges) {
+            // If there's no step for the oldEdge.from, the node's already removed so we can axe the edge.
+            if (pipeline.steps.some((s) => s.id === oldEdge.from)) {
+              potentialEdges.push(oldEdge);
+            }
           }
         }
       }

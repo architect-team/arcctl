@@ -5,6 +5,7 @@ import { SupportedProviders } from '../../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { Pipeline } from '../pipeline.ts';
 import { PipelineStep } from '../step.ts';
+import { StepAction, StepStatusState } from '../types.ts';
 
 describe('Pipeline', () => {
   it('should add edges', () => {
@@ -99,6 +100,85 @@ describe('Pipeline', () => {
             type: 'databaseCluster',
             vpc: 'vpc',
             account: 'docker',
+          },
+        }),
+      ],
+    });
+
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph(),
+    }, providerStore);
+
+    assertEquals(plannedPipeline.steps.length, 1);
+    assertEquals(plannedPipeline.steps[0].action, 'delete');
+  });
+
+  it('should schedule old nodes for deletion after some failed in previous pipeline', async () => {
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
+
+    const previousPipeline = new Pipeline({
+      steps: [
+        new PipelineStep({
+          name: 'test',
+          action: 'delete',
+          type: 'vpc',
+          color: 'blue',
+          status: {
+            state: 'complete',
+          },
+          inputs: {
+            type: 'vpc',
+            name: 'foo',
+            region: 'bar',
+          },
+        }),
+        new PipelineStep({
+          name: 'test-2',
+          action: 'delete',
+          type: 'vpc',
+          color: 'blue',
+          status: {
+            state: 'error',
+          },
+          inputs: {
+            type: 'vpc',
+            name: 'foo2',
+            region: 'bar',
+          },
+        }),
+      ],
+    });
+
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph(),
+    }, providerStore);
+
+    assertEquals(plannedPipeline.steps.length, 1);
+    assertEquals(plannedPipeline.steps[0].action, 'delete');
+    assertEquals(plannedPipeline.steps[0].name, 'test-2');
+  });
+
+  it('should delete a node that was previously created and errored', async () => {
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
+
+    const previousPipeline = new Pipeline({
+      steps: [
+        new PipelineStep({
+          name: 'test',
+          action: 'create',
+          type: 'vpc',
+          color: 'blue',
+          status: {
+            state: 'error',
+          },
+          inputs: {
+            type: 'vpc',
+            name: 'foo',
+            region: 'bar',
           },
         }),
       ],
@@ -245,4 +325,86 @@ describe('Pipeline', () => {
     assertEquals(plannedPipeline.steps.length, 1);
     assertEquals(plannedPipeline.steps[0].action, 'update');
   });
+
+  it('should reverse edges when removing nodes', async () => {
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
+
+    const stepA = createPipelineStep('stepA', 'update');
+    const stepB = createPipelineStep('stepB', 'update');
+    const stepC = createPipelineStep('stepC', 'create');
+
+    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id, required: true });
+    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id, required: false });
+
+    const previousPipeline = new Pipeline({
+      steps: [stepA, stepB, stepC],
+      edges: [edgeAB, edgeBC],
+    });
+
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph(),
+    }, providerStore);
+
+    // All steps should now be delete
+    assertEquals(plannedPipeline.steps.length, 3);
+    assertEquals(plannedPipeline.steps[0].action, 'delete');
+    assertEquals(plannedPipeline.steps[1].action, 'delete');
+    assertEquals(plannedPipeline.steps[2].action, 'delete');
+
+    // All edges should be the reverse of the edges from the previous pipeline
+    assertEquals(plannedPipeline.edges.length, 2);
+    assertArrayIncludes(plannedPipeline.edges, [edgeAB.reverse(), edgeBC.reverse()]);
+  });
+
+  it('hould NOT flip edges when removing if previous pipeline steps were already delete steps', async () => {
+    const providerStore = new EmptyProviderStore();
+    providerStore.save(new SupportedProviders.docker('docker', {}, providerStore));
+
+    const stepA = createPipelineStep('stepA', 'delete', 'pending');
+    const stepB = createPipelineStep('stepB', 'delete', 'pending');
+    const stepC = createPipelineStep('stepC', 'delete', 'pending');
+
+    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id, required: true });
+    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id, required: false });
+
+    const previousPipeline = new Pipeline({
+      steps: [stepA, stepB, stepC],
+      edges: [edgeAB, edgeBC],
+    });
+
+    const plannedPipeline = await Pipeline.plan({
+      before: previousPipeline,
+      after: new CloudGraph(),
+    }, providerStore);
+
+    // All steps should still be delete
+    assertEquals(plannedPipeline.steps.length, 3);
+    assertEquals(plannedPipeline.steps[0].action, 'delete');
+    assertEquals(plannedPipeline.steps[1].action, 'delete');
+    assertEquals(plannedPipeline.steps[2].action, 'delete');
+
+    // All edges should be exactly the same as before
+    assertEquals(plannedPipeline.edges.length, 2);
+    assertArrayIncludes(plannedPipeline.edges, [edgeAB, edgeBC]);
+  });
 });
+
+/**
+ * Helper to create a step when the actual contents of the step besides name/action/status are irrelevant.
+ */
+function createPipelineStep(
+  name: string,
+  action: StepAction,
+  state?: StepStatusState,
+): PipelineStep {
+  return new PipelineStep({
+    name,
+    action,
+    type: 'namespace',
+    color: 'blue',
+    status: { state: state || 'complete' },
+    inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
+  });
+}

@@ -1,4 +1,5 @@
 import cliSpinners from 'cli-spinners';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Datacenter, parseDatacenter } from '../../datacenters/index.ts';
@@ -32,8 +33,8 @@ async function buildDatacenterFromConfig(
   config_path: string,
   verbose?: boolean,
 ): Promise<Datacenter> {
-  const datacenter = await parseDatacenter(config_path);
-  return await command_helper.datacenterUtils.buildDatacenter(datacenter, config_path, verbose);
+  const datacenter = await parseDatacenter(path.resolve(config_path));
+  return await command_helper.datacenterUtils.buildDatacenter(datacenter, path.resolve(config_path), verbose);
 }
 
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
@@ -122,7 +123,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       context: PlanContext.Datacenter,
     }, command_helper.providerStore);
 
-    //console.log(JSON.stringify(targetGraph, null, 2));
+    console.log(JSON.stringify(pipeline, null, 2));
 
     pipeline.validate();
     await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);

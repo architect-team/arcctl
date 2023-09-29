@@ -6,7 +6,7 @@ const config = new pulumi.Config();
 const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
-const name = config.require('name').replace(/\//g, '-');
+const convertedName = config.require('name').replace(/\//g, '-');
 
 const flatten = (obj: any, prefix: string = ''): any => {
   const result: any = {};
@@ -22,13 +22,13 @@ const flatten = (obj: any, prefix: string = ''): any => {
 }
 
 export const labels = flatten(config.getObject('labels') || {} as any);
-labels['app'] = name.replace(/\//g, '-');
+labels['app'] = convertedName.replace(/\//g, '-');
 
 pulumi.log.info(JSON.stringify(labels));
 
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
-    name: name,
+    name: convertedName,
     namespace: config.require('namespace'),
     labels: labels as any,
     annotations: {
@@ -48,6 +48,12 @@ const service = new kubernetes.core.v1.Service('service', {
 });
 
 export const id = service.id;
-export const url = name;
-export const host = name;
+export const url = convertedName;
+export const host = convertedName;
+export const name = convertedName;
+export const username = "test";
+export const password = "test";
 export const port = config.requireNumber('target_port');
+export const target_port = config.requireNumber('target_port');
+export const account = 'test';
+export const protocol = config.require('target_protocol');

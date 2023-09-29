@@ -54,11 +54,29 @@ environment {
     }
   }
 
+  secret {
+    module "secret" {
+      source = "./secrets"
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+      })
+    }
+
+    outputs = {
+      id = module.secret.id
+      data = module.secret.data
+    }
+  }
+
   database {
     module "database" {
       source = "./database"
       inputs = merge(node.inputs, {
         region = variable.region
+        digitalocean = {
+          token = variable.dotoken
+        }
       })
     }
 
@@ -74,11 +92,33 @@ environment {
     }
   }
 
+  ingressRule {
+    module "ingressRule" {
+      source = "./ingressRule"
+      inputs = merge(node.inputs, {})
+    }
+
+    outputs = {
+      id = module.ingressRule.id
+      host = module.ingressRule.host
+      port = module.ingressRule.port
+      username = module.ingressRule.username
+      password = module.ingressRule.password
+      url = module.ingressRule.url
+      path = module.ingressRule.path
+      loadBalancerHostname = module.ingressRule.loadBalancerHostname
+      dnsZone = module.ingressRule.dnsZone
+    }
+  }
+
   databaseUser {
     module "databaseUser" {
       source = "./databaseUser"
       inputs = merge(node.inputs, {
         region = variable.region
+        digitalocean = {
+          token = variable.dotoken
+        }
       })
     }
 
@@ -101,11 +141,6 @@ environment {
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
-        labels = {
-          "io.architect.datacenter" = datacenter.name
-          "io.architect.environment" = environment.name
-          "io.architect.component" = node.component
-        }
       })
     }
 
@@ -132,6 +167,8 @@ environment {
       id = module.service.id
       name = module.service.target_port
       protocol = module.service.protocol
+      username = module.service.username
+      password = module.service.password
       host = module.service.host
       port = module.service.port
       url = module.service.url

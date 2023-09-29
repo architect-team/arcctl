@@ -2,72 +2,12 @@ import * as LooseParser from 'acorn-loose';
 import * as estraverse from 'estraverse';
 import * as ESTree from 'https://esm.sh/v124/@types/estree@1.0.1/index.d.ts';
 import * as jp from 'jsonpath';
+import handleFunctions from './ast-functions.ts';
 const JsonPath = (jp as any).default as typeof jp;
 
 function instanceOf<T>(object: any, key: string): object is T {
   return key in object;
 }
-
-const convertObjectExpressionToObject = (node: ESTree.ObjectExpression | ESTree.Literal) => {
-  if (!node) {
-    return undefined;
-  }
-  if (node.type === 'Literal' && typeof node.value === 'object') {
-    return node.value;
-  }
-  let obj: any = {};
-  if ('properties' in node) {
-    (node.properties as Array<ESTree.Property>).forEach((property: ESTree.Property) => {
-      if ('name' in property.key) {
-        if (property.value.type === 'ObjectExpression') {
-          obj[property.key.name] = convertObjectExpressionToObject(property.value);
-        } else if ('value' in property.value) {
-          obj[property.key.name] = property.value.value;
-        }
-      }
-    });
-  } else if (node.type === 'Literal' && typeof node.value === 'object') {
-    obj = node.value;
-  }
-  return obj;
-};
-
-type ESTreeNode = {
-  type: string;
-  [key: string]: any;
-};
-
-const convertEstreeNodeToObject = (node: ESTreeNode, context: any = {}): any => {
-  switch (node.type) {
-    case 'ObjectExpression':
-      return node.properties.reduce((obj: any, prop: ESTreeNode) => {
-        const key = prop.key.type === 'Identifier' ? prop.key.name : prop.key.value;
-        obj[key] = convertEstreeNodeToObject(prop.value);
-        return obj;
-      }, {});
-
-    case 'ArrayExpression':
-      return node.elements.map((element: ESTreeNode) => convertEstreeNodeToObject(element));
-
-    case 'Literal':
-      return node.value;
-
-    case 'Identifier':
-      return node.name;
-
-    case 'MemberExpression': {
-      const objectPath = convertEstreeNodeToObject(node.object);
-      const propertyPath = node.computed ? convertEstreeNodeToObject(node.property) : node.property.name;
-      if (objectPath.startsWith('module.')) {
-        return `\${ ${objectPath}.${propertyPath} }`;
-      }
-      return `${objectPath}.${propertyPath}`;
-    }
-
-    default:
-      throw new Error(`Unhandled ESTree node type: ${node.type}`);
-  }
-};
 
 const isNotPrimitive = (value: any) => typeof value === 'object' || Array.isArray(value);
 
@@ -249,7 +189,6 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
           value: value,
         };
       } else if (node.type === 'CallExpression') {
-        let value;
         const func_name = ('value' in node.callee)
           ? node.callee.value
           : ('name' in node.callee)
@@ -258,38 +197,9 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         if (!func_name) {
           throw new Error(`No function name for node.type: ${node.type}`);
         }
-        if (func_name === 'trim') {
-          if (!('value' in node.arguments[0])) {
-            throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
-          }
-          value = node.arguments[0].value?.toString().trim();
-        } else if (func_name === 'merge') {
-          if (!('arguments' in node)) {
-            throw new Error(`Unsupported node.arguments for node.type: ${node}`);
-          }
-          value = {
-            ...convertEstreeNodeToObject(node.arguments[0] as any),
-            ...convertEstreeNodeToObject(node.arguments[1] as any),
-          };
-        } else if (func_name === 'toUpper') {
-          if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {
-            throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
-          }
-          value = node.arguments[0].value?.toString().toUpperCase();
-        } else if (func_name === 'startsWith') {
-          if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {
-            throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
-          }
-          if (!instanceOf<ESTree.Literal>(node.arguments[1], 'value')) {
-            throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[1].type} node.type: ${node.type}`);
-          }
-          value = node.arguments[0].value?.toString().startsWith(node.arguments[1].value?.toString() || '');
-        } else {
-          throw new Error(`Unsupported node.type: ${node.type}`);
-        }
         return {
           type: 'Literal',
-          value: value,
+          value: handleFunctions(func_name.toString(), node),
         };
       } else if (node.type === 'IfStatement') {
         if (node.test.type === 'Literal') {

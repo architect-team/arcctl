@@ -180,18 +180,15 @@ export class DatacenterUtils {
     });
   }
 
-  public async buildDatacenter(datacenter: Datacenter, context: string): Promise<Datacenter> {
+  public async buildDatacenter(datacenter: Datacenter, context: string, verbose?: boolean): Promise<Datacenter> {
     return await datacenter.build(async (build_options) => {
-      let module_path;
-      if (path.isAbsolute(path.dirname(context))) {
-        module_path = path.join(path.dirname(context), build_options.context);
-      } else {
-        module_path = path.join(Deno.cwd(), build_options.context);
+      let module_path = path.join(path.dirname(context), build_options.context);
+      if (!path.isAbsolute(path.dirname(context))) {
+        module_path = path.resolve(module_path);
       }
       console.log(`Building module: ${module_path}`);
-      return (await Build({
-        directory: module_path,
-      })).image!;
+      const build = await Build({ directory: module_path }, { verbose });
+      return build.image;
     });
   }
 }

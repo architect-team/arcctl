@@ -407,6 +407,24 @@ export default {
       }
     }
   },
+  "module": {
+    "$ref": "#/definitions/ModuleOutputs",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "ModuleOutputs": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      }
+    }
+  },
   "namespace": {
     "$ref": "#/definitions/NamespaceOutputs",
     "$schema": "http://json-schema.org/draft-07/schema#",

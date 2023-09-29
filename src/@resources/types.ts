@@ -30,6 +30,8 @@ import type kubernetesClusterInputs from './kubernetesCluster/inputs.ts';
 import type kubernetesClusterOutputs from './kubernetesCluster/outputs.ts';
 import type kubernetesVersionInputs from './kubernetesVersion/inputs.ts';
 import type kubernetesVersionOutputs from './kubernetesVersion/outputs.ts';
+import type moduleInputs from './module/inputs.ts';
+import type moduleOutputs from './module/outputs.ts';
 import type namespaceInputs from './namespace/inputs.ts';
 import type namespaceOutputs from './namespace/outputs.ts';
 import type nodeInputs from './node/inputs.ts';
@@ -66,6 +68,7 @@ export type ResourceType =
   | 'ingressRule'
   | 'kubernetesCluster'
   | 'kubernetesVersion'
+  | 'module'
   | 'namespace'
   | 'node'
   | 'nodeSize'
@@ -94,6 +97,7 @@ export const ResourceTypeList: ResourceType[] = [
   'ingressRule',
   'kubernetesCluster',
   'kubernetesVersion',
+  'module',
   'namespace',
   'node',
   'nodeSize',
@@ -170,6 +174,10 @@ export type ResourceInputs = {
     type: 'kubernetesVersion';
     account?: string;
   } & kubernetesVersionInputs;
+  'module': {
+    type: 'module';
+    account?: string;
+  } & moduleInputs;
   'namespace': {
     type: 'namespace';
     account?: string;
@@ -257,6 +265,9 @@ export type ResourceOutputs = {
   'kubernetesVersion': {
     id: string;
   } & kubernetesVersionOutputs;
+  'module': {
+    id: string;
+  } & moduleOutputs;
   'namespace': {
     id: string;
   } & namespaceOutputs;

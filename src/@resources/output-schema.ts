@@ -407,6 +407,22 @@ export default {
           "type": "object"
         },
         {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "type": "object"
+        },
+        {
           "additionalProperties": {},
           "properties": {
             "id": {

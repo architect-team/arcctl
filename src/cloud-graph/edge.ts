@@ -23,7 +23,6 @@ export class CloudEdge {
     return new CloudEdge({
       from: this.to,
       to: this.from,
-      required: this.required,
     });
   }
 }

@@ -1,5 +1,6 @@
 import { InputSchema, ResourceInputs } from '../../@resources/index.ts';
 import OutputsSchema from '../../@resources/outputs-schema.ts';
+import { CloudEdge } from '../../cloud-graph/edge.ts';
 import { CloudGraph } from '../../cloud-graph/graph.ts';
 import { CloudNode } from '../../cloud-graph/node.ts';
 import {
@@ -273,11 +274,12 @@ export default class DatacenterV2 extends Datacenter {
           name: nodeTo.name,
           type: nodeTo.inputs.type || 'module',
         });
-        resultGraph.insertEdges({
-          id: `${node.id}-${toId}`,
-          from: `${node.id}`,
-          to: `${toId}`,
-        });
+        resultGraph.insertEdges(
+          new CloudEdge({
+            from: `${node.id}`,
+            to: `${toId}`,
+          }),
+        );
         return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
       });
     }
@@ -292,11 +294,7 @@ export default class DatacenterV2 extends Datacenter {
   ) {
     const hookModuleNodes: CloudNode[] = [];
     const moduleOutputContext: Record<string, string> = {};
-    // console.log(JSON.stringify(this.datacenter.environment.hooks, null, 2));
     for (const node of graph.nodes) {
-      // if (node.inputs.type === 'databaseUser') {
-      //   console.log('=================');
-      // }
       for (const hook of this.datacenter.environment.hooks) {
         const localHookModules: Record<string, CloudNode> = {};
         const copied_hook = JSON.parse(JSON.stringify(hook));
@@ -312,10 +310,6 @@ export default class DatacenterV2 extends Datacenter {
             name: options.environmentName,
           },
         });
-        // if (node.inputs.type === 'databaseUser') {
-        //   console.log(JSON.stringify(copied_hook, null, 2));
-        //   console.log(JSON.stringify(hook, null, 2));
-        // }
         if (copied_hook.when !== 'true') {
           continue;
         }
@@ -346,11 +340,11 @@ export default class DatacenterV2 extends Datacenter {
         }
 
         const schemaDefinition = OutputsSchema[node.inputs.type].definitions;
-        const schema = Object.entries(schemaDefinition)[0][1];
+        const schema = Object.entries(schemaDefinition)[0][1] as Record<string, any>;
         if ('required' in schema) {
-          const schemaDefinitionKeys = Object.values(schema.required as any);
+          const schemaDefinitionKeys = Object.values(schema.required as any) as string[];
           const hookOutputKeys = Object.keys(copied_hook.outputs);
-          const missingKeys = schemaDefinitionKeys.filter((k) => !hookOutputKeys.includes(k));
+          const missingKeys = schemaDefinitionKeys.filter((k: string) => !hookOutputKeys.includes(k));
           if (missingKeys.length > 0) {
             throw new Error(`Missing output keys: ${missingKeys.join(', ')} for ${node.id}`);
           }
@@ -388,11 +382,12 @@ export default class DatacenterV2 extends Datacenter {
         if (moduleOutputContext[key]) {
           const keyParts = key.split('.');
           const id = keyParts[0];
-          resultGraph.insertEdges({
-            id: `${hookModuleNode.id}-${id}`,
-            from: `${hookModuleNode.id}`,
-            to: `${id}`,
-          });
+          resultGraph.insertEdges(
+            new CloudEdge({
+              from: `${hookModuleNode.id}`,
+              to: `${id}`,
+            }),
+          );
           return `\${{ ${moduleOutputContext[key]} }}`;
         }
         const keyParts = key.split('.');

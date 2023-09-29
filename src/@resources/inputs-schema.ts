@@ -1102,6 +1102,16 @@ export default {
       }
     }
   },
+  "module": {
+    "$ref": "#/definitions/ModuleInputs",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "ModuleInputs": {
+        "additionalProperties": {},
+        "type": "object"
+      }
+    }
+  },
   "namespace": {
     "$ref": "#/definitions/NamespaceInputs",
     "$schema": "http://json-schema.org/draft-07/schema#",

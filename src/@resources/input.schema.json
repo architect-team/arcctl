@@ -1188,6 +1188,32 @@
           "if": {
             "properties": {
               "type": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "additionalProperties": {},
+            "properties": {
+              "account": {
+                "type": "string"
+              },
+              "type": {
+                "const": "module",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "namespace",
                 "type": "string"
               }

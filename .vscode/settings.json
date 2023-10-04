@@ -1,9 +1,10 @@
 {
   "deno.enable": true,
-  "deno.unstable": true,
-  "deno.lint": true,
+  "deno.unstable": false,
+  "deno.lint": false,
+  "deno.internalDebug": true,
   "deno.config": "./deno.json",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -15,4 +16,5 @@
   "prettier.enable": false,
   "deno.documentPreloadLimit": 0,
   "editor.defaultFormatter": null,
+  "deno.disablePaths": ["**/.gen/*", "./.vscode/*", "./.github/*", "./bin/*", "./examples/*", "./coverage/*"],
 }

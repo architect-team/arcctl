@@ -5,7 +5,7 @@ import { ResourceType } from '../../@resources/index.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Datacenter, DatacenterRecord, ParsedVariablesMetadata, ParsedVariablesType } from '../../datacenters/index.ts';
 import { DatacenterStore } from '../../datacenters/store.ts';
-import { Build } from '../../modules/index.ts';
+import { ModuleHelpers } from '../../modules/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
 import { AccountInputUtils } from './account-inputs.ts';
@@ -187,7 +187,7 @@ export class DatacenterUtils {
         module_path = path.resolve(module_path);
       }
       console.log(`Building module: ${module_path}`);
-      const build = await Build({ directory: module_path }, { verbose });
+      const build = await ModuleHelpers.Build({ directory: module_path }, { verbose });
       return build.image;
     });
   }

@@ -3,7 +3,7 @@ import * as path from 'std/path/mod.ts';
 import { Datacenter } from '../../datacenters/datacenter.ts';
 import { parseDatacenter } from '../../datacenters/parser.ts';
 import { verifyDocker } from '../../docker/helper.ts';
-import { Build } from '../../modules/index.ts';
+import { ModuleHelpers } from '../../modules/index.ts';
 import { ImageRepository } from '../../oci/index.ts';
 import { exec } from '../../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
@@ -42,7 +42,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
   datacenter = await datacenter.build(async (build_options) => {
     console.log(`Building module: ${build_options.context}`);
-    const build = await Build({ directory: path.join(context, build_options.context) }, { verbose: options.verbose });
+    const build = await ModuleHelpers.Build({ directory: path.join(context, build_options.context) }, { verbose: options.verbose });
     return build.image;
   });
 

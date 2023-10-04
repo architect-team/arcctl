@@ -6,7 +6,7 @@ import { ApplyOutputs, ResourceService, WritableResourceService } from '../@prov
 import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
-import { Apply, ApplyResponse } from '../modules/index.ts';
+import { ApplyResponse, ModuleHelpers } from '../modules/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
 
 export type PipelineStepOptions<T extends ResourceType> = {
@@ -35,8 +35,8 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   component?: string;
   environment?: string;
   state?: any;
-  inputs?: ResourceInputs[T];
-  outputs?: ResourceOutputs[T];
+  inputs?: ResourceInputs[T] | any; // TODO: remove Resource[T] concepts
+  outputs?: ResourceOutputs[T] | any; // TODO: remove Resource[T] concepts
 
   constructor(options: PipelineStepOptions<T>) {
     this.name = options.name;
@@ -125,7 +125,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       this.status.state = 'applying';
       this.status.startTime = Date.now();
       const inputs = this.flattenObject(this.inputs as any || {});
-      Apply({
+      ModuleHelpers.Apply({
         datacenterid: 'datacenter',
         inputs: Object.entries(inputs) as [string, string][],
         image: this.image!,

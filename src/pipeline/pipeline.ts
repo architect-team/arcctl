@@ -399,22 +399,22 @@ export class Pipeline {
     }
 
     // Add edges for nodes being removed that are still valid
-    // for (const potentialEdge of potentialEdges) {
-    //   const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
-    //   if (targetNode) {
-    //     pipeline.insertEdges(potentialEdge);
-    //   }
-    // }
+    for (const potentialEdge of potentialEdges) {
+      const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
+      if (targetNode) {
+        pipeline.insertEdges(potentialEdge);
+      }
+    }
     return pipeline;
 
-    // Check for nodes that can be no-op'd
-    return setNoopSteps(
-      providerStore,
-      options.before,
-      pipeline,
-      options.context,
-      options.refresh,
-    );
+    // // Check for nodes that can be no-op'd
+    // return setNoopSteps(
+    //   providerStore,
+    //   options.before,
+    //   pipeline,
+    //   options.context,
+    //   options.refresh,
+    // );
   }
 
   /**

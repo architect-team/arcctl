@@ -127,45 +127,41 @@ const stopContainer = async (child: Deno.ChildProcess): Promise<void> => {
   await child.status;
 };
 
-export const Build = async (request: BuildRequest, options: BuildOptions) => {
-  try {
-    Deno.statSync(`${request.directory}/Dockerfile`);
-  } catch (err) {
-    throw new Error(`A Dockerfile must exist at ${request.directory}`);
+export class ModuleHelpers {
+  public static async Build(request: BuildRequest, options: BuildOptions) {
+    try {
+      Deno.statSync(`${request.directory}/Dockerfile`);
+    } catch (err) {
+      throw new Error(`A Dockerfile must exist at ${request.directory}`);
+    }
+  
+    const childProcess = await startContainer(request.directory);
+    try {
+      const client = getModuleClient();
+      const response = await client.Build(request, options);
+      await stopContainer(childProcess);
+      return response;
+    } catch (e) {
+      await stopContainer(childProcess);
+      throw e;
+    }
   }
 
-  const childProcess = await startContainer(request.directory);
-  try {
-    const client = getModuleClient();
-    const response = await client.Build(request, options);
-    await stopContainer(childProcess);
-    return response;
-  } catch (e) {
-    await stopContainer(childProcess);
-    throw e;
-  }
-};
-
-export const Apply = async (
-  request: {
-    datacenterid: string;
-    image: string;
-    inputs: [string, string][];
-    state?: string;
-    destroy?: boolean;
-  },
-  options: {
-    logger?: Logger;
-  },
-): Promise<ApplyResponse> => {
-  const childProcess = await startContainer();
-  try {
-    const client = getModuleClient();
-    const response = await client.Apply(request, { logger: options.logger });
-    await stopContainer(childProcess);
-    return response;
-  } catch (e) {
-    await stopContainer(childProcess);
-    throw e;
-  }
-};
+  public static async Apply(
+    request: ApplyRequest,
+    options: {
+      logger?: Logger;
+    },
+  ): Promise<ApplyResponse> {
+    const childProcess = await startContainer();
+    try {
+      const client = getModuleClient();
+      const response = await client.Apply(request, { logger: options.logger });
+      await stopContainer(childProcess);
+      return response;
+    } catch (e) {
+      await stopContainer(childProcess);
+      throw e;
+    }
+  };
+}

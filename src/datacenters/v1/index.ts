@@ -4,7 +4,7 @@ import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/inde
 import { ResourceTypeList } from '../../@resources/types.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
-import { Datacenter, DatacenterEnrichmentOptions, ParsedVariablesType, VariablesMetadata } from '../datacenter.ts';
+import { Datacenter, DatacenterEnrichmentOptions, DockerBuildFn, DockerPushFn, DockerTagFn, ParsedVariablesType, VariablesMetadata } from '../datacenter.ts';
 
 /**
  * @discriminator type
@@ -800,4 +800,8 @@ export default class DatacenterV1 extends Datacenter {
 
     return Promise.resolve(graph);
   }
+
+  public build(buildFn: DockerBuildFn): Promise<Datacenter> { return new Promise((resolve) => this) }; // not implemented
+  public tag(tagFn: DockerTagFn): Promise<Datacenter> { return new Promise((resolve) => this) }; // not implemented
+  public push(pushFn: DockerPushFn): Promise<Datacenter> { return new Promise((resolve) => this) }; // not implemented
 }

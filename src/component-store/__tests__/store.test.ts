@@ -187,11 +187,6 @@ describe(
       const mockCheckForOciSupport = () => Promise.resolve();
       const mockCheckForOciStub = stub(ImageRepository.prototype, 'checkForOciSupport', mockCheckForOciSupport);
 
-      // Mock the `tar.create()` method
-      const mockTarCreateFn = (options: tar.CreateOptions & tar.FileOptions, fileList: readonly string[]) =>
-        Promise.resolve();
-      const mockTarCreate = stub(tar, 'create', mockTarCreateFn);
-
       // Mock the `ImageRepository.uploadManifest()` method
       const mockUploadManifestFn = (_manifest: ImageManifest) => Promise.resolve();
       const mockUploadManifest = stub(ImageRepository.prototype, 'uploadManifest', mockUploadManifestFn);
@@ -199,12 +194,10 @@ describe(
       await store.push('localhost:5000/namespace/component:latest', tmp_dir);
 
       mockCheckForOciStub.restore();
-      mockTarCreate.restore();
       mockUpload.restore();
       mockUploadManifest.restore();
 
       assertSpyCalls(mockCheckForOciStub, 1);
-      assertSpyCalls(mockTarCreate, 1);
       assertSpyCalls(mockUpload, 2);
       assertSpyCall(mockUpload, 0, {
         args: [
@@ -259,12 +252,8 @@ describe(
 
       mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
 
-      console.log('Creating tar');
-
       const tar_file = path.join(tmp_dir, 'files-layer.tgz');
       await tar.create({ gzip: true, file: tar_file, cwd: tmp_dir }, ['./']);
-
-      console.log('Tar created');
 
       const mockGetManifestFn = () => {
         return Promise.resolve({

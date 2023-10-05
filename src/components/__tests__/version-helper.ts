@@ -301,10 +301,6 @@ export const testServiceGeneration = (
   assertArrayIncludes(graph.nodes, [deployment_node, service_node]);
   assertArrayIncludes(graph.edges, [
     new CloudEdge({
-      from: service_node.id,
-      to: deployment_node.id,
-    }),
-    new CloudEdge({
       from: deployment_node.id,
       to: service_node.id,
     }),

@@ -399,13 +399,12 @@ export class Pipeline {
     }
 
     // Add edges for nodes being removed that are still valid
-    // for (const potentialEdge of potentialEdges) {
-    //   const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
-    //   if (targetNode) {
-    //     pipeline.insertEdges(potentialEdge);
-    //   }
-    // }
-    return pipeline;
+    for (const potentialEdge of potentialEdges) {
+      const targetNode = pipeline.steps.find((step) => step.id === potentialEdge.to);
+      if (targetNode) {
+        pipeline.insertEdges(potentialEdge);
+      }
+    }
 
     // Check for nodes that can be no-op'd
     return setNoopSteps(

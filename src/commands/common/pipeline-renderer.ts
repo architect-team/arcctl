@@ -22,7 +22,7 @@ export class PipelineRenderer {
   }
 
   private pipelineToTableOutput(pipeline: Pipeline): string {
-    const headers = ['Name', 'Type'];
+    const headers = ['Name', 'Type', 'Plugin'];
     const showEnvironment = pipeline.steps.some((s) => s.environment);
     const showComponent = pipeline.steps.some((s) => s.component);
 
@@ -48,7 +48,7 @@ export class PipelineRenderer {
             0,
         )
         .map((step: PipelineStep) => {
-          const row = [step.name, step.type];
+          const row = [step.name, step.type, step.plugin];
 
           if (showComponent) {
             row.push(step.component || '');

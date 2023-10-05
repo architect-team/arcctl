@@ -42,7 +42,10 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
   datacenter = await datacenter.build(async (build_options) => {
     console.log(`Building module: ${build_options.context}`);
-    const build = await Build({ directory: path.join(context, build_options.context) }, { verbose: options.verbose });
+    const build = await Build({ directory: path.join(context, build_options.context) }, {
+      plugin: build_options.plugin,
+      verbose: options.verbose,
+    });
     return build.image;
   });
 

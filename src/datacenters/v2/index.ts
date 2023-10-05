@@ -2,6 +2,7 @@ import { InputSchema, ResourceInputs } from '../../@resources/index.ts';
 import OutputsSchema from '../../@resources/outputs-schema.ts';
 import { CloudGraph } from '../../cloud-graph/graph.ts';
 import { CloudNode } from '../../cloud-graph/node.ts';
+import { Plugin } from '../../modules/index.ts';
 import {
   Datacenter,
   DatacenterEnrichmentOptions,
@@ -16,6 +17,7 @@ import { applyContext, applyContextRecursive } from './ast-parser.ts';
 export type DatacenterModuleV2 = {
   source: string;
   inputs: Record<string, any>;
+  plugin?: Plugin;
 } & InputSchema;
 
 export type HookV2 = {
@@ -54,6 +56,8 @@ const COMPONENT_RESOURCES = [
   'databaseUser',
   'secret',
 ];
+
+const DEFAULT_PLUGIN: Plugin = 'pulumi';
 
 export default class DatacenterV2 extends Datacenter {
   private datacenter!: DatacenterDataV2;
@@ -109,7 +113,6 @@ export default class DatacenterV2 extends Datacenter {
       }
     }
 
-    console.log(COMPONENT_RESOURCES);
     for (const type of COMPONENT_RESOURCES) {
       if (data.environment?.length && data.environment[0][type]) {
         for (const entry of data.environment[0][type]) {
@@ -259,6 +262,7 @@ export default class DatacenterV2 extends Datacenter {
         image: this.moduleImages[name],
         type: 'module',
         inputs: this.convertToMustache(copied_value.inputs as any),
+        plugin: value.plugin || DEFAULT_PLUGIN,
       });
       nodeNameToModuleLookup[name] = nodes[nodes.length - 1];
     }
@@ -510,6 +514,7 @@ export default class DatacenterV2 extends Datacenter {
     for (const [moduleName, module] of Object.entries(this.modules || {})) {
       const digest = await buildFn({
         context: module.source,
+        plugin: module.plugin || DEFAULT_PLUGIN,
       });
       this.moduleImages[moduleName] = digest;
     }

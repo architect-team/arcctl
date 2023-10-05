@@ -17,9 +17,17 @@ export type GlobalOptions = {
 };
 
 export function BaseCommand() {
-  return new Command().globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
-    prefix: 'XDG_',
-  });
+  const command = new Command()
+    .name('arcctl')
+    .description('Create and manage cloud applications and infrastructure with twin frameworks: Components & Datacenters')
+    .globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
+      prefix: 'XDG_',
+    })
+    .action(() => {
+      command.showHelp();
+    });
+
+  return command;
 }
 
 export class CommandHelper {

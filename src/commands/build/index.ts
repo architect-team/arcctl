@@ -2,7 +2,9 @@ import { BaseCommand } from '../base-command.ts';
 import ComponentBuildCommand from './component.ts';
 import DatacenterBuildCommand from './datacenter.ts';
 
-const BuildCommands = BaseCommand();
+const BuildCommands = BaseCommand()
+  .name('build')
+  .description('Build a Component or Datacenter into an OCI image');
 
 BuildCommands.command('component', ComponentBuildCommand.alias('components').alias('comp'));
 BuildCommands.command('datacenter', DatacenterBuildCommand.alias('datacenters').alias('dcs').alias('dc'));

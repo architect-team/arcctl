@@ -11,6 +11,7 @@ type GraphOptions = {
 } & GlobalOptions;
 
 const GraphCommand = BaseCommand()
+  .name('graph')
   .description('Generate a graph of an environment or datacenter')
   .option('-e, --environment <environment:string>', 'Environment to generate graph of')
   .option('-d, --datacenter <datacenter:string>', 'Datacenter to generate graph of')

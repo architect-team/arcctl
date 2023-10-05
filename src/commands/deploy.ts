@@ -17,6 +17,7 @@ type DeployOptions = {
 } & GlobalOptions;
 
 const DeployCommand = BaseCommand()
+  .name('deploy')
   .description('Deploy a component into an existing environment')
   .arguments('<tag:string>') // 'Component tag to deploy to the environment'
   .option('-e, --environment <environment:string>', 'Environments to deploy the component to', {

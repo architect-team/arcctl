@@ -334,8 +334,8 @@ describe('Pipeline', () => {
     const stepB = createPipelineStep('stepB', 'update');
     const stepC = createPipelineStep('stepC', 'create');
 
-    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id, required: true });
-    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id, required: false });
+    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id });
+    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id });
 
     const previousPipeline = new Pipeline({
       steps: [stepA, stepB, stepC],
@@ -366,8 +366,8 @@ describe('Pipeline', () => {
     const stepB = createPipelineStep('stepB', 'delete', 'pending');
     const stepC = createPipelineStep('stepC', 'delete', 'pending');
 
-    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id, required: true });
-    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id, required: false });
+    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id });
+    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id });
 
     const previousPipeline = new Pipeline({
       steps: [stepA, stepB, stepC],

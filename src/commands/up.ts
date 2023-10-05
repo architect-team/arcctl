@@ -22,6 +22,7 @@ type UpOptions = GlobalOptions & {
 };
 
 const UpCommand = BaseCommand()
+  .name('up')
   .description('Spin up an environment that will clean itself up when you terminate the process')
   .arguments('[...components:string]')
   .option('-d, --datacenter <datacenter:string>', 'The datacenter to use for the environment')

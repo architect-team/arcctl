@@ -89,6 +89,7 @@ export const streamLogs = async (options: LogsOptions, environment: string): Pro
 };
 
 export default BaseCommand()
+  .name('logs')
   .description('Stream logs from running cloud resources in an environment')
   .arguments('<environment:string>')
   .option('-f, --follow [follow:boolean]', 'Whether or not to continuously follow the logs', { default: false })

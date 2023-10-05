@@ -1,355 +1,445 @@
-import { deepMerge } from 'std/collections/deep_merge.ts';
-import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
-import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
-import { ResourceTypeList } from '../../@resources/types.ts';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { DeepPartial } from '../../utils/types.ts';
-import { Datacenter, DatacenterEnrichmentOptions, ParsedVariablesType, VariablesMetadata } from '../datacenter.ts';
+import { InputSchema, ResourceInputs } from '../../@resources/index.ts';
+import OutputsSchema from '../../@resources/outputs-schema.ts';
+import { CloudEdge } from '../../cloud-graph/edge.ts';
+import { CloudGraph } from '../../cloud-graph/graph.ts';
+import { CloudNode } from '../../cloud-graph/node.ts';
+import {
+  Datacenter,
+  DatacenterEnrichmentOptions,
+  DockerBuildFn,
+  DockerPushFn,
+  DockerTagFn,
+  ParsedVariablesType,
+  VariablesMetadata,
+} from '../datacenter.ts';
+import { applyContext, applyContextRecursive } from './ast-parser.ts';
 
-/**
- * @discriminator type
- */
-type FullResource = { account: string } & InputSchema;
+export type DatacenterModuleV2 = {
+  source: string;
+  inputs: Record<string, any>;
+} & InputSchema;
 
-type Hook<T extends ResourceType = ResourceType> = {
-  when?: { type: T } & DeepPartial<ResourceInputs[T]>;
-  resources?: {
-    [key: string]: FullResource;
-  };
-  accounts?: {
-    [key: string]: ArcctlAccountInputs;
-  };
-  modules?: {
-    [key: string]: {
-      source: string;
-    } & Record<string, unknown>;
-  };
-} & Record<string, any>;
-
-type HclConvertableObject = Partial<DatacenterV1 | Environment>;
-
-const convertAccounts = (obj: Record<string, any>, resultObj: HclConvertableObject): HclConvertableObject => {
-  if (obj.account) {
-    resultObj.accounts = {};
-    for (const [name, value] of Object.entries(obj.account)) {
-      resultObj.accounts[name] = (value as any)[0];
-    }
-  }
-  return resultObj;
+export type HookV2 = {
+  when: string;
+  modules: Record<string, DatacenterModuleV2>;
+  outputs: Record<string, any>;
 };
 
-const convertVariables = (obj: Record<string, any>, resultObj: Partial<DatacenterV1>): Partial<DatacenterV1> => {
-  if (obj.variable) {
-    resultObj.variables = {};
-    for (const [name, value] of Object.entries(obj.variable)) {
-      resultObj.variables[name] = (value as any)[0];
-    }
-  }
-  return resultObj;
+export type EnvironmentV2 = {
+  hooks: HookV2[];
+  modules: Record<string, DatacenterModuleV2>;
 };
 
-const convertResources = (obj: Record<string, any>, resultObj: HclConvertableObject): HclConvertableObject => {
-  const resources: Record<string, any> = {};
-  for (const resourceType of ResourceTypeList) {
-    if (obj[resourceType]) {
-      for (const [name, value] of Object.entries(obj[resourceType])) {
-        resources[name] = {
-          type: resourceType,
-          ...(value as any)[0],
-        };
-      }
-    }
-  }
-  if (Object.keys(resources).length > 0) {
-    resultObj.resources = resources;
-  }
-  return resultObj;
+export type DatacenterVariableV2 = {
+  type: keyof ResourceInputs | 'string' | 'number' | 'boolean';
+  description?: string;
+  provider?: string;
+  value?: string | number | boolean;
+} & { [key in keyof ResourceInputs]?: string };
+
+export type DatacenterDataV2 = {
+  variables: {
+    [key: string]: DatacenterVariableV2;
+  };
+  modules: {
+    [key: string]: DatacenterModuleV2;
+  };
+  environment: EnvironmentV2;
 };
 
-const convertHooks = (obj: Record<string, any>, resultObj: Partial<Environment>): Partial<Environment> => {
-  if (obj.hook) {
-    resultObj.hooks = [];
-    for (const [_, value] of Object.entries(obj.hook)) {
-      resultObj.hooks.push((value as any)[0]);
-    }
-    if (obj.defaults) {
-      resultObj.hooks.push(obj.defaults[0]);
-    }
-  }
-  return resultObj;
-};
+const COMPONENT_RESOURCES = [
+  'deployment',
+  'service',
+  'ingressRule',
+  'database',
+  'databaseUser',
+  'secret',
+];
 
-export const convertHclToJSON = (contents: Record<string, any>): DatacenterV1 => {
-  const jsonResultObj: Partial<DatacenterV1> = {};
-  convertVariables(contents, jsonResultObj);
-  convertAccounts(contents, jsonResultObj);
-  convertResources(contents, jsonResultObj);
-  if (contents.environment) {
-    const env_results: Partial<Environment> = {};
-    const env = contents.environment[0];
-    convertAccounts(env, env_results);
-    convertResources(env, env_results);
-    convertHooks(env, env_results);
-    jsonResultObj.environment = env_results;
-  }
-  return JSON.parse(
-    JSON.stringify(jsonResultObj).replace(
-      /\${(.+?)}/g,
-      (_, p1) => {
-        const parts = p1.split('.');
-        const replacementIndexCheck = parts[0] === 'environment' ? 1 : 0;
-        if (ResourceTypeList.includes(parts[replacementIndexCheck])) {
-          parts[replacementIndexCheck] = 'resources';
-        }
-        if (parts[replacementIndexCheck] === 'account') {
-          parts[replacementIndexCheck] = 'accounts';
-        }
-        if (parts[0] === 'variable') {
-          parts[0] = 'variables';
-        }
-        return `\${{ ${parts.join('.')} }}`;
-      },
-    ),
-  );
-};
+export default class DatacenterV2 extends Datacenter {
+  private datacenter!: DatacenterDataV2;
+  private modules: Record<string, DatacenterModuleV2> = {};
+  private moduleImages: Record<string, string> = {};
 
-class Environment {
-  /**
-   * Configure what resources must exist in each environment in the datacenter
-   */
-  resources?: {
-    [key: string]: FullResource;
-  };
-
-  /**
-   * Cloud accounts to register and remove with the lifecycle of the environment
-   */
-  accounts?: {
-    [key: string]: ArcctlAccountInputs;
-  };
-
-  /**
-   * Create terraform modules that should be applied to each environment in the datacenter
-   */
-  modules?: {
-    [key: string]: {
-      source: string;
-    } & Record<string, unknown>;
-  };
-
-  /**
-   * Configure rules for how application resources should behave in the environment
-   */
-  hooks?: Hook[];
-}
-
-export default class DatacenterV1 extends Datacenter {
-  /**
-   * Variables whose values will be prompted for when creating the datacenter
-   */
-  variables?: { [key: string]: VariablesMetadata };
-
-  /**
-   * Create resources that live and die with the lifecycle of the datacenter
-   */
-  resources?: {
-    [key: string]: FullResource;
-  };
-
-  /**
-   * Cloud accounts to register and remove with the lifecycle of the datacenter
-   */
-  accounts?: {
-    [key: string]: ArcctlAccountInputs;
-  };
-
-  /**
-   * Create terraform modules that live and die with the lifecycle of the datacenter
-   */
-  modules?: {
-    [key: string]: {
-      source: string;
-    } & Record<string, unknown>;
-  };
-
-  /**
-   * A template for how environments inside the datacenter should behave
-   */
-  environment?: Environment;
-
-  public constructor(data: Record<string, any>) {
+  constructor(data: any) {
     super();
     if (data.input_type === 'hcl') {
-      data = convertHclToJSON(data);
+      this.datacenter = this.convertToV2(data);
     }
     Object.assign(this, data);
   }
 
-  private getNestedValue(input: any, keys: string[]): any {
-    if (keys.length <= 0) {
-      return input;
-    } else {
-      const key = keys.shift();
+  private cleanupWhenClause(when: string): string {
+    if (when.startsWith('${')) {
+      when = when.substring(2);
+    }
+    if (when.endsWith('}')) {
+      when = when.substring(0, when.length - 1);
+    }
+    return when;
+  }
 
-      if (!(key! in input)) {
-        throw new Error(`${key} does not exist in ${JSON.stringify(input)}`);
+  private convertToV2(data: any): DatacenterDataV2 {
+    const modules: Record<string, any> = {};
+    for (const [key, value] of Object.entries(data.module || {})) {
+      modules[key] = (value as any)[0] || value;
+    }
+    const variables: Record<string, any> = {};
+    for (const [key, value] of Object.entries(data.variable || {})) {
+      variables[key] = (value as any)[0] || value;
+    }
+    const datacenter: DatacenterDataV2 = {
+      variables: {
+        ...variables,
+      },
+      modules: {
+        ...modules,
+      },
+      environment: {
+        hooks: [],
+        modules: {},
+      },
+    };
+
+    if (data.environment?.length && data.environment[0]) {
+      if (data.environment[0].module) {
+        for (const [key, value] of Object.entries(data.environment[0].module)) {
+          datacenter.environment.modules[key] = (value as any)[0] || value;
+          modules[key] = datacenter.environment.modules[key];
+        }
       }
+    }
 
-      return this.getNestedValue(input[key!], keys);
+    console.log(COMPONENT_RESOURCES);
+    for (const type of COMPONENT_RESOURCES) {
+      if (data.environment?.length && data.environment[0][type]) {
+        for (const entry of data.environment[0][type]) {
+          const modules: Record<string, any> = {};
+          for (const [key, value] of Object.entries(entry.module)) {
+            modules[key] = (value as any)[0] || value;
+          }
+          const when = entry.when ? ` && ${this.cleanupWhenClause(entry.when)}` : '';
+          datacenter.environment.hooks.push({
+            when: `\${node.type == \"${type}\"${when}}`,
+            modules,
+            outputs: entry.outputs,
+          });
+        }
+      }
+    }
+
+    for (const hook of datacenter.environment.hooks) {
+      for (const [key, module] of Object.entries(hook.modules)) {
+        modules[key] = module;
+      }
+    }
+    this.modules = modules;
+
+    return datacenter;
+  }
+
+  private stringMustacheReplace(str: string, replacer: (matcher: string, key: string) => string) {
+    let result = str;
+    let start = 0;
+    while (true) {
+      const index = result.indexOf('${{', start);
+      if (index === -1) {
+        break;
+      }
+      let braceCount = 2;
+      for (let i = index + 3; i < result.length; i++) {
+        if (result[i] === '{') {
+          braceCount++;
+        } else if (result[i] === '}') {
+          braceCount--;
+        }
+        if (braceCount === 0) {
+          const match = result.substring(index, i + 1);
+          const key = result.substring(index + 3, i - 2);
+          const value = replacer(match, key.trim());
+          result = result.substring(0, index) + value + result.substring(i + 2);
+          start = index + value.length;
+          break;
+        }
+      }
+    }
+    return result;
+  }
+
+  private convertStringToMustach(str: string) {
+    let result = str;
+    let start = 0;
+    while (true) {
+      const index = result.indexOf('${', start);
+      if (index === -1) {
+        break;
+      }
+      if (result[index + 2] === '{') {
+        start += 2;
+        continue;
+      }
+      let braceCount = 1;
+      for (let i = index + 2; i < result.length; i++) {
+        if (result[i] === '{') {
+          braceCount++;
+        } else if (result[i] === '}') {
+          braceCount--;
+        }
+        if (braceCount === 0) {
+          const key = result.substring(index + 2, i);
+          const value = '${{ ' + key.trim() + ' }}';
+          result = result.substring(0, index) + value + result.substring(i + 1);
+          start = index + value.length;
+          break;
+        }
+      }
+    }
+    return result;
+  }
+
+  private replaceObject(obj: any, replacer: (matcher: string, key: string) => string) {
+    for (const [key, value] of Object.entries(obj)) {
+      if (!value) {
+        continue;
+      }
+      if (typeof value === 'object' || Array.isArray(value)) {
+        this.replaceObject(value, replacer);
+      } else {
+        obj[key] = this.stringMustacheReplace(value.toString(), replacer);
+      }
     }
   }
 
-  private replaceDatacenterResourceRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?resources\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, resource_id, resource_key) => {
-          const resource = this.resources?.[resource_id];
-          if (!resource) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: resource.type,
-            name: resource_id,
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
-        },
-      ),
-    );
+  private convertToMustache(obj: any) {
+    for (const [key, value] of Object.entries(obj)) {
+      if (!value) {
+        continue;
+      }
+      if (typeof value === 'object' || Array.isArray(value)) {
+        this.convertToMustache(value);
+      } else {
+        obj[key] = this.convertStringToMustach(value.toString());
+      }
+    }
+    return obj;
   }
 
-  private replaceDatacenterAccountRefs<T>(
+  private addModules(
     graph: CloudGraph,
-    datacenterName: string,
-    from_node_id: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?accounts\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, account_id, resource_key) => {
-          const account = this.accounts?.[account_id];
-          if (!account) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: 'arcctlAccount',
-            name: this.replaceDatacenterNameRefs(datacenterName, account.name),
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
+    resultGraph: CloudGraph,
+    modules: Record<string, any>,
+    nodeNameToModuleLookup: Record<string, CloudNode>,
+    options?: DatacenterEnrichmentOptions,
+  ) {
+    const nodes: CloudNode[] = [];
+    for (const [name, value] of Object.entries(modules)) {
+      const copied_value = {
+        ...value,
+      };
+      applyContextRecursive(copied_value, {
+        node: {
+          ...value,
+          type: value.inputs.type,
         },
-      ),
-    );
+        datacenter: {
+          name: options?.datacenterName,
+        },
+        environment: {
+          name: options?.environmentName,
+        },
+      });
+      const id = CloudNode.genId({
+        name: name,
+        type: 'module',
+      });
+      nodes.push({
+        account: undefined,
+        id,
+        resource_id: id,
+        name,
+        image: this.moduleImages[name],
+        type: 'module',
+        inputs: this.convertToMustache(copied_value.inputs as any),
+      });
+      nodeNameToModuleLookup[name] = nodes[nodes.length - 1];
+    }
+    for (const node of nodes) {
+      this.replaceObject(node, (match, key) => {
+        const key_parts = key.split('.');
+        const nodeTo = nodeNameToModuleLookup[key_parts[1]];
+        if (!nodeTo) {
+          throw new Error(`Missing node for key: ${key_parts[1]}`);
+        }
+        const toId = CloudNode.genId({
+          name: nodeTo.name,
+          type: nodeTo.inputs.type || 'module',
+        });
+        resultGraph.insertEdges(
+          new CloudEdge({
+            from: `${node.id}`,
+            to: `${toId}`,
+          }),
+        );
+        return `\${{ ${[`${toId}`, key_parts[2]].join('.')} }}`;
+      });
+    }
+    resultGraph.insertNodes(...nodes);
   }
 
-  private replaceEnvironmentResourceRefs<T>(
+  private addHooks(
     graph: CloudGraph,
-    environmentName: string,
-    from_node_id: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?environment\.resources\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, resource_id, resource_key) => {
-          const resource = this.environment?.resources?.[resource_id];
-          if (!resource) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: resource.type,
-            name: resource_id,
-            environment: environmentName,
+    resultGraph: CloudGraph,
+    nodeNameToModuleLookup: Record<string, CloudNode>,
+    options: DatacenterEnrichmentOptions,
+  ) {
+    const hookModuleNodes: CloudNode[] = [];
+    const moduleOutputContext: Record<string, string> = {};
+    for (const node of graph.nodes) {
+      for (const hook of this.datacenter.environment.hooks) {
+        const localHookModules: Record<string, CloudNode> = {};
+        const copied_hook = JSON.parse(JSON.stringify(hook));
+        applyContextRecursive(copied_hook, {
+          node: {
+            ...node,
+            type: node.inputs.type,
+          },
+          datacenter: {
+            name: options.datacenterName,
+          },
+          environment: {
+            name: options.environmentName,
+          },
+        });
+        if (copied_hook.when !== 'true') {
+          continue;
+        }
+        const lookupId = CloudNode.genId({
+          name: node.name,
+          type: node.inputs.type,
+          component: node.component,
+          environment: node.environment,
+        });
+        for (const [module_name, module] of Object.entries(copied_hook.modules)) {
+          const name = CloudNode.genId({
+            name: node.name,
+            type: module_name as any,
+            component: node.component,
+            environment: node.environment,
           });
+          const moduleNode: CloudNode = {
+            account: undefined,
+            id: name,
+            resource_id: name,
+            name: name,
+            image: this.moduleImages[module_name],
+            type: 'module',
+            inputs: JSON.parse(JSON.stringify((module as any).inputs)),
+          };
+          localHookModules[module_name] = moduleNode;
+          hookModuleNodes.push(moduleNode);
+        }
 
-          graph.insertEdges(
+        const schemaDefinition = OutputsSchema[node.inputs.type].definitions;
+        const schema = Object.entries(schemaDefinition)[0][1] as Record<string, any>;
+        if ('required' in schema) {
+          const schemaDefinitionKeys = Object.values(schema.required as any) as string[];
+          const hookOutputKeys = Object.keys(copied_hook.outputs);
+          const missingKeys = schemaDefinitionKeys.filter((k: string) => !hookOutputKeys.includes(k));
+          if (missingKeys.length > 0) {
+            throw new Error(`Missing output keys: ${missingKeys.join(', ')} for ${node.id}`);
+          }
+        }
+
+        this.replaceObject(this.convertToMustache(copied_hook.outputs), (match, key) => {
+          const key_parts = key.split('.');
+          if (key_parts[0] !== 'module') {
+            return match;
+          }
+          try {
+            const outputName = localHookModules[key_parts[1]]
+              ? localHookModules[key_parts[1]].name
+              : 'module/' + nodeNameToModuleLookup[key_parts[1]].name;
+            key_parts.shift();
+            key_parts.shift();
+            const identifier = key_parts.join('.');
+            const toId = `${outputName}.${identifier}`;
+            moduleOutputContext[`${lookupId}.${identifier}`] = toId;
+            return `\${{ ${toId} }}`;
+          } catch (err) {
+            console.log(`Couold not find module output for key: ${key_parts[1]}`);
+            throw err;
+          }
+        });
+
+        // Only 1 hook can be used per module
+        break;
+      }
+    }
+    resultGraph.insertNodes(...hookModuleNodes);
+
+    for (const hookModuleNode of hookModuleNodes) {
+      this.replaceObject(this.convertToMustache(hookModuleNode.inputs), (match: string, key: string) => {
+        if (moduleOutputContext[key]) {
+          const keyParts = key.split('.');
+          const id = keyParts[0];
+          resultGraph.insertEdges(
             new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
+              from: `${hookModuleNode.id}`,
+              to: `${id}`,
             }),
           );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
-        },
-      ),
-    );
+          return `\${{ ${moduleOutputContext[key]} }}`;
+        }
+        const keyParts = key.split('.');
+        const id = keyParts[1];
+        keyParts.shift();
+        keyParts.shift();
+        const identifier = keyParts.join('.');
+        if (nodeNameToModuleLookup[id]) {
+          return `\${{ module/${nodeNameToModuleLookup[id].name}.${identifier} }}`;
+        }
+        console.log(`Could not find module for key: ${key}`);
+        return match;
+      });
+    }
   }
 
-  private replaceEnvironmentAccountRefs<T>(
+  public enrichGraph(
     graph: CloudGraph,
-    datacenterName: string,
-    environmentName: string,
-    from_node_id: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?environment\.accounts\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, account_id, resource_key) => {
-          const account = this.environment?.accounts?.[account_id];
-          if (!account) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: 'arcctlAccount',
-            name: this.replaceDatacenterNameRefs(
-              datacenterName,
-              this.replaceEnvironmentNameRefs(environmentName, account.name),
-            ),
-            environment: environmentName,
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
+    options: DatacenterEnrichmentOptions,
+  ): Promise<CloudGraph> {
+    applyContext(graph, {
+      datacenter: {
+        name: options.datacenterName,
+      },
+    });
+    if (options.environmentName) {
+      applyContext(graph, {
+        environment: {
+          name: options.environmentName,
         },
-      ),
-    );
-  }
-
-  private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
-    return JSON.parse(JSON.stringify(contents).replace(/\${{\s*?environment\.name\s*?}}/g, environmentName));
-  }
-
-  private replaceDatacenterNameRefs<T>(datacenterName: string, contents: T): T {
-    return JSON.parse(JSON.stringify(contents).replace(/\${{\s*?datacenter\.name\s*?}}/g, datacenterName));
+      });
+    }
+    const resultGraph = new CloudGraph();
+    const nodeNameToModuleLookup: Record<string, CloudNode> = {};
+    this.addModules(graph, resultGraph, this.datacenter.modules, nodeNameToModuleLookup, options);
+    if (options.environmentName && this.datacenter.environment && this.datacenter.environment.modules) {
+      this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeNameToModuleLookup, options);
+    }
+    this.addHooks(graph, resultGraph, nodeNameToModuleLookup, options);
+    return Promise.resolve(resultGraph);
   }
 
   public getVariables(): ParsedVariablesType {
-    if (!this.variables) {
+    if (!this.datacenter.variables) {
       return {};
     }
 
     // Parse/stringify to deep copy the object.
     // Don't want dependant_variables metadata key to end up in the json dumped datacenter
-    const variables: ParsedVariablesType = JSON.parse(JSON.stringify(this.variables));
+    const variables: ParsedVariablesType = JSON.parse(JSON.stringify(this.datacenter.variables));
     const variable_names = new Set(Object.keys(variables));
-    const variable_regex = /\${{\s*?variables\.([\w-]+)\s*?}}/;
+    const variable_regex = /\${\s*?variable\.([\w-]+)\s*?}/;
 
     for (const [variable_name, variable_metadata] of Object.entries(variables)) {
       for (const [metadata_key, metadata_value] of Object.entries(variable_metadata)) {
@@ -379,425 +469,62 @@ export default class DatacenterV1 extends Datacenter {
     return variables;
   }
 
-  /**
-   * Replaces all `${{ variables.VAR_NAME }}` references with their values.
-   * The stored datacenter json will no longer contain `${{ variables.VAR_NAME }}`
-   * references and will just contain the inputted values.
-   */
-  public setVariableValues(variables: Record<string, string | boolean | number | undefined>) {
-    function replace_variable_values(obj: Record<string, unknown>) {
-      for (const [key, value] of Object.entries(obj)) {
-        if (typeof value === 'object') {
-          replace_variable_values(value as Record<string, unknown>);
-        } else if (typeof value === 'string') {
-          obj[key] = value.replace(
-            /\${{\s*?variables\.([\w-]+)\s*?}}/g,
-            (_full_ref, variable_name) => {
-              const variable_value = variables[variable_name];
-              if (variable_value === undefined) {
-                throw Error(`Variable ${variable_name} has no value`);
-              }
-              return variable_value as string;
-            },
-          );
-        }
+  private replaceVariableValues(obj: Record<string, unknown>, variables: Record<string, any>) {
+    for (const [key, value] of Object.entries(obj)) {
+      if (typeof value === 'object') {
+        this.replaceVariableValues(value as Record<string, unknown>, variables);
+      } else if (typeof value === 'string') {
+        obj[key] = value.replace(
+          /\${\s*?variable\.([\w-]+)\s*?}/g,
+          (_full_ref, variable_name) => {
+            const variable_value = variables[variable_name];
+            if (variable_value === undefined) {
+              throw Error(`Variable ${variable_name} has no value`);
+            }
+            return variable_value as string;
+          },
+        ).replace(
+          /\s*?variable\.([\w-]+)/g,
+          (_full_ref, variable_name) => {
+            const variable_value = variables[variable_name];
+            if (variable_value === undefined) {
+              throw Error(`Variable ${variable_name} has no value`);
+            }
+            return variable_value as string;
+          },
+        );
       }
-    }
-
-    replace_variable_values(this.resources || {});
-    replace_variable_values(this.accounts || {});
-    replace_variable_values(this.environment as Record<string, any> || {});
-
-    for (const [variable_name, variable_metadata] of Object.entries(this.variables || {})) {
-      variable_metadata.value = variables[variable_name];
     }
   }
 
-  public enrichGraph(graph: CloudGraph, options: DatacenterEnrichmentOptions): Promise<CloudGraph> {
-    // Create nodes for explicit resources of the datacenter
-    for (const [key, value] of Object.entries(this.resources || {})) {
-      const node = new CloudNode({
-        name: key,
-        inputs: value,
+  public setVariableValues(variables: Record<string, unknown>): void {
+    this.replaceVariableValues(this.datacenter, variables);
+  }
+
+  public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
+    for (const [moduleName, module] of Object.entries(this.modules || {})) {
+      const digest = await buildFn({
+        context: module.source,
       });
-
-      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterAccountRefs(graph, options.datacenterName, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterNameRefs(options?.datacenterName || '', node.inputs);
-
-      graph.insertNodes(node);
+      this.moduleImages[moduleName] = digest;
     }
 
-    // Create nodes for datacenter accounts
-    for (const value of Object.values(this.accounts || {})) {
-      const node = new CloudNode({
-        name: this.replaceDatacenterNameRefs(options.datacenterName, value.name),
-        inputs: {
-          type: 'arcctlAccount',
-          account: 'n/a', // Helps it skip hook mutations
-          ...value,
-        },
-      });
+    return this;
+  }
 
-      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-
-      graph.insertNodes(node);
+  public async tag(tagFn: DockerTagFn): Promise<Datacenter> {
+    for (const [moduleName, image] of Object.entries(this.moduleImages || {})) {
+      this.moduleImages[moduleName] = await tagFn(image, moduleName);
     }
 
-    // Fill the graph with things that should be in the environment
-    if (options?.environmentName) {
-      // Create nodes for explicit resources that should be in each environment
-      for (const [key, value] of Object.entries(this.environment?.resources || {})) {
-        const node = new CloudNode({
-          name: key,
-          environment: options?.environmentName,
-          inputs: value,
-        });
+    return this;
+  }
 
-        node.inputs = this.replaceEnvironmentResourceRefs(graph, options?.environmentName, node.id, node.inputs);
-        node.inputs = this.replaceEnvironmentAccountRefs(
-          graph,
-          options.datacenterName,
-          options?.environmentName,
-          node.id,
-          node.inputs,
-        );
-        node.inputs = this.replaceEnvironmentNameRefs(options?.environmentName, node.inputs);
-        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-        node.inputs = this.replaceDatacenterAccountRefs(graph, options.datacenterName, node.id, node.inputs);
-        node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-
-        graph.insertNodes(node);
-      }
-
-      // Create nodes for environment accounts
-      for (const value of Object.values(this.environment?.accounts || {})) {
-        const node = new CloudNode({
-          name: this.replaceDatacenterNameRefs(
-            options.datacenterName,
-            this.replaceEnvironmentNameRefs(options?.environmentName, value.name),
-          ),
-          environment: options?.environmentName,
-          inputs: {
-            type: 'arcctlAccount',
-            account: 'n/a', // Helps it skip hook mutations
-            ...value,
-          },
-        });
-
-        node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-        node.inputs = this.replaceEnvironmentResourceRefs(graph, options?.environmentName, node.id, node.inputs);
-        node.inputs = this.replaceEnvironmentNameRefs(options?.environmentName, node.inputs);
-
-        graph.insertNodes(node);
-      }
-
-      // Run hooks on each node
-      for (const node of graph.nodes) {
-        // Skip nodes that already have an account
-        if (node.account) continue;
-
-        // See if the node matches any hooks
-        for (const hook of this.environment?.hooks || []) {
-          const doesMatchNode = !hook.when ||
-            Object.entries(hook.when || {}).every(
-              ([key, value]) => key in node.inputs && (node.inputs as any)[key] === value,
-            );
-
-          if (!doesMatchNode) continue;
-
-          const replaceBaseHookExpressions = <T>(contents: T): T =>
-            JSON.parse(
-              JSON.stringify(contents).replace(
-                /\${{\s*?this\.(\S+)\s*?}}/g,
-                (_, node_key: string) => {
-                  return this.getNestedValue(node, node_key.split('.'));
-                },
-              ),
-            );
-
-          const replaceHookExpressions = <T>(
-            resources: { [key: string]: InputSchema },
-            accounts: { [key: string]: ArcctlAccountInputs },
-            from_node_name: string,
-            from_node_id: string,
-            contents: T,
-          ): T =>
-            replaceBaseHookExpressions(
-              JSON.parse(
-                JSON.stringify(contents)
-                  .replace(/\${{\s*?this\.resources\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, resource_id, resource_key) => {
-                    const resource = resources?.[resource_id];
-                    if (!resource) {
-                      throw new Error(`Invalid expression: ${full_ref}`);
-                    }
-
-                    let targetResourceName = `${node.name}/${resource_id}`;
-                    targetResourceName = this.replaceEnvironmentNameRefs(
-                      options?.environmentName || '',
-                      targetResourceName,
-                    );
-                    targetResourceName = this.replaceDatacenterNameRefs(options.datacenterName, targetResourceName);
-                    targetResourceName = replaceBaseHookExpressions(targetResourceName);
-
-                    const target_node_id = CloudNode.genId({
-                      type: resource.type,
-                      name: targetResourceName,
-                      environment: options?.environmentName,
-                      component: node.component,
-                    });
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: from_node_id,
-                        to: target_node_id,
-                      }),
-                    );
-
-                    return `\${{ ${target_node_id}.${resource_key} }}`;
-                  })
-                  .replace(/\${{\s*?this\.accounts\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, account_id, resource_key) => {
-                    const account = accounts?.[account_id];
-                    if (!account) {
-                      throw new Error(`Invalid expression: ${full_ref}`);
-                    }
-
-                    let targetAccountName = this.replaceEnvironmentNameRefs(
-                      options?.environmentName || '',
-                      account.name,
-                    );
-                    targetAccountName = this.replaceDatacenterNameRefs(options.datacenterName, targetAccountName);
-                    targetAccountName = replaceBaseHookExpressions(targetAccountName);
-                    const target_node_id = CloudNode.genId({
-                      type: 'arcctlAccount',
-                      name: targetAccountName,
-                      environment: options?.environmentName,
-                      component: node.component,
-                    });
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: from_node_id,
-                        to: target_node_id,
-                      }),
-                    );
-
-                    return `\${{ ${target_node_id}.${resource_key} }}`;
-                  }),
-              ),
-            );
-
-          // Create inline resources defined by the hook
-          for (const [resource_key, resource_config] of Object.entries(hook.resources || {})) {
-            let newResourceName = `${node.name}/${resource_key}`;
-            newResourceName = this.replaceEnvironmentNameRefs(options?.environmentName, newResourceName);
-            newResourceName = this.replaceDatacenterNameRefs(options.datacenterName, newResourceName);
-            newResourceName = replaceBaseHookExpressions(newResourceName);
-
-            const hook_node_id = CloudNode.genId({
-              type: resource_config.type,
-              name: newResourceName,
-              component: node.component,
-              environment: options?.environmentName,
-            });
-
-            const newNode = new CloudNode({
-              name: newResourceName,
-              environment: options?.environmentName,
-              component: node.component,
-              inputs: JSON.parse(
-                JSON.stringify(resource_config).replace(
-                  /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
-                  (_, key: string) => {
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: hook_node_id,
-                        to: node.id,
-                      }),
-                    );
-
-                    return `\${{ ${node.id}.${key} }}`;
-                  },
-                ),
-              ),
-            });
-            newNode.inputs = replaceHookExpressions(
-              hook.resources || {},
-              hook.accounts || {},
-              newResourceName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentResourceRefs(
-              graph,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentAccountRefs(
-              graph,
-              options.datacenterName,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterNameRefs(
-              options.datacenterName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentNameRefs(
-              options?.environmentName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterResourceRefs(
-              graph,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterAccountRefs(
-              graph,
-              options.datacenterName,
-              hook_node_id,
-              newNode.inputs,
-            );
-
-            graph.insertNodes(newNode);
-          }
-
-          // Create inline accounts defined by the hook
-          for (const account_config of Object.values(hook.accounts || {})) {
-            let newResourceName = this.replaceEnvironmentNameRefs(options?.environmentName, account_config.name);
-            newResourceName = this.replaceDatacenterNameRefs(options.datacenterName, newResourceName);
-            newResourceName = replaceBaseHookExpressions(newResourceName);
-
-            const hook_node_id = CloudNode.genId({
-              type: 'arcctlAccount',
-              name: newResourceName,
-              component: node.component,
-              environment: options?.environmentName,
-            });
-
-            const newNode = new CloudNode({
-              name: newResourceName,
-              environment: options?.environmentName,
-              component: node.component,
-              inputs: {
-                type: 'arcctlAccount',
-                account: 'n/a', // Helps it skip hook mutations
-                ...JSON.parse(
-                  JSON.stringify(account_config).replace(
-                    /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
-                    (_, key: string) => {
-                      graph.insertEdges(
-                        new CloudEdge({
-                          from: hook_node_id,
-                          to: node.id,
-                        }),
-                      );
-
-                      return `\${{ ${node.id}.${key} }}`;
-                    },
-                  ),
-                ),
-              },
-            });
-            newNode.inputs = replaceHookExpressions(
-              hook.resources || {},
-              hook.accounts || {},
-              newResourceName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentResourceRefs(
-              graph,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentAccountRefs(
-              graph,
-              options.datacenterName,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterNameRefs(
-              options.datacenterName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentNameRefs(
-              options?.environmentName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterResourceRefs(
-              graph,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterAccountRefs(
-              graph,
-              options.datacenterName,
-              hook_node_id,
-              newNode.inputs,
-            );
-
-            graph.insertNodes(newNode);
-          }
-
-          // Update
-          const hookData = { ...hook };
-          const hookResources = hookData.resources || {};
-          const hookAccounts = hookData.accounts || {};
-          delete hookData.when;
-          delete hookData.resources;
-          delete hookData.accounts;
-
-          node.inputs = replaceHookExpressions(
-            hookResources,
-            hookAccounts,
-            node.name,
-            node.id,
-            deepMerge(node.inputs as any, {
-              ...hookData,
-              account: node.inputs.account || hookData.account,
-            }) as any,
-          );
-          node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-          node.inputs = this.replaceEnvironmentNameRefs(options.environmentName, node.inputs);
-          node.inputs = this.replaceEnvironmentResourceRefs(
-            graph,
-            options?.environmentName,
-            node.id,
-            node.inputs,
-          );
-          node.inputs = this.replaceEnvironmentAccountRefs(
-            graph,
-            options.datacenterName,
-            options?.environmentName,
-            node.id,
-            node.inputs,
-          );
-          node.inputs = this.replaceDatacenterResourceRefs(
-            graph,
-            node.id,
-            node.inputs,
-          );
-          node.inputs = this.replaceDatacenterAccountRefs(
-            graph,
-            options.datacenterName,
-            node.id,
-            node.inputs,
-          );
-
-          graph.insertNodes(node);
-
-          if (node.account) {
-            break;
-          }
-        }
-      }
+  public async push(pushFn: DockerPushFn): Promise<Datacenter> {
+    for (const [_, image] of Object.entries(this.moduleImages || {})) {
+      await pushFn(image);
     }
 
-    return Promise.resolve(graph);
+    return this;
   }
 }

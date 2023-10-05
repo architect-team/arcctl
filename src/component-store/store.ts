@@ -329,9 +329,12 @@ export class ComponentStore {
       Deno.mkdirSync(store_dir, { recursive: true });
     }
 
+    console.log('Extracting tar', file);
     if (layer.mediaType.endsWith('tar+gzip') || layer.mediaType.endsWith('tar')) {
       await tar.extract({ file, cwd: store_dir });
     }
+
+    console.log('Tar extracted');
 
     this.add(path.join(store_dir, 'architect.json'));
   }

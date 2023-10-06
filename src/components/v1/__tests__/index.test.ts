@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
 import { assertArrayIncludes } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { AppEdge, AppNode } from '../../../app-graph/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -48,7 +48,7 @@ describe('Component Schema: v1', () => {
       environment: 'account/environment',
     });
 
-    const build_node = new CloudNode({
+    const build_node = new AppNode({
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
@@ -60,13 +60,13 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppNode({
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'account/component',
           environment: 'account/environment',
@@ -101,13 +101,13 @@ describe('Component Schema: v1', () => {
       environment: 'account/environment',
     });
 
-    const api_node = new CloudNode({
+    const api_node = new AppNode({
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'account/component',
           environment: 'account/environment',
@@ -118,13 +118,13 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    const app_node = new CloudNode({
+    const app_node = new AppNode({
       name: 'app',
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'app',
           component: 'account/component',
           environment: 'account/environment',
@@ -137,7 +137,7 @@ describe('Component Schema: v1', () => {
 
     assertArrayIncludes(graph.nodes, [api_node, app_node]);
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
+      new AppEdge({
         from: app_node.id,
         to: api_node.id,
       }),
@@ -163,13 +163,13 @@ describe('Component Schema: v1', () => {
       environment: 'account/environment',
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppNode({
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'account/component',
           environment: 'account/environment',
@@ -204,7 +204,7 @@ describe('Component Schema: v1', () => {
       environment: 'account/environment',
     });
 
-    const build_node = new CloudNode({
+    const build_node = new AppNode({
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
@@ -216,13 +216,13 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppNode({
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'account/component',
           environment: 'account/environment',
@@ -295,26 +295,26 @@ describe('Component Schema: v1', () => {
       environment: 'test',
     });
 
-    const deployment_node_id = CloudNode.genId({
+    const deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'api',
       component: 'test',
       environment: 'test',
     });
 
-    const interface_node = new CloudNode({
+    const interface_node = new AppNode({
       name: 'api',
       component: 'test',
       environment: 'test',
       inputs: {
         type: 'service',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
         }),
         target_protocol: 'http',
-        target_deployment: CloudNode.genResourceId({
+        target_deployment: AppNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -325,7 +325,7 @@ describe('Component Schema: v1', () => {
 
     assertArrayIncludes(graph.nodes, [interface_node]);
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
+      new AppEdge({
         from: interface_node.id,
         to: deployment_node_id,
       }),
@@ -392,19 +392,19 @@ describe('Component Schema: v1', () => {
       environment: 'test',
     });
 
-    const interface_node = new CloudNode({
+    const interface_node = new AppNode({
       name: 'api',
       component: 'test',
       environment: 'test',
       inputs: {
         type: 'service',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
         }),
         target_protocol: 'http',
-        target_deployment: CloudNode.genResourceId({
+        target_deployment: AppNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -413,7 +413,7 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    const ingress_node = new CloudNode({
+    const ingress_node = new AppNode({
       name: 'api',
       component: 'test',
       environment: 'test',
@@ -426,7 +426,7 @@ describe('Component Schema: v1', () => {
         service: `\${{ ${interface_node.id}.id }}`,
         port: 80,
         internal: false,
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -437,7 +437,7 @@ describe('Component Schema: v1', () => {
     assertArrayIncludes(graph.nodes, [interface_node, ingress_node]);
 
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
+      new AppEdge({
         from: ingress_node.id,
         to: interface_node.id,
       }),
@@ -467,19 +467,19 @@ describe('Component Schema: v1', () => {
       environment: 'test',
     });
 
-    const service_node = new CloudNode({
+    const service_node = new AppNode({
       name: `api-main`,
       component: 'test',
       environment: 'test',
       inputs: {
         type: 'service',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api-main',
           component: 'test',
           environment: 'test',
         }),
         target_protocol: 'http',
-        target_deployment: CloudNode.genResourceId({
+        target_deployment: AppNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -488,7 +488,7 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    const ingress_node = new CloudNode({
+    const ingress_node = new AppNode({
       name: 'api-main',
       component: 'test',
       environment: 'test',
@@ -503,7 +503,7 @@ describe('Component Schema: v1', () => {
         service: `\${{ ${service_node.id}.id }}`,
         port: 80,
         internal: false,
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'api-main',
           component: 'test',
           environment: 'test',
@@ -514,7 +514,7 @@ describe('Component Schema: v1', () => {
     assertArrayIncludes(graph.nodes, [service_node, ingress_node]);
 
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
+      new AppEdge({
         from: ingress_node.id,
         to: service_node.id,
       }),

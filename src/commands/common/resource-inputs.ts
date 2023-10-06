@@ -5,7 +5,7 @@ import * as path from 'std/path/mod.ts';
 import { WritableResourceService } from '../../@providers/base.service.ts';
 import { Provider } from '../../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { CloudGraph, CloudNode } from '../../app-graph/index.ts';
 import { Inputs } from './inputs.ts';
 
 export class ResourceInputUtils {

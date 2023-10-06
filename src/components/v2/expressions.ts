@@ -1,9 +1,9 @@
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
 import { GraphContext } from '../component.ts';
 import { DependencySchemaV2 } from './dependency.ts';
 
 const parseSecretRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -12,14 +12,14 @@ const parseSecretRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?(?:parameters|secrets|variables|vars)\.([\w-]+)\s?}}/g,
       (_, input_name) => {
-        const input_node_id = CloudNode.genId({
+        const input_node_id = AppNode.genId({
           type: 'secret',
           name: input_name,
           component: context.component.name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: input_node_id,
           }),
@@ -31,7 +31,7 @@ const parseSecretRefs = <T extends Record<string, any>>(
 };
 
 const parseDatabaseRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -40,7 +40,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, database_name, key) => {
-        const database_schema_node_id = CloudNode.genId({
+        const database_schema_node_id = AppNode.genId({
           type: 'database',
           name: database_name,
           component: context.component.name,
@@ -48,7 +48,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
         });
 
         const name = `${from_id}/${database_name}`;
-        const database_user_node = new CloudNode({
+        const database_user_node = new AppNode({
           name,
           component: context.component.name,
           environment: context.environment,
@@ -62,11 +62,11 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 
         graph.insertNodes(database_user_node);
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: database_user_node.id,
             to: database_schema_node_id,
           }),
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: database_user_node.id,
           }),
@@ -79,7 +79,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 };
 
 const parseBuildRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -88,7 +88,7 @@ const parseBuildRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?builds\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, build_name, key) => {
-        const build_node_id = CloudNode.genId({
+        const build_node_id = AppNode.genId({
           type: 'dockerBuild',
           name: build_name,
           component: context.component.name,
@@ -96,7 +96,7 @@ const parseBuildRefs = <T extends Record<string, any>>(
         });
 
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: build_node_id,
           }),
@@ -109,7 +109,7 @@ const parseBuildRefs = <T extends Record<string, any>>(
 };
 
 const parseServiceRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -118,14 +118,14 @@ const parseServiceRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?services\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, service_name, key) => {
-        const service_node_id = CloudNode.genId({
+        const service_node_id = AppNode.genId({
           type: 'service',
           name: service_name,
           component: context.component.name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: service_node_id,
           }),
@@ -138,7 +138,7 @@ const parseServiceRefs = <T extends Record<string, any>>(
 };
 
 const parseIngressRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -147,14 +147,14 @@ const parseIngressRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, ingress_name, key) => {
-        const ingress_node_id = CloudNode.genId({
+        const ingress_node_id = AppNode.genId({
           type: 'ingressRule',
           name: ingress_name,
           component: context.component.name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: ingress_node_id,
           }),
@@ -167,7 +167,7 @@ const parseIngressRefs = <T extends Record<string, any>>(
 };
 
 const parseDependencyOutputRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   dependencies: Record<string, DependencySchemaV2>,
   from_id: string,
   inputs: T,
@@ -181,13 +181,13 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
-        const dependency_node_id = CloudNode.genId({
+        const dependency_node_id = AppNode.genId({
           type: 'secret',
           name: output_name,
           component: dep.component,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -199,7 +199,7 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
 };
 
 const parseDependencyServiceRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   from_id: string,
@@ -214,14 +214,14 @@ const parseDependencyServiceRefs = <T extends Record<string, any>>(
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
-        const dependency_node_id = CloudNode.genId({
+        const dependency_node_id = AppNode.genId({
           type: 'service',
           name: service_name,
           component: dep.component,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -234,7 +234,7 @@ const parseDependencyServiceRefs = <T extends Record<string, any>>(
 };
 
 const parseDependencyIngressRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   from_id: string,
@@ -249,14 +249,14 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
-        const dependency_node_id = CloudNode.genId({
+        const dependency_node_id = AppNode.genId({
           type: 'ingressRule',
           name: ingress_name,
           component: dep.component,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -280,7 +280,7 @@ const parseEnvironmentRefs = <T extends Record<string, any>>(
 };
 
 export const parseExpressionRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   dependencies: Record<string, DependencySchemaV2>,
   context: GraphContext,
   from_id: string,

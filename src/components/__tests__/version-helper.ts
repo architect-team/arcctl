@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 import { assertArrayIncludes } from 'std/testing/asserts.ts';
-import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
+import { AppEdge, AppNode } from '../../app-graph/index.ts';
 import { Component } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 
@@ -18,13 +18,13 @@ export const testSecretGeneration = (
     environment: 'test',
   });
 
-  const secret_node = new CloudNode({
+  const secret_node = new AppNode({
     name: options.secret_name,
     component: 'test',
     environment: 'test',
     inputs: {
       type: 'secret',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.secret_name,
         component: 'test',
         environment: 'test',
@@ -50,13 +50,13 @@ export const testSecretIntegration = (
     environment: 'environment',
   });
 
-  const secret_node = new CloudNode({
+  const secret_node = new AppNode({
     name: options.secret_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'secret',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.secret_name,
         component: 'component',
         environment: 'environment',
@@ -65,13 +65,13 @@ export const testSecretIntegration = (
     },
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppNode({
     name: options.deployment_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'deployment',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
@@ -86,7 +86,7 @@ export const testSecretIntegration = (
   });
   assertArrayIncludes(graph.nodes, [secret_node, deployment_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
+    new AppEdge({
       from: deployment_node.id,
       to: secret_node.id,
     }),
@@ -111,13 +111,13 @@ export const testDatabaseGeneration = (
     environment: 'environment',
   });
 
-  const database_schema = new CloudNode({
+  const database_schema = new AppNode({
     name: options.database_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'database',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.database_name,
         component: 'component',
         environment: 'environment',
@@ -145,14 +145,14 @@ export const testDatabaseIntegration = (
     environment: 'environment',
   });
 
-  const database_schema_node_id = CloudNode.genId({
+  const database_schema_node_id = AppNode.genId({
     type: 'database',
     name: options.database_name,
     component: 'component',
     environment: 'environment',
   });
 
-  const deployment_node_id = CloudNode.genId({
+  const deployment_node_id = AppNode.genId({
     type: 'deployment',
     name: options.deployment_name,
     component: 'component',
@@ -160,7 +160,7 @@ export const testDatabaseIntegration = (
   });
 
   const name = `${deployment_node_id}/${options.database_name}`;
-  const database_user_node = new CloudNode({
+  const database_user_node = new AppNode({
     name,
     component: 'component',
     environment: 'environment',
@@ -172,13 +172,13 @@ export const testDatabaseIntegration = (
     },
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppNode({
     name: options.deployment_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'deployment',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
@@ -194,11 +194,11 @@ export const testDatabaseIntegration = (
 
   assertArrayIncludes(graph.nodes, [database_user_node, deployment_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
+    new AppEdge({
       from: database_user_node.id,
       to: database_schema_node_id,
     }),
-    new CloudEdge({
+    new AppEdge({
       from: deployment_node.id,
       to: database_user_node.id,
     }),
@@ -219,13 +219,13 @@ export const testDeploymentGeneration = (
     environment: 'test',
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppNode({
     name: options.deployment_name,
     component: 'test',
     environment: 'test',
     inputs: {
       type: 'deployment',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.deployment_name,
         component: 'test',
         environment: 'test',
@@ -253,19 +253,19 @@ export const testServiceGeneration = (
     environment: 'environment',
   });
 
-  const service_node = new CloudNode({
+  const service_node = new AppNode({
     name: options.service_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'service',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.service_name,
         component: 'component',
         environment: 'environment',
       }),
       target_protocol: 'http',
-      target_deployment: CloudNode.genResourceId({
+      target_deployment: AppNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
@@ -274,13 +274,13 @@ export const testServiceGeneration = (
     },
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppNode({
     name: options.deployment_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'deployment',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
@@ -300,7 +300,7 @@ export const testServiceGeneration = (
 
   assertArrayIncludes(graph.nodes, [deployment_node, service_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
+    new AppEdge({
       from: deployment_node.id,
       to: service_node.id,
     }),
@@ -324,20 +324,20 @@ export const testServiceIntegration = (
     environment: 'environment',
   });
 
-  const first_service_node_id = CloudNode.genId({
+  const first_service_node_id = AppNode.genId({
     type: 'service',
     name: options.service_name,
     component: 'component',
     environment: 'environment',
   });
 
-  const second_deployment_node = new CloudNode({
+  const second_deployment_node = new AppNode({
     name: options.deployment_name,
     component: 'component',
     environment: 'environment',
     inputs: {
       type: 'deployment',
-      name: CloudNode.genResourceId({
+      name: AppNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
@@ -353,7 +353,7 @@ export const testServiceIntegration = (
 
   assertArrayIncludes(graph.nodes, [second_deployment_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
+    new AppEdge({
       from: second_deployment_node.id,
       to: first_service_node_id,
     }),

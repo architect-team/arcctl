@@ -10,7 +10,6 @@ import { AccountInputUtils } from './common/account-inputs.ts';
 import { DatacenterUtils } from './common/datacenter.ts';
 import { EnvironmentUtils } from './common/environment.ts';
 import { PipelineRenderer } from './common/pipeline-renderer.ts';
-import { ResourceInputUtils } from './common/resource-inputs.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -19,7 +18,9 @@ export type GlobalOptions = {
 export function BaseCommand() {
   const command = new Command()
     .name('arcctl')
-    .description('Create and manage cloud applications and infrastructure with twin frameworks: Components & Datacenters')
+    .description(
+      'Create and manage cloud applications and infrastructure with twin frameworks: Components & Datacenters',
+    )
     .globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
       prefix: 'XDG_',
     })
@@ -33,7 +34,6 @@ export function BaseCommand() {
 export class CommandHelper {
   public readonly providerStore: ProviderStore;
   private account_input_utils: AccountInputUtils;
-  private resource_input_utils: ResourceInputUtils;
   private pipeline_renderer: PipelineRenderer;
   private datacenter_utils: DatacenterUtils;
   private environment_utils: EnvironmentUtils;
@@ -44,13 +44,10 @@ export class CommandHelper {
     ArcCtlConfig.load(options.configHome);
     this.providerStore = new ArcctlProviderStore(ArcCtlConfig.getStateBackend());
     this.account_input_utils = new AccountInputUtils(this.providerStore);
-    this.resource_input_utils = new ResourceInputUtils();
     this.pipeline_renderer = new PipelineRenderer();
     this.datacenter_utils = new DatacenterUtils(
       this.datacenterStore,
-      this.resourceInputUtils,
       this.providerStore,
-      this.account_input_utils,
     );
     this.environment_utils = new EnvironmentUtils(this.environmentStore, this.providerStore);
   }
@@ -71,10 +68,6 @@ export class CommandHelper {
 
   get accountInputUtils(): AccountInputUtils {
     return this.account_input_utils;
-  }
-
-  get resourceInputUtils(): ResourceInputUtils {
-    return this.resource_input_utils;
   }
 
   get pipelineRenderer(): PipelineRenderer {

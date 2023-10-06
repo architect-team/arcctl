@@ -1,23 +1,23 @@
 import * as path from 'std/path/mod.ts';
 import winston from 'winston';
 import { ProviderStore } from '../../@providers/store.ts';
-import { ResourceType } from '../../@resources/index.ts';
-import { CloudGraph } from '../../cloud-graph/index.ts';
-import { Datacenter, DatacenterRecord, ParsedVariablesMetadata, ParsedVariablesType } from '../../datacenters/index.ts';
-import { DatacenterStore } from '../../datacenters/store.ts';
+import { AppGraph } from '../../app-graph/index.ts';
+import {
+  Datacenter,
+  DatacenterRecord,
+  DatacenterStore,
+  ParsedVariablesMetadata,
+  ParsedVariablesType,
+} from '../../datacenters/index.ts';
 import { Build } from '../../modules/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
-import { AccountInputUtils } from './account-inputs.ts';
 import { Inputs } from './inputs.ts';
-import { ResourceInputUtils } from './resource-inputs.ts';
 
 export class DatacenterUtils {
   constructor(
     private readonly datacenterStore: DatacenterStore,
-    private readonly resourceInputUtils: ResourceInputUtils,
     private readonly providerStore: ProviderStore,
-    private readonly accountInputUtils: AccountInputUtils,
   ) {}
 
   /**
@@ -42,7 +42,7 @@ export class DatacenterUtils {
    * an error is thrown.
    */
   public async promptForVariables(
-    graph: CloudGraph,
+    graph: AppGraph,
     variables: ParsedVariablesType,
     user_inputs: Record<string, string> = {},
   ): Promise<Record<string, unknown>> {
@@ -79,7 +79,7 @@ export class DatacenterUtils {
   }
 
   private async promptForVariableFromMetadata(
-    graph: CloudGraph,
+    graph: AppGraph,
     name: string,
     metadata: ParsedVariablesMetadata,
     value?: string,
@@ -91,34 +91,9 @@ export class DatacenterUtils {
       return value || Inputs.promptBoolean(message);
     } else if (metadata.type === 'number') {
       return value || Inputs.promptNumber(message);
-    } else if (metadata.type === 'arcctlAccount') {
-      const existing_accounts = await this.providerStore.list();
-      const query_accounts = metadata.provider
-        ? existing_accounts.filter((p) => p.type === metadata.provider)
-        : existing_accounts;
-      const account = await this.accountInputUtils.promptForAccount({
-        prompt_accounts: query_accounts,
-        message: message,
-        account: value,
-      });
-      return account.name;
-    } else {
-      // In this case, metadata.type is a non-special-case ResourceInputs key.
-      if (!metadata.arcctlAccount) {
-        throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
-      }
-      const provider = await this.providerStore.get(metadata.arcctlAccount);
-      if (!provider) {
-        throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
-      }
-
-      return this.resourceInputUtils.promptForResourceID(graph, provider, {
-        name: name as ResourceType,
-        schema: { description: message } as any,
-      }, {
-        [name]: value,
-      });
     }
+
+    throw new Error(`Invalid variable type: ${metadata.type}`);
   }
 
   /*

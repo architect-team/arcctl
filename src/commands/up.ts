@@ -2,7 +2,7 @@ import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import { animals, uniqueNamesGenerator } from 'unique-names-generator';
 import winston, { Logger } from 'winston';
-import { CloudGraph } from '../cloud-graph/index.ts';
+import { CloudGraph } from '../app-graph/index.ts';
 import { DatacenterRecord } from '../datacenters/store.ts';
 import { Environment, EnvironmentRecord, parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';

@@ -1,6 +1,0 @@
-{
-  "cdktf": "0.16.3",
-  "providers": {
-    "postgresql": "1.19.0"
-  }
-}

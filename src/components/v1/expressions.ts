@@ -1,8 +1,8 @@
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
 import { GraphContext } from '../component.ts';
 
 const parseSecretRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -11,14 +11,14 @@ const parseSecretRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?(?:parameters|secrets|variables|vars)\.([\w-]+)\s?}}/g,
       (_, input_name) => {
-        const input_node_id = CloudNode.genId({
+        const input_node_id = AppNode.genId({
           type: 'secret',
           name: input_name,
           component: context.component.name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: input_node_id,
           }),
@@ -30,7 +30,7 @@ const parseSecretRefs = <T extends Record<string, any>>(
 };
 
 const parseDatabaseRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -39,7 +39,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, database_name, key) => {
-        const database_schema_node_id = CloudNode.genId({
+        const database_schema_node_id = AppNode.genId({
           type: 'database',
           name: database_name,
           component: context.component.name,
@@ -47,7 +47,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
         });
 
         const name = `${from_id}/${database_name}`;
-        const database_user_node = new CloudNode({
+        const database_user_node = new AppNode({
           name,
           component: context.component.name,
           environment: context.environment,
@@ -61,11 +61,11 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 
         graph.insertNodes(database_user_node);
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: database_user_node.id,
             to: database_schema_node_id,
           }),
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: database_user_node.id,
           }),
@@ -78,7 +78,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 };
 
 const parseDependencyOutputRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -87,13 +87,13 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?dependencies\.([\w/-]+)\.outputs\.([\w-]+)\s?}}/g,
       (_, dependency_name, output_name) => {
-        const dependency_node_id = CloudNode.genId({
+        const dependency_node_id = AppNode.genId({
           type: 'secret',
           name: output_name,
           component: dependency_name,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -105,7 +105,7 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
 };
 
 const parseDependencyInterfaceRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -114,14 +114,14 @@ const parseDependencyInterfaceRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?dependencies\.([\w/-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, dependency_name, interface_name, key) => {
-        const dependency_node_id = CloudNode.genId({
+        const dependency_node_id = AppNode.genId({
           type: 'service',
           name: interface_name,
           component: dependency_name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -134,7 +134,7 @@ const parseDependencyInterfaceRefs = <T extends Record<string, any>>(
 };
 
 const parseDependencyIngressRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -143,14 +143,14 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?dependencies\.([\w/-]+)\.ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, dependency_name, interface_name, key) => {
-        const dependency_node_id = CloudNode.genId({
+        const dependency_node_id = AppNode.genId({
           type: 'ingressRule',
           name: interface_name,
           component: dependency_name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -162,7 +162,7 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
 };
 
 const parseServiceInterfaceRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -171,14 +171,14 @@ const parseServiceInterfaceRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?services\.([\w-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, service_name, interface_name, key) => {
-        const service_node_id = CloudNode.genId({
+        const service_node_id = AppNode.genId({
           type: 'service',
           name: `${service_name}-${interface_name}`,
           component: context.component.name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: service_node_id,
           }),
@@ -191,7 +191,7 @@ const parseServiceInterfaceRefs = <T extends Record<string, any>>(
 };
 
 const parseComponentInterfaceRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -200,14 +200,14 @@ const parseComponentInterfaceRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, interface_name, key) => {
-        const interface_node_id = CloudNode.genId({
+        const interface_node_id = AppNode.genId({
           type: 'service',
           name: interface_name,
           component: context.component.name,
           environment: context.environment,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: interface_node_id,
           }),
@@ -220,7 +220,7 @@ const parseComponentInterfaceRefs = <T extends Record<string, any>>(
 };
 
 const parseComponentIngressRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,
@@ -229,14 +229,14 @@ const parseComponentIngressRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, interface_name, key) => {
-        const ingress_node_id = CloudNode.genId({
+        const ingress_node_id = AppNode.genId({
           type: 'ingressRule',
           component: context.component.name,
           environment: context.environment,
           name: interface_name,
         });
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: from_id,
             to: ingress_node_id,
           }),
@@ -260,7 +260,7 @@ const parseEnvironmentRefs = <T extends Record<string, any>>(
 };
 
 export const parseExpressionRefs = <T extends Record<string, any>>(
-  graph: CloudGraph,
+  graph: AppGraph,
   context: GraphContext,
   from_id: string,
   inputs: T,

@@ -1,5 +1,5 @@
 import { ResourceInputs } from '../../@resources/index.ts';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
 import {
   Component,
   ComponentDependencies,
@@ -110,9 +110,9 @@ export default class ComponentV1 extends Component {
   }
 
   private addServicesToGraph(
-    graph: CloudGraph,
+    graph: AppGraph,
     context: GraphContext,
-  ): CloudGraph {
+  ): AppGraph {
     for (
       const [service_name, service_config] of Object.entries(
         this.services || {},
@@ -120,7 +120,7 @@ export default class ComponentV1 extends Component {
     ) {
       // Generate the image build node as-needed
       let image = '';
-      const deployment_node_id = CloudNode.genId({
+      const deployment_node_id = AppNode.genId({
         type: 'deployment',
         name: service_name,
         component: context.component.name,
@@ -128,7 +128,7 @@ export default class ComponentV1 extends Component {
       });
 
       if (!('image' in service_config)) {
-        const build_node = new CloudNode({
+        const build_node = new AppNode({
           name: service_name,
           component: context.component.name,
           environment: context.environment,
@@ -172,7 +172,7 @@ export default class ComponentV1 extends Component {
         build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
         graph.insertNodes(build_node);
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: deployment_node_id,
             to: build_node.id,
           }),
@@ -183,13 +183,13 @@ export default class ComponentV1 extends Component {
         image = service_config.image;
       }
 
-      const deployment_node = new CloudNode({
+      const deployment_node = new AppNode({
         name: service_name,
         component: context.component.name,
         environment: context.environment,
         inputs: {
           type: 'deployment',
-          name: CloudNode.genResourceId({
+          name: AppNode.genResourceId({
             name: service_name,
             component: context.component.name,
             environment: context.environment,
@@ -213,13 +213,13 @@ export default class ComponentV1 extends Component {
           ...(service_config.liveness_probe ? { liveness_probe: service_config.liveness_probe } : {}),
           volume_mounts: Object.entries(service_config.volumes || {}).reduce(
             (mounts, [volume_name, volume_config]) => {
-              const volume_node = new CloudNode({
+              const volume_node = new AppNode({
                 name: `${service_name}-${volume_name}`,
                 component: context.component.name,
                 environment: context.environment,
                 inputs: {
                   type: 'volume',
-                  name: CloudNode.genResourceId({
+                  name: AppNode.genResourceId({
                     name: `${service_name}-${volume_name}`,
                     component: context.component.name,
                     environment: context.environment,
@@ -233,7 +233,7 @@ export default class ComponentV1 extends Component {
                 volume_node,
               );
               graph.insertEdges(
-                new CloudEdge({
+                new AppEdge({
                   from: deployment_node.id,
                   to: volume_node.id,
                 }),
@@ -258,7 +258,7 @@ export default class ComponentV1 extends Component {
       graph.insertNodes(deployment_node);
 
       if (Object.keys(service_config.interfaces || {}).length > 0) {
-        (deployment_node as CloudNode<'deployment'>).inputs.services = [];
+        (deployment_node as AppNode<'deployment'>).inputs.services = [];
       }
 
       // Create and insert the service nodes for each interface
@@ -267,13 +267,13 @@ export default class ComponentV1 extends Component {
           service_config.interfaces || {},
         )
       ) {
-        const service_node = new CloudNode<'service'>({
+        const service_node = new AppNode<'service'>({
           name: `${service_name}-${interface_name}`,
           component: context.component.name,
           environment: context.environment,
           inputs: {
             type: 'service',
-            name: CloudNode.genResourceId({
+            name: AppNode.genResourceId({
               name: `${service_name}-${interface_name}`,
               component: context.component.name,
               environment: context.environment,
@@ -291,19 +291,19 @@ export default class ComponentV1 extends Component {
         service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
         graph.insertNodes(service_node);
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: service_node.id,
             to: deployment_node.id,
           }),
         );
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: deployment_node.id,
             to: service_node.id,
           }),
         );
 
-        (deployment_node as CloudNode<'deployment'>).inputs.services?.push({
+        (deployment_node as AppNode<'deployment'>).inputs.services?.push({
           id: `\${{ ${service_node.id}.id }}`,
           account: `\${{ ${service_node.id}.account }}`,
           port: `\${{ ${service_node.id}.target_port }}`,
@@ -313,13 +313,13 @@ export default class ComponentV1 extends Component {
           service_node.inputs = parseExpressionRefs(graph, context, service_node.id, service_node.inputs);
           graph.insertNodes(service_node);
 
-          const ingress_node = new CloudNode({
+          const ingress_node = new AppNode({
             name: `${service_name}-${interface_name}`,
             component: context.component.name,
             environment: context.environment,
             inputs: {
               type: 'ingressRule',
-              name: CloudNode.genResourceId({
+              name: AppNode.genResourceId({
                 name: `${service_name}-${interface_name}`,
                 component: context.component.name,
                 environment: context.environment,
@@ -339,7 +339,7 @@ export default class ComponentV1 extends Component {
           ingress_node.inputs = parseExpressionRefs(graph, context, ingress_node.id, ingress_node.inputs);
           graph.insertNodes(ingress_node);
           graph.insertEdges(
-            new CloudEdge({
+            new AppEdge({
               from: ingress_node.id,
               to: service_node.id,
             }),
@@ -353,9 +353,9 @@ export default class ComponentV1 extends Component {
       // Add edges for explicit depends_on
       for (const otherService of service_config.depends_on || []) {
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: deployment_node.id,
-            to: CloudNode.genId({
+            to: AppNode.genId({
               type: 'deployment',
               name: otherService,
               component: context.component.name,
@@ -370,9 +370,9 @@ export default class ComponentV1 extends Component {
   }
 
   private addTasksToGraph(
-    graph: CloudGraph,
+    graph: AppGraph,
     context: GraphContext,
-  ): CloudGraph {
+  ): AppGraph {
     for (
       const [task_name, task_config] of Object.entries(
         this.tasks || {},
@@ -381,14 +381,14 @@ export default class ComponentV1 extends Component {
       // Generate the image build node as-needed
       let image = '';
       if (!('image' in task_config)) {
-        const cronjob_node_id = CloudNode.genId({
+        const cronjob_node_id = AppNode.genId({
           type: 'cronjob',
           name: task_name,
           component: context.component.name,
           environment: context.environment,
         });
 
-        const build_node = new CloudNode({
+        const build_node = new AppNode({
           name: task_name,
           component: context.component.name,
           environment: context.environment,
@@ -420,7 +420,7 @@ export default class ComponentV1 extends Component {
         build_node.inputs = parseExpressionRefs(graph, context, build_node.id, build_node.inputs);
         graph.insertNodes(build_node);
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: cronjob_node_id,
             to: build_node.id,
           }),
@@ -439,7 +439,7 @@ export default class ComponentV1 extends Component {
         });
       }
 
-      const cronjob_node = new CloudNode({
+      const cronjob_node = new AppNode({
         name: task_name,
         component: context.component.name,
         environment: context.environment,
@@ -456,13 +456,13 @@ export default class ComponentV1 extends Component {
           ...(task_config.labels ? { labels: task_config.labels } : {}),
           volume_mounts: Object.entries(task_config.volumes || {}).reduce(
             (mounts, [volume_name, volume_config]) => {
-              const volume_node = new CloudNode({
+              const volume_node = new AppNode({
                 name: `${task_name}-${volume_name}`,
                 component: context.component.name,
                 environment: context.environment,
                 inputs: {
                   type: 'volume',
-                  name: CloudNode.genResourceId({
+                  name: AppNode.genResourceId({
                     name: `${task_name}-${volume_name}`,
                     component: context.component.name,
                     environment: context.environment,
@@ -474,7 +474,7 @@ export default class ComponentV1 extends Component {
               volume_node.inputs = parseExpressionRefs(graph, context, volume_node.id, volume_node.inputs);
               graph.insertNodes(volume_node);
               graph.insertEdges(
-                new CloudEdge({
+                new AppEdge({
                   from: cronjob_node.id,
                   to: volume_node.id,
                 }),
@@ -503,9 +503,9 @@ export default class ComponentV1 extends Component {
   }
 
   private addInterfacesToGraph(
-    graph: CloudGraph,
+    graph: AppGraph,
     context: GraphContext,
-  ): CloudGraph {
+  ): AppGraph {
     for (
       const [interface_key, interface_config] of Object.entries(
         this.interfaces || {},
@@ -525,14 +525,14 @@ export default class ComponentV1 extends Component {
         throw new Error('Invalid interface url');
       }
 
-      const deployment_node_id = CloudNode.genId({
+      const deployment_node_id = AppNode.genId({
         type: 'deployment',
         name: deployment_name,
         component: context.component.name,
         environment: context.environment,
       });
 
-      const deployment_resource_id = CloudNode.genResourceId({
+      const deployment_resource_id = AppNode.genResourceId({
         name: deployment_name,
         component: context.component.name,
         environment: context.environment,
@@ -540,13 +540,13 @@ export default class ComponentV1 extends Component {
 
       const target_interface = this.services![deployment_name].interfaces![service_name];
 
-      const interface_node = new CloudNode<'service'>({
+      const interface_node = new AppNode<'service'>({
         name: interface_key,
         component: context.component.name,
         environment: context.environment,
         inputs: {
           type: 'service',
-          name: CloudNode.genResourceId({
+          name: AppNode.genResourceId({
             name: interface_key,
             component: context.component.name,
             environment: context.environment,
@@ -562,7 +562,7 @@ export default class ComponentV1 extends Component {
       interface_node.inputs = parseExpressionRefs(graph, context, interface_node.id, interface_node.inputs);
       graph.insertNodes(interface_node);
       graph.insertEdges(
-        new CloudEdge({
+        new AppEdge({
           from: interface_node.id,
           to: deployment_node_id,
         }),
@@ -572,13 +572,13 @@ export default class ComponentV1 extends Component {
         interface_node.inputs = parseExpressionRefs(graph, context, interface_node.id, interface_node.inputs);
         graph.insertNodes(interface_node);
 
-        const ingress_node = new CloudNode({
+        const ingress_node = new AppNode({
           name: interface_key,
           component: context.component.name,
           environment: context.environment,
           inputs: {
             type: 'ingressRule',
-            name: CloudNode.genResourceId({
+            name: AppNode.genResourceId({
               name: interface_key,
               component: context.component.name,
               environment: context.environment,
@@ -596,7 +596,7 @@ export default class ComponentV1 extends Component {
         ingress_node.inputs = parseExpressionRefs(graph, context, ingress_node.id, ingress_node.inputs);
         graph.insertNodes(ingress_node);
         graph.insertEdges(
-          new CloudEdge({
+          new AppEdge({
             from: ingress_node.id,
             to: interface_node.id,
           }),
@@ -608,9 +608,9 @@ export default class ComponentV1 extends Component {
   }
 
   private addDatabasesToGraph(
-    graph: CloudGraph,
+    graph: AppGraph,
     context: GraphContext,
-  ): CloudGraph {
+  ): AppGraph {
     for (
       const [database_key, database_config] of Object.entries(
         this.databases || {},
@@ -623,13 +623,13 @@ export default class ComponentV1 extends Component {
       }
 
       const [engine, version] = database_config.type.split(':');
-      const database_schema_node = new CloudNode({
+      const database_schema_node = new AppNode({
         name: database_key,
         component: context.component.name,
         environment: context.environment,
         inputs: {
           type: 'database',
-          name: CloudNode.genResourceId({
+          name: AppNode.genResourceId({
             name: database_key,
             component: context.component.name,
             environment: context.environment,
@@ -645,20 +645,20 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
-  private addVariablesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
+  private addVariablesToGraph(graph: AppGraph, context: GraphContext): AppGraph {
     const values = {
       ...this.parameters,
       ...this.variables,
       ...this.secrets,
     };
     for (const [key, value] of Object.entries(values || {})) {
-      const secret_node = new CloudNode({
+      const secret_node = new AppNode({
         name: key,
         component: context.component.name,
         environment: context.environment,
         inputs: {
           type: 'secret',
-          name: CloudNode.genResourceId({
+          name: AppNode.genResourceId({
             name: key,
             component: context.component.name,
             environment: context.environment,
@@ -679,8 +679,8 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
-  public getGraph(context: GraphContext): CloudGraph {
-    let graph = new CloudGraph();
+  public getGraph(context: GraphContext): AppGraph {
+    let graph = new AppGraph();
     graph = this.addVariablesToGraph(graph, context);
     graph = this.addServicesToGraph(graph, context);
     graph = this.addTasksToGraph(graph, context);
@@ -689,7 +689,7 @@ export default class ComponentV1 extends Component {
     return graph;
   }
 
-  public getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies {
+  public getDependencies(graph: AppGraph, context: GraphContext): ComponentDependencies {
     const res: ComponentDependencies = [];
 
     for (const [key, value] of Object.entries(this.dependencies || {})) {
@@ -700,7 +700,7 @@ export default class ComponentV1 extends Component {
       } else {
         const inputs: ComponentDependencies[number]['inputs'] = {};
         for (const [inputKey, inputValue] of Object.entries(value.inputs || {})) {
-          const from_id = CloudNode.genId({
+          const from_id = AppNode.genId({
             type: 'secret',
             name: key,
             component: value.component,

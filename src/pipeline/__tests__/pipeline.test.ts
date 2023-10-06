@@ -2,7 +2,7 @@ import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { EmptyProviderStore } from '../../@providers/index.ts';
 import { SupportedProviders } from '../../@providers/supported-providers.ts';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
 import { Pipeline } from '../pipeline.ts';
 import { PipelineStep } from '../step.ts';
 import { StepAction, StepStatusState } from '../types.ts';
@@ -11,7 +11,7 @@ describe('Pipeline', () => {
   it('should add edges', () => {
     const pipeline = new Pipeline();
     pipeline.insertEdges(
-      new CloudEdge({
+      new AppEdge({
         from: 'a',
         to: 'b',
       }),
@@ -21,7 +21,7 @@ describe('Pipeline', () => {
     assertArrayIncludes(
       pipeline.edges,
       [
-        new CloudEdge({
+        new AppEdge({
           from: 'a',
           to: 'b',
         }),
@@ -32,7 +32,7 @@ describe('Pipeline', () => {
   it('should remove edge with both to and from values', () => {
     const pipeline = new Pipeline();
     pipeline.insertEdges(
-      new CloudEdge({
+      new AppEdge({
         from: 'a',
         to: 'b',
       }),
@@ -52,10 +52,10 @@ describe('Pipeline', () => {
 
     const plannedPipeline = await Pipeline.plan({
       before: new Pipeline(),
-      after: new CloudGraph({
+      after: new AppGraph({
         edges: [],
         nodes: [
-          new CloudNode({
+          new AppNode({
             name: 'test',
             inputs: {
               name: 'test',
@@ -107,7 +107,7 @@ describe('Pipeline', () => {
 
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph(),
+      after: new AppGraph(),
     }, providerStore);
 
     assertEquals(plannedPipeline.steps.length, 1);
@@ -153,7 +153,7 @@ describe('Pipeline', () => {
 
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph(),
+      after: new AppGraph(),
     }, providerStore);
 
     assertEquals(plannedPipeline.steps.length, 1);
@@ -186,7 +186,7 @@ describe('Pipeline', () => {
 
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph(),
+      after: new AppGraph(),
     }, providerStore);
 
     assertEquals(plannedPipeline.steps.length, 1);
@@ -221,10 +221,10 @@ describe('Pipeline', () => {
     const previousPipeline = new Pipeline({ steps: [previousStep] });
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph({
+      after: new AppGraph({
         edges: previousPipeline.edges,
         nodes: [
-          new CloudNode({
+          new AppNode({
             name: 'test',
             inputs: {
               name: 'test',
@@ -272,14 +272,14 @@ describe('Pipeline', () => {
     const previousPipeline = new Pipeline({ steps: [previousStepPending, previousStepErrored] });
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph({
+      after: new AppGraph({
         edges: previousPipeline.edges,
         nodes: [
-          new CloudNode({
+          new AppNode({
             name: 'test',
             inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
           }),
-          new CloudNode({
+          new AppNode({
             name: 'test-2',
             inputs: { type: 'namespace', account: 'test-account', name: 'test-ns-2' },
           }),
@@ -311,10 +311,10 @@ describe('Pipeline', () => {
     const previousPipeline = new Pipeline({ steps: [previousStep] });
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph({
+      after: new AppGraph({
         edges: previousPipeline.edges,
         nodes: [
-          new CloudNode({
+          new AppNode({
             name: 'test',
             inputs: { type: 'namespace', account: 'test-account', name: 'test-ns' },
           }),
@@ -334,8 +334,8 @@ describe('Pipeline', () => {
     const stepB = createPipelineStep('stepB', 'update');
     const stepC = createPipelineStep('stepC', 'create');
 
-    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id });
-    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id });
+    const edgeAB = new AppEdge({ from: stepA.id, to: stepB.id });
+    const edgeBC = new AppEdge({ from: stepB.id, to: stepC.id });
 
     const previousPipeline = new Pipeline({
       steps: [stepA, stepB, stepC],
@@ -344,7 +344,7 @@ describe('Pipeline', () => {
 
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph(),
+      after: new AppGraph(),
     }, providerStore);
 
     // All steps should now be delete
@@ -366,8 +366,8 @@ describe('Pipeline', () => {
     const stepB = createPipelineStep('stepB', 'delete', 'pending');
     const stepC = createPipelineStep('stepC', 'delete', 'pending');
 
-    const edgeAB = new CloudEdge({ from: stepA.id, to: stepB.id });
-    const edgeBC = new CloudEdge({ from: stepB.id, to: stepC.id });
+    const edgeAB = new AppEdge({ from: stepA.id, to: stepB.id });
+    const edgeBC = new AppEdge({ from: stepB.id, to: stepC.id });
 
     const previousPipeline = new Pipeline({
       steps: [stepA, stepB, stepC],
@@ -376,7 +376,7 @@ describe('Pipeline', () => {
 
     const plannedPipeline = await Pipeline.plan({
       before: previousPipeline,
-      after: new CloudGraph(),
+      after: new AppGraph(),
     }, providerStore);
 
     // All steps should still be delete

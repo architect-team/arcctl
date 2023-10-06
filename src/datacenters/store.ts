@@ -4,7 +4,7 @@ import tar from 'tar';
 import { ComponentStoreDB } from '../component-store/db.ts';
 import { ImageManifest, ImageRepository } from '../oci/index.ts';
 import { Pipeline } from '../pipeline/pipeline.ts';
-import { BaseStore } from '../secrets/base-store.ts';
+import { BaseStore } from '../utils/base-store.ts';
 import { StateBackend } from '../utils/config.ts';
 import { pathExistsSync } from '../utils/filesystem.ts';
 import { Datacenter } from './datacenter.ts';

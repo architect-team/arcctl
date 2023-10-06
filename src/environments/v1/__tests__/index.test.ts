@@ -2,7 +2,7 @@ import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { AppEdge, AppNode } from '../../../app-graph/index.ts';
 import { ComponentStore } from '../../../component-store/index.ts';
 import { VariableMergingDisabledError } from '../../errors.ts';
 import { parseEnvironment } from '../../parser.ts';
@@ -54,13 +54,13 @@ describe('Environment schema: v1', () => {
     const graph = await environment.getGraph('account/environment', store);
 
     assertEquals(graph.nodes, [
-      new CloudNode({
+      new AppNode({
         name: 'main',
         component: 'account/component',
         environment: 'account/environment',
         inputs: {
           type: 'deployment',
-          name: CloudNode.genResourceId({
+          name: AppNode.genResourceId({
             name: 'main',
             component: 'account/component',
             environment: 'account/environment',
@@ -100,13 +100,13 @@ describe('Environment schema: v1', () => {
     const graph = await environment.getGraph('account/environment', store);
 
     assertEquals(graph.nodes, [
-      new CloudNode({
+      new AppNode({
         name: 'main',
         component: 'account/component',
         environment: 'account/environment',
         inputs: {
           type: 'deployment',
-          name: CloudNode.genResourceId({
+          name: AppNode.genResourceId({
             name: 'main',
             component: 'account/component',
             environment: 'account/environment',
@@ -163,21 +163,21 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const component_deployment_node_id = CloudNode.genId({
+    const component_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
     });
 
-    const dependency_deployment_node_id = CloudNode.genId({
+    const dependency_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'main',
       component: 'account/dependency',
       environment: 'account/environment',
     });
 
-    const dependency_service_node_id = CloudNode.genId({
+    const dependency_service_node_id = AppNode.genId({
       type: 'service',
       name: 'main',
       component: 'account/dependency',
@@ -185,12 +185,12 @@ describe('Environment schema: v1', () => {
     });
 
     assertArrayIncludes(
-      graph.nodes.map((n: CloudNode) => n.id),
+      graph.nodes.map((n: AppNode) => n.id),
       [component_deployment_node_id, dependency_deployment_node_id, dependency_service_node_id],
     );
 
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
+      new AppEdge({
         from: component_deployment_node_id,
         to: dependency_service_node_id,
       }),
@@ -252,28 +252,28 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const component_deployment_node_id = CloudNode.genId({
+    const component_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'api',
       component: 'account/component',
       environment: 'account/environment',
     });
 
-    const dependency_deployment_node_id = CloudNode.genId({
+    const dependency_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'main',
       component: 'account/dependency',
       environment: 'account/environment',
     });
 
-    const nested_deployment_node_id = CloudNode.genId({
+    const nested_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'main',
       component: 'account/nested',
       environment: 'account/environment',
     });
 
-    assertArrayIncludes(graph.nodes.map((n: CloudNode) => n.id), [
+    assertArrayIncludes(graph.nodes.map((n: AppNode) => n.id), [
       component_deployment_node_id,
       dependency_deployment_node_id,
       nested_deployment_node_id,
@@ -337,21 +337,21 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const component1_deployment_node_id = CloudNode.genId({
+    const component1_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'api',
       component: 'account/component1',
       environment: 'account/environment',
     });
 
-    const component2_deployment_node_id = CloudNode.genId({
+    const component2_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'main',
       component: 'account/component2',
       environment: 'account/environment',
     });
 
-    const dependency_deployment_node_id = CloudNode.genId({
+    const dependency_deployment_node_id = AppNode.genId({
       type: 'deployment',
       name: 'main',
       component: 'account/dependency',
@@ -360,8 +360,8 @@ describe('Environment schema: v1', () => {
 
     assertArrayIncludes(
       graph.nodes
-        .filter((n: CloudNode) => n.type === 'deployment')
-        .map((n: CloudNode) => n.id),
+        .filter((n: AppNode) => n.type === 'deployment')
+        .map((n: AppNode) => n.id),
       [
         component1_deployment_node_id,
         component2_deployment_node_id,
@@ -408,13 +408,13 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const secret_node = new CloudNode({
+    const secret_node = new AppNode({
       name: 'key',
       component: 'account/dependency',
       environment: 'account/environment',
       inputs: {
         type: 'secret',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'key',
           component: 'account/dependency',
           environment: 'account/environment',
@@ -484,13 +484,13 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const secret_node = new CloudNode({
+    const secret_node = new AppNode({
       name: 'key',
       component: 'account/dependency',
       environment: 'account/environment',
       inputs: {
         type: 'secret',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'key',
           component: 'account/dependency',
           environment: 'account/environment',
@@ -548,13 +548,13 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const secret_node = new CloudNode({
+    const secret_node = new AppNode({
       name: 'key',
       component: 'account/dependency',
       environment: 'account/environment',
       inputs: {
         type: 'secret',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'key',
           component: 'account/dependency',
           environment: 'account/environment',
@@ -595,13 +595,13 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const secret_node = new CloudNode({
+    const secret_node = new AppNode({
       name: 'key',
       component: 'account/component',
       environment: 'account/environment',
       inputs: {
         type: 'secret',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'key',
           component: 'account/component',
           environment: 'account/environment',
@@ -670,27 +670,27 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const service_node_id = CloudNode.genId({
+    const service_node_id = AppNode.genId({
       type: 'service',
       name: 'main',
       component: 'account/component',
       environment: 'account/environment',
     });
 
-    const ingress_node_id = CloudNode.genId({
+    const ingress_node_id = AppNode.genId({
       type: 'ingressRule',
       name: 'main',
       component: 'account/component',
       environment: 'account/environment',
     });
 
-    const secret_node = new CloudNode({
+    const secret_node = new AppNode({
       name: 'key',
       component: 'account/dependency',
       environment: 'account/environment',
       inputs: {
         type: 'secret',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'key',
           component: 'account/dependency',
           environment: 'account/environment',
@@ -708,11 +708,11 @@ describe('Environment schema: v1', () => {
     assertArrayIncludes(
       graph.edges,
       [
-        new CloudEdge({
+        new AppEdge({
           from: secret_node.id,
           to: service_node_id,
         }),
-        new CloudEdge({
+        new AppEdge({
           from: secret_node.id,
           to: ingress_node_id,
         }),
@@ -817,20 +817,20 @@ describe('Environment schema: v1', () => {
 
     const graph = await environment.getGraph('account/environment', store);
 
-    const service_node_id = CloudNode.genId({
+    const service_node_id = AppNode.genId({
       type: 'service',
       name: 'main',
       component: 'account/dependency',
       environment: 'account/environment',
     });
 
-    const secret_node = new CloudNode({
+    const secret_node = new AppNode({
       name: 'key',
       component: 'account/dependency',
       environment: 'account/environment',
       inputs: {
         type: 'secret',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'key',
           component: 'account/dependency',
           environment: 'account/environment',
@@ -848,7 +848,7 @@ describe('Environment schema: v1', () => {
     assertArrayIncludes(
       graph.edges,
       [
-        new CloudEdge({
+        new AppEdge({
           from: secret_node.id,
           to: service_node_id,
         }),

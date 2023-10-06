@@ -1,5 +1,5 @@
 import { ResourceInputs } from '../@resources/index.ts';
-import { CloudGraph } from '../cloud-graph/index.ts';
+import { AppGraph } from '../app-graph/index.ts';
 
 export type VariablesMetadata = {
   type: keyof ResourceInputs | 'string' | 'number' | 'boolean';
@@ -72,12 +72,12 @@ export abstract class Datacenter {
     /**
      * Graph of resources the environment defines
      */
-    graph: CloudGraph,
+    graph: AppGraph,
     /**
      * Options used to enrich the environment
      */
     options: DatacenterEnrichmentOptions,
-  ): Promise<CloudGraph>;
+  ): Promise<AppGraph>;
 
   public abstract getVariables(): ParsedVariablesType;
   public abstract setVariableValues(variables: Record<string, unknown>): void;

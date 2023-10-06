@@ -1,6 +1,6 @@
 export * from './@providers/index.ts';
 export * from './@resources/index.ts';
-export * from './cloud-graph/index.ts';
+export * from './app-graph/index.ts';
 export * from './component-store/index.ts';
 export * from './components/index.ts';
 export * from './datacenters/index.ts';

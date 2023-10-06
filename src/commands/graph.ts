@@ -1,4 +1,4 @@
-import { CloudGraph } from '../cloud-graph/index.ts';
+import { CloudGraph } from '../app-graph/index.ts';
 import { Datacenter, parseDatacenter } from '../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../environments/index.ts';
 import { ImageRepository } from '../oci/index.ts';

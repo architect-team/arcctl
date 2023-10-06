@@ -1,7 +1,7 @@
 import cliSpinners from 'cli-spinners';
 import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
-import { CloudGraph } from '../../cloud-graph/index.ts';
+import { CloudGraph } from '../../app-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';

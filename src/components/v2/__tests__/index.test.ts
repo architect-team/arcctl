@@ -2,7 +2,7 @@ import { prepareVirtualFile } from 'https://deno.land/x/mock_file@v1.1.2/mod.ts'
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { AppEdge, AppNode } from '../../../app-graph/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -88,7 +88,7 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const build_node = new CloudNode({
+    const build_node = new AppNode({
       name: 'test',
       component: 'component',
       environment: 'environment',
@@ -193,13 +193,13 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const volume_node = new CloudNode({
+    const volume_node = new AppNode({
       name: 'main-src',
       component: 'component',
       environment: 'environment',
       inputs: {
         type: 'volume',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'main-src',
           component: 'component',
           environment: 'environment',
@@ -208,13 +208,13 @@ describe('Component Schema: v2', () => {
       },
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppNode({
       name: 'main',
       component: 'component',
       environment: 'environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'main',
           component: 'component',
           environment: 'environment',
@@ -231,7 +231,7 @@ describe('Component Schema: v2', () => {
 
     assertArrayIncludes(graph.nodes, [volume_node, deployment_node]);
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
+      new AppEdge({
         from: deployment_node.id,
         to: volume_node.id,
       }),
@@ -257,13 +257,13 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppNode({
       name: 'main',
       component: 'component',
       environment: 'environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'main',
           component: 'component',
           environment: 'environment',
@@ -295,13 +295,13 @@ describe('Component Schema: v2', () => {
       },
       environment: 'environment',
     });
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppNode({
       name: 'main',
       component: 'component',
       environment: 'environment',
       inputs: {
         type: 'deployment',
-        name: CloudNode.genResourceId({
+        name: AppNode.genResourceId({
           name: 'main',
           component: 'component',
           environment: 'environment',

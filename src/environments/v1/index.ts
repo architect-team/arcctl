@@ -1,6 +1,6 @@
 import * as path from 'std/path/mod.ts';
 import { adjectives, animals, uniqueNamesGenerator } from 'unique-names-generator';
-import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { AppGraph, AppNode } from '../../app-graph/index.ts';
 import type { ComponentStore } from '../../component-store/index.ts';
 import { Component, parseComponent } from '../../components/index.ts';
 import { ComponentMetadata, Environment } from '../environment.ts';
@@ -119,7 +119,7 @@ export default class EnvironmentV1 extends Environment {
     Object.assign(this, data);
   }
 
-  private enrichDeployment(node: CloudNode<'deployment'>): CloudNode<'deployment'> {
+  private enrichDeployment(node: AppNode<'deployment'>): AppNode<'deployment'> {
     if (!node.component || !this.components) {
       return node;
     }
@@ -145,7 +145,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichService(node: CloudNode<'service'>): CloudNode<'service'> {
+  private enrichService(node: AppNode<'service'>): AppNode<'service'> {
     if (!node.component || !this.components) {
       return node;
     }
@@ -163,7 +163,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichIngressRule(node: CloudNode<'ingressRule'>): CloudNode<'ingressRule'> {
+  private enrichIngressRule(node: AppNode<'ingressRule'>): AppNode<'ingressRule'> {
     const component_config = this.components?.[node.component || ''];
     const ingress_config = component_config?.ingresses?.[node.name];
 
@@ -182,7 +182,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichSecret(node: CloudNode<'secret'>, additionalValues?: string[]): CloudNode<'secret'> {
+  private enrichSecret(node: AppNode<'secret'>, additionalValues?: string[]): AppNode<'secret'> {
     if (!node.inputs.merge && additionalValues && additionalValues.length > 0) {
       throw new VariableMergingDisabledError(node.name, additionalValues, node.component);
     }
@@ -232,8 +232,8 @@ export default class EnvironmentV1 extends Environment {
     );
   }
 
-  public async getGraph(environment_name: string, componentStore: ComponentStore, debug = false): Promise<CloudGraph> {
-    const graph = new CloudGraph();
+  public async getGraph(environment_name: string, componentStore: ComponentStore, debug = false): Promise<AppGraph> {
+    const graph = new AppGraph();
 
     // Replace all local values
     this.enrichLocal();
@@ -373,16 +373,16 @@ export default class EnvironmentV1 extends Environment {
           .map((node) => {
             switch (node.type) {
               case 'deployment': {
-                return this.enrichDeployment(node as CloudNode<'deployment'>);
+                return this.enrichDeployment(node as AppNode<'deployment'>);
               }
               case 'service': {
-                return this.enrichService(node as CloudNode<'service'>);
+                return this.enrichService(node as AppNode<'service'>);
               }
               case 'ingressRule': {
-                return this.enrichIngressRule(node as CloudNode<'ingressRule'>);
+                return this.enrichIngressRule(node as AppNode<'ingressRule'>);
               }
               case 'secret': {
-                return this.enrichSecret(node as CloudNode<'secret'>, config.inputs[node.name]);
+                return this.enrichSecret(node as AppNode<'secret'>, config.inputs[node.name]);
               }
               default: {
                 return node;

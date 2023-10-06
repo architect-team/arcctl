@@ -1,7 +1,7 @@
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { CloudGraph } from '../../cloud-graph/index.ts';
+import { CloudGraph } from '../../app-graph/index.ts';
 import { Datacenter, parseDatacenter } from '../../datacenters/index.ts';
 import { parseEnvironment } from '../../environments/parser.ts';
 import { ImageRepository } from '../../oci/image-repository.ts';

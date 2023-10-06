@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
-import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
+import { AppEdge, AppGraph } from '../app-graph/index.ts';
 import { topologicalSort } from '../utils/sorting.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
@@ -14,14 +14,14 @@ export enum PlanContext {
 
 export type PlanOptions = {
   before: Pipeline;
-  after: CloudGraph;
+  after: AppGraph;
   context?: PlanContext;
   refresh?: boolean;
 };
 
 export type PipelineOptions = {
   steps?: PipelineStep[];
-  edges?: CloudEdge[];
+  edges?: AppEdge[];
 };
 
 const setNoopSteps = async (
@@ -91,11 +91,11 @@ const checkCircularRequiredDependencies = (pipeline: Pipeline) => {
 
 export class Pipeline {
   steps: PipelineStep[];
-  edges: CloudEdge[];
+  edges: AppEdge[];
 
   constructor(options?: PipelineOptions) {
     this.steps = options?.steps?.map((step: any) => new PipelineStep(step)) || [];
-    this.edges = options?.edges?.map((edge: any) => new CloudEdge(edge)) || [];
+    this.edges = options?.edges?.map((edge: any) => new AppEdge(edge)) || [];
   }
 
   /**
@@ -217,7 +217,7 @@ export class Pipeline {
     return this;
   }
 
-  public insertEdges(...args: CloudEdge[]): Pipeline {
+  public insertEdges(...args: AppEdge[]): Pipeline {
     for (const edge of args) {
       const index = this.edges.findIndex((item) => item.id === edge.id);
       if (index >= 0) {
@@ -353,7 +353,7 @@ export class Pipeline {
       pipeline.replaceStepRefs(source, target);
     }
 
-    const potentialEdges: CloudEdge[] = [];
+    const potentialEdges: AppEdge[] = [];
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
       if (

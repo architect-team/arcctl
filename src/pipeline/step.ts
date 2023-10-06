@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
-import { CloudNode } from '../cloud-graph/index.ts';
+import { AppNode } from '../app-graph/index.ts';
 import { Apply, ApplyResponse } from '../modules/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
 
@@ -56,11 +56,11 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   }
 
   get id(): string {
-    return CloudNode.genId(this) + '-' + this.color;
+    return AppNode.genId(this) + '-' + this.color;
   }
 
   get resource_id(): string {
-    return CloudNode.genResourceId(this) + '-' + this.color;
+    return AppNode.genResourceId(this) + '-' + this.color;
   }
 
   public equals(step: PipelineStep): boolean {

@@ -1,6 +1,9 @@
 import { InputSchema, ResourceInputs } from '../../@resources/index.ts';
 import OutputsSchema from '../../@resources/outputs-schema.ts';
-import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
+import { CloudEdge } from '../../cloud-graph/edge.ts';
+import { CloudGraph } from '../../cloud-graph/graph.ts';
+import { CloudNode } from '../../cloud-graph/node.ts';
+import { Plugin } from '../../modules/index.ts';
 import {
   Datacenter,
   DatacenterEnrichmentOptions,
@@ -15,6 +18,7 @@ import { applyContext, applyContextRecursive } from './ast-parser.ts';
 export type DatacenterModuleV2 = {
   source: string;
   inputs: Record<string, any>;
+  plugin?: Plugin;
 } & InputSchema;
 
 export type HookV2 = {
@@ -53,6 +57,8 @@ const COMPONENT_RESOURCES = [
   'databaseUser',
   'secret',
 ];
+
+const DEFAULT_PLUGIN: Plugin = 'pulumi';
 
 export default class DatacenterV2 extends Datacenter {
   private datacenter!: DatacenterDataV2;
@@ -108,7 +114,6 @@ export default class DatacenterV2 extends Datacenter {
       }
     }
 
-    console.log(COMPONENT_RESOURCES);
     for (const type of COMPONENT_RESOURCES) {
       if (data.environment?.length && data.environment[0][type]) {
         for (const entry of data.environment[0][type]) {
@@ -223,13 +228,13 @@ export default class DatacenterV2 extends Datacenter {
   }
 
   private addModules(
-    graph: AppGraph,
-    resultGraph: AppGraph,
+    graph: CloudGraph,
+    resultGraph: CloudGraph,
     modules: Record<string, any>,
-    nodeNameToModuleLookup: Record<string, AppNode>,
+    nodeNameToModuleLookup: Record<string, CloudNode>,
     options?: DatacenterEnrichmentOptions,
   ) {
-    const nodes: AppNode[] = [];
+    const nodes: CloudNode[] = [];
     for (const [name, value] of Object.entries(modules)) {
       const copied_value = {
         ...value,
@@ -246,7 +251,7 @@ export default class DatacenterV2 extends Datacenter {
           name: options?.environmentName,
         },
       });
-      const id = AppNode.genId({
+      const id = CloudNode.genId({
         name: name,
         type: 'module',
       });
@@ -258,6 +263,7 @@ export default class DatacenterV2 extends Datacenter {
         image: this.moduleImages[name],
         type: 'module',
         inputs: this.convertToMustache(copied_value.inputs as any),
+        plugin: value.plugin || DEFAULT_PLUGIN,
       });
       nodeNameToModuleLookup[name] = nodes[nodes.length - 1];
     }
@@ -268,12 +274,12 @@ export default class DatacenterV2 extends Datacenter {
         if (!nodeTo) {
           throw new Error(`Missing node for key: ${key_parts[1]}`);
         }
-        const toId = AppNode.genId({
+        const toId = CloudNode.genId({
           name: nodeTo.name,
           type: nodeTo.inputs.type || 'module',
         });
         resultGraph.insertEdges(
-          new AppEdge({
+          new CloudEdge({
             from: `${node.id}`,
             to: `${toId}`,
           }),
@@ -285,16 +291,16 @@ export default class DatacenterV2 extends Datacenter {
   }
 
   private addHooks(
-    graph: AppGraph,
-    resultGraph: AppGraph,
-    nodeNameToModuleLookup: Record<string, AppNode>,
+    graph: CloudGraph,
+    resultGraph: CloudGraph,
+    nodeNameToModuleLookup: Record<string, CloudNode>,
     options: DatacenterEnrichmentOptions,
   ) {
-    const hookModuleNodes: AppNode[] = [];
+    const hookModuleNodes: CloudNode[] = [];
     const moduleOutputContext: Record<string, string> = {};
     for (const node of graph.nodes) {
       for (const hook of this.datacenter.environment.hooks) {
-        const localHookModules: Record<string, AppNode> = {};
+        const localHookModules: Record<string, CloudNode> = {};
         const copied_hook = JSON.parse(JSON.stringify(hook));
         applyContextRecursive(copied_hook, {
           node: {
@@ -311,20 +317,20 @@ export default class DatacenterV2 extends Datacenter {
         if (copied_hook.when !== 'true') {
           continue;
         }
-        const lookupId = AppNode.genId({
+        const lookupId = CloudNode.genId({
           name: node.name,
           type: node.inputs.type,
           component: node.component,
           environment: node.environment,
         });
         for (const [module_name, module] of Object.entries(copied_hook.modules)) {
-          const name = AppNode.genId({
+          const name = CloudNode.genId({
             name: node.name,
             type: module_name as any,
             component: node.component,
             environment: node.environment,
           });
-          const moduleNode: AppNode = {
+          const moduleNode: CloudNode = {
             account: undefined,
             id: name,
             resource_id: name,
@@ -381,7 +387,7 @@ export default class DatacenterV2 extends Datacenter {
           const keyParts = key.split('.');
           const id = keyParts[0];
           resultGraph.insertEdges(
-            new AppEdge({
+            new CloudEdge({
               from: `${hookModuleNode.id}`,
               to: `${id}`,
             }),
@@ -403,9 +409,9 @@ export default class DatacenterV2 extends Datacenter {
   }
 
   public enrichGraph(
-    graph: AppGraph,
+    graph: CloudGraph,
     options: DatacenterEnrichmentOptions,
-  ): Promise<AppGraph> {
+  ): Promise<CloudGraph> {
     applyContext(graph, {
       datacenter: {
         name: options.datacenterName,
@@ -418,8 +424,8 @@ export default class DatacenterV2 extends Datacenter {
         },
       });
     }
-    const resultGraph = new AppGraph();
-    const nodeNameToModuleLookup: Record<string, AppNode> = {};
+    const resultGraph = new CloudGraph();
+    const nodeNameToModuleLookup: Record<string, CloudNode> = {};
     this.addModules(graph, resultGraph, this.datacenter.modules, nodeNameToModuleLookup, options);
     if (options.environmentName && this.datacenter.environment && this.datacenter.environment.modules) {
       this.addModules(graph, resultGraph, this.datacenter.environment.modules, nodeNameToModuleLookup, options);
@@ -503,6 +509,7 @@ export default class DatacenterV2 extends Datacenter {
     for (const [moduleName, module] of Object.entries(this.modules || {})) {
       const digest = await buildFn({
         context: module.source,
+        plugin: module.plugin || DEFAULT_PLUGIN,
       });
       this.moduleImages[moduleName] = digest;
     }

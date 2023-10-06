@@ -1,4 +1,4 @@
-import { CloudGraph } from '../cloud-graph/index.ts';
+import { AppGraph } from '../app-graph/index.ts';
 import { ComponentStore } from '../component-store/store.ts';
 import { ImageRepository } from '../oci/index.ts';
 
@@ -22,7 +22,7 @@ export abstract class Environment {
      * Whether or not to build the graph using debug features
      */
     debug?: boolean,
-  ): Promise<CloudGraph>;
+  ): Promise<AppGraph>;
 
   public abstract addComponent(metadata: ComponentMetadata): void;
 }

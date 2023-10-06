@@ -31,15 +31,3 @@ module "k8s" {
     }
   }
 }
-
-
-// module "k8s" {
-//   source = "./tofu-k8s-cluster"
-//   plugin = "opentofu"
-//   inputs = {
-//     name = "${datacenter.name}-cluster"
-//     region = variable.region
-//     vpc_id = module.vpc.id
-//     do_token = variable.do_token
-//   }
-// }

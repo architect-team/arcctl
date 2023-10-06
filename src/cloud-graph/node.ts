@@ -1,8 +1,10 @@
 import { ResourceInputs, ResourceType } from '../@resources/types.ts';
+import { Plugin } from '../modules/index.ts';
 
 export type CloudNodeOptions<T extends ResourceType> = {
   name: string;
   inputs: ResourceInputs[T];
+  plugin: Plugin;
   component?: string;
   environment?: string;
 };
@@ -10,6 +12,7 @@ export type CloudNodeOptions<T extends ResourceType> = {
 export class CloudNode<T extends ResourceType = ResourceType> {
   name: string;
   inputs: ResourceInputs[T];
+  plugin: Plugin;
   image?: string;
   component?: string;
   environment?: string;
@@ -52,6 +55,7 @@ export class CloudNode<T extends ResourceType = ResourceType> {
     this.environment = options.environment;
     this.name = options.name;
     this.inputs = options.inputs;
+    this.plugin = options.plugin;
   }
 
   get account(): string | undefined {

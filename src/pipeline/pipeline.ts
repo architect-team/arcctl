@@ -327,6 +327,7 @@ export class Pipeline {
             state: 'pending',
           },
           state: previousStep?.state, // May exist if a create step error'd and was only partially applied
+          plugin: newNode.plugin,
         });
         newStep.hash = await newStep.getHash(providerStore);
         pipeline.insertSteps(newStep);
@@ -341,6 +342,7 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          plugin: newNode.plugin,
         });
         newExecutable.hash = await newExecutable.getHash(providerStore);
         pipeline.insertSteps(newExecutable);

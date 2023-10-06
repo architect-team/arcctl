@@ -1,5 +1,6 @@
 import { ResourceInputs } from '../@resources/index.ts';
 import { CloudGraph } from '../cloud-graph/index.ts';
+import { Plugin } from "../modules/index.ts";
 
 export type VariablesMetadata = {
   type: keyof ResourceInputs | 'string' | 'number' | 'boolean';
@@ -8,13 +9,9 @@ export type VariablesMetadata = {
   value?: string | number | boolean;
 } & { [key in keyof ResourceInputs]?: string };
 
-export type ModuleBuildFn = (options: {
-  tag: string;
-  directory: string;
-}) => Promise<string>;
-
 export type DockerBuildFn = (options: {
   context: string;
+  plugin: Plugin;
 }) => Promise<string>;
 
 export type DockerTagFn = (

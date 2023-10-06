@@ -495,6 +495,9 @@ describe('apply datacenter pipeline', async() => {
       edges: [deployment_vpc_edge, gateway_ingress_edge, ingress_service_edge, service_deployment_edge, service_vpc_edge] 
     });
 
+    const deployment_id_output = 'deployment_id';
+    const service_id_output = 'service_id';
+    const ingress_id_output = 'ingress_id';
     const time = new FakeTime();
     const provider_store = new ArcctlProviderStore(ArcCtlConfig.getStateBackend());
     const apply_stub = stub(ModuleHelpers, 'Apply', async (request: ApplyRequest) => {
@@ -503,11 +506,11 @@ describe('apply datacenter pipeline', async() => {
       if (request.inputs.find(e => e.includes('name') && e.includes(vpc_name_input))) { 
         outputs = { name: vpc_name_input };
       } else if (request.inputs.find(e => e.includes('name') && e.includes(deployment_name_input))) {
-        outputs = { id: 'deployment_id' };
+        outputs = { id: deployment_id_output };
       } else if (request.inputs.find(e => e.includes('name') && e.includes(service_name_input))) {
-        outputs = { id: 'service_id' };
+        outputs = { id: service_id_output };
       } else if (request.inputs.find(e => e.includes('name') && e.includes(ingress_name_input))) {
-        outputs = { id: 'ingress_id' };
+        outputs = { id: ingress_id_output };
       }
       return { state: '', outputs };
     }); 
@@ -516,11 +519,190 @@ describe('apply datacenter pipeline', async() => {
     assertEquals(pipeline.steps.length, 5);
     assertEquals(pipeline.edges.length, 5);
 
-    // TODO: tests
+    const vpc_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(vpc_name_input)));
+    assertArrayIncludes(vpc_apply_call!.args[0].inputs, [['name', vpc_name_input]]);
+    const applied_vpc_step = applied_pipeline!.steps.find(s => s.name === vpc_module_name);
+    assertEquals(applied_vpc_step!.status.state, 'complete'); 
+    assertEquals(applied_vpc_step!.outputs!.name!, vpc_name_input); 
+
+    const deployment_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(deployment_name_input)));
+    assertArrayIncludes(deployment_apply_call!.args[0].inputs, [['name', deployment_name_input]]);
+    assertArrayIncludes(deployment_apply_call!.args[0].inputs, [['vpc_name', vpc_name_input]]);
+    const applied_deployment_step = applied_pipeline!.steps.find(s => s.name === deployment_module_name);
+    assertEquals(applied_deployment_step!.status.state, 'complete');
+    assert(applied_vpc_step!.status!.startTime! < applied_deployment_step!.status!.startTime!);
+
+    const service_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(service_name_input)));
+    assertArrayIncludes(service_apply_call!.args[0].inputs, [['name', service_name_input]]);
+    assertArrayIncludes(service_apply_call!.args[0].inputs, [['vpc_name', vpc_name_input]]);
+    assertArrayIncludes(service_apply_call!.args[0].inputs, [['deployment_id', deployment_id_output]]);
+    const applied_service_step = applied_pipeline!.steps.find(s => s.name === service_module_name);
+    assertEquals(applied_service_step!.status.state, 'complete');
+    assert(applied_deployment_step!.status!.startTime! < applied_service_step!.status!.startTime!);
+
+    const ingress_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(ingress_name_input)));
+    assertArrayIncludes(ingress_apply_call!.args[0].inputs, [['name', ingress_name_input]]);
+    assertArrayIncludes(ingress_apply_call!.args[0].inputs, [['service_id', service_id_output]]);
+    const applied_ingress_step = applied_pipeline!.steps.find(s => s.name === ingress_module_name);
+    assertEquals(applied_ingress_step!.status.state, 'complete');
+    assert(applied_service_step!.status!.startTime! < applied_ingress_step!.status!.startTime!);
+
+    const gateway_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(gateway_name_input)));
+    assertArrayIncludes(gateway_apply_call!.args[0].inputs, [['name', gateway_name_input]]);
+    assertArrayIncludes(gateway_apply_call!.args[0].inputs, [['ingress_rule_id', ingress_id_output]]);
+    const applied_gateway_step = applied_pipeline!.steps.find(s => s.name === gateway_module_name);
+    assertEquals(applied_gateway_step!.status.state, 'complete');
+    assert(applied_ingress_step!.status!.startTime! < applied_gateway_step!.status!.startTime!);
+
+    const pipeline_deployment_vpc_edge = pipeline.edges.find(e => e.from === `module/${deployment_module_name}-blue` && e.to === `module/${vpc_module_name}-blue`);
+    assertExists(pipeline_deployment_vpc_edge);
+    const pipeline_service_vpc_edge = pipeline.edges.find(e => e.from === `module/${service_module_name}-blue` && e.to === `module/${vpc_module_name}-blue`);
+    assertExists(pipeline_service_vpc_edge);
+    const pipeline_service_deployment_edge = pipeline.edges.find(e => e.from === `module/${service_module_name}-blue` && e.to === `module/${deployment_module_name}-blue`);
+    assertExists(pipeline_service_deployment_edge);
+    const pipeline_ingress_service_edge = pipeline.edges.find(e => e.from === `module/${ingress_module_name}-blue` && e.to === `module/${service_module_name}-blue`);
+    assertExists(pipeline_ingress_service_edge);
+    const pipeline_gateway_ingress_edge = pipeline.edges.find(e => e.from === `module/${gateway_module_name}-blue` && e.to === `module/${ingress_module_name}-blue`);
+    assertExists(pipeline_gateway_ingress_edge);
 
     apply_stub.restore();
   });
 
-  // TODO: apply larger dc with database -> user
+  it('apply datacenter pipeline with vpc, database cluster, database, and database user', async () => {
+    const database_cluster_module_name = 'databaseCluster';
+    const database_module_name = 'database';
+    const database_user_module_name = 'ingress';
+    const vpc_module_name = 'vpc';
+
+    const database_name_input = 'test-database';
+    const database_step = new PipelineStep({
+      name: database_module_name,
+      type: 'module',
+      action: 'create',
+      color: 'blue',
+      status: {
+        state: 'pending'
+      },
+      image: 'sha256:cf151edf4350161cd3243f8d5270ae4f1516516b633b2a02c99bed717af2d20e',
+      hash: '70e1926639496e8fe63f908333dfc8cda1b1e237cdd0675aedc5d44b569c8be1',
+      inputs: {
+        name: database_name_input,
+        database_cluster_id: `\${{ module/${database_cluster_module_name}-blue.id }}`,
+        type: 'module',
+      }
+    });
+    const database_cluster_name_input = 'test-database-cluster';
+    const database_cluster_step = new PipelineStep({
+      name: database_cluster_module_name,
+      type: 'module',
+      action: 'create',
+      color: 'blue',
+      status: {
+        state: 'pending'
+      },
+      image: 'sha256:cf151edf4350161cd3243f8d5270ae4f1516516b633b2a02c99bed717af2d20e',
+      hash: '70e1926639496e8fe63f908333dfc8cda1b1e237cdd0675aedc5d44b569c8be1',
+      inputs: {
+        name: database_cluster_name_input,
+        vpc_name: `\${{ module/${vpc_module_name}-blue.name }}`,
+        type: 'module',
+      }
+    });
+    const database_user_name_input = 'test-database-user';
+    const database_user_step = new PipelineStep({
+      name: database_user_module_name,
+      type: 'module',
+      action: 'create',
+      color: 'blue',
+      status: {
+        state: 'pending'
+      },
+      image: 'sha256:cf151edf4350161cd3243f8d5270ae4f1516516b633b2a02c99bed717af2d20e',
+      hash: '70e1926639496e8fe63f908333dfc8cda1b1e237cdd0675aedc5d44b569c8be1',
+      inputs: {
+        name: database_user_name_input,
+        database_id: `\${{ module/${database_module_name}-blue.id }}`,
+        type: 'module',
+      }
+    });
+    const vpc_name_input = 'test-vpc';
+    const vpc_step = new PipelineStep({
+      name: vpc_module_name,
+      type: 'module',
+      action: 'create',
+      color: 'blue',
+      status: {
+        state: 'pending'
+      },
+      image: 'sha256:cf151edf4350161cd3243f8d5270ae4f1516516b633b2a02c99bed717af2d20e',
+      hash: '70e1926639496e8fe63f908333dfc8cda1b1e237cdd0675aedc5d44b569c8be1',
+      inputs: {
+        name: vpc_name_input,
+        type: 'module',
+      }
+    });
+    
+    const database_database_cluster_edge = new CloudEdge({ from: database_step.id, to: database_cluster_step.id });
+    const database_cluster_vpc_edge = new CloudEdge({ from: database_cluster_step.id, to: vpc_step.id });
+    const database_user_database_edge = new CloudEdge({ from: database_user_step.id, to: database_step.id });
+
+    const pipeline = new Pipeline({ 
+      steps: [database_step, database_cluster_step, database_user_step, vpc_step], 
+      edges: [database_database_cluster_edge, database_cluster_vpc_edge, database_user_database_edge] 
+    });
+
+    const database_cluster_id_output = 'database_cluster_id';
+    const database_id_output = 'database_id';
+    const time = new FakeTime();
+    const provider_store = new ArcctlProviderStore(ArcCtlConfig.getStateBackend());
+    const apply_stub = stub(ModuleHelpers, 'Apply', async (request: ApplyRequest) => {
+      time.tick(1); // used because apply times need to be compared later, and in this mock, they could otherwise be exactly the same
+      let outputs = {};
+      if (request.inputs.find(e => e.includes('name') && e.includes(vpc_name_input))) { 
+        outputs = { name: vpc_name_input };
+      } else if (request.inputs.find(e => e.includes('name') && e.includes(database_cluster_name_input))) {
+        outputs = { id: database_cluster_id_output };
+      } else if (request.inputs.find(e => e.includes('name') && e.includes(database_name_input))) {
+        outputs = { id: database_id_output };
+      }
+      return { state: '', outputs };
+    }); 
+    const applied_pipeline = await pipeline.apply({ providerStore: provider_store }).toPromise();
+
+    assertEquals(pipeline.steps.length, 4);
+    assertEquals(pipeline.edges.length, 3);
+
+    const vpc_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(vpc_name_input)));
+    assertArrayIncludes(vpc_apply_call!.args[0].inputs, [['name', vpc_name_input]]);
+    const applied_vpc_step = applied_pipeline!.steps.find(s => s.name === vpc_module_name);
+    assertEquals(applied_vpc_step!.status.state, 'complete'); 
+    assertEquals(applied_vpc_step!.outputs!.name!, vpc_name_input); 
+
+    const database_cluster_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(database_cluster_name_input)));
+    assertArrayIncludes(database_cluster_apply_call!.args[0].inputs, [['name', database_cluster_name_input]]);
+    assertArrayIncludes(database_cluster_apply_call!.args[0].inputs, [['vpc_name', vpc_name_input]]);
+    const applied_database_cluster_step = applied_pipeline!.steps.find(s => s.name === database_cluster_module_name);
+    assertEquals(applied_database_cluster_step!.status.state, 'complete');
+    assert(applied_vpc_step!.status!.startTime! < applied_database_cluster_step!.status!.startTime!);
+
+    const database_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(database_name_input)));
+    assertArrayIncludes(database_apply_call!.args[0].inputs, [['name', database_name_input]]);
+    assertArrayIncludes(database_apply_call!.args[0].inputs, [['database_cluster_id', database_cluster_id_output]]);
+    const applied_database_step = applied_pipeline!.steps.find(s => s.name === database_module_name);
+    assertEquals(applied_database_step!.status.state, 'complete');
+    assert(applied_database_cluster_step!.status!.startTime! < applied_database_step!.status!.startTime!);
+
+    const database_user_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(database_user_name_input)));
+    assertArrayIncludes(database_user_apply_call!.args[0].inputs, [['name', database_user_name_input]]);
+    assertArrayIncludes(database_user_apply_call!.args[0].inputs, [['database_id', database_id_output]]);
+    const applied_database_user_step = applied_pipeline!.steps.find(s => s.name === database_user_module_name);
+    assertEquals(applied_database_user_step!.status.state, 'complete');
+    assert(applied_database_step!.status!.startTime! < applied_database_user_step!.status!.startTime!);
+  });
   
 });
+
+// TODO: destroy datacenter tests
+// deno run -A ../arcctl/main.ts  build datacenter gcp-datacenter.hcl -t ryancahill444/datacenter-4:latest && 
+// deno run -A ../arcctl/main.ts push datacenter ryancahill444/datacenter-4:latest && 
+// deno run -A ../arcctl/main.ts apply datacenter ryan-test-4 $(pwd)/gcp-datacenter.hcl --auto-approve

@@ -40,35 +40,6 @@ async function buildDatacenterFromConfig(
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
   const command_helper = new CommandHelper(options);
 
-  // const response = await Build({
-  //   directory: '/home/muesch/Architect/code/datacenter/vpc',
-  // });
-  // console.log(response);
-  // const applyResults = await Apply({
-  //   datacenterid: 'vpc',
-  //   image: response.image!,
-  //   inputs: {
-  //     'digitalocean:token': 'dop_v1_3194139c7055ad6f372465806fe70b75de84dc2fccec16b550e389a5df2f939a',
-  //     'region': 'nyc3',
-  //     'name': 'my-vpc7',
-  //   },
-  // });
-  // console.log(applyResults);
-  // console.log(
-  //   await Apply({
-  //     datacenterid: 'vpc',
-  //     image: response.image!,
-  //     inputs: {
-  //       'digitalocean:token': 'dop_v1_3194139c7055ad6f372465806fe70b75de84dc2fccec16b550e389a5df2f939a',
-  //       'region': 'nyc3',
-  //       'name': 'my-vpc7',
-  //     },
-  //     state: applyResults.state,
-  //     destroy: true,
-  //   }),
-  // );
-  // Deno.exit(0);
-
   const flag_vars: Record<string, string> = {};
   for (const v of options.var || []) {
     const var_option = v.split('=');
@@ -82,7 +53,10 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   const envs = Deno.env.toObject();
   for (const key of Object.keys(envs)) {
     if (key.startsWith('ARC_')) {
-      flag_vars[key.replace('ARC_', '')] = envs[key];
+      const key_var = key.replace('ARC_', '');
+      if (!flag_vars[key_var]) {
+        flag_vars[key_var] = envs[key];
+      }
     }
   }
 

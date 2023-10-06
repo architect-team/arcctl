@@ -1,10 +1,13 @@
 import { Logger } from 'winston';
 
+export type Plugin = 'pulumi' | 'opentofu';
+
 export type BuildRequest = {
   directory: string;
 };
 
 export type BuildOptions = {
+  plugin: Plugin;
   verbose?: boolean;
 };
 
@@ -27,6 +30,10 @@ export type ApplyResponse = {
 
 export type ApplyOptions = {
   logger?: Logger;
+};
+
+type ApplyRequestOptions = ApplyOptions & {
+  plugin: Plugin;
 };
 
 function wsPromise(
@@ -81,7 +88,7 @@ const getModuleClient = () => {
   return new ModuleClient();
 };
 
-const startContainer = async (directory?: string): Promise<Deno.ChildProcess> => {
+const startContainer = async (plugin: Plugin, directory?: string): Promise<Deno.ChildProcess> => {
   const command = new Deno.Command('docker', {
     args: [
       'run',
@@ -91,7 +98,7 @@ const startContainer = async (directory?: string): Promise<Deno.ChildProcess> =>
       '-v',
       '/var/run/docker.sock:/var/run/docker.sock',
       ...(directory ? ['-v', `${directory}:${directory}`] : []),
-      'pulumi', // build this from https://github.com/architect-team/pulumi-module
+      `arcctl-${plugin}-plugin`, // build this from https://github.com/architect-team/pulumi-module
     ],
     stdout: 'piped',
     stderr: 'piped',
@@ -135,7 +142,7 @@ export class ModuleHelpers {
       throw new Error(`A Dockerfile must exist at ${request.directory}`);
     }
   
-    const childProcess = await startContainer(request.directory);
+    const childProcess = await startContainer(options.plugin, request.directory);
     try {
       const client = getModuleClient();
       const response = await client.Build(request, options);
@@ -149,11 +156,9 @@ export class ModuleHelpers {
 
   public static async Apply(
     request: ApplyRequest,
-    options: {
-      logger?: Logger;
-    },
+    options: ApplyRequestOptions,
   ): Promise<ApplyResponse> {
-    const childProcess = await startContainer();
+    const childProcess = await startContainer(options.plugin);
     try {
       const client = getModuleClient();
       const response = await client.Apply(request, { logger: options.logger });

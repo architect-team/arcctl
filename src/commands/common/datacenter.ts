@@ -187,7 +187,7 @@ export class DatacenterUtils {
         module_path = path.resolve(module_path);
       }
       console.log(`Building module: ${module_path}`);
-      const build = await ModuleHelpers.Build({ directory: module_path }, { verbose });
+      const build = await ModuleHelpers.Build({ directory: module_path }, { plugin: build_options.plugin, verbose });
       return build.image;
     });
   }

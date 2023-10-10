@@ -33,7 +33,7 @@ export class ModuleServer {
         pluginBinary,
         '--rm',
         '-p',
-        '50051:50051',
+        '50051',
         '-v',
         '/var/run/docker.sock:/var/run/docker.sock',
         ...(directory ? ['-v', `${directory}:${directory}`] : []),

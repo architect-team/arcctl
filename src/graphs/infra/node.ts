@@ -18,7 +18,7 @@ type NodeStatus = {
 
 export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<string, unknown>> & {
   plugin: P;
-  action: NodeAction;
+  action?: NodeAction;
   image: string;
   color?: NodeColor;
   status?: NodeStatus;
@@ -38,7 +38,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   constructor(options: InfraGraphNodeOptions<P>) {
     super(options);
     this.plugin = options.plugin;
-    this.action = options.action;
+    this.action = options.action || 'create';
     this.color = options.color || 'blue';
     this.outputs = options.outputs;
     this.state = options.state;
@@ -131,12 +131,14 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
           this.status.state = 'complete';
           this.status.endTime = Date.now();
           subscriber.next(this);
+          await server.stop();
           subscriber.complete();
         } catch (err) {
           this.status.state = 'error';
           this.status.message = err.message;
           this.status.endTime = Date.now();
           subscriber.next(this);
+          await server.stop();
           subscriber.error(err);
         }
       });

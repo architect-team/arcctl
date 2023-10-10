@@ -108,7 +108,6 @@ export default class DatacenterV2 extends Datacenter {
       }
     }
 
-    console.log(COMPONENT_RESOURCES);
     for (const type of COMPONENT_RESOURCES) {
       if (data.environment?.length && data.environment[0][type]) {
         for (const entry of data.environment[0][type]) {

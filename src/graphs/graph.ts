@@ -1,16 +1,16 @@
 import { GraphEdge } from './edge.ts';
 import { GraphNode } from './node.ts';
 
-export type GraphOptions<N extends GraphNode, E extends GraphEdge> = {
+export type AppGraphOptions<N extends GraphNode = GraphNode, E extends GraphEdge = GraphEdge> = {
   nodes?: N[];
   edges?: E[];
 };
 
 export abstract class Graph<N extends GraphNode, E extends GraphEdge = GraphEdge> {
-  private nodes: N[];
-  private edges: E[];
+  nodes: N[];
+  edges: E[];
 
-  constructor(options?: GraphOptions<N, E>) {
+  constructor(options?: AppGraphOptions<N, E>) {
     this.nodes = options?.nodes || [];
     this.edges = options?.edges || [];
   }

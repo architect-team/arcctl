@@ -5,8 +5,8 @@ import { v4 } from 'uuid';
 import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
-import { AppNode } from '../app-graph/index.ts';
-import { Apply, ApplyResponse } from '../modules/index.ts';
+import { CloudNode } from '../cloud-graph/index.ts';
+import { Apply, ApplyResponse, Plugin } from '../modules/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
 
 export type PipelineStepOptions<T extends ResourceType> = {
@@ -22,6 +22,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
+  plugin: Plugin;
 };
 
 export class PipelineStep<T extends ResourceType = ResourceType> {
@@ -37,6 +38,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
+  plugin: Plugin;
 
   constructor(options: PipelineStepOptions<T>) {
     this.name = options.name;
@@ -53,14 +55,15 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.inputs = options.inputs;
     this.outputs = options.outputs;
     this.image = options.image;
+    this.plugin = options.plugin;
   }
 
   get id(): string {
-    return AppNode.genId(this) + '-' + this.color;
+    return CloudNode.genId(this) + '-' + this.color;
   }
 
   get resource_id(): string {
-    return AppNode.genResourceId(this) + '-' + this.color;
+    return CloudNode.genResourceId(this) + '-' + this.color;
   }
 
   public equals(step: PipelineStep): boolean {
@@ -131,7 +134,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         image: this.image!,
         state: this.state,
         destroy: this.action === 'delete',
-      }, { logger: options.logger }).then((response: ApplyResponse) => {
+      }, { plugin: this.plugin, logger: options.logger }).then((response: ApplyResponse) => {
         this.state = this.action === 'delete' ? undefined : response.state;
         this.outputs = response.outputs as any || {};
         this.status.state = 'complete';

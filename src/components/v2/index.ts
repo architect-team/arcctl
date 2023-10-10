@@ -185,6 +185,7 @@ export default class ComponentV2 extends Component {
       } else {
         const build_node = new CloudNode({
           name: build_key,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {
@@ -241,6 +242,7 @@ export default class ComponentV2 extends Component {
     for (const [variable_key, variable_config] of Object.entries(this.variables || {})) {
       const secret_node = new CloudNode({
         name: variable_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -288,6 +290,7 @@ export default class ComponentV2 extends Component {
       const [engine, version] = database_config.type.split(':');
       const database_schema_node = new CloudNode({
         name: database_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -343,6 +346,7 @@ export default class ComponentV2 extends Component {
 
         const volume_node = new CloudNode({
           name: `${deployment_key}-${volumeKey}`,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {
@@ -392,6 +396,7 @@ export default class ComponentV2 extends Component {
 
       const deployment_node = new CloudNode({
         name: deployment_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -447,6 +452,7 @@ export default class ComponentV2 extends Component {
     ) {
       const service_node = new CloudNode({
         name: service_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -530,6 +536,7 @@ export default class ComponentV2 extends Component {
 
       const ingress_node = new CloudNode({
         name: ingress_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {

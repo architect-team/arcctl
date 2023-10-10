@@ -418,6 +418,7 @@ export default class DatacenterV1 extends Datacenter {
     for (const [key, value] of Object.entries(this.resources || {})) {
       const node = new CloudNode({
         name: key,
+        plugin: 'pulumi', // TODO: un-hardcode
         inputs: value,
       });
 
@@ -432,6 +433,7 @@ export default class DatacenterV1 extends Datacenter {
     for (const value of Object.values(this.accounts || {})) {
       const node = new CloudNode({
         name: this.replaceDatacenterNameRefs(options.datacenterName, value.name),
+        plugin: 'pulumi', // TODO: un-hardcode
         inputs: {
           type: 'arcctlAccount',
           account: 'n/a', // Helps it skip hook mutations
@@ -451,6 +453,7 @@ export default class DatacenterV1 extends Datacenter {
       for (const [key, value] of Object.entries(this.environment?.resources || {})) {
         const node = new CloudNode({
           name: key,
+          plugin: 'pulumi', // TODO: un-hardcode
           environment: options?.environmentName,
           inputs: value,
         });
@@ -478,6 +481,7 @@ export default class DatacenterV1 extends Datacenter {
             options.datacenterName,
             this.replaceEnvironmentNameRefs(options?.environmentName, value.name),
           ),
+          plugin: 'pulumi', // TODO: un-hardcode
           environment: options?.environmentName,
           inputs: {
             type: 'arcctlAccount',
@@ -603,6 +607,7 @@ export default class DatacenterV1 extends Datacenter {
 
             const newNode = new CloudNode({
               name: newResourceName,
+              plugin: 'pulumi', // TODO: un-hardcode
               environment: options?.environmentName,
               component: node.component,
               inputs: JSON.parse(
@@ -679,6 +684,7 @@ export default class DatacenterV1 extends Datacenter {
 
             const newNode = new CloudNode({
               name: newResourceName,
+              plugin: 'pulumi', // TODO: un-hardcode
               environment: options?.environmentName,
               component: node.component,
               inputs: {

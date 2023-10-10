@@ -130,6 +130,7 @@ export default class ComponentV1 extends Component {
       if (!('image' in service_config)) {
         const build_node = new CloudNode({
           name: service_name,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {
@@ -185,6 +186,7 @@ export default class ComponentV1 extends Component {
 
       const deployment_node = new CloudNode({
         name: service_name,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -215,6 +217,7 @@ export default class ComponentV1 extends Component {
             (mounts, [volume_name, volume_config]) => {
               const volume_node = new CloudNode({
                 name: `${service_name}-${volume_name}`,
+                plugin: 'pulumi', // TODO: un-hardcode
                 component: context.component.name,
                 environment: context.environment,
                 inputs: {
@@ -269,6 +272,7 @@ export default class ComponentV1 extends Component {
       ) {
         const service_node = new CloudNode<'service'>({
           name: `${service_name}-${interface_name}`,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {
@@ -315,6 +319,7 @@ export default class ComponentV1 extends Component {
 
           const ingress_node = new CloudNode({
             name: `${service_name}-${interface_name}`,
+            plugin: 'pulumi', // TODO: un-hardcode
             component: context.component.name,
             environment: context.environment,
             inputs: {
@@ -390,6 +395,7 @@ export default class ComponentV1 extends Component {
 
         const build_node = new CloudNode({
           name: task_name,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {
@@ -441,6 +447,7 @@ export default class ComponentV1 extends Component {
 
       const cronjob_node = new CloudNode({
         name: task_name,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -458,6 +465,7 @@ export default class ComponentV1 extends Component {
             (mounts, [volume_name, volume_config]) => {
               const volume_node = new CloudNode({
                 name: `${task_name}-${volume_name}`,
+                plugin: 'pulumi', // TODO: un-hardcode
                 component: context.component.name,
                 environment: context.environment,
                 inputs: {
@@ -542,6 +550,7 @@ export default class ComponentV1 extends Component {
 
       const interface_node = new CloudNode<'service'>({
         name: interface_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -574,6 +583,7 @@ export default class ComponentV1 extends Component {
 
         const ingress_node = new CloudNode({
           name: interface_key,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {
@@ -625,6 +635,7 @@ export default class ComponentV1 extends Component {
       const [engine, version] = database_config.type.split(':');
       const database_schema_node = new CloudNode({
         name: database_key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {
@@ -654,6 +665,7 @@ export default class ComponentV1 extends Component {
     for (const [key, value] of Object.entries(values || {})) {
       const secret_node = new CloudNode({
         name: key,
+        plugin: 'pulumi', // TODO: un-hardcode
         component: context.component.name,
         environment: context.environment,
         inputs: {

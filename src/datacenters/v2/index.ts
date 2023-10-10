@@ -335,6 +335,7 @@ export default class DatacenterV2 extends Datacenter {
             id: name,
             resource_id: name,
             name: name,
+            plugin: 'pulumi', // TODO: un-hardcode
             image: this.moduleImages[module_name],
             type: 'module',
             inputs: JSON.parse(JSON.stringify((module as any).inputs)),

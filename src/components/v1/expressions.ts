@@ -49,6 +49,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
         const name = `${from_id}/${database_name}`;
         const database_user_node = new CloudNode({
           name,
+          plugin: 'pulumi', // TODO: un-hardcode
           component: context.component.name,
           environment: context.environment,
           inputs: {

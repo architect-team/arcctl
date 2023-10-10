@@ -1,4 +1,3 @@
-import { AppGraph } from '../app/graph.ts';
 import { GraphEdge } from '../edge.ts';
 import { AppGraphOptions, Graph } from '../graph.ts';
 import { InfraGraphNode } from './node.ts';
@@ -11,7 +10,7 @@ export enum PlanContext {
 
 export type PlanOptions = {
   before: InfraGraph;
-  after: AppGraph;
+  after: InfraGraph;
   context?: PlanContext;
   refresh?: boolean;
 };
@@ -84,42 +83,107 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     // Insert hashes and generate map of IDs to replace with color-coded IDs
     const replacements: Record<string, string> = {};
     for (const newNode of options.after.nodes) {
-      const previousStep = options.before.nodes
+      const previousNode = options.before.nodes
         .find((n) => n.getId().startsWith(newNode.getId()));
 
-      const oldId = newNode.id;
+      const oldId = newNode.getId();
+      const newInfraNode = new InfraGraphNode({
+        ...newNode,
+        status: { state: 'pending' },
+        state: previousNode?.state,
+      });
       if (
-        !previousStep || (previousStep.status.state !== 'complete' && previousStep.action === 'create') ||
-        previousStep.action === 'delete'
+        !previousNode || (previousNode.status.state !== 'complete' && previousNode.action === 'create') ||
+        previousNode.action === 'delete'
       ) {
-        const newStep = new PipelineStep({
-          ...newNode,
-          type: newNode.type,
-          color: 'blue',
-          action: 'create',
-          status: {
-            state: 'pending',
-          },
-          state: previousStep?.state, // May exist if a create step error'd and was only partially applied
-        });
-        newStep.hash = await newStep.getHash(providerStore);
-        pipeline.insertSteps(newStep);
-        replacements[oldId] = newStep.id;
+        newInfraNode.action = 'create';
+        newInfraNode.color = 'blue';
       } else {
-        const newExecutable = new PipelineStep({
-          ...newNode,
-          type: newNode.type,
-          color: previousStep.color,
-          state: previousStep.state,
-          action: 'update',
+        newInfraNode.action = 'update';
+        newInfraNode.color = previousNode.color;
+      }
+
+      newInfraGraph.insertNodes(newInfraNode);
+      replacements[oldId] = newInfraNode.getId();
+    }
+
+    // Replace references with color-coded refs
+    for (const [source, target] of Object.entries(replacements)) {
+      newInfraGraph.replaceNodeRefs(source, target);
+    }
+
+    const potentialEdges: GraphEdge[] = [];
+    for (const previousNode of options.before.nodes) {
+      if (
+        (previousNode.action === 'delete' &&
+          previousNode.status.state === 'complete') ||
+        (previousNode.action === 'create' && previousNode.status.state === 'pending')
+      ) {
+        continue;
+      }
+
+      const newNode = options.after.nodes.find((n) => previousNode.getId().startsWith(n.getId()));
+      if (!newNode) {
+        const deleteNode = new InfraGraphNode({
+          ...previousNode,
+          action: 'delete',
           status: {
             state: 'pending',
           },
         });
-        newExecutable.hash = await newExecutable.getHash(providerStore);
-        pipeline.insertSteps(newExecutable);
-        replacements[oldId] = newExecutable.id;
+
+        newInfraGraph.insertNodes(deleteNode);
+        const previousStepEdges = options.before.edges.filter((edge) => edge.to === deleteNode.getId());
+        if (previousNode.action !== 'delete') {
+          // If the previous pipeline was create or update, we need to flip the edge
+          // so we delete dependencies in the right order.
+          for (const oldEdge of previousStepEdges) {
+            potentialEdges.push(oldEdge.reverse());
+          }
+        } else {
+          // If the previous pipeline was delete, the edges are already correct and have been flipped.
+          // We just need to remove any edges from the previous pipeline that may have had their nodes
+          // deleted.
+          for (const oldEdge of previousStepEdges) {
+            // If there's no step for the oldEdge.from, the node's already removed so we can axe the edge.
+            if (newInfraGraph.nodes.some((node) => node.getId() === oldEdge.from)) {
+              potentialEdges.push(oldEdge);
+            }
+          }
+        }
       }
     }
+
+    // Add edges for nodes being removed that are still valid
+    for (const potentialEdge of potentialEdges) {
+      const targetNode = newInfraGraph.nodes.find((node) => node.getId() === potentialEdge.to);
+      if (targetNode) {
+        newInfraGraph.insertEdges(potentialEdge);
+      }
+    }
+
+    // Set no-op steps for nodes that exist in the new graph + previous graph
+    // and have an unchanged hash (module and inputs match)
+    for (const node of newInfraGraph.nodes.filter((node) => node.action === 'update')) {
+      const previousCompleteNode = options.before.nodes.find((node) =>
+        node.status.state === 'complete' && node.getId().startsWith(node.getId())
+      );
+
+      if (!previousCompleteNode) {
+        continue;
+      }
+
+      if ((await previousCompleteNode.getHash()) === (await node.getHash())) {
+        node.action = 'no-op';
+        node.status.state = 'complete';
+        node.state = previousCompleteNode?.state;
+        node.outputs = previousCompleteNode?.outputs;
+      }
+    }
+
+    // TODO: old code was doing replaceRefsWithOutputValues as part of no-oping
+    // May be redundant with apply step?
+
+    return newInfraGraph;
   }
 }

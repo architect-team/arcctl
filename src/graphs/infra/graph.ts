@@ -1,19 +1,8 @@
+import { Observable } from 'rxjs';
 import { GraphEdge } from '../edge.ts';
 import { AppGraphOptions, Graph } from '../graph.ts';
 import { InfraGraphNode } from './node.ts';
-
-export enum PlanContext {
-  Datacenter = 1,
-  Environment = 2,
-  Component = 3,
-}
-
-export type PlanOptions = {
-  before: InfraGraph;
-  after: InfraGraph;
-  context?: PlanContext;
-  refresh?: boolean;
-};
+import { ApplyOptions, PlanOptions } from './types.ts';
 
 export class InfraGraph extends Graph<InfraGraphNode> {
   constructor(options?: AppGraphOptions<InfraGraphNode>) {
@@ -52,6 +41,61 @@ export class InfraGraph extends Graph<InfraGraphNode> {
   }
 
   /**
+   * Replace step references with actual output values
+   */
+  public replaceRefsWithOutputValues<T>(input: T, step_name: string): T {
+    if (input == undefined) {
+      return undefined as T;
+    }
+    const output = JSON.parse(JSON.stringify(input));
+    for (const [key, value] of Object.entries(output)) {
+      if (typeof value === 'object' || Array.isArray(value)) {
+        output[key] = this.replaceRefsWithOutputValues(value, step_name);
+        continue;
+      }
+      output[key] = this.getOutputValueForReference(value as string, step_name);
+    }
+    return output;
+  }
+
+  private getOutputValueForReference(key: string | undefined, step_name: string): any {
+    if (key === undefined) {
+      return undefined;
+    }
+    const initialType = typeof key;
+    return key.toString().replace(/\${{\s*(.*?)\s}}/g, (_, ref) => {
+      ref = ref.trim();
+      const node_id = ref.substring(0, ref.lastIndexOf('.'));
+      const key = ref.substring(ref.lastIndexOf('.') + 1);
+      const step = this.nodes.find((node) => node.getId() === node_id);
+      const outputs = step?.outputs;
+      if (!step || !outputs) {
+        console.log(JSON.stringify(this.nodes.map((node) => node.getId()), null, 2));
+        throw new Error(`Missing outputs for ${ref} in ${step_name}`);
+      } else if ((outputs as any)[key] === undefined) {
+        console.log(JSON.stringify(step, null, 2));
+        throw new Error(
+          `Invalid key, ${key}, for ${step.name}. ${JSON.stringify(outputs)}`,
+        );
+      }
+      return this.convertStringToType(String((outputs as any)[key]) || '', initialType);
+    });
+  }
+
+  private convertStringToType(input: string, type: string): any {
+    switch (type) {
+      case 'string':
+        return String(input);
+      case 'number':
+        return Number(input);
+      case 'boolean':
+        return Boolean(input);
+      default:
+        throw new Error(`Invalid type: ${type}`);
+    }
+  }
+
+  /**
    * Get the queue of nodes ready to be applied based on dependencies and node statuses
    */
   public getQueue(): InfraGraphNode[] {
@@ -75,6 +119,9 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       });
   }
 
+  /**
+   * Returns a new pipeline by comparing the old pipeline to a new target graph
+   */
   public static async plan(options: PlanOptions): Promise<InfraGraph> {
     const newInfraGraph = new InfraGraph({
       edges: [...options.after.edges],
@@ -185,5 +232,63 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     // May be redundant with apply step?
 
     return newInfraGraph;
+  }
+
+  /**
+   * Kick off the pipeline
+   */
+  public apply(options: ApplyOptions): Observable<InfraGraph> {
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
+
+    return new Observable((subscriber) => {
+      (async () => {
+        for (const node of this.getQueue()) {
+          if (node.inputs) {
+            try {
+              if (node.action !== 'delete') {
+                node.inputs = this.replaceRefsWithOutputValues(node.inputs, node.name);
+              }
+            } catch (err: any) {
+              node.status.state = 'error';
+              node.status.message = err.message;
+              subscriber.error(err.message);
+              return;
+            }
+          }
+
+          await new Promise<void>((resolve, reject) => {
+            node
+              .apply({
+                ...options,
+                cwd,
+              })
+              .subscribe({
+                // TODO: Is this needed?
+                // next: (res) => {
+                //   this.insertSteps(res);
+                // },
+                error: (err: any) => {
+                  reject(err);
+                  return;
+                },
+                complete: () => {
+                  resolve();
+                  return;
+                },
+              });
+          });
+          subscriber.next(this);
+        }
+      })().then(() => {
+        for (const node of this.nodes) {
+          if (node.status.state !== 'complete') {
+            throw Error(`InfraGraph pipeline finished with an unfinished step`);
+          }
+        }
+        subscriber.complete();
+      }).catch((err) => {
+        subscriber.error(err);
+      });
+    });
   }
 }

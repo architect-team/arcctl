@@ -41,24 +41,24 @@ export class InfraGraph extends Graph<InfraGraphNode> {
   }
 
   /**
-   * Replace step references with actual output values
+   * Replace node references with actual output values
    */
-  public replaceRefsWithOutputValues<T>(input: T, step_name: string): T {
+  public replaceRefsWithOutputValues<T>(input: T, node_name: string): T {
     if (input == undefined) {
       return undefined as T;
     }
     const output = JSON.parse(JSON.stringify(input));
     for (const [key, value] of Object.entries(output)) {
       if (typeof value === 'object' || Array.isArray(value)) {
-        output[key] = this.replaceRefsWithOutputValues(value, step_name);
-        continue;
+        output[key] = this.replaceRefsWithOutputValues(value, node_name);
+      } else {
+        output[key] = this.getOutputValueForReference(value as string, node_name);
       }
-      output[key] = this.getOutputValueForReference(value as string, step_name);
     }
     return output;
   }
 
-  private getOutputValueForReference(key: string | undefined, step_name: string): any {
+  private getOutputValueForReference(key: string | undefined, node_name: string): any {
     if (key === undefined) {
       return undefined;
     }
@@ -67,15 +67,15 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       ref = ref.trim();
       const node_id = ref.substring(0, ref.lastIndexOf('.'));
       const key = ref.substring(ref.lastIndexOf('.') + 1);
-      const step = this.nodes.find((node) => node.getId() === node_id);
-      const outputs = step?.outputs;
-      if (!step || !outputs) {
+      const node = this.nodes.find((node) => node.getId() === node_id);
+      const outputs = node?.outputs;
+      if (!node || !outputs) {
         console.log(JSON.stringify(this.nodes.map((node) => node.getId()), null, 2));
-        throw new Error(`Missing outputs for ${ref} in ${step_name}`);
+        throw new Error(`Missing outputs for ${ref} in ${node_name}`);
       } else if ((outputs as any)[key] === undefined) {
-        console.log(JSON.stringify(step, null, 2));
+        console.log(JSON.stringify(node, null, 2));
         throw new Error(
-          `Invalid key, ${key}, for ${step.name}. ${JSON.stringify(outputs)}`,
+          `Invalid key, ${key}, for ${node.name}. ${JSON.stringify(outputs)}`,
         );
       }
       return this.convertStringToType(String((outputs as any)[key]) || '', initialType);

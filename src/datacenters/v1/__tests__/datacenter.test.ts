@@ -55,11 +55,32 @@ describe('DatacenterV1', () => {
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test' });
 
+      const expectedVpcNode = new InfraGraphNode({
+        name: 'vpc',
+        plugin: 'pulumi',
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {
+          name: 'my-vpc',
+          region: 'nyc1',
+        },
+      });
+
+      const expectedClusterNode = new InfraGraphNode({
+        name: 'cluster',
+        plugin: 'pulumi',
+        image: 'architect-io/digitalocean-kubernetes:latest',
+        inputs: {
+          name: `\${${expectedVpcNode.getId()}.name}-cluster`,
+          vpc_id: 'vpc-blue',
+        },
+      });
+
       const expectedEdge = new GraphEdge({
         from: `cluster-blue`,
         to: `vpc-blue`,
       });
 
+      assertEquals(graph.nodes, [expectedVpcNode, expectedClusterNode]);
       assertEquals(graph.edges, [expectedEdge]);
     });
 
@@ -152,11 +173,32 @@ describe('DatacenterV1', () => {
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', environmentName: 'test' });
 
+      const expectedVpcNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {
+          name: 'my-vpc',
+          region: 'nyc1',
+        },
+        name: 'vpc',
+        plugin: 'pulumi',
+      });
+
+      const expectedDatabaseNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-database:latest',
+        inputs: {
+          type: 'postgres',
+          vpc_id: `\${${expectedVpcNode.getId()}.id}`,
+        },
+        name: 'database',
+        plugin: 'pulumi',
+      });
+
       const expectedEdge = new GraphEdge({
         from: 'database-blue',
         to: 'vpc-blue',
       });
 
+      assertEquals(graph.nodes, [expectedVpcNode, expectedDatabaseNode]);
       assertEquals(graph.edges, [expectedEdge]);
     });
 
@@ -379,6 +421,203 @@ describe('DatacenterV1', () => {
       } catch (err) {
         assertEquals(err, new InvalidModuleReference('deployment', 'database'));
       }
+    });
+
+    it('should pass variable values to root modules', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        variable "region" {
+          type = "string"
+        }
+
+        module "vpc" {
+          source = "architect-io/digitalocean-vpc:latest"
+          inputs = {
+            name = "my-vpc"
+            region = variable.region
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+      const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', variables: { region: 'nyc1' } });
+
+      const expectedVpcNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {
+          name: 'my-vpc',
+          region: 'nyc1',
+        },
+        name: 'vpc',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(graph.nodes, [expectedVpcNode]);
+    });
+
+    it('should pass variable values to environment modules', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        variable "region" {
+          type = "string"
+        }
+
+        environment {
+          module "vpc" {
+            source = "architect-io/digitalocean-vpc:latest"
+            inputs = {
+              name = "my-vpc"
+              region = variable.region
+            }
+          }
+        }
+      `)[0];
+
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+      const graph = datacenter.getGraph(new AppGraph(), {
+        datacenterName: 'test',
+        environmentName: 'test',
+        variables: { region: 'nyc1' },
+      });
+
+      const expectedVpcNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {
+          name: 'my-vpc',
+          region: 'nyc1',
+        },
+        name: 'vpc',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(graph.nodes, [expectedVpcNode]);
+    });
+
+    it('should pass variable values to resource hook modules', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        variable "region" {
+          type = "string"
+        }
+
+        environment {
+          database {
+            module "database" {
+              source = "architect-io/digitalocean-database:latest"
+              inputs = {
+                type = "postgres"
+                region = variable.region
+              }
+            }
+
+            outputs = {
+              protocol = "postgresql"
+              host = module.database.host
+              port = module.database.port
+              name = module.database.name
+              username = module.database.username
+              password = module.database.password
+              url = module.database.url
+            }
+          }
+        }
+      `)[0];
+
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+      const appGraph = new AppGraph({
+        nodes: [
+          new AppGraphNode({
+            name: 'database',
+            type: 'database',
+            component: 'some-component',
+            environment: 'test',
+            inputs: {
+              name: 'my-db',
+              databaseType: 'postgres',
+              databaseVersion: '15',
+            },
+          }),
+        ],
+      });
+
+      const infraGraph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+        variables: { region: 'nyc1' },
+      });
+
+      const expectedDatabaseNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-database:latest',
+        inputs: {
+          type: 'postgres',
+          region: 'nyc1',
+        },
+        name: 'database',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(infraGraph.nodes, [expectedDatabaseNode]);
+    });
+
+    it('should support var shorthand references', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        variable "region" {
+          type = "string"
+        }
+
+        module "vpc" {
+          source = "architect-io/digitalocean-vpc:latest"
+          inputs = {
+            name = "my-vpc"
+            region = var.region
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+      const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', variables: { region: 'nyc1' } });
+
+      const expectedVpcNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {
+          name: 'my-vpc',
+          region: 'nyc1',
+        },
+        name: 'vpc',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(graph.nodes, [expectedVpcNode]);
+    });
+
+    it('should allow variables to be used as default values for each other', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        variable "region" {
+          type = "string"
+        }
+
+        variable "namePrefix" {
+          type = "string"
+          default = "prefix-\${var.region}"
+        }
+
+        module "vpc" {
+          source = "architect-io/digitalocean-vpc:latest"
+          inputs = {
+            name = "\${var.namePrefix}-vpc"
+            region = "\${var.region}"
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+      const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', variables: { region: 'nyc1' } });
+
+      const expectedVpcNode = new InfraGraphNode({
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {
+          name: 'prefix-nyc1-vpc',
+          region: 'nyc1',
+        },
+        name: 'vpc',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(graph.nodes, [expectedVpcNode]);
     });
   });
 });

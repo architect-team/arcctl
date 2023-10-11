@@ -23,6 +23,11 @@ export type GetGraphOptions = {
    * Name of the datacenter itself
    */
   datacenterName: string;
+
+  /**
+   * Values for variables supported by the datacenter
+   */
+  variables?: Record<string, any>;
 };
 
 export abstract class Datacenter {

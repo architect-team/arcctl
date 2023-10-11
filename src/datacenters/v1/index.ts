@@ -5,7 +5,7 @@ import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
 import { InfraGraph } from '../../graphs/infra/graph.ts';
 import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
-import { applyContext } from './ast/parser.ts';
+import { applyContextRecursive } from './ast/parser.ts';
 import { DuplicateModuleNameError, InvalidModuleReference, InvalidOutputProperties } from './errors.ts';
 
 type ModuleDictionary = {
@@ -59,7 +59,7 @@ export default class DatacenterV1 extends Datacenter {
        * A human-readable description of the variable
        */
       description?: string;
-    };
+    }[];
   };
 
   /**
@@ -157,10 +157,35 @@ export default class DatacenterV1 extends Datacenter {
 
     const infraGraph = new InfraGraph();
 
-    applyContext(dc, {
+    // Use default values where applicable
+    let vars: Record<string, string> = {};
+    for (const [key, configs] of Object.entries(dc.variable || {})) {
+      // Variable keys are an array for some reason. It shouldn't ever be empty though.
+      if (configs.length < 1) {
+        continue;
+      }
+
+      applyContextRecursive(configs[0], {
+        variable: options.variables || {},
+        var: options.variables || {},
+      });
+
+      if (configs[0].default) {
+        vars[key] = configs[0].default;
+      }
+    }
+
+    vars = {
+      ...vars,
+      ...options.variables,
+    };
+
+    applyContextRecursive(dc, {
       datacenter: {
         name: options.datacenterName,
       },
+      variable: vars,
+      var: vars,
     });
 
     const dcScopedGraph = this.getScopedGraph(infraGraph, dc.module || {}, options);
@@ -168,7 +193,7 @@ export default class DatacenterV1 extends Datacenter {
     infraGraph.insertEdges(...dcScopedGraph.edges);
 
     if (options.environmentName) {
-      applyContext(dc, {
+      applyContextRecursive(dc, {
         environment: {
           name: options.environmentName,
         },
@@ -201,7 +226,7 @@ export default class DatacenterV1 extends Datacenter {
               const hook = value as ResourceHook;
 
               // Make sure all references to `node.*` are replaced with values
-              applyContext(hook, {
+              applyContextRecursive(hook, {
                 node: appGraphNode,
               });
 

@@ -226,9 +226,6 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       }
     }
 
-    // TODO: old code was doing replaceRefsWithOutputValues as part of no-oping
-    // May be redundant with apply step?
-
     return newInfraGraph;
   }
 
@@ -261,7 +258,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
                 cwd,
               })
               .subscribe({
-                // TODO: Is this needed?
+                // TODO: Is this needed? No longer modifying plan while it's running
                 // next: (res) => {
                 //   this.insertSteps(res);
                 // },

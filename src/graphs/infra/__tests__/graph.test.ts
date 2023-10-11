@@ -126,6 +126,31 @@ describe('InfraGraph', () => {
 
       assertEquals(plannedGraph.nodes.length, 1);
       assertEquals(plannedGraph.nodes[0].action, 'no-op');
+      assertEquals(plannedGraph.nodes[0].status.state, 'complete');
+    });
+
+    it('should update node when input changes between before/after', async () => {
+      const nodeInputs = { input1: 'foo', input2: 'bar' };
+      const modifiedNodeInputs = { input1: 'notFoo', input2: 'notBar' };
+      const previousGraph = new InfraGraph({
+        nodes: [
+          createGraphNode('test', { action: 'update', state: 'complete', inputs: nodeInputs }),
+        ],
+      });
+
+      const plannedGraph = await InfraGraph.plan({
+        before: previousGraph,
+        after: new InfraGraph({
+          edges: previousGraph.edges,
+          nodes: [
+            createGraphNode('test', { inputs: modifiedNodeInputs }),
+          ],
+        }),
+      });
+
+      assertEquals(plannedGraph.nodes.length, 1);
+      assertEquals(plannedGraph.nodes[0].action, 'update');
+      assertEquals(plannedGraph.nodes[0].status.state, 'pending');
     });
 
     it('should attempt to create node that was previously set to create but unable to', async () => {

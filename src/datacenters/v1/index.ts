@@ -6,7 +6,12 @@ import { InfraGraph } from '../../graphs/infra/graph.ts';
 import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
 import { applyContextRecursive } from './ast/parser.ts';
-import { DuplicateModuleNameError, InvalidModuleReference, InvalidOutputProperties } from './errors.ts';
+import {
+  DuplicateModuleNameError,
+  InvalidModuleReference,
+  InvalidOutputProperties,
+  MissingResourceHook,
+} from './errors.ts';
 
 type ModuleDictionary = {
   [key: string]: {
@@ -36,7 +41,7 @@ type ResourceHook<T extends ResourceType = ResourceType> = {
   /**
    * A map of output values to be passed to upstream application resources
    */
-  outputs: ResourceOutputs[T];
+  outputs?: ResourceOutputs[T];
 };
 
 export default class DatacenterV1 extends Datacenter {
@@ -103,7 +108,11 @@ export default class DatacenterV1 extends Datacenter {
     throw new Error('Method not implemented.');
   }
 
-  private getScopedGraph(infraGraph: InfraGraph, modules: ModuleDictionary, options: GetGraphOptions): InfraGraph {
+  private getScopedGraph(
+    infraGraph: InfraGraph,
+    modules: ModuleDictionary,
+    options: GetGraphOptions & { component?: string; appNodeId?: string },
+  ): InfraGraph {
     const scopedGraph = new InfraGraph();
 
     // Add all the modules to the scoped graph
@@ -122,6 +131,8 @@ export default class DatacenterV1 extends Datacenter {
         new InfraGraphNode({
           image: value[0].source,
           inputs: value[0].inputs,
+          component: options.component,
+          appNodeId: options.appNodeId,
           plugin: 'pulumi',
           name: name,
           action: 'create',
@@ -237,9 +248,33 @@ export default class DatacenterV1 extends Datacenter {
                 continue;
               }
 
-              resourceScopedGraphs.push(this.getScopedGraph(infraGraph, hook.module || {}, options));
+              const scopedGraph = this.getScopedGraph(infraGraph, hook.module || {}, {
+                ...options,
+                component: appGraphNode.component,
+                appNodeId: appGraphNode.getId(),
+              });
+              resourceScopedGraphs.push(scopedGraph);
+
               try {
-                outputsMap[appGraphNode.getId()] = parseResourceOutputs(type, hook.outputs);
+                // Make sure the output schema is valid for the resource type
+                const validatedResourceOutputs = parseResourceOutputs(type, hook.outputs || {});
+
+                // Replace any module references with node references
+                outputsMap[appGraphNode.getId()] = JSON.parse(
+                  JSON.stringify(validatedResourceOutputs).replace(
+                    MODULES_REGEX,
+                    (full_match, match_path, module_name, module_key) => {
+                      const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) =>
+                        n.name === module_name
+                      );
+                      if (!target_node) {
+                        throw new InvalidModuleReference(`${type}.outputs`, module_name);
+                      }
+
+                      return full_match.replace(match_path, `${target_node.getId()}.${module_key}`);
+                    },
+                  ),
+                );
               } catch (errs) {
                 throw new InvalidOutputProperties(type, errs);
               }
@@ -254,7 +289,7 @@ export default class DatacenterV1 extends Datacenter {
       appGraph.edges.forEach((appGraphEdge) => {
         const targetOutputs = outputsMap[appGraphEdge.to];
         if (!targetOutputs) {
-          throw new Error(`No matching hook found for ${appGraphEdge.to} (required by ${appGraphEdge.from}).`);
+          throw new MissingResourceHook(appGraphEdge.from, appGraphEdge.to);
         }
       });
 
@@ -265,7 +300,31 @@ export default class DatacenterV1 extends Datacenter {
         infraGraph.insertEdges(...g.edges);
       });
 
-      // TODO: handle output values
+      infraGraph.nodes = infraGraph.nodes.map((node) =>
+        new InfraGraphNode(JSON.parse(
+          JSON.stringify(node).replace(
+            /\$\{\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\s*\}\}/g,
+            (_, component_id, key) => {
+              const outputs = outputsMap[component_id] as any;
+              if (!outputs) {
+                throw new MissingResourceHook(node.getId(), component_id);
+              }
+
+              const [match, target_component_id] = outputs[key].match(
+                /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/,
+              );
+              infraGraph.insertEdges(
+                new GraphEdge({
+                  from: node.getId(),
+                  to: target_component_id,
+                }),
+              );
+
+              return outputs[key];
+            },
+          ),
+        ))
+      );
     }
 
     return infraGraph;

@@ -22,6 +22,9 @@ export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<st
   plugin: P;
   action?: NodeAction;
   image: string;
+  appNodeId?: string;
+  component?: string;
+  environment?: string;
   color?: NodeColor;
   status?: NodeStatus;
   outputs?: Record<string, unknown>;
@@ -34,6 +37,9 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   color: NodeColor;
   status: NodeStatus;
   image: string;
+  appNodeId?: string;
+  component?: string;
+  environment?: string;
   outputs?: Record<string, unknown>;
   state?: any;
 
@@ -42,6 +48,9 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     this.plugin = options.plugin;
     this.action = options.action || 'create';
     this.color = options.color || 'blue';
+    this.component = options.component;
+    this.appNodeId = options.appNodeId;
+    this.environment = options.environment;
     this.outputs = options.outputs;
     this.state = options.state;
     this.image = options.image;
@@ -86,16 +95,19 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   }
 
   public getId(): string {
-    return GraphNode.genResourceId({
-      name: this.name,
-      component: this.component,
-      environment: this.environment,
-    }) + '-' + this.color;
+    const parts = [this.name, this.color];
+    if (this.appNodeId) {
+      parts.unshift(this.appNodeId);
+    }
+    return parts.join('/');
   }
 
   public equals(node: InfraGraphNode<P>): boolean {
-    return this.name === node.name && this.plugin === node.plugin &&
-      this.color === node.color && this.component === node.component &&
+    return this.name === node.name &&
+      this.plugin === node.plugin &&
+      this.color === node.color &&
+      this.appNodeId === node.appNodeId &&
+      this.component === node.component &&
       this.environment === node.environment &&
       JSON.stringify(this.inputs) === JSON.stringify(node.inputs);
   }

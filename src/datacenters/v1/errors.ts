@@ -18,3 +18,9 @@ export class InvalidOutputProperties extends Error {
     super(`Invalid output properties for the ${type} hook: [${errors.map((err) => err.message).join(', ')}]`);
   }
 }
+
+export class MissingResourceHook extends Error {
+  constructor(from: string, to: string) {
+    super(`No matching hook found for ${to} (required by ${from}).`);
+  }
+}

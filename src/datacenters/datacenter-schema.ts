@@ -50,9 +50,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -143,9 +140,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -225,9 +219,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -281,9 +272,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -328,9 +316,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -408,9 +393,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -489,9 +471,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -618,9 +597,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -665,9 +641,6 @@ export default {
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "outputs"
-                  ],
                   "type": "object"
                 },
                 "type": "array"
@@ -705,30 +678,33 @@ export default {
         },
         "variable": {
           "additionalProperties": {
-            "additionalProperties": false,
-            "properties": {
-              "default": {
-                "description": "The default value of the variable",
-                "type": "string"
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "default": {
+                  "description": "The default value of the variable",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "A human-readable description of the variable",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the variable",
+                  "enum": [
+                    "string",
+                    "number",
+                    "boolean"
+                  ],
+                  "type": "string"
+                }
               },
-              "description": {
-                "description": "A human-readable description of the variable",
-                "type": "string"
-              },
-              "type": {
-                "description": "The type of the variable",
-                "enum": [
-                  "string",
-                  "number",
-                  "boolean"
-                ],
-                "type": "string"
-              }
+              "required": [
+                "type"
+              ],
+              "type": "object"
             },
-            "required": [
-              "type"
-            ],
-            "type": "object"
+            "type": "array"
           },
           "description": "Variables necessary for the datacenter to run",
           "type": "object"

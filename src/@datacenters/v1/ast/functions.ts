@@ -47,7 +47,8 @@ const startsWith = (node: ESTree.CallExpression) => {
   if (!instanceOf<ESTree.Literal>(node.arguments[1], 'value')) {
     throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[1].type} node.type: ${node.type}`);
   }
-  return node.arguments[0].value?.toString().startsWith(node.arguments[1].value?.toString() || '');
+
+  return node.arguments[0].value?.toString().startsWith(node.arguments[1].value?.toString() || '').toString();
 };
 
 type functionType = (node: ESTree.CallExpression) => any;

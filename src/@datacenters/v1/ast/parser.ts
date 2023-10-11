@@ -1,66 +1,13 @@
 import * as LooseParser from 'acorn-loose';
 import * as estraverse from 'estraverse';
-import * as ESTree from 'https://esm.sh/v124/@types/estree@1.0.1/index.d.ts';
-import * as jp from 'jsonpath';
 import handleFunctions from './functions.ts';
-const JsonPath = (jp as any).default as typeof jp;
-
-const isNotPrimitive = (value: any) => typeof value === 'object' || Array.isArray(value);
-
-const parseIdentifier = (node: ESTree.Node) => {
-  if ('name' in node) {
-    return node.name;
-  }
-  const res = [];
-  while (node.type === 'MemberExpression') {
-    if ('name' in node.property) {
-      res.unshift(node.property.name);
-    } else if ('value' in node.property) {
-      res.unshift(node.property.value);
-    }
-    if ('name' in node.object) {
-      res.unshift(node.object.name);
-    }
-    if (node.object?.type === 'ThisExpression') {
-      res.unshift('this');
-    }
-    node = node.object;
-  }
-  // For some reason var is replaced with ✖
-  if (res[0] === '✖') {
-    res[0] = 'var';
-  }
-  return res.join('.').trim();
-};
-
-const isIdentifier = (node: ESTree.Node) => {
-  const identifiers = ['Identifier', 'MemberExpression', 'VariableDeclaration'];
-  return identifiers.includes(node.type);
-};
-
-const getValuesForContext = (context: Record<string, any>, path: string) => {
-  if (!path || path === '✖') {
-    return undefined;
-  }
-  const values = JsonPath.query(context, `$.${path}`);
-  if (values.length === 0) {
-    return undefined;
-  }
-  if (values.length === 1) {
-    return values[0];
-  }
-  return values;
-};
+import { flattenIdentifier, getContextValueByPath, isIdentifier, isNotPrimitive } from './utils.ts';
 
 const handleAst = (ast: any, context: Record<string, any>): string[] => {
   const notFound: string[] = [];
   estraverse.replace(ast, {
     enter: (node, parent) => {
-      if (node.type === 'EmptyStatement') {
-        return estraverse.VisitorOption.Remove;
-      }
-
-      if (node.type === 'VariableDeclaration') {
+      if (['EmptyStatement', 'VariableDeclaration'].includes(node.type)) {
         return estraverse.VisitorOption.Remove;
       }
 
@@ -71,20 +18,20 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
             value: node.name,
           };
         }
-        const context_key = parseIdentifier(node);
-        const value = getValuesForContext(context, context_key);
-        if (value) {
+
+        const context_path = flattenIdentifier(node);
+        const value = getContextValueByPath(context, context_path);
+        if (value !== undefined) {
           return {
             type: 'Literal',
             value: value,
           };
         } else {
-          const isAlreadyInList = notFound.filter((v) => {
-            return v.indexOf(context_key) !== -1;
-          }).length > 0;
-          if (!isAlreadyInList && context_key !== '✖' && !notFound.includes(context_key)) {
-            notFound.push(context_key);
+          const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
+          if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
+            notFound.push(context_path);
           }
+
           return estraverse.VisitorOption.Skip;
         }
       }
@@ -102,8 +49,7 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
             value: node.expression.expressions.map((v) => (v as any).value),
           };
         }
-      }
-      if (node.type === 'UnaryExpression') {
+      } else if (node.type === 'UnaryExpression') {
         let value;
         if (node.operator === '!') {
           if (node.argument.type !== 'Literal') {
@@ -130,27 +76,30 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
           };
         }
       } else if (node.type === 'BinaryExpression') {
-        if (node.left.type !== 'Literal' || node.right.type !== 'Literal') {
+        if (
+          node.left.type !== 'Literal' ||
+          node.right.type !== 'Literal' ||
+          !node.left.value ||
+          !node.right.value
+        ) {
           return;
         }
-        if (!node.left.value || !node.right.value) {
-          return;
-        }
+
         const left_value = node.left.value.toString().trim();
         const right_value = node.right.value.toString().trim();
         let value;
         if (node.operator === '==') {
-          value = left_value == right_value;
+          value = (left_value == right_value).toString();
         } else if (node.operator === '!=') {
-          value = left_value != right_value;
+          value = (left_value != right_value).toString();
         } else if (node.operator === '>') {
-          value = left_value > right_value;
+          value = (left_value > right_value).toString();
         } else if (node.operator === '>=') {
-          value = left_value >= right_value;
+          value = (left_value >= right_value).toString();
         } else if (node.operator === '<') {
-          value = left_value < right_value;
+          value = (left_value < right_value).toString();
         } else if (node.operator === '<=') {
-          value = left_value <= right_value;
+          value = (left_value <= right_value).toString();
         } else if (node.operator === '+') {
           value = left_value + right_value;
         } else if (node.operator === '-') {
@@ -162,6 +111,7 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         } else {
           throw new Error(`Unsupported node.operator: ${node.operator} node.type: ${node.type}`);
         }
+
         return {
           type: 'Literal',
           value: value,
@@ -174,9 +124,9 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         const right_value = node.right.value;
         let value;
         if (node.operator === '&&') {
-          value = left_value && right_value;
+          value = (left_value && right_value)?.toString();
         } else if (node.operator === '||') {
-          value = left_value || right_value;
+          value = (left_value || right_value)?.toString();
         } else {
           throw new Error(`Unsupported node.operator: ${node.operator} node.type: ${node.type}`);
         }
@@ -218,8 +168,11 @@ export const stringMustacheReplace = (str: string, replacer: (matcher: string, k
   while (true) {
     const index = result.indexOf('${', start);
     if (index === -1) {
+      // No more expressions in string
       break;
     }
+
+    // So we can support `${...}` and `${{...}}` notation with the same function
     let braceCount = 1;
     for (let i = index + 2; i < result.length; i++) {
       if (result[i] === '{') {
@@ -227,6 +180,7 @@ export const stringMustacheReplace = (str: string, replacer: (matcher: string, k
       } else if (result[i] === '}') {
         braceCount--;
       }
+
       if (braceCount === 0) {
         const match = result.substring(index, i + 1);
         const key = result.substring(index + 2, i);
@@ -252,45 +206,47 @@ export const applyContextRecursive = (obj: Record<string, any>, context: Record<
 
 export const applyContext = (obj: Record<string, any>, context: Record<string, any>) => {
   let notFound: string[] = [];
-  Object.entries(obj).forEach(([key, value]) => {
-    if (!value) {
-      return;
-    }
-    if (isNotPrimitive(value)) {
-      notFound = [
-        ...notFound,
-        ...applyContext(value, context),
-      ];
-      return notFound;
-    }
-    obj[key] = stringMustacheReplace(value.toString(), (match: string, p1: string) => {
-      const value = p1.replaceAll(/=+/g, (match) => {
-        return match.length === 1 ? ':' : match;
-      });
-      const ast = LooseParser.parse(
-        value,
-        { ecmaVersion: 2020 },
-      );
-      notFound = [
-        ...notFound,
-        ...handleAst(ast, context),
-      ];
-      let result;
-      if (ast.body.length === 1 && ast.body[0].type === 'Literal' && ast.body[0].value) {
-        if (isNotPrimitive(ast.body[0].value)) {
-          result = `JSON:${JSON.stringify(ast.body[0].value)}`;
-        } else {
-          result = ast.body[0].value;
+  Object.entries(obj)
+    .forEach(([key, value]) => {
+      // Nothing to apply context to
+      if (!value) {
+        return;
+      }
+
+      // Drill down until we find literals we can replace with context data
+      if (isNotPrimitive(value)) {
+        notFound = [
+          ...notFound,
+          ...applyContext(value, context),
+        ];
+        return notFound;
+      }
+
+      obj[key] = stringMustacheReplace(value.toString(), (match: string, value: string) => {
+        const ast = LooseParser.parse(
+          value,
+          { ecmaVersion: 2022 },
+        );
+        notFound = [
+          ...notFound,
+          ...handleAst(ast, context),
+        ];
+        let result;
+        if (ast.body.length === 1 && ast.body[0].type === 'Literal' && ast.body[0].value) {
+          if (isNotPrimitive(ast.body[0].value)) {
+            result = `JSON:${JSON.stringify(ast.body[0].value)}`;
+          } else {
+            result = ast.body[0].value;
+          }
         }
+        if (result) {
+          return result;
+        }
+        return match;
+      });
+      if (obj[key].startsWith('JSON:')) {
+        obj[key] = JSON.parse(obj[key].substring(5));
       }
-      if (result) {
-        return result;
-      }
-      return match;
     });
-    if (obj[key].startsWith('JSON:')) {
-      obj[key] = JSON.parse(obj[key].substring(5));
-    }
-  });
   return notFound;
 };

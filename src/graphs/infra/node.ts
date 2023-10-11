@@ -1,9 +1,8 @@
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import { Logger } from 'winston';
+import { ModuleServer, Plugin } from '../../datacenter-modules/index.ts';
 import { GraphNode, GraphNodeOptions } from '../node.ts';
-import { ModuleServer } from './modules/server.ts';
-import { Plugin } from './types.ts';
 
 export type NodeAction = 'no-op' | 'create' | 'update' | 'delete';
 

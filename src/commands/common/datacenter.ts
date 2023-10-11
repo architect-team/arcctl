@@ -1,34 +1,31 @@
 import * as path from 'std/path/mod.ts';
 import winston from 'winston';
-import { ProviderStore } from '../../@providers/store.ts';
-import { AppGraph } from '../../app-graph/index.ts';
+import { ModuleServer } from '../../datacenter-modules/index.ts';
 import {
   Datacenter,
   DatacenterRecord,
   DatacenterStore,
+  DatacenterVariablesSchema,
   ParsedVariablesMetadata,
-  ParsedVariablesType,
 } from '../../datacenters/index.ts';
-import { Build } from '../../modules/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { AppGraph, InfraGraph } from '../../graphs/index.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
 import { Inputs } from './inputs.ts';
 
 export class DatacenterUtils {
   constructor(
     private readonly datacenterStore: DatacenterStore,
-    private readonly providerStore: ProviderStore,
   ) {}
 
   /**
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, priorState: InfraGraph): Promise<void> {
     await this.datacenterStore.save({
       name: datacenterName,
       config: datacenter,
-      lastPipeline: pipeline,
+      priorState: priorState,
     });
   }
 
@@ -43,7 +40,7 @@ export class DatacenterUtils {
    */
   public async promptForVariables(
     graph: AppGraph,
-    variables: ParsedVariablesType,
+    variables: DatacenterVariablesSchema,
     user_inputs: Record<string, string> = {},
   ): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
@@ -102,7 +99,7 @@ export class DatacenterUtils {
    * this raises an error.
    */
   public sortVariables(
-    variables: ParsedVariablesType,
+    variables: DatacenterVariablesSchema,
   ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
     const variable_graph: Record<string, Set<string>> = {};
     for (const [variable_name, variable_metadata] of Object.entries(variables)) {
@@ -132,22 +129,19 @@ export class DatacenterUtils {
   public async applyDatacenter(
     name: string,
     datacenter: Datacenter,
-    pipeline: Pipeline,
+    graph: InfraGraph,
     logger: winston.Logger | undefined,
   ): Promise<void> {
     return new Promise((resolve, reject) => {
-      return pipeline
-        .apply({
-          providerStore: this.providerStore,
-          logger: logger,
-        })
+      return graph
+        .apply({ logger: logger })
         .subscribe({
           complete: async () => {
-            await this.saveDatacenter(name, datacenter, pipeline);
+            await this.saveDatacenter(name, datacenter, graph);
             resolve();
           },
           error: async (err) => {
-            await this.saveDatacenter(name, datacenter, pipeline);
+            await this.saveDatacenter(name, datacenter, graph);
             console.error(err);
             Deno.exit(1);
           },
@@ -156,14 +150,23 @@ export class DatacenterUtils {
   }
 
   public async buildDatacenter(datacenter: Datacenter, context: string, verbose?: boolean): Promise<Datacenter> {
-    return await datacenter.build(async (build_options) => {
+    return datacenter.build(async (build_options) => {
       let module_path = path.join(path.dirname(context), build_options.context);
       if (!path.isAbsolute(path.dirname(context))) {
         module_path = path.resolve(module_path);
       }
       console.log(`Building module: ${module_path}`);
-      const build = await Build({ directory: module_path }, { verbose });
-      return build.image;
+
+      const server = new ModuleServer(build_options.plugin);
+      try {
+        const client = await server.start();
+        const res = await client.build({
+          directory: module_path,
+        });
+        return res.image;
+      } finally {
+        await server.stop();
+      }
     });
   }
 }

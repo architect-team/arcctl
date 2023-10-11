@@ -1,6 +1,6 @@
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import * as path from 'std/path/mod.ts';
-import ArcCtlConfig, { StateBackend } from '../utils/config.ts';
+import ArcCtlConfig from '../utils/config.ts';
 import { pathExistsSync } from '../utils/filesystem.ts';
 
 const tmpDir = Deno.makeTempDirSync();
@@ -15,7 +15,6 @@ export class BaseStore<T> {
 
   constructor(
     private name: string,
-    private stateBackend: StateBackend,
   ) {}
 
   private replaceHashesWithFileReferences(directory: string, record: any, lookupTable: Record<string, string>): void {
@@ -77,7 +76,7 @@ export class BaseStore<T> {
       records: stringifiedRecords,
       files: this.replaceFileReferencesWithHashes(stringifiedRecords),
     };
-    const file = path.join(ArcCtlConfig.getConfigDirectory(), this.stateBackend.namespace, `${this.name}.json`);
+    const file = path.join(ArcCtlConfig.getConfigDirectory(), `${this.name}.json`);
     Deno.mkdirSync(path.dirname(file), { recursive: true });
     Deno.writeTextFileSync(file, JSON.stringify(storage, null, 2));
   }
@@ -87,7 +86,7 @@ export class BaseStore<T> {
       return this._records;
     }
 
-    const file = path.join(ArcCtlConfig.getConfigDirectory(), this.stateBackend.namespace, `${this.name}.json`);
+    const file = path.join(ArcCtlConfig.getConfigDirectory(), `${this.name}.json`);
     try {
       const storage = JSON.parse(Deno.readTextFileSync(file));
       this.replaceHashesWithFileReferences(tmpDir, storage.records, storage.files);

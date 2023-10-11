@@ -2,10 +2,9 @@ import * as crypto from 'https://deno.land/std@0.153.0/node/crypto.ts';
 import * as path from 'std/path/mod.ts';
 import tar from 'tar';
 import { ComponentStoreDB } from '../component-store/db.ts';
+import { InfraGraph } from '../graphs/index.ts';
 import { ImageManifest, ImageRepository } from '../oci/index.ts';
-import { Pipeline } from '../pipeline/pipeline.ts';
 import { BaseStore } from '../utils/base-store.ts';
-import { StateBackend } from '../utils/config.ts';
 import { pathExistsSync } from '../utils/filesystem.ts';
 import { Datacenter } from './datacenter.ts';
 import { parseDatacenter } from './parser.ts';
@@ -13,7 +12,7 @@ import { parseDatacenter } from './parser.ts';
 export type DatacenterRecord = {
   name: string;
   config: Datacenter;
-  lastPipeline: Pipeline;
+  priorState: InfraGraph;
 };
 
 const CACHE_DB_FILENAME = 'datacenter.db.json';
@@ -33,8 +32,8 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
   private db: ComponentStoreDB;
   private default_registry: string;
 
-  constructor(stateBackend: StateBackend, cache_dir: string, default_registry?: string) {
-    super('datacenters', stateBackend);
+  constructor(cache_dir: string, default_registry?: string) {
+    super('datacenters');
     this.find();
     this.cache_dir = cache_dir;
     this.default_registry = default_registry || 'registry-1.docker.io';
@@ -51,7 +50,7 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
       return {
         name: raw.name,
         config: await parseDatacenter(raw.config),
-        lastPipeline: new Pipeline(raw.lastPipeline),
+        priorState: new InfraGraph(raw.priorState),
       };
     });
 

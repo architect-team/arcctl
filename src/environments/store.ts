@@ -1,6 +1,5 @@
-import { Pipeline } from '../pipeline/pipeline.ts';
-import { BaseStore } from '../secrets/base-store.ts';
-import { StateBackend } from '../utils/config.ts';
+import { InfraGraph } from '../graphs/index.ts';
+import { BaseStore } from '../utils/base-store.ts';
 import { Environment } from './environment.ts';
 import { parseEnvironment } from './parser.ts';
 
@@ -8,14 +7,12 @@ export type EnvironmentRecord = {
   name: string;
   datacenter: string;
   config?: Environment;
-  lastPipeline: Pipeline;
+  priorState: InfraGraph;
 };
 
 export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
-  constructor(
-    stateBackend: StateBackend,
-  ) {
-    super('environments', stateBackend);
+  constructor() {
+    super('environments');
   }
 
   public async find(): Promise<EnvironmentRecord[]> {
@@ -24,7 +21,7 @@ export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
         name: raw.name,
         datacenter: raw.datacenter,
         config: raw.config ? await parseEnvironment(raw.config) : undefined,
-        lastPipeline: new Pipeline(raw.lastPipeline),
+        priorState: new InfraGraph(raw.priorState),
       };
     });
     return this._records!;

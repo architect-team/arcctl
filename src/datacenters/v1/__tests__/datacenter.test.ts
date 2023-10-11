@@ -397,7 +397,6 @@ describe('DatacenterV1', () => {
         type: 'deployment',
         component: 'some-component',
         inputs: {
-          name: 'dep',
           image: 'nginx:latest',
           environment: {
             DB_URL: `\${{ ${dbAppNode.getId()}.url }}`,
@@ -474,7 +473,6 @@ describe('DatacenterV1', () => {
         type: 'deployment',
         component: 'some-component',
         inputs: {
-          name: 'dep',
           image: 'nginx:latest',
           environment: {
             DB_URL: `\${{ ${dbAppNode.getId()}.url }}`,
@@ -646,7 +644,6 @@ describe('DatacenterV1', () => {
             component: 'some-component',
             inputs: {
               image: 'nginx:latest',
-              name: 'my-db',
             },
           }),
         ],

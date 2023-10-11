@@ -1,12 +1,12 @@
+import * as path from 'std/path/mod.ts';
 import { Environment } from '../environments/environment.ts';
 import { parseEnvironment } from '../environments/parser.ts';
-import { Pipeline, PipelineStep } from '../pipeline/index.ts';
-import * as path from 'std/path/mod.ts';
+import { InfraGraph, InfraGraphNode } from '../graphs/index.ts';
 
 export type EnvironmentRecord = {
   name: string;
   datacenter: string;
-  graph: Pipeline;
+  graph: InfraGraph;
   config?: Environment;
 };
 
@@ -49,9 +49,9 @@ export class EnvironmentStore {
       for (const raw of rawEnvironmentRecords) {
         const record: EnvironmentRecord = {
           name: raw.name,
-          graph: new Pipeline({
+          graph: new InfraGraph({
             edges: raw.graph.edges,
-            nodes: raw.graph.nodes.map((n: any) => new PipelineStep(n)),
+            nodes: raw.graph.nodes.map((n: any) => new InfraGraphNode(n)),
           }),
           datacenter: raw.datacenter,
         };

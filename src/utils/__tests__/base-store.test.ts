@@ -4,11 +4,7 @@ import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { BaseStore } from '../base-store.ts';
 
-const genericBaseStore = new BaseStore('test', {
-  provider: 'local',
-  credentials: {},
-  namespace: 'test',
-});
+const genericBaseStore = new BaseStore('test');
 
 describe('Base Store', () => {
   it('should should replace file references with hashes in object', () => {

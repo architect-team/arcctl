@@ -1,5 +1,7 @@
 import { Logger } from 'winston';
 
+export type Plugin = 'pulumi' | 'opentofu';
+
 export type BuildRequest = {
   directory: string;
 };

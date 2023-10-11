@@ -1,5 +1,5 @@
+import { Plugin } from '../datacenter-modules/index.ts';
 import { AppGraph, InfraGraph } from '../graphs/index.ts';
-import { Plugin } from "../graphs/infra/types.ts";
 import { DatacenterVariablesSchema } from './variables.ts';
 
 // Docker types

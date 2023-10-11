@@ -1,17 +1,17 @@
 import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { ParsedVariablesType } from '../../datacenters/index.ts';
+import { DatacenterVariablesSchema } from '../../datacenters/index.ts';
 import { DatacenterUtils } from '../common/datacenter.ts';
 
 function getDatacenterUtils(): DatacenterUtils {
-  return new DatacenterUtils({} as any, {} as any);
+  return new DatacenterUtils({} as any);
 }
 
 describe('CommandHelper methods', () => {
   it('correctly sorts a single dependnecy', () => {
     const datacenterUtils = getDatacenterUtils();
 
-    const variables: ParsedVariablesType = {
+    const variables: DatacenterVariablesSchema = {
       var1: {
         type: 'string',
         value: '${{ variables.var2 }}',
@@ -41,7 +41,7 @@ describe('CommandHelper methods', () => {
   it('correctly sorts variables with dependency chain', () => {
     const datacenterUtils = getDatacenterUtils();
 
-    const variables: ParsedVariablesType = {
+    const variables: DatacenterVariablesSchema = {
       var1: {
         type: 'string',
         value: '${{ variables.var2 }}',
@@ -81,7 +81,7 @@ describe('CommandHelper methods', () => {
   it('correctly throws error when variable dependencies are circular', () => {
     const datacenterUtils = getDatacenterUtils();
 
-    const variables: ParsedVariablesType = {
+    const variables: DatacenterVariablesSchema = {
       var1: {
         type: 'string',
         value: '${{ variables.var2 }}',
@@ -102,7 +102,7 @@ describe('CommandHelper methods', () => {
   it('correctly throws error when more complex variable dependencies are circular', () => {
     const datacenterUtils = getDatacenterUtils();
 
-    const variables: ParsedVariablesType = {
+    const variables: DatacenterVariablesSchema = {
       var1: {
         type: 'string',
         value: '${{ variables.var3 }}',

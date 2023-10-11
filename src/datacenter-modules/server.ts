@@ -1,5 +1,5 @@
-import { Plugin } from '../types.ts';
 import { ModuleClient } from './client.ts';
+import { Plugin } from './types.ts';
 
 export class ModuleServer {
   private plugin: Plugin;

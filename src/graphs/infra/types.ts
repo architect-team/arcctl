@@ -1,8 +1,6 @@
 import { Logger } from 'winston';
 import type { InfraGraph } from './graph.ts';
 
-export type Plugin = 'pulumi' | 'opentofu';
-
 export enum PlanContext {
   Datacenter = 1,
   Environment = 2,

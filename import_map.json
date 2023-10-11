@@ -7,15 +7,10 @@
     "ansi-escapes": "https://esm.sh/ansi-escapes@6.2.0",
     "mustache": "https://esm.sh/mustache@4.2.0",
     "acorn-loose": "https://esm.sh/v124/*acorn-loose@8.3.0",
-    "adm-zip": "https://esm.sh/v124/adm-zip@0.5.9",
     "ajv": "https://esm.sh/v124/ajv@8.11.0",
-    "cdktf": "https://esm.sh/v124/cdktf@0.15.5",
     "cli-spinners": "https://esm.sh/v124/cli-spinners@2.7.0",
     "constructs": "https://esm.sh/v124/constructs@10.2.27",
-    "d3-node": "https://esm.sh/v124/*d3-node@3.0.0",
     "estraverse": "https://esm.sh/v124/estraverse@5.3.0",
-    "google-protobuf": "https://esm.sh/v124/google-protobuf@3.21.2",
-    "googleapis": "https://esm.sh/v124/googleapis@118.0.0",
     "hcl2-parser": "https://esm.sh/v124/hcl2-parser@1.0.3",
     "js-yaml": "https://esm.sh/v124/js-yaml@4.1.0",
     "jsonpath": "https://esm.sh/v124/*jsonpath@1.1.1",
@@ -29,9 +24,7 @@
     "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1",
     "uuid": "https://esm.sh/v124/uuid@8.0.0",
     "which": "https://esm.sh/v124/which@3.0.1",
-    "winston": "https://esm.sh/v124/winston@3.8.2",
-    "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
-    "aws-sdk": "npm:aws-sdk@2.1229.0"
+    "winston": "https://esm.sh/v124/winston@3.8.2"
   },
   "scopes": {
     "https://esm.sh/v124/": {

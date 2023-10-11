@@ -21,18 +21,9 @@ export type GetGraphOptions = {
    * Name of the datacenter itself
    */
   datacenterName: string;
-
-  /**
-   * Whether or not to build the graph using debug features
-   */
-  debug?: boolean;
 };
 
 export abstract class Datacenter {
-  public constructor(data: any) {
-    Object.assign(this, data);
-  }
-
   public abstract getGraph(appGraph: AppGraph, options: GetGraphOptions): InfraGraph;
   public abstract getVariablesSchema(): DatacenterVariablesSchema;
 

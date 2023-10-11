@@ -1,7 +1,7 @@
-import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
-import { ResourceInputs, ResourceType, ResourceTypeList } from './types.ts';
+import { ResourceInputs, ResourceOutputs, ResourceType, ResourceTypeList } from './types.ts';
 
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 
@@ -38,6 +38,44 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
 
   if (!resource_validator(raw_obj)) {
     throw resource_validator.errors;
+  }
+
+  return raw_obj;
+};
+
+export const parseResourceOutputs = <T extends ResourceType>(
+  type: T,
+  output: Record<string, unknown> | string,
+): ResourceOutputs[T] => {
+  let raw_obj: any;
+  if (typeof output === 'string') {
+    const filename = output;
+    const lstat = Deno.lstatSync(filename);
+    if (!lstat.isFile) {
+      throw new Error(`${filename} not found`);
+    }
+
+    const raw_contents = Deno.readTextFileSync(filename);
+    if (filename.endsWith('.json')) {
+      raw_obj = JSON.parse(raw_contents);
+    } else {
+      raw_obj = yaml.load(raw_contents);
+    }
+  } else {
+    raw_obj = output;
+  }
+
+  if (!ResourceTypeList.includes(type)) {
+    throw new Error(`Invalid resource type: ${type}`);
+  }
+
+  const __dirname = new URL('.', import.meta.url).pathname;
+  const output_schema_file_contents = Deno.readTextFileSync(path.join(__dirname, type, 'outputs.schema.json'));
+  const outputSchema = JSON.parse(output_schema_file_contents);
+  const outputValidator = ajv.compile<ResourceOutputs[T]>(outputSchema);
+
+  if (!outputValidator(raw_obj)) {
+    throw outputValidator.errors;
   }
 
   return raw_obj;

@@ -112,7 +112,7 @@ type Container = {
   /**
    * A set of volumes to mount to the container
    */
-  volume_mounts: Array<{
+  volume_mounts?: Array<{
     volume: string;
     mount_path: string;
     image?: string;

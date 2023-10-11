@@ -1,14 +1,10 @@
 {
-  "$ref": "#/definitions/DatabaseApplyOutputs",
+  "$ref": "#/definitions/DatabaseOutputs",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "DatabaseApplyOutputs": {
+    "DatabaseOutputs": {
       "additionalProperties": false,
       "properties": {
-        "account": {
-          "description": "Account to be used by tasks that want to interact with this schema",
-          "type": "string"
-        },
         "certificate": {
           "description": "SSL certificate used to authenticate with the database",
           "type": "string"
@@ -51,7 +47,6 @@
         "port",
         "name",
         "url",
-        "account",
         "username",
         "password"
       ],

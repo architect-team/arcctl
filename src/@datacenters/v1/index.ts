@@ -1,10 +1,12 @@
-import { ResourceOutputs, ResourceType } from '../../@resources/types.ts';
+import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
-import { InfraGraphNode, MODULES_REGEX, VARIABLES_REGEX } from '../../graphs/index.ts';
+import { GraphEdge } from '../../graphs/edge.ts';
+import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
 import { InfraGraph } from '../../graphs/infra/graph.ts';
 import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
 import { applyContext } from './ast/parser.ts';
+import { DuplicateModuleNameError, InvalidModuleReference, InvalidOutputProperties } from './errors.ts';
 
 type ModuleDictionary = {
   [key: string]: {
@@ -17,7 +19,7 @@ type ModuleDictionary = {
      * Input values for the module
      */
     inputs: Record<string, unknown>;
-  };
+  }[];
 };
 
 type ResourceHook<T extends ResourceType = ResourceType> = {
@@ -80,7 +82,13 @@ export class DatacenterV1 extends Datacenter {
     }
   )[];
 
+  public constructor(data: any) {
+    super();
+    Object.assign(this, data);
+  }
+
   public getVariablesSchema(): DatacenterVariablesSchema {
+    throw new Error('Method not implemented.');
   }
 
   public build(buildFn: DockerBuildFn): Promise<Datacenter> {
@@ -95,44 +103,49 @@ export class DatacenterV1 extends Datacenter {
     throw new Error('Method not implemented.');
   }
 
-  private replaceVariableValues(obj: Record<string, unknown>, variables: Record<string, any>) {
-    for (const [key, value] of Object.entries(obj)) {
-      if (typeof value === 'object') {
-        this.replaceVariableValues(value as Record<string, unknown>, variables);
-      } else if (typeof value === 'string') {
-        VARIABLES_REGEX.forEach((regex) => {
-          obj[key] = value.replace(regex, (_, variable_name) => {
-            const variable_value = variables[variable_name];
-            if (variable_value === undefined) {
-              throw Error(`Variable ${variable_name} has no value`);
-            }
-            return variable_value as string;
-          });
-        });
-      }
-    }
-  }
-
   private getScopedGraph(infraGraph: InfraGraph, modules: ModuleDictionary, options: GetGraphOptions): InfraGraph {
     const scopedGraph = new InfraGraph();
 
+    // Add all the modules to the scoped graph
     Object.entries(modules).forEach(([name, value]) => {
-      if (scopedGraph.nodes.find((n) => n.name === name)) {
-        throw Error(`Duplicate module name: ${name}`);
+      // Module keys are an array for some reason. It shouldn't ever be empty though.
+      if (value.length < 1) {
+        return;
       }
 
-      const infraNode = new InfraGraphNode({
-        image: value.source,
-        inputs: value.inputs,
-        plugin: 'pulumi',
-        name: name,
-        action: 'create',
-      });
+      // The module name cannot be used in the current or parent scoped graph
+      if (infraGraph.nodes.find((n) => n.name === name) || scopedGraph.nodes.find((n) => n.name === name)) {
+        throw new DuplicateModuleNameError(name);
+      }
 
-      scopedGraph.insertNodes(infraNode);
-      MODULES_REGEX.forEach((regex) => {
-        value.inputs = JSON.parse(JSON.stringify(value.inputs).matchAll(regex));
-      });
+      scopedGraph.insertNodes(
+        new InfraGraphNode({
+          image: value[0].source,
+          inputs: value[0].inputs,
+          plugin: 'pulumi',
+          name: name,
+          action: 'create',
+        }),
+      );
+    });
+
+    // Extract module edges and replace references with GraphNode references
+    scopedGraph.nodes.forEach((node) => {
+      const matches = JSON.stringify(node).matchAll(MODULES_REGEX);
+      for (const match of matches) {
+        const [full_match, match_path, module_name] = match;
+        const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) => n.name === module_name);
+        if (!target_node) {
+          throw new InvalidModuleReference(node.name, module_name);
+        }
+
+        scopedGraph.insertEdges(
+          new GraphEdge({
+            from: node.getId(),
+            to: target_node.getId(),
+          }),
+        );
+      }
     });
 
     return scopedGraph;
@@ -140,7 +153,7 @@ export class DatacenterV1 extends Datacenter {
 
   public getGraph(appGraph: AppGraph, options: GetGraphOptions): InfraGraph {
     // This is so that we don't mutate the object as part of the getGraph() method
-    const dc = JSON.parse(JSON.stringify(this));
+    const dc = new DatacenterV1(this);
 
     const infraGraph = new InfraGraph();
 
@@ -161,49 +174,55 @@ export class DatacenterV1 extends Datacenter {
         },
       });
 
-      const envScopedGraph = this.getScopedGraph(infraGraph, dc.environment?.module || {}, options);
-      infraGraph.insertNodes(...envScopedGraph.nodes);
-      infraGraph.insertEdges(...envScopedGraph.edges);
-
-      const hooks = Object.entries(dc.environment || {}).filter(([key]) => key !== 'module');
-
       const outputsMap: Record<string, ResourceOutputs[ResourceType]> = {};
       const resourceScopedGraphs: InfraGraph[] = [];
 
-      appGraph.nodes.forEach((appGraphNode) => {
-        hooks.forEach(([key, values]) => {
-          const type = key as ResourceType;
+      for (const env of dc.environment || []) {
+        const envScopedGraph = this.getScopedGraph(infraGraph, env.module || {}, options);
+        infraGraph.insertNodes(...envScopedGraph.nodes);
+        infraGraph.insertEdges(...envScopedGraph.edges);
 
-          // If the hook doesn't match the node type,
-          if (appGraphNode.type !== type) {
-            return;
-          }
+        const hooks = Object.entries(env || {}).filter(([key]) => key !== 'module');
 
-          if (!Array.isArray(values)) {
-            throw Error(`Expected ${key} to be an array of ${type} hooks`);
-          }
+        appGraph.nodes.forEach((appGraphNode) => {
+          hooks.forEach(([key, values]) => {
+            const type = key as ResourceType;
 
-          for (const value of values) {
-            const hook = value as ResourceHook;
-
-            // Make sure all references to `node.*` are replaced with values
-            applyContext(hook, {
-              node: appGraphNode,
-            });
-
-            // Check the when clause before matching
-            if (hook.when && eval(hook.when) === false) {
-              continue;
+            // If the hook doesn't match the node type,
+            if (appGraphNode.type !== type) {
+              return;
             }
 
-            resourceScopedGraphs.push(this.getScopedGraph(infraGraph, hook.module || {}, options));
-            outputsMap[appGraphNode.getId()] = hook.outputs;
+            if (!Array.isArray(values)) {
+              throw Error(`Expected ${key} to be an array of ${type} hooks`);
+            }
 
-            // We can only match one hook per node
-            break;
-          }
+            for (const value of values) {
+              const hook = value as ResourceHook;
+
+              // Make sure all references to `node.*` are replaced with values
+              applyContext(hook, {
+                node: appGraphNode,
+              });
+
+              // Check the when clause before matching
+              if (hook.when && eval(hook.when) === false) {
+                continue;
+              }
+
+              resourceScopedGraphs.push(this.getScopedGraph(infraGraph, hook.module || {}, options));
+              try {
+                outputsMap[appGraphNode.getId()] = parseResourceOutputs(type, hook.outputs);
+              } catch (errs) {
+                throw new InvalidOutputProperties(type, errs);
+              }
+
+              // We can only match one hook per node
+              break;
+            }
+          });
         });
-      });
+      }
 
       appGraph.edges.forEach((appGraphEdge) => {
         const targetOutputs = outputsMap[appGraphEdge.to];

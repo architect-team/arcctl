@@ -1,4 +1,4 @@
-export type DatabaseApplyOutputs = {
+export type DatabaseOutputs = {
   /**
    * Protocol of the underlying database
    */
@@ -25,11 +25,6 @@ export type DatabaseApplyOutputs = {
   url: string;
 
   /**
-   * Account to be used by tasks that want to interact with this schema
-   */
-  account: string;
-
-  /**
    * Username used to authenticate with the schema
    */
   username: string;
@@ -45,4 +40,4 @@ export type DatabaseApplyOutputs = {
   certificate?: string;
 };
 
-export default DatabaseApplyOutputs;
+export default DatabaseOutputs;

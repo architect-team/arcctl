@@ -274,8 +274,7 @@
               }
             },
             "required": [
-              "image",
-              "volume_mounts"
+              "image"
             ],
             "type": "object"
           },
@@ -311,8 +310,7 @@
       },
       "required": [
         "image",
-        "name",
-        "volume_mounts"
+        "name"
       ],
       "type": "object"
     },

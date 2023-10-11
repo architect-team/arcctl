@@ -549,6 +549,8 @@
     "https://esm.sh/v124/ajv@8.11.0/denonext/dist/vocabularies/validation/uniqueItems.js": "77bf5a6f1bdd56129e0a217865e9d2beb2fd6623a6b288cc4b5af93c49cad69b",
     "https://esm.sh/v124/ajv@8.11.0/dist/2019.js": "646df403ae1a0d94045d530fe3b7ca65e4bd4a1163e6041d34bc9d321bb7334f",
     "https://esm.sh/v124/ajv@8.11.0/dist/core": "7af19c4e1b07edc97c97d9a4e1b2859154d626fc9d10b618c8fda3b178ce26c0",
+    "https://esm.sh/v124/ajv@8.12.0": "7621f26ca63271c26d3c0d3812be6a826809bb56036db0bf3ffb3e82bb7482d1",
+    "https://esm.sh/v124/ajv@8.12.0/denonext/ajv.mjs": "dd2ce45ec01492d9d6bf91bc6bf0e2608fc8977d70cc4bbc0d2d7c1453d514b9",
     "https://esm.sh/v124/arrify@2.0.1/denonext/arrify.mjs": "bd53e56469fcc31150fa4f371d83207a08e463662a4359256228f9cd8fe04164",
     "https://esm.sh/v124/async@3.2.4/denonext/forEach.js": "c265bae8dbe1a8b9bbc26bf012f89f0c37fbb5864df1232af585596f13896ace",
     "https://esm.sh/v124/async@3.2.4/denonext/series.js": "a555746f7a024becc7b63f37ed3cf00aaa32302855e0c07cdfc0b3aa9abee3c2",

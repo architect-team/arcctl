@@ -4,7 +4,7 @@ import { describe, it } from 'std/testing/bdd.ts';
 import { GraphEdge } from '../../../graphs/edge.ts';
 import { AppGraph, AppGraphNode, InfraGraphNode } from '../../../graphs/index.ts';
 import { InvalidModuleReference, InvalidOutputProperties } from '../errors.ts';
-import { DatacenterV1 } from '../index.ts';
+import DatacenterV1 from '../index.ts';
 
 describe('DatacenterV1', () => {
   describe('getGraph()', () => {

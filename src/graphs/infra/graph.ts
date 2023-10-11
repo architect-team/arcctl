@@ -70,10 +70,8 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       const node = this.nodes.find((node) => node.getId() === node_id);
       const outputs = node?.outputs;
       if (!node || !outputs) {
-        console.log(JSON.stringify(this.nodes.map((node) => node.getId()), null, 2));
         throw new Error(`Missing outputs for ${ref} in ${node_name}`);
       } else if ((outputs as any)[key] === undefined) {
-        console.log(JSON.stringify(node, null, 2));
         throw new Error(
           `Invalid key, ${key}, for ${node.name}. ${JSON.stringify(outputs)}`,
         );

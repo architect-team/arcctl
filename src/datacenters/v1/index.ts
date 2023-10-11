@@ -130,23 +130,25 @@ export default class DatacenterV1 extends Datacenter {
     });
 
     // Extract module edges and replace references with GraphNode references
-    scopedGraph.nodes.forEach((node) => {
-      const matches = JSON.stringify(node).matchAll(MODULES_REGEX);
-      for (const match of matches) {
-        const [full_match, match_path, module_name] = match;
-        const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) => n.name === module_name);
-        if (!target_node) {
-          throw new InvalidModuleReference(node.name, module_name);
-        }
+    scopedGraph.nodes = scopedGraph.nodes.map((node) =>
+      new InfraGraphNode(JSON.parse(
+        JSON.stringify(node).replace(MODULES_REGEX, (full_match, match_path, module_name, module_key) => {
+          const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) => n.name === module_name);
+          if (!target_node) {
+            throw new InvalidModuleReference(node.name, module_name);
+          }
 
-        scopedGraph.insertEdges(
-          new GraphEdge({
-            from: node.getId(),
-            to: target_node.getId(),
-          }),
-        );
-      }
-    });
+          scopedGraph.insertEdges(
+            new GraphEdge({
+              from: node.getId(),
+              to: target_node.getId(),
+            }),
+          );
+
+          return full_match.replace(match_path, `${target_node.getId()}.${module_key}`);
+        }),
+      ))
+    );
 
     return scopedGraph;
   }

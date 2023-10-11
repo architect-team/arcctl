@@ -71,7 +71,7 @@ describe('DatacenterV1', () => {
         image: 'architect-io/digitalocean-kubernetes:latest',
         inputs: {
           name: `\${${expectedVpcNode.getId()}.name}-cluster`,
-          vpc_id: 'vpc-blue',
+          vpc_id: `\${${expectedVpcNode.getId()}.id}`,
         },
       });
 
@@ -80,7 +80,7 @@ describe('DatacenterV1', () => {
         to: `vpc-blue`,
       });
 
-      assertEquals(graph.nodes, [expectedVpcNode, expectedClusterNode]);
+      assertEquals(graph.nodes, [expectedClusterNode, expectedVpcNode]);
       assertEquals(graph.edges, [expectedEdge]);
     });
 

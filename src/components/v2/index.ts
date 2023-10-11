@@ -1,7 +1,7 @@
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs } from '../../@resources/index.ts';
-import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
+import { AppGraph, AppGraphNode, GraphEdge } from '../../graphs/index.ts';
 import {
   Component,
   ComponentDependencies,
@@ -183,12 +183,11 @@ export default class ComponentV2 extends Component {
           ),
         );
       } else {
-        const build_node = new AppNode({
+        const build_node = new AppGraphNode({
           name: build_key,
+          type: 'dockerBuild',
           component: context.component.name,
-          environment: context.environment,
           inputs: {
-            type: 'dockerBuild',
             repository: context.component.name,
             component_source: context.component.source,
             context: context.component.debug &&
@@ -224,7 +223,7 @@ export default class ComponentV2 extends Component {
           graph,
           this.normalizedDependencies,
           context,
-          build_node.id,
+          build_node.getId(),
           build_node.inputs,
         );
         graph.insertNodes(build_node);
@@ -239,17 +238,12 @@ export default class ComponentV2 extends Component {
     context: GraphContext,
   ): AppGraph {
     for (const [variable_key, variable_config] of Object.entries(this.variables || {})) {
-      const secret_node = new AppNode({
+      const secret_node = new AppGraphNode({
         name: variable_key,
+        type: 'secret',
         component: context.component.name,
-        environment: context.environment,
         inputs: {
-          type: 'secret',
-          name: AppNode.genResourceId({
-            name: variable_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          name: `${context.component.name}/${variable_key}`,
           data: variable_config.default && Array.isArray(variable_config.default)
             ? JSON.stringify(variable_config.default)
             : variable_config.default || '',
@@ -263,7 +257,7 @@ export default class ComponentV2 extends Component {
         graph,
         this.normalizedDependencies,
         context,
-        secret_node.id,
+        secret_node.getId(),
         secret_node.inputs,
       );
 
@@ -286,18 +280,12 @@ export default class ComponentV2 extends Component {
       }
 
       const [engine, version] = database_config.type.split(':');
-      const database_schema_node = new AppNode({
+      const database_schema_node = new AppGraphNode({
         name: database_key,
+        type: 'database',
         component: context.component.name,
-        environment: context.environment,
         inputs: {
-          type: 'database',
-          name: AppNode.genResourceId({
-            name: database_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
-          databaseCluster: '',
+          name: `${context.component.name}/${database_key}`,
           databaseType: engine,
           databaseVersion: version,
         },
@@ -341,30 +329,25 @@ export default class ComponentV2 extends Component {
           // Source is remote, so no host path
         }
 
-        const volume_node = new AppNode({
+        const volume_node = new AppGraphNode({
           name: `${deployment_key}-${volumeKey}`,
+          type: 'volume',
           component: context.component.name,
-          environment: context.environment,
           inputs: {
-            type: 'volume',
-            name: AppNode.genResourceId({
-              name: `${deployment_key}-${volumeKey}`,
-              component: context.component.name,
-              environment: context.environment,
-            }),
+            name: `${context.component.name}/${deployment_key}-${volumeKey}`,
             hostPath: host_path,
           },
         });
 
         volume_mounts.push({
-          volume: `\${{ ${volume_node.id}.id }}`,
+          volume: `\${{ ${volume_node.getId()}.id }}`,
           mount_path: volumeConfig.mount_path!,
           image: volumeConfig.image,
           readonly: false,
         });
 
         graph.insertNodes(volume_node);
-        volume_node_ids.push(volume_node.id);
+        volume_node_ids.push(volume_node.getId());
       }
 
       const image = context.component.debug && deployment_config.debug?.image
@@ -390,17 +373,12 @@ export default class ComponentV2 extends Component {
         ? deployment_config.debug.probes.liveness
         : deployment_config.probes?.liveness;
 
-      const deployment_node = new AppNode({
+      const deployment_node = new AppGraphNode({
         name: deployment_key,
+        type: 'deployment',
         component: context.component.name,
-        environment: context.environment,
         inputs: {
-          type: 'deployment',
-          name: AppNode.genResourceId({
-            name: deployment_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          name: `${context.component.name}/${deployment_key}`,
           image,
           ...(deployment_config.platform ? { platform: deployment_config.platform } : {}),
           ...(environment ? { environment } : {}),
@@ -418,15 +396,15 @@ export default class ComponentV2 extends Component {
         graph,
         this.normalizedDependencies,
         context,
-        deployment_node.id,
+        deployment_node.getId(),
         deployment_node.inputs,
       );
       graph.insertNodes(deployment_node);
 
       for (const volume of volume_node_ids) {
         graph.insertEdges(
-          new AppEdge({
-            from: deployment_node.id,
+          new GraphEdge({
+            from: deployment_node.getId(),
             to: volume,
           }),
         );
@@ -445,23 +423,14 @@ export default class ComponentV2 extends Component {
         this.services || {},
       )
     ) {
-      const service_node = new AppNode({
+      const service_node = new AppGraphNode({
         name: service_key,
+        type: 'service',
         component: context.component.name,
-        environment: context.environment,
         inputs: {
-          type: 'service',
-          name: AppNode.genResourceId({
-            name: service_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          name: `${context.component.name}/${service_key}`,
           target_protocol: service_config.protocol || 'http',
-          target_deployment: AppNode.genResourceId({
-            name: service_config.deployment,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          target_deployment: `${context.component.name}/${service_config.deployment}`,
           target_port: service_config.port,
           username: service_config.username,
           password: service_config.password,
@@ -472,37 +441,32 @@ export default class ComponentV2 extends Component {
         graph,
         this.normalizedDependencies,
         context,
-        service_node.id,
+        service_node.getId(),
         service_node.inputs,
       );
       graph.insertNodes(service_node);
 
-      const deployment_node_id = AppNode.genId({
-        type: 'deployment',
-        name: service_config.deployment,
-        component: context.component.name,
-        environment: context.environment,
-      });
+      const deployment_node_id = `${context.component.name}/deployment/${service_config.deployment}`;
 
-      const deployment_node = graph.nodes.find((n) => n.id === deployment_node_id);
+      const deployment_node = graph.nodes.find((n) => n.getId() === deployment_node_id);
       if (!deployment_node) {
         throw new Error(`No deployment named ${service_config.deployment}. Referenced by the service, ${service_key}`);
       }
 
       // Update deployment node with service references
-      (deployment_node as AppNode<'deployment'>).inputs.services =
-        (deployment_node as AppNode<'deployment'>).inputs.services || [];
-      (deployment_node as AppNode<'deployment'>).inputs.services!.push({
-        id: `\${{ ${service_node.id}.id }}`,
-        account: `\${{ ${service_node.id}.account }}`,
-        port: `\${{ ${service_node.id}.target_port }}`,
+      (deployment_node as AppGraphNode<'deployment'>).inputs.services =
+        (deployment_node as AppGraphNode<'deployment'>).inputs.services || [];
+      (deployment_node as AppGraphNode<'deployment'>).inputs.services!.push({
+        id: `\${{ ${service_node.getId()}.id }}`,
+        account: `\${{ ${service_node.getId()}.account }}`,
+        port: `\${{ ${service_node.getId()}.target_port }}`,
       });
       graph.insertNodes(deployment_node);
 
       graph.insertEdges(
-        new AppEdge({
-          from: deployment_node.id,
-          to: service_node.id,
+        new GraphEdge({
+          from: deployment_node.getId(),
+          to: service_node.getId(),
         }),
       );
     }
@@ -521,30 +485,25 @@ export default class ComponentV2 extends Component {
     ) {
       const service_node = graph.nodes.find(
         (n) => n.name === ingress_config.service && n.type === 'service',
-      ) as AppNode<'service'> | undefined;
+      ) as AppGraphNode<'service'> | undefined;
       if (!service_node) {
         throw new Error(`The service, ${ingress_config.service}, does not exist`);
       }
 
       graph.insertNodes(service_node);
 
-      const ingress_node = new AppNode({
+      const ingress_node = new AppGraphNode({
         name: ingress_key,
+        type: 'ingress',
         component: context.component.name,
-        environment: context.environment,
         inputs: {
-          type: 'ingressRule',
-          name: AppNode.genResourceId({
-            name: ingress_key,
-            component: context.component.name,
-            environment: context.environment,
-          }),
+          name: `${context.component.name}/${ingress_key}`,
           registry: '',
-          port: `\${{ ${service_node.id}.port }}`,
-          service: `\${{ ${service_node.id}.id }}`,
-          protocol: `\${{ ${service_node.id}.protocol }}`,
-          username: `\${{ ${service_node.id}.username }}`,
-          password: `\${{ ${service_node.id}.password }}`,
+          port: `\${{ ${service_node.getId()}.port }}`,
+          service: `\${{ ${service_node.getId()}.id }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
+          username: `\${{ ${service_node.getId()}.username }}`,
+          password: `\${{ ${service_node.getId()}.password }}`,
           internal: ingress_config.internal || false,
           headers: ingress_config.headers || {},
         },
@@ -554,14 +513,14 @@ export default class ComponentV2 extends Component {
         graph,
         this.normalizedDependencies,
         context,
-        ingress_node.id,
+        ingress_node.getId(),
         ingress_node.inputs,
       );
       graph.insertNodes(ingress_node);
       graph.insertEdges(
-        new AppEdge({
-          from: ingress_node.id,
-          to: service_node.id,
+        new GraphEdge({
+          from: ingress_node.getId(),
+          to: service_node.getId(),
         }),
       );
     }
@@ -578,12 +537,7 @@ export default class ComponentV2 extends Component {
     return Object.values(this.normalizedDependencies).map((dependency) => {
       const inputs: ComponentDependencies[number]['inputs'] = {};
       for (const [key, value] of Object.entries(dependency.variables || {})) {
-        const from_id = AppNode.genId({
-          type: 'secret',
-          name: key,
-          component: dependency.component,
-          environment: context.environment,
-        });
+        const from_id = `${dependency.component}/secret/${key}`;
 
         if (Array.isArray(value)) {
           inputs[key] = value;

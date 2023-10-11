@@ -2,7 +2,8 @@ import { prepareVirtualFile } from 'https://deno.land/x/mock_file@v1.1.2/mod.ts'
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { AppEdge, AppNode } from '../../../app-graph/index.ts';
+import { GraphEdge } from '../../../graphs/edge.ts';
+import { AppGraphNode } from '../../../graphs/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -88,12 +89,11 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const build_node = new AppNode({
+    const build_node = new AppGraphNode({
       name: 'test',
+      type: 'dockerBuild',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'dockerBuild',
         repository: 'component',
         context: './',
         args: {},
@@ -193,37 +193,27 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const volume_node = new AppNode({
+    const volume_node = new AppGraphNode({
       name: 'main-src',
+      type: 'volume',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'volume',
-        name: AppNode.genResourceId({
-          name: 'main-src',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component/main-src',
         hostPath: '/fake/source/src',
       },
     });
 
-    const deployment_node = new AppNode({
+    const deployment_node = new AppGraphNode({
       name: 'main',
+      type: 'deployment',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'deployment',
-        name: AppNode.genResourceId({
-          name: 'main',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component/main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [{
           mount_path: '/app/src',
-          volume: `\${{ ${volume_node.id}.id }}`,
+          volume: `\${{ ${volume_node.getId()}.id }}`,
           readonly: false,
         }],
       },
@@ -231,9 +221,9 @@ describe('Component Schema: v2', () => {
 
     assertArrayIncludes(graph.nodes, [volume_node, deployment_node]);
     assertArrayIncludes(graph.edges, [
-      new AppEdge({
-        from: deployment_node.id,
-        to: volume_node.id,
+      new GraphEdge({
+        from: deployment_node.getId(),
+        to: volume_node.getId(),
       }),
     ]);
   });
@@ -257,17 +247,12 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const deployment_node = new AppNode({
+    const deployment_node = new AppGraphNode({
       name: 'main',
+      type: 'deployment',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'deployment',
-        name: AppNode.genResourceId({
-          name: 'main',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component/main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -295,17 +280,12 @@ describe('Component Schema: v2', () => {
       },
       environment: 'environment',
     });
-    const deployment_node = new AppNode({
+    const deployment_node = new AppGraphNode({
       name: 'main',
+      type: 'deployment',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'deployment',
-        name: AppNode.genResourceId({
-          name: 'main',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component/main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],

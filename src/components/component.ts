@@ -1,4 +1,4 @@
-import { AppGraph } from '../app-graph/index.ts';
+import { AppGraph } from '../graphs/index.ts';
 
 export type GraphContext = {
   environment: string;

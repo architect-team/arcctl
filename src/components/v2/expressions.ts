@@ -1,4 +1,4 @@
-import { AppEdge, AppGraph, AppNode } from '../../app-graph/index.ts';
+import { AppGraph, AppGraphNode, GraphEdge } from '../../graphs/index.ts';
 import { GraphContext } from '../component.ts';
 import { DependencySchemaV2 } from './dependency.ts';
 
@@ -12,14 +12,9 @@ const parseSecretRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?(?:parameters|secrets|variables|vars)\.([\w-]+)\s?}}/g,
       (_, input_name) => {
-        const input_node_id = AppNode.genId({
-          type: 'secret',
-          name: input_name,
-          component: context.component.name,
-          environment: context.environment,
-        });
+        const input_node_id = `${context.component.name}/secret/${input_name}`;
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: input_node_id,
           }),
@@ -40,21 +35,14 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, database_name, key) => {
-        const database_schema_node_id = AppNode.genId({
-          type: 'database',
-          name: database_name,
-          component: context.component.name,
-          environment: context.environment,
-        });
+        const database_schema_node_id = `${context.component.name}/database/${database_name}`;
 
         const name = `${from_id}/${database_name}`;
-        const database_user_node = new AppNode({
+        const database_user_node = new AppGraphNode({
           name,
+          type: 'databaseUser',
           component: context.component.name,
-          environment: context.environment,
           inputs: {
-            type: 'databaseUser',
-            account: `\${{ ${database_schema_node_id}.account }}`,
             username: name.replaceAll('/', '--'),
             database: `\${{ ${database_schema_node_id}.id }}`,
           },
@@ -62,17 +50,17 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 
         graph.insertNodes(database_user_node);
         graph.insertEdges(
-          new AppEdge({
-            from: database_user_node.id,
+          new GraphEdge({
+            from: database_user_node.getId(),
             to: database_schema_node_id,
           }),
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
-            to: database_user_node.id,
+            to: database_user_node.getId(),
           }),
         );
 
-        return `\${{ ${database_user_node.id}.${key} }}`;
+        return `\${{ ${database_user_node.getId()}.${key} }}`;
       },
     ),
   );
@@ -88,15 +76,10 @@ const parseBuildRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?builds\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, build_name, key) => {
-        const build_node_id = AppNode.genId({
-          type: 'dockerBuild',
-          name: build_name,
-          component: context.component.name,
-          environment: context.environment,
-        });
+        const build_node_id = `${context.component.name}/dockerBuild/${build_name}`;
 
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: build_node_id,
           }),
@@ -118,14 +101,9 @@ const parseServiceRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?services\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, service_name, key) => {
-        const service_node_id = AppNode.genId({
-          type: 'service',
-          name: service_name,
-          component: context.component.name,
-          environment: context.environment,
-        });
+        const service_node_id = `${context.component.name}/service/${service_name}`;
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: service_node_id,
           }),
@@ -147,14 +125,9 @@ const parseIngressRefs = <T extends Record<string, any>>(
     JSON.stringify(inputs).replace(
       /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
       (_, ingress_name, key) => {
-        const ingress_node_id = AppNode.genId({
-          type: 'ingressRule',
-          name: ingress_name,
-          component: context.component.name,
-          environment: context.environment,
-        });
+        const ingress_node_id = `${context.component.name}/ingress/${ingress_name}`;
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: ingress_node_id,
           }),
@@ -181,13 +154,9 @@ const parseDependencyOutputRefs = <T extends Record<string, any>>(
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
-        const dependency_node_id = AppNode.genId({
-          type: 'secret',
-          name: output_name,
-          component: dep.component,
-        });
+        const dependency_node_id = `${dep.component}/secret/${output_name}`;
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -214,14 +183,9 @@ const parseDependencyServiceRefs = <T extends Record<string, any>>(
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
-        const dependency_node_id = AppNode.genId({
-          type: 'service',
-          name: service_name,
-          component: dep.component,
-          environment: context.environment,
-        });
+        const dependency_node_id = `${dep.component}/service/${service_name}`;
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: dependency_node_id,
           }),
@@ -249,14 +213,9 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
           throw new Error(`Invalid dependency reference: ${dependency_name}`);
         }
 
-        const dependency_node_id = AppNode.genId({
-          type: 'ingressRule',
-          name: ingress_name,
-          component: dep.component,
-          environment: context.environment,
-        });
+        const dependency_node_id = `${dep.component}/ingress/${ingress_name}`;
         graph.insertEdges(
-          new AppEdge({
+          new GraphEdge({
             from: from_id,
             to: dependency_node_id,
           }),

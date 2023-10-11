@@ -114,14 +114,6 @@
           "description": "Amount of memory to allocate to the container",
           "type": "string"
         },
-        "name": {
-          "description": "Deployment name",
-          "type": "string"
-        },
-        "namespace": {
-          "description": "Namespace the deployment should be in",
-          "type": "string"
-        },
         "platform": {
           "description": "Target platform the deployment will run on",
           "type": "string"
@@ -145,10 +137,6 @@
           "items": {
             "additionalProperties": false,
             "properties": {
-              "account": {
-                "description": "The account the deployment can use to register itself with the service.",
-                "type": "string"
-              },
               "id": {
                 "description": "Unique ID of the service the deployment should attach itself to",
                 "type": "string"
@@ -160,7 +148,6 @@
             },
             "required": [
               "id",
-              "account",
               "port"
             ],
             "type": "object"
@@ -309,8 +296,7 @@
         }
       },
       "required": [
-        "image",
-        "name"
+        "image"
       ],
       "type": "object"
     },

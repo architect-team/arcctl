@@ -243,7 +243,6 @@ export default class ComponentV2 extends Component {
         type: 'secret',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${variable_key}`,
           data: variable_config.default && Array.isArray(variable_config.default)
             ? JSON.stringify(variable_config.default)
             : variable_config.default || '',
@@ -378,7 +377,6 @@ export default class ComponentV2 extends Component {
         type: 'deployment',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${deployment_key}`,
           image,
           ...(deployment_config.platform ? { platform: deployment_config.platform } : {}),
           ...(environment ? { environment } : {}),
@@ -458,7 +456,6 @@ export default class ComponentV2 extends Component {
         (deployment_node as AppGraphNode<'deployment'>).inputs.services || [];
       (deployment_node as AppGraphNode<'deployment'>).inputs.services!.push({
         id: `\${{ ${service_node.getId()}.id }}`,
-        account: `\${{ ${service_node.getId()}.account }}`,
         port: `\${{ ${service_node.getId()}.target_port }}`,
       });
       graph.insertNodes(deployment_node);

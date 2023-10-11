@@ -1,8 +1,8 @@
 import * as path from 'std/path/mod.ts';
 import { adjectives, animals, uniqueNamesGenerator } from 'unique-names-generator';
-import { AppGraph, AppNode } from '../../app-graph/index.ts';
 import type { ComponentStore } from '../../component-store/index.ts';
 import { Component, parseComponent } from '../../components/index.ts';
+import { AppGraph, AppGraphNode } from '../../graphs/index.ts';
 import { ComponentMetadata, Environment } from '../environment.ts';
 import { VariableMergingDisabledError } from '../errors.ts';
 
@@ -119,7 +119,7 @@ export default class EnvironmentV1 extends Environment {
     Object.assign(this, data);
   }
 
-  private enrichDeployment(node: AppNode<'deployment'>): AppNode<'deployment'> {
+  private enrichDeployment(node: AppGraphNode<'deployment'>): AppGraphNode<'deployment'> {
     if (!node.component || !this.components) {
       return node;
     }
@@ -145,7 +145,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichService(node: AppNode<'service'>): AppNode<'service'> {
+  private enrichService(node: AppGraphNode<'service'>): AppGraphNode<'service'> {
     if (!node.component || !this.components) {
       return node;
     }
@@ -163,7 +163,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichIngressRule(node: AppNode<'ingressRule'>): AppNode<'ingressRule'> {
+  private enrichIngressRule(node: AppGraphNode<'ingress'>): AppGraphNode<'ingress'> {
     const component_config = this.components?.[node.component || ''];
     const ingress_config = component_config?.ingresses?.[node.name];
 
@@ -172,7 +172,7 @@ export default class EnvironmentV1 extends Environment {
       length: 2,
       separator: '-',
       style: 'lowerCase',
-      seed: node.id,
+      seed: node.getId(),
     });
 
     node.inputs.path = ingress_config?.path || node.inputs.path;
@@ -182,7 +182,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichSecret(node: AppNode<'secret'>, additionalValues?: string[]): AppNode<'secret'> {
+  private enrichSecret(node: AppGraphNode<'secret'>, additionalValues?: string[]): AppGraphNode<'secret'> {
     if (!node.inputs.merge && additionalValues && additionalValues.length > 0) {
       throw new VariableMergingDisabledError(node.name, additionalValues, node.component);
     }
@@ -373,16 +373,16 @@ export default class EnvironmentV1 extends Environment {
           .map((node) => {
             switch (node.type) {
               case 'deployment': {
-                return this.enrichDeployment(node as AppNode<'deployment'>);
+                return this.enrichDeployment(node as AppGraphNode<'deployment'>);
               }
               case 'service': {
-                return this.enrichService(node as AppNode<'service'>);
+                return this.enrichService(node as AppGraphNode<'service'>);
               }
-              case 'ingressRule': {
-                return this.enrichIngressRule(node as AppNode<'ingressRule'>);
+              case 'ingress': {
+                return this.enrichIngressRule(node as AppGraphNode<'ingress'>);
               }
               case 'secret': {
-                return this.enrichSecret(node as AppNode<'secret'>, config.inputs[node.name]);
+                return this.enrichSecret(node as AppGraphNode<'secret'>, config.inputs[node.name]);
               }
               default: {
                 return node;

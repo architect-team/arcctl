@@ -64,7 +64,6 @@ describe('Component Schema: v1', () => {
       component: 'account/component',
       type: 'deployment',
       inputs: {
-        name: 'account/component/api',
         replicas: 1,
         image: `\${{ ${build_node.getId()}.id }}`,
         volume_mounts: [],
@@ -100,7 +99,6 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
-        name: 'account/component/api',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -112,7 +110,6 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
-        name: 'account/component/app',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -152,7 +149,6 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
-        name: 'account/component/api',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -199,7 +195,6 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
-        name: 'account/component/api',
         replicas: 1,
         image: `\${{ ${build_node.getId()}.id }}`,
         volume_mounts: [],

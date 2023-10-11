@@ -126,16 +126,6 @@ type Container = {
 
 export type DeploymentInputs = {
   /**
-   * Deployment name
-   */
-  name: string;
-
-  /**
-   * Namespace the deployment should be in
-   */
-  namespace?: string;
-
-  /**
    * Labels for the deployment
    */
   labels?: Record<string, string>;
@@ -188,11 +178,6 @@ export type DeploymentInputs = {
      * Unique ID of the service the deployment should attach itself to
      */
     id: string;
-
-    /**
-     * The account the deployment can use to register itself with the service.
-     */
-    account: string;
 
     /**
      * The port the service deployment is listening on

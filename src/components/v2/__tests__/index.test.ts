@@ -208,7 +208,6 @@ describe('Component Schema: v2', () => {
       type: 'deployment',
       component: 'component',
       inputs: {
-        name: 'component/main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [{
@@ -252,7 +251,6 @@ describe('Component Schema: v2', () => {
       type: 'deployment',
       component: 'component',
       inputs: {
-        name: 'component/main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -285,7 +283,6 @@ describe('Component Schema: v2', () => {
       type: 'deployment',
       component: 'component',
       inputs: {
-        name: 'component/main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],

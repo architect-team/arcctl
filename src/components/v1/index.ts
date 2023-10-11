@@ -183,7 +183,6 @@ export default class ComponentV1 extends Component {
         type: 'deployment',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${service_name}`,
           replicas: Number(service_config.replicas || 1), // TODO: Ensure this is a number value
           ...(service_config.platform ? { platform: service_config.platform } : {}),
           ...(service_config.scaling
@@ -285,7 +284,6 @@ export default class ComponentV1 extends Component {
 
         (deployment_node as AppGraphNode<'deployment'>).inputs.services?.push({
           id: `\${{ ${service_node.getId()}.id }}`,
-          account: `\${{ ${service_node.getId()}.account }}`,
           port: `\${{ ${service_node.getId()}.target_port }}`,
         });
 
@@ -588,7 +586,6 @@ export default class ComponentV1 extends Component {
         type: 'secret',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${key}`,
           data: typeof value === 'string' ? value : value.default?.toString() || '',
           ...(typeof value === 'object'
             ? {

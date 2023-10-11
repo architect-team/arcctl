@@ -1,5 +1,5 @@
-import { AppGraph } from '../app-graph/index.ts';
 import { ComponentStore } from '../component-store/store.ts';
+import { AppGraph } from '../graphs/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 
 export type ComponentMetadata = {

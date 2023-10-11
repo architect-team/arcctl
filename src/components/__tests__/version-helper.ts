@@ -23,7 +23,6 @@ export const testSecretGeneration = (
     type: 'secret',
     component: 'test',
     inputs: {
-      name: `test/${options.secret_name}`,
       data: '',
     },
   });
@@ -50,7 +49,6 @@ export const testSecretIntegration = (
     type: 'secret',
     component: 'component',
     inputs: {
-      name: `component/${options.secret_name}`,
       data: '',
     },
   });
@@ -60,7 +58,6 @@ export const testSecretIntegration = (
     type: 'deployment',
     component: 'component',
     inputs: {
-      name: `component/${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -144,7 +141,6 @@ export const testDatabaseIntegration = (
     type: 'deployment',
     component: 'component',
     inputs: {
-      name: `component/${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -186,7 +182,6 @@ export const testDeploymentGeneration = (
     type: 'deployment',
     component: 'test',
     inputs: {
-      name: `test/${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -227,13 +222,11 @@ export const testServiceGeneration = (
     type: 'deployment',
     component: 'component',
     inputs: {
-      name: `component/${options.deployment_name}`,
       image: 'nginx:1.14.2',
       replicas: 1,
       services: [
         {
           id: `\${{ ${service_node.getId()}.id }}`,
-          account: `\${{ ${service_node.getId()}.account }}`,
           port: `\${{ ${service_node.getId()}.target_port }}`,
         },
       ],
@@ -274,7 +267,6 @@ export const testServiceIntegration = (
     type: 'deployment',
     component: 'component',
     inputs: {
-      name: `component/${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],

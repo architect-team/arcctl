@@ -5,16 +5,18 @@ import { GraphNode, GraphNodeOptions } from '../node.ts';
 import { ModuleServer } from './modules/server.ts';
 import { Plugin } from './types.ts';
 
-type NodeAction = 'no-op' | 'create' | 'update' | 'delete';
+export type NodeAction = 'no-op' | 'create' | 'update' | 'delete';
 
-type NodeColor = 'blue' | 'green';
+export type NodeColor = 'blue' | 'green';
 
-type NodeStatus = {
-  state: 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
+export type NodeStatus = {
+  state: NodeStatusState;
   message?: string;
   startTime?: number;
   endTime?: number;
 };
+
+export type NodeStatusState = 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
 
 export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<string, unknown>> & {
   plugin: P;

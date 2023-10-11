@@ -1,12 +1,10 @@
 import { Logger } from 'winston';
-import { Plugin } from '../types.ts';
 
 export type BuildRequest = {
   directory: string;
 };
 
 export type BuildOptions = {
-  plugin: Plugin;
   verbose?: boolean;
 };
 

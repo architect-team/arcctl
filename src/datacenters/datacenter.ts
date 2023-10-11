@@ -1,9 +1,11 @@
 import { AppGraph, InfraGraph } from '../graphs/index.ts';
+import { Plugin } from "../graphs/infra/types.ts";
 import { DatacenterVariablesSchema } from './variables.ts';
 
 // Docker types
 export type DockerBuildFn = (options: {
   context: string;
+  plugin: Plugin;
 }) => Promise<string>;
 export type DockerTagFn = (
   sourceRef: string,

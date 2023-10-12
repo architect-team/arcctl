@@ -19,8 +19,7 @@ async function list_environments_action(options: GlobalOptions) {
   });
 
   for (const environmentRecord of environments) {
-    const pipeline = environmentRecord.lastPipeline;
-    const resourceCount = pipeline.steps.filter((step) => step.action !== 'delete').length;
+    const resourceCount = environmentRecord.priorState.nodes.filter((node) => node.action !== 'delete').length;
 
     table.push([environmentRecord.name, environmentRecord.datacenter, String(resourceCount)]);
   }

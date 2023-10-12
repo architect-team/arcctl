@@ -287,7 +287,8 @@ describe('InfraGraph', () => {
       });
 
       const updatedInput = plannedGraph.replaceRefsWithOutputValues(nodeWithRefInput.inputs, nodeWithRefInput.name);
-      assertEquals(updatedInput.anInput, OUTPUT_VALUE);
+      assertEquals(typeof updatedInput, 'object');
+      assertEquals((updatedInput as Record<string, unknown>).anInput, OUTPUT_VALUE);
     });
 
     it('should replace nested input refs with output values', async () => {

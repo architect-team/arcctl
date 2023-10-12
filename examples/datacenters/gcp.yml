@@ -74,7 +74,7 @@ environment:
       port: ${{ this.resources.db.port }}
       protocol: ${{ this.resources.db.protocol }}
     - when:
-        type: ingressRule
+        type: ingress
       resources:
         dnsRecord:
           type: dnsRecord

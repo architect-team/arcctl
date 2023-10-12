@@ -296,8 +296,6 @@ export default class ComponentV1 extends Component {
             type: 'ingress',
             component: context.component.name,
             inputs: {
-              name: `${context.component.name}/${service_name}-${interface_name}`,
-              registry: '',
               port: 80,
               subdomain: interface_config.ingress.subdomain || '',
               path: interface_config.ingress.path || '/',
@@ -517,8 +515,6 @@ export default class ComponentV1 extends Component {
           type: 'ingress',
           component: context.component.name,
           inputs: {
-            name: `${context.component.name}/${interface_key}`,
-            registry: '',
             service: `\${{ ${interface_node.getId()}.id }}`,
             port: 80,
             subdomain: interface_config.ingress.subdomain || '',

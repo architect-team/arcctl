@@ -2,9 +2,7 @@ import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { Datacenter, parseDatacenter } from '../../datacenters/index.ts';
-import { parseEnvironment } from '../../environments/parser.ts';
-import { InfraGraph, PlanContext } from '../../graphs/index.ts';
-import { ImageRepository } from '../../oci/image-repository.ts';
+import { AppGraph, InfraGraph, PlanContext } from '../../graphs/index.ts';
 import { pathExistsSync } from '../../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { applyEnvironment } from './utils.ts';
@@ -39,35 +37,6 @@ async function buildDatacenterFromConfig(
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
   const command_helper = new CommandHelper(options);
 
-  // const response = await Build({
-  //   directory: '/home/muesch/Architect/code/datacenter/vpc',
-  // });
-  // console.log(response);
-  // const applyResults = await Apply({
-  //   datacenterid: 'vpc',
-  //   image: response.image!,
-  //   inputs: {
-  //     'digitalocean:token': 'dop_v1_3194139c7055ad6f372465806fe70b75de84dc2fccec16b550e389a5df2f939a',
-  //     'region': 'nyc3',
-  //     'name': 'my-vpc7',
-  //   },
-  // });
-  // console.log(applyResults);
-  // console.log(
-  //   await Apply({
-  //     datacenterid: 'vpc',
-  //     image: response.image!,
-  //     inputs: {
-  //       'digitalocean:token': 'dop_v1_3194139c7055ad6f372465806fe70b75de84dc2fccec16b550e389a5df2f939a',
-  //       'region': 'nyc3',
-  //       'name': 'my-vpc7',
-  //     },
-  //     state: applyResults.state,
-  //     destroy: true,
-  //   }),
-  // );
-  // Deno.exit(0);
-
   const flag_vars: Record<string, string> = {};
   for (const v of options.var || []) {
     const var_option = v.split('=');
@@ -86,39 +55,25 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   }
 
   const existingDatacenter = await command_helper.datacenterStore.get(name);
-  const originalPipeline = existingDatacenter ? existingDatacenter.priorState : new InfraGraph();
+  const priorState = existingDatacenter ? existingDatacenter.priorState : new InfraGraph();
   const allEnvironments = await command_helper.environmentStore.find();
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
-
-  const targetEnvironment = await parseEnvironment({});
-  const tag = 'tyleraldrich/twitter-clone:latest';
-  const imageRepository = new ImageRepository(tag);
-  await command_helper.componentStore.getComponentConfig(tag);
-
-  targetEnvironment.addComponent({
-    image: imageRepository,
-  });
-
-  const targetGraph = await targetEnvironment.getGraph(
-    'my-env',
-    command_helper.componentStore,
-  );
 
   try {
     const datacenter = pathExistsSync(config_path)
       ? await buildDatacenterFromConfig(command_helper, config_path, options.verbose)
       : await command_helper.datacenterStore.getDatacenter(config_path);
-    let graph = new InfraGraph();
+
     const vars = await command_helper.datacenterUtils.promptForVariables(datacenter.getVariablesSchema(), flag_vars);
-    graph = datacenter.getGraph(targetGraph, {
+
+    const targetState = datacenter.getGraph(new AppGraph(), {
       datacenterName: name,
-      environmentName: 'my-env',
       variables: vars,
     });
 
     const infraGraph = await InfraGraph.plan({
-      before: originalPipeline,
-      after: graph,
+      before: priorState,
+      after: targetState,
       context: PlanContext.Datacenter,
     });
 
@@ -149,8 +104,10 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
           command_helper.infraRenderer.renderGraph(infraGraph, { clear: !options.verbose, disableSpinner: true });
           command_helper.infraRenderer.doneRenderingGraph();
         }
+
         await command_helper.datacenterUtils.saveDatacenter(name, datacenter, infraGraph);
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
+
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {
             console.log(`Updating environment ${environmentRecord.name}`);

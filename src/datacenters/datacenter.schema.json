@@ -20,9 +20,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -64,9 +71,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -154,9 +168,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -233,9 +254,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -286,9 +314,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -330,9 +365,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -357,9 +399,6 @@
                         "host": {
                           "type": "string"
                         },
-                        "loadBalancerHostname": {
-                          "type": "string"
-                        },
                         "password": {
                           "type": "string"
                         },
@@ -372,6 +411,9 @@
                             "number"
                           ]
                         },
+                        "protocol": {
+                          "type": "string"
+                        },
                         "url": {
                           "type": "string"
                         },
@@ -380,11 +422,11 @@
                         }
                       },
                       "required": [
+                        "protocol",
                         "host",
                         "port",
                         "url",
-                        "path",
-                        "loadBalancerHostname"
+                        "path"
                       ],
                       "type": "object"
                     },
@@ -403,9 +445,16 @@
                     "additionalProperties": false,
                     "properties": {
                       "inputs": {
-                        "additionalProperties": {},
-                        "description": "Input values for the module",
-                        "type": "object"
+                        "anyOf": [
+                          {
+                            "additionalProperties": {},
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Input values for the module"
                       },
                       "source": {
                         "description": "The image source of the module",
@@ -433,9 +482,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -485,9 +541,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -611,9 +674,16 @@
                           "additionalProperties": false,
                           "properties": {
                             "inputs": {
-                              "additionalProperties": {},
-                              "description": "Input values for the module",
-                              "type": "object"
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module"
                             },
                             "source": {
                               "description": "The image source of the module",
@@ -656,9 +726,16 @@
               "additionalProperties": false,
               "properties": {
                 "inputs": {
-                  "additionalProperties": {},
-                  "description": "Input values for the module",
-                  "type": "object"
+                  "anyOf": [
+                    {
+                      "additionalProperties": {},
+                      "type": "object"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "Input values for the module"
                 },
                 "source": {
                   "description": "The image source of the module",

@@ -72,7 +72,7 @@ environment:
       dnsZone: ${{ environment.name }}.172.17.0.1.nip.io
       namespace: ${{ environment.name }}
     - when:
-        type: ingressRule
+        type: ingress
       account: ${{ accounts.gateway.id }}
       registry: ${{ resources.service-registry.id }}
       dnsZone: ${{ environment.name }}.127.0.0.1.nip.io

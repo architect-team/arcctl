@@ -363,14 +363,12 @@ describe('Component Schema: v1', () => {
       type: 'ingress',
       component: 'test',
       inputs: {
-        registry: '',
         subdomain: 'app',
         path: '/',
         protocol: `\${{ ${interface_node.getId()}.protocol }}`,
         service: `\${{ ${interface_node.getId()}.id }}`,
         port: 80,
         internal: false,
-        name: 'test/api',
       },
     });
 
@@ -424,7 +422,6 @@ describe('Component Schema: v1', () => {
       component: 'test',
       type: 'ingress',
       inputs: {
-        registry: '',
         subdomain: 'app',
         path: '/',
         username: `\${{ ${service_node.getId()}.username }}`,
@@ -433,7 +430,6 @@ describe('Component Schema: v1', () => {
         service: `\${{ ${service_node.getId()}.id }}`,
         port: 80,
         internal: false,
-        name: 'test/api-main',
       },
     });
 

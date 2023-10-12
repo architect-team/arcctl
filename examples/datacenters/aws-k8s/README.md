@@ -42,7 +42,7 @@ The following application resources are supported by this datacenter:
   the EKS cluster
 - `secret` - Variables and dynamic application outputs will be stored as Secrets
   on the EKS cluster
-- `ingressRule` - Component ingresses will be registered as kubernetes ingress
+- `ingress` - Component ingresses will be registered as kubernetes ingress
   rules. Each ingress rule will also yield a DNS record pointing to the load
   balancer to ensure the ingress rule is reachable.
 - `database` - Component databases will be run via RDS. Each component database

@@ -50,12 +50,14 @@ export class CommandHelper {
   }
 
   get datacenterStore(): DatacenterStore {
-    const config_dir = ArcCtlConfig.getConfigDirectory();
-    return new DatacenterStore(path.join(config_dir, 'datacenter-store'));
+    return new DatacenterStore({
+      backendConfig: ArcCtlConfig.getStateBackendConfig(),
+      cache_dir: path.join(ArcCtlConfig.getConfigDirectory(), 'datacenter-store'),
+    });
   }
 
   get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore();
+    return new EnvironmentStore(ArcCtlConfig.getStateBackendConfig());
   }
 
   get infraRenderer(): InfraRenderer {

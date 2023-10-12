@@ -1,20 +1,5 @@
 export type IngressRuleInputs = {
   /**
-   * Name to give to the ingress rule resource
-   */
-  name: string;
-
-  /**
-   * Unique ID of the service registry this rule will be stored in
-   */
-  registry: string;
-
-  /**
-   * Namespace to put the ingress rule in
-   */
-  namespace?: string;
-
-  /**
    * Port that the ingress rule listens for traffic on
    */
   port: string | number;

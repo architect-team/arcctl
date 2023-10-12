@@ -8,9 +8,6 @@
         "host": {
           "type": "string"
         },
-        "loadBalancerHostname": {
-          "type": "string"
-        },
         "password": {
           "type": "string"
         },
@@ -23,6 +20,9 @@
             "number"
           ]
         },
+        "protocol": {
+          "type": "string"
+        },
         "url": {
           "type": "string"
         },
@@ -31,11 +31,11 @@
         }
       },
       "required": [
+        "protocol",
         "host",
         "port",
         "url",
-        "path",
-        "loadBalancerHostname"
+        "path"
       ],
       "type": "object"
     }

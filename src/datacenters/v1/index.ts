@@ -23,7 +23,7 @@ type ModuleDictionary = {
     /**
      * Input values for the module
      */
-    inputs: Record<string, unknown>;
+    inputs: Record<string, unknown> | string;
   }[];
 };
 

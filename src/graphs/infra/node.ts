@@ -17,7 +17,7 @@ export type NodeStatus = {
 
 export type NodeStatusState = 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
 
-export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<string, unknown>> & {
+export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<string, unknown> | string> & {
   plugin: P;
   action?: NodeAction;
   image: string;
@@ -30,7 +30,7 @@ export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<st
   state?: any;
 };
 
-export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<string, unknown>> {
+export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<string, unknown> | string> {
   plugin: P;
   action: NodeAction;
   color: NodeColor;

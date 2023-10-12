@@ -4,13 +4,10 @@ import BuildCommands from './build/index.ts';
 import DeployCommand from './deploy.ts';
 import DestroyCommands from './destroy/index.ts';
 import GetCommands from './get/index.ts';
-import GraphCommand from './graph.ts';
 import ListCommands from './list/index.ts';
-import LogsCommand from './logs.ts';
 import PushCommands from './push/index.ts';
 import SetCommands from './set/index.ts';
 import TagCommand from './tag.ts';
-import UpCommand from './up.ts';
 
 export default async function arcctl() {
   return BaseCommand()
@@ -21,10 +18,7 @@ export default async function arcctl() {
     .command(PushCommands.getName(), PushCommands)
     .command(SetCommands.getName(), SetCommands)
     .command(DestroyCommands.getName(), DestroyCommands)
-    .command(GraphCommand.getName(), GraphCommand)
     .command(GetCommands.getName(), GetCommands)
     .command(ListCommands.getName(), ListCommands)
-    .command(LogsCommand.getName(), LogsCommand)
-    .command(UpCommand.getName(), UpCommand)
     .parse(Deno.args);
 }

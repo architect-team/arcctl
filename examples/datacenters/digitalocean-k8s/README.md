@@ -39,7 +39,7 @@ The following application resources are supported by this datacenter:
 - `service` - Service listeners will be registered as kubernetes services
 - `secret` - Variables and dynamic application outputs will be stored as
   kubernetes secrets
-- `ingressRule` - Component ingresses will be registered as kubernetes ingress
+- `ingress` - Component ingresses will be registered as kubernetes ingress
   rules. Each ingress rule will also yield a DNS record pointing to the load
   balancer to ensure the ingress rule is reachable.
 - `database` - Component databases will be fulfilled by DO managed databases.

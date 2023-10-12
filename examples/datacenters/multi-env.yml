@@ -40,7 +40,7 @@ environment:
         type: service
       account: ${{ accounts.gateway.id }}
     - when:
-        type: ingressRule
+        type: ingress
       account: ${{ accounts.gateway.id }}
       registry: ${{ resources.service-registry.id }}
       dnsZone: localhost

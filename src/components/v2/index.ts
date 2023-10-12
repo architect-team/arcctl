@@ -494,8 +494,6 @@ export default class ComponentV2 extends Component {
         type: 'ingress',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${ingress_key}`,
-          registry: '',
           port: `\${{ ${service_node.getId()}.port }}`,
           service: `\${{ ${service_node.getId()}.id }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,

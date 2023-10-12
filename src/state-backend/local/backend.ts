@@ -11,8 +11,12 @@ export default class LocalStateBackend<T> extends StateBackend<T, LocalCredentia
   }
 
   async getAll(): Promise<T[]> {
-    const contents = await Deno.readTextFile(this.directory + `/architect-${this.name}-state.json`);
-    return JSON.parse(contents);
+    try {
+      const contents = await Deno.readTextFile(this.directory + `/architect-${this.name}-state.json`);
+      return JSON.parse(contents);
+    } catch {
+      return [];
+    }
   }
 
   async saveAll(records: T[]): Promise<void> {

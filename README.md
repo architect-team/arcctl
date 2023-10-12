@@ -102,7 +102,7 @@ $ arcctl deploy . --environment my-env
 
 Once you press enter, you'll immediately be shown a table-view of every individual cloud resource Architect identified that is required by your deployment. You'll be prompted to approve the changes to the environment, and then arcctl will get started landing the changes. 
 
-Once its done (speed will vary based on the datacenter configuration), you'll be able to navigate to the URLs associated with each ingressRule:
+Once its done (speed will vary based on the datacenter configuration), you'll be able to navigate to the URLs associated with each ingress:
 
 ```sh
   Name                                         Type             Component                Environment  Action  Status    Time                                                
@@ -119,13 +119,13 @@ Once its done (speed will vary based on the datacenter configuration), you'll be
   ebbd092d354f/deployment/frontend/main        databaseUser     ebbd092d354f             local        create  complete  1s                                                  
   frontend                                     deployment       ebbd092d354f             local        create  complete  0s                                                  
   frontend                                     service          ebbd092d354f             local        create  complete  0s                                                  
-  app                                          ingressRule      ebbd092d354f             local        create  complete  0s    http://app.local.127.0.0.1.nip.io/            
+  app                                          ingress          ebbd092d354f             local        create  complete  0s    http://app.local.127.0.0.1.nip.io/            
   mailslurper                                  deployment       architectio/mailslurper  local        create  complete  2s                                                  
   smtp                                         service          architectio/mailslurper  local        create  complete  0s                                                  
   mailslurper                                  service          architectio/mailslurper  local        create  complete  0s                                                  
   mailslurper-api                              service          architectio/mailslurper  local        create  complete  0s                                                  
-  mailslurper                                  ingressRule      architectio/mailslurper  local        create  complete  0s    http://mailslurper.local.127.0.0.1.nip.io/    
-  mailslurper-api                              ingressRule      architectio/mailslurper  local        create  complete  0s    http://mailslurper-api.local.127.0.0.1.nip.io/
+  mailslurper                                  ingress          architectio/mailslurper  local        create  complete  0s    http://mailslurper.local.127.0.0.1.nip.io/    
+  mailslurper-api                              ingress          architectio/mailslurper  local        create  complete  0s    http://mailslurper-api.local.127.0.0.1.nip.io/
   allowed_return_urls                          secret           architectio/kratos       local        create  complete  0s                                                  
   kratos                                       database         architectio/kratos       local        create  complete  2s                                                  
   architectio/kratos/deployment/kratos/kratos  databaseUser     architectio/kratos       local        create  complete  1s                                                  
@@ -134,8 +134,8 @@ Once its done (speed will vary based on the datacenter configuration), you'll be
   kratos-public                                service          architectio/kratos       local        create  complete  0s                                                  
   kratos-admin                                 service          architectio/kratos       local        create  complete  0s                                                  
   frontend                                     service          architectio/kratos       local        create  complete  0s                                                  
-  kratos-public                                ingressRule      architectio/kratos       local        create  complete  0s    http://kratos-public.local.127.0.0.1.nip.io/  
-  auth                                         ingressRule      architectio/kratos       local        create  complete  0s    http://auth.local.127.0.0.1.nip.io/
+  kratos-public                                ingress          architectio/kratos       local        create  complete  0s    http://kratos-public.local.127.0.0.1.nip.io/  
+  auth                                         ingress          architectio/kratos       local        create  complete  0s    http://auth.local.127.0.0.1.nip.io/
 ```
 
 #### Bonus: Dev environments

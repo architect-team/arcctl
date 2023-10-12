@@ -20,9 +20,9 @@ module "traefik" {
       volume = module.traefikRegistry.volume
     }]
     command = [
-      "--providers.file.directory=/etc/traefik"
-      "--providers.file.watch=true"
-      "--api.insecure=true"
+      "--providers.file.directory=/etc/traefik",
+      "--providers.file.watch=true",
+      "--api.insecure=true",
       "--api.dashboard=true"
     ]
     exposed_ports = [{
@@ -82,11 +82,13 @@ environment {
     }
 
     outputs = {
+      protocol = "postgresql"
       host = module.postgres.host
       port = module.postgres.ports[0]
       username = module.database.username
       password = module.database.password
       name = module.database.name
+      url = "postgresql://${module.database.username}:${module.database.password}@${module.database.host}:${module.database.port}/${module.database.name}"
     }
   }
 
@@ -105,23 +107,20 @@ environment {
     }
 
     outputs = {
+      protocol = "mysql"
       host = module.postgres.host
       port = module.postgres.ports[0]
       username = module.database.username
       password = module.database.password
       name = module.database.name
+      url = "mysql://${module.database.username}:${module.database.password}@${module.database.host}:${module.database.port}/${module.database.name}"
     }
   }
 
   deployment {
     module "deployment" {
       source = "./deployment"
-      inputs = node.inputs
-    }
-
-    outputs = {
-      host = module.deployment.host
-      port = module.deployment.ports[0]
+      inputs = merge(node.inputs, {})
     }
   }
 
@@ -137,7 +136,7 @@ environment {
     }
   }
 
-  ingressRule {
+  ingress {
     module "ingressRule" {
       source = "./ingressRule"
       inputs = node.inputs
@@ -148,6 +147,7 @@ environment {
       host = module.ingressRule.host
       port = module.ingressRule.port
       path = module.ingressRule.path
+      url = "${module.ingressRule.protocol}://${module.ingressRule.host}:${module.ingressRule.port}${module.ingressRule.path}"
     }
   }
 

@@ -92,7 +92,7 @@ environment {
     }
   }
 
-  ingressRule {
+  ingress {
     module "ingressRule" {
       source = "./ingressRule"
       inputs = merge(node.inputs, {})

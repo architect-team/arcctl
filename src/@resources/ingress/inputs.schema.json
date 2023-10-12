@@ -21,14 +21,6 @@
           "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
           "type": "boolean"
         },
-        "name": {
-          "description": "Name to give to the ingress rule resource",
-          "type": "string"
-        },
-        "namespace": {
-          "description": "Namespace to put the ingress rule in",
-          "type": "string"
-        },
         "password": {
           "description": "Basic auth password",
           "type": "string"
@@ -50,10 +42,6 @@
           "description": "The protocol the ingress rule listens for traffic on",
           "type": "string"
         },
-        "registry": {
-          "description": "Unique ID of the service registry this rule will be stored in",
-          "type": "string"
-        },
         "service": {
           "description": "Service the ingress forwards traffic to",
           "type": "string"
@@ -68,8 +56,6 @@
         }
       },
       "required": [
-        "name",
-        "registry",
         "port",
         "service"
       ],

@@ -54,9 +54,19 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     const context = completedNodesWithOutputs.reduce((context, node) => {
       context[node.name] = node.outputs;
       return context;
-    }, {} as Record<string, unknown>);
+    }, {} as Record<string, any>);
 
-    const notFound = applyContextRecursive(node.inputs, context);
+    let notFound: string[] = [];
+    if (typeof node.inputs === 'object') {
+      notFound = applyContextRecursive(node.inputs, context);
+    } else {
+      // e.g. in the case where `inputs = merge(node.inputs, {})`
+      // TODO: This might not be doing the correct thing yet
+      const replacementObject = { key: node.inputs };
+      notFound = applyContextRecursive(replacementObject, context);
+      node.inputs = replacementObject.key;
+    }
+
     if (notFound.length > 0) {
       throw Error(`Missing outputs for key${notFound.length > 1 ? 's' : ''}: ${notFound.join(', ')}`);
     }

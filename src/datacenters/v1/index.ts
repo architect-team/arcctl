@@ -1,11 +1,11 @@
 import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
+import { applyContextRecursive } from '../../datacenter-ast/parser.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
 import { GraphEdge } from '../../graphs/edge.ts';
 import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
 import { InfraGraph } from '../../graphs/infra/graph.ts';
 import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
-import { applyContextRecursive } from './ast/parser.ts';
 import {
   DuplicateModuleNameError,
   InvalidModuleReference,

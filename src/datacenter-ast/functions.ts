@@ -1,4 +1,4 @@
-import * as ESTree from 'https://esm.sh/v124/@types/estree@1.0.1/index.d.ts';
+import * as ESTree from 'estree';
 
 function instanceOf<T>(object: any, key: string): object is T {
   return key in object;

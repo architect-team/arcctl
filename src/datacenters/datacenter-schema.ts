@@ -212,7 +212,10 @@ export default {
                           "type": "string"
                         },
                         "port": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "string"
+                          ]
                         },
                         "protocol": {
                           "type": "string"

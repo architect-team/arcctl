@@ -1,7 +1,7 @@
 export type DatabaseUserApplyOutputs = {
   protocol: string;
   host: string;
-  port: number;
+  port: number | string;
   database: string;
   username: string;
   password: string;

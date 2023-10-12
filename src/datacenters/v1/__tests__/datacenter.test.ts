@@ -3,7 +3,12 @@ import { assertEquals, fail } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { GraphEdge } from '../../../graphs/edge.ts';
 import { AppGraph, AppGraphNode, InfraGraphNode } from '../../../graphs/index.ts';
-import { InvalidModuleReference, InvalidOutputProperties, MissingResourceHook } from '../errors.ts';
+import {
+  InvalidModuleReference,
+  InvalidOutputProperties,
+  MissingResourceHook,
+  ModuleReferencesNotAllowedInWhenClause,
+} from '../errors.ts';
 import DatacenterV1 from '../index.ts';
 
 describe('DatacenterV1', () => {
@@ -853,6 +858,122 @@ describe('DatacenterV1', () => {
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
+    });
+
+    it('should resolve operators inside resource hook when clauses', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        environment {
+          database {
+            when = node.inputs.databaseType == "postgres"
+
+            module "database" {
+              source = "test:latest"
+              inputs = {
+                type = "postgres"
+              }
+            }
+
+            outputs = {
+              host = module.database.host
+              port = module.database.port
+              name = module.database.name
+              username = module.database.username
+              password = module.database.password
+              url = module.database.url
+              protocol = "postgresql"
+            }
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const databaseNode = new AppGraphNode({
+        type: 'database',
+        name: 'database',
+        component: 'some-component',
+        inputs: {
+          name: 'my-db',
+          databaseType: 'postgres',
+          databaseVersion: '15',
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [databaseNode],
+      });
+
+      const graph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+        variables: { region: 'nyc1' },
+      });
+
+      const expectedDatabaseModule = new InfraGraphNode({
+        image: 'test:latest',
+        inputs: {
+          type: 'postgres',
+        },
+        name: 'database',
+        appNodeId: databaseNode.getId(),
+        component: databaseNode.component,
+        plugin: 'pulumi',
+      });
+
+      assertEquals(graph.nodes, [expectedDatabaseModule]);
+    });
+
+    it('should error when referencing a module in a when clause', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        environment {
+          module "database" {
+            source = "test:latest"
+            inputs = {
+              type = "postgres"
+            }
+          }
+
+          database {
+            when = node.inputs.databaseType == "postgres" && module.database.protocol == "postgresql"
+
+            outputs = {
+              host = module.database.host
+              port = module.database.port
+              name = module.database.name
+              username = module.database.username
+              password = module.database.password
+              url = module.database.url
+              protocol = "postgresql"
+            }
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const databaseNode = new AppGraphNode({
+        type: 'database',
+        name: 'database',
+        component: 'some-component',
+        inputs: {
+          name: 'my-db',
+          databaseType: 'postgres',
+          databaseVersion: '15',
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [databaseNode],
+      });
+
+      try {
+        datacenter.getGraph(appGraph, {
+          datacenterName: 'test',
+          environmentName: 'test',
+          variables: { region: 'nyc1' },
+        });
+        fail('Expected to throw ModuleReferencesNotAllowedInWhenClause error');
+      } catch (err) {
+        assertEquals(err, new ModuleReferencesNotAllowedInWhenClause());
+      }
     });
   });
 });

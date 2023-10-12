@@ -24,3 +24,11 @@ export class MissingResourceHook extends Error {
     super(`No matching hook found for ${to} (required by ${from}).`);
   }
 }
+
+export class ModuleReferencesNotAllowedInWhenClause extends Error {
+  constructor() {
+    super(
+      `Cross module references are not allowed in when clauses`,
+    );
+  }
+}

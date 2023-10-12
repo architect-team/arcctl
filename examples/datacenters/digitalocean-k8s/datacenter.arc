@@ -64,7 +64,6 @@ environment {
     }
 
     outputs = {
-      id = module.secret.id
       data = module.secret.data
     }
   }
@@ -85,7 +84,6 @@ environment {
       port = module.database.port
       name = module.database.name
       protocol = module.database.protocol
-      account = module.database.account
       username = module.database.username
       password = module.database.password
       url = module.database.url
@@ -99,15 +97,13 @@ environment {
     }
 
     outputs = {
-      id = module.ingressRule.id
+      protocol = "http"
       host = module.ingressRule.host
       port = module.ingressRule.port
       username = module.ingressRule.username
       password = module.ingressRule.password
       url = module.ingressRule.url
       path = module.ingressRule.path
-      loadBalancerHostname = module.ingressRule.loadBalancerHostname
-      dnsZone = module.ingressRule.dnsZone
     }
   }
 
@@ -125,9 +121,7 @@ environment {
     outputs = {
       host = module.databaseUser.host
       port = module.databaseUser.port
-      name = module.databaseUser.name
       protocol = module.databaseUser.protocol
-      account = module.databaseUser.account
       username = module.databaseUser.username
       password = module.databaseUser.password
       url = module.databaseUser.url
@@ -142,10 +136,6 @@ environment {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })
-    }
-
-    outputs = {
-      id = module.deployment.id
     }
   }
 
@@ -164,7 +154,6 @@ environment {
     }
 
     outputs = {
-      id = module.service.id
       name = module.service.target_port
       protocol = module.service.protocol
       username = module.service.username

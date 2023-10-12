@@ -11,6 +11,7 @@ import {
   InvalidModuleReference,
   InvalidOutputProperties,
   MissingResourceHook,
+  ModuleReferencesNotAllowedInWhenClause,
 } from './errors.ts';
 
 type ModuleDictionary = {
@@ -243,8 +244,11 @@ export default class DatacenterV1 extends Datacenter {
                 node: appGraphNode,
               });
 
-              // Check the when clause before matching
-              if (hook.when && eval(hook.when) === false) {
+              if (hook.when && hook.when !== 'true' && hook.when !== 'false') {
+                // If a when clause is set but can't be evaluated, it means it has an unresolvable value
+                throw new ModuleReferencesNotAllowedInWhenClause();
+              } else if (hook.when && hook.when === 'false') {
+                // If it evaluates to false, its just not a match. Try the next hook.
                 continue;
               }
 

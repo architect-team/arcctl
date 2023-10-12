@@ -14,7 +14,7 @@ export type ServiceOutputs = ServiceInputs & {
   /**
    * Port the service listens on
    */
-  port: number;
+  port: number | string;
 
   /**
    * Fully resolvable URL of the service

@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { applyContextRecursive } from '../../datacenter-ast/index.ts';
 import { GraphEdge } from '../edge.ts';
 import { AppGraphOptions, Graph } from '../graph.ts';
 import { InfraGraphNode } from './node.ts';
@@ -41,55 +42,23 @@ export class InfraGraph extends Graph<InfraGraphNode> {
   }
 
   /**
-   * Replace node references with actual output values
+   * Resolves functions and input references using the AST parsers apply context,
+   * with the context being all previously completed nodes' outputs.
+   * Throws an error if an input key is unable to be substituted.
    */
-  public replaceRefsWithOutputValues<T>(input: T, node_name: string): T {
-    if (input == undefined) {
-      return undefined as T;
-    }
-    const output = JSON.parse(JSON.stringify(input));
-    for (const [key, value] of Object.entries(output)) {
-      if (typeof value === 'object' || Array.isArray(value)) {
-        output[key] = this.replaceRefsWithOutputValues(value, node_name);
-      } else {
-        output[key] = this.getOutputValueForReference(value as string, node_name);
-      }
-    }
-    return output;
-  }
+  public resolveInputFunctionsAndRefs(node: InfraGraphNode) {
+    const completedNodesWithOutputs = this.nodes.filter((node) =>
+      node.outputs !== undefined && node.status.state === 'complete'
+    );
 
-  private getOutputValueForReference(key: string | undefined, node_name: string): any {
-    if (key === undefined) {
-      return undefined;
-    }
-    const initialType = typeof key;
-    return key.toString().replace(/\${{\s*(.*?)\s}}/g, (_, ref) => {
-      ref = ref.trim();
-      const node_id = ref.substring(0, ref.lastIndexOf('.'));
-      const key = ref.substring(ref.lastIndexOf('.') + 1);
-      const node = this.nodes.find((node) => node.getId() === node_id);
-      const outputs = node?.outputs;
-      if (!node || !outputs) {
-        throw new Error(`Missing outputs for ${ref} in ${node_name}`);
-      } else if ((outputs as any)[key] === undefined) {
-        throw new Error(
-          `Invalid key, ${key}, for ${node.name}. ${JSON.stringify(outputs)}`,
-        );
-      }
-      return this.convertStringToType(String((outputs as any)[key]) || '', initialType);
-    });
-  }
+    const context = completedNodesWithOutputs.reduce((context, node) => {
+      context[node.name] = node.outputs;
+      return context;
+    }, {} as Record<string, unknown>);
 
-  private convertStringToType(input: string, type: string): any {
-    switch (type) {
-      case 'string':
-        return String(input);
-      case 'number':
-        return Number(input);
-      case 'boolean':
-        return Boolean(input);
-      default:
-        throw new Error(`Invalid type: ${type}`);
+    const notFound = applyContextRecursive(node.inputs, context);
+    if (notFound.length > 0) {
+      throw Error(`Missing outputs for key${notFound.length > 1 ? 's' : ''}: ${notFound.join(', ')}`);
     }
   }
 
@@ -241,7 +210,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
           if (node.inputs) {
             try {
               if (node.action !== 'delete') {
-                node.inputs = this.replaceRefsWithOutputValues(node.inputs, node.name);
+                this.resolveInputFunctionsAndRefs(node);
               }
             } catch (err: any) {
               node.status.state = 'error';

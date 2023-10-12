@@ -1,4 +1,4 @@
-import { assertArrayIncludes, assertEquals, assertThrows } from 'std/testing/asserts.ts';
+import { assertArrayIncludes, assertEquals, assertExists, assertThrows } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { GraphEdge } from '../../edge.ts';
 import { InfraGraph } from '../graph.ts';
@@ -260,152 +260,117 @@ describe('InfraGraph', () => {
     it('should replace input refs with output values', async () => {
       const OUTPUT_VALUE = 'foobarbaz';
 
-      const nodeWithOutput = createGraphNode('test-output-node', {
-        action: 'create',
+      const nodeWithOutput = createGraphNode('testOutputNode', {
+        state: 'complete',
         outputs: { anOutput: OUTPUT_VALUE },
       });
 
-      const nodeWithRefInput = createGraphNode('test-input-node', {
-        action: 'create',
-        inputs: { anInput: `\${{ ${nodeWithOutput.getId()}.anOutput }}` },
+      const nodeWithRefInput = createGraphNode('testInputNode', {
+        state: 'pending',
+        inputs: { anInput: `\${ ${nodeWithOutput.name}.anOutput }` },
       });
 
-      const plannedGraph = await InfraGraph.plan({
-        before: new InfraGraph(),
-        after: new InfraGraph({
-          edges: [
-            new GraphEdge({
-              from: nodeWithOutput.name,
-              to: nodeWithRefInput.name,
-            }),
-          ],
-          nodes: [
-            nodeWithOutput,
-            nodeWithRefInput,
-          ],
-        }),
+      const graph = new InfraGraph({
+        nodes: [
+          nodeWithOutput,
+          nodeWithRefInput,
+        ],
       });
 
-      const updatedInput = plannedGraph.replaceRefsWithOutputValues(nodeWithRefInput.inputs, nodeWithRefInput.name);
-      assertEquals(typeof updatedInput, 'object');
-      assertEquals((updatedInput as Record<string, unknown>).anInput, OUTPUT_VALUE);
+      graph.resolveInputFunctionsAndRefs(nodeWithRefInput);
+      const updatedNode = graph.nodes.find((n) => n.name === 'testInputNode');
+      assertExists(updatedNode);
+      assertEquals((updatedNode.inputs as Record<string, unknown>).anInput, OUTPUT_VALUE);
     });
 
-    it('should replace nested input refs with output values', async () => {
-      const OUTPUT_VALUE_1 = 'foobarbaz';
+    it('should replace nested input refs with output values and resolve functions', async () => {
+      const OUTPUT_VALUE_1 = 'FOOBARBAZ';
       const OUTPUT_VALUE_2 = 'bazinga';
 
-      const nodeWithOutput = createGraphNode('test-output-node', {
+      const nodeWithOutput = createGraphNode('testOutputNode', {
         action: 'create',
         outputs: { anOutput: OUTPUT_VALUE_1, anotherOutput: OUTPUT_VALUE_2 },
       });
 
-      const nodeWithRefInput = createGraphNode('test-input-node', {
+      const nodeWithRefInput = createGraphNode('testInputNode', {
         action: 'create',
         inputs: {
           aListOfObjectsInput: [
             {
-              input1: `\${{ ${nodeWithOutput.getId()}.anOutput }}`,
+              input1: `\${ toLower(${nodeWithOutput.name}.anOutput) }`,
             },
             {
-              input2: `\${{ ${nodeWithOutput.getId()}.anotherOutput }}`,
+              input2: `\${ toUpper(${nodeWithOutput.name}.anotherOutput) }`,
             },
           ],
         },
       });
 
-      const plannedGraph = await InfraGraph.plan({
-        before: new InfraGraph(),
-        after: new InfraGraph({
-          edges: [
-            new GraphEdge({
-              from: nodeWithOutput.name,
-              to: nodeWithRefInput.name,
-            }),
-          ],
-          nodes: [
-            nodeWithOutput,
-            nodeWithRefInput,
-          ],
-        }),
+      const graph = new InfraGraph({
+        nodes: [
+          nodeWithOutput,
+          nodeWithRefInput,
+        ],
       });
 
-      const updatedInput = plannedGraph.replaceRefsWithOutputValues(
-        nodeWithRefInput.inputs,
-        nodeWithRefInput.name,
-      ) as Record<string, Record<string, string>[]>;
-      assertEquals(updatedInput.aListOfObjectsInput[0].input1, OUTPUT_VALUE_1);
-      assertEquals(updatedInput.aListOfObjectsInput[1].input2, OUTPUT_VALUE_2);
+      graph.resolveInputFunctionsAndRefs(nodeWithRefInput);
+      const updatedNode = graph.nodes.find((n) => n.name === 'testInputNode');
+      assertExists(updatedNode);
+      assertEquals(
+        ((updatedNode.inputs as Record<string, unknown>).aListOfObjectsInput as any)[0].input1,
+        OUTPUT_VALUE_1.toLowerCase(),
+      );
+      assertEquals(
+        ((updatedNode.inputs as Record<string, unknown>).aListOfObjectsInput as any)[1].input2,
+        OUTPUT_VALUE_2.toUpperCase(),
+      );
     });
 
     it('should throw error when output node id is invalid', async () => {
-      const inputNodeName = 'test-input-node';
+      const inputNodeName = 'testInputNode';
       const invalidOutputRef = 'badId.outputValue';
+      const invalidOutputRef2 = 'badId.outputValue2';
       const nodeWithRefInput = createGraphNode(inputNodeName, {
         action: 'create',
-        inputs: { anInput: `\${{ ${invalidOutputRef} }}` },
+        inputs: { anInput: `\${ ${invalidOutputRef} }`, anotherInput: `\${ ${invalidOutputRef2} }` },
       });
 
-      const plannedGraph = await InfraGraph.plan({
-        before: new InfraGraph(),
-        after: new InfraGraph({
-          edges: [],
-          nodes: [
-            nodeWithRefInput,
-          ],
-        }),
+      const graph = new InfraGraph({
+        nodes: [nodeWithRefInput],
       });
 
       assertThrows(
         () => {
-          plannedGraph.replaceRefsWithOutputValues(
-            nodeWithRefInput.inputs,
-            nodeWithRefInput.name,
-          );
+          graph.resolveInputFunctionsAndRefs(nodeWithRefInput);
         },
         Error,
-        `Missing outputs for ${invalidOutputRef} in ${inputNodeName}`,
+        `Missing outputs for keys: ${invalidOutputRef}, ${invalidOutputRef2}`,
       );
     });
 
     it('should throw error when output key is invalid', async () => {
-      const outputNodeName = 'test-output-node';
+      const outputNodeName = 'testOutputNode';
       const invalidOutputKey = 'wrongOutputName';
       const nodeWithOutput = createGraphNode(outputNodeName, {
         action: 'create',
         outputs: { anOutput: 'foobarbaz' },
       });
 
-      const nodeWithRefInput = createGraphNode('test-input-node', {
+      const nodeWithRefInput = createGraphNode('testInputNode', {
         action: 'create',
-        inputs: { anInput: `\${{ ${nodeWithOutput.getId()}.${invalidOutputKey} }}` },
+        inputs: { anInput: `\${ ${nodeWithOutput.name}.${invalidOutputKey} }` },
       });
 
-      const plannedGraph = await InfraGraph.plan({
-        before: new InfraGraph(),
-        after: new InfraGraph({
-          edges: [
-            new GraphEdge({
-              from: nodeWithOutput.name,
-              to: nodeWithRefInput.name,
-            }),
-          ],
-          nodes: [
-            nodeWithOutput,
-            nodeWithRefInput,
-          ],
-        }),
+      const graph = new InfraGraph({
+        nodes: [nodeWithOutput, nodeWithRefInput],
       });
 
       assertThrows(
         () => {
-          plannedGraph.replaceRefsWithOutputValues(
-            nodeWithRefInput.inputs,
-            nodeWithRefInput.name,
-          );
+          graph.resolveInputFunctionsAndRefs(nodeWithRefInput);
         },
         Error,
-        `Invalid key, ${invalidOutputKey}, for ${outputNodeName}`,
+        `Missing outputs for key: ${nodeWithOutput.name}.${invalidOutputKey}`,
       );
     });
   });

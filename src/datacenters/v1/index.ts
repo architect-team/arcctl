@@ -1,5 +1,5 @@
 import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
-import { applyContextRecursive } from '../../datacenter-ast/parser.ts';
+import { applyContextRecursive } from '../../datacenter-ast/index.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
 import { GraphEdge } from '../../graphs/edge.ts';
 import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';

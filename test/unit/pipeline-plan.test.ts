@@ -771,21 +771,21 @@ describe('plan destroy datacenter pipeline', async() => {
     assertEquals(database_step_after!.action, 'delete');
     assertEquals(database_step_after!.status.state, 'pending');
     assertEquals(database_step_after!.type, 'module'); 
-    assertEquals(database_step_after!.inputs!.name, database_name_input); // TODO: test step outputs
+    assertEquals(database_step_after!.inputs!.name, database_name_input);
     assertEquals(database_step_after!.inputs!.database_cluster_id, database_cluster_id);
 
     assertEquals(database_user_step_after!.name, database_user_module_name);
     assertEquals(database_user_step_after!.action, 'delete');
     assertEquals(database_user_step_after!.status.state, 'pending');
     assertEquals(database_user_step_after!.type, 'module'); 
-    assertEquals(database_user_step_after!.inputs!.name, database_user_name_input); // TODO: test step outputs
+    assertEquals(database_user_step_after!.inputs!.name, database_user_name_input);
     assertEquals(database_user_step_after!.inputs!.database_id, database_id);
 
     assertEquals(vpc_step_after!.name, vpc_module_name);
     assertEquals(vpc_step_after!.action, 'delete');
     assertEquals(vpc_step_after!.status.state, 'pending');
     assertEquals(vpc_step_after!.type, 'module'); 
-    assertEquals(vpc_step_after!.inputs!.name, vpc_name_input); // TODO: test step outputs
+    assertEquals(vpc_step_after!.inputs!.name, vpc_name_input);
 
     const database_database_user_service_edge = pipeline.edges.find(e => e.from === `module/${database_module_name}-blue` && e.to === `module/${database_user_module_name}-blue`);
     assertExists(database_database_user_service_edge);

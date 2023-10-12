@@ -707,7 +707,7 @@ describe('destroy datacenter pipeline', async() => {
       plugin: 'pulumi'
     });
 
-    const deployment_service_edge = new CloudEdge({ from: deployment_step.id, to: service_step.id });
+    const deployment_service_edge = new CloudEdge({ from: deployment_step.id, to: service_step.id }); // TODO: are the top three edge orders correct?
     const ingress_gateway_edge = new CloudEdge({ from: ingress_step.id, to: gateway_step.id });
     const service_ingress_edge = new CloudEdge({ from: service_step.id, to: ingress_step.id });
     const vpc_deployment_edge = new CloudEdge({ from: vpc_step.id, to: deployment_step.id });
@@ -724,7 +724,7 @@ describe('destroy datacenter pipeline', async() => {
       time.tick(1); // used because apply times need to be compared later, and in this mock, they could otherwise be exactly the same
       let outputs = {};
       if (request.inputs.find(e => e.includes('name') && e.includes(vpc_name_input))) { 
-        outputs = { name: vpc_name_input }; // TODO: create separate output rather than reusing the input?
+        outputs = { name: vpc_name_input };
       } else if (request.inputs.find(e => e.includes('name') && e.includes(deployment_name_input))) { 
         outputs = { id: deployment_id };
       } else if (request.inputs.find(e => e.includes('name') && e.includes(gateway_name_input))) { 
@@ -753,21 +753,21 @@ describe('destroy datacenter pipeline', async() => {
     assertArrayIncludes(service_apply_call!.args[0].inputs, [['deployment_id', deployment_id]]);
     const applied_service_step = applied_pipeline!.steps.find(s => s.name === service_module_name);
     assertEquals(applied_service_step!.status.state, 'complete');
-    // assert(applied_service_step!.status!.startTime! > applied_deployment_step!.status!.startTime!); // TODO: find out why this is broken
+    assert(applied_service_step!.status!.startTime! > applied_deployment_step!.status!.startTime!); // TODO: find out why this is broken
 
     const ingress_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(ingress_name_input)));
     assertArrayIncludes(ingress_apply_call!.args[0].inputs, [['name', ingress_name_input]]);
     assertArrayIncludes(ingress_apply_call!.args[0].inputs, [['service_id', service_id]]);
     const applied_ingress_step = applied_pipeline!.steps.find(s => s.name === ingress_module_name);
     assertEquals(applied_ingress_step!.status.state, 'complete');
-    // assert(applied_ingress_step!.status!.startTime! > applied_service_step!.status!.startTime!); // TODO: find out why this is broken
+    assert(applied_ingress_step!.status!.startTime! > applied_service_step!.status!.startTime!); // TODO: find out why this is broken
     
     const gateway_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(gateway_name_input)));
     assertArrayIncludes(gateway_apply_call!.args[0].inputs, [['name', gateway_name_input]]);
     assertArrayIncludes(gateway_apply_call!.args[0].inputs, [['ingress_rule_id', ingress_rule_id]]);
     const applied_gateway_step = applied_pipeline!.steps.find(s => s.name === gateway_module_name);
     assertEquals(applied_gateway_step!.status.state, 'complete');
-    // assert(applied_gateway_step!.status!.startTime! > applied_ingress_step!.status!.startTime!); // TODO: find out why this is broken
+    assert(applied_gateway_step!.status!.startTime! > applied_ingress_step!.status!.startTime!); // TODO: find out why this is broken
 
     const vpc_apply_call = apply_stub.calls.find(c => c.args[0].inputs.find(i => i.includes('name') && i.includes(vpc_name_input)));
     assertArrayIncludes(vpc_apply_call!.args[0].inputs, [['name', vpc_name_input]]);
@@ -958,5 +958,3 @@ describe('destroy datacenter pipeline', async() => {
     apply_stub.restore();
   });
 });
-
-// TODO: apply/destroy integration tests while testing state saving

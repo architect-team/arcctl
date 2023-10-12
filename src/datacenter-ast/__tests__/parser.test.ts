@@ -161,6 +161,25 @@ describe('AST: applyContext()', () => {
     });
   });
 
+  it('should support contains() function', () => {
+    const obj = {
+      module: {
+        vpc: {
+          source: 'architect/vpc:latest',
+          inputs: {
+            first: '${contains(["mysql", "postgres"], "postgres")}',
+            second: '${contains(["mysql", "postgres"], "redis")}',
+          },
+        },
+      },
+    };
+
+    applyContext(obj, {});
+
+    assertEquals(obj.module.vpc.inputs.first, 'true');
+    assertEquals(obj.module.vpc.inputs.second, 'false');
+  });
+
   it('should support functions of functions', () => {
     const obj = {
       module: {

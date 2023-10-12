@@ -26,6 +26,30 @@ const merge = (node: ESTree.CallExpression) => {
   };
 };
 
+const contains = (node: ESTree.CallExpression) => {
+  if (!('arguments' in node)) {
+    throw new Error(`Unsupported node.arguments for node.type: ${node}`);
+  } else if (node.arguments[0].type !== 'ArrayExpression') {
+    throw new Error(`Expected first argument of contains() to be an array.`);
+  } else if (!('value' in node.arguments[1])) {
+    throw new Error(`Expected second argument of contains() to be a literal.`);
+  }
+
+  const arr: string[] = [];
+  for (const element of node.arguments[0].elements) {
+    if (element?.type !== 'Literal') {
+      throw new Error(`Only literals are supported in contains() arrays.`);
+    }
+
+    if (element.value) {
+      arr.push(element.value.toString());
+    }
+  }
+
+  const res = Boolean(node.arguments[1].value && arr.includes(node.arguments[1].value.toString()));
+  return res.toString();
+};
+
 const toUpper = (node: ESTree.CallExpression) => {
   if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {
     throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
@@ -54,6 +78,7 @@ const startsWith = (node: ESTree.CallExpression) => {
 type functionType = (node: ESTree.CallExpression) => any;
 
 const functions: Record<string, functionType> = {
+  contains,
   trim,
   merge,
   toUpper,

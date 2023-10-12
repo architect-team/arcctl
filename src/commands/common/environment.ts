@@ -1,14 +1,12 @@
 import winston from 'winston';
-import { ProviderStore } from '../../@providers/store.ts';
 import { Datacenter, DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment } from '../../environments/index.ts';
 import { EnvironmentStore } from '../../environments/store.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import { InfraGraph } from '../../graphs/index.ts';
 
 export class EnvironmentUtils {
   constructor(
     private readonly environmentStore: EnvironmentStore,
-    private readonly providerStore: ProviderStore,
   ) {}
 
   /**
@@ -19,13 +17,13 @@ export class EnvironmentUtils {
     datacenterName: string,
     environmentName: string,
     environment: Environment,
-    pipeline: Pipeline,
+    graph: InfraGraph,
   ): Promise<void> {
     await this.environmentStore.save({
       name: environmentName,
       datacenter: datacenterName,
       config: environment,
-      lastPipeline: pipeline,
+      priorState: graph,
     });
   }
 
@@ -37,23 +35,20 @@ export class EnvironmentUtils {
     name: string,
     datacenterRecord: DatacenterRecord,
     environment: Environment,
-    pipeline: Pipeline,
+    graph: InfraGraph,
     options?: {
       logger?: winston.Logger;
     },
   ): Promise<boolean> {
-    return pipeline
-      .apply({
-        providerStore: this.providerStore,
-        logger: options?.logger,
-      })
+    return graph
+      .apply({ logger: options?.logger })
       .toPromise()
       .then(async () => {
         await this.saveEnvironment(
           datacenterRecord.name,
           name,
           environment,
-          pipeline,
+          graph,
         );
 
         return true;
@@ -64,7 +59,7 @@ export class EnvironmentUtils {
           datacenterRecord.name,
           name,
           environment,
-          pipeline,
+          graph,
         );
         return false;
       });

@@ -11,7 +11,6 @@ import { pathExistsSync } from '../utils/filesystem.ts';
 import { applyEnvironment } from './apply/utils.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { destroyEnvironment } from './destroy/environment.ts';
-import { streamLogs } from './logs.ts';
 
 type UpOptions = GlobalOptions & {
   verbose: boolean;

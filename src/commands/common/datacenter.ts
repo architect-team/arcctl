@@ -8,7 +8,7 @@ import {
   DatacenterVariablesSchema,
   ParsedVariablesMetadata,
 } from '../../datacenters/index.ts';
-import { AppGraph, InfraGraph } from '../../graphs/index.ts';
+import { InfraGraph } from '../../graphs/index.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
 import { Inputs } from './inputs.ts';
 
@@ -39,7 +39,6 @@ export class DatacenterUtils {
    * an error is thrown.
    */
   public async promptForVariables(
-    graph: AppGraph,
     variables: DatacenterVariablesSchema,
     user_inputs: Record<string, string> = {},
   ): Promise<Record<string, unknown>> {
@@ -53,7 +52,6 @@ export class DatacenterUtils {
       // If the variable input was passed in by the user, this will validate that their
       // input matches a given resource/account if necessary.
       const variable_value = await this.promptForVariableFromMetadata(
-        graph,
         variable.name,
         variable.metadata,
         user_inputs[variable.name],
@@ -76,7 +74,6 @@ export class DatacenterUtils {
   }
 
   private async promptForVariableFromMetadata(
-    graph: AppGraph,
     name: string,
     metadata: ParsedVariablesMetadata,
     value?: string,

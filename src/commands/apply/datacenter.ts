@@ -1,11 +1,10 @@
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { CloudGraph } from '../../app-graph/index.ts';
 import { Datacenter, parseDatacenter } from '../../datacenters/index.ts';
 import { parseEnvironment } from '../../environments/parser.ts';
+import { InfraGraph, PlanContext } from '../../graphs/index.ts';
 import { ImageRepository } from '../../oci/image-repository.ts';
-import { Pipeline, PlanContext } from '../../pipeline/index.ts';
 import { pathExistsSync } from '../../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { applyEnvironment } from './utils.ts';
@@ -87,7 +86,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   }
 
   const existingDatacenter = await command_helper.datacenterStore.get(name);
-  const originalPipeline = existingDatacenter ? existingDatacenter.lastPipeline : new Pipeline();
+  const originalPipeline = existingDatacenter ? existingDatacenter.priorState : new InfraGraph();
   const allEnvironments = await command_helper.environmentStore.find();
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
 
@@ -109,35 +108,33 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     const datacenter = pathExistsSync(config_path)
       ? await buildDatacenterFromConfig(command_helper, config_path, options.verbose)
       : await command_helper.datacenterStore.getDatacenter(config_path);
-    let graph = new CloudGraph();
-    const vars = await command_helper.datacenterUtils.promptForVariables(graph, datacenter.getVariables(), flag_vars);
-    datacenter.setVariableValues(vars);
-    graph = await datacenter.enrichGraph(targetGraph, {
+    let graph = new InfraGraph();
+    const vars = await command_helper.datacenterUtils.promptForVariables(datacenter.getVariablesSchema(), flag_vars);
+    graph = datacenter.getGraph(targetGraph, {
       datacenterName: name,
       environmentName: 'my-env',
+      variables: vars,
     });
 
-    const pipeline = await Pipeline.plan({
+    const infraGraph = await InfraGraph.plan({
       before: originalPipeline,
       after: graph,
       context: PlanContext.Datacenter,
-    }, command_helper.providerStore);
+    });
 
-    console.log(JSON.stringify(pipeline, null, 2));
-
-    pipeline.validate();
-    await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
+    infraGraph.validate();
+    await command_helper.infraRenderer.confirmGraph(infraGraph, options.autoApprove);
 
     let interval: number | undefined = undefined;
     if (!options.verbose) {
       interval = setInterval(() => {
-        command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
+        command_helper.infraRenderer.renderGraph(infraGraph, { clear: true });
       }, 1000 / cliSpinners.dots.frames.length);
     }
 
     let logger: Logger | undefined;
     if (options.verbose) {
-      command_helper.pipelineRenderer.renderPipeline(pipeline);
+      command_helper.infraRenderer.renderGraph(infraGraph);
       logger = winston.createLogger({
         level: 'info',
         format: winston.format.printf(({ message }) => message),
@@ -145,14 +142,14 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       });
     }
 
-    command_helper.datacenterUtils.applyDatacenter(name, datacenter, pipeline, logger)
+    command_helper.datacenterUtils.applyDatacenter(name, datacenter, infraGraph, logger)
       .then(async () => {
         if (interval) {
           clearInterval(interval);
-          command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-          command_helper.pipelineRenderer.doneRenderingPipeline();
+          command_helper.infraRenderer.renderGraph(infraGraph, { clear: !options.verbose, disableSpinner: true });
+          command_helper.infraRenderer.doneRenderingGraph();
         }
-        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
+        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, infraGraph);
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {
@@ -166,11 +163,11 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
             });
           }
           console.log('Environments updated successfully');
-          command_helper.pipelineRenderer.doneRenderingPipeline();
+          command_helper.infraRenderer.doneRenderingGraph();
         }
       }).catch(async (err) => {
         console.error(err);
-        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
+        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, infraGraph);
         Deno.exit(1);
       });
   } catch (err: any) {

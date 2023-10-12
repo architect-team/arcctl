@@ -2,8 +2,8 @@ import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 import { parseEnvironment } from '../environments/index.ts';
+import { InfraGraph, PlanContext } from '../graphs/index.ts';
 import { ImageRepository } from '../oci/index.ts';
-import { Pipeline, PlanContext } from '../pipeline/index.ts';
 import { pathExistsSync } from '../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
@@ -63,7 +63,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         Deno.exit(1);
       }
 
-      const previousPipeline = environmentRecord.lastPipeline;
+      const priorInfraGraph = environmentRecord.priorState;
 
       const environment = environmentRecord.config || await parseEnvironment({});
 
@@ -79,7 +79,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         path: componentPath,
       });
 
-      const targetGraph = await datacenterRecord.config.enrichGraph(
+      const targetGraph = datacenterRecord.config.getGraph(
         await environment.getGraph(environmentRecord.name, command_helper.componentStore, options.debug),
         {
           environmentName: environmentRecord.name,
@@ -87,19 +87,19 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         },
       );
 
-      const pipeline = await Pipeline.plan({
-        before: previousPipeline,
+      const pipeline = await InfraGraph.plan({
+        before: priorInfraGraph,
         after: targetGraph,
         context: PlanContext.Component,
         refresh: options.refresh,
-      }, command_helper.providerStore);
+      });
       pipeline.validate();
-      await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
+      await command_helper.pipelineRenderer.confirmGraph(pipeline, options.autoApprove);
 
       let interval: number;
       if (!options.verbose) {
         interval = setInterval(() => {
-          command_helper.pipelineRenderer.renderPipeline(pipeline, {
+          command_helper.pipelineRenderer.renderGraph(pipeline, {
             clear: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
@@ -108,7 +108,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
 
       let logger: Logger | undefined;
       if (options.verbose) {
-        command_helper.pipelineRenderer.renderPipeline(pipeline);
+        command_helper.pipelineRenderer.renderGraph(pipeline);
         logger = winston.createLogger({
           level: 'info',
           format: winston.format.printf(({ message }) => message),
@@ -117,10 +117,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
       }
 
       await pipeline
-        .apply({
-          providerStore: command_helper.providerStore,
-          logger,
-        })
+        .apply({ logger })
         .toPromise()
         .then(async () => {
           await command_helper.environmentUtils.saveEnvironment(
@@ -129,7 +126,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
             environment,
             pipeline,
           );
-          command_helper.pipelineRenderer.renderPipeline(pipeline, {
+          command_helper.pipelineRenderer.renderGraph(pipeline, {
             clear: !options.verbose,
             disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
@@ -143,7 +140,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
             environment,
             pipeline,
           );
-          command_helper.pipelineRenderer.renderPipeline(pipeline, {
+          command_helper.pipelineRenderer.renderGraph(pipeline, {
             clear: !options.verbose,
             disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,

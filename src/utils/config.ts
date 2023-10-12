@@ -1,22 +1,38 @@
 import { home_dir } from 'deps';
 import * as path from 'std/path/mod.ts';
+import { StateBackendType } from '../state-backend/builder.ts';
 import { pathExistsSync } from './filesystem.ts';
 
 const DEFAULT_CONFIG_DIRECTORY = path.join(home_dir() || '~', '.config', 'arcctl');
 
-export type CloudCtlConfigOptions = {
+export type ArcctlConfigOptions = {
   configDirectory: string;
+  stateBackendConfig: {
+    type: StateBackendType;
+    credentials: Record<string, unknown>;
+  };
 };
 
 export default class ArcCtlConfig {
   private static dev: boolean;
   private static tfDirectory?: string;
   private static noCleanup: boolean;
-  private static configOptions: CloudCtlConfigOptions = this.getDefaultConfig(DEFAULT_CONFIG_DIRECTORY);
+  private static configOptions: ArcctlConfigOptions = this.getDefaultConfig(DEFAULT_CONFIG_DIRECTORY);
 
-  private static getDefaultConfig(directory: string): CloudCtlConfigOptions {
+  private static getDefaultStateBackendConfig(directory: string): ArcctlConfigOptions['stateBackendConfig'] {
+    Deno.mkdirSync(directory, { recursive: true });
+    return {
+      type: 'local',
+      credentials: {
+        directory,
+      },
+    };
+  }
+
+  private static getDefaultConfig(directory: string): ArcctlConfigOptions {
     return {
       configDirectory: directory,
+      stateBackendConfig: this.getDefaultStateBackendConfig(directory),
     };
   }
 
@@ -31,6 +47,14 @@ export default class ArcCtlConfig {
       // Means the file does not exist which is okay
     }
     this.configOptions = this.getDefaultConfig(directory);
+  }
+
+  public static getStateBackendConfig(): ArcctlConfigOptions['stateBackendConfig'] {
+    return this.configOptions.stateBackendConfig;
+  }
+
+  public static setStateBackendConfig(stateBackendConfig: ArcctlConfigOptions['stateBackendConfig']): void {
+    this.configOptions.stateBackendConfig = stateBackendConfig;
   }
 
   public static save(): void {

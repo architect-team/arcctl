@@ -24,7 +24,8 @@
     "unique-names-generator": "https://esm.sh/v124/unique-names-generator@4.7.1",
     "uuid": "https://esm.sh/v124/uuid@8.0.0",
     "which": "https://esm.sh/v124/which@3.0.1",
-    "winston": "https://esm.sh/v124/winston@3.8.2"
+    "winston": "https://esm.sh/v124/winston@3.8.2",
+    "@aws-sdk/client-s3": "https://esm.sh/v124/@aws-sdk/client-s3@3.427.0"
   },
   "scopes": {
     "https://esm.sh/v124/": {

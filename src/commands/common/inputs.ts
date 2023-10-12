@@ -76,6 +76,6 @@ export class Inputs {
    */
   public static async promptSelection(options: SelectOptions): Promise<string> {
     this.assertInteractiveShell();
-    return await Select.prompt(options);
+    return Select.prompt(options);
   }
 }

@@ -2,11 +2,11 @@ import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import * as path from 'std/path/mod.ts';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { BaseStore } from '../base-store.ts';
+import { buildStateBackend } from '../builder.ts';
 
-const genericBaseStore = new BaseStore('test');
+const genericBackend = buildStateBackend('test', 'local', {});
 
-describe('Base Store', () => {
+describe('StateBackend', () => {
   it('should should replace file references with hashes in object', () => {
     const files = {
       '/tmp/test.txt': 'test',
@@ -34,7 +34,7 @@ describe('Base Store', () => {
       file: 'test4.txt',
       testUndefined: undefined,
     };
-    const fileHashes = genericBaseStore['replaceFileReferencesWithHashes'](testObj);
+    const fileHashes = genericBackend['replaceFileReferencesWithHashes'](testObj);
     assertEquals(Object.values(fileHashes).length, 4);
     assertArrayIncludes(Object.values(fileHashes), Object.values(files));
   });
@@ -66,13 +66,13 @@ describe('Base Store', () => {
       'test4.txt',
       undefined,
     ];
-    const fileHashes = genericBaseStore['replaceFileReferencesWithHashes'](testArray);
+    const fileHashes = genericBackend['replaceFileReferencesWithHashes'](testArray);
     assertEquals(Object.values(fileHashes).length, 4);
     assertArrayIncludes(Object.values(fileHashes), Object.values(files));
   });
 
   it('file reference replace should handle undefined', () => {
-    genericBaseStore['replaceFileReferencesWithHashes'](undefined);
+    genericBackend['replaceFileReferencesWithHashes'](undefined);
   });
 
   it('should replace hashes with file references in object', () => {
@@ -96,7 +96,7 @@ describe('Base Store', () => {
       mockFile.prepareVirtualFile(path.join(directory, key));
     }
 
-    genericBaseStore['replaceHashesWithFileReferences'](directory, testObj, fileHashes);
+    genericBackend['replaceHashesWithFileReferences'](directory, testObj, fileHashes);
 
     for (const [key, value] of Object.entries(fileHashes)) {
       const contents = Deno.readTextFileSync(path.join(directory, key));
@@ -128,7 +128,7 @@ describe('Base Store', () => {
       mockFile.prepareVirtualFile(path.join(directory, key));
     }
 
-    genericBaseStore['replaceHashesWithFileReferences'](directory, testArray, fileHashes);
+    genericBackend['replaceHashesWithFileReferences'](directory, testArray, fileHashes);
 
     for (const [key, value] of Object.entries(fileHashes)) {
       const contents = Deno.readTextFileSync(path.join(directory, key));
@@ -141,6 +141,6 @@ describe('Base Store', () => {
   });
 
   it('handle undefined when replacing hashes with files', () => {
-    genericBaseStore['replaceHashesWithFileReferences']('', undefined, {});
+    genericBackend['replaceHashesWithFileReferences']('', undefined, {});
   });
 });

@@ -4,7 +4,10 @@ import tar from 'tar';
 import { ComponentStoreDB } from '../component-store/db.ts';
 import { InfraGraph } from '../graphs/index.ts';
 import { ImageManifest, ImageRepository } from '../oci/index.ts';
+import { StateBackend } from '../state-backend/backend.ts';
+import { buildStateBackend } from '../state-backend/builder.ts';
 import { BaseStore } from '../utils/base-store.ts';
+import { ArcctlConfigOptions } from '../utils/config.ts';
 import { pathExistsSync } from '../utils/filesystem.ts';
 import { Datacenter } from './datacenter.ts';
 import { parseDatacenter } from './parser.ts';
@@ -27,16 +30,23 @@ class MissingDatacenterRef extends Error {
   }
 }
 
-export class DatacenterStore extends BaseStore<DatacenterRecord> {
+export type DatacenterStoreOptions = {
+  cache_dir: string;
+  backendConfig: ArcctlConfigOptions['stateBackendConfig'];
+  default_registry?: string;
+};
+
+export class DatacenterStore implements BaseStore<DatacenterRecord> {
   private cache_dir: string;
   private db: ComponentStoreDB;
   private default_registry: string;
+  private backend: StateBackend<DatacenterRecord>;
 
-  constructor(cache_dir: string, default_registry?: string) {
-    super('datacenters');
+  constructor(options: DatacenterStoreOptions) {
+    this.cache_dir = options.cache_dir;
+    this.default_registry = options.default_registry || 'registry-1.docker.io';
+    this.backend = buildStateBackend('datacenters', options.backendConfig.type, options.backendConfig.credentials);
     this.find();
-    this.cache_dir = cache_dir;
-    this.default_registry = default_registry || 'registry-1.docker.io';
 
     try {
       this.db = JSON.parse(Deno.readTextFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME)));
@@ -46,15 +56,12 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
   }
 
   public async find(): Promise<DatacenterRecord[]> {
-    await this.load(async (raw: any) => {
-      return {
-        name: raw.name,
-        config: await parseDatacenter(raw.config),
-        priorState: new InfraGraph(raw.priorState),
-      };
-    });
-
-    return this._records!;
+    const rawRecords = await this.backend.getAll();
+    return Promise.all(rawRecords.map(async (raw) => ({
+      name: raw.name,
+      config: await parseDatacenter(raw.config as any),
+      priorState: new InfraGraph(raw.priorState),
+    })));
   }
 
   public async get(name: string): Promise<DatacenterRecord | undefined> {
@@ -70,7 +77,7 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
     } else {
       allDatacenters.push(input);
     }
-    this.saveAll(allDatacenters);
+    this.backend.saveAll(allDatacenters);
   }
 
   public async remove(name: string): Promise<void> {
@@ -81,7 +88,7 @@ export class DatacenterStore extends BaseStore<DatacenterRecord> {
     }
 
     allDatacenters.splice(foundIndex, 1);
-    await this.saveAll(allDatacenters);
+    await this.backend.saveAll(allDatacenters);
   }
 
   /**

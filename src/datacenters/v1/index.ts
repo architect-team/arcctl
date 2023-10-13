@@ -1,5 +1,6 @@
 import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
 import { applyContextRecursive } from '../../datacenter-ast/index.ts';
+import { Plugin } from '../../datacenter-modules/index.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
 import { GraphEdge } from '../../graphs/edge.ts';
 import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
@@ -14,18 +15,32 @@ import {
   ModuleReferencesNotAllowedInWhenClause,
 } from './errors.ts';
 
-type ModuleDictionary = {
-  [key: string]: {
-    /**
-     * The image source of the module
-     */
-    source: string;
+const DEFAULT_PLUGIN: Plugin = 'pulumi';
 
-    /**
-     * Input values for the module
-     */
-    inputs: Record<string, unknown> | string;
-  }[];
+type Module = {
+  /**
+   * The image source of the module.
+   */
+  source?: string;
+
+  /**
+   * The path to a module that will be built during the build step.
+   */
+  build?: string;
+
+  /**
+   * The plugin used to build the module. Defaults to pulumi.
+   */
+  plugin?: Plugin;
+
+  /**
+   * Input values for the module.
+   */
+  inputs: Record<string, unknown> | string;
+};
+
+type ModuleDictionary = {
+  [key: string]: Module[];
 };
 
 type ResourceHook<T extends ResourceType = ResourceType> = {
@@ -97,16 +112,85 @@ export default class DatacenterV1 extends Datacenter {
     throw new Error('Method not implemented.');
   }
 
-  public build(buildFn: DockerBuildFn): Promise<Datacenter> {
-    throw new Error('Method not implemented.');
+  public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
+    for (const module of Object.values(this.getModules())) {
+      // Modules with only a source are skipped, they point to images that already exist.
+      if (module.build) {
+        const digest = await buildFn({
+          context: module.build,
+          plugin: module.plugin || DEFAULT_PLUGIN,
+        });
+        module.source = digest;
+      }
+    }
+
+    return this;
   }
 
-  public tag(tagFn: DockerTagFn): Promise<Datacenter> {
-    throw new Error('Method not implemented.');
+  public async tag(tagFn: DockerTagFn): Promise<Datacenter> {
+    for (const [moduleName, module] of Object.entries(this.getModules())) {
+      if (module.build && module.source) {
+        module.source = await tagFn(module.source, moduleName);
+      }
+    }
+
+    return this;
   }
 
-  public push(pushFn: DockerPushFn): Promise<Datacenter> {
-    throw new Error('Method not implemented.');
+  public async push(pushFn: DockerPushFn): Promise<Datacenter> {
+    for (const module of Object.values(this.getModules())) {
+      // Only push modules that have a build field, otherwise the image already exists.
+      if (module.build && module.source) {
+        await pushFn(module.source);
+      }
+    }
+
+    return this;
+  }
+
+  /**
+   * Return all modules within this datacenter.
+   */
+  private getModules(): Record<string, Module> {
+    const modules: Record<string, Module> = {};
+
+    // Extract all top-level modules
+    for (const [name, value] of Object.entries(this.module || {})) {
+      if (value.length < 1) {
+        continue;
+      }
+      modules[name] = value[0];
+    }
+
+    for (const env of this.environment || []) {
+      // Extract all environment-level modules
+      for (const [name, value] of Object.entries(env.module || {})) {
+        if (value.length < 1) {
+          continue;
+        }
+        modules[name] = value[0];
+      }
+
+      // Hooks can have the same "name" (the resource type) so ensure uniqueness
+      let hookModuleNumber = 0;
+      // Extract all environment hook modules
+      const hooks = Object.entries(env).filter(([key]) => key !== 'module');
+      for (const hook of hooks) {
+        const key = hook[0] as ResourceType;
+        const values = hook[1] as ResourceHook[];
+        for (const value of values) {
+          for (const [name, mod] of Object.entries(value.module || {})) {
+            if (mod.length < 1) {
+              continue;
+            }
+            modules[`${name}-${hookModuleNumber}`] = mod[0];
+            hookModuleNumber += 1;
+          }
+        }
+      }
+    }
+
+    return modules;
   }
 
   private getScopedGraph(
@@ -123,18 +207,24 @@ export default class DatacenterV1 extends Datacenter {
         return;
       }
 
+      const module = value[0];
+
       // The module name cannot be used in the current or parent scoped graph
       if (infraGraph.nodes.find((n) => n.name === name) || scopedGraph.nodes.find((n) => n.name === name)) {
         throw new DuplicateModuleNameError(name);
       }
 
+      if (!module.source) {
+        throw new Error(`Module ${name} must contain a build or source field.`);
+      }
+
       scopedGraph.insertNodes(
         new InfraGraphNode({
-          image: value[0].source,
-          inputs: value[0].inputs,
+          image: module.source,
+          inputs: module.inputs,
           component: options.component,
           appNodeId: options.appNodeId,
-          plugin: 'pulumi',
+          plugin: module.plugin || DEFAULT_PLUGIN,
           name: name,
           action: 'create',
         }),

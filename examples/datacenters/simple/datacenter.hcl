@@ -1,5 +1,5 @@
 module "gateway" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     name = "test-gateway"
     ingressRule = module.ingress.id
@@ -7,14 +7,14 @@ module "gateway" {
 }
 
 module "vpc" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     name = "ryan"
   }
 }
 
 module "databaseCluster" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     name = "gcp-test-11"
     description = "gcp-test"
@@ -27,7 +27,7 @@ module "databaseCluster" {
 }
 
 module "ingress" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     name = "test-ingress-rule"
     serviceId = module.service.id
@@ -35,7 +35,7 @@ module "ingress" {
 }
 
 module "service" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     name = "test-service"
     namespace = "test-service"
@@ -53,7 +53,7 @@ module "service" {
 }
 
 module "deployment" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     name = "test-deployment"
     image = "ryancahill444/hello-world"
@@ -66,7 +66,7 @@ module "deployment" {
 }
 
 module "database" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     databaseCluster = module.databaseCluster.id
     name = "gcp-test-11"
@@ -74,7 +74,7 @@ module "database" {
 }
 
 module "databaseUser" {
-  source = "./empty"
+  build = "./empty"
   inputs = {
     database = module.database.id
     username = "gcp-test-11"

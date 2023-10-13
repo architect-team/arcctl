@@ -9,7 +9,7 @@ variable "domain" {
 }
 
 module "vpc" {
-  source = "./vpc"
+  build = "./vpc"
   inputs = {
     region  = variable.region
     name    = "${datacenter.name}-datacenter"
@@ -17,7 +17,7 @@ module "vpc" {
 }
 
 module "eksCluster" {
-  source = "./eks"
+  build = "./eks"
   inputs = {
     region  = variable.region
     vpcId   = module.vpc.id
@@ -34,7 +34,7 @@ module "eksCluster" {
 
 environment {
   module "namespace" {
-    source = "./namespace"
+    build = "./namespace"
     inputs = {
       name = environment.name
       provider = module.eksCluster.provider
@@ -42,7 +42,7 @@ environment {
   }
 
   module "dnsZone" {
-    source = "./dnsZone"
+    build = "./dnsZone"
     inputs = {
       name = "${environment.name}.${variable.domain}"
     }
@@ -50,7 +50,7 @@ environment {
 
   deployment {
     module "deployment" {
-      source = "./deployment"
+      build = "./deployment"
       inputs = node.inputs
     }
 
@@ -61,7 +61,7 @@ environment {
 
   service {
     module "service" {
-      source = "./service"
+      build = "./service"
       inputs = node.inputs
     }
 
@@ -72,7 +72,7 @@ environment {
 
   ingress {
     module "ingress" {
-      source = "./ingressRule"
+      build = "./ingressRule"
       inputs = merge(node.inputs, {
         dnsZone = module.dnsZone.id
       })
@@ -81,7 +81,7 @@ environment {
 
   secret {
     module "secret" {
-      source = "./secrets"
+      build = "./secrets"
       inputs = node.inputs
     }
 
@@ -95,7 +95,7 @@ environment {
     when = node.inputs.databaseType == "postgres" || node.inputs.databaseType == "mysql"
 
     module "database" {
-      source = "./database"
+      build = "./database"
       inputs = merge(node.inputs, {
         name = node.id
       })

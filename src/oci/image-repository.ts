@@ -294,13 +294,9 @@ export class ImageRepository<C extends any = any> {
           body: JSON.stringify(manifest),
         },
       );
-      console.log(manifest);
-      console.log(this.repository);
-      console.log(this.tag);
       if (res.status >= 400) {
         throw new Error(`Failed to upload manifest: ${await res.text()}`);
       }
-      console.log(res);
     } catch (err) {
       throw new Error('Failed to upload manifest to registry');
     }

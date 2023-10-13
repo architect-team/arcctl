@@ -4,14 +4,14 @@ variable "secretsDir" {
 }
 
 module "traefikRegistry" {
-  source = "./volume"
+  build = "./volume"
   inputs = {
     name = "${datacenter.name}-traefik-registry"
   }
 }
 
 module "traefik" {
-  source = "./deployment"
+  build = "./deployment"
   inputs = {
     name = "${datacenter.name}-gateway"
     image = "traefik:v2.10"
@@ -38,7 +38,7 @@ module "traefik" {
 environment {
   module "postgres" {
     when = contains(environment.databases.*.databaseType, "postgres")
-    source = "./deployment"
+    build = "./deployment"
     inputs = {
       name = "${environment.name}-postgres"
       image = "postgres"
@@ -54,7 +54,7 @@ environment {
 
   module "mysql" {
     when = contains(environment.databases.*.databaseType, "mysql")
-    source = "./deployment"
+    build = "./deployment"
     inputs = {
       name = "${environment.name}-mysql"
       image = "mysql"
@@ -71,7 +71,7 @@ environment {
     when = node.inputs.databaseType == "postgres"
 
     module "database" {
-      source = "./postgres-db"
+      build = "./postgres-db"
       inputs = {
         name = "${node.component}_${node.name}"
         host = module.postgres.host
@@ -96,7 +96,7 @@ environment {
     when = node.inputs.databaseType == "mysql"
 
     module "database" {
-      source = "./mysql-db"
+      build = "./mysql-db"
       inputs = {
         name = "${node.component}_${node.name}"
         host = module.mysql.host
@@ -119,14 +119,14 @@ environment {
 
   deployment {
     module "deployment" {
-      source = "./deployment"
+      build = "./deployment"
       inputs = merge(node.inputs, {})
     }
   }
 
   service {
     module "service" {
-      source = "./service"
+      build = "./service"
       inputs = node.inputs
     }
 
@@ -138,7 +138,7 @@ environment {
 
   ingress {
     module "ingressRule" {
-      source = "./ingressRule"
+      build = "./ingressRule"
       inputs = node.inputs
     }
 
@@ -153,7 +153,7 @@ environment {
 
   secret {
     module "secret" {
-      source = "./secret"
+      build = "./secret"
       inputs = node.inputs
     }
 

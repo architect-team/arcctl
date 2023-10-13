@@ -10,7 +10,7 @@ variable "region" {
 }
 
 module "vpc" {
-  source = "./vpc"
+  build = "./vpc"
   inputs = {
     region = variable.region
     name = "${datacenter.name}-datacenter"
@@ -21,7 +21,7 @@ module "vpc" {
 }
 
 module "k8s" {
-  source = "./k8s-cluster"
+  build = "./k8s-cluster"
   inputs = {
     name = "${datacenter.name}-cluster"
     region = variable.region
@@ -33,7 +33,7 @@ module "k8s" {
 }
 
 module "databaseCluster" {
-  source = "./databaseCluster"
+  build = "./databaseCluster"
   inputs = {
     name = "${datacenter.name}-database"
     databaseType = "pg"
@@ -47,7 +47,7 @@ module "databaseCluster" {
 
 environment {
   module "namespace" {
-    source = "./k8s-namespace"
+    build = "./k8s-namespace"
     inputs = {
       name = environment.name
       kubeconfig = module.k8s.kubeconfig
@@ -56,7 +56,7 @@ environment {
 
   secret {
     module "secret" {
-      source = "./secrets"
+      build = "./secrets"
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
@@ -70,7 +70,7 @@ environment {
 
   database {
     module "database" {
-      source = "./database"
+      build = "./database"
       inputs = merge(node.inputs, {
         region = variable.region
         digitalocean = {
@@ -92,7 +92,7 @@ environment {
 
   ingress {
     module "ingressRule" {
-      source = "./ingressRule"
+      build = "./ingressRule"
       inputs = merge(node.inputs, {})
     }
 
@@ -109,7 +109,7 @@ environment {
 
   databaseUser {
     module "databaseUser" {
-      source = "./databaseUser"
+      build = "./databaseUser"
       inputs = merge(node.inputs, {
         region = variable.region
         digitalocean = {
@@ -131,7 +131,7 @@ environment {
 
   deployment {
     module "deployment" {
-      source = "./k8s-deployment"
+      build = "./k8s-deployment"
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
@@ -141,7 +141,7 @@ environment {
 
   service {
     module "service" {
-      source = "./k8s-service"
+      build = "./k8s-service"
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig

@@ -14,7 +14,7 @@ variable "privateDomain" {
 }
 
 module "vpc" {
-  source = "./vpc"
+  build = "./vpc"
   inputs = {
     region  = variable.region
     name    = "${datacenter.name}-datacenter"
@@ -23,14 +23,14 @@ module "vpc" {
 
 environment {
   module "publicDnsZone" {
-    source = "./dnsZone"
+    build = "./dnsZone"
     inputs = {
       name = "${environment.name}.${variable.publicDomain}"
     }
   }
 
   module "privateDnsZone" {
-    source = "./dnsZone"
+    build = "./dnsZone"
     inputs = {
       name = "${environment.name}.${variable.privateDomain}"
     }
@@ -38,7 +38,7 @@ environment {
 
   deployment {
     module "deployment" {
-      source = "./deployment"
+      build = "./deployment"
       inputs = node.inputs
     }
 
@@ -49,7 +49,7 @@ environment {
 
   service {
     module "service" {
-      source = "./service"
+      build = "./service"
       inputs = node.inputs
     }
 
@@ -60,7 +60,7 @@ environment {
 
   ingress {
     module "ingress" {
-      source = "./ingressRule"
+      build = "./ingressRule"
       inputs = merge(node.inputs, {
         dnsZone = module.dnsZone.id
       })
@@ -69,7 +69,7 @@ environment {
 
   secret {
     module "secret" {
-      source = "./secrets"
+      build = "./secrets"
       inputs = node.inputs
     }
 
@@ -83,7 +83,7 @@ environment {
     when = node.inputs.databaseType == "postgres" || node.inputs.databaseType == "mysql"
 
     module "database" {
-      source = "./database"
+      build = "./database"
       inputs = merge(node.inputs, {
         name = node.id
       })

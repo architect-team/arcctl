@@ -33,7 +33,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
       for (const e of err) {
         console.log(e);
       }
-      return;
+      Deno.exit(1);
     } else {
       console.error(err);
       Deno.exit(1);
@@ -41,14 +41,22 @@ async function build_action(options: BuildOptions, context_file: string): Promis
   }
 
   datacenter = await datacenter.build(async (build_options) => {
-    console.log(`Building module: ${build_options.context}`);
+    const build_dir = path.join(context, build_options.context);
+    console.log(`Building module: ${build_dir}`);
     const server = new ModuleServer(build_options.plugin);
-    const client = await server.start();
-    const build = await client.build({ directory: path.join(context, build_options.context) }, {
-      verbose: options.verbose,
-    });
-    await server.stop();
-    return build.image;
+    try {
+      const client = await server.start(build_dir);
+      const build = await client.build({ directory: build_dir }, {
+        verbose: options.verbose,
+      });
+      return build.image;
+    } catch (e) {
+      console.log(e);
+      await server.stop();
+      Deno.exit(1);
+    } finally {
+      await server.stop();
+    }
   });
 
   const digest = await command_helper.datacenterStore.add(datacenter);

@@ -8,7 +8,7 @@ describe('Datacenter parser', () => {
   it('should parse default schema', async () => {
     const raw_obj = hclParser.default.parseToObject(`
       module "vpc" {
-        source = "./vpc"
+        build = "./vpc"
         inputs = {
           name = "test"
         }
@@ -23,7 +23,7 @@ describe('Datacenter parser', () => {
       version = "v1"
 
       module "vpc" {
-        source = "./vpc"
+        build = "./vpc"
         inputs = {
           name = "test"
         }
@@ -36,7 +36,7 @@ describe('Datacenter parser', () => {
   it('should fail to parse schema with bad field', async () => {
     const raw_obj = hclParser.default.parseToObject(`
       module "vpc" {
-        source = "./vpc"
+        build = "./vpc"
         bad_key = "test"
         inputs = {
           name = "test"
@@ -69,14 +69,14 @@ describe('Datacenter parser', () => {
       }
 
       module "traefikRegistry" {
-        source = "./volume"
+        build = "./volume"
         inputs = {
           name = "\${datacenter.name}-traefik-registry"
         }
       }
 
       module "traefik" {
-        source = "./deployment"
+        build = "./deployment"
         inputs = {
           name = "\${datacenter.name}-gateway"
           image = "traefik:v2.10"
@@ -103,7 +103,7 @@ describe('Datacenter parser', () => {
       environment {
         module "postgres" {
           when = contains(environment.databases.*.databaseType, "postgres")
-          source = "./deployment"
+          build = "./deployment"
           inputs = {
             name = "\${environment.name}-postgres"
             image = "postgres"
@@ -119,7 +119,7 @@ describe('Datacenter parser', () => {
 
         module "mysql" {
           when = contains(environment.databases.*.databaseType, "mysql")
-          source = "./deployment"
+          build = "./deployment"
           inputs = {
             name = "\${environment.name}-mysql"
             image = "mysql"
@@ -136,7 +136,7 @@ describe('Datacenter parser', () => {
           when = node.inputs.databaseType == "postgres"
 
           module "database" {
-            source = "./postgres-db"
+            build = "./postgres-db"
             inputs = {
               name = "\${node.component}_\${node.name}"
               host = module.postgres.host
@@ -159,7 +159,7 @@ describe('Datacenter parser', () => {
           when = node.inputs.databaseType == "mysql"
 
           module "database" {
-            source = "./mysql-db"
+            build = "./mysql-db"
             inputs = {
               name = "\${node.component}_\${node.name}"
               host = module.mysql.host
@@ -180,7 +180,7 @@ describe('Datacenter parser', () => {
 
         deployment {
           module "deployment" {
-            source = "./deployment"
+            build = "./deployment"
             inputs = node.inputs
           }
 
@@ -192,7 +192,7 @@ describe('Datacenter parser', () => {
 
         service {
           module "service" {
-            source = "./service"
+            build = "./service"
             inputs = node.inputs
           }
 
@@ -204,7 +204,7 @@ describe('Datacenter parser', () => {
 
         ingressRule {
           module "ingressRule" {
-            source = "./ingressRule"
+            build = "./ingressRule"
             inputs = node.inputs
           }
 
@@ -218,7 +218,7 @@ describe('Datacenter parser', () => {
 
         secret {
           module "secret" {
-            source = "./secret"
+            build = "./secret"
             inputs = node.inputs
           }
 

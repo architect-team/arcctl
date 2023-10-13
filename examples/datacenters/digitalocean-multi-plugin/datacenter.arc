@@ -10,7 +10,7 @@ variable "region" {
 }
 
 module "vpc" {
-  source = "./vpc"
+  build = "./vpc"
   plugin = "opentofu"
   inputs = {
     region = variable.region
@@ -20,7 +20,7 @@ module "vpc" {
 }
 
 module "k8s" {
-  source = "./pulumi-k8s-cluster"
+  build = "./pulumi-k8s-cluster"
   plugin = "pulumi"
   inputs = {
     name = "${datacenter.name}-cluster"

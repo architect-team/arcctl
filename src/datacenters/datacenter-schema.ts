@@ -19,6 +19,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -29,15 +33,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -70,6 +81,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -80,15 +95,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -167,6 +189,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -177,15 +203,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -256,6 +289,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -266,15 +303,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -316,6 +360,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -326,15 +374,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -367,6 +422,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -377,15 +436,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -447,6 +513,10 @@ export default {
                   "items": {
                     "additionalProperties": false,
                     "properties": {
+                      "build": {
+                        "description": "The path to a module that will be built during the build step.",
+                        "type": "string"
+                      },
                       "inputs": {
                         "anyOf": [
                           {
@@ -457,15 +527,22 @@ export default {
                             "type": "string"
                           }
                         ],
-                        "description": "Input values for the module"
+                        "description": "Input values for the module."
+                      },
+                      "plugin": {
+                        "description": "The plugin used to build the module. Defaults to pulumi.",
+                        "enum": [
+                          "pulumi",
+                          "opentofu"
+                        ],
+                        "type": "string"
                       },
                       "source": {
-                        "description": "The image source of the module",
+                        "description": "The image source of the module.",
                         "type": "string"
                       }
                     },
                     "required": [
-                      "source",
                       "inputs"
                     ],
                     "type": "object"
@@ -484,6 +561,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -494,15 +575,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -543,6 +631,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -553,15 +645,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -612,7 +711,10 @@ export default {
                         },
                         "port": {
                           "description": "Port the service listens on",
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "string"
+                          ]
                         },
                         "protocol": {
                           "description": "Protocol the service listens on",
@@ -676,6 +778,10 @@ export default {
                         "items": {
                           "additionalProperties": false,
                           "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "type": "string"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -686,15 +792,22 @@ export default {
                                   "type": "string"
                                 }
                               ],
-                              "description": "Input values for the module"
+                              "description": "Input values for the module."
+                            },
+                            "plugin": {
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "type": "string"
                             },
                             "source": {
-                              "description": "The image source of the module",
+                              "description": "The image source of the module.",
                               "type": "string"
                             }
                           },
                           "required": [
-                            "source",
                             "inputs"
                           ],
                           "type": "object"
@@ -728,6 +841,10 @@ export default {
             "items": {
               "additionalProperties": false,
               "properties": {
+                "build": {
+                  "description": "The path to a module that will be built during the build step.",
+                  "type": "string"
+                },
                 "inputs": {
                   "anyOf": [
                     {
@@ -738,15 +855,22 @@ export default {
                       "type": "string"
                     }
                   ],
-                  "description": "Input values for the module"
+                  "description": "Input values for the module."
+                },
+                "plugin": {
+                  "description": "The plugin used to build the module. Defaults to pulumi.",
+                  "enum": [
+                    "pulumi",
+                    "opentofu"
+                  ],
+                  "type": "string"
                 },
                 "source": {
-                  "description": "The image source of the module",
+                  "description": "The image source of the module.",
                   "type": "string"
                 }
               },
               "required": [
-                "source",
                 "inputs"
               ],
               "type": "object"

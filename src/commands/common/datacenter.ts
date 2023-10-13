@@ -156,7 +156,7 @@ export class DatacenterUtils {
 
       const server = new ModuleServer(build_options.plugin);
       try {
-        const client = await server.start();
+        const client = await server.start(module_path);
         const res = await client.build({
           directory: module_path,
         });

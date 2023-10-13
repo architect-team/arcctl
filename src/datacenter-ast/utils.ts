@@ -1,7 +1,4 @@
 import * as ESTree from 'estree';
-import * as jp from 'jsonpath';
-
-const JsonPath = (jp as any).default as typeof jp;
 
 /**
  * Returns true if the provided value is NOT a primitive (e.g. an object or array)
@@ -55,19 +52,26 @@ export const flattenIdentifier = (node: ESTree.Node) => {
 /**
  * Retrieves a value (or values) from the provided context object matching the specified, dot-notation path
  */
-export const getContextValueByPath = <T = any>(context: Record<string, any>, path: string): T | undefined => {
-  if (!path || path === '✖') {
+export const getContextValueByPath = (context: any, path: string): any => {
+  const pathParts = path.split('.');
+  const firstPart = pathParts.shift();
+  if (!firstPart) {
+    return context;
+  }
+
+  // Handle splat operator
+  if (Array.isArray(context) && firstPart !== '*') {
     return undefined;
+  } else if (Array.isArray(context)) {
+    const res = context.map((item) => getContextValueByPath(item, pathParts.join('.')));
+    if (res.every((item) => item === undefined)) {
+      return undefined;
+    }
+
+    return res;
+  } else if (typeof context === 'object') {
+    return getContextValueByPath(context[firstPart] ?? undefined, pathParts.join('.'));
   }
 
-  const values = JsonPath.query(context, `$.${path}`);
-  if (values.length === 0) {
-    return undefined;
-  }
-
-  if (values.length === 1) {
-    return values[0];
-  }
-
-  return values as T;
+  return undefined;
 };

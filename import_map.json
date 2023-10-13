@@ -14,7 +14,6 @@
     "estree": "https://esm.sh/v124/@types/estree@1.0.1/index.d.ts",
     "hcl2-parser": "https://esm.sh/v124/hcl2-parser@1.0.3",
     "js-yaml": "https://esm.sh/v124/js-yaml@4.1.0",
-    "jsonpath": "https://esm.sh/v124/*jsonpath@1.1.1",
     "listr": "https://esm.sh/v124/listr@0.14.3",
     "log-update": "https://esm.sh/v124/*log-update@5.0.1",
     "node-plantuml": "https://esm.sh/v124/*node-plantuml@0.9.0",

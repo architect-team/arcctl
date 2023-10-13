@@ -22,6 +22,11 @@ type ModuleDictionary = {
     source: string;
 
     /**
+     * A condition that restricts when the module should be created. Must resolve to a boolean.
+     */
+    when?: string;
+
+    /**
      * Input values for the module
      */
     inputs: Record<string, unknown> | string;
@@ -128,6 +133,15 @@ export default class DatacenterV1 extends Datacenter {
         throw new DuplicateModuleNameError(name);
       }
 
+      if (value[0].when && value[0].when !== 'true' && value[0].when !== 'false') {
+        console.log(value[0].when);
+        // If a when clause is set but can't be evaluated, it means it has an unresolvable value
+        throw new ModuleReferencesNotAllowedInWhenClause();
+      } else if (value[0].when && value[0].when === 'false') {
+        // If it evaluates to false it should be skipped.
+        return;
+      }
+
       scopedGraph.insertNodes(
         new InfraGraphNode({
           image: value[0].source,
@@ -210,6 +224,7 @@ export default class DatacenterV1 extends Datacenter {
       applyContextRecursive(dc, {
         environment: {
           name: options.environmentName,
+          ...appGraph,
         },
       });
 

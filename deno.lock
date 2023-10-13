@@ -671,6 +671,8 @@
     "https://esm.sh/v124/cli-cursor@4.0.0/denonext/cli-cursor.mjs": "0904486398e7456058b337418d8af5338924f07682b96f1b3016a01b94009ecc",
     "https://esm.sh/v124/cli-spinners@2.7.0": "8c361d3c00214f793f340219fef26fe3b5ee1e8ab4ff5aa757d0738a0266329c",
     "https://esm.sh/v124/cli-spinners@2.7.0/denonext/cli-spinners.mjs": "0c26bb5125565e8589d8de5c142dcd435134b6bac34ac920b08f024b766e50ef",
+    "https://esm.sh/v124/dot-prop@8.0.2": "32ce0c8ccbeea1fef370854285f3117bb67686d60ad998c71807f2888a1e5ac5",
+    "https://esm.sh/v124/dot-prop@8.0.2/denonext/dot-prop.mjs": "8b276153fc6c5ff8b7fe2b6476587a3887fa377cdaad1d8f74b255de7c60e7ec",
     "https://esm.sh/v124/eastasianwidth@0.2.0/denonext/eastasianwidth.mjs": "d306d000e83384edac47a6b796e8d92b0f1c5a61e05baaecaca5fe6d33fd6476",
     "https://esm.sh/v124/emoji-regex@9.2.2/denonext/emoji-regex.mjs": "bf5936f0325f687ac4f870f668876f97cf8b9e84e7d8816a6a8c1c1f3e3976d2",
     "https://esm.sh/v124/estraverse@5.3.0": "a172212d2f4a87f930430cb7e0462cb507891b9f390e17025533f572d895092c",

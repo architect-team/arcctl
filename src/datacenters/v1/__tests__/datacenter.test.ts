@@ -975,5 +975,60 @@ describe('DatacenterV1', () => {
         assertEquals(err, new ModuleReferencesNotAllowedInWhenClause());
       }
     });
+
+    it('should support conditional modules', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        environment {
+          module "database" {
+            when = contains(environment.nodes.*.inputs.databaseType, "postgres")
+            source = "architect-io/digitalocean-database:latest"
+            inputs = {
+              type = "postgres"
+            }
+          }
+
+          module "redis" {
+            when = contains(environment.nodes.*.inputs.databaseType, "redis")
+            source = "architect-io/digitalocean-cache:latest"
+            inputs = {
+              type = "redis"
+            }
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const databaseNode = new AppGraphNode({
+        type: 'database',
+        name: 'database',
+        component: 'some-component',
+        inputs: {
+          name: 'my-db',
+          databaseType: 'postgres',
+          databaseVersion: '15',
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [databaseNode],
+      });
+
+      const graph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+        variables: { region: 'nyc1' },
+      });
+
+      const expectedDatabaseModule = new InfraGraphNode({
+        image: 'architect-io/digitalocean-database:latest',
+        inputs: {
+          type: 'postgres',
+        },
+        name: 'database',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(graph.nodes, [expectedDatabaseModule]);
+    });
   });
 });

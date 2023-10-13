@@ -1,55 +1,126 @@
 import * as LooseParser from 'acorn-loose';
 import * as estraverse from 'estraverse';
+import * as ESTree from 'estree';
 import handleFunctions from './functions.ts';
 import { flattenIdentifier, getContextValueByPath, isIdentifier, isNotPrimitive } from './utils.ts';
+
+/**
+ * Checks if a meber expression starts with a dot
+ */
+const startsWithDot = (node: ESTree.MemberExpression | ESTree.Identifier): boolean => {
+  if (node.type === 'Identifier') {
+    return node.name === '✖' || node.name === '.';
+  } else if (node.object.type === 'Identifier' || node.object.type === 'MemberExpression') {
+    return startsWithDot(node.object);
+  }
+
+  return false;
+};
+
+/**
+ * Replaces a splat operator in the input node with the replacement expression
+ */
+const replaceSplatWithExpression = (
+  node: ESTree.MemberExpression | ESTree.Identifier,
+  replacement: ESTree.MemberExpression,
+): ESTree.MemberExpression | ESTree.Identifier => {
+  if (node.type === 'Identifier' && startsWithDot(node)) {
+    return replacement;
+  } else if (node.type === 'Identifier') {
+    throw new Error('No splat operator found');
+  } else if (node.object.type === 'Identifier' || node.object.type === 'MemberExpression') {
+    node.object = replaceSplatWithExpression(node.object, replacement);
+    return node;
+  } else {
+    throw new Error(`Cannot replace ${node.object.type} node with splat operator`);
+  }
+};
+
+/**
+ * The acorn parser incorrectly parses splat operators (e.g. nodes.*.name) as a multiplication
+ * expression. This function detects that incorrect parsing.
+ */
+const isSplatOperation = (node: ESTree.Node) => {
+  return node.type === 'BinaryExpression' &&
+    node.operator === '*' &&
+    node.left.type === 'MemberExpression' &&
+    node.left.property.type === 'Identifier' &&
+    node.left.property.name === '✖' &&
+    node.right.type === 'MemberExpression' &&
+    startsWithDot(node.right);
+};
 
 const handleAst = (ast: any, context: Record<string, any>): string[] => {
   const notFound: string[] = [];
   estraverse.replace(ast, {
-    enter: (node, parent) => {
+    enter: (node) => {
       if (['EmptyStatement', 'VariableDeclaration'].includes(node.type)) {
         return estraverse.VisitorOption.Remove;
       }
 
+      if (node.type === 'BinaryExpression' && isSplatOperation(node)) {
+        const right = node.right as ESTree.MemberExpression;
+        const left = node.left as ESTree.MemberExpression;
+        node = replaceSplatWithExpression(right, {
+          ...left,
+          property: {
+            type: 'Identifier',
+            name: '*',
+            ...('start' in left.property ? { start: left.property.start } : {}),
+            ...('end' in left.property ? { end: left.property.end } : {}),
+          },
+        });
+      }
+
       if (isIdentifier(node)) {
-        if ((parent as any)?.callee === node && 'name' in node) {
-          return {
-            type: 'Literal',
-            value: node.name,
-          };
-        }
-
         const context_path = flattenIdentifier(node);
-        const value = getContextValueByPath(context, context_path);
-        if (value !== undefined) {
-          return {
-            type: 'Literal',
-            value: value,
-          };
-        } else {
-          const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
-          if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
-            notFound.push(context_path);
-          }
 
-          return estraverse.VisitorOption.Skip;
+        try {
+          const value = getContextValueByPath(context, context_path);
+          if (Array.isArray(value)) {
+            return {
+              type: 'ArrayExpression',
+              elements: value.map((v) => ({
+                type: 'Literal',
+                value: v,
+              })),
+            };
+          } else if (value !== undefined) {
+            return {
+              type: 'Literal',
+              value: value,
+            };
+          } else {
+            const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
+            if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
+              notFound.push(context_path);
+            }
+          }
+        } catch (err) {
+          // This is a hack to catch errors with splat operations, which fails jsonpath parsing due
+          // to the odd replacement of "*" with "✖" (e.g. environment.nodes.✖).
+          if (err.message.startsWith('Lexical error')) {
+            const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
+            if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
+              notFound.push(context_path);
+            }
+          }
         }
+
+        return node;
       }
     },
     leave: (node) => {
       if (node.type === 'ExpressionStatement') {
-        if (node.expression.type === 'Literal') {
+        if (node.expression.type === 'Literal' && 'value' in node.expression) {
           return {
             type: 'Literal',
             value: node.expression.value,
-          };
-        } else if (node.expression.type === 'SequenceExpression' || node.expression.type === 'TemplateLiteral') {
-          return {
-            type: 'Literal',
-            value: node.expression.expressions.map((v) => (v as any).value),
-          };
+          } as ESTree.SimpleLiteral;
         }
-      } else if (node.type === 'UnaryExpression') {
+      }
+
+      if (node.type === 'UnaryExpression') {
         let value;
         if (node.operator === '!') {
           if (node.argument.type !== 'Literal') {
@@ -67,15 +138,19 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         return {
           type: 'Literal',
           value: value,
-        };
-      } else if (node.type === 'ConditionalExpression') {
+        } as ESTree.SimpleLiteral;
+      }
+
+      if (node.type === 'ConditionalExpression') {
         if (node.test.type === 'Literal' && node.consequent.type === 'Literal' && node.alternate.type === 'Literal') {
           return {
             type: 'Literal',
             value: node.test.value ? node.consequent.value : node.alternate.value,
-          };
+          } as ESTree.SimpleLiteral;
         }
-      } else if (node.type === 'BinaryExpression') {
+      }
+
+      if (node.type === 'BinaryExpression') {
         if (
           node.left.type !== 'Literal' ||
           node.right.type !== 'Literal' ||
@@ -115,7 +190,7 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         return {
           type: 'Literal',
           value: value,
-        };
+        } as ESTree.SimpleLiteral;
       } else if (node.type === 'LogicalExpression') {
         if (node.left.type !== 'Literal' || node.right.type !== 'Literal') {
           return;
@@ -133,7 +208,7 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         return {
           type: 'Literal',
           value: value,
-        };
+        } as ESTree.SimpleLiteral;
       } else if (node.type === 'CallExpression') {
         const func_name = ('value' in node.callee)
           ? node.callee.value
@@ -143,22 +218,21 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
         if (!func_name) {
           throw new Error(`No function name for node.type: ${node.type}`);
         }
-        return {
-          type: 'Literal',
-          value: handleFunctions(func_name.toString(), node),
-        };
+
+        return handleFunctions(func_name.toString(), node);
       } else if (node.type === 'IfStatement') {
         if (node.test.type === 'Literal') {
           return {
             type: 'Literal',
             value: Boolean(node.test.value),
-          };
+          } as ESTree.SimpleLiteral;
         } else {
           throw new Error(`Unsupported node.test.type: ${node.test.type}`);
         }
       }
     },
   });
+
   return notFound;
 };
 

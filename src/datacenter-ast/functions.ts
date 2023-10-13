@@ -1,35 +1,54 @@
 import * as ESTree from 'estree';
 
-function instanceOf<T>(object: any, key: string): object is T {
-  return key in object;
-}
-
 type ESTreeNode = {
   type: string;
   [key: string]: any;
 };
 
-const trim = (node: ESTree.CallExpression) => {
-  if (!('value' in node.arguments[0])) {
-    throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
+const trim = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments.length !== 1) {
+    throw new Error(`Expected exactly one argument for the trim() method. Got ${node.arguments.length}.`);
+  } else if (node.arguments[0].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
+  } else if (node.arguments[0].type !== 'Literal') {
+    throw new Error(`Unsupported argument type for trim(): ${node.arguments[0].type}`);
   }
-  return node.arguments[0].value?.toString().trim();
-};
 
-const merge = (node: ESTree.CallExpression) => {
-  if (!('arguments' in node)) {
-    throw new Error(`Unsupported node.arguments for node.type: ${node}`);
-  }
   return {
-    ...convertEstreeNodeToObject(node.arguments[0] as any),
-    ...convertEstreeNodeToObject(node.arguments[1] as any),
+    type: 'Literal',
+    value: node.arguments[0].value?.toString().trim() || '',
   };
 };
 
-const contains = (node: ESTree.CallExpression) => {
-  if (!('arguments' in node)) {
-    throw new Error(`Unsupported node.arguments for node.type: ${node}`);
+const merge = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments.length !== 2) {
+    throw new Error(`Expected exactly two arguments for the merge() method. Got ${node.arguments.length}.`);
+  } else if (node.arguments[0].type === 'MemberExpression' || node.arguments[1].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
+  }
+
+  return {
+    type: 'Literal',
+    value: {
+      ...convertEstreeNodeToObject(node.arguments[0]),
+      ...convertEstreeNodeToObject(node.arguments[1]),
+    },
+  };
+};
+
+/**
+ * Determines whether an array includes a certain element, returning true or false as appropriate.
+ */
+const contains = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments.length !== 2) {
+    throw new Error(`Expected exactly two arguments for the contains() method. Got ${node.arguments.length}.`);
+  } else if (node.arguments[0].type === 'MemberExpression' || node.arguments[1].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
   } else if (node.arguments[0].type !== 'ArrayExpression') {
+    console.log(node.arguments[0]);
     throw new Error(`Expected first argument of contains() to be an array.`);
   } else if (!('value' in node.arguments[1])) {
     throw new Error(`Expected second argument of contains() to be a literal.`);
@@ -47,35 +66,67 @@ const contains = (node: ESTree.CallExpression) => {
   }
 
   const res = Boolean(node.arguments[1].value && arr.includes(node.arguments[1].value.toString()));
-  return res.toString();
+  return {
+    type: 'Literal',
+    value: res.toString(),
+  };
 };
 
-const toUpper = (node: ESTree.CallExpression) => {
-  if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {
-    throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
+/**
+ * Converts all the alphabetic characters in a string to uppercase.
+ */
+const toUpper = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments[0].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
+  } else if (node.arguments[0].type !== 'Literal') {
+    throw new Error(`Unsupported argument type for toUpper(): ${node.arguments[0].type}`);
   }
-  return node.arguments[0].value?.toString().toUpperCase();
+
+  return {
+    type: 'Literal',
+    value: node.arguments[0].value?.toString().toUpperCase() || '',
+  };
 };
 
-const toLower = (node: ESTree.CallExpression) => {
-  if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {
-    throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
+/**
+ * Converts all the alphabetic characters in a string to lowercase.
+ */
+const toLower = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments[0].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
+  } else if (node.arguments[0].type !== 'Literal') {
+    throw new Error(`Unsupported argument type for toLower(): ${node.arguments[0].type}`);
   }
-  return node.arguments[0].value?.toString().toLowerCase();
+
+  return {
+    type: 'Literal',
+    value: node.arguments[0].value?.toString().toLowerCase() || '',
+  };
 };
 
-const startsWith = (node: ESTree.CallExpression) => {
-  if (!instanceOf<ESTree.Literal>(node.arguments[0], 'value')) {
-    throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[0].type} node.type: ${node.type}`);
-  }
-  if (!instanceOf<ESTree.Literal>(node.arguments[1], 'value')) {
-    throw new Error(`Unsupported node.arguments[0].type: ${node.arguments[1].type} node.type: ${node.type}`);
+/**
+ * Checks if the first argument starts with the second argument.
+ */
+const startsWith = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments[0].type === 'MemberExpression' || node.arguments[1].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
+  } else if (node.arguments[0].type !== 'Literal' || node.arguments[1].type !== 'Literal') {
+    throw new Error(
+      `Unsupported argument types for startsWith(): ${node.arguments[0].type} and ${node.arguments[1].type}`,
+    );
   }
 
-  return node.arguments[0].value?.toString().startsWith(node.arguments[1].value?.toString() || '').toString();
+  const res = node.arguments[0].value?.toString().startsWith(node.arguments[1].value?.toString() || '');
+  return {
+    type: 'Literal',
+    value: res === true ? 'true' : 'false',
+  };
 };
 
-type functionType = (node: ESTree.CallExpression) => any;
+type functionType = (node: ESTree.CallExpression) => ESTree.CallExpression | ESTree.SimpleLiteral;
 
 const functions: Record<string, functionType> = {
   contains,
@@ -86,7 +137,7 @@ const functions: Record<string, functionType> = {
   startsWith,
 };
 
-const convertEstreeNodeToObject = (node: ESTreeNode, context: any = {}): any => {
+const convertEstreeNodeToObject = (node: ESTreeNode): any => {
   switch (node.type) {
     case 'ObjectExpression':
       return node.properties.reduce((obj: any, prop: ESTreeNode) => {
@@ -118,7 +169,10 @@ const convertEstreeNodeToObject = (node: ESTreeNode, context: any = {}): any => 
   }
 };
 
-const handleFunctions = (func_name: string, node: ESTree.CallExpression) => {
+const handleFunctions = (
+  func_name: string,
+  node: ESTree.CallExpression,
+): ESTree.CallExpression | ESTree.SimpleLiteral => {
   const func = functions[func_name];
   if (!func) {
     throw new Error(`Unsupported function: ${func_name}`);

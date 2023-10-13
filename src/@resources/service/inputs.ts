@@ -5,16 +5,6 @@ export type ServiceInputs = {
   name: string;
 
   /**
-   * Resource namespace
-   */
-  namespace?: string;
-
-  /**
-   * Resource labels
-   */
-  labels?: Record<string, string>;
-
-  /**
    * Target port
    */
   target_port: number;
@@ -49,11 +39,6 @@ export type ServiceInputs = {
    * A deployment the service should point to
    */
   target_deployment?: string;
-
-  /**
-   * The servers the service should load balance between
-   */
-  target_servers?: string[];
 };
 
 export default ServiceInputs;

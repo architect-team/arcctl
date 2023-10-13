@@ -13,19 +13,8 @@
           "description": "External address to point to",
           "type": "string"
         },
-        "labels": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource labels",
-          "type": "object"
-        },
         "name": {
           "description": "Hostname to listen on",
-          "type": "string"
-        },
-        "namespace": {
-          "description": "Resource namespace",
           "type": "string"
         },
         "password": {
@@ -44,13 +33,6 @@
           "default": "http",
           "description": "Protocol",
           "type": "string"
-        },
-        "target_servers": {
-          "description": "The servers the service should load balance between",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
         },
         "username": {
           "description": "Basic auth username",

@@ -131,8 +131,10 @@ environment {
     }
 
     outputs = {
+      protocol = "http"
       host = module.service.host
       port = module.service.port
+      url = "http://${module.service.host}:${module.service.port}"
     }
   }
 
@@ -158,8 +160,7 @@ environment {
     }
 
     outputs = {
-      name = module.secret.name
-      value = module.secret.value
+      data = module.secret.data
     }
   }
 }

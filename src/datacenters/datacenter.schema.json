@@ -46,6 +46,10 @@
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                              "type": "string"
                             }
                           },
                           "required": [
@@ -107,6 +111,10 @@
                             },
                             "source": {
                               "description": "The image source of the module.",
+                              "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
                               "type": "string"
                             }
                           },
@@ -216,6 +224,10 @@
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                              "type": "string"
                             }
                           },
                           "required": [
@@ -316,6 +328,10 @@
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                              "type": "string"
                             }
                           },
                           "required": [
@@ -387,6 +403,10 @@
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                              "type": "string"
                             }
                           },
                           "required": [
@@ -448,6 +468,10 @@
                             },
                             "source": {
                               "description": "The image source of the module.",
+                              "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
                               "type": "string"
                             }
                           },
@@ -540,6 +564,10 @@
                       "source": {
                         "description": "The image source of the module.",
                         "type": "string"
+                      },
+                      "when": {
+                        "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -587,6 +615,10 @@
                             },
                             "source": {
                               "description": "The image source of the module.",
+                              "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
                               "type": "string"
                             }
                           },
@@ -658,6 +690,10 @@
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                              "type": "string"
                             }
                           },
                           "required": [
@@ -674,39 +710,8 @@
                       "additionalProperties": false,
                       "description": "A map of output values to be passed to upstream application resources",
                       "properties": {
-                        "account": {
-                          "description": "The account used to connect to this service",
-                          "type": "string"
-                        },
-                        "dnsZone": {
-                          "description": "Optional DNS zone to use for listeners",
-                          "type": "string"
-                        },
-                        "external_hostname": {
-                          "description": "External address to point to",
-                          "type": "string"
-                        },
                         "host": {
                           "description": "Host the service listens on",
-                          "type": "string"
-                        },
-                        "labels": {
-                          "additionalProperties": {
-                            "type": "string"
-                          },
-                          "description": "Resource labels",
-                          "type": "object"
-                        },
-                        "name": {
-                          "description": "Hostname to listen on",
-                          "type": "string"
-                        },
-                        "namespace": {
-                          "description": "Resource namespace",
-                          "type": "string"
-                        },
-                        "password": {
-                          "description": "Basic auth password",
                           "type": "string"
                         },
                         "port": {
@@ -720,42 +725,15 @@
                           "description": "Protocol the service listens on",
                           "type": "string"
                         },
-                        "target_deployment": {
-                          "description": "A deployment the service should point to",
-                          "type": "string"
-                        },
-                        "target_port": {
-                          "description": "Target port",
-                          "type": "number"
-                        },
-                        "target_protocol": {
-                          "default": "http",
-                          "description": "Protocol",
-                          "type": "string"
-                        },
-                        "target_servers": {
-                          "description": "The servers the service should load balance between",
-                          "items": {
-                            "type": "string"
-                          },
-                          "type": "array"
-                        },
                         "url": {
                           "description": "Fully resolvable URL of the service",
-                          "type": "string"
-                        },
-                        "username": {
-                          "description": "Basic auth username",
                           "type": "string"
                         }
                       },
                       "required": [
-                        "account",
-                        "host",
-                        "name",
-                        "port",
                         "protocol",
-                        "target_port",
+                        "host",
+                        "port",
                         "url"
                       ],
                       "type": "object"
@@ -804,6 +782,10 @@
                             },
                             "source": {
                               "description": "The image source of the module.",
+                              "type": "string"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
                               "type": "string"
                             }
                           },
@@ -867,6 +849,10 @@
                 },
                 "source": {
                   "description": "The image source of the module.",
+                  "type": "string"
+                },
+                "when": {
+                  "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
                   "type": "string"
                 }
               },

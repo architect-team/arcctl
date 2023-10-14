@@ -80,25 +80,6 @@
           "description": "Environment variables to pass to the container",
           "type": "object"
         },
-        "exposed_ports": {
-          "description": "Port that the deployment should expose on all nodes",
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "port": {
-                "type": "number"
-              },
-              "target_port": {
-                "type": "number"
-              }
-            },
-            "required": [
-              "target_port"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        },
         "image": {
           "description": "Image the container runs from",
           "type": "string"
@@ -137,131 +118,23 @@
           "items": {
             "additionalProperties": false,
             "properties": {
-              "id": {
-                "description": "Unique ID of the service the deployment should attach itself to",
+              "host": {
+                "description": "The hostname the service is listening on",
                 "type": "string"
               },
               "port": {
                 "description": "The port the service deployment is listening on",
                 "type": "string"
+              },
+              "protocol": {
+                "description": "The protocol the service is listening on",
+                "type": "string"
               }
             },
             "required": [
-              "id",
-              "port"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "sidecars": {
-          "description": "A set of additional containers to run as part of each replica",
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "command": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  }
-                ],
-                "description": "Command to execute in the container"
-              },
-              "cpu": {
-                "description": "Number of CPUs to allocate to the container",
-                "minimum": 0.1,
-                "type": "number"
-              },
-              "entrypoint": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  }
-                ],
-                "description": "Entrypoint of the container"
-              },
-              "environment": {
-                "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "null"
-                    },
-                    {
-                      "not": {}
-                    }
-                  ]
-                },
-                "description": "Environment variables to pass to the container",
-                "type": "object"
-              },
-              "image": {
-                "description": "Image the container runs from",
-                "type": "string"
-              },
-              "memory": {
-                "description": "Amount of memory to allocate to the container",
-                "type": "string"
-              },
-              "probes": {
-                "additionalProperties": false,
-                "properties": {
-                  "liveness": {
-                    "$ref": "#/definitions/ProbeSchema"
-                  }
-                },
-                "type": "object"
-              },
-              "volume_mounts": {
-                "description": "A set of volumes to mount to the container",
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "image": {
-                      "type": "string"
-                    },
-                    "mount_path": {
-                      "type": "string"
-                    },
-                    "readonly": {
-                      "type": "boolean"
-                    },
-                    "volume": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "volume",
-                    "mount_path",
-                    "readonly"
-                  ],
-                  "type": "object"
-                },
-                "type": "array"
-              }
-            },
-            "required": [
-              "image"
+              "host",
+              "port",
+              "protocol"
             ],
             "type": "object"
           },

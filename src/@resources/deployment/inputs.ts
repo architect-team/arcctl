@@ -137,14 +137,6 @@ export type DeploymentInputs = {
   replicas?: number;
 
   /**
-   * Port that the deployment should expose on all nodes
-   */
-  exposed_ports?: {
-    port?: number;
-    target_port: number;
-  }[];
-
-  /**
    * Target platform the deployment will run on
    */
   platform?: string;
@@ -166,23 +158,23 @@ export type DeploymentInputs = {
   };
 
   /**
-   * A set of additional containers to run as part of each replica
-   */
-  sidecars?: Array<Container>;
-
-  /**
    * Services this deployment should register itself with
    */
   services?: Array<{
     /**
-     * Unique ID of the service the deployment should attach itself to
+     * The hostname the service is listening on
      */
-    id: string;
+    host: string;
 
     /**
      * The port the service deployment is listening on
      */
     port: string;
+
+    /**
+     * The protocol the service is listening on
+     */
+    protocol: string;
   }>;
 } & Container;
 

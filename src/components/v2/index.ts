@@ -455,8 +455,9 @@ export default class ComponentV2 extends Component {
       (deployment_node as AppGraphNode<'deployment'>).inputs.services =
         (deployment_node as AppGraphNode<'deployment'>).inputs.services || [];
       (deployment_node as AppGraphNode<'deployment'>).inputs.services!.push({
-        id: `\${{ ${service_node.getId()}.id }}`,
-        port: `\${{ ${service_node.getId()}.target_port }}`,
+        host: `\${{ ${service_node.getId()}.host }}`,
+        protocol: `\${{ ${service_node.getId()}.protocol }}`,
+        port: `\${{ ${service_node.getId()}.port }}`,
       });
       graph.insertNodes(deployment_node);
 

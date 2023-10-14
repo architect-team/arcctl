@@ -3,34 +3,22 @@ variable "secretsDir" {
   type = "string"
 }
 
-module "traefikRegistry" {
-  build = "./volume"
-  inputs = {
-    name = "${datacenter.name}-traefik-registry"
-  }
-}
-
 module "traefik" {
   build = "./deployment"
   inputs = {
     name = "${datacenter.name}-gateway"
     image = "traefik:v2.10"
-    volume_mounts = [{
-      mount_path = "/etc/traefik"
-      volume = module.traefikRegistry.volume
-    }]
     command = [
-      "--providers.file.directory=/etc/traefik",
-      "--providers.file.watch=true",
+      "--providers.docker=true",
       "--api.insecure=true",
       "--api.dashboard=true"
     ]
-    exposed_ports = [{
-      port = 80
-      target_port = 80
+    ports = [{
+      internal = 80
+      external = 80
     }, {
-      port = 8080
-      target_port = 8080
+      internal = 8080
+      external = 8080
     }]
   }
 }
@@ -42,27 +30,13 @@ environment {
     inputs = {
       name = "${environment.name}-postgres"
       image = "postgres"
-      exposed_ports = [{
-        target_port = 5432
+      services = [{
+        hostname = "${environment.name}-postgres",
+        port = 5432,
+        protocol = "postgresql"
       }]
       environment = {
-        POSTGRES_USER = "postgres"
         POSTGRES_PASSWORD = "password"
-      }
-    }
-  }
-
-  module "mysql" {
-    when = contains(environment.databases.*.databaseType, "mysql")
-    build = "./deployment"
-    inputs = {
-      name = "${environment.name}-mysql"
-      image = "mysql"
-      exposed_ports = [{
-        target_port = 3306
-      }]
-      environment = {
-        MYSQL_ROOT_PASSWORD = "password"
       }
     }
   }
@@ -72,55 +46,32 @@ environment {
 
     module "database" {
       build = "./postgres-db"
+      plugin = "opentofu"
       inputs = {
-        name = "${node.component}_${node.name}"
-        host = module.postgres.host
-        port = module.postgres.ports[0]
-        username = "user"
+        name = "${environment.name}_${node.component}_${node.name}"
+        host = "${environment.name}-postgres.127.0.0.1.nip.io"
+        port = 5432
+        username = "postgres"
         password = "password"
+        database = "postgres"
       }
     }
 
     outputs = {
       protocol = "postgresql"
-      host = module.postgres.host
-      port = module.postgres.ports[0]
-      username = module.database.username
-      password = module.database.password
+      host = "${environment.name}-postgres.127.0.0.1.nip.io"
+      port = 5432
+      username = "postgres"
+      password = "password"
       name = module.database.name
-      url = "postgresql://${module.database.username}:${module.database.password}@${module.database.host}:${module.database.port}/${module.database.name}"
-    }
-  }
-
-  database {
-    when = node.inputs.databaseType == "mysql"
-
-    module "database" {
-      build = "./mysql-db"
-      inputs = {
-        name = "${node.component}_${node.name}"
-        host = module.mysql.host
-        port = module.mysql.ports[0]
-        username = "root"
-        password = "password"
-      }
-    }
-
-    outputs = {
-      protocol = "mysql"
-      host = module.postgres.host
-      port = module.postgres.ports[0]
-      username = module.database.username
-      password = module.database.password
-      name = module.database.name
-      url = "mysql://${module.database.username}:${module.database.password}@${module.database.host}:${module.database.port}/${module.database.name}"
+      url = "postgresql://postgres:password@${environment.name}-postgres.127.0.0.1.nip.io:5432/${module.database.name}"
     }
   }
 
   deployment {
     module "deployment" {
       build = "./deployment"
-      inputs = merge(node.inputs, {})
+      inputs = node.inputs
     }
   }
 

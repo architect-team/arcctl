@@ -4,6 +4,7 @@ import { Plugin } from './types.ts';
 export class ModuleServer {
   private plugin: Plugin;
   private proc?: Deno.ChildProcess;
+  private containerName?: string;
 
   constructor(plugin: Plugin) {
     this.plugin = plugin;
@@ -24,20 +25,24 @@ export class ModuleServer {
   /**
    * Start the websocket server for the plugin type and return the port its available on
    */
-  start(directory?: string): Promise<ModuleClient> {
-    const pluginBinary = `arcctl-${this.plugin}-plugin`;
+  async start(directory?: string): Promise<ModuleClient> {
+    const pluginImage = `architectio/${this.plugin}-plugin`;
+    this.containerName = pluginImage.replace('/', '-');
     const command = new Deno.Command('docker', {
       args: [
         'run',
         '--name',
-        pluginBinary,
+        this.containerName,
         '--rm',
+        '--pull',
+        'missing', // TODO: version the plugins with the CLI to ensure that the right version of the plugin will be pulled if
+        '--quiet', // ignore the docker error 'unable to find image <image name> locally if the image needs to be downloaded
         '-p',
         '50051',
         '-v',
         '/var/run/docker.sock:/var/run/docker.sock',
         ...(directory ? ['-v', `${directory}:${directory}`] : []),
-        pluginBinary,
+        pluginImage,
       ],
       stdout: 'piped',
       stderr: 'piped',
@@ -51,7 +56,7 @@ export class ModuleServer {
           write: async (chunk) => {
             const output = new TextDecoder().decode(chunk);
             if (output.includes('Started server on port')) {
-              const port = await this.getPort(pluginBinary);
+              const port = await this.getPort(this.containerName!);
               this.proc = process;
               resolve(new ModuleClient(port));
             }
@@ -71,6 +76,16 @@ export class ModuleServer {
   }
 
   async stop(): Promise<void> {
+    const command = new Deno.Command('docker', {
+      args: [
+        'stop',
+        this.containerName!,
+      ],
+      stdout: 'piped',
+      stderr: 'piped',
+    });
+    const stopProccess = command.spawn();
+    await stopProccess.status;
     this.proc?.kill();
     await this.proc?.status;
   }

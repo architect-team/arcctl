@@ -1,3 +1,4 @@
+import * as dot from 'dot-object';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import { Logger } from 'winston';
@@ -98,7 +99,10 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     if (this.appNodeId) {
       parts.unshift(this.appNodeId);
     }
-    return parts.join('/');
+    // Note: The seperator here must be a valid javascript identifier
+    // because this ID gets passed through the AST parser to be replaced
+    // by the appropriate value.
+    return parts.join('__');
   }
 
   public equals(node: InfraGraphNode<P>): boolean {
@@ -133,7 +137,9 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
         try {
           const res = await client.apply({
             datacenterid: 'datacenter',
-            inputs: Object.entries(this.inputs) as [string, string][],
+            // Converts an object like {a: {b: "c"}} into {"a.b": "c"}
+            // so Object.entries is always a [string, string][].
+            inputs: Object.entries(dot.dot(this.inputs)) as [string, string][],
             image: this.image,
             state: this.state,
             destroy: this.action === 'delete',

@@ -162,7 +162,6 @@ environment {
       port = module.service.port
       url = module.service.url
       target_port = module.service.target_port
-      account = module.service.account
     }
   }
 }

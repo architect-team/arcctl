@@ -52,7 +52,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     );
 
     const context = completedNodesWithOutputs.reduce((context, node) => {
-      context[node.name] = node.outputs;
+      context[node.getId()] = node.outputs;
       return context;
     }, {} as Record<string, any>);
 
@@ -216,42 +216,43 @@ export class InfraGraph extends Graph<InfraGraphNode> {
 
     return new Observable((subscriber) => {
       (async () => {
-        for (const node of this.getQueue()) {
-          if (node.inputs) {
-            try {
-              if (node.action !== 'delete') {
-                this.resolveInputFunctionsAndRefs(node);
+        let nodeQueue: InfraGraphNode[];
+        while ((nodeQueue = this.getQueue()).length > 0) {
+          for (const node of nodeQueue) {
+            if (node.inputs) {
+              try {
+                if (node.action !== 'delete') {
+                  this.resolveInputFunctionsAndRefs(node);
+                }
+              } catch (err: any) {
+                node.status.state = 'error';
+                node.status.message = err.message;
+                subscriber.error(err.message);
+                throw err;
               }
-            } catch (err: any) {
-              node.status.state = 'error';
-              node.status.message = err.message;
-              subscriber.error(err.message);
-              return;
             }
-          }
 
-          await new Promise<void>((resolve, reject) => {
-            node
-              .apply({
-                ...options,
-                cwd,
-              })
-              .subscribe({
-                // TODO: Is this needed? No longer modifying plan while it's running
-                // next: (res) => {
-                //   this.insertSteps(res);
-                // },
-                error: (err: any) => {
-                  reject(err);
-                  return;
-                },
-                complete: () => {
-                  resolve();
-                  return;
-                },
-              });
-          });
-          subscriber.next(this);
+            await new Promise<void>((resolve, reject) => {
+              node
+                .apply({
+                  ...options,
+                  cwd,
+                })
+                .subscribe({
+                  // TODO: Is this needed? No longer modifying plan while it's running
+                  // next: (res) => {
+                  //   this.insertSteps(res);
+                  // },
+                  error: (err: any) => {
+                    reject(err);
+                  },
+                  complete: () => {
+                    resolve();
+                  },
+                });
+            });
+            subscriber.next(this);
+          }
         }
       })().then(() => {
         for (const node of this.nodes) {

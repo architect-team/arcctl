@@ -48,7 +48,6 @@ const contains = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.S
     // MemberExpression nodes may be resolved later
     return node;
   } else if (node.arguments[0].type !== 'ArrayExpression') {
-    console.log(node.arguments[0]);
     throw new Error(`Expected first argument of contains() to be an array.`);
   } else if (!('value' in node.arguments[1])) {
     throw new Error(`Expected second argument of contains() to be a literal.`);

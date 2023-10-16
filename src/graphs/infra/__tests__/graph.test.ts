@@ -267,7 +267,7 @@ describe('InfraGraph', () => {
 
       const nodeWithRefInput = createGraphNode('testInputNode', {
         state: 'pending',
-        inputs: { anInput: `\${ ${nodeWithOutput.name}.anOutput }` },
+        inputs: { anInput: `\${ ${nodeWithOutput.getId()}.anOutput }` },
       });
 
       const graph = new InfraGraph({
@@ -297,10 +297,10 @@ describe('InfraGraph', () => {
         inputs: {
           aListOfObjectsInput: [
             {
-              input1: `\${ toLower(${nodeWithOutput.name}.anOutput) }`,
+              input1: `\${ toLower(${nodeWithOutput.getId()}.anOutput) }`,
             },
             {
-              input2: `\${ toUpper(${nodeWithOutput.name}.anotherOutput) }`,
+              input2: `\${ toUpper(${nodeWithOutput.getId()}.anotherOutput) }`,
             },
           ],
         },

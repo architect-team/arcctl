@@ -431,7 +431,6 @@ export default class DatacenterV1 extends Datacenter {
             const outputValue = outputs[key] as string;
 
             // Check if the output value is actually a pointer to another module
-            console.log(outputValue);
             const moduleRefs = outputValue.matchAll(
               /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g,
             );

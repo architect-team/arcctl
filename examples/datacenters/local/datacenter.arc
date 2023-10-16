@@ -25,7 +25,7 @@ module "traefik" {
 
 environment {
   module "postgres" {
-    when = contains(environment.databases.*.databaseType, "postgres")
+    when = contains(environment.nodes.*.inputs.databaseType, "postgres")
     build = "./deployment"
     inputs = {
       name = "${environment.name}-postgres"
@@ -68,6 +68,18 @@ environment {
     }
   }
 
+  databaseUser {
+    outputs = {
+      protocol = "postgresql"
+      host = "${environment.name}-postgres.127.0.0.1.nip.io"
+      port = 5432
+      database = node.inputs.database
+      username = node.inputs.username
+      password = "password"
+      url = "postgresql://${node.inputs.username}:password@${environment.name}-postgres.127.0.0.1.nip.io:5432/${node.inputs.database}"
+    }
+  }
+
   deployment {
     module "deployment" {
       build = "./deployment"
@@ -84,34 +96,33 @@ environment {
     outputs = {
       protocol = "http"
       host = module.service.host
-      port = module.service.port
-      url = "http://${module.service.host}:${module.service.port}"
-    }
-  }
-
-  ingress {
-    module "ingressRule" {
-      build = "./ingressRule"
-      inputs = node.inputs
-    }
-
-    outputs = {
-      protocol = module.ingressRule.protocol
-      host = module.ingressRule.host
-      port = module.ingressRule.port
-      path = module.ingressRule.path
-      url = "${module.ingressRule.protocol}://${module.ingressRule.host}:${module.ingressRule.port}${module.ingressRule.path}"
+      port = 80
+      url = "http://${module.service.host}"
     }
   }
 
   secret {
     module "secret" {
       build = "./secret"
-      inputs = node.inputs
+      plugin = "opentofu"
+      inputs = {
+        filename = "${var.secretsDir}/${environment.name}/${node.component}/${node.name}.json"
+        content = node.inputs.data
+      }
     }
 
     outputs = {
-      data = module.secret.data
+      data = node.inputs.data
+    }
+  }
+
+  ingress {
+    outputs = {
+      protocol = "${node.inputs.protocol || "http"}"
+      host = "${node.inputs.service}.127.0.0.1.nip.io"
+      port = 80
+      url = "${node.inputs.protocol || "http"}://${node.inputs.service}.127.0.0.1.nip.io${node.inputs.path || "/"}"
+      path = "${node.inputs.path || "/"}"
     }
   }
 }

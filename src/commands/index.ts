@@ -8,6 +8,7 @@ import ListCommands from './list/index.ts';
 import PushCommands from './push/index.ts';
 import SetCommands from './set/index.ts';
 import TagCommand from './tag.ts';
+import TestCommands from './test/index.ts';
 
 export default async function arcctl() {
   return BaseCommand()
@@ -20,5 +21,6 @@ export default async function arcctl() {
     .command(DestroyCommands.getName(), DestroyCommands)
     .command(GetCommands.getName(), GetCommands)
     .command(ListCommands.getName(), ListCommands)
+    .command(TestCommands.getName(), TestCommands)
     .parse(Deno.args);
 }

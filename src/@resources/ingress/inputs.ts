@@ -21,11 +21,6 @@ export type IngressRuleInputs = {
   subdomain?: string;
 
   /**
-   * The DNS zone (aka base URL) that the ingress rule listens on
-   */
-  dnsZone?: string;
-
-  /**
    * Basic auth username
    */
   username?: string;

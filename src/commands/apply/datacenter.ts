@@ -132,6 +132,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       for (const e of err) {
         console.log(e);
       }
+      Deno.exit(1);
     } else {
       console.error(err);
       Deno.exit(1);

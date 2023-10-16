@@ -114,7 +114,19 @@ export default class DatacenterV1 extends Datacenter {
   }
 
   public getVariablesSchema(): DatacenterVariablesSchema {
-    throw new Error('Method not implemented.');
+    const res: DatacenterVariablesSchema = {};
+
+    for (const [key, value] of Object.entries(this.variable || {})) {
+      for (const item of value) {
+        res[key] = {
+          type: item.type,
+          description: item.description,
+          value: item.default,
+        };
+      }
+    }
+
+    return res;
   }
 
   public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
@@ -406,31 +418,38 @@ export default class DatacenterV1 extends Datacenter {
         infraGraph.insertEdges(...g.edges);
       });
 
-      infraGraph.nodes = infraGraph.nodes.map((node) =>
-        new InfraGraphNode(JSON.parse(
-          JSON.stringify(node).replace(
-            /\$\{\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\s*\}\}/g,
-            (_, component_id, key) => {
-              const outputs = outputsMap[component_id] as any;
-              if (!outputs) {
-                throw new MissingResourceHook(node.getId(), component_id);
-              }
+      // Look for appGraph relationships, create edges, and replace with infraGraph outputs
+      infraGraph.nodes = infraGraph.nodes.map((node) => {
+        const stringifiedNode = JSON.stringify(node, null, 2).replaceAll(
+          /\$\{\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\s*\}\}/g,
+          (_, component_id, key) => {
+            const outputs = outputsMap[component_id] as any;
+            if (!outputs) {
+              throw new MissingResourceHook(node.getId(), component_id);
+            }
 
-              const [match, target_component_id] = outputs[key].match(
-                /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/,
-              );
+            const outputValue = outputs[key] as string;
+
+            // Check if the output value is actually a pointer to another module
+            console.log(outputValue);
+            const moduleRefs = outputValue.matchAll(
+              /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g,
+            );
+            for (const match of moduleRefs) {
               infraGraph.insertEdges(
                 new GraphEdge({
                   from: node.getId(),
-                  to: target_component_id,
+                  to: match[1],
                 }),
               );
+            }
 
-              return outputs[key];
-            },
-          ),
-        ))
-      );
+            return encodeURIComponent(outputValue);
+          },
+        );
+
+        return new InfraGraphNode(JSON.parse(stringifiedNode));
+      });
     }
 
     return infraGraph;

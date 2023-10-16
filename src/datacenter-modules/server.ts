@@ -86,7 +86,6 @@ export class ModuleServer {
     });
     const stopProccess = command.spawn();
     await stopProccess.status;
-    this.proc?.kill();
     await this.proc?.status;
   }
 }

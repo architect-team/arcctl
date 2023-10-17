@@ -19,7 +19,7 @@ const DestroyDatacenterCommand = BaseCommand()
   .arguments('[name:string]')
   .action(destroy_datacenter_action);
 
-async function destroy_datacenter_action(options: DestroyDatacenterOptions, name: string) {
+async function destroy_datacenter_action(options: DestroyDatacenterOptions, name?: string) {
   const command_helper = new CommandHelper(options);
 
   const datacenterRecord = await promptForDatacenter(command_helper, name);

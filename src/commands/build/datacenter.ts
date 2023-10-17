@@ -44,18 +44,18 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     const build_dir = path.join(context, build_options.context);
     console.log(`Building module: ${build_dir}`);
     const server = new ModuleServer(build_options.plugin);
+    const client = await server.start(build_dir);
     try {
-      const client = await server.start(build_dir);
       const build = await client.build({ directory: build_dir }, {
         verbose: options.verbose,
       });
+      await client.close();
+      await server.stop();
       return build.image;
     } catch (e) {
-      console.log(e);
+      await client.close();
       await server.stop();
-      Deno.exit(1);
-    } finally {
-      await server.stop();
+      throw new Error(e);
     }
   });
 

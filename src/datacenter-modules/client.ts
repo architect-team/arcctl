@@ -2,10 +2,10 @@ import { Logger } from 'winston';
 import { ApplyOptions, ApplyRequest, ApplyResponse, BuildOptions, BuildRequest, BuildResponse } from './types.ts';
 
 export class ModuleClient {
-  port: number;
+  socket: WebSocket;
 
   constructor(port: number) {
-    this.port = port;
+    this.socket = new WebSocket(`ws://localhost:${port}/ws`);
   }
 
   private request<R extends BuildRequest | ApplyRequest>(
@@ -15,15 +15,14 @@ export class ModuleClient {
     logger?: Logger,
   ): Promise<R extends BuildRequest ? BuildResponse : ApplyResponse> {
     return new Promise((resolve, reject) => {
-      const socket = new WebSocket(`ws://localhost:${this.port}/ws`);
-      socket.addEventListener('open', () => {
-        socket.send(JSON.stringify({
+      this.socket.addEventListener('open', () => {
+        this.socket.send(JSON.stringify({
           command,
           request,
         }));
       });
 
-      socket.addEventListener('message', (event) => {
+      this.socket.addEventListener('message', (event) => {
         try {
           const evt = JSON.parse(event.data);
           if (evt.verboseOutput) {
@@ -52,5 +51,9 @@ export class ModuleClient {
 
   public async apply(applyRequest: ApplyRequest, options?: ApplyOptions): Promise<ApplyResponse> {
     return this.request('apply', applyRequest, false, options?.logger) as Promise<ApplyResponse>;
+  }
+
+  public close() {
+    this.socket.close();
   }
 }

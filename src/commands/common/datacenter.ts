@@ -159,8 +159,12 @@ export class DatacenterUtils {
         const client = await server.start(module_path);
         const res = await client.build({
           directory: module_path,
+        }, {
+          verbose: verbose,
         });
         return res.image;
+      } catch (err) {
+        console.error(err);
       } finally {
         await server.stop();
       }

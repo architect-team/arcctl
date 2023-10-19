@@ -394,7 +394,11 @@ export default class DatacenterV1 extends Datacenter {
                   ),
                 );
               } catch (errs) {
-                throw new InvalidOutputProperties(type, errs);
+                if (Array.isArray(errs)) {
+                  throw new InvalidOutputProperties(type, errs);
+                }
+
+                throw errs;
               }
 
               // We can only match one hook per node
@@ -420,33 +424,36 @@ export default class DatacenterV1 extends Datacenter {
 
       // Look for appGraph relationships, create edges, and replace with infraGraph outputs
       infraGraph.nodes = infraGraph.nodes.map((node) => {
-        const stringifiedNode = JSON.stringify(node, null, 2).replaceAll(
-          /\$\{\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\s*\}\}/g,
-          (_, component_id, key) => {
-            const outputs = outputsMap[component_id] as any;
-            if (!outputs) {
-              throw new MissingResourceHook(node.getId(), component_id);
-            }
+        const recursivelyReplaceAppRefs = (input: string): string =>
+          input.replace(
+            /\$\{\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\s*\}\}/g,
+            (_, component_id, key) => {
+              const outputs = outputsMap[component_id] as any;
+              if (!outputs) {
+                throw new MissingResourceHook(node.getId(), component_id);
+              }
 
-            const outputValue = outputs[key] as string;
+              // We need to check output values for app node references too (e.g. ingress url loaded from service url, etc.)
+              const outputValue = recursivelyReplaceAppRefs(outputs[key] || '');
 
-            // Check if the output value is actually a pointer to another module
-            const moduleRefs = outputValue.matchAll(
-              /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g,
-            );
-            for (const match of moduleRefs) {
-              infraGraph.insertEdges(
-                new GraphEdge({
-                  from: node.getId(),
-                  to: match[1],
-                }),
+              // Check if the output value is actually a pointer to another module
+              const moduleRefs = outputValue.matchAll(
+                /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g,
               );
-            }
+              for (const match of moduleRefs) {
+                infraGraph.insertEdges(
+                  new GraphEdge({
+                    from: node.getId(),
+                    to: match[1],
+                  }),
+                );
+              }
 
-            return encodeURIComponent(outputValue);
-          },
-        );
+              return outputValue.replace(/"/g, '\\"');
+            },
+          );
 
+        const stringifiedNode = recursivelyReplaceAppRefs(JSON.stringify(node, null, 2));
         return new InfraGraphNode(JSON.parse(stringifiedNode));
       });
     }

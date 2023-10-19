@@ -1030,5 +1030,186 @@ describe('DatacenterV1', () => {
 
       assertEquals(graph.nodes, [expectedDatabaseModule]);
     });
+
+    it('should support outputs without modules', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        environment {
+          deployment {
+            module "deployment" {
+              source = "architect-io/kubernetes-deployment:latest"
+              inputs = node.inputs
+            }
+          }
+
+          ingress {
+            outputs = {
+              protocol = "\${node.inputs.protocol || "http"}"
+              host = "\${node.inputs.service}.127.0.0.1.nip.io"
+              port = 80
+              url = "\${node.inputs.protocol || "http"}://\${node.inputs.service}.127.0.0.1.nip.io\${node.inputs.path || "/"}"
+              path = "\${node.inputs.path || "/"}"
+            }
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const ingressNode = new AppGraphNode({
+        type: 'ingress',
+        name: 'ingress',
+        component: 'component',
+        inputs: {
+          service: 'my-service',
+          port: 8080,
+          protocol: 'http',
+          path: '/',
+        },
+      });
+
+      const deploymentNode = new AppGraphNode({
+        type: 'deployment',
+        name: 'deployment',
+        component: 'component',
+        inputs: {
+          image: 'nginx:latest',
+          environment: {
+            URL: `\${{ ${ingressNode.getId()}.url }}`,
+          },
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [ingressNode, deploymentNode],
+        edges: [
+          new GraphEdge({
+            from: deploymentNode.getId(),
+            to: ingressNode.getId(),
+          }),
+        ],
+      });
+
+      const infraGraph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+      });
+
+      const expectedDeploymentNode = new InfraGraphNode({
+        image: 'architect-io/kubernetes-deployment:latest',
+        component: deploymentNode.component,
+        appNodeId: deploymentNode.getId(),
+        inputs: {
+          image: 'nginx:latest',
+          environment: {
+            URL: `http://my-service.127.0.0.1.nip.io/`,
+          },
+        },
+        name: 'deployment',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
+    });
+
+    it('should support app graph references in outputs', () => {
+      const rawDatacenterObj = hclParser.default.parseToObject(`
+        environment {
+          deployment {
+            module "deployment" {
+              source = "architect-io/kubernetes-deployment:latest"
+              inputs = node.inputs
+            }
+          }
+
+          service {
+            outputs = {
+              protocol = "http"
+              host = "host"
+              port = 80
+              url = "http://host"
+            }
+          }
+
+          ingress {
+            outputs = {
+              protocol = "\${node.inputs.protocol || "http"}"
+              host = "\${node.inputs.service}.127.0.0.1.nip.io"
+              port = 80
+              url = "\${node.inputs.protocol || "http"}://\${node.inputs.service}.127.0.0.1.nip.io\${node.inputs.path || "/"}"
+              path = "\${node.inputs.path || "/"}"
+            }
+          }
+        }
+      `)[0];
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const serviceNode = new AppGraphNode({
+        type: 'service',
+        name: 'service',
+        component: 'component',
+        inputs: {
+          name: 'my-service',
+          target_port: 8080,
+        },
+      });
+
+      const ingressNode = new AppGraphNode({
+        type: 'ingress',
+        name: 'ingress',
+        component: 'component',
+        inputs: {
+          service: 'my-service',
+          port: `\${{ ${serviceNode.getId()}.port }}`,
+          protocol: `\${{ ${serviceNode.getId()}.protocol }}`,
+          path: '/',
+        },
+      });
+
+      const deploymentNode = new AppGraphNode({
+        type: 'deployment',
+        name: 'deployment',
+        component: 'component',
+        inputs: {
+          image: 'nginx:latest',
+          environment: {
+            URL: `\${{ ${ingressNode.getId()}.url }}`,
+          },
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [ingressNode, serviceNode, deploymentNode],
+        edges: [
+          new GraphEdge({
+            from: ingressNode.getId(),
+            to: serviceNode.getId(),
+          }),
+          new GraphEdge({
+            from: deploymentNode.getId(),
+            to: ingressNode.getId(),
+          }),
+        ],
+      });
+
+      const infraGraph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+      });
+
+      const expectedDeploymentNode = new InfraGraphNode({
+        image: 'architect-io/kubernetes-deployment:latest',
+        component: deploymentNode.component,
+        appNodeId: deploymentNode.getId(),
+        inputs: {
+          image: 'nginx:latest',
+          environment: {
+            URL: `http://my-service.127.0.0.1.nip.io/`,
+          },
+        },
+        name: 'deployment',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
+    });
   });
 });

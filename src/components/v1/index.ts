@@ -241,23 +241,19 @@ export default class ComponentV1 extends Component {
       deployment_node.inputs = parseExpressionRefs(graph, context, deployment_node.getId(), deployment_node.inputs);
       graph.insertNodes(deployment_node);
 
-      if (Object.keys(service_config.interfaces || {}).length > 0) {
-        (deployment_node as AppGraphNode<'deployment'>).inputs.services = [];
-      }
-
       // Create and insert the service nodes for each interface
       for (
         const [interface_name, interface_config] of Object.entries(
           service_config.interfaces || {},
         )
       ) {
-        const service_node = new AppGraphNode<'service'>({
+        const service_node = new AppGraphNode({
           name: `${service_name}-${interface_name}`,
           type: 'service',
           component: context.component.name,
           inputs: {
             name: `${context.component.name}/${service_name}-${interface_name}`,
-            target_deployment: `${deployment_node.component}/${deployment_node.name}`,
+            target_deployment: `${deployment_node.component}/deployment/${deployment_node.name}`,
             target_protocol: typeof interface_config === 'object' && interface_config.protocol
               ? interface_config.protocol
               : 'http',
@@ -282,9 +278,11 @@ export default class ComponentV1 extends Component {
           }),
         );
 
-        (deployment_node as AppGraphNode<'deployment'>).inputs.services?.push({
-          id: `\${{ ${service_node.getId()}.id }}`,
-          port: `\${{ ${service_node.getId()}.target_port }}`,
+        deployment_node.inputs.services = deployment_node.inputs.services || [];
+        deployment_node.inputs.services?.push({
+          port: `\${{ ${service_node.getId()}.port }}`,
+          host: `\${{ ${service_node.getId()}.host }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
         });
 
         if (typeof interface_config === 'object' && interface_config.ingress) {
@@ -296,9 +294,9 @@ export default class ComponentV1 extends Component {
             type: 'ingress',
             component: context.component.name,
             inputs: {
-              port: 80,
-              subdomain: interface_config.ingress.subdomain || '',
-              path: interface_config.ingress.path || '/',
+              port: `\${{ ${service_node.getId()}.port }}`,
+              ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
+              ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
               protocol: `\${{ ${service_node.getId()}.protocol }}`,
               service: `\${{ ${service_node.getId()}.id }}`,
               username: `\${{ ${service_node.getId()}.username }}`,
@@ -313,6 +311,21 @@ export default class ComponentV1 extends Component {
             new GraphEdge({
               from: ingress_node.getId(),
               to: service_node.getId(),
+            }),
+          );
+
+          deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
+          deployment_node.inputs.ingresses?.push({
+            port: `\${{ ${ingress_node.getId()}.port }}`,
+            host: `\${{ ${ingress_node.getId()}.host }}`,
+            protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
+            path: `\${{ ${ingress_node.getId()}.path }}`,
+          });
+
+          graph.insertEdges(
+            new GraphEdge({
+              from: deployment_node.getId(),
+              to: ingress_node.getId(),
             }),
           );
         }
@@ -480,7 +493,6 @@ export default class ComponentV1 extends Component {
       }
 
       const deployment_node_id = `${context.component.name}/deployment/${deployment_name}`;
-      const deployment_resource_id = `${context.component.name}/${deployment_name}`;
       const target_interface = this.services![deployment_name].interfaces![service_name];
 
       const interface_node = new AppGraphNode<'service'>({
@@ -493,7 +505,7 @@ export default class ComponentV1 extends Component {
             ? target_interface.protocol
             : 'http',
           target_port: typeof target_interface === 'object' ? target_interface.port : (target_interface as any),
-          target_deployment: deployment_resource_id,
+          target_deployment: deployment_node_id,
         },
       });
 
@@ -516,9 +528,9 @@ export default class ComponentV1 extends Component {
           component: context.component.name,
           inputs: {
             service: `\${{ ${interface_node.getId()}.id }}`,
-            port: 80,
-            subdomain: interface_config.ingress.subdomain || '',
-            path: interface_config.ingress.path || '/',
+            port: `\${{ ${interface_node.getId()}.port }}`,
+            ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
+            ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
             protocol: `\${{ ${interface_node.getId()}.protocol }}`,
             internal: interface_config.ingress.internal || false,
           },

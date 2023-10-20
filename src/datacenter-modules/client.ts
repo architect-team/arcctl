@@ -2,7 +2,7 @@ import { Logger } from 'winston';
 import { ApplyOptions, ApplyRequest, ApplyResponse, BuildOptions, BuildRequest, BuildResponse } from './types.ts';
 
 export class ModuleClient {
-  socket: WebSocket;
+  private socket: WebSocket;
 
   constructor(port: number) {
     this.socket = new WebSocket(`ws://localhost:${port}/ws`);

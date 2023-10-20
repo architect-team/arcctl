@@ -163,8 +163,6 @@ export class DatacenterUtils {
           verbose: verbose,
         });
         return res.image;
-      } catch (err) {
-        console.error(err);
       } finally {
         await server.stop();
       }

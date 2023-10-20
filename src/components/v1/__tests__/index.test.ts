@@ -6,6 +6,7 @@ import {
   testDatabaseGeneration,
   testDatabaseIntegration,
   testDeploymentGeneration,
+  testIngressGeneration,
   testSecretGeneration,
   testSecretIntegration,
   testServiceGeneration,
@@ -219,6 +220,22 @@ describe('Component Schema: v1', () => {
       { deployment_name: 'api', service_name: 'api-main' },
     ));
 
+  it('should generate ingresses', () =>
+    testIngressGeneration(
+      `
+      name: test
+      services:
+        api:
+          image: nginx:1.14.2
+          interfaces:
+            main:
+              port: 80
+              ingress: {}
+      `,
+      ComponentV1,
+      { deployment_name: 'api', service_name: 'api-main', ingress_name: 'api-main' },
+    ));
+
   it('should connect deployments to services', () =>
     testServiceIntegration(
       `
@@ -272,7 +289,7 @@ describe('Component Schema: v1', () => {
       inputs: {
         name: 'test/api',
         target_protocol: 'http',
-        target_deployment: 'test/api',
+        target_deployment: 'test/deployment/api',
         target_port: 80,
       },
     });
@@ -353,7 +370,7 @@ describe('Component Schema: v1', () => {
       inputs: {
         name: 'test/api',
         target_protocol: 'http',
-        target_deployment: 'test/api',
+        target_deployment: 'test/deployment/api',
         target_port: 80,
       },
     });
@@ -364,10 +381,9 @@ describe('Component Schema: v1', () => {
       component: 'test',
       inputs: {
         subdomain: 'app',
-        path: '/',
         protocol: `\${{ ${interface_node.getId()}.protocol }}`,
         service: `\${{ ${interface_node.getId()}.id }}`,
-        port: 80,
+        port: `\${{ ${interface_node.getId()}.port }}`,
         internal: false,
       },
     });
@@ -412,7 +428,7 @@ describe('Component Schema: v1', () => {
       inputs: {
         name: 'test/api-main',
         target_protocol: 'http',
-        target_deployment: 'test/api',
+        target_deployment: 'test/deployment/api',
         target_port: 80,
       },
     });
@@ -423,12 +439,11 @@ describe('Component Schema: v1', () => {
       type: 'ingress',
       inputs: {
         subdomain: 'app',
-        path: '/',
         username: `\${{ ${service_node.getId()}.username }}`,
         password: `\${{ ${service_node.getId()}.password }}`,
         protocol: `\${{ ${service_node.getId()}.protocol }}`,
         service: `\${{ ${service_node.getId()}.id }}`,
-        port: 80,
+        port: `\${{ ${service_node.getId()}.port }}`,
         internal: false,
       },
     });

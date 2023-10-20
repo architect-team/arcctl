@@ -1,4 +1,4 @@
-import * as hclParser from 'hcl2-parser';
+import hclParser from 'hcl2-json-parser';
 import { assertEquals, fail } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { GraphEdge } from '../../../graphs/edge.ts';
@@ -13,8 +13,8 @@ import DatacenterV1 from '../index.ts';
 
 describe('DatacenterV1', () => {
   describe('getGraph()', () => {
-    it('should extract root modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should extract root modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
           source = "architect-io/digitalocean-vpc:latest"
           inputs = {
@@ -22,7 +22,7 @@ describe('DatacenterV1', () => {
             region = "nyc1"
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test' });
 
@@ -39,8 +39,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedVpcNode]);
     });
 
-    it('should extract edges for related modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should extract edges for related modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
           source = "architect-io/digitalocean-vpc:latest"
           inputs = {
@@ -56,7 +56,7 @@ describe('DatacenterV1', () => {
             vpc_id = module.vpc.id
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test' });
 
@@ -89,8 +89,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.edges, [expectedEdge]);
     });
 
-    it('should fail when referencing invalid modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should fail when referencing invalid modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
           source = "architect-io/digitalocean-vpc:latest"
           inputs = {
@@ -98,7 +98,7 @@ describe('DatacenterV1', () => {
             region = "nyc1"
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       try {
@@ -109,8 +109,8 @@ describe('DatacenterV1', () => {
       }
     });
 
-    it('should extract modules from environment spec', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should extract modules from environment spec', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "vpc" {
             source = "architect-io/digitalocean-vpc:latest"
@@ -120,7 +120,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', environmentName: 'test' });
 
@@ -137,8 +137,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedVpcNode]);
     });
 
-    it('should ignore modules inside environments without an environment name passed in the options', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should ignore modules inside environments without an environment name passed in the options', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "vpc" {
             source = "architect-io/digitalocean-vpc:latest"
@@ -148,15 +148,15 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test' });
 
       assertEquals(graph.nodes, []);
     });
 
-    it('should extract edges from environment modules to datacenter modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should extract edges from environment modules to datacenter modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
           source = "architect-io/digitalocean-vpc:latest"
           inputs = {
@@ -174,7 +174,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', environmentName: 'test' });
 
@@ -207,8 +207,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.edges, [expectedEdge]);
     });
 
-    it('should fail when datacenter modules reference environment modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should fail when datacenter modules reference environment modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
           source = "architect-io/digitalocean-vpc:latest"
           inputs = {
@@ -226,7 +226,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       try {
@@ -237,8 +237,8 @@ describe('DatacenterV1', () => {
       }
     });
 
-    it('should extract modules from resource hooks', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should extract modules from resource hooks', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           database {
             module "database" {
@@ -259,7 +259,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const databaseAppGraphNode = new AppGraphNode({
@@ -292,8 +292,8 @@ describe('DatacenterV1', () => {
       assertEquals(infraGraph.nodes, [expectedDatabaseNode]);
     });
 
-    it('should extract a module for multiple matching app nodes', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should extract a module for multiple matching app nodes', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           database {
             module "database" {
@@ -314,7 +314,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const db1AppNode = new AppGraphNode({
@@ -370,8 +370,8 @@ describe('DatacenterV1', () => {
       assertEquals(infraGraph.nodes, [expectedDb1Node, expectedDb2Node]);
     });
 
-    it('should error if necessary resource hooks are missing', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should error if necessary resource hooks are missing', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           deployment {
             module "deployment" {
@@ -383,7 +383,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const dbAppNode = new AppGraphNode({
@@ -427,8 +427,8 @@ describe('DatacenterV1', () => {
       }
     });
 
-    it('should connect modules for related app resources', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should connect modules for related app resources', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           database {
             module "database" {
@@ -459,7 +459,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const dbAppNode = new AppGraphNode({
@@ -531,8 +531,8 @@ describe('DatacenterV1', () => {
       ]);
     });
 
-    it('should fail with missing resource outputs', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should fail with missing resource outputs', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           database {
             module "database" {
@@ -552,7 +552,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const databaseAppGraphNode = new AppGraphNode({
@@ -590,8 +590,8 @@ describe('DatacenterV1', () => {
       }
     });
 
-    it('should fail to connect modules across resource hooks', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should fail to connect modules across resource hooks', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           database {
             module "database" {
@@ -628,7 +628,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const appGraph = new AppGraph({
@@ -662,8 +662,8 @@ describe('DatacenterV1', () => {
       }
     });
 
-    it('should pass variable values to root modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should pass variable values to root modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         variable "region" {
           type = "string"
         }
@@ -675,7 +675,7 @@ describe('DatacenterV1', () => {
             region = variable.region
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', variables: { region: 'nyc1' } });
 
@@ -692,8 +692,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedVpcNode]);
     });
 
-    it('should pass variable values to environment modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should pass variable values to environment modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         variable "region" {
           type = "string"
         }
@@ -707,7 +707,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
 
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), {
@@ -729,8 +729,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedVpcNode]);
     });
 
-    it('should pass variable values to resource hook modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should pass variable values to resource hook modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         variable "region" {
           type = "string"
         }
@@ -756,7 +756,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
 
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
@@ -795,8 +795,8 @@ describe('DatacenterV1', () => {
       assertEquals(infraGraph.nodes, [expectedDatabaseNode]);
     });
 
-    it('should support var shorthand references', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should support var shorthand references', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         variable "region" {
           type = "string"
         }
@@ -808,7 +808,7 @@ describe('DatacenterV1', () => {
             region = var.region
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', variables: { region: 'nyc1' } });
 
@@ -825,8 +825,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedVpcNode]);
     });
 
-    it('should allow variables to be used as default values for each other', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should allow variables to be used as default values for each other', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         variable "region" {
           type = "string"
         }
@@ -843,7 +843,7 @@ describe('DatacenterV1', () => {
             region = "\${var.region}"
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
       const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test', variables: { region: 'nyc1' } });
 
@@ -860,8 +860,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedVpcNode]);
     });
 
-    it('should resolve operators inside resource hook when clauses', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should resolve operators inside resource hook when clauses', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           database {
             when = node.inputs.databaseType == "postgres"
@@ -884,7 +884,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const databaseNode = new AppGraphNode({
@@ -922,8 +922,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedDatabaseModule]);
     });
 
-    it('should error when referencing a module in a when clause', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should error when referencing a module in a when clause', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "database" {
             source = "test:latest"
@@ -946,7 +946,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const databaseNode = new AppGraphNode({
@@ -976,8 +976,8 @@ describe('DatacenterV1', () => {
       }
     });
 
-    it('should support conditional modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should support conditional modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "database" {
             when = contains(environment.nodes.*.inputs.databaseType, "postgres")
@@ -995,7 +995,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const databaseNode = new AppGraphNode({
@@ -1031,8 +1031,8 @@ describe('DatacenterV1', () => {
       assertEquals(graph.nodes, [expectedDatabaseModule]);
     });
 
-    it('should support outputs without modules', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should support outputs without modules', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           deployment {
             module "deployment" {
@@ -1051,7 +1051,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const ingressNode = new AppGraphNode({
@@ -1110,8 +1110,8 @@ describe('DatacenterV1', () => {
       assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
     });
 
-    it('should support app graph references in outputs', () => {
-      const rawDatacenterObj = hclParser.default.parseToObject(`
+    it('should support app graph references in outputs', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           deployment {
             module "deployment" {
@@ -1139,7 +1139,7 @@ describe('DatacenterV1', () => {
             }
           }
         }
-      `)[0];
+      `);
       const datacenter = new DatacenterV1(rawDatacenterObj);
 
       const serviceNode = new AppGraphNode({

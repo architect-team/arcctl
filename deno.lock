@@ -528,6 +528,8 @@
     "https://esm.sh/v124/fecha@4.2.3/denonext/fecha.mjs": "d87efb3f6dd068229dcaaf6ce19072720634695668c49da74e6d7289fc67ee48",
     "https://esm.sh/v124/fn.name@1.1.0/denonext/fn.name.mjs": "ddba0c68ee94f7248c7f4988c68c7c040be5c624f955b4fb738739aa42c7f888",
     "https://esm.sh/v124/fs-minipass@2.1.0/denonext/fs-minipass.mjs": "e3ee6d0df9871f490d05b070b47cd6495f8f33ae4eed90167242cd9819c82cca",
+    "https://esm.sh/v124/hcl2-json-parser@1.0.1": "c50574c485772ae59ed44a3b8f679b85e6ff61788b76f9849e3da1065c249823",
+    "https://esm.sh/v124/hcl2-json-parser@1.0.1/denonext/hcl2-json-parser.mjs": "a51581a1181c31284bfb1ff0907f79a34b248e3fcb1b333c986b8273781fb39f",
     "https://esm.sh/v124/hcl2-parser@1.0.3": "6e776152f508eddb6fee1ccfc56bed3ebef54e5b50d301cd60a85cabab51115d",
     "https://esm.sh/v124/hcl2-parser@1.0.3/denonext/hcl2-parser.mjs": "a5fad05a94085bc72598799c5c4ed322dc0f93e2b3598f3a77fc731961101797",
     "https://esm.sh/v124/ieee754@1.2.1/denonext/ieee754.mjs": "9ec2806065f50afcd4cf3f3f2f38d93e777a92a5954dda00d219f57d4b24832f",

@@ -5,9 +5,11 @@ export class ModuleServer {
   private plugin: Plugin;
   private proc?: Deno.ChildProcess;
   private containerName?: string;
+  private dev_plugin_port?: string;
 
   constructor(plugin: Plugin) {
     this.plugin = plugin;
+    this.dev_plugin_port = Deno.env.get('DEV_PLUGIN_PORT');
   }
 
   private async getPort(containerName: string): Promise<number> {
@@ -29,9 +31,8 @@ export class ModuleServer {
     const pluginImage = `architectio/${this.plugin}-plugin`;
     this.containerName = pluginImage.replace('/', '-') + '-' + Date.now();
 
-    const dev_plugin_port = Deno.env.get('DEV_PLUGIN_PORT');
-    if (dev_plugin_port) {
-      return new ModuleClient(parseInt(dev_plugin_port));
+    if (this.dev_plugin_port) {
+      return new ModuleClient(parseInt(this.dev_plugin_port));
     }
 
     const command = new Deno.Command('docker', {
@@ -82,8 +83,7 @@ export class ModuleServer {
   }
 
   async stop(): Promise<void> {
-    const dev_plugin_port = Deno.env.get('DEV_PLUGIN_PORT');
-    if (dev_plugin_port) {
+    if (this.dev_plugin_port) {
       return; // dev plugin server was run directly and shouldn't be stopped
     }
     const command = new Deno.Command('docker', {

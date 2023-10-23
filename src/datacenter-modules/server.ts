@@ -27,13 +27,19 @@ export class ModuleServer {
    */
   async start(directory?: string): Promise<ModuleClient> {
     const pluginImage = `architectio/${this.plugin}-plugin`;
-    this.containerName = pluginImage.replace('/', '-');
+    this.containerName = pluginImage.replace('/', '-') + '-' + Date.now();
+
+    const dev_plugin_port = Deno.env.get('DEV_PLUGIN_PORT');
+    if (dev_plugin_port) {
+      return new ModuleClient(parseInt(dev_plugin_port));
+    }
+
     const command = new Deno.Command('docker', {
       args: [
         'run',
         '--name',
         this.containerName,
-        '--rm',
+        // '--rm', // TODO: uncomment
         '--pull',
         'missing', // TODO: version the plugins with the CLI to ensure that the right version of the plugin will be pulled if
         '--quiet', // ignore the docker error 'unable to find image <image name> locally if the image needs to be downloaded
@@ -76,6 +82,10 @@ export class ModuleServer {
   }
 
   async stop(): Promise<void> {
+    const dev_plugin_port = Deno.env.get('DEV_PLUGIN_PORT');
+    if (dev_plugin_port) {
+      return; // dev plugin server was run directly and shouldn't be stopped
+    }
     const command = new Deno.Command('docker', {
       args: [
         'stop',

@@ -20,6 +20,13 @@ module "traefik" {
       internal = 8080
       external = 8080
     }]
+    volumes = [{
+      containerPath = "/var/run/docker.sock",
+      hostPath = "/var/run/docker.sock"
+    }]
+    environment = {
+      DOCKER_HOST = "unix:///var/run/docker.sock"
+    }
   }
 }
 

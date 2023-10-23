@@ -18,6 +18,11 @@ export type ApplyRequest = {
   datacenterid: string;
   image: string;
   inputs: [string, string][];
+  environment?: Record<string, string>;
+  volumes?: {
+    host_path: string;
+    mount_path: string;
+  }[];
   state?: string;
   destroy?: boolean;
 };

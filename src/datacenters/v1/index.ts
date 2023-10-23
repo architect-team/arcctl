@@ -39,6 +39,26 @@ type Module = {
   plugin?: Plugin;
 
   /**
+   * Volumes that should be mounted to the container executing the module
+   */
+  volume?: {
+    /**
+     * The path on the host machine to mount to the container
+     */
+    host_path: string;
+
+    /**
+     * The path in the container to mount the volume to
+     */
+    mount_path: string;
+  }[];
+
+  /**
+   * Environment variables that should be provided to the container executing the module
+   */
+  environment?: Record<string, string>;
+
+  /**
    * Input values for the module.
    */
   inputs: Record<string, unknown> | string;
@@ -232,6 +252,7 @@ export default class DatacenterV1 extends Datacenter {
       }
 
       if (value[0].when && value[0].when !== 'true' && value[0].when !== 'false') {
+        console.error(value[0].when);
         // If a when clause is set but can't be evaluated, it means it has an unresolvable value
         throw new ModuleReferencesNotAllowedInWhenClause();
       } else if (value[0].when && value[0].when === 'false') {
@@ -248,6 +269,8 @@ export default class DatacenterV1 extends Datacenter {
           component: options.component,
           appNodeId: options.appNodeId,
           plugin: module.plugin || DEFAULT_PLUGIN,
+          volumes: module.volume,
+          environment_vars: module.environment,
           name: name,
           action: 'create',
         }),

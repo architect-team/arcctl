@@ -50,66 +50,79 @@ const isSplatOperation = (node: ESTree.Node) => {
     startsWithDot(node.right);
 };
 
-const handleAst = (ast: any, context: Record<string, any>): string[] => {
-  const notFound: string[] = [];
-  estraverse.replace(ast, {
-    enter: (node) => {
-      if (['EmptyStatement', 'VariableDeclaration'].includes(node.type)) {
-        return estraverse.VisitorOption.Remove;
-      }
+const handleEnterNode = (
+  node: ESTree.Node,
+  context: Record<string, any>,
+  notFound: string[],
+): estraverse.VisitorOption | ESTree.Node | void => {
+  if (['EmptyStatement', 'VariableDeclaration'].includes(node.type)) {
+    return estraverse.VisitorOption.Remove;
+  }
 
-      if (node.type === 'BinaryExpression' && isSplatOperation(node)) {
-        const right = node.right as ESTree.MemberExpression;
-        const left = node.left as ESTree.MemberExpression;
-        node = replaceSplatWithExpression(right, {
-          ...left,
-          property: {
-            type: 'Identifier',
-            name: '*',
-            ...('start' in left.property ? { start: left.property.start } : {}),
-            ...('end' in left.property ? { end: left.property.end } : {}),
-          },
-        });
-      }
+  if (node.type === 'BinaryExpression' && isSplatOperation(node)) {
+    const right = node.right as ESTree.MemberExpression;
+    const left = node.left as ESTree.MemberExpression;
+    node = replaceSplatWithExpression(right, {
+      ...left,
+      property: {
+        type: 'Identifier',
+        name: '*',
+        ...('start' in left.property ? { start: left.property.start } : {}),
+        ...('end' in left.property ? { end: left.property.end } : {}),
+      },
+    });
+  }
 
-      if (isIdentifier(node)) {
-        const context_path = flattenIdentifier(node);
+  if (isIdentifier(node)) {
+    const context_path = flattenIdentifier(node);
 
-        try {
-          const value = getContextValueByPath(context, context_path);
-          if (Array.isArray(value)) {
-            return {
-              type: 'ArrayExpression',
-              elements: value.map((v) => ({
-                type: 'Literal',
-                value: v,
-              })),
-            };
-          } else if (value !== undefined) {
-            return {
-              type: 'Literal',
-              value: value,
-            };
-          } else {
-            const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
-            if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
-              notFound.push(context_path);
-            }
-          }
-        } catch (err) {
-          // This is a hack to catch errors with splat operations, which fails jsonpath parsing due
-          // to the odd replacement of "*" with "✖" (e.g. environment.nodes.✖).
-          if (err.message.startsWith('Lexical error')) {
-            const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
-            if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
-              notFound.push(context_path);
-            }
+    try {
+      const value = getContextValueByPath(context, context_path);
+      if (Array.isArray(value)) {
+        return {
+          type: 'ArrayExpression',
+          elements: value.map((v) => ({
+            type: 'Literal',
+            value: v,
+          })),
+        };
+      } else if (value !== undefined) {
+        return {
+          type: 'Literal',
+          value: value,
+        };
+      } else {
+        if (node.type === 'MemberExpression' && context_path.includes('.*')) {
+          const nestedRes = handleEnterNode(node.object, context, notFound);
+          if (nestedRes) {
+            return nestedRes;
           }
         }
 
-        return node;
+        const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
+        if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
+          notFound.push(context_path);
+        }
       }
-    },
+    } catch (err) {
+      // This is a hack to catch errors with splat operations, which fails jsonpath parsing due
+      // to the odd replacement of "*" with "✖" (e.g. environment.nodes.✖).
+      if (err.message.startsWith('Lexical error')) {
+        const isAlreadyInList = notFound.some((v) => v.indexOf(context_path) !== -1);
+        if (!isAlreadyInList && context_path !== '✖' && !notFound.includes(context_path)) {
+          notFound.push(context_path);
+        }
+      }
+    }
+
+    return node;
+  }
+};
+
+const handleAst = (ast: any, context: Record<string, any>): string[] => {
+  const notFound: string[] = [];
+  estraverse.replace(ast, {
+    enter: (node) => handleEnterNode(node, context, notFound),
     leave: (node) => {
       if (node.type === 'ExpressionStatement') {
         if (node.expression.type === 'Literal' && 'value' in node.expression) {
@@ -305,19 +318,30 @@ export const applyContext = (obj: Record<string, any>, context: Record<string, a
           ...notFound,
           ...handleAst(ast, context),
         ];
-        let result;
-        if (ast.body.length === 1 && ast.body[0].type === 'Literal' && ast.body[0].value) {
-          if (isNotPrimitive(ast.body[0].value)) {
-            result = `JSON:${JSON.stringify(ast.body[0].value)}`;
-          } else {
-            result = ast.body[0].value;
+
+        if (ast.body.length === 1) {
+          const node = ast.body[0];
+          if (node.type === 'ExpressionStatement' && node.expression && node.expression.type === 'ArrayExpression') {
+            const arr: string[] = [];
+            node.expression.elements.forEach((element: ESTree.Node) => {
+              if (element.type === 'Literal' && element.value) {
+                arr.push(element.value.toString());
+              }
+            });
+
+            return `JSON:${JSON.stringify(arr)}`;
+          } else if (node.type === 'Literal' && node.value) {
+            if (isNotPrimitive(ast.body[0].value)) {
+              return `JSON:${JSON.stringify(ast.body[0].value)}`;
+            } else {
+              return ast.body[0].value;
+            }
           }
         }
-        if (result) {
-          return result;
-        }
+
         return match;
       });
+
       if (obj[key].startsWith('JSON:')) {
         obj[key] = JSON.parse(obj[key].substring(5));
       }

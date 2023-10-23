@@ -384,4 +384,43 @@ describe('AST: applyContext()', () => {
     assertEquals(obj.module.vpc.inputs.test, 'true');
     assertEquals(obj.module.vpc.inputs.test2, 'false');
   });
+
+  it('should support the splat operator', () => {
+    const obj: any = {
+      module: {
+        when: '${environment.nodes.*.type}',
+      },
+    };
+
+    applyContext(obj, {
+      environment: {
+        nodes: [
+          {
+            type: 'database',
+          },
+          {
+            type: 'cache',
+          },
+        ],
+      },
+    });
+
+    assertEquals(obj.module.when, ['database', 'cache']);
+  });
+
+  it('should use empty array when splat has no nodes', () => {
+    const obj: any = {
+      module: {
+        when: '${environment.nodes.*.type}',
+      },
+    };
+
+    applyContext(obj, {
+      environment: {
+        nodes: [],
+      },
+    });
+
+    assertEquals(obj.module.when, []);
+  });
 });

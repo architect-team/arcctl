@@ -38,6 +38,14 @@ export class ModuleClient {
           reject(e);
         }
       });
+
+      this.socket.addEventListener('error', async (event) => {
+        // Likely couldn't connect to plugin server
+        if (event instanceof ErrorEvent) {
+          return reject(event.message);
+        }
+        reject(event);
+      });
     });
   }
 
@@ -50,6 +58,6 @@ export class ModuleClient {
   }
 
   public close() {
-    this.socket.close();
+    this.socket.close(1000);
   }
 }

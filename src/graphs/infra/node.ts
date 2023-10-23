@@ -165,16 +165,16 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
           this.outputs = res.outputs || {};
           this.status.state = 'complete';
           this.status.endTime = Date.now();
-          subscriber.next(this);
           client.close();
+          subscriber.next(this);
           await server.stop();
           subscriber.complete();
         } catch (err) {
           this.status.state = 'error';
           this.status.message = err.message;
           this.status.endTime = Date.now();
-          subscriber.next(this);
           client.close();
+          subscriber.next(this);
           await server.stop();
           subscriber.error(err);
         }

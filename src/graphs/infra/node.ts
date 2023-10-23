@@ -150,7 +150,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
           this.status.state = 'complete';
           this.status.endTime = Date.now();
           subscriber.next(this);
-          await client.close();
+          client.close();
           await server.stop();
           subscriber.complete();
         } catch (err) {
@@ -158,7 +158,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
           this.status.message = err.message;
           this.status.endTime = Date.now();
           subscriber.next(this);
-          await client.close();
+          client.close();
           await server.stop();
           subscriber.error(err);
         }

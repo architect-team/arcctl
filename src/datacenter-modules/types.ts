@@ -7,7 +7,7 @@ export type BuildRequest = {
 };
 
 export type BuildOptions = {
-  verbose?: boolean;
+  logger?: Logger;
 };
 
 export type BuildResponse = {

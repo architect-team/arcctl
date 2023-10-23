@@ -23,6 +23,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -46,6 +53,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -89,6 +118,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -112,6 +148,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -201,6 +259,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -224,6 +289,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -305,6 +392,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -328,6 +422,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -380,6 +496,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -403,6 +526,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -446,6 +591,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -469,6 +621,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -541,6 +715,13 @@ export default {
                         "description": "The path to a module that will be built during the build step.",
                         "type": "string"
                       },
+                      "environment": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "Environment variables that should be provided to the container executing the module",
+                        "type": "object"
+                      },
                       "inputs": {
                         "anyOf": [
                           {
@@ -564,6 +745,28 @@ export default {
                       "source": {
                         "description": "The image source of the module.",
                         "type": "string"
+                      },
+                      "volume": {
+                        "description": "Volumes that should be mounted to the container executing the module",
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "host_path": {
+                              "description": "The path on the host machine to mount to the container",
+                              "type": "string"
+                            },
+                            "mount_path": {
+                              "description": "The path in the container to mount the volume to",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "host_path",
+                            "mount_path"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
                       },
                       "when": {
                         "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -593,6 +796,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -616,6 +826,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -667,6 +899,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -690,6 +929,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -760,6 +1021,13 @@ export default {
                               "description": "The path to a module that will be built during the build step.",
                               "type": "string"
                             },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "type": "object"
+                            },
                             "inputs": {
                               "anyOf": [
                                 {
@@ -783,6 +1051,28 @@ export default {
                             "source": {
                               "description": "The image source of the module.",
                               "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "when": {
                               "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
@@ -827,6 +1117,13 @@ export default {
                   "description": "The path to a module that will be built during the build step.",
                   "type": "string"
                 },
+                "environment": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Environment variables that should be provided to the container executing the module",
+                  "type": "object"
+                },
                 "inputs": {
                   "anyOf": [
                     {
@@ -850,6 +1147,28 @@ export default {
                 "source": {
                   "description": "The image source of the module.",
                   "type": "string"
+                },
+                "volume": {
+                  "description": "Volumes that should be mounted to the container executing the module",
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "host_path": {
+                        "description": "The path on the host machine to mount to the container",
+                        "type": "string"
+                      },
+                      "mount_path": {
+                        "description": "The path in the container to mount the volume to",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "host_path",
+                      "mount_path"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
                 },
                 "when": {
                   "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",

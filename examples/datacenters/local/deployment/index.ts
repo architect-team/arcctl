@@ -18,6 +18,7 @@ type Config = {
     internal: number;
     external?: number;
   }[];
+  environment?: Record<string, string>;
 };
 
 const labels: ContainerLabel[] = [];
@@ -52,14 +53,17 @@ for (const [key, value] of Object.entries(inputServices)) {
       label: `traefik.tcp.services.${key}.loadbalancer.server.port`,
       value: value.port.toString(),
     })
-  }  
+  }
 }
+
+const envs = Object.entries(config.getObject<Config['environment']>('environment') || {}).map(([key, value]) => (`${key}=${value}`));
 
 const deployment = new docker.Container("deployment", {
   name: config.get('name'),
   image: config.require('image'),
   command: config.getObject('command'),
-  volumes: config.getObject('volume_mounts'),
+  volumes: config.getObject('volumes'),
+  envs,
   labels,
   ports,
 });

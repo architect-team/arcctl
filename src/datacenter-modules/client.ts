@@ -2,7 +2,7 @@ import { Logger } from 'winston';
 import { ApplyOptions, ApplyRequest, ApplyResponse, BuildOptions, BuildRequest, BuildResponse } from './types.ts';
 
 export class ModuleClient {
-  socket: WebSocket;
+  private socket: WebSocket;
 
   constructor(port: number) {
     this.socket = new WebSocket(`ws://localhost:${port}/ws`);
@@ -11,7 +11,6 @@ export class ModuleClient {
   private request<R extends BuildRequest | ApplyRequest>(
     command: string,
     request: R,
-    verbose: boolean,
     logger?: Logger,
   ): Promise<R extends BuildRequest ? BuildResponse : ApplyResponse> {
     return new Promise((resolve, reject) => {
@@ -26,9 +25,7 @@ export class ModuleClient {
         try {
           const evt = JSON.parse(event.data);
           if (evt.verboseOutput) {
-            if (verbose) {
-              console.log(evt.verboseOutput);
-            } else if (logger) {
+            if (logger) {
               logger.info(evt.verboseOutput);
             }
           } else if (evt.error) {
@@ -53,12 +50,11 @@ export class ModuleClient {
   }
 
   public async build(buildRequest: BuildRequest, options?: BuildOptions): Promise<BuildResponse> {
-    const verbose = Boolean(options && options.verbose);
-    return this.request('build', buildRequest, verbose) as Promise<BuildResponse>;
+    return this.request('build', buildRequest, options?.logger) as Promise<BuildResponse>;
   }
 
   public async apply(applyRequest: ApplyRequest, options?: ApplyOptions): Promise<ApplyResponse> {
-    return this.request('apply', applyRequest, false, options?.logger) as Promise<ApplyResponse>;
+    return this.request('apply', applyRequest, options?.logger) as Promise<ApplyResponse>;
   }
 
   public close() {

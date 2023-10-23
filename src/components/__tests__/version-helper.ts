@@ -212,7 +212,7 @@ export const testServiceGeneration = (
     inputs: {
       name: `component/${options.service_name}`,
       target_protocol: 'http',
-      target_deployment: `component/${options.deployment_name}`,
+      target_deployment: `component/deployment/${options.deployment_name}`,
       target_port: 80,
     },
   });
@@ -226,8 +226,9 @@ export const testServiceGeneration = (
       replicas: 1,
       services: [
         {
-          id: `\${{ ${service_node.getId()}.id }}`,
-          port: `\${{ ${service_node.getId()}.target_port }}`,
+          host: `\${{ ${service_node.getId()}.host }}`,
+          port: `\${{ ${service_node.getId()}.port }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
         },
       ],
       volume_mounts: [],
@@ -239,6 +240,85 @@ export const testServiceGeneration = (
     new GraphEdge({
       from: deployment_node.getId(),
       to: service_node.getId(),
+    }),
+  ]);
+};
+
+export const testIngressGeneration = (
+  contents: string,
+  constructor: new (data: ComponentSchema) => Component,
+  options: { deployment_name: string; service_name: string; ingress_name: string },
+): void => {
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
+  const graph = component.getGraph({
+    component: {
+      name: 'component',
+      source: 'fake/source',
+    },
+    environment: 'environment',
+  });
+
+  const ingress_node = new AppGraphNode({
+    name: options.ingress_name,
+    type: 'ingress',
+    component: 'component',
+    inputs: {
+      internal: false,
+      password: `\${{ component/service/${options.service_name}.password }}`,
+      port: `\${{ component/service/${options.service_name}.port }}`,
+      protocol: `\${{ component/service/${options.service_name}.protocol }}`,
+      service: `\${{ component/service/${options.service_name}.id }}`,
+      username: `\${{ component/service/${options.service_name}.username }}`,
+    },
+  });
+
+  const service_node = new AppGraphNode({
+    name: options.service_name,
+    type: 'service',
+    component: 'component',
+    inputs: {
+      name: `component/${options.service_name}`,
+      target_protocol: 'http',
+      target_deployment: `component/deployment/${options.deployment_name}`,
+      target_port: 80,
+    },
+  });
+
+  const deployment_node = new AppGraphNode({
+    name: options.deployment_name,
+    type: 'deployment',
+    component: 'component',
+    inputs: {
+      image: 'nginx:1.14.2',
+      replicas: 1,
+      services: [
+        {
+          host: `\${{ ${service_node.getId()}.host }}`,
+          port: `\${{ ${service_node.getId()}.port }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
+        },
+      ],
+      ingresses: [
+        {
+          host: `\${{ ${ingress_node.getId()}.host }}`,
+          port: `\${{ ${ingress_node.getId()}.port }}`,
+          protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
+          path: `\${{ ${ingress_node.getId()}.path }}`,
+        },
+      ],
+      volume_mounts: [],
+    },
+  });
+
+  assertArrayIncludes(graph.nodes, [deployment_node, service_node, ingress_node]);
+  assertArrayIncludes(graph.edges, [
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: service_node.getId(),
+    }),
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: ingress_node.getId(),
     }),
   ]);
 };

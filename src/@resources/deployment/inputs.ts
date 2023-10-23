@@ -176,6 +176,31 @@ export type DeploymentInputs = {
      */
     protocol: string;
   }>;
+
+  /**
+   * Ingresses this deployment should register itself with
+   */
+  ingresses?: Array<{
+    /**
+     * The hostname the ingress is listening on
+     */
+    host: string;
+
+    /**
+     * The port the ingress is listening on
+     */
+    port: string;
+
+    /**
+     * The protocol the ingress is listening on
+     */
+    protocol: string;
+
+    /**
+     * The path the ingress is listening on
+     */
+    path?: string;
+  }>;
 } & Container;
 
 export default DeploymentInputs;

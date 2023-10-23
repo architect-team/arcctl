@@ -5,6 +5,16 @@ variable "secretsDir" {
 
 module "traefik" {
   build = "./deployment"
+
+  volume {
+    host_path = "/var/run/docker.sock"
+    mount_path = "/var/run/docker.sock"
+  }
+
+  environment = {
+    DOCKER_HOST = "unix:///var/run/docker.sock"
+  }
+
   inputs = {
     name = "${datacenter.name}-gateway"
     image = "traefik:v2.10"
@@ -20,6 +30,13 @@ module "traefik" {
       internal = 8080
       external = 8080
     }]
+    volumes = [{
+      containerPath = "/var/run/docker.sock",
+      hostPath = "/var/run/docker.sock"
+    }]
+    environment = {
+      DOCKER_HOST = "unix:///var/run/docker.sock"
+    }
   }
 }
 

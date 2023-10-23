@@ -5,10 +5,6 @@
     "IngressRuleInputs": {
       "additionalProperties": false,
       "properties": {
-        "dnsZone": {
-          "description": "The DNS zone (aka base URL) that the ingress rule listens on",
-          "type": "string"
-        },
         "headers": {
           "additionalProperties": {
             "type": "string"

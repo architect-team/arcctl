@@ -29,6 +29,11 @@ export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<st
   status?: NodeStatus;
   outputs?: Record<string, unknown>;
   state?: any;
+  volumes?: {
+    mount_path: string;
+    host_path: string;
+  }[];
+  environment_vars?: Record<string, string>;
 };
 
 export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<string, unknown> | string> {
@@ -42,6 +47,11 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   environment?: string;
   outputs?: Record<string, unknown>;
   state?: any;
+  volumes?: {
+    mount_path: string;
+    host_path: string;
+  }[];
+  environment_vars?: Record<string, string>;
 
   constructor(options: InfraGraphNodeOptions<P>) {
     super(options);
@@ -55,6 +65,8 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     this.state = options.state;
     this.image = options.image;
     this.status = options.status || { state: 'pending' };
+    this.volumes = options.volumes;
+    this.environment_vars = options.environment_vars;
   }
 
   public async getHash(): Promise<string> {
@@ -89,6 +101,8 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
         plugin: this.plugin,
         image: dockerImageId,
         inputs: this.inputs,
+        volumes: this.volumes,
+        environment_vars: this.environment_vars,
       }))
       .digest('hex')
       .toString();
@@ -140,6 +154,8 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
             // Converts an object like {a: {b: "c"}} into {"a.b": "c"}
             // so Object.entries is always a [string, string][].
             inputs: Object.entries(dot.dot(this.inputs)) as [string, string][],
+            environment: this.environment_vars,
+            volumes: this.volumes,
             image: this.image,
             state: this.state,
             destroy: this.action === 'delete',

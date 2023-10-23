@@ -1,4 +1,4 @@
-import hclParser from 'hcl2-parser';
+import hclParser from 'hcl2-json-parser';
 import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0';
 import yaml from 'js-yaml';
 import * as DatacenterSchemaContents from './datacenter-schema.ts';
@@ -26,7 +26,11 @@ export const parseDatacenter = async (
     if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else if (input.endsWith('.arc') || input.endsWith('hcl')) {
-      raw_obj = hclParser.parseToObject(raw_contents)[0];
+      try {
+        raw_obj = await hclParser.parseToObject(raw_contents);
+      } catch (e) {
+        throw Error(`Failed to parse ${input}:\n${e}`);
+      }
     } else {
       raw_obj = yaml.load(raw_contents);
     }

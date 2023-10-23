@@ -84,6 +84,37 @@
           "description": "Image the container runs from",
           "type": "string"
         },
+        "ingresses": {
+          "description": "Ingresses this deployment should register itself with",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "host": {
+                "description": "The hostname the ingress is listening on",
+                "type": "string"
+              },
+              "path": {
+                "description": "The path the ingress is listening on",
+                "type": "string"
+              },
+              "port": {
+                "description": "The port the ingress is listening on",
+                "type": "string"
+              },
+              "protocol": {
+                "description": "The protocol the ingress is listening on",
+                "type": "string"
+              }
+            },
+            "required": [
+              "host",
+              "port",
+              "protocol"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
         "labels": {
           "additionalProperties": {
             "type": "string"

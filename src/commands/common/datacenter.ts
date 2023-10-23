@@ -1,5 +1,5 @@
 import * as path from 'std/path/mod.ts';
-import winston from 'winston';
+import winston, { Logger } from 'winston';
 import { ModuleServer } from '../../datacenter-modules/index.ts';
 import {
   Datacenter,
@@ -129,7 +129,7 @@ export class DatacenterUtils {
     graph: InfraGraph,
     logger: winston.Logger | undefined,
   ): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       return graph
         .apply({ logger: logger })
         .subscribe({
@@ -146,7 +146,7 @@ export class DatacenterUtils {
     });
   }
 
-  public async buildDatacenter(datacenter: Datacenter, context: string, verbose?: boolean): Promise<Datacenter> {
+  public async buildDatacenter(datacenter: Datacenter, context: string, logger?: Logger): Promise<Datacenter> {
     return datacenter.build(async (build_options) => {
       let module_path = path.join(path.dirname(context), build_options.context);
       if (!path.isAbsolute(path.dirname(context))) {
@@ -159,12 +159,8 @@ export class DatacenterUtils {
         const client = await server.start(module_path);
         const res = await client.build({
           directory: module_path,
-        }, {
-          verbose: verbose,
-        });
+        }, { logger });
         return res.image;
-      } catch (err) {
-        console.error(err);
       } finally {
         await server.stop();
       }

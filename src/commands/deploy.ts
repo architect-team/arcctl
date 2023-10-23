@@ -94,12 +94,12 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         refresh: options.refresh,
       });
       pipeline.validate();
-      await command_helper.pipelineRenderer.confirmGraph(pipeline, options.autoApprove);
+      await command_helper.infraRenderer.confirmGraph(pipeline, options.autoApprove);
 
       let interval: number;
       if (!options.verbose) {
         interval = setInterval(() => {
-          command_helper.pipelineRenderer.renderGraph(pipeline, {
+          command_helper.infraRenderer.renderGraph(pipeline, {
             clear: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
           });
@@ -108,7 +108,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
 
       let logger: Logger | undefined;
       if (options.verbose) {
-        command_helper.pipelineRenderer.renderGraph(pipeline);
+        command_helper.infraRenderer.renderGraph(pipeline);
         logger = winston.createLogger({
           level: 'info',
           format: winston.format.printf(({ message }) => message),
@@ -126,7 +126,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
             environment,
             pipeline,
           );
-          command_helper.pipelineRenderer.renderGraph(pipeline, {
+          command_helper.infraRenderer.renderGraph(pipeline, {
             clear: !options.verbose,
             disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,
@@ -140,7 +140,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
             environment,
             pipeline,
           );
-          command_helper.pipelineRenderer.renderGraph(pipeline, {
+          command_helper.infraRenderer.renderGraph(pipeline, {
             clear: !options.verbose,
             disableSpinner: true,
             message: `Deploying ${tag_or_path} to ${environmentRecord.name}`,

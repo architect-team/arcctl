@@ -8,6 +8,7 @@ import {
   testDatabaseGeneration,
   testDatabaseIntegration,
   testDeploymentGeneration,
+  testIngressGeneration,
   testSecretGeneration,
   testSecretIntegration,
   testServiceGeneration,
@@ -45,6 +46,25 @@ describe('Component Schema: v2', () => {
       `,
       ComponentV2,
       { deployment_name: 'api', service_name: 'api' },
+    ));
+
+  it('should generate ingresses', () =>
+    testIngressGeneration(
+      `
+      version: v2
+      deployments:
+        api:
+          image: nginx:1.14.2
+      services:
+        api:
+          deployment: api
+          port: 80
+      ingresses:
+        api:
+          service: api
+      `,
+      ComponentV2,
+      { deployment_name: 'api', service_name: 'api', ingress_name: 'api' },
     ));
 
   it('should connect deployments to services', () =>

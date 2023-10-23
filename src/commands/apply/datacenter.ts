@@ -28,10 +28,10 @@ const ApplyDatacenterCommand = BaseCommand()
 async function buildDatacenterFromConfig(
   command_helper: CommandHelper,
   config_path: string,
-  verbose?: boolean,
+  logger?: Logger,
 ): Promise<Datacenter> {
   const datacenter = await parseDatacenter(path.resolve(config_path));
-  return await command_helper.datacenterUtils.buildDatacenter(datacenter, path.resolve(config_path), verbose);
+  return command_helper.datacenterUtils.buildDatacenter(datacenter, path.resolve(config_path), logger);
 }
 
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
@@ -59,9 +59,17 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
   const allEnvironments = await command_helper.environmentStore.find();
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
 
+  const logger = options.verbose
+    ? winston.createLogger({
+      level: 'info',
+      format: winston.format.printf(({ message }) => message),
+      transports: [new winston.transports.Console()],
+    })
+    : undefined;
+
   try {
     const datacenter = pathExistsSync(config_path)
-      ? await buildDatacenterFromConfig(command_helper, config_path, options.verbose)
+      ? await buildDatacenterFromConfig(command_helper, config_path, logger)
       : await command_helper.datacenterStore.getDatacenter(config_path);
 
     const vars = await command_helper.datacenterUtils.promptForVariables(datacenter.getVariablesSchema(), flag_vars);
@@ -81,27 +89,19 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     await command_helper.infraRenderer.confirmGraph(infraGraph, options.autoApprove);
 
     let interval: number | undefined = undefined;
-    if (!options.verbose) {
+    if (!logger) {
       interval = setInterval(() => {
         command_helper.infraRenderer.renderGraph(infraGraph, { clear: true });
       }, 1000 / cliSpinners.dots.frames.length);
-    }
-
-    let logger: Logger | undefined;
-    if (options.verbose) {
+    } else {
       command_helper.infraRenderer.renderGraph(infraGraph);
-      logger = winston.createLogger({
-        level: 'info',
-        format: winston.format.printf(({ message }) => message),
-        transports: [new winston.transports.Console()],
-      });
     }
 
     command_helper.datacenterUtils.applyDatacenter(name, datacenter, infraGraph, logger)
       .then(async () => {
         if (interval) {
           clearInterval(interval);
-          command_helper.infraRenderer.renderGraph(infraGraph, { clear: !options.verbose, disableSpinner: true });
+          command_helper.infraRenderer.renderGraph(infraGraph, { clear: !logger, disableSpinner: true });
           command_helper.infraRenderer.doneRenderingGraph();
         }
 

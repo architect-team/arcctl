@@ -10,12 +10,18 @@ import { destroyEnvironment } from './environment.ts';
 type DestroyDatacenterOptions = {
   verbose: boolean;
   autoApprove: boolean;
+  force: boolean;
 } & GlobalOptions;
 
 const DestroyDatacenterCommand = BaseCommand()
   .description('Destroy a datacenter and all the environments managed by it')
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
+  .option(
+    '--force [force:boolean]',
+    'Destroy the datacenter store record, even if destruction of the datacenter fails',
+    { default: false },
+  )
   .arguments('[name:string]')
   .action(destroy_datacenter_action);
 
@@ -87,7 +93,12 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
     })
     .catch(async (err) => {
       clearInterval(interval);
-      await command_helper.datacenterUtils.saveDatacenter(datacenterRecord.name, datacenterRecord.config, graph);
+      if (options.force) {
+        await command_helper.datacenterUtils.removeDatacenter(datacenterRecord);
+        console.log(`Datacenter record for ${name} destroyed successfully`);
+      } else {
+        await command_helper.datacenterUtils.saveDatacenter(datacenterRecord.name, datacenterRecord.config, graph);
+      }
       command_helper.infraRenderer.doneRenderingGraph();
       console.error(err);
       Deno.exit(1);

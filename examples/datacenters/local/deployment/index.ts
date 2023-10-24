@@ -14,6 +14,12 @@ type Config = {
     port: number;
     protocol: string;
   }>;
+  ingresses?: Record<string, {
+    host: string;
+    port: string;
+    protocol: string;
+    path?: string;
+  }>;
   ports?: {
     internal: number;
     external?: number;
@@ -36,22 +42,37 @@ const inputServices = config.getObject<Config['services']>('services') || {};
 for (const [key, value] of Object.entries(inputServices)) {
   if (value.protocol === 'http') {
     labels.push({
-      label: `traefik.http.routers.${key}.rule`,
-      value: `Host(\\\`${value.hostname}.127.0.0.1.nip.io\\\`)`,
+      label: `traefik.http.routers.${key}-service.rule`,
+      value: `Host(\`${value.hostname}.internal.127.0.0.1.nip.io\`)`,
     }, {
       label: `traefik.http.services.${key}.loadbalancer.server.port`,
       value: value.port.toString(),
     });
   } else {
     labels.push({
-      label: `traefik.tcp.routers.${key}.rule`,
-      value: `HostSNI(\\\`${value.hostname}.127.0.0.1.nip.io\\\`)`
+      label: `traefik.tcp.routers.${key}-service.rule`,
+      value: `HostSNI(\`${value.hostname}.internal.127.0.0.1.nip.io\`)`
     }, {
-      label: `traefik.tcp.routers.${key}.tls`,
+      label: `traefik.tcp.routers.${key}-service.tls`,
       value: 'true',
     }, {
       label: `traefik.tcp.services.${key}.loadbalancer.server.port`,
       value: value.port.toString(),
+    })
+  }
+}
+
+const inputIngresses = config.getObject<Config['ingresses']>('ingresses') || {};
+for (const [key, value] of Object.entries(inputIngresses)) {
+  if (value.protocol === 'http') {
+    labels.push({
+      label: `traefik.http.routers.${key}.rule`,
+      value: `Host(\`${value.host}\`) && PathPrefix(\`${value.path || '/'}\`)`,
+    });
+  } else {
+    labels.push({
+      label: `traefik.tcp.routers.${key}.rule`,
+      value: `HostSNI(\`${value.host}\`)`
     })
   }
 }

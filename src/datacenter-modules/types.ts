@@ -17,7 +17,7 @@ export type BuildResponse = {
 export type ApplyRequest = {
   datacenterid: string;
   image: string;
-  inputs: [string, string][];
+  inputs: Record<string, any>;
   environment?: Record<string, string>;
   volumes?: {
     host_path: string;

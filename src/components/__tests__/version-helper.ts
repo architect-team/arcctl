@@ -211,9 +211,9 @@ export const testServiceGeneration = (
     component: 'component',
     inputs: {
       name: `component/${options.service_name}`,
-      target_protocol: 'http',
-      target_deployment: `component/deployment/${options.deployment_name}`,
-      target_port: 80,
+      protocol: 'http',
+      deployment: `component/deployment/${options.deployment_name}`,
+      port: 80,
     },
   });
 
@@ -267,8 +267,13 @@ export const testIngressGeneration = (
       password: `\${{ component/service/${options.service_name}.password }}`,
       port: `\${{ component/service/${options.service_name}.port }}`,
       protocol: `\${{ component/service/${options.service_name}.protocol }}`,
-      service: `\${{ component/service/${options.service_name}.id }}`,
+      service: {
+        host: `\${{ component/service/${options.service_name}.host }}`,
+        port: `\${{ component/service/${options.service_name}.port }}`,
+        protocol: `\${{ component/service/${options.service_name}.protocol }}`,
+      },
       username: `\${{ component/service/${options.service_name}.username }}`,
+      path: '/',
     },
   });
 
@@ -278,9 +283,9 @@ export const testIngressGeneration = (
     component: 'component',
     inputs: {
       name: `component/${options.service_name}`,
-      target_protocol: 'http',
-      target_deployment: `component/deployment/${options.deployment_name}`,
-      target_port: 80,
+      protocol: 'http',
+      deployment: `component/deployment/${options.deployment_name}`,
+      port: 80,
     },
   });
 

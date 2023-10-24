@@ -1044,9 +1044,9 @@ describe('DatacenterV1', () => {
           ingress {
             outputs = {
               protocol = "\${node.inputs.protocol || "http"}"
-              host = "\${node.inputs.service}.127.0.0.1.nip.io"
+              host = "\${node.inputs.service.host}.127.0.0.1.nip.io"
               port = 80
-              url = "\${node.inputs.protocol || "http"}://\${node.inputs.service}.127.0.0.1.nip.io\${node.inputs.path || "/"}"
+              url = "\${node.inputs.protocol || "http"}://\${node.inputs.service.host}.127.0.0.1.nip.io\${node.inputs.path || "/"}"
               path = "\${node.inputs.path || "/"}"
             }
           }
@@ -1059,7 +1059,11 @@ describe('DatacenterV1', () => {
         name: 'ingress',
         component: 'component',
         inputs: {
-          service: 'my-service',
+          service: {
+            host: 'my-service',
+            port: '8080',
+            protocol: 'http',
+          },
           port: 8080,
           protocol: 'http',
           path: '/',
@@ -1132,9 +1136,9 @@ describe('DatacenterV1', () => {
           ingress {
             outputs = {
               protocol = "\${node.inputs.protocol || "http"}"
-              host = "\${node.inputs.service}.127.0.0.1.nip.io"
+              host = "\${node.inputs.service.host}.127.0.0.1.nip.io"
               port = 80
-              url = "\${node.inputs.protocol || "http"}://\${node.inputs.service}.127.0.0.1.nip.io\${node.inputs.path || "/"}"
+              url = "\${node.inputs.protocol || "http"}://\${node.inputs.service.host}.127.0.0.1.nip.io\${node.inputs.path || "/"}"
               path = "\${node.inputs.path || "/"}"
             }
           }
@@ -1148,7 +1152,8 @@ describe('DatacenterV1', () => {
         component: 'component',
         inputs: {
           name: 'my-service',
-          target_port: 8080,
+          port: 8080,
+          deployment: 'deployment',
         },
       });
 
@@ -1157,7 +1162,11 @@ describe('DatacenterV1', () => {
         name: 'ingress',
         component: 'component',
         inputs: {
-          service: 'my-service',
+          service: {
+            host: `\${{ ${serviceNode.getId()}.host }}`,
+            port: `\${{ ${serviceNode.getId()}.port }}`,
+            protocol: `\${{ ${serviceNode.getId()}.protocol }}`,
+          },
           port: `\${{ ${serviceNode.getId()}.port }}`,
           protocol: `\${{ ${serviceNode.getId()}.protocol }}`,
           path: '/',
@@ -1202,7 +1211,7 @@ describe('DatacenterV1', () => {
         inputs: {
           image: 'nginx:latest',
           environment: {
-            URL: `http://my-service.127.0.0.1.nip.io/`,
+            URL: `http://host.127.0.0.1.nip.io/`,
           },
         },
         name: 'deployment',

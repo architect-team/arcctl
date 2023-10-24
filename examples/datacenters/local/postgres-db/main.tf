@@ -23,8 +23,9 @@ provider "postgresql" {
   host     = var.host
   port     = var.port
   database = var.database
-  username = var.user
+  username = var.username
   password = var.password
+  sslmode  = "disable"
 }
 
 resource "postgresql_database" "my_db" {

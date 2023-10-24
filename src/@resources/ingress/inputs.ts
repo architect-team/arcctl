@@ -4,10 +4,22 @@ export type IngressRuleInputs = {
    */
   port: string | number;
 
-  /**
-   * Service the ingress forwards traffic to
-   */
-  service: string;
+  service: {
+    /**
+     * The hostname the service is listening on
+     */
+    host: string;
+
+    /**
+     * The port the service deployment is listening on
+     */
+    port: string;
+
+    /**
+     * The protocol the service is listening on
+     */
+    protocol: string;
+  };
 
   /**
    * The protocol the ingress rule listens for traffic on
@@ -34,7 +46,7 @@ export type IngressRuleInputs = {
    * The path the ingress rule listens on
    * @default /
    */
-  path?: string;
+  path: string;
 
   /**
    * Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)

@@ -156,7 +156,7 @@ export default class EnvironmentV1 extends Environment {
       node.inputs = {
         ...node.inputs,
         external_hostname: service_config.host,
-        target_port: service_config.port || node.inputs.target_port,
+        port: service_config.port || ('port' in node.inputs ? node.inputs.port : undefined),
       };
     }
 

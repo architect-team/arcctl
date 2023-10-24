@@ -427,9 +427,9 @@ export default class ComponentV2 extends Component {
         component: context.component.name,
         inputs: {
           name: `${context.component.name}/${service_key}`,
-          target_protocol: service_config.protocol || 'http',
-          target_deployment: `${context.component.name}/deployment/${service_config.deployment}`,
-          target_port: service_config.port,
+          protocol: service_config.protocol || 'http',
+          deployment: `${context.component.name}/deployment/${service_config.deployment}`,
+          port: service_config.port,
           username: service_config.username,
           password: service_config.password,
         },
@@ -495,11 +495,16 @@ export default class ComponentV2 extends Component {
         component: context.component.name,
         inputs: {
           port: `\${{ ${service_node.getId()}.port }}`,
-          service: `\${{ ${service_node.getId()}.id }}`,
+          service: {
+            host: `\${{ ${service_node.getId()}.host }}`,
+            port: `\${{ ${service_node.getId()}.port }}`,
+            protocol: `\${{ ${service_node.getId()}.protocol }}`,
+          },
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
           username: `\${{ ${service_node.getId()}.username }}`,
           password: `\${{ ${service_node.getId()}.password }}`,
           internal: ingress_config.internal || false,
+          path: '/',
           ...(ingress_config.headers ? { headers: ingress_config.headers } : {}),
         },
       });
@@ -519,31 +524,34 @@ export default class ComponentV2 extends Component {
         }),
       );
 
-      const deployment_node_id = service_node.inputs.target_deployment;
-      const deployment_node = graph.nodes.find((n) => n.getId() === deployment_node_id);
-      if (!deployment_node) {
-        throw new Error(
-          `No deployment named ${service_node.inputs.target_deployment}. Referenced by the service, ${service_node.name}`,
+      if ('deployment' in service_node.inputs) {
+        const deployment_node_id = service_node.inputs.deployment;
+        const deployment_node = graph.nodes.find((n) => n.getId() === deployment_node_id) as
+          | AppGraphNode<'deployment'>
+          | undefined;
+        if (!deployment_node) {
+          throw new Error(
+            `No deployment named ${service_node.inputs.deployment}. Referenced by the service, ${service_node.name}`,
+          );
+        }
+
+        // Update deployment node with service references
+        deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
+        deployment_node.inputs.ingresses!.push({
+          host: `\${{ ${ingress_node.getId()}.host }}`,
+          protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
+          port: `\${{ ${ingress_node.getId()}.port }}`,
+          path: `\${{ ${ingress_node.getId()}.path }}`,
+        });
+        graph.insertNodes(deployment_node);
+
+        graph.insertEdges(
+          new GraphEdge({
+            from: deployment_node.getId(),
+            to: ingress_node.getId(),
+          }),
         );
       }
-
-      // Update deployment node with service references
-      (deployment_node as AppGraphNode<'deployment'>).inputs.ingresses =
-        (deployment_node as AppGraphNode<'deployment'>).inputs.ingresses || [];
-      (deployment_node as AppGraphNode<'deployment'>).inputs.ingresses!.push({
-        host: `\${{ ${ingress_node.getId()}.host }}`,
-        protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
-        port: `\${{ ${ingress_node.getId()}.port }}`,
-        path: `\${{ ${ingress_node.getId()}.path }}`,
-      });
-      graph.insertNodes(deployment_node);
-
-      graph.insertEdges(
-        new GraphEdge({
-          from: deployment_node.getId(),
-          to: ingress_node.getId(),
-        }),
-      );
     }
 
     return graph;

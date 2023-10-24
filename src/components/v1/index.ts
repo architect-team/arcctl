@@ -253,11 +253,11 @@ export default class ComponentV1 extends Component {
           component: context.component.name,
           inputs: {
             name: `${context.component.name}/${service_name}-${interface_name}`,
-            target_deployment: `${deployment_node.component}/deployment/${deployment_node.name}`,
-            target_protocol: typeof interface_config === 'object' && interface_config.protocol
+            deployment: `${deployment_node.component}/deployment/${deployment_node.name}`,
+            protocol: typeof interface_config === 'object' && interface_config.protocol
               ? interface_config.protocol
               : 'http',
-            target_port: Number(
+            port: Number(
               typeof interface_config === 'object' ? interface_config.port : interface_config,
             ),
           },
@@ -298,10 +298,15 @@ export default class ComponentV1 extends Component {
               ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
               ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
               protocol: `\${{ ${service_node.getId()}.protocol }}`,
-              service: `\${{ ${service_node.getId()}.id }}`,
+              service: {
+                host: `\${{ ${service_node.getId()}.host }}`,
+                port: `\${{ ${service_node.getId()}.port }}`,
+                protocol: `\${{ ${service_node.getId()}.protocol }}`,
+              },
               username: `\${{ ${service_node.getId()}.username }}`,
               password: `\${{ ${service_node.getId()}.password }}`,
               internal: interface_config.ingress.internal || false,
+              path: '/',
             },
           });
 
@@ -501,11 +506,11 @@ export default class ComponentV1 extends Component {
         component: context.component.name,
         inputs: {
           name: `${context.component.name}/${interface_key}`,
-          target_protocol: typeof target_interface === 'object' && target_interface.protocol
+          protocol: typeof target_interface === 'object' && target_interface.protocol
             ? target_interface.protocol
             : 'http',
-          target_port: typeof target_interface === 'object' ? target_interface.port : (target_interface as any),
-          target_deployment: deployment_node_id,
+          port: typeof target_interface === 'object' ? target_interface.port : (target_interface as any),
+          deployment: deployment_node_id,
         },
       });
 
@@ -527,12 +532,17 @@ export default class ComponentV1 extends Component {
           type: 'ingress',
           component: context.component.name,
           inputs: {
-            service: `\${{ ${interface_node.getId()}.id }}`,
+            service: {
+              host: `\${{ ${interface_node.getId()}.host }}`,
+              port: `\${{ ${interface_node.getId()}.port }}`,
+              protocol: `\${{ ${interface_node.getId()}.protocol }}`,
+            },
             port: `\${{ ${interface_node.getId()}.port }}`,
             ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
             ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
             protocol: `\${{ ${interface_node.getId()}.protocol }}`,
             internal: interface_config.ingress.internal || false,
+            path: '/',
           },
         });
 

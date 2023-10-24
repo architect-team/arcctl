@@ -44,13 +44,22 @@ environment {
   module "postgres" {
     when = contains(environment.nodes.*.inputs.databaseType, "postgres")
     build = "./deployment"
+
+    volume {
+      host_path = "/var/run/docker.sock"
+      mount_path = "/var/run/docker.sock"
+    }
+
+    environment = {
+      DOCKER_HOST = "unix:///var/run/docker.sock"
+    }
+
     inputs = {
       name = "${environment.name}-postgres"
       image = "postgres"
-      services = [{
-        hostname = "${environment.name}-postgres",
-        port = 5432,
-        protocol = "postgresql"
+      ports = [{
+        internal = 5432
+        external = 5432
       }]
       environment = {
         POSTGRES_PASSWORD = "password"
@@ -64,9 +73,19 @@ environment {
     module "database" {
       build = "./postgres-db"
       plugin = "opentofu"
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
       inputs = {
         name = "${environment.name}_${node.component}_${node.name}"
-        host = "${environment.name}-postgres.127.0.0.1.nip.io"
+        host = "host.docker.internal"
         port = 5432
         username = "postgres"
         password = "password"
@@ -76,24 +95,24 @@ environment {
 
     outputs = {
       protocol = "postgresql"
-      host = "${environment.name}-postgres.127.0.0.1.nip.io"
+      host = "host.docker.internal"
       port = 5432
       username = "postgres"
       password = "password"
       name = module.database.name
-      url = "postgresql://postgres:password@${environment.name}-postgres.127.0.0.1.nip.io:5432/${module.database.name}"
+      url = "postgresql://postgres:password@host.docker.internal:5432/${module.database.name}"
     }
   }
 
   databaseUser {
     outputs = {
       protocol = "postgresql"
-      host = "${environment.name}-postgres.127.0.0.1.nip.io"
+      host = "host.docker.internal"
       port = 5432
       database = node.inputs.database
       username = node.inputs.username
       password = "password"
-      url = "postgresql://${node.inputs.username}:password@${environment.name}-postgres.127.0.0.1.nip.io:5432/${node.inputs.database}"
+      url = "postgresql://${node.inputs.username}:password@host.docker.internal:5432/${node.inputs.database}"
     }
   }
 
@@ -101,20 +120,22 @@ environment {
     module "deployment" {
       build = "./deployment"
       inputs = node.inputs
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
     }
   }
 
   service {
-    module "service" {
-      build = "./service"
-      inputs = node.inputs
-    }
-
     outputs = {
-      protocol = "http"
-      host = module.service.host
+      protocol = "${node.inputs.protocol || "http"}"
+      host = "${node.inputs.name}.internal.127.0.0.1.nip.io"
       port = 80
-      url = "http://${module.service.host}"
+      url = "${node.inputs.protocol || "http"}://${node.inputs.name}.internal.127.0.0.1.nip.io:${node.inputs.port}"
     }
   }
 
@@ -136,9 +157,9 @@ environment {
   ingress {
     outputs = {
       protocol = "${node.inputs.protocol || "http"}"
-      host = "${node.inputs.service}.127.0.0.1.nip.io"
+      host = "${node.inputs.subdomain}.127.0.0.1.nip.io"
       port = 80
-      url = "${node.inputs.protocol || "http"}://${node.inputs.service}.127.0.0.1.nip.io${node.inputs.path || "/"}"
+      url = "${node.inputs.protocol || "http"}://${node.inputs.subdomain}.127.0.0.1.nip.io${node.inputs.path || "/"}"
       path = "${node.inputs.path || "/"}"
     }
   }

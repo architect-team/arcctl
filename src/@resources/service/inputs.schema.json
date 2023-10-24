@@ -3,47 +3,57 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "ServiceInputs": {
-      "additionalProperties": false,
-      "properties": {
-        "dnsZone": {
-          "description": "Optional DNS zone to use for listeners",
-          "type": "string"
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "deployment": {
+              "description": "A deployment the service should point to",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the service",
+              "type": "string"
+            },
+            "password": {
+              "description": "Basic auth password",
+              "type": "string"
+            },
+            "port": {
+              "description": "Target port",
+              "type": "number"
+            },
+            "protocol": {
+              "default": "http",
+              "description": "Protocol",
+              "type": "string"
+            },
+            "username": {
+              "description": "Basic auth username",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "port",
+            "deployment"
+          ],
+          "type": "object"
         },
-        "external_hostname": {
-          "description": "External address to point to",
-          "type": "string"
-        },
-        "name": {
-          "description": "Hostname to listen on",
-          "type": "string"
-        },
-        "password": {
-          "description": "Basic auth password",
-          "type": "string"
-        },
-        "target_deployment": {
-          "description": "A deployment the service should point to",
-          "type": "string"
-        },
-        "target_port": {
-          "description": "Target port",
-          "type": "number"
-        },
-        "target_protocol": {
-          "default": "http",
-          "description": "Protocol",
-          "type": "string"
-        },
-        "username": {
-          "description": "Basic auth username",
-          "type": "string"
+        {
+          "additionalProperties": false,
+          "properties": {
+            "external_hostname": {
+              "description": "External address to point to",
+              "type": "string"
+            }
+          },
+          "required": [
+            "external_hostname"
+          ],
+          "type": "object"
         }
-      },
-      "required": [
-        "name",
-        "target_port"
-      ],
-      "type": "object"
+      ]
     }
   }
 }

@@ -189,15 +189,18 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     // Set no-op steps for nodes that exist in the new graph + previous graph
     // and have an unchanged hash (module and inputs match)
     for (const node of newInfraGraph.nodes.filter((node) => node.action === 'update')) {
-      const previousCompleteNode = options.before.nodes.find((node) =>
-        node.status.state === 'complete' && node.getId().startsWith(node.getId())
+      const previousCompleteNode = options.before.nodes.find((item) =>
+        item.status.state === 'complete' && item.getId().startsWith(node.getId())
       );
 
       if (!previousCompleteNode) {
         continue;
       }
 
-      if ((await previousCompleteNode.getHash()) === (await node.getHash())) {
+      const previousHash = await previousCompleteNode.getHash();
+      const newHash = await node.getHash();
+
+      if (previousHash === newHash) {
         node.action = 'no-op';
         node.status.state = 'complete';
         node.state = previousCompleteNode?.state;

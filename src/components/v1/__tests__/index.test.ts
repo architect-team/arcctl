@@ -288,9 +288,9 @@ describe('Component Schema: v1', () => {
       component: 'test',
       inputs: {
         name: 'test/api',
-        target_protocol: 'http',
-        target_deployment: 'test/deployment/api',
-        target_port: 80,
+        protocol: 'http',
+        deployment: 'test/deployment/api',
+        port: 80,
       },
     });
 
@@ -369,9 +369,9 @@ describe('Component Schema: v1', () => {
       component: 'test',
       inputs: {
         name: 'test/api',
-        target_protocol: 'http',
-        target_deployment: 'test/deployment/api',
-        target_port: 80,
+        protocol: 'http',
+        deployment: 'test/deployment/api',
+        port: 80,
       },
     });
 
@@ -382,9 +382,14 @@ describe('Component Schema: v1', () => {
       inputs: {
         subdomain: 'app',
         protocol: `\${{ ${interface_node.getId()}.protocol }}`,
-        service: `\${{ ${interface_node.getId()}.id }}`,
+        service: {
+          host: `\${{ ${interface_node.getId()}.host }}`,
+          port: `\${{ ${interface_node.getId()}.port }}`,
+          protocol: `\${{ ${interface_node.getId()}.protocol }}`,
+        },
         port: `\${{ ${interface_node.getId()}.port }}`,
         internal: false,
+        path: '/',
       },
     });
 
@@ -427,9 +432,9 @@ describe('Component Schema: v1', () => {
       component: 'test',
       inputs: {
         name: 'test/api-main',
-        target_protocol: 'http',
-        target_deployment: 'test/deployment/api',
-        target_port: 80,
+        protocol: 'http',
+        deployment: 'test/deployment/api',
+        port: 80,
       },
     });
 
@@ -442,9 +447,14 @@ describe('Component Schema: v1', () => {
         username: `\${{ ${service_node.getId()}.username }}`,
         password: `\${{ ${service_node.getId()}.password }}`,
         protocol: `\${{ ${service_node.getId()}.protocol }}`,
-        service: `\${{ ${service_node.getId()}.id }}`,
+        service: {
+          host: `\${{ ${service_node.getId()}.host }}`,
+          port: `\${{ ${service_node.getId()}.port }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
+        },
         port: `\${{ ${service_node.getId()}.port }}`,
         internal: false,
+        path: '/',
       },
     });
 

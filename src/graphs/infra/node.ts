@@ -1,4 +1,3 @@
-import * as dot from 'dot-object';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
 import { Logger } from 'winston';
@@ -149,11 +148,13 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
       const server = new ModuleServer(this.plugin);
       server.start().then(async (client) => {
         try {
+          if (typeof this.inputs !== 'object') {
+            throw new Error(`Cannot apply node with inputs of type ${typeof this.inputs}`);
+          }
+
           const res = await client.apply({
             datacenterid: 'datacenter',
-            // Converts an object like {a: {b: "c"}} into {"a.b": "c"}
-            // so Object.entries is always a [string, string][].
-            inputs: Object.entries(dot.dot(this.inputs)) as [string, string][],
+            inputs: this.inputs,
             environment: this.environment_vars,
             volumes: this.volumes,
             image: this.image,

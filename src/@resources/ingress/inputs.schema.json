@@ -39,8 +39,27 @@
           "type": "string"
         },
         "service": {
-          "description": "Service the ingress forwards traffic to",
-          "type": "string"
+          "additionalProperties": false,
+          "properties": {
+            "host": {
+              "description": "The hostname the service is listening on",
+              "type": "string"
+            },
+            "port": {
+              "description": "The port the service deployment is listening on",
+              "type": "string"
+            },
+            "protocol": {
+              "description": "The protocol the service is listening on",
+              "type": "string"
+            }
+          },
+          "required": [
+            "host",
+            "port",
+            "protocol"
+          ],
+          "type": "object"
         },
         "subdomain": {
           "description": "The subdomain the ingress rule listens on",
@@ -53,7 +72,8 @@
       },
       "required": [
         "port",
-        "service"
+        "service",
+        "path"
       ],
       "type": "object"
     }

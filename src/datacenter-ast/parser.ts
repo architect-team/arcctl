@@ -123,7 +123,7 @@ const handleAst = (ast: any, context: Record<string, any>): string[] => {
   const notFound: string[] = [];
   estraverse.replace(ast, {
     enter: (node) => handleEnterNode(node, context, notFound),
-    leave: (node) => {
+    leave: (node, parent) => {
       if (node.type === 'ExpressionStatement') {
         if (node.expression.type === 'Literal' && 'value' in node.expression) {
           return {

@@ -17,7 +17,7 @@ export type DatabaseOutputs = {
   /**
    * Name of the new database schema
    */
-  name: string;
+  database: string;
 
   /**
    * Full connection string for the database

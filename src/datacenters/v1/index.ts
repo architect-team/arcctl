@@ -252,7 +252,6 @@ export default class DatacenterV1 extends Datacenter {
       }
 
       if (value[0].when && value[0].when !== 'true' && value[0].when !== 'false') {
-        console.error(value[0].when);
         // If a when clause is set but can't be evaluated, it means it has an unresolvable value
         throw new ModuleReferencesNotAllowedInWhenClause();
       } else if (value[0].when && value[0].when === 'false') {
@@ -374,7 +373,7 @@ export default class DatacenterV1 extends Datacenter {
             }
 
             for (const value of values) {
-              const hook = value as ResourceHook;
+              const hook = JSON.parse(JSON.stringify(value)) as ResourceHook;
 
               // Make sure all references to `node.*` are replaced with values
               applyContextRecursive(hook, {
@@ -425,7 +424,7 @@ export default class DatacenterV1 extends Datacenter {
               }
 
               // We can only match one hook per node
-              break;
+              return;
             }
           });
         });

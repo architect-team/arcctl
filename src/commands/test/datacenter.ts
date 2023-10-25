@@ -1,4 +1,5 @@
 import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
 import { parseDatacenter } from '../../datacenters/index.ts';
 import { parseEnvironment } from '../../environments/index.ts';
 import { InfraGraph, PlanContext } from '../../graphs/index.ts';
@@ -46,11 +47,20 @@ export const TestDatacenterCommand = BaseCommand()
 
     const command_helper = new CommandHelper(options);
 
+    let logger: Logger | undefined;
+    if (options.verbose) {
+      logger = winston.createLogger({
+        level: 'info',
+        format: winston.format.printf(({ message }) => message),
+        transports: [new winston.transports.Console()],
+      });
+    }
+
     let datacenter = await parseDatacenter(path.resolve(datacenter_path));
     datacenter = await command_helper.datacenterUtils.buildDatacenter(
       datacenter,
       path.resolve(datacenter_path),
-      options.verbose,
+      logger,
     );
 
     const vars = await command_helper.datacenterUtils.promptForVariables(

@@ -6,16 +6,44 @@
       "additionalProperties": false,
       "properties": {
         "database": {
-          "description": "The database the user should have access to",
+          "description": "Name of the database to give access to",
+          "type": "string"
+        },
+        "host": {
+          "description": "Hostname of the target database",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the new user to create",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password used to access the target database",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port the target database is listening on",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "protocol": {
+          "description": "Protocol of the target database",
           "type": "string"
         },
         "username": {
-          "description": "Username of the user to create",
+          "description": "Username used to access the target database",
           "type": "string"
         }
       },
       "required": [
+        "name",
+        "protocol",
+        "host",
+        "port",
         "username",
+        "password",
         "database"
       ],
       "type": "object"

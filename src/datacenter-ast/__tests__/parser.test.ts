@@ -180,6 +180,31 @@ describe('AST: applyContext()', () => {
     assertEquals(obj.module.vpc.inputs.second, 'false');
   });
 
+  it('should support replace() function', () => {
+    const obj = {
+      module: {
+        vpc: {
+          source: 'architect/vpc:latest',
+          inputs: {
+            first: '${replace("test/this", "/", "--")}',
+            second: '${replace(node.name, "test", "this")}',
+            third: 'Host(${replace(node.name, "test", "this")})',
+          },
+        },
+      },
+    };
+
+    applyContext(obj, {
+      node: {
+        name: 'test',
+      },
+    });
+
+    assertEquals(obj.module.vpc.inputs.first, 'test--this');
+    assertEquals(obj.module.vpc.inputs.second, 'this');
+    assertEquals(obj.module.vpc.inputs.third, 'Host(this)');
+  });
+
   it('should support functions of functions', () => {
     const obj = {
       module: {

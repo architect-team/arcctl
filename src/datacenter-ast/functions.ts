@@ -125,6 +125,27 @@ const startsWith = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree
   };
 };
 
+const replace = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments.length !== 3) {
+    throw new Error(`Expected exactly three arguments for the replace() method. Got ${node.arguments.length}.`);
+  } else if (
+    node.arguments[1].type !== 'Literal' || node.arguments[2].type !== 'Literal'
+  ) {
+    throw new Error(
+      `Unsupported argument types for replace(): ${node.arguments[1].type} and ${node.arguments[2].type}`,
+    );
+  }
+
+  const value = convertEstreeNodeToObject(node.arguments[0]).replaceAll(
+    node.arguments[1].value?.toString() as string,
+    node.arguments[2].value?.toString() as string,
+  );
+  return {
+    type: 'Literal',
+    value,
+  } as ESTree.SimpleLiteral;
+};
+
 type functionType = (node: ESTree.CallExpression) => ESTree.CallExpression | ESTree.SimpleLiteral;
 
 const functions: Record<string, functionType> = {
@@ -134,6 +155,7 @@ const functions: Record<string, functionType> = {
   toUpper,
   toLower,
   startsWith,
+  replace,
 };
 
 const convertEstreeNodeToObject = (node: ESTreeNode): any => {

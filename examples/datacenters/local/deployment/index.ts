@@ -8,9 +8,10 @@ type Config = {
   name?: string;
   image: string;
   command?: string[];
+  entrypoint?: string[];
   labels?: Record<string, string>;
   services?: Record<string, {
-    hostname: string;
+    host: string;
     port: number;
     protocol: string;
   }>;
@@ -43,7 +44,7 @@ for (const [key, value] of Object.entries(inputServices)) {
   if (value.protocol === 'http') {
     labels.push({
       label: `traefik.http.routers.${key}-service.rule`,
-      value: `Host(\`${value.hostname}.internal.127.0.0.1.nip.io\`)`,
+      value: `Host(\`${value.host}\`)`,
     }, {
       label: `traefik.http.services.${key}.loadbalancer.server.port`,
       value: value.port.toString(),
@@ -51,7 +52,7 @@ for (const [key, value] of Object.entries(inputServices)) {
   } else {
     labels.push({
       label: `traefik.tcp.routers.${key}-service.rule`,
-      value: `HostSNI(\`${value.hostname}.internal.127.0.0.1.nip.io\`)`
+      value: `HostSNI(\`${value.host}\`)`
     }, {
       label: `traefik.tcp.routers.${key}-service.tls`,
       value: 'true',
@@ -83,7 +84,7 @@ const deployment = new docker.Container("deployment", {
   name: config.get('name'),
   image: config.require('image'),
   command: config.getObject('command'),
-  volumes: config.getObject('volumes'),
+  entrypoints: config.getObject('entrypoint'),
   envs,
   labels,
   ports,

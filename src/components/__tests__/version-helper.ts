@@ -131,8 +131,13 @@ export const testDatabaseIntegration = (
     type: 'databaseUser',
     component: 'component',
     inputs: {
-      username: name.replaceAll('/', '--'),
-      database: `\${{ ${database_schema_node_id}.id }}`,
+      name: name.replaceAll('/', '--'),
+      protocol: `\${{ ${database_schema_node_id}.protocol }}`,
+      host: `\${{ ${database_schema_node_id}.host }}`,
+      port: `\${{ ${database_schema_node_id}.port }}`,
+      username: `\${{ ${database_schema_node_id}.username }}`,
+      password: `\${{ ${database_schema_node_id}.password }}`,
+      database: `\${{ ${database_schema_node_id}.database }}`,
     },
   });
 

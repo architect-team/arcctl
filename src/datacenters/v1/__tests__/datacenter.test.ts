@@ -1114,6 +1114,93 @@ describe('DatacenterV1', () => {
       assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
     });
 
+    it('should support hooks matching mulitple nodes', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
+        environment {
+          database {
+            module "database" {
+              source = "architect-io/postgres:latest"
+              inputs = {
+                name = node.inputs.name
+                component = node.component
+                environment = environment.name
+              }
+            }
+
+            outputs = {
+              protocol = "postgresql"
+              host = "host.docker.internal"
+              port = 5432
+              username = "postgres"
+              password = "password"
+              name = module.database.name
+              url = "postgresql://postgres:password@host.docker.internal:5432/\${module.database.name}"
+            }
+          }
+        }
+      `);
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const database1Node = new AppGraphNode({
+        type: 'database',
+        name: 'database1',
+        component: 'component/first',
+        inputs: {
+          databaseType: 'postgres',
+          databaseVersion: '15',
+          name: 'first',
+        },
+      });
+
+      const database2Node = new AppGraphNode({
+        type: 'database',
+        name: 'database2',
+        component: 'component/second',
+        inputs: {
+          databaseType: 'postgres',
+          databaseVersion: '15',
+          name: 'second',
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [database1Node, database2Node],
+      });
+
+      const infraGraph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+      });
+
+      const expectedInfraNode1 = new InfraGraphNode({
+        image: 'architect-io/postgres:latest',
+        component: database1Node.component,
+        appNodeId: database1Node.getId(),
+        inputs: {
+          name: 'first',
+          component: 'component/first',
+          environment: 'test',
+        },
+        name: 'database',
+        plugin: 'pulumi',
+      });
+
+      const expectedInfraNode2 = new InfraGraphNode({
+        image: 'architect-io/postgres:latest',
+        component: database2Node.component,
+        appNodeId: database2Node.getId(),
+        inputs: {
+          name: 'second',
+          component: 'component/second',
+          environment: 'test',
+        },
+        name: 'database',
+        plugin: 'pulumi',
+      });
+
+      assertEquals(infraGraph.nodes, [expectedInfraNode1, expectedInfraNode2]);
+    });
+
     it('should support app graph references in outputs', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         environment {

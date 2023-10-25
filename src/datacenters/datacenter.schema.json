@@ -194,12 +194,12 @@
                           "description": "SSL certificate used to authenticate with the database",
                           "type": "string"
                         },
-                        "host": {
-                          "description": "Host address of the underlying database",
+                        "database": {
+                          "description": "Name of the new database schema",
                           "type": "string"
                         },
-                        "name": {
-                          "description": "Name of the new database schema",
+                        "host": {
+                          "description": "Host address of the underlying database",
                           "type": "string"
                         },
                         "password": {
@@ -230,7 +230,7 @@
                         "protocol",
                         "host",
                         "port",
-                        "name",
+                        "database",
                         "url",
                         "username",
                         "password"

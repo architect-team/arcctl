@@ -135,9 +135,9 @@ environment {
   service {
     outputs = {
       protocol = "${node.inputs.protocol || "http"}"
-      host = "${replace(node.inputs.name, "/", "--")}.internal.127.0.0.1.nip.io"
+      host = "${replace(node.component + "_" + node.name, "/", "__")}.internal.127.0.0.1.nip.io"
       port = 80
-      url = "${node.inputs.protocol || "http"}://${replace(node.inputs.name, "/", "--")}.internal.127.0.0.1.nip.io:${node.inputs.port}"
+      url = "${node.inputs.protocol || "http"}://${replace(node.component + "_" + node.name, "/", "__")}.internal.127.0.0.1.nip.io:${node.inputs.port}"
     }
   }
 
@@ -163,6 +163,8 @@ environment {
       port = 80
       url = "${node.inputs.protocol || "http"}://${node.inputs.subdomain}.127.0.0.1.nip.io${node.inputs.path || "/"}"
       path = "${node.inputs.path || "/"}"
+      dns_zone = "127.0.0.1.nip.io"
+      subdomain = node.inputs.subdomain
     }
   }
 }

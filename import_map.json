@@ -12,7 +12,6 @@
     "ajv": "https://esm.sh/v124/ajv@8.11.0",
     "cli-spinners": "https://esm.sh/v124/cli-spinners@2.7.0",
     "constructs": "https://esm.sh/v124/constructs@10.2.27",
-    "dot-object": "https://esm.sh/v124/dot-object@2.1.4",
     "estraverse": "https://esm.sh/v124/estraverse@5.3.0",
     "hcl2-json-parser": "https://esm.sh/v124/hcl2-json-parser@1.0.1",
     "js-yaml": "https://esm.sh/v124/js-yaml@4.1.0",

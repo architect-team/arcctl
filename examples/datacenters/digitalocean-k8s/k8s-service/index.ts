@@ -37,10 +37,10 @@ const service = new kubernetes.core.v1.Service('service', {
   },
   spec: {
     selector: {
-      app: config.require('target_deployment').replace(/\//g, '-'),
+      app: config.require('deployment').replace(/\//g, '-'),
     },
     ports: [{
-      port: config.requireNumber('target_port'),
+      port: config.requireNumber('port'),
     }]
   }
 }, {
@@ -53,7 +53,7 @@ export const host = convertedName;
 export const name = convertedName;
 export const username = "test";
 export const password = "test";
-export const port = config.requireNumber('target_port');
-export const target_port = config.requireNumber('target_port');
+export const port = config.requireNumber('port');
+export const target_port = config.requireNumber('port');
 export const account = 'test';
-export const protocol = config.require('target_protocol');
+export const protocol = config.require('protocol');

@@ -33,7 +33,7 @@ export class ModuleServer {
     const pluginImage = `architectio/${this.plugin}-plugin`;
     this.containerName = pluginImage.replace('/', '-') + '-' + Date.now();
 
-    // TODO: Add state path to dev mode
+    // TODO: How do we handle the state path for dev mode plugins?
     if (this.dev_pulumi_plugin_port && this.plugin === 'pulumi') {
       return new ModuleClient(parseInt(this.dev_pulumi_plugin_port), '');
     } else if (this.dev_opentofu_plugin_port && this.plugin === 'opentofu') {

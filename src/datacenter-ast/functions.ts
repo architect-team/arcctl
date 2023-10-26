@@ -185,6 +185,16 @@ const convertEstreeNodeToObject = (node: ESTreeNode): any => {
       return `${objectPath}.${propertyPath}`;
     }
 
+    case 'AssignmentExpression': {
+      // This happens when there's unparsed HCL within a merge() argument.
+      // We receive `${merge(node.inputs, { region = "nyc1" })}` where the inner input is unparsed HCL.
+      // By the AST parser, this is treated as an ObjectExpression with an AssignmentExpression within it.
+      // To handle this without re-parsing the HCL, the `node.right` element is the assignment and
+      // the ObjectExpression case handles parsing the key. Therefore, all we need to do here is parse the
+      // right side of the expression.
+      return convertEstreeNodeToObject(node.right);
+    }
+
     default:
       throw new Error(`Unhandled ESTree node type: ${node.type}`);
   }

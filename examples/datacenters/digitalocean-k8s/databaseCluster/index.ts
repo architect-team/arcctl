@@ -10,6 +10,7 @@ const database = new digitalocean.DatabaseCluster("my-database", {
   nodeCount: 1,
   region: config.get('region')!,
   size: 'db-s-1vcpu-2gb',
+  privateNetworkUuid: config.get('vpcId')!,
 });
 
 export const id = database.id.apply(id => id.toString());

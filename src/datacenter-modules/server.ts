@@ -33,12 +33,14 @@ export class ModuleServer {
     const pluginImage = `architectio/${this.plugin}-plugin`;
     this.containerName = pluginImage.replace('/', '-') + '-' + Date.now();
 
+    // TODO: Add state path to dev mode
     if (this.dev_pulumi_plugin_port && this.plugin === 'pulumi') {
-      return new ModuleClient(parseInt(this.dev_pulumi_plugin_port));
+      return new ModuleClient(parseInt(this.dev_pulumi_plugin_port), '');
     } else if (this.dev_opentofu_plugin_port && this.plugin === 'opentofu') {
-      return new ModuleClient(parseInt(this.dev_opentofu_plugin_port));
+      return new ModuleClient(parseInt(this.dev_opentofu_plugin_port), '');
     }
 
+    const stateFileDir = Deno.makeTempDirSync({ prefix: 'state' });
     const command = new Deno.Command('docker', {
       args: [
         'run',
@@ -50,8 +52,13 @@ export class ModuleServer {
         '--quiet', // ignore the docker error 'unable to find image <image name> locally if the image needs to be downloaded
         '-p',
         '50051',
+        // Allows mounting from the host to the Docker-In-Docker container
         '-v',
         '/var/run/docker.sock:/var/run/docker.sock',
+        // Creates a volume that can be used to pass the input state or various other data to the DinD container
+        '-v',
+        `${stateFileDir}:/state`,
+        // Mounts the volume for the module itself
         ...(directory ? ['-v', `${directory}:${directory}`] : []),
         pluginImage,
       ],
@@ -69,7 +76,7 @@ export class ModuleServer {
             if (output.includes('Started server on port')) {
               const port = await this.getPort(this.containerName!);
               this.proc = process;
-              resolve(new ModuleClient(port));
+              resolve(new ModuleClient(port, stateFileDir));
             }
           },
         }),

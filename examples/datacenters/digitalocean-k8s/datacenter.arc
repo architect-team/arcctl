@@ -39,6 +39,7 @@ module "databaseCluster" {
     databaseType = "pg"
     databaseVersion = 14
     region = variable.region
+    vpcId = module.vpc.id
     digitalocean = {
       token = variable.dotoken
     }
@@ -154,14 +155,10 @@ environment {
     }
 
     outputs = {
-      name = module.service.target_port
       protocol = module.service.protocol
-      username = module.service.username
-      password = module.service.password
       host = module.service.host
       port = module.service.port
       url = module.service.url
-      target_port = module.service.target_port
     }
   }
 }

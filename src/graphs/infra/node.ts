@@ -109,12 +109,12 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
 
   public getId(): string {
     const parts = [this.name, this.color];
-    if (this.appNodeId) {
-      parts.unshift(this.appNodeId);
-    }
     // Note: The seperator here must be a valid javascript identifier
     // because this ID gets passed through the AST parser to be replaced
     // by the appropriate value.
+    if (this.appNodeId) {
+      parts.unshift(this.appNodeId.replaceAll('/', '__'));
+    }
     return parts.join('__');
   }
 

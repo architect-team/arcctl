@@ -7,11 +7,16 @@ export class ModuleServer {
   private containerName?: string;
   private dev_pulumi_plugin_port?: string;
   private dev_opentofu_plugin_port?: string;
+  private dev_state_dir?: string;
 
   constructor(plugin: Plugin) {
     this.plugin = plugin;
     this.dev_pulumi_plugin_port = Deno.env.get('DEV_PULUMI_PLUGIN_PORT');
     this.dev_opentofu_plugin_port = Deno.env.get('DEV_OPENTOFU_PLUGIN_PORT');
+    // This should be set to whatever directory is used in the first half of `-v /path/to/state/dir:/state`
+    // which should be set when running the plugin manually, e.g. DEV_STATE_DIR="/path/to/state/dir".
+    // The statefile for each pipeline step will be written to this directory.
+    this.dev_state_dir = Deno.env.get('DEV_STATE_DIR');
   }
 
   private async getPort(containerName: string): Promise<number> {
@@ -33,12 +38,18 @@ export class ModuleServer {
     const pluginImage = `architectio/${this.plugin}-plugin`;
     this.containerName = pluginImage.replace('/', '-') + '-' + Date.now();
 
-    if (this.dev_pulumi_plugin_port && this.plugin === 'pulumi') {
-      return new ModuleClient(parseInt(this.dev_pulumi_plugin_port));
-    } else if (this.dev_opentofu_plugin_port && this.plugin === 'opentofu') {
-      return new ModuleClient(parseInt(this.dev_opentofu_plugin_port));
+    if (this.dev_pulumi_plugin_port || this.dev_opentofu_plugin_port) {
+      if (!this.dev_state_dir) {
+        throw Error('DEV_STATE_DIR must be set when using dev mode.');
+      }
+      if (this.dev_pulumi_plugin_port && this.plugin === 'pulumi') {
+        return new ModuleClient(parseInt(this.dev_pulumi_plugin_port), this.dev_state_dir);
+      } else if (this.dev_opentofu_plugin_port && this.plugin === 'opentofu') {
+        return new ModuleClient(parseInt(this.dev_opentofu_plugin_port), this.dev_state_dir);
+      }
     }
 
+    const stateFileDir = Deno.makeTempDirSync({ prefix: 'state' });
     const command = new Deno.Command('docker', {
       args: [
         'run',
@@ -50,8 +61,13 @@ export class ModuleServer {
         '--quiet', // ignore the docker error 'unable to find image <image name> locally if the image needs to be downloaded
         '-p',
         '50051',
+        // Allows mounting from the host to the Docker-In-Docker container
         '-v',
         '/var/run/docker.sock:/var/run/docker.sock',
+        // Creates a volume that can be used to pass the input state or various other data to the DinD container
+        '-v',
+        `${stateFileDir}:/state`,
+        // Mounts the volume for the module itself
         ...(directory ? ['-v', `${directory}:${directory}`] : []),
         pluginImage,
       ],
@@ -69,7 +85,7 @@ export class ModuleServer {
             if (output.includes('Started server on port')) {
               const port = await this.getPort(this.containerName!);
               this.proc = process;
-              resolve(new ModuleClient(port));
+              resolve(new ModuleClient(port, stateFileDir));
             }
           },
         }),

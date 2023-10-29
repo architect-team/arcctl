@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { ResourceOutputs, ResourceType } from '../../@resources/types.ts';
 import { applyContextRecursive } from '../../datacenter-ast/index.ts';
 import { GraphEdge } from '../edge.ts';
 import { AppGraphOptions, Graph } from '../graph.ts';
@@ -68,7 +69,6 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     }
 
     if (notFound.length > 0) {
-      console.log(node);
       throw Error(`Missing outputs for key${notFound.length > 1 ? 's' : ''}: ${notFound.join(', ')}`);
     }
   }
@@ -189,23 +189,45 @@ export class InfraGraph extends Graph<InfraGraphNode> {
 
     // Set no-op steps for nodes that exist in the new graph + previous graph
     // and have an unchanged hash (module and inputs match)
-    for (const node of newInfraGraph.nodes.filter((node) => node.action === 'update')) {
-      const previousCompleteNode = options.before.nodes.find((item) =>
-        item.status.state === 'complete' && item.getId().startsWith(node.getId())
-      );
+    while (true) {
+      let continueLooping = false;
 
-      if (!previousCompleteNode) {
-        continue;
+      for (const node of newInfraGraph.nodes.filter((node) => node.action === 'update')) {
+        const previousCompleteNode = options.before.nodes.find((item) =>
+          item.status.state === 'complete' && item.getId().startsWith(node.getId())
+        );
+
+        // Shouldn't happen because nodes are only labeled for update if they have previous nodes
+        if (!previousCompleteNode) {
+          continue;
+        }
+
+        // Check if all dependencies are no-op
+        const dependencies = newInfraGraph.getDependencies(node.getId());
+        const hasIncompleteDependencies = !dependencies.every((n) => n.action === 'no-op');
+        if (!hasIncompleteDependencies) {
+          // Add output values from no-op dependencies
+          const outputsById: Record<string, ResourceOutputs[ResourceType]> = {};
+          dependencies.forEach((d) => {
+            outputsById[d.getId()] = d.outputs || {};
+          });
+          applyContextRecursive(node, outputsById);
+
+          // Compare hashes
+          const previousHash = await previousCompleteNode.getHash();
+          const newHash = await node.getHash();
+          if (previousHash === newHash) {
+            continueLooping = true;
+            node.action = 'no-op';
+            node.status.state = 'complete';
+            node.state = previousCompleteNode?.state;
+            node.outputs = previousCompleteNode?.outputs;
+          }
+        }
       }
 
-      const previousHash = await previousCompleteNode.getHash();
-      const newHash = await node.getHash();
-
-      if (previousHash === newHash) {
-        node.action = 'no-op';
-        node.status.state = 'complete';
-        node.state = previousCompleteNode?.state;
-        node.outputs = previousCompleteNode?.outputs;
+      if (!continueLooping) {
+        break;
       }
     }
 

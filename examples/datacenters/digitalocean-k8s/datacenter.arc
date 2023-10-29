@@ -39,6 +39,7 @@ module "databaseCluster" {
     databaseType = "pg"
     databaseVersion = 14
     region = variable.region
+    vpcId = module.vpc.id
     digitalocean = {
       token = variable.dotoken
     }
@@ -58,6 +59,7 @@ environment {
     module "secret" {
       build = "./secrets"
       inputs = merge(node.inputs, {
+        name = node.name
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })
@@ -82,11 +84,12 @@ environment {
     outputs = {
       host = module.database.host
       port = module.database.port
-      name = module.database.name
       protocol = module.database.protocol
       username = module.database.username
       password = module.database.password
       url = module.database.url
+      // NOTE: This is currently just set to "test", need to do something real here
+      database = module.database.database
     }
   }
 
@@ -133,6 +136,7 @@ environment {
     module "deployment" {
       build = "./k8s-deployment"
       inputs = merge(node.inputs, {
+        name = node.name
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })
@@ -146,22 +150,19 @@ environment {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
         labels = {
-          "io.architect.datacenter" = datacenter.name
-          "io.architect.environment" = environment.name
-          "io.architect.component" = node.component
+          // TODO: Currently doesn't work with the way we flatten objects in the Plugin
+          // "io.architect.datacenter" = datacenter.name
+          // "io.architect.environment" = environment.name
+          // "io.architect.component" = node.component
         }
       })
     }
 
     outputs = {
-      name = module.service.target_port
       protocol = module.service.protocol
-      username = module.service.username
-      password = module.service.password
       host = module.service.host
       port = module.service.port
       url = module.service.url
-      target_port = module.service.target_port
     }
   }
 }

@@ -1,11 +1,14 @@
+import * as path from 'std/path/mod.ts';
 import { Logger } from 'winston';
 import { ApplyOptions, ApplyRequest, ApplyResponse, BuildOptions, BuildRequest, BuildResponse } from './types.ts';
 
 export class ModuleClient {
   private socket: WebSocket;
+  private stateFilePath: string;
 
-  constructor(port: number) {
+  constructor(port: number, stateFileDir: string) {
     this.socket = new WebSocket(`ws://localhost:${port}/ws`);
+    this.stateFilePath = path.join(stateFileDir, 'statefile.txt');
   }
 
   private request<R extends BuildRequest | ApplyRequest>(
@@ -54,6 +57,12 @@ export class ModuleClient {
   }
 
   public async apply(applyRequest: ApplyRequest, options?: ApplyOptions): Promise<ApplyResponse> {
+    // Write the state to the mounted path
+    if (applyRequest.state) {
+      Deno.writeTextFileSync(this.stateFilePath, applyRequest.state);
+      // Replace state with the path to the state
+      applyRequest.state = this.stateFilePath;
+    }
     return this.request('apply', applyRequest, options?.logger) as Promise<ApplyResponse>;
   }
 

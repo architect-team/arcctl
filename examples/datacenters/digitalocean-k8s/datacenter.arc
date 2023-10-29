@@ -59,6 +59,7 @@ environment {
     module "secret" {
       build = "./secrets"
       inputs = merge(node.inputs, {
+        name = node.name
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })
@@ -135,6 +136,7 @@ environment {
     module "deployment" {
       build = "./k8s-deployment"
       inputs = merge(node.inputs, {
+        name = node.name
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })

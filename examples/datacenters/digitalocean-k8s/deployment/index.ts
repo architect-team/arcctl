@@ -2,11 +2,11 @@ import * as k8s from "@pulumi/kubernetes";
 import * as pulumi from "@pulumi/pulumi";
 
 const config = new pulumi.Config();
-const namespace = config.get("namespace")!;
-const deploymentName = config.get("name")!.replace(/\//g, '-').replace(/_/g, '-');
-const image = config.get("image")!;
-const environment: Record<string, string> = config.getObject("environment") ? config.getObject("environment")! as Record<string, string> : {};
-const replicas = config.getNumber("replicas") || 1;
+const namespace = config.require("namespace");
+const deploymentName = config.require("name").replace(/\//g, '-').replace(/_/g, '-');
+const image = config.require("image");
+const environment: Record<string, string> = config.getObject("environment") ?? {};
+const replicas = config.getNumber("replicas") ?? 1;
 
 const provider = new k8s.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),

@@ -35,6 +35,13 @@ export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<st
   environment_vars?: Record<string, string>;
 };
 
+function replaceSeparators(value: string): string {
+  // Note: The seperator here must be a valid javascript identifier
+  // because this ID gets passed through the AST parser to be replaced
+  // by the appropriate value.
+  return value.replaceAll('/', '__').replaceAll('-', '__');
+}
+
 export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<string, unknown> | string> {
   plugin: P;
   action: NodeAction;
@@ -108,13 +115,10 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   }
 
   public getId(): string {
-    const parts = [this.name, this.color];
+    const parts = [replaceSeparators(this.name), this.color];
     if (this.appNodeId) {
-      parts.unshift(this.appNodeId);
+      parts.unshift(replaceSeparators(this.appNodeId));
     }
-    // Note: The seperator here must be a valid javascript identifier
-    // because this ID gets passed through the AST parser to be replaced
-    // by the appropriate value.
     return parts.join('__');
   }
 

@@ -139,16 +139,18 @@ describe('AST: applyContext()', () => {
         vpc: {
           source: 'architect/vpc:latest',
           inputs: {
-            name: '${merge({ key1: \'one\' }, { key2: \'two\' })}',
-            merged: '${merge({ key: \'value\' }, { key: \'value2\' })}',
+            // NOTE: the merge() inputs from the HCL -> JSON converter are
+            // unmodified HCL and not a proper json object.
+            name: '${merge({ key1 = \'one\' }, { key2 = \'two\' })}',
+            merged: '${merge(node.inputs, { key = \'overridden value\' })}',
           },
         },
       },
     };
 
     applyContext(obj, {
-      datacenter: {
-        name: 'test',
+      node: {
+        inputs: { key: 'value' },
       },
     });
 
@@ -157,7 +159,7 @@ describe('AST: applyContext()', () => {
       key2: 'two',
     });
     assertEquals(obj.module.vpc.inputs.merged as any, {
-      key: 'value2',
+      key: 'overridden value',
     });
   });
 

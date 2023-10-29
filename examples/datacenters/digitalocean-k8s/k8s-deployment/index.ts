@@ -9,23 +9,23 @@ const provider = new kubernetes.Provider("provider", {
 
 const name = config.require('name').replace(/\//g, '-');
 
-export const labels = (config.getObject('labels') || {}) as any;
+export const labels = (config.getObject('labels') || {}) as Record<string, string>;
 labels['app'] = name;
 
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
     name,
     namespace: config.require('namespace'),
-    labels: labels as any,
+    labels,
   },
   spec: {
     replicas: config.getNumber('replicas') || 1,
     selector: {
-      matchLabels: labels as any,
+      matchLabels: labels,
     },
     template: {
       metadata: {
-        labels: labels as any,
+        labels,
       },
       spec: {
         containers: [{

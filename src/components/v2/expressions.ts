@@ -33,7 +33,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?databases\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, database_name, key) => {
         const database_schema_node_id = `${context.component.name}/database/${database_name}`;
 
@@ -79,7 +79,7 @@ const parseBuildRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?builds\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?builds\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, build_name, key) => {
         const build_node_id = `${context.component.name}/dockerBuild/${build_name}`;
 
@@ -104,7 +104,7 @@ const parseServiceRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?services\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?services\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, service_name, key) => {
         const service_node_id = `${context.component.name}/service/${service_name}`;
         graph.insertEdges(
@@ -128,7 +128,7 @@ const parseIngressRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, ingress_name, key) => {
         const ingress_node_id = `${context.component.name}/ingress/${ingress_name}`;
         graph.insertEdges(
@@ -181,7 +181,7 @@ const parseDependencyServiceRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?dependencies\.([\w/-]+)\.services\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?dependencies\.([\w/-]+)\.services\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, dependency_name, service_name, key) => {
         const dep = dependencies[dependency_name];
         if (!dep) {
@@ -211,7 +211,7 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?dependencies\.([\w/-]+)\.ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?dependencies\.([\w/-]+)\.ingresses\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, dependency_name, ingress_name, key) => {
         const dep = dependencies[dependency_name];
         if (!dep) {

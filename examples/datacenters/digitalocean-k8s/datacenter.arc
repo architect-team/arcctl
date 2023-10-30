@@ -1,4 +1,4 @@
-variable "dotoken" {
+variable "do_token" {
   description = "The digital ocean API token"
   type = "string"
 }
@@ -15,7 +15,7 @@ module "vpc" {
     region = variable.region
     name = "${datacenter.name}-datacenter"
     digitalocean = {
-      token = variable.dotoken
+      token = variable.do_token
     }
   }
 }
@@ -27,7 +27,7 @@ module "k8s" {
     region = variable.region
     vpcId = module.vpc.id
     digitalocean = {
-      token = variable.dotoken
+      token = variable.do_token
     }
   }
 }
@@ -41,7 +41,7 @@ module "databaseCluster" {
     region = variable.region
     vpcId = module.vpc.id
     digitalocean = {
-      token = variable.dotoken
+      token = variable.do_token
     }
   }
 }
@@ -59,7 +59,7 @@ environment {
     module "secret" {
       build = "./secrets"
       inputs = merge(node.inputs, {
-        name = node.name
+        name = "${node.component}--${node.name}"
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })
@@ -76,7 +76,7 @@ environment {
       inputs = merge(node.inputs, {
         region = variable.region
         digitalocean = {
-          token = variable.dotoken
+          token = variable.do_token
         }
       })
     }
@@ -107,6 +107,8 @@ environment {
       password = module.ingressRule.password
       url = module.ingressRule.url
       path = module.ingressRule.path
+      subdomain = "test"
+      dns_zone = ""
     }
   }
 
@@ -116,7 +118,7 @@ environment {
       inputs = merge(node.inputs, {
         region = variable.region
         digitalocean = {
-          token = variable.dotoken
+          token = variable.do_token
         }
       })
     }
@@ -136,7 +138,6 @@ environment {
     module "deployment" {
       build = "./k8s-deployment"
       inputs = merge(node.inputs, {
-        name = node.name
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
       })
@@ -147,6 +148,7 @@ environment {
     module "service" {
       build = "./k8s-service"
       inputs = merge(node.inputs, {
+        name = "${node.component}--${node.name}"
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
         labels = {

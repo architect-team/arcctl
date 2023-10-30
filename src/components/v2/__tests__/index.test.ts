@@ -324,8 +324,11 @@ describe('Component Schema: v2', () => {
         kratos-main:
           image: nginx:latest
           environment:
-            SVC_URL: \${{ services.kratos-main.url }}
-            ING_URL: \${{ ingresses.kratos-main.url }}
+            CONFIG: |
+              version: v0.13.0
+              serve:
+                public:
+                  base_url: \${{ ingresses.kratos-main.dns_zone }}
       services:
         kratos-main:
           deployment: kratos-main
@@ -385,8 +388,10 @@ describe('Component Schema: v2', () => {
         image: 'nginx:latest',
         volume_mounts: [],
         environment: {
-          SVC_URL: `\${{ ${svc_node.getId()}.url }}`,
-          ING_URL: `\${{ ${ing_node.getId()}.url }}`,
+          CONFIG: `version: v0.13.0
+serve:
+  public:
+    base_url: \${{ ${ing_node.getId()}.dns_zone }}\n`,
         },
         services: [
           {

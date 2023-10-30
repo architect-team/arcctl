@@ -32,7 +32,7 @@ const parseDatabaseRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?databases\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?databases\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, database_name, key) => {
         const database_schema_node_id = `${context.component.name}/database/${database_name}`;
 
@@ -101,7 +101,7 @@ const parseDependencyInterfaceRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?dependencies\.([\w/-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?dependencies\.([\w/-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, dependency_name, interface_name, key) => {
         const dependency_node_id = `${dependency_name}/service/${interface_name}`;
         graph.insertEdges(
@@ -125,7 +125,7 @@ const parseDependencyIngressRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?dependencies\.([\w/-]+)\.ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?dependencies\.([\w/-]+)\.ingresses\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, dependency_name, interface_name, key) => {
         const dependency_node_id = `${dependency_name}/ingress/${interface_name}`;
         graph.insertEdges(
@@ -148,7 +148,7 @@ const parseServiceInterfaceRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?services\.([\w-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?services\.([\w-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, service_name, interface_name, key) => {
         const service_node_id = `${context.component.name}/service/${service_name}-${interface_name}`;
         graph.insertEdges(
@@ -172,7 +172,7 @@ const parseComponentInterfaceRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?interfaces\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, interface_name, key) => {
         const interface_node_id = `${context.component.name}/service/${interface_name}`;
         graph.insertEdges(
@@ -196,7 +196,7 @@ const parseComponentIngressRefs = <T extends Record<string, any>>(
 ): T => {
   return JSON.parse(
     JSON.stringify(inputs).replace(
-      /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g,
+      /\${{\s?ingresses\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g,
       (_, interface_name, key) => {
         const ingress_node_id = `${context.component.name}/ingress/${interface_name}`;
         graph.insertEdges(

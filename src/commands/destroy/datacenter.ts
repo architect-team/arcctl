@@ -29,6 +29,9 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   const command_helper = new CommandHelper(options);
 
   const datacenterRecord = await promptForDatacenter(command_helper, name);
+  if (!name) {
+    name = datacenterRecord.name;
+  }
   const lastGraph = datacenterRecord.priorState;
   const graph = await InfraGraph.plan({
     before: lastGraph,

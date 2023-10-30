@@ -46,14 +46,12 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     const server = new ModuleServer(build_options.plugin);
     const client = await server.start(build_dir);
     try {
-      const build = await client.build({ directory: build_dir }, {
-        verbose: options.verbose,
-      });
-      await client.close();
+      const build = await client.build({ directory: build_dir });
+      client.close();
       await server.stop();
       return build.image;
     } catch (e) {
-      await client.close();
+      client.close();
       await server.stop();
       throw new Error(e);
     }

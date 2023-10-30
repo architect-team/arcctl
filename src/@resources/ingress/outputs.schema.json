@@ -5,6 +5,9 @@
     "IngressRuleOutputs": {
       "additionalProperties": false,
       "properties": {
+        "dns_zone": {
+          "type": "string"
+        },
         "host": {
           "type": "string"
         },
@@ -23,6 +26,9 @@
         "protocol": {
           "type": "string"
         },
+        "subdomain": {
+          "type": "string"
+        },
         "url": {
           "type": "string"
         },
@@ -35,7 +41,9 @@
         "host",
         "port",
         "url",
-        "path"
+        "path",
+        "subdomain",
+        "dns_zone"
       ],
       "type": "object"
     }

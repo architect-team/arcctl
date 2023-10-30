@@ -25,7 +25,7 @@ export type IngressRuleInputs = {
    * The protocol the ingress rule listens for traffic on
    * @default http
    */
-  protocol?: string;
+  protocol: string;
 
   /**
    * The subdomain the ingress rule listens on
@@ -52,7 +52,7 @@ export type IngressRuleInputs = {
    * Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)
    * @default false
    */
-  internal?: boolean;
+  internal: boolean;
 
   /**
    * Headers to include in responses

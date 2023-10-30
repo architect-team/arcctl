@@ -11,10 +11,6 @@
               "description": "A deployment the service should point to",
               "type": "string"
             },
-            "name": {
-              "description": "Name of the service",
-              "type": "string"
-            },
             "password": {
               "description": "Basic auth password",
               "type": "string"
@@ -34,7 +30,6 @@
             }
           },
           "required": [
-            "name",
             "port",
             "deployment"
           ],

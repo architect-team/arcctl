@@ -663,6 +663,9 @@ export default {
                       "additionalProperties": false,
                       "description": "A map of output values to be passed to upstream application resources",
                       "properties": {
+                        "dns_zone": {
+                          "type": "string"
+                        },
                         "host": {
                           "type": "string"
                         },
@@ -681,6 +684,9 @@ export default {
                         "protocol": {
                           "type": "string"
                         },
+                        "subdomain": {
+                          "type": "string"
+                        },
                         "url": {
                           "type": "string"
                         },
@@ -693,7 +699,9 @@ export default {
                         "host",
                         "port",
                         "url",
-                        "path"
+                        "path",
+                        "subdomain",
+                        "dns_zone"
                       ],
                       "type": "object"
                     },

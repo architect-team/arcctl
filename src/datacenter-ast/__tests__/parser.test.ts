@@ -228,6 +228,28 @@ describe('AST: applyContext()', () => {
     assertEquals(obj.module.vpc.inputs.name, 'TEST');
   });
 
+  it('should support binary operations inside functions', () => {
+    const obj = {
+      module: {
+        vpc: {
+          source: 'architect/vpc:latest',
+          inputs: {
+            name: '${replace(node.name + "_" + node.type, "_", "-")}',
+          },
+        },
+      },
+    };
+
+    applyContext(obj, {
+      node: {
+        name: 'test',
+        type: 'vpc',
+      },
+    });
+
+    assertEquals(obj.module.vpc.inputs.name, 'test-vpc');
+  });
+
   it('should support == operator', () => {
     const obj = {
       module: {

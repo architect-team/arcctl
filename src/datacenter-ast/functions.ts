@@ -134,6 +134,8 @@ const replace = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.Si
     throw new Error(
       `Unsupported argument types for replace(): ${node.arguments[1].type} and ${node.arguments[2].type}`,
     );
+  } else if (node.arguments[0].type !== 'Literal') {
+    return node;
   }
 
   const value = convertEstreeNodeToObject(node.arguments[0]).replaceAll(

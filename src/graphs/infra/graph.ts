@@ -248,6 +248,9 @@ export class InfraGraph extends Graph<InfraGraphNode> {
             if (node.inputs) {
               try {
                 if (node.action !== 'delete') {
+                  if (node.name === 'deployment') {
+                    console.log(JSON.stringify(node, null, 2));
+                  }
                   this.resolveInputFunctionsAndRefs(node);
                 }
               } catch (err: any) {

@@ -126,6 +126,11 @@ type Container = {
 
 export type DeploymentInputs = {
   /**
+   * Name to to give to the deployment
+   */
+  name: string;
+
+  /**
    * Labels for the deployment
    */
   labels?: Record<string, string>;

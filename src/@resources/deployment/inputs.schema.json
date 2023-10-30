@@ -126,6 +126,10 @@
           "description": "Amount of memory to allocate to the container",
           "type": "string"
         },
+        "name": {
+          "description": "Name to to give to the deployment",
+          "type": "string"
+        },
         "platform": {
           "description": "Target platform the deployment will run on",
           "type": "string"
@@ -200,7 +204,8 @@
         }
       },
       "required": [
-        "image"
+        "image",
+        "name"
       ],
       "type": "object"
     },

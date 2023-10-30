@@ -6,6 +6,8 @@ export type IngressRuleOutputs = {
   password?: string;
   url: string;
   path: string;
+  subdomain: string;
+  dns_zone: string;
 };
 
 export default IngressRuleOutputs;

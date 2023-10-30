@@ -183,6 +183,7 @@ export default class ComponentV1 extends Component {
         type: 'deployment',
         component: context.component.name,
         inputs: {
+          name: `${context.component.name.replaceAll('/', '--')}--${service_name}`,
           replicas: Number(service_config.replicas || 1), // TODO: Ensure this is a number value
           ...(service_config.platform ? { platform: service_config.platform } : {}),
           ...(service_config.scaling
@@ -252,8 +253,7 @@ export default class ComponentV1 extends Component {
           type: 'service',
           component: context.component.name,
           inputs: {
-            name: `${context.component.name}/${service_name}-${interface_name}`,
-            deployment: `${deployment_node.component}/deployment/${deployment_node.name}`,
+            deployment: `${deployment_node.component.replaceAll('/', '--')}--${deployment_node.name}`,
             protocol: typeof interface_config === 'object' && interface_config.protocol
               ? interface_config.protocol
               : 'http',
@@ -297,6 +297,9 @@ export default class ComponentV1 extends Component {
               port: `\${{ ${service_node.getId()}.port }}`,
               ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
               ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
+              ...(interface_config.ingress.internal !== undefined
+                ? { internal: interface_config.ingress.internal }
+                : {}),
               protocol: `\${{ ${service_node.getId()}.protocol }}`,
               service: {
                 host: `\${{ ${service_node.getId()}.host }}`,
@@ -305,7 +308,7 @@ export default class ComponentV1 extends Component {
               },
               username: `\${{ ${service_node.getId()}.username }}`,
               password: `\${{ ${service_node.getId()}.password }}`,
-              internal: interface_config.ingress.internal || false,
+              internal: false,
               path: '/',
             },
           });
@@ -497,7 +500,7 @@ export default class ComponentV1 extends Component {
         throw new Error('Invalid interface url');
       }
 
-      const deployment_node_id = `${context.component.name}/deployment/${deployment_name}`;
+      const deployment_node_id = `${context.component.name.replaceAll('/', '--')}--${deployment_name}`;
       const target_interface = this.services![deployment_name].interfaces![service_name];
 
       const interface_node = new AppGraphNode<'service'>({
@@ -505,7 +508,6 @@ export default class ComponentV1 extends Component {
         type: 'service',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${interface_key}`,
           protocol: typeof target_interface === 'object' && target_interface.protocol
             ? target_interface.protocol
             : 'http',
@@ -540,8 +542,9 @@ export default class ComponentV1 extends Component {
             port: `\${{ ${interface_node.getId()}.port }}`,
             ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
             ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
+            ...(interface_config.ingress.internal !== undefined ? { internal: interface_config.ingress.internal } : {}),
             protocol: `\${{ ${interface_node.getId()}.protocol }}`,
-            internal: interface_config.ingress.internal || false,
+            internal: false,
             path: '/',
           },
         });

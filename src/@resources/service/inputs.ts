@@ -1,10 +1,5 @@
 export type ServiceInputs = {
   /**
-   * Name of the service
-   */
-  name: string;
-
-  /**
    * Target port
    */
   port: number;

@@ -402,6 +402,7 @@ describe('DatacenterV1', () => {
         type: 'deployment',
         component: 'some-component',
         inputs: {
+          name: 'some-component--dep',
           image: 'nginx:latest',
           environment: {
             DB_URL: `\${{ ${dbAppNode.getId()}.url }}`,
@@ -478,6 +479,7 @@ describe('DatacenterV1', () => {
         type: 'deployment',
         component: 'some-component',
         inputs: {
+          name: 'some-component--dep',
           image: 'nginx:latest',
           environment: {
             DB_URL: `\${{ ${dbAppNode.getId()}.url }}`,
@@ -648,6 +650,7 @@ describe('DatacenterV1', () => {
             type: 'deployment',
             component: 'some-component',
             inputs: {
+              name: 'some-component--deployment',
               image: 'nginx:latest',
             },
           }),
@@ -1069,6 +1072,7 @@ describe('DatacenterV1', () => {
           port: 8080,
           protocol: 'http',
           path: '/',
+          internal: false,
         },
       });
 
@@ -1077,6 +1081,7 @@ describe('DatacenterV1', () => {
         name: 'deployment',
         component: 'component',
         inputs: {
+          name: 'component--deployment',
           image: 'nginx:latest',
           environment: {
             URL: `\${{ ${ingressNode.getId()}.url }}`,
@@ -1104,6 +1109,7 @@ describe('DatacenterV1', () => {
         component: deploymentNode.component,
         appNodeId: deploymentNode.getId(),
         inputs: {
+          name: `${deploymentNode.component}--${deploymentNode.name}`,
           image: 'nginx:latest',
           environment: {
             URL: `http://my-service.127.0.0.1.nip.io/`,
@@ -1242,7 +1248,6 @@ describe('DatacenterV1', () => {
         name: 'service',
         component: 'component',
         inputs: {
-          name: 'my-service',
           port: 8080,
           deployment: 'deployment',
         },
@@ -1261,6 +1266,7 @@ describe('DatacenterV1', () => {
           port: `\${{ ${serviceNode.getId()}.port }}`,
           protocol: `\${{ ${serviceNode.getId()}.protocol }}`,
           path: '/',
+          internal: false,
         },
       });
 
@@ -1269,6 +1275,7 @@ describe('DatacenterV1', () => {
         name: 'deployment',
         component: 'component',
         inputs: {
+          name: 'component--deployment',
           image: 'nginx:latest',
           environment: {
             URL: `\${{ ${ingressNode.getId()}.url }}`,
@@ -1300,6 +1307,7 @@ describe('DatacenterV1', () => {
         component: deploymentNode.component,
         appNodeId: deploymentNode.getId(),
         inputs: {
+          name: `${deploymentNode.component}--${deploymentNode.name}`,
           image: 'nginx:latest',
           environment: {
             URL: `http://host.127.0.0.1.nip.io/`,

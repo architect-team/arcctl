@@ -228,6 +228,7 @@ describe('Component Schema: v2', () => {
       type: 'deployment',
       component: 'component',
       inputs: {
+        name: 'component--main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [{
@@ -271,6 +272,7 @@ describe('Component Schema: v2', () => {
       type: 'deployment',
       component: 'component',
       inputs: {
+        name: 'component--main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -303,6 +305,7 @@ describe('Component Schema: v2', () => {
       type: 'deployment',
       component: 'component',
       inputs: {
+        name: 'component--main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -313,5 +316,96 @@ describe('Component Schema: v2', () => {
     });
 
     assertArrayIncludes(graph.nodes, [deployment_node]);
+  });
+
+  it('should replace references with hyphens', () => {
+    const component = new ComponentV2(yaml.load(`
+      deployments:
+        kratos-main:
+          image: nginx:latest
+          environment:
+            SVC_URL: \${{ services.kratos-main.url }}
+            ING_URL: \${{ ingresses.kratos-main.url }}
+      services:
+        kratos-main:
+          deployment: kratos-main
+          port: 8080
+      ingresses:
+        kratos-main:
+          service: kratos-main
+    `) as ComponentSchema);
+    prepareVirtualFile('/fake/source/architect.yml');
+
+    const graph = component.getGraph({
+      component: {
+        name: 'component',
+        source: '/fake/source/architect.yml',
+        debug: true,
+      },
+      environment: 'environment',
+    });
+
+    const svc_node = new AppGraphNode({
+      name: 'kratos-main',
+      type: 'service',
+      component: 'component',
+      inputs: {
+        port: 8080,
+        protocol: 'http',
+        deployment: `component--kratos-main`,
+      },
+    });
+
+    const ing_node = new AppGraphNode({
+      name: 'kratos-main',
+      type: 'ingress',
+      component: 'component',
+      inputs: {
+        port: `\${{ ${svc_node.getId()}.port }}`,
+        username: `\${{ ${svc_node.getId()}.username }}`,
+        password: `\${{ ${svc_node.getId()}.password }}`,
+        protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+        service: {
+          host: `\${{ ${svc_node.getId()}.host }}`,
+          port: `\${{ ${svc_node.getId()}.port }}`,
+          protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+        },
+        internal: false,
+        path: '/',
+      },
+    });
+
+    const dep_node = new AppGraphNode({
+      name: 'kratos-main',
+      component: 'component',
+      type: 'deployment',
+      inputs: {
+        name: 'component--kratos-main',
+        replicas: 1,
+        image: 'nginx:latest',
+        volume_mounts: [],
+        environment: {
+          SVC_URL: `\${{ ${svc_node.getId()}.url }}`,
+          ING_URL: `\${{ ${ing_node.getId()}.url }}`,
+        },
+        services: [
+          {
+            host: `\${{ ${svc_node.getId()}.host }}`,
+            port: `\${{ ${svc_node.getId()}.port }}`,
+            protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+          },
+        ],
+        ingresses: [
+          {
+            host: `\${{ ${ing_node.getId()}.host }}`,
+            port: `\${{ ${ing_node.getId()}.port }}`,
+            protocol: `\${{ ${ing_node.getId()}.protocol }}`,
+            path: `\${{ ${ing_node.getId()}.path }}`,
+          },
+        ],
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [dep_node, svc_node, ing_node]);
   });
 });

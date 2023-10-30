@@ -377,6 +377,7 @@ export default class ComponentV2 extends Component {
         type: 'deployment',
         component: context.component.name,
         inputs: {
+          name: `${context.component.name.replaceAll('/', '--')}--${deployment_key}`,
           image,
           ...(deployment_config.platform ? { platform: deployment_config.platform } : {}),
           ...(environment ? { environment } : {}),
@@ -426,9 +427,8 @@ export default class ComponentV2 extends Component {
         type: 'service',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name}/${service_key}`,
           protocol: service_config.protocol || 'http',
-          deployment: `${context.component.name}/deployment/${service_config.deployment}`,
+          deployment: `${context.component.name.replaceAll('/', '--')}--${service_config.deployment}`,
           port: service_config.port,
           username: service_config.username,
           password: service_config.password,
@@ -503,8 +503,9 @@ export default class ComponentV2 extends Component {
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
           username: `\${{ ${service_node.getId()}.username }}`,
           password: `\${{ ${service_node.getId()}.password }}`,
-          internal: ingress_config.internal || false,
+          internal: false,
           path: '/',
+          ...(ingress_config.internal !== undefined ? { internal: ingress_config.internal } : {}),
           ...(ingress_config.headers ? { headers: ingress_config.headers } : {}),
         },
       });
@@ -525,8 +526,10 @@ export default class ComponentV2 extends Component {
       );
 
       if ('deployment' in service_node.inputs) {
-        const deployment_node_id = service_node.inputs.deployment;
-        const deployment_node = graph.nodes.find((n) => n.getId() === deployment_node_id) as
+        const deployment_name = service_node.inputs.deployment;
+        const deployment_node = graph.nodes.find((n) =>
+          n.type === 'deployment' && (n.inputs as AppGraphNode<'deployment'>).name === deployment_name
+        ) as
           | AppGraphNode<'deployment'>
           | undefined;
         if (!deployment_node) {

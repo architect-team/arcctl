@@ -59,6 +59,7 @@ describe('Environment schema: v1', () => {
         type: 'deployment',
         component: 'account/component',
         inputs: {
+          name: 'account--component--main',
           image: 'nginx:latest',
           volume_mounts: [],
           replicas: 1,
@@ -99,6 +100,7 @@ describe('Environment schema: v1', () => {
         type: 'deployment',
         component: 'account/component',
         inputs: {
+          name: 'account--component--main',
           image: 'nginx:latest',
           volume_mounts: [],
           replicas: 1,

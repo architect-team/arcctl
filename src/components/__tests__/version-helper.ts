@@ -58,6 +58,7 @@ export const testSecretIntegration = (
     type: 'deployment',
     component: 'component',
     inputs: {
+      name: `component--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -146,6 +147,7 @@ export const testDatabaseIntegration = (
     type: 'deployment',
     component: 'component',
     inputs: {
+      name: `component--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -187,6 +189,7 @@ export const testDeploymentGeneration = (
     type: 'deployment',
     component: 'test',
     inputs: {
+      name: `test--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -215,9 +218,8 @@ export const testServiceGeneration = (
     type: 'service',
     component: 'component',
     inputs: {
-      name: `component/${options.service_name}`,
       protocol: 'http',
-      deployment: `component/deployment/${options.deployment_name}`,
+      deployment: `component--${options.deployment_name}`,
       port: 80,
     },
   });
@@ -227,6 +229,7 @@ export const testServiceGeneration = (
     type: 'deployment',
     component: 'component',
     inputs: {
+      name: `component--${options.deployment_name}`,
       image: 'nginx:1.14.2',
       replicas: 1,
       services: [
@@ -268,7 +271,6 @@ export const testIngressGeneration = (
     type: 'ingress',
     component: 'component',
     inputs: {
-      internal: false,
       password: `\${{ component/service/${options.service_name}.password }}`,
       port: `\${{ component/service/${options.service_name}.port }}`,
       protocol: `\${{ component/service/${options.service_name}.protocol }}`,
@@ -278,6 +280,7 @@ export const testIngressGeneration = (
         protocol: `\${{ component/service/${options.service_name}.protocol }}`,
       },
       username: `\${{ component/service/${options.service_name}.username }}`,
+      internal: false,
       path: '/',
     },
   });
@@ -287,9 +290,8 @@ export const testIngressGeneration = (
     type: 'service',
     component: 'component',
     inputs: {
-      name: `component/${options.service_name}`,
       protocol: 'http',
-      deployment: `component/deployment/${options.deployment_name}`,
+      deployment: `component--${options.deployment_name}`,
       port: 80,
     },
   });
@@ -299,6 +301,7 @@ export const testIngressGeneration = (
     type: 'deployment',
     component: 'component',
     inputs: {
+      name: `component--${options.deployment_name}`,
       image: 'nginx:1.14.2',
       replicas: 1,
       services: [
@@ -357,6 +360,7 @@ export const testServiceIntegration = (
     type: 'deployment',
     component: 'component',
     inputs: {
+      name: `component--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],

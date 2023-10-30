@@ -73,7 +73,9 @@
       "required": [
         "port",
         "service",
-        "path"
+        "protocol",
+        "path",
+        "internal"
       ],
       "type": "object"
     }

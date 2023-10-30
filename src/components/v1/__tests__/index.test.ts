@@ -65,6 +65,7 @@ describe('Component Schema: v1', () => {
       component: 'account/component',
       type: 'deployment',
       inputs: {
+        name: `account--component--api`,
         replicas: 1,
         image: `\${{ ${build_node.getId()}.id }}`,
         volume_mounts: [],
@@ -100,6 +101,7 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
+        name: `account--component--api`,
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -111,6 +113,7 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
+        name: `account--component--app`,
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -150,6 +153,7 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
+        name: `account--component--api`,
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -196,6 +200,7 @@ describe('Component Schema: v1', () => {
       type: 'deployment',
       component: 'account/component',
       inputs: {
+        name: 'account--component--api',
         replicas: 1,
         image: `\${{ ${build_node.getId()}.id }}`,
         volume_mounts: [],
@@ -280,16 +285,15 @@ describe('Component Schema: v1', () => {
       environment: 'test',
     });
 
-    const deployment_node_id = 'test/deployment/api';
+    const deployment_node_id = 'test--api';
 
     const interface_node = new AppGraphNode({
       name: 'api',
       type: 'service',
       component: 'test',
       inputs: {
-        name: 'test/api',
         protocol: 'http',
-        deployment: 'test/deployment/api',
+        deployment: 'test--api',
         port: 80,
       },
     });
@@ -368,9 +372,8 @@ describe('Component Schema: v1', () => {
       type: 'service',
       component: 'test',
       inputs: {
-        name: 'test/api',
         protocol: 'http',
-        deployment: 'test/deployment/api',
+        deployment: 'test--api',
         port: 80,
       },
     });
@@ -431,9 +434,8 @@ describe('Component Schema: v1', () => {
       type: 'service',
       component: 'test',
       inputs: {
-        name: 'test/api-main',
         protocol: 'http',
-        deployment: 'test/deployment/api',
+        deployment: 'test--api',
         port: 80,
       },
     });

@@ -74,7 +74,7 @@ let type_schema = JSON.parse(type_schema_string);
 if (type_schema.definitions.DatacenterSchema.anyOf) {
   type_schema = {
     oneOf: type_schema.definitions.DatacenterSchema.anyOf,
-    $schema: 'https://json-schema.org/draft/2019-09/schema',
+    $schema: type_schema.$schema,
     $id: 'https://architect.io/.schemas/datacenter.json',
     type: 'object',
     required: ['version'],
@@ -83,7 +83,6 @@ if (type_schema.definitions.DatacenterSchema.anyOf) {
     },
   };
 } else {
-  type_schema.$schema = 'https://json-schema.org/draft/2019-09/schema';
   type_schema.$id = 'https://architect.io/.schemas/datacenter.json';
 }
 

@@ -1,0 +1,83 @@
+{
+  "$ref": "#/definitions/IngressRuleInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "IngressRuleInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Headers to include in responses",
+          "type": "object"
+        },
+        "internal": {
+          "default": false,
+          "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+          "type": "boolean"
+        },
+        "password": {
+          "description": "Basic auth password",
+          "type": "string"
+        },
+        "path": {
+          "default": "/",
+          "description": "The path the ingress rule listens on",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port that the ingress rule listens for traffic on",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "protocol": {
+          "default": "http",
+          "description": "The protocol the ingress rule listens for traffic on",
+          "type": "string"
+        },
+        "service": {
+          "additionalProperties": false,
+          "properties": {
+            "host": {
+              "description": "The hostname the service is listening on",
+              "type": "string"
+            },
+            "port": {
+              "description": "The port the service deployment is listening on",
+              "type": "string"
+            },
+            "protocol": {
+              "description": "The protocol the service is listening on",
+              "type": "string"
+            }
+          },
+          "required": [
+            "host",
+            "port",
+            "protocol"
+          ],
+          "type": "object"
+        },
+        "subdomain": {
+          "description": "The subdomain the ingress rule listens on",
+          "type": "string"
+        },
+        "username": {
+          "description": "Basic auth username",
+          "type": "string"
+        }
+      },
+      "required": [
+        "port",
+        "service",
+        "protocol",
+        "path",
+        "internal"
+      ],
+      "type": "object"
+    }
+  }
+}

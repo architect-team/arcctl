@@ -193,8 +193,11 @@ describe(
 
       await store.push('localhost:5000/namespace/component:latest', tmp_dir);
 
-      assertSpyCalls(mockCheckForOciStub, 1);
+      mockCheckForOciStub.restore();
+      mockUpload.restore();
+      mockUploadManifest.restore();
 
+      assertSpyCalls(mockCheckForOciStub, 1);
       assertSpyCalls(mockUpload, 2);
       assertSpyCall(mockUpload, 0, {
         args: [

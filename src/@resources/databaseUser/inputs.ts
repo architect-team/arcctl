@@ -1,11 +1,36 @@
 export type DatabaseUserApplyInputs = {
   /**
-   * Username of the user to create
+   * Name of the new user to create
+   */
+  name: string;
+
+  /**
+   * Protocol of the target database
+   */
+  protocol: string;
+
+  /**
+   * Hostname of the target database
+   */
+  host: string;
+
+  /**
+   * Port the target database is listening on
+   */
+  port: string | number;
+
+  /**
+   * Username used to access the target database
    */
   username: string;
 
   /**
-   * The database the user should have access to
+   * Password used to access the target database
+   */
+  password: string;
+
+  /**
+   * Name of the database to give access to
    */
   database: string;
 };

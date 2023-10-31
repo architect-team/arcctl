@@ -16,18 +16,13 @@ export const ResourceTypeList: ResourceType[] = [
 
 export type ResourceInputs = {
 {{#types}}
-  '{{name}}': {
-    type: '{{name}}';
-    account?: string;
-  } & {{slug}}Inputs;
+  '{{name}}': {{slug}}Inputs;
 {{/types}}
 };
 
 export type ResourceOutputs = {
 {{#types}}
-  '{{name}}': {
-    id: string;
-  } & {{slug}}Outputs;
+  '{{name}}': {{slug}}Outputs;
 {{/types}}
 };
 

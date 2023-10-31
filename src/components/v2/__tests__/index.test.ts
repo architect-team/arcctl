@@ -2,11 +2,13 @@ import { prepareVirtualFile } from 'https://deno.land/x/mock_file@v1.1.2/mod.ts'
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { GraphEdge } from '../../../graphs/edge.ts';
+import { AppGraphNode } from '../../../graphs/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
   testDeploymentGeneration,
+  testIngressGeneration,
   testSecretGeneration,
   testSecretIntegration,
   testServiceGeneration,
@@ -44,6 +46,25 @@ describe('Component Schema: v2', () => {
       `,
       ComponentV2,
       { deployment_name: 'api', service_name: 'api' },
+    ));
+
+  it('should generate ingresses', () =>
+    testIngressGeneration(
+      `
+      version: v2
+      deployments:
+        api:
+          image: nginx:1.14.2
+      services:
+        api:
+          deployment: api
+          port: 80
+      ingresses:
+        api:
+          service: api
+      `,
+      ComponentV2,
+      { deployment_name: 'api', service_name: 'api', ingress_name: 'api' },
     ));
 
   it('should connect deployments to services', () =>
@@ -88,12 +109,11 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const build_node = new CloudNode({
+    const build_node = new AppGraphNode({
       name: 'test',
+      type: 'dockerBuild',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'dockerBuild',
         repository: 'component',
         context: './',
         args: {},
@@ -193,37 +213,27 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const volume_node = new CloudNode({
+    const volume_node = new AppGraphNode({
       name: 'main-src',
+      type: 'volume',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'volume',
-        name: CloudNode.genResourceId({
-          name: 'main-src',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component/main-src',
         hostPath: '/fake/source/src',
       },
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppGraphNode({
       name: 'main',
+      type: 'deployment',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'deployment',
-        name: CloudNode.genResourceId({
-          name: 'main',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component--main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [{
           mount_path: '/app/src',
-          volume: `\${{ ${volume_node.id}.id }}`,
+          volume: `\${{ ${volume_node.getId()}.id }}`,
           readonly: false,
         }],
       },
@@ -231,10 +241,9 @@ describe('Component Schema: v2', () => {
 
     assertArrayIncludes(graph.nodes, [volume_node, deployment_node]);
     assertArrayIncludes(graph.edges, [
-      new CloudEdge({
-        from: deployment_node.id,
-        to: volume_node.id,
-        required: true,
+      new GraphEdge({
+        from: deployment_node.getId(),
+        to: volume_node.getId(),
       }),
     ]);
   });
@@ -258,17 +267,12 @@ describe('Component Schema: v2', () => {
       environment: 'environment',
     });
 
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppGraphNode({
       name: 'main',
+      type: 'deployment',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'deployment',
-        name: CloudNode.genResourceId({
-          name: 'main',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component--main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -296,17 +300,12 @@ describe('Component Schema: v2', () => {
       },
       environment: 'environment',
     });
-    const deployment_node = new CloudNode({
+    const deployment_node = new AppGraphNode({
       name: 'main',
+      type: 'deployment',
       component: 'component',
-      environment: 'environment',
       inputs: {
-        type: 'deployment',
-        name: CloudNode.genResourceId({
-          name: 'main',
-          component: 'component',
-          environment: 'environment',
-        }),
+        name: 'component--main',
         replicas: 1,
         image: 'nginx:latest',
         volume_mounts: [],
@@ -317,5 +316,101 @@ describe('Component Schema: v2', () => {
     });
 
     assertArrayIncludes(graph.nodes, [deployment_node]);
+  });
+
+  it('should replace references with hyphens', () => {
+    const component = new ComponentV2(yaml.load(`
+      deployments:
+        kratos-main:
+          image: nginx:latest
+          environment:
+            CONFIG: |
+              version: v0.13.0
+              serve:
+                public:
+                  base_url: \${{ ingresses.kratos-main.dns_zone }}
+      services:
+        kratos-main:
+          deployment: kratos-main
+          port: 8080
+      ingresses:
+        kratos-main:
+          service: kratos-main
+    `) as ComponentSchema);
+    prepareVirtualFile('/fake/source/architect.yml');
+
+    const graph = component.getGraph({
+      component: {
+        name: 'component',
+        source: '/fake/source/architect.yml',
+        debug: true,
+      },
+      environment: 'environment',
+    });
+
+    const svc_node = new AppGraphNode({
+      name: 'kratos-main',
+      type: 'service',
+      component: 'component',
+      inputs: {
+        port: 8080,
+        protocol: 'http',
+        deployment: `component--kratos-main`,
+      },
+    });
+
+    const ing_node = new AppGraphNode({
+      name: 'kratos-main',
+      type: 'ingress',
+      component: 'component',
+      inputs: {
+        port: `\${{ ${svc_node.getId()}.port }}`,
+        username: `\${{ ${svc_node.getId()}.username }}`,
+        password: `\${{ ${svc_node.getId()}.password }}`,
+        protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+        service: {
+          host: `\${{ ${svc_node.getId()}.host }}`,
+          port: `\${{ ${svc_node.getId()}.port }}`,
+          protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+        },
+        internal: false,
+        path: '/',
+      },
+    });
+
+    const dep_node = new AppGraphNode({
+      name: 'kratos-main',
+      component: 'component',
+      type: 'deployment',
+      inputs: {
+        name: 'component--kratos-main',
+        replicas: 1,
+        image: 'nginx:latest',
+        volume_mounts: [],
+        environment: {
+          CONFIG: `version: v0.13.0
+serve:
+  public:
+    base_url: \${{ ${ing_node.getId()}.dns_zone }}\n`,
+        },
+        services: [
+          {
+            host: `\${{ ${svc_node.getId()}.host }}`,
+            port: `\${{ ${svc_node.getId()}.port }}`,
+            protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+          },
+        ],
+        ingresses: [
+          {
+            host: `\${{ ${ing_node.getId()}.host }}`,
+            port: `\${{ ${ing_node.getId()}.port }}`,
+            protocol: `\${{ ${ing_node.getId()}.protocol }}`,
+            path: `\${{ ${ing_node.getId()}.path }}`,
+          },
+        ],
+      },
+    });
+
+    assertArrayIncludes(graph.nodes, [dep_node, svc_node, ing_node]);
   });
 });

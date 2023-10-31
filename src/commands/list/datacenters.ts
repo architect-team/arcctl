@@ -22,14 +22,13 @@ async function list_datacenter_action(options: GlobalOptions) {
   });
 
   for (const dc of datacenters) {
-    const pipeline = dc.lastPipeline;
     table.push([
       dc.name,
       environmentRecords
         .filter((r) => r.datacenter === dc.name)
         .map((r) => r.name)
         .join(', '),
-      String(pipeline.steps.filter((s) => s.action !== 'delete').length),
+      String(dc.priorState.nodes.filter((n) => n.action !== 'delete').length),
     ]);
   }
 

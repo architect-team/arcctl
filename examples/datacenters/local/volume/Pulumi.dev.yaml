@@ -1,0 +1,2 @@
+config:
+  vpc:name: test-volume2

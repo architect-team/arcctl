@@ -1,4 +1,4 @@
-import { createHash } from 'https://deno.land/std@0.80.0/hash/mod.ts';
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 
 interface BinaryData {
   digest: string;
@@ -8,10 +8,11 @@ interface BinaryData {
 
 export const fileToBinaryData = async (file: string): Promise<BinaryData> => {
   const file_contents = await Deno.readFile(file);
+  const data = (new TextDecoder()).decode(file_contents);
   return {
-    digest: 'sha256:' + createHash('sha256').update(file_contents.buffer).toString('hex'),
+    digest: 'sha256:' + crypto.createHash('sha256').update(data).digest('hex').toString(),
     size: file_contents.byteLength,
-    data: (new TextDecoder()).decode(file_contents),
+    data,
   };
 };
 

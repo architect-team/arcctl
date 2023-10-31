@@ -2,7 +2,7 @@ import cliSpinners from 'cli-spinners';
 import { Logger } from 'winston';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
-import { Pipeline, PlanContext } from '../../pipeline/index.ts';
+import { InfraGraph, PlanContext } from '../../graphs/index.ts';
 import { CommandHelper } from '../base-command.ts';
 import { Inputs } from '../common/inputs.ts';
 
@@ -60,38 +60,39 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
 
   const targetEnvironment = options.targetEnvironment || await parseEnvironment({});
 
-  let targetGraph = await targetEnvironment.getGraph(
+  const environmentGraph = await targetEnvironment.getGraph(
     options.name,
     options.command_helper.componentStore,
     options.debug,
   );
-  targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, {
+
+  const targetGraph = targetDatacenter.config.getGraph(environmentGraph, {
     environmentName: options.name,
     datacenterName: targetDatacenter.name,
   });
   targetGraph.validate();
 
   const startingDatacenter = (await options.command_helper.datacenterStore.get(targetDatacenterName!))!;
-  startingDatacenter.config.enrichGraph(targetGraph, {
+  startingDatacenter.config.getGraph(environmentGraph, {
     environmentName: options.name,
     datacenterName: targetDatacenter.name,
   });
 
-  const startingPipeline = environmentRecord ? environmentRecord.lastPipeline : targetDatacenter.lastPipeline;
+  const startingGraph = environmentRecord ? environmentRecord.priorState : targetDatacenter.priorState;
 
-  const pipeline = await Pipeline.plan({
-    before: startingPipeline,
+  const infraGraph = await InfraGraph.plan({
+    before: startingGraph,
     after: targetGraph,
     context: PlanContext.Environment,
-  }, options.command_helper.providerStore);
+  });
 
-  pipeline.validate();
-  await options.command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
+  infraGraph.validate();
+  await options.command_helper.infraRenderer.confirmGraph(infraGraph, options.autoApprove);
 
   let interval: number | undefined = undefined;
   if (!options.logger) {
     interval = setInterval(() => {
-      options.command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
+      options.command_helper.infraRenderer.renderGraph(infraGraph, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
@@ -99,7 +100,7 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
     options.name,
     startingDatacenter,
     targetEnvironment!,
-    pipeline,
+    infraGraph,
     {
       logger: options.logger,
     },
@@ -108,8 +109,8 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
   if (interval) {
     clearInterval(interval);
   }
-  options.command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.logger, disableSpinner: true });
-  options.command_helper.pipelineRenderer.doneRenderingPipeline();
+  options.command_helper.infraRenderer.renderGraph(infraGraph, { clear: !options.logger, disableSpinner: true });
+  options.command_helper.infraRenderer.doneRenderingGraph();
 
   if (!success) {
     console.log(`Environment ${environmentRecord ? 'update' : 'creation'} failed`);

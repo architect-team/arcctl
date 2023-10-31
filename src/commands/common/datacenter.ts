@@ -1,32 +1,31 @@
-import winston from 'winston';
-import { ProviderStore } from '../../@providers/store.ts';
-import { ResourceType } from '../../@resources/index.ts';
-import { CloudGraph } from '../../cloud-graph/index.ts';
-import { Datacenter, DatacenterRecord, ParsedVariablesMetadata, ParsedVariablesType } from '../../datacenters/index.ts';
-import { DatacenterStore } from '../../datacenters/store.ts';
-import { Pipeline } from '../../pipeline/index.ts';
+import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
+import { ModuleServer } from '../../datacenter-modules/index.ts';
+import {
+  Datacenter,
+  DatacenterRecord,
+  DatacenterStore,
+  DatacenterVariablesSchema,
+  ParsedVariablesMetadata,
+} from '../../datacenters/index.ts';
+import { InfraGraph } from '../../graphs/index.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
-import { AccountInputUtils } from './account-inputs.ts';
 import { Inputs } from './inputs.ts';
-import { ResourceInputUtils } from './resource-inputs.ts';
 
 export class DatacenterUtils {
   constructor(
     private readonly datacenterStore: DatacenterStore,
-    private readonly resourceInputUtils: ResourceInputUtils,
-    private readonly providerStore: ProviderStore,
-    private readonly accountInputUtils: AccountInputUtils,
   ) {}
 
   /**
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, priorState: InfraGraph): Promise<void> {
     await this.datacenterStore.save({
       name: datacenterName,
       config: datacenter,
-      lastPipeline: pipeline,
+      priorState: priorState,
     });
   }
 
@@ -40,8 +39,7 @@ export class DatacenterUtils {
    * an error is thrown.
    */
   public async promptForVariables(
-    graph: CloudGraph,
-    variables: ParsedVariablesType,
+    variables: DatacenterVariablesSchema,
     user_inputs: Record<string, string> = {},
   ): Promise<Record<string, unknown>> {
     const variable_inputs: Record<string, unknown> = {};
@@ -54,7 +52,6 @@ export class DatacenterUtils {
       // If the variable input was passed in by the user, this will validate that their
       // input matches a given resource/account if necessary.
       const variable_value = await this.promptForVariableFromMetadata(
-        graph,
         variable.name,
         variable.metadata,
         user_inputs[variable.name],
@@ -77,7 +74,6 @@ export class DatacenterUtils {
   }
 
   private async promptForVariableFromMetadata(
-    graph: CloudGraph,
     name: string,
     metadata: ParsedVariablesMetadata,
     value?: string,
@@ -89,34 +85,9 @@ export class DatacenterUtils {
       return value || Inputs.promptBoolean(message);
     } else if (metadata.type === 'number') {
       return value || Inputs.promptNumber(message);
-    } else if (metadata.type === 'arcctlAccount') {
-      const existing_accounts = await this.providerStore.list();
-      const query_accounts = metadata.provider
-        ? existing_accounts.filter((p) => p.type === metadata.provider)
-        : existing_accounts;
-      const account = await this.accountInputUtils.promptForAccount({
-        prompt_accounts: query_accounts,
-        message: message,
-        account: value,
-      });
-      return account.name;
-    } else {
-      // In this case, metadata.type is a non-special-case ResourceInputs key.
-      if (!metadata.arcctlAccount) {
-        throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
-      }
-      const provider = await this.providerStore.get(metadata.arcctlAccount);
-      if (!provider) {
-        throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
-      }
-
-      return this.resourceInputUtils.promptForResourceID(graph, provider, {
-        name: name as ResourceType,
-        schema: { description: message } as any,
-      }, {
-        [name]: value,
-      });
     }
+
+    throw new Error(`Invalid variable type: ${metadata.type}`);
   }
 
   /*
@@ -125,7 +96,7 @@ export class DatacenterUtils {
    * this raises an error.
    */
   public sortVariables(
-    variables: ParsedVariablesType,
+    variables: DatacenterVariablesSchema,
   ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
     const variable_graph: Record<string, Set<string>> = {};
     for (const [variable_name, variable_metadata] of Object.entries(variables)) {
@@ -155,22 +126,49 @@ export class DatacenterUtils {
   public async applyDatacenter(
     name: string,
     datacenter: Datacenter,
-    pipeline: Pipeline,
+    graph: InfraGraph,
     logger: winston.Logger | undefined,
   ): Promise<void> {
-    return pipeline
-      .apply({
-        providerStore: this.providerStore,
-        logger: logger,
-      })
-      .toPromise()
-      .then(async () => {
-        await this.saveDatacenter(name, datacenter, pipeline);
-      })
-      .catch(async (err) => {
-        await this.saveDatacenter(name, datacenter, pipeline);
-        console.error(err);
-        Deno.exit(1);
-      });
+    return new Promise((resolve) => {
+      return graph
+        .apply({ logger: logger })
+        .subscribe({
+          complete: async () => {
+            await this.saveDatacenter(name, datacenter, graph);
+            resolve();
+          },
+          error: async (err) => {
+            await this.saveDatacenter(name, datacenter, graph);
+            console.error(err);
+            Deno.exit(1);
+          },
+        });
+    });
+  }
+
+  public async buildDatacenter(datacenter: Datacenter, context: string, logger?: Logger): Promise<Datacenter> {
+    return datacenter.build(async (build_options) => {
+      let module_path = path.join(path.dirname(context), build_options.context);
+      if (!path.isAbsolute(path.dirname(context))) {
+        module_path = path.resolve(module_path);
+      }
+      console.log(`Building module: ${module_path}`);
+
+      const server = new ModuleServer(build_options.plugin);
+      let client;
+      try {
+        client = await server.start(module_path);
+        const res = await client.build({
+          directory: module_path,
+        }, { logger });
+        client.close();
+        return res.image;
+      } finally {
+        if (client) {
+          client.close();
+        }
+        await server.stop();
+      }
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { CloudGraph } from '../cloud-graph/graph.ts';
+import { AppGraph } from '../graphs/index.ts';
 
 export type GraphContext = {
   environment: string;
@@ -41,9 +41,9 @@ export type ComponentDependencies = Array<{
 }>;
 
 export abstract class Component {
-  public abstract getDependencies(graph: CloudGraph, context: GraphContext): ComponentDependencies;
+  public abstract getDependencies(graph: AppGraph, context: GraphContext): ComponentDependencies;
 
-  public abstract getGraph(context: GraphContext): CloudGraph;
+  public abstract getGraph(context: GraphContext): AppGraph;
 
   public abstract build(buildFn: DockerBuildFn, volumeFn: VolumeBuildFn): Promise<Component>;
 

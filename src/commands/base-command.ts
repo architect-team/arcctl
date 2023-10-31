@@ -1,32 +1,35 @@
 import { Command } from 'cliffy/command/mod.ts';
 import * as path from 'std/path/mod.ts';
-import { ProviderStore } from '../@providers/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
 import { DatacenterStore } from '../datacenters/index.ts';
 import { EnvironmentStore } from '../environments/index.ts';
 import ArcCtlConfig from '../utils/config.ts';
-import { ArcctlProviderStore } from '../utils/provider-store.ts';
-import { AccountInputUtils } from './common/account-inputs.ts';
 import { DatacenterUtils } from './common/datacenter.ts';
 import { EnvironmentUtils } from './common/environment.ts';
-import { PipelineRenderer } from './common/pipeline-renderer.ts';
-import { ResourceInputUtils } from './common/resource-inputs.ts';
+import { InfraRenderer } from './common/infra-renderer.ts';
 
 export type GlobalOptions = {
   configHome?: string;
 };
 
 export function BaseCommand() {
-  return new Command().globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
-    prefix: 'XDG_',
-  });
+  const command = new Command()
+    .name('arcctl')
+    .description(
+      'Create and manage cloud applications and infrastructure with twin frameworks: Components & Datacenters',
+    )
+    .globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
+      prefix: 'XDG_',
+    })
+    .action(() => {
+      command.showHelp();
+    });
+
+  return command;
 }
 
 export class CommandHelper {
-  public readonly providerStore: ProviderStore;
-  private account_input_utils: AccountInputUtils;
-  private resource_input_utils: ResourceInputUtils;
-  private pipeline_renderer: PipelineRenderer;
+  private infra_renderer: InfraRenderer;
   private datacenter_utils: DatacenterUtils;
   private environment_utils: EnvironmentUtils;
 
@@ -34,17 +37,11 @@ export class CommandHelper {
     options: GlobalOptions,
   ) {
     ArcCtlConfig.load(options.configHome);
-    this.providerStore = new ArcctlProviderStore(ArcCtlConfig.getStateBackend());
-    this.account_input_utils = new AccountInputUtils(this.providerStore);
-    this.resource_input_utils = new ResourceInputUtils();
-    this.pipeline_renderer = new PipelineRenderer();
+    this.infra_renderer = new InfraRenderer();
     this.datacenter_utils = new DatacenterUtils(
       this.datacenterStore,
-      this.resourceInputUtils,
-      this.providerStore,
-      this.account_input_utils,
     );
-    this.environment_utils = new EnvironmentUtils(this.environmentStore, this.providerStore);
+    this.environment_utils = new EnvironmentUtils(this.environmentStore);
   }
 
   get componentStore(): ComponentStore {
@@ -53,23 +50,18 @@ export class CommandHelper {
   }
 
   get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(ArcCtlConfig.getStateBackend());
+    return new DatacenterStore({
+      backendConfig: ArcCtlConfig.getStateBackendConfig(),
+      cache_dir: path.join(ArcCtlConfig.getConfigDirectory(), 'datacenter-store'),
+    });
   }
 
   get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore(ArcCtlConfig.getStateBackend());
+    return new EnvironmentStore(ArcCtlConfig.getStateBackendConfig());
   }
 
-  get accountInputUtils(): AccountInputUtils {
-    return this.account_input_utils;
-  }
-
-  get resourceInputUtils(): ResourceInputUtils {
-    return this.resource_input_utils;
-  }
-
-  get pipelineRenderer(): PipelineRenderer {
-    return this.pipeline_renderer;
+  get infraRenderer(): InfraRenderer {
+    return this.infra_renderer;
   }
 
   get datacenterUtils(): DatacenterUtils {

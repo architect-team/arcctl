@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 import { assertArrayIncludes } from 'std/testing/asserts.ts';
-import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
+import { AppGraphNode, GraphEdge } from '../../graphs/index.ts';
 import { Component } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 
@@ -18,17 +18,11 @@ export const testSecretGeneration = (
     environment: 'test',
   });
 
-  const secret_node = new CloudNode({
+  const secret_node = new AppGraphNode({
     name: options.secret_name,
+    type: 'secret',
     component: 'test',
-    environment: 'test',
     inputs: {
-      type: 'secret',
-      name: CloudNode.genResourceId({
-        name: options.secret_name,
-        component: 'test',
-        environment: 'test',
-      }),
       data: '',
     },
   });
@@ -50,46 +44,34 @@ export const testSecretIntegration = (
     environment: 'environment',
   });
 
-  const secret_node = new CloudNode({
+  const secret_node = new AppGraphNode({
     name: options.secret_name,
+    type: 'secret',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'secret',
-      name: CloudNode.genResourceId({
-        name: options.secret_name,
-        component: 'component',
-        environment: 'environment',
-      }),
       data: '',
     },
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppGraphNode({
     name: options.deployment_name,
+    type: 'deployment',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'deployment',
-      name: CloudNode.genResourceId({
-        name: options.deployment_name,
-        component: 'component',
-        environment: 'environment',
-      }),
+      name: `component--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
       environment: {
-        DB_DSN: `\${{ ${secret_node.id}.data }}`,
+        DB_DSN: `\${{ ${secret_node.getId()}.data }}`,
       },
     },
   });
   assertArrayIncludes(graph.nodes, [secret_node, deployment_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
-      from: deployment_node.id,
-      to: secret_node.id,
-      required: true,
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: secret_node.getId(),
     }),
   ]);
 };
@@ -112,18 +94,12 @@ export const testDatabaseGeneration = (
     environment: 'environment',
   });
 
-  const database_schema = new CloudNode({
+  const database_schema = new AppGraphNode({
     name: options.database_name,
+    type: 'database',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'database',
-      name: CloudNode.genResourceId({
-        name: options.database_name,
-        component: 'component',
-        environment: 'environment',
-      }),
-      databaseCluster: '',
+      name: `component/${options.database_name}`,
       databaseType: options.database_type,
       databaseVersion: options.database_version,
     },
@@ -146,64 +122,50 @@ export const testDatabaseIntegration = (
     environment: 'environment',
   });
 
-  const database_schema_node_id = CloudNode.genId({
-    type: 'database',
-    name: options.database_name,
-    component: 'component',
-    environment: 'environment',
-  });
+  const database_schema_node_id = `component/database/${options.database_name}`;
 
-  const deployment_node_id = CloudNode.genId({
-    type: 'deployment',
-    name: options.deployment_name,
-    component: 'component',
-    environment: 'environment',
-  });
+  const deployment_node_id = `component/deployment/${options.deployment_name}`;
 
   const name = `${deployment_node_id}/${options.database_name}`;
-  const database_user_node = new CloudNode({
+  const database_user_node = new AppGraphNode({
     name,
+    type: 'databaseUser',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'databaseUser',
-      username: name.replaceAll('/', '--'),
-      database: `\${{ ${database_schema_node_id}.id }}`,
-      account: `\${{ ${database_schema_node_id}.account }}`,
+      name: name.replaceAll('/', '--'),
+      protocol: `\${{ ${database_schema_node_id}.protocol }}`,
+      host: `\${{ ${database_schema_node_id}.host }}`,
+      port: `\${{ ${database_schema_node_id}.port }}`,
+      username: `\${{ ${database_schema_node_id}.username }}`,
+      password: `\${{ ${database_schema_node_id}.password }}`,
+      database: `\${{ ${database_schema_node_id}.database }}`,
     },
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppGraphNode({
     name: options.deployment_name,
+    type: 'deployment',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'deployment',
-      name: CloudNode.genResourceId({
-        name: options.deployment_name,
-        component: 'component',
-        environment: 'environment',
-      }),
+      name: `component--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
       environment: {
-        DB_DSN: `\${{ ${database_user_node.id}.dsn }}`,
+        DB_DSN: `\${{ ${database_user_node.getId()}.dsn }}`,
       },
     },
   });
 
   assertArrayIncludes(graph.nodes, [database_user_node, deployment_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
-      from: database_user_node.id,
+    new GraphEdge({
+      from: database_user_node.getId(),
       to: database_schema_node_id,
-      required: true,
     }),
-    new CloudEdge({
-      from: deployment_node.id,
-      to: database_user_node.id,
-      required: true,
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: database_user_node.getId(),
     }),
   ]);
 };
@@ -222,17 +184,12 @@ export const testDeploymentGeneration = (
     environment: 'test',
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppGraphNode({
     name: options.deployment_name,
+    type: 'deployment',
     component: 'test',
-    environment: 'test',
     inputs: {
-      type: 'deployment',
-      name: CloudNode.genResourceId({
-        name: options.deployment_name,
-        component: 'test',
-        environment: 'test',
-      }),
+      name: `test--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -256,45 +213,30 @@ export const testServiceGeneration = (
     environment: 'environment',
   });
 
-  const service_node = new CloudNode({
+  const service_node = new AppGraphNode({
     name: options.service_name,
+    type: 'service',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'service',
-      name: CloudNode.genResourceId({
-        name: options.service_name,
-        component: 'component',
-        environment: 'environment',
-      }),
-      target_protocol: 'http',
-      target_deployment: CloudNode.genResourceId({
-        name: options.deployment_name,
-        component: 'component',
-        environment: 'environment',
-      }),
-      target_port: 80,
+      protocol: 'http',
+      deployment: `component--${options.deployment_name}`,
+      port: 80,
     },
   });
 
-  const deployment_node = new CloudNode({
+  const deployment_node = new AppGraphNode({
     name: options.deployment_name,
+    type: 'deployment',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'deployment',
-      name: CloudNode.genResourceId({
-        name: options.deployment_name,
-        component: 'component',
-        environment: 'environment',
-      }),
+      name: `component--${options.deployment_name}`,
       image: 'nginx:1.14.2',
       replicas: 1,
       services: [
         {
-          id: `\${{ ${service_node.id}.id }}`,
-          account: `\${{ ${service_node.id}.account }}`,
-          port: `\${{ ${service_node.id}.target_port }}`,
+          host: `\${{ ${service_node.getId()}.host }}`,
+          port: `\${{ ${service_node.getId()}.port }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
         },
       ],
       volume_mounts: [],
@@ -303,15 +245,93 @@ export const testServiceGeneration = (
 
   assertArrayIncludes(graph.nodes, [deployment_node, service_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
-      from: service_node.id,
-      to: deployment_node.id,
-      required: false,
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: service_node.getId(),
     }),
-    new CloudEdge({
-      from: deployment_node.id,
-      to: service_node.id,
-      required: true,
+  ]);
+};
+
+export const testIngressGeneration = (
+  contents: string,
+  constructor: new (data: ComponentSchema) => Component,
+  options: { deployment_name: string; service_name: string; ingress_name: string },
+): void => {
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
+  const graph = component.getGraph({
+    component: {
+      name: 'component',
+      source: 'fake/source',
+    },
+    environment: 'environment',
+  });
+
+  const ingress_node = new AppGraphNode({
+    name: options.ingress_name,
+    type: 'ingress',
+    component: 'component',
+    inputs: {
+      password: `\${{ component/service/${options.service_name}.password }}`,
+      port: `\${{ component/service/${options.service_name}.port }}`,
+      protocol: `\${{ component/service/${options.service_name}.protocol }}`,
+      service: {
+        host: `\${{ component/service/${options.service_name}.host }}`,
+        port: `\${{ component/service/${options.service_name}.port }}`,
+        protocol: `\${{ component/service/${options.service_name}.protocol }}`,
+      },
+      username: `\${{ component/service/${options.service_name}.username }}`,
+      internal: false,
+      path: '/',
+    },
+  });
+
+  const service_node = new AppGraphNode({
+    name: options.service_name,
+    type: 'service',
+    component: 'component',
+    inputs: {
+      protocol: 'http',
+      deployment: `component--${options.deployment_name}`,
+      port: 80,
+    },
+  });
+
+  const deployment_node = new AppGraphNode({
+    name: options.deployment_name,
+    type: 'deployment',
+    component: 'component',
+    inputs: {
+      name: `component--${options.deployment_name}`,
+      image: 'nginx:1.14.2',
+      replicas: 1,
+      services: [
+        {
+          host: `\${{ ${service_node.getId()}.host }}`,
+          port: `\${{ ${service_node.getId()}.port }}`,
+          protocol: `\${{ ${service_node.getId()}.protocol }}`,
+        },
+      ],
+      ingresses: [
+        {
+          host: `\${{ ${ingress_node.getId()}.host }}`,
+          port: `\${{ ${ingress_node.getId()}.port }}`,
+          protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
+          path: `\${{ ${ingress_node.getId()}.path }}`,
+        },
+      ],
+      volume_mounts: [],
+    },
+  });
+
+  assertArrayIncludes(graph.nodes, [deployment_node, service_node, ingress_node]);
+  assertArrayIncludes(graph.edges, [
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: service_node.getId(),
+    }),
+    new GraphEdge({
+      from: deployment_node.getId(),
+      to: ingress_node.getId(),
     }),
   ]);
 };
@@ -333,24 +353,14 @@ export const testServiceIntegration = (
     environment: 'environment',
   });
 
-  const first_service_node_id = CloudNode.genId({
-    type: 'service',
-    name: options.service_name,
-    component: 'component',
-    environment: 'environment',
-  });
+  const first_service_node_id = `component/service/${options.service_name}`;
 
-  const second_deployment_node = new CloudNode({
+  const second_deployment_node = new AppGraphNode({
     name: options.deployment_name,
+    type: 'deployment',
     component: 'component',
-    environment: 'environment',
     inputs: {
-      type: 'deployment',
-      name: CloudNode.genResourceId({
-        name: options.deployment_name,
-        component: 'component',
-        environment: 'environment',
-      }),
+      name: `component--${options.deployment_name}`,
       replicas: 1,
       image: 'nginx:1.14.2',
       volume_mounts: [],
@@ -362,10 +372,9 @@ export const testServiceIntegration = (
 
   assertArrayIncludes(graph.nodes, [second_deployment_node]);
   assertArrayIncludes(graph.edges, [
-    new CloudEdge({
-      from: second_deployment_node.id,
+    new GraphEdge({
+      from: second_deployment_node.getId(),
       to: first_service_node_id,
-      required: true,
     }),
   ]);
 };

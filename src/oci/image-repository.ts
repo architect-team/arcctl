@@ -238,6 +238,7 @@ export class ImageRepository<C extends any = any> {
     try {
       // Generate digest for the layer
       const { digest, size, data } = await fileToBinaryData(file);
+      console.log(digest);
 
       // Check if the layer already exists
       const existing = await this.getBlobMetadata(digest);
@@ -259,14 +260,18 @@ export class ImageRepository<C extends any = any> {
         headers: {
           'Content-Type': 'application/octet-stream',
         },
-        body: file_binary.readable,
+        body: data,
       });
+      if (res.status >= 400) {
+        throw new Error(`Failed to upload blob: ${await res.text()}`);
+      }
 
       return {
         size,
         digest: res.headers.get('docker-content-digest')!,
       };
     } catch (err) {
+      console.log(err);
       throw new Error('Failed to upload blob to registry');
     }
   }
@@ -289,6 +294,9 @@ export class ImageRepository<C extends any = any> {
           body: JSON.stringify(manifest),
         },
       );
+      if (res.status >= 400) {
+        throw new Error(`Failed to upload manifest: ${await res.text()}`);
+      }
     } catch (err) {
       throw new Error('Failed to upload manifest to registry');
     }

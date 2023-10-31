@@ -1,13 +1,8 @@
-export type DatabaseApplyInputs = {
+export type DatabaseInputs = {
   /**
    * Name to give to the new schema
    */
   name: string;
-
-  /**
-   * Unique ID of the database cluster backing this schema
-   */
-  databaseCluster: string;
 
   /**
    * Type of database required by the schema
@@ -20,4 +15,4 @@ export type DatabaseApplyInputs = {
   databaseVersion: string;
 };
 
-export default DatabaseApplyInputs;
+export default DatabaseInputs;

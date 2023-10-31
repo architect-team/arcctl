@@ -1,0 +1,11 @@
+{
+    "name": "database-user",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/digitalocean": "^4.0.0",
+        "@pulumi/pulumi": "^3.91.1"
+    }
+}

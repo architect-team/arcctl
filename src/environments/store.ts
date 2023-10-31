@@ -1,6 +1,7 @@
-import { Pipeline } from '../pipeline/pipeline.ts';
-import { BaseStore } from '../secrets/base-store.ts';
-import { StateBackend } from '../utils/config.ts';
+import { InfraGraph } from '../graphs/index.ts';
+import { buildStateBackend, StateBackend } from '../state-backend/index.ts';
+import { BaseStore } from '../utils/base-store.ts';
+import { ArcctlConfigOptions } from '../utils/config.ts';
 import { Environment } from './environment.ts';
 import { parseEnvironment } from './parser.ts';
 
@@ -8,26 +9,26 @@ export type EnvironmentRecord = {
   name: string;
   datacenter: string;
   config?: Environment;
-  lastPipeline: Pipeline;
+  priorState: InfraGraph;
 };
 
-export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
+export class EnvironmentStore implements BaseStore<EnvironmentRecord> {
+  private backend: StateBackend<EnvironmentRecord>;
+
   constructor(
-    stateBackend: StateBackend,
+    backendConfig: ArcctlConfigOptions['stateBackendConfig'],
   ) {
-    super('environments', stateBackend);
+    this.backend = buildStateBackend('environments', backendConfig.type, backendConfig.credentials);
   }
 
   public async find(): Promise<EnvironmentRecord[]> {
-    await this.load(async (raw: any) => {
-      return {
-        name: raw.name,
-        datacenter: raw.datacenter,
-        config: raw.config ? await parseEnvironment(raw.config) : undefined,
-        lastPipeline: new Pipeline(raw.lastPipeline),
-      };
-    });
-    return this._records!;
+    const rawRecords = await this.backend.getAll();
+    return Promise.all(rawRecords.map(async (raw) => ({
+      name: raw.name,
+      datacenter: raw.datacenter,
+      config: raw.config ? await parseEnvironment(raw.config as any) : undefined,
+      priorState: new InfraGraph(raw.priorState),
+    })));
   }
 
   public async get(name: string): Promise<EnvironmentRecord | undefined> {
@@ -43,7 +44,8 @@ export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
     } else {
       allEnvironments.push(input);
     }
-    await this.saveAll(allEnvironments);
+
+    await this.backend.saveAll(allEnvironments);
   }
 
   public async remove(name: string): Promise<void> {
@@ -54,6 +56,6 @@ export class EnvironmentStore extends BaseStore<EnvironmentRecord> {
     }
 
     allEnvironments.splice(foundIndex, 1);
-    await this.saveAll(allEnvironments);
+    await this.backend.saveAll(allEnvironments);
   }
 }

@@ -4,6 +4,7 @@ import { exec } from '../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 const TagCommand = BaseCommand()
+  .name('tag')
   .description('Tag a component and its associated build artifacts')
   .arguments('<source:string> <target:string>')
   .action(tag_action);

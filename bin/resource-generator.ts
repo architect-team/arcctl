@@ -51,67 +51,57 @@ await (async () => {
   });
 })();
 
-console.log('Create master resources input types schema');
-await (async () => {
-  const inputSchemaPath = path.join(resources_dir, 'input.schema.json');
-  const inputSchemaTsPath = path.join(resources_dir, 'input-schema.ts');
-  const inputSchemaString = await Deno.readTextFile(inputSchemaPath);
-  const inputSchema = JSON.parse(inputSchemaString);
-  const { stdout: newInputSchemaString } = await exec('deno', {
-    args: [
-      'run',
-      '--allow-read',
-      'npm:ts-json-schema-generator',
-      '--path',
-      path.join(build_dir, 'src/types.ts'),
-      '--type',
-      'InputSchema',
-      '--tsconfig',
-      path.join(__dirname, '../tsconfig.json'),
-      '--no-type-check',
-    ],
-  });
-
-  const newInputSchema = JSON.parse(newInputSchemaString);
-  inputSchema.$ref = newInputSchema.$ref;
-  inputSchema.definitions = newInputSchema.definitions;
-
-  await Deno.writeTextFile(inputSchemaPath, JSON.stringify(inputSchema, null, 2));
-  await Deno.writeTextFile(inputSchemaTsPath, `export default ${JSON.stringify(inputSchema, null, 2)}`);
-})();
-
-const inputSchemas: Record<string, unknown> = {};
 for (const type of all_types) {
   console.log(`Create ${type.name} input schema`);
   await (async () => {
     const { stdout: typeSchemaString } = await exec('deno', {
-    args: [
-      'run',
-      '--allow-read',
-      'npm:ts-json-schema-generator',
-      '--path',
-      path.join(build_dir, 'src', type.name, 'inputs.ts'),
-      '--type',
-      '*',
-      '--tsconfig',
-      path.join(__dirname, '../tsconfig.json'),
-      '--no-type-check',
-    ],
-  });
+      args: [
+        'run',
+        '--allow-read',
+        'npm:ts-json-schema-generator',
+        '--path',
+        path.join(build_dir, 'src', type.name, 'inputs.ts'),
+        '--type',
+        '*',
+        '--tsconfig',
+        path.join(__dirname, '../tsconfig.json'),
+        '--no-type-check',
+      ],
+    });
 
     const typeSchema = JSON.parse(typeSchemaString);
-    inputSchemas[type.name] = typeSchema;
-  await Deno.writeTextFile(
-    path.join(resources_dir, type.name, './inputs.schema.json'),
-    JSON.stringify(typeSchema, null, 2),
-  );
+    await Deno.writeTextFile(
+      path.join(resources_dir, type.name, './inputs.schema.json'),
+      JSON.stringify(typeSchema, null, 2),
+    );
   })();
 }
 
-await Deno.writeTextFile(
-    path.join(resources_dir, './inputs-schema.ts'),
-    `export default ${JSON.stringify(inputSchemas, null, 2)}`,
-  );
+for (const type of all_types) {
+  console.log(`Create ${type.name} output schema`);
+  await (async () => {
+    const { stdout: typeSchemaString } = await exec('deno', {
+      args: [
+        'run',
+        '--allow-read',
+        'npm:ts-json-schema-generator',
+        '--path',
+        path.join(build_dir, 'src', type.name, 'outputs.ts'),
+        '--type',
+        '*',
+        '--tsconfig',
+        path.join(__dirname, '../tsconfig.json'),
+        '--no-type-check',
+      ],
+    });
+
+    const typeSchema = JSON.parse(typeSchemaString);
+    await Deno.writeTextFile(
+      path.join(resources_dir, type.name, './outputs.schema.json'),
+      JSON.stringify(typeSchema, null, 2),
+    );
+  })();
+}
 
 console.log('Cleanup');
 

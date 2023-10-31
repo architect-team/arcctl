@@ -1,6 +1,4 @@
-import { ServiceInputs } from './inputs.ts';
-
-export type ServiceOutputs = ServiceInputs & {
+export type ServiceOutputs = {
   /**
    * Protocol the service listens on
    */
@@ -14,17 +12,12 @@ export type ServiceOutputs = ServiceInputs & {
   /**
    * Port the service listens on
    */
-  port: number;
+  port: number | string;
 
   /**
    * Fully resolvable URL of the service
    */
   url: string;
-
-  /**
-   * The account used to connect to this service
-   */
-  account: string;
 };
 
 export default ServiceOutputs;

@@ -1,11 +1,9 @@
-import GetAccountCommand from './account.ts';
+import { BaseCommand } from '../base-command.ts';
 import GetComponentCommand from './component.ts';
 import GetEnvironmentCommand from './environment.ts';
-import GetResourceCommand from './resource.ts';
 
-const GetCommands = GetResourceCommand;
+const GetCommands = BaseCommand().name('get').description('Get component or environment details');
 
-GetCommands.command('account', GetAccountCommand.alias('accounts'));
 GetCommands.command('component', GetComponentCommand.alias('components'));
 GetCommands.command('environment', GetEnvironmentCommand.alias('environments'));
 

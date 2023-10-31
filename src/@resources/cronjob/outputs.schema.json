@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/CronjobOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "CronjobOutputs": {
+      "additionalProperties": {},
+      "type": "object"
+    }
+  }
+}

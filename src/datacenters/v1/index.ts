@@ -1,718 +1,485 @@
-import { deepMerge } from 'std/collections/deep_merge.ts';
-import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
-import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { DeepPartial } from '../../utils/types.ts';
-import { Datacenter, DatacenterEnrichmentOptions, ParsedVariablesType, VariablesMetadata } from '../datacenter.ts';
+import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
+import { applyContextRecursive } from '../../datacenter-ast/index.ts';
+import { Plugin } from '../../datacenter-modules/index.ts';
+import { AppGraph } from '../../graphs/app/graph.ts';
+import { GraphEdge } from '../../graphs/edge.ts';
+import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
+import { InfraGraph } from '../../graphs/infra/graph.ts';
+import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
+import { DatacenterVariablesSchema } from '../variables.ts';
+import {
+  DuplicateModuleNameError,
+  InvalidModuleReference,
+  InvalidOutputProperties,
+  MissingResourceHook,
+  ModuleReferencesNotAllowedInWhenClause,
+} from './errors.ts';
 
-/**
- * @discriminator type
- */
-type FullResource = { account: string } & InputSchema;
+const DEFAULT_PLUGIN: Plugin = 'pulumi';
 
-type Hook<T extends ResourceType = ResourceType> = {
-  when?: { type: T } & DeepPartial<ResourceInputs[T]>;
-  resources?: {
-    [key: string]: FullResource;
-  };
-  accounts?: {
-    [key: string]: ArcctlAccountInputs;
-  };
-  modules?: {
-    [key: string]: {
-      source: string;
-    } & Record<string, unknown>;
-  };
-} & Record<string, any>;
+type Module = {
+  /**
+   * A condition that restricts when the module should be created. Must resolve to a boolean.
+   */
+  when?: string;
+
+  /**
+   * The image source of the module.
+   */
+  source?: string;
+
+  /**
+   * The path to a module that will be built during the build step.
+   */
+  build?: string;
+
+  /**
+   * The plugin used to build the module. Defaults to pulumi.
+   */
+  plugin?: Plugin;
+
+  /**
+   * Volumes that should be mounted to the container executing the module
+   */
+  volume?: {
+    /**
+     * The path on the host machine to mount to the container
+     */
+    host_path: string;
+
+    /**
+     * The path in the container to mount the volume to
+     */
+    mount_path: string;
+  }[];
+
+  /**
+   * Environment variables that should be provided to the container executing the module
+   */
+  environment?: Record<string, string>;
+
+  /**
+   * Input values for the module.
+   */
+  inputs: Record<string, unknown> | string;
+};
+
+type ModuleDictionary = {
+  [key: string]: Module[];
+};
+
+type ResourceHook<T extends ResourceType = ResourceType> = {
+  /**
+   * A condition that restricts when the hook should be active. Must resolve to a boolean.
+   */
+  when?: string;
+
+  /**
+   * Modules that will be created once per matching application resource
+   */
+  module?: ModuleDictionary;
+
+  /**
+   * A map of output values to be passed to upstream application resources
+   */
+  outputs?: ResourceOutputs[T];
+};
 
 export default class DatacenterV1 extends Datacenter {
   /**
-   * Variables whose values will be prompted for when creating the datacenter
+   * Variables necessary for the datacenter to run
    */
-  variables?: { [key: string]: VariablesMetadata };
-
-  /**
-   * Create resources that live and die with the lifecycle of the datacenter
-   */
-  resources?: {
-    [key: string]: FullResource;
-  };
-
-  /**
-   * Cloud accounts to register and remove with the lifecycle of the datacenter
-   */
-  accounts?: {
-    [key: string]: ArcctlAccountInputs;
-  };
-
-  /**
-   * Create terraform modules that live and die with the lifecycle of the datacenter
-   */
-  modules?: {
+  variable?: {
     [key: string]: {
-      source: string;
-    } & Record<string, unknown>;
+      /**
+       * The type of the variable
+       */
+      type: 'string' | 'number' | 'boolean';
+
+      /**
+       * The default value of the variable
+       */
+      default?: string;
+
+      /**
+       * A human-readable description of the variable
+       */
+      description?: string;
+    }[];
   };
 
   /**
-   * A template for how environments inside the datacenter should behave
+   * Modules that will be created once per datacenter
    */
-  environment?: {
-    /**
-     * Configure what resources must exist in each environment in the datacenter
-     */
-    resources?: {
-      [key: string]: FullResource;
-    };
+  module?: ModuleDictionary;
 
-    /**
-     * Cloud accounts to register and remove with the lifecycle of the environment
-     */
-    accounts?: {
-      [key: string]: ArcctlAccountInputs;
-    };
+  /**
+   * Rules dictating what resources should be created in each environment hosted by the datacenter
+   */
+  environment?: (
+    & {
+      /**
+       * Modules that will be created once per environment
+       */
+      module?: ModuleDictionary;
+    }
+    & {
+      [resource in ResourceType]?: ResourceHook<resource>[];
+    }
+  )[];
 
-    /**
-     * Create terraform modules that should be applied to each environment in the datacenter
-     */
-    modules?: {
-      [key: string]: {
-        source: string;
-      } & Record<string, unknown>;
-    };
-
-    /**
-     * Configure rules for how application resources should behave in the environment
-     */
-    hooks?: Hook[];
-  };
-
-  public constructor(data: Record<string, any>) {
+  public constructor(data: any) {
     super();
     Object.assign(this, data);
   }
 
-  private getNestedValue(input: any, keys: string[]): any {
-    if (keys.length <= 0) {
-      return input;
-    } else {
-      const key = keys.shift();
+  public getVariablesSchema(): DatacenterVariablesSchema {
+    const res: DatacenterVariablesSchema = {};
 
-      if (!(key! in input)) {
-        throw new Error(`${key} does not exist in ${JSON.stringify(input)}`);
-      }
-
-      return this.getNestedValue(input[key!], keys);
-    }
-  }
-
-  private replaceDatacenterResourceRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?resources\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, resource_id, resource_key) => {
-          const resource = this.resources?.[resource_id];
-          if (!resource) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: resource.type,
-            name: resource_id,
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-              required: true,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
-        },
-      ),
-    );
-  }
-
-  private replaceDatacenterAccountRefs<T>(
-    graph: CloudGraph,
-    datacenterName: string,
-    from_node_id: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?accounts\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, account_id, resource_key) => {
-          const account = this.accounts?.[account_id];
-          if (!account) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: 'arcctlAccount',
-            name: this.replaceDatacenterNameRefs(datacenterName, account.name),
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-              required: true,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
-        },
-      ),
-    );
-  }
-
-  private replaceEnvironmentResourceRefs<T>(
-    graph: CloudGraph,
-    environmentName: string,
-    from_node_id: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?environment\.resources\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, resource_id, resource_key) => {
-          const resource = this.environment?.resources?.[resource_id];
-          if (!resource) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: resource.type,
-            name: resource_id,
-            environment: environmentName,
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-              required: true,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
-        },
-      ),
-    );
-  }
-
-  private replaceEnvironmentAccountRefs<T>(
-    graph: CloudGraph,
-    datacenterName: string,
-    environmentName: string,
-    from_node_id: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s*?environment\.accounts\.([\w-]+)\.(\S+)\s*?}}/g,
-        (full_ref, account_id, resource_key) => {
-          const account = this.environment?.accounts?.[account_id];
-          if (!account) {
-            throw new Error(`Invalid expression: ${full_ref}`);
-          }
-
-          const target_node_id = CloudNode.genId({
-            type: 'arcctlAccount',
-            name: this.replaceDatacenterNameRefs(
-              datacenterName,
-              this.replaceEnvironmentNameRefs(environmentName, account.name),
-            ),
-            environment: environmentName,
-          });
-
-          graph.insertEdges(
-            new CloudEdge({
-              from: from_node_id,
-              to: target_node_id,
-              required: true,
-            }),
-          );
-
-          return `\${{ ${target_node_id}.${resource_key} }}`;
-        },
-      ),
-    );
-  }
-
-  private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
-    return JSON.parse(JSON.stringify(contents).replace(/\${{\s*?environment\.name\s*?}}/g, environmentName));
-  }
-
-  private replaceDatacenterNameRefs<T>(datacenterName: string, contents: T): T {
-    return JSON.parse(JSON.stringify(contents).replace(/\${{\s*?datacenter\.name\s*?}}/g, datacenterName));
-  }
-
-  public getVariables(): ParsedVariablesType {
-    if (!this.variables) {
-      return {};
-    }
-
-    // Parse/stringify to deep copy the object.
-    // Don't want dependant_variables metadata key to end up in the json dumped datacenter
-    const variables: ParsedVariablesType = JSON.parse(JSON.stringify(this.variables));
-    const variable_names = new Set(Object.keys(variables));
-    const variable_regex = /\${{\s*?variables\.([\w-]+)\s*?}}/;
-
-    for (const [variable_name, variable_metadata] of Object.entries(variables)) {
-      for (const [metadata_key, metadata_value] of Object.entries(variable_metadata)) {
-        if (typeof metadata_value === 'string' && variable_regex.test(metadata_value)) {
-          const match = metadata_value.match(variable_regex);
-          if (match && match.length > 1) {
-            if (!variables[variable_name].dependant_variables) {
-              variables[variable_name].dependant_variables = [];
-            }
-
-            const variable_value = match[1];
-            if (!variable_names.has(variable_value)) {
-              throw new Error(
-                `Variable reference '${metadata_key}: ${metadata_value}' references variable '${variable_value}' that does not exist.`,
-              );
-            }
-
-            variables[variable_name].dependant_variables?.push({
-              key: metadata_key as keyof VariablesMetadata,
-              value: match[1],
-            });
-          }
-        }
+    for (const [key, value] of Object.entries(this.variable || {})) {
+      for (const item of value) {
+        res[key] = {
+          type: item.type,
+          description: item.description,
+          value: item.default,
+        };
       }
     }
 
-    return variables;
+    return res;
+  }
+
+  public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
+    for (const module of Object.values(this.getModules())) {
+      // Modules with only a source are skipped, they point to images that already exist.
+      if (module.build) {
+        const digest = await buildFn({
+          context: module.build,
+          plugin: module.plugin || DEFAULT_PLUGIN,
+        });
+        module.source = digest;
+      }
+    }
+
+    return this;
+  }
+
+  public async tag(tagFn: DockerTagFn): Promise<Datacenter> {
+    for (const [moduleName, module] of Object.entries(this.getModules())) {
+      if (module.build && module.source) {
+        module.source = await tagFn(module.source, moduleName);
+      }
+    }
+
+    return this;
+  }
+
+  public async push(pushFn: DockerPushFn): Promise<Datacenter> {
+    for (const module of Object.values(this.getModules())) {
+      // Only push modules that have a build field, otherwise the image already exists.
+      if (module.build && module.source) {
+        await pushFn(module.source);
+      }
+    }
+
+    return this;
   }
 
   /**
-   * Replaces all `${{ variables.VAR_NAME }}` references with their values.
-   * The stored datacenter json will no longer contain `${{ variables.VAR_NAME }}`
-   * references and will just contain the inputted values.
+   * Return all modules within this datacenter.
    */
-  public setVariableValues(variables: Record<string, string | boolean | number | undefined>) {
-    function replace_variable_values(obj: Record<string, unknown>) {
-      for (const [key, value] of Object.entries(obj)) {
-        if (typeof value === 'object') {
-          replace_variable_values(value as Record<string, unknown>);
-        } else if (typeof value === 'string') {
-          obj[key] = value.replace(
-            /\${{\s*?variables\.([\w-]+)\s*?}}/g,
-            (_full_ref, variable_name) => {
-              const variable_value = variables[variable_name];
-              if (variable_value === undefined) {
-                throw Error(`Variable ${variable_name} has no value`);
-              }
-              return variable_value as string;
-            },
-          );
+  private getModules(): Record<string, Module> {
+    const modules: Record<string, Module> = {};
+
+    // Extract all top-level modules
+    for (const [name, value] of Object.entries(this.module || {})) {
+      if (value.length < 1) {
+        continue;
+      }
+      modules[name] = value[0];
+    }
+
+    for (const env of this.environment || []) {
+      // Extract all environment-level modules
+      for (const [name, value] of Object.entries(env.module || {})) {
+        if (value.length < 1) {
+          continue;
+        }
+        modules[name] = value[0];
+      }
+
+      // Hooks can have the same "name" (the resource type) so ensure uniqueness
+      let hookModuleNumber = 0;
+      // Extract all environment hook modules
+      const hooks = Object.entries(env).filter(([key]) => key !== 'module');
+      for (const hook of hooks) {
+        const key = hook[0] as ResourceType;
+        const values = hook[1] as ResourceHook[];
+        for (const value of values) {
+          for (const [name, mod] of Object.entries(value.module || {})) {
+            if (mod.length < 1) {
+              continue;
+            }
+            modules[`${name}-${hookModuleNumber}`] = mod[0];
+            hookModuleNumber += 1;
+          }
         }
       }
     }
 
-    replace_variable_values(this.resources || {});
-    replace_variable_values(this.accounts || {});
-    replace_variable_values(this.environment || {});
-
-    for (const [variable_name, variable_metadata] of Object.entries(this.variables || {})) {
-      variable_metadata.value = variables[variable_name];
-    }
+    return modules;
   }
 
-  public enrichGraph(graph: CloudGraph, options: DatacenterEnrichmentOptions): Promise<CloudGraph> {
-    // Create nodes for explicit resources of the datacenter
-    for (const [key, value] of Object.entries(this.resources || {})) {
-      const node = new CloudNode({
-        name: key,
-        inputs: value,
+  private getScopedGraph(
+    infraGraph: InfraGraph,
+    modules: ModuleDictionary,
+    options: GetGraphOptions & { component?: string; appNodeId?: string },
+  ): InfraGraph {
+    const scopedGraph = new InfraGraph();
+
+    // Add all the modules to the scoped graph
+    Object.entries(modules).forEach(([name, value]) => {
+      // Module keys are an array for some reason. It shouldn't ever be empty though.
+      if (value.length < 1) {
+        return;
+      }
+
+      const module = value[0];
+
+      // The module name cannot be used in the current or parent scoped graph
+      if (infraGraph.nodes.find((n) => n.name === name) || scopedGraph.nodes.find((n) => n.name === name)) {
+        throw new DuplicateModuleNameError(name);
+      }
+
+      if (value[0].when && value[0].when !== 'true' && value[0].when !== 'false') {
+        // If a when clause is set but can't be evaluated, it means it has an unresolvable value
+        throw new ModuleReferencesNotAllowedInWhenClause();
+      } else if (value[0].when && value[0].when === 'false') {
+        // If it evaluates to false it should be skipped.
+        return;
+      } else if (!module.source) {
+        throw new Error(`Module ${name} must contain a build or source field.`);
+      }
+
+      scopedGraph.insertNodes(
+        new InfraGraphNode({
+          image: module.source,
+          inputs: module.inputs,
+          component: options.component,
+          appNodeId: options.appNodeId,
+          plugin: module.plugin || DEFAULT_PLUGIN,
+          volumes: module.volume,
+          environment_vars: module.environment,
+          name: name,
+          action: 'create',
+        }),
+      );
+    });
+
+    // Extract module edges and replace references with GraphNode references
+    scopedGraph.nodes = scopedGraph.nodes.map((node) =>
+      new InfraGraphNode(JSON.parse(
+        JSON.stringify(node).replace(MODULES_REGEX, (full_match, match_path, module_name, module_key) => {
+          const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) => n.name === module_name);
+          if (!target_node) {
+            throw new InvalidModuleReference(node.name, module_name);
+          }
+
+          scopedGraph.insertEdges(
+            new GraphEdge({
+              from: node.getId(),
+              to: target_node.getId(),
+            }),
+          );
+
+          return full_match.replace(match_path, `${target_node.getId()}.${module_key}`);
+        }),
+      ))
+    );
+
+    return scopedGraph;
+  }
+
+  public getGraph(appGraph: AppGraph, options: GetGraphOptions): InfraGraph {
+    // This is so that we don't mutate the object as part of the getGraph() method
+    const dc = new DatacenterV1(this);
+
+    const infraGraph = new InfraGraph();
+
+    // Use default values where applicable
+    let vars: Record<string, string> = {};
+    for (const [key, configs] of Object.entries(dc.variable || {})) {
+      // Variable keys are an array for some reason. It shouldn't ever be empty though.
+      if (configs.length < 1) {
+        continue;
+      }
+
+      applyContextRecursive(configs[0], {
+        variable: options.variables || {},
+        var: options.variables || {},
       });
 
-      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterAccountRefs(graph, options.datacenterName, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterNameRefs(options?.datacenterName || '', node.inputs);
-
-      graph.insertNodes(node);
+      if (configs[0].default) {
+        vars[key] = configs[0].default;
+      }
     }
 
-    // Create nodes for datacenter accounts
-    for (const value of Object.values(this.accounts || {})) {
-      const node = new CloudNode({
-        name: this.replaceDatacenterNameRefs(options.datacenterName, value.name),
-        inputs: {
-          type: 'arcctlAccount',
-          account: 'n/a', // Helps it skip hook mutations
-          ...value,
+    vars = {
+      ...vars,
+      ...options.variables,
+    };
+
+    applyContextRecursive(dc, {
+      datacenter: {
+        name: options.datacenterName,
+      },
+      variable: vars,
+      var: vars,
+    });
+
+    const dcScopedGraph = this.getScopedGraph(infraGraph, dc.module || {}, options);
+    infraGraph.insertNodes(...dcScopedGraph.nodes);
+    infraGraph.insertEdges(...dcScopedGraph.edges);
+
+    if (options.environmentName) {
+      applyContextRecursive(dc, {
+        environment: {
+          name: options.environmentName,
+          ...appGraph,
         },
       });
 
-      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-      node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
+      const outputsMap: Record<string, ResourceOutputs[ResourceType]> = {};
+      const resourceScopedGraphs: InfraGraph[] = [];
 
-      graph.insertNodes(node);
-    }
+      for (const env of dc.environment || []) {
+        const envScopedGraph = this.getScopedGraph(infraGraph, env.module || {}, options);
+        infraGraph.insertNodes(...envScopedGraph.nodes);
+        infraGraph.insertEdges(...envScopedGraph.edges);
 
-    // Fill the graph with things that should be in the environment
-    if (options?.environmentName) {
-      // Create nodes for explicit resources that should be in each environment
-      for (const [key, value] of Object.entries(this.environment?.resources || {})) {
-        const node = new CloudNode({
-          name: key,
-          environment: options?.environmentName,
-          inputs: value,
-        });
+        const hooks = Object.entries(env || {}).filter(([key]) => key !== 'module');
 
-        node.inputs = this.replaceEnvironmentResourceRefs(graph, options?.environmentName, node.id, node.inputs);
-        node.inputs = this.replaceEnvironmentAccountRefs(
-          graph,
-          options.datacenterName,
-          options?.environmentName,
-          node.id,
-          node.inputs,
-        );
-        node.inputs = this.replaceEnvironmentNameRefs(options?.environmentName, node.inputs);
-        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-        node.inputs = this.replaceDatacenterAccountRefs(graph, options.datacenterName, node.id, node.inputs);
-        node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
+        appGraph.nodes.forEach((appGraphNode) => {
+          hooks.forEach(([key, values]) => {
+            const type = key as ResourceType;
 
-        graph.insertNodes(node);
-      }
+            // If the hook doesn't match the node type,
+            if (appGraphNode.type !== type) {
+              return;
+            }
 
-      // Create nodes for environment accounts
-      for (const value of Object.values(this.environment?.accounts || {})) {
-        const node = new CloudNode({
-          name: this.replaceDatacenterNameRefs(
-            options.datacenterName,
-            this.replaceEnvironmentNameRefs(options?.environmentName, value.name),
-          ),
-          environment: options?.environmentName,
-          inputs: {
-            type: 'arcctlAccount',
-            account: 'n/a', // Helps it skip hook mutations
-            ...value,
-          },
-        });
+            if (!Array.isArray(values)) {
+              throw Error(`Expected ${key} to be an array of ${type} hooks`);
+            }
 
-        node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-        node.inputs = this.replaceEnvironmentResourceRefs(graph, options?.environmentName, node.id, node.inputs);
-        node.inputs = this.replaceEnvironmentNameRefs(options?.environmentName, node.inputs);
+            for (const value of values) {
+              const hook = JSON.parse(JSON.stringify(value)) as ResourceHook;
 
-        graph.insertNodes(node);
-      }
+              // Make sure all references to `node.*` are replaced with values
+              applyContextRecursive(hook, {
+                node: appGraphNode,
+              });
 
-      // Run hooks on each node
-      for (const node of graph.nodes) {
-        // Skip nodes that already have an account
-        if (node.account) continue;
+              if (hook.when && hook.when !== 'true' && hook.when !== 'false') {
+                // If a when clause is set but can't be evaluated, it means it has an unresolvable value
+                throw new ModuleReferencesNotAllowedInWhenClause();
+              } else if (hook.when && hook.when === 'false') {
+                // If it evaluates to false, its just not a match. Try the next hook.
+                continue;
+              }
 
-        // See if the node matches any hooks
-        for (const hook of this.environment?.hooks || []) {
-          const doesMatchNode = !hook.when ||
-            Object.entries(hook.when || {}).every(
-              ([key, value]) => key in node.inputs && (node.inputs as any)[key] === value,
-            );
+              const scopedGraph = this.getScopedGraph(infraGraph, hook.module || {}, {
+                ...options,
+                component: appGraphNode.component,
+                appNodeId: appGraphNode.getId(),
+              });
+              resourceScopedGraphs.push(scopedGraph);
 
-          if (!doesMatchNode) continue;
+              try {
+                // Make sure the output schema is valid for the resource type
+                const validatedResourceOutputs = parseResourceOutputs(type, hook.outputs || {});
 
-          const replaceBaseHookExpressions = <T>(contents: T): T =>
-            JSON.parse(
-              JSON.stringify(contents).replace(
-                /\${{\s*?this\.(\S+)\s*?}}/g,
-                (_, node_key: string) => {
-                  return this.getNestedValue(node, node_key.split('.'));
-                },
-              ),
-            );
-
-          const replaceHookExpressions = <T>(
-            resources: { [key: string]: InputSchema },
-            accounts: { [key: string]: ArcctlAccountInputs },
-            from_node_name: string,
-            from_node_id: string,
-            contents: T,
-          ): T =>
-            replaceBaseHookExpressions(
-              JSON.parse(
-                JSON.stringify(contents)
-                  .replace(/\${{\s*?this\.resources\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, resource_id, resource_key) => {
-                    const resource = resources?.[resource_id];
-                    if (!resource) {
-                      throw new Error(`Invalid expression: ${full_ref}`);
-                    }
-
-                    let targetResourceName = `${node.name}/${resource_id}`;
-                    targetResourceName = this.replaceEnvironmentNameRefs(
-                      options?.environmentName || '',
-                      targetResourceName,
-                    );
-                    targetResourceName = this.replaceDatacenterNameRefs(options.datacenterName, targetResourceName);
-                    targetResourceName = replaceBaseHookExpressions(targetResourceName);
-
-                    const target_node_id = CloudNode.genId({
-                      type: resource.type,
-                      name: targetResourceName,
-                      environment: options?.environmentName,
-                      component: node.component,
-                    });
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: from_node_id,
-                        to: target_node_id,
-                        required: true,
-                      }),
-                    );
-
-                    return `\${{ ${target_node_id}.${resource_key} }}`;
-                  })
-                  .replace(/\${{\s*?this\.accounts\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, account_id, resource_key) => {
-                    const account = accounts?.[account_id];
-                    if (!account) {
-                      throw new Error(`Invalid expression: ${full_ref}`);
-                    }
-
-                    let targetAccountName = this.replaceEnvironmentNameRefs(
-                      options?.environmentName || '',
-                      account.name,
-                    );
-                    targetAccountName = this.replaceDatacenterNameRefs(options.datacenterName, targetAccountName);
-                    targetAccountName = replaceBaseHookExpressions(targetAccountName);
-                    const target_node_id = CloudNode.genId({
-                      type: 'arcctlAccount',
-                      name: targetAccountName,
-                      environment: options?.environmentName,
-                      component: node.component,
-                    });
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: from_node_id,
-                        to: target_node_id,
-                        required: true,
-                      }),
-                    );
-
-                    return `\${{ ${target_node_id}.${resource_key} }}`;
-                  }),
-              ),
-            );
-
-          // Create inline resources defined by the hook
-          for (const [resource_key, resource_config] of Object.entries(hook.resources || {})) {
-            let newResourceName = `${node.name}/${resource_key}`;
-            newResourceName = this.replaceEnvironmentNameRefs(options?.environmentName, newResourceName);
-            newResourceName = this.replaceDatacenterNameRefs(options.datacenterName, newResourceName);
-            newResourceName = replaceBaseHookExpressions(newResourceName);
-
-            const hook_node_id = CloudNode.genId({
-              type: resource_config.type,
-              name: newResourceName,
-              component: node.component,
-              environment: options?.environmentName,
-            });
-
-            const newNode = new CloudNode({
-              name: newResourceName,
-              environment: options?.environmentName,
-              component: node.component,
-              inputs: JSON.parse(
-                JSON.stringify(resource_config).replace(
-                  /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
-                  (_, key: string) => {
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: hook_node_id,
-                        to: node.id,
-                        required: true,
-                      }),
-                    );
-
-                    return `\${{ ${node.id}.${key} }}`;
-                  },
-                ),
-              ),
-            });
-            newNode.inputs = replaceHookExpressions(
-              hook.resources || {},
-              hook.accounts || {},
-              newResourceName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentResourceRefs(
-              graph,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentAccountRefs(
-              graph,
-              options.datacenterName,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterNameRefs(
-              options.datacenterName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentNameRefs(
-              options?.environmentName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterResourceRefs(
-              graph,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterAccountRefs(
-              graph,
-              options.datacenterName,
-              hook_node_id,
-              newNode.inputs,
-            );
-
-            graph.insertNodes(newNode);
-          }
-
-          // Create inline accounts defined by the hook
-          for (const account_config of Object.values(hook.accounts || {})) {
-            let newResourceName = this.replaceEnvironmentNameRefs(options?.environmentName, account_config.name);
-            newResourceName = this.replaceDatacenterNameRefs(options.datacenterName, newResourceName);
-            newResourceName = replaceBaseHookExpressions(newResourceName);
-
-            const hook_node_id = CloudNode.genId({
-              type: 'arcctlAccount',
-              name: newResourceName,
-              component: node.component,
-              environment: options?.environmentName,
-            });
-
-            const newNode = new CloudNode({
-              name: newResourceName,
-              environment: options?.environmentName,
-              component: node.component,
-              inputs: {
-                type: 'arcctlAccount',
-                account: 'n/a', // Helps it skip hook mutations
-                ...JSON.parse(
-                  JSON.stringify(account_config).replace(
-                    /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
-                    (_, key: string) => {
-                      graph.insertEdges(
-                        new CloudEdge({
-                          from: hook_node_id,
-                          to: node.id,
-                          required: true,
-                        }),
+                // Replace any module references with node references
+                outputsMap[appGraphNode.getId()] = JSON.parse(
+                  JSON.stringify(validatedResourceOutputs).replace(
+                    MODULES_REGEX,
+                    (full_match, match_path, module_name, module_key) => {
+                      const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) =>
+                        n.name === module_name
                       );
+                      if (!target_node) {
+                        throw new InvalidModuleReference(`${type}.outputs`, module_name);
+                      }
 
-                      return `\${{ ${node.id}.${key} }}`;
+                      return full_match.replace(match_path, `${target_node.getId()}.${module_key}`);
                     },
                   ),
-                ),
-              },
-            });
-            newNode.inputs = replaceHookExpressions(
-              hook.resources || {},
-              hook.accounts || {},
-              newResourceName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentResourceRefs(
-              graph,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentAccountRefs(
-              graph,
-              options.datacenterName,
-              options?.environmentName,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterNameRefs(
-              options.datacenterName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceEnvironmentNameRefs(
-              options?.environmentName,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterResourceRefs(
-              graph,
-              hook_node_id,
-              newNode.inputs,
-            );
-            newNode.inputs = this.replaceDatacenterAccountRefs(
-              graph,
-              options.datacenterName,
-              hook_node_id,
-              newNode.inputs,
-            );
+                );
+              } catch (errs) {
+                if (Array.isArray(errs)) {
+                  throw new InvalidOutputProperties(type, errs);
+                }
 
-            graph.insertNodes(newNode);
-          }
+                throw errs;
+              }
 
-          // Update
-          const hookData = { ...hook };
-          const hookResources = hookData.resources || {};
-          const hookAccounts = hookData.accounts || {};
-          delete hookData.when;
-          delete hookData.resources;
-          delete hookData.accounts;
-
-          node.inputs = replaceHookExpressions(
-            hookResources,
-            hookAccounts,
-            node.name,
-            node.id,
-            deepMerge(node.inputs as any, {
-              ...hookData,
-              account: node.inputs.account || hookData.account,
-            }) as any,
-          );
-          node.inputs = this.replaceDatacenterNameRefs(options.datacenterName, node.inputs);
-          node.inputs = this.replaceEnvironmentNameRefs(options.environmentName, node.inputs);
-          node.inputs = this.replaceEnvironmentResourceRefs(
-            graph,
-            options?.environmentName,
-            node.id,
-            node.inputs,
-          );
-          node.inputs = this.replaceEnvironmentAccountRefs(
-            graph,
-            options.datacenterName,
-            options?.environmentName,
-            node.id,
-            node.inputs,
-          );
-          node.inputs = this.replaceDatacenterResourceRefs(
-            graph,
-            node.id,
-            node.inputs,
-          );
-          node.inputs = this.replaceDatacenterAccountRefs(
-            graph,
-            options.datacenterName,
-            node.id,
-            node.inputs,
-          );
-
-          graph.insertNodes(node);
-
-          if (node.account) {
-            break;
-          }
-        }
+              // We can only match one hook per node
+              return;
+            }
+          });
+        });
       }
+
+      appGraph.edges.forEach((appGraphEdge) => {
+        const targetOutputs = outputsMap[appGraphEdge.to];
+        if (!targetOutputs) {
+          throw new MissingResourceHook(appGraphEdge.from, appGraphEdge.to);
+        }
+      });
+
+      // We don't merge in the individual hook results until we've iterated over all of them so
+      // that modules can't find each other across hooks
+      resourceScopedGraphs.forEach((g) => {
+        infraGraph.insertNodes(...g.nodes);
+        infraGraph.insertEdges(...g.edges);
+      });
+
+      // Look for appGraph relationships, create edges, and replace with infraGraph outputs
+      infraGraph.nodes = infraGraph.nodes.map((node) => {
+        const recursivelyReplaceAppRefs = (input: string): string =>
+          input.replace(
+            /\$\{\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\s*\}\}/g,
+            (_, component_id, key) => {
+              const outputs = outputsMap[component_id] as any;
+              if (!outputs) {
+                throw new MissingResourceHook(node.getId(), component_id);
+              }
+
+              // We need to check output values for app node references too (e.g. ingress url loaded from service url, etc.)
+              const outputValue = recursivelyReplaceAppRefs(outputs[key] || '');
+
+              // Check if the output value is actually a pointer to another module
+              const moduleRefs = outputValue.matchAll(
+                /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g,
+              );
+              for (const match of moduleRefs) {
+                infraGraph.insertEdges(
+                  new GraphEdge({
+                    from: node.getId(),
+                    to: match[1],
+                  }),
+                );
+              }
+
+              return outputValue.replace(/"/g, '\\"');
+            },
+          );
+
+        const stringifiedNode = recursivelyReplaceAppRefs(JSON.stringify(node, null, 2));
+        return new InfraGraphNode(JSON.parse(stringifiedNode));
+      });
     }
 
-    return Promise.resolve(graph);
+    return infraGraph;
   }
 }

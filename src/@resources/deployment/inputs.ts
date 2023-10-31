@@ -112,7 +112,7 @@ type Container = {
   /**
    * A set of volumes to mount to the container
    */
-  volume_mounts: Array<{
+  volume_mounts?: Array<{
     volume: string;
     mount_path: string;
     image?: string;
@@ -126,14 +126,9 @@ type Container = {
 
 export type DeploymentInputs = {
   /**
-   * Deployment name
+   * Name to to give to the deployment
    */
   name: string;
-
-  /**
-   * Namespace the deployment should be in
-   */
-  namespace?: string;
 
   /**
    * Labels for the deployment
@@ -145,14 +140,6 @@ export type DeploymentInputs = {
    * @default 1
    */
   replicas?: number;
-
-  /**
-   * Port that the deployment should expose on all nodes
-   */
-  exposed_ports?: {
-    port?: number;
-    target_port: number;
-  }[];
 
   /**
    * Target platform the deployment will run on
@@ -176,28 +163,48 @@ export type DeploymentInputs = {
   };
 
   /**
-   * A set of additional containers to run as part of each replica
-   */
-  sidecars?: Array<Container>;
-
-  /**
    * Services this deployment should register itself with
    */
   services?: Array<{
     /**
-     * Unique ID of the service the deployment should attach itself to
+     * The hostname the service is listening on
      */
-    id: string;
-
-    /**
-     * The account the deployment can use to register itself with the service.
-     */
-    account: string;
+    host: string;
 
     /**
      * The port the service deployment is listening on
      */
     port: string;
+
+    /**
+     * The protocol the service is listening on
+     */
+    protocol: string;
+  }>;
+
+  /**
+   * Ingresses this deployment should register itself with
+   */
+  ingresses?: Array<{
+    /**
+     * The hostname the ingress is listening on
+     */
+    host: string;
+
+    /**
+     * The port the ingress is listening on
+     */
+    port: string;
+
+    /**
+     * The protocol the ingress is listening on
+     */
+    protocol: string;
+
+    /**
+     * The path the ingress is listening on
+     */
+    path?: string;
   }>;
 } & Container;
 

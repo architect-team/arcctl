@@ -1,0 +1,3 @@
+name: k8s-service
+runtime: nodejs
+description: A minimal DigitalOcean TypeScript Pulumi program

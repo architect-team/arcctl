@@ -1,14 +1,10 @@
 {
-  "$ref": "#/definitions/DatabaseApplyInputs",
+  "$ref": "#/definitions/DatabaseInputs",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "DatabaseApplyInputs": {
+    "DatabaseInputs": {
       "additionalProperties": false,
       "properties": {
-        "databaseCluster": {
-          "description": "Unique ID of the database cluster backing this schema",
-          "type": "string"
-        },
         "databaseType": {
           "description": "Type of database required by the schema",
           "type": "string"
@@ -24,7 +20,6 @@
       },
       "required": [
         "name",
-        "databaseCluster",
         "databaseType",
         "databaseVersion"
       ],

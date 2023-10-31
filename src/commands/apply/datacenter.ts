@@ -1,8 +1,9 @@
 import cliSpinners from 'cli-spinners';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { CloudGraph } from '../../cloud-graph/index.ts';
-import { parseDatacenter } from '../../datacenters/index.ts';
-import { Pipeline, PlanContext } from '../../pipeline/index.ts';
+import { Datacenter, parseDatacenter } from '../../datacenters/index.ts';
+import { AppGraph, InfraGraph, PlanContext } from '../../graphs/index.ts';
+import { pathExistsSync } from '../../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { applyEnvironment } from './utils.ts';
 
@@ -24,6 +25,15 @@ const ApplyDatacenterCommand = BaseCommand()
   .arguments('<name:string> <config_path:string>')
   .action(apply_datacenter_action);
 
+async function buildDatacenterFromConfig(
+  command_helper: CommandHelper,
+  config_path: string,
+  logger?: Logger,
+): Promise<Datacenter> {
+  const datacenter = await parseDatacenter(path.resolve(config_path));
+  return command_helper.datacenterUtils.buildDatacenter(datacenter, path.resolve(config_path), logger);
+}
+
 async function apply_datacenter_action(options: ApplyDatacenterOptions, name: string, config_path: string) {
   const command_helper = new CommandHelper(options);
 
@@ -37,56 +47,67 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
     flag_vars[var_option[0]] = var_option[1];
   }
 
+  const envs = Deno.env.toObject();
+  for (const key of Object.keys(envs)) {
+    if (key.startsWith('ARC_')) {
+      flag_vars[key.replace('ARC_', '')] = envs[key];
+    }
+  }
+
   const existingDatacenter = await command_helper.datacenterStore.get(name);
-  const originalPipeline = existingDatacenter ? existingDatacenter.lastPipeline : new Pipeline();
+  const priorState = existingDatacenter ? existingDatacenter.priorState : new InfraGraph();
   const allEnvironments = await command_helper.environmentStore.find();
   const datacenterEnvironments = existingDatacenter ? allEnvironments.filter((e) => e.datacenter === name) : [];
 
-  try {
-    const datacenter = await parseDatacenter(config_path);
+  const logger = options.verbose
+    ? winston.createLogger({
+      level: 'info',
+      format: winston.format.printf(({ message }) => message),
+      transports: [new winston.transports.Console()],
+    })
+    : undefined;
 
-    let graph = new CloudGraph();
-    const vars = await command_helper.datacenterUtils.promptForVariables(graph, datacenter.getVariables(), flag_vars);
-    datacenter.setVariableValues(vars);
-    graph = await datacenter.enrichGraph(graph, {
+  try {
+    const datacenter = pathExistsSync(config_path)
+      ? await buildDatacenterFromConfig(command_helper, config_path, logger)
+      : await command_helper.datacenterStore.getDatacenter(config_path);
+
+    const vars = await command_helper.datacenterUtils.promptForVariables(datacenter.getVariablesSchema(), flag_vars);
+
+    const targetState = datacenter.getGraph(new AppGraph(), {
       datacenterName: name,
+      variables: vars,
     });
 
-    const pipeline = await Pipeline.plan({
-      before: originalPipeline,
-      after: graph,
+    const infraGraph = await InfraGraph.plan({
+      before: priorState,
+      after: targetState,
       context: PlanContext.Datacenter,
-    }, command_helper.providerStore);
+    });
 
-    pipeline.validate();
-    await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
+    infraGraph.validate();
+    await command_helper.infraRenderer.confirmGraph(infraGraph, options.autoApprove);
 
     let interval: number | undefined = undefined;
-    if (!options.verbose) {
+    if (!logger) {
       interval = setInterval(() => {
-        command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
+        command_helper.infraRenderer.renderGraph(infraGraph, { clear: true });
       }, 1000 / cliSpinners.dots.frames.length);
+    } else {
+      command_helper.infraRenderer.renderGraph(infraGraph);
     }
 
-    let logger: Logger | undefined;
-    if (options.verbose) {
-      command_helper.pipelineRenderer.renderPipeline(pipeline);
-      logger = winston.createLogger({
-        level: 'info',
-        format: winston.format.printf(({ message }) => message),
-        transports: [new winston.transports.Console()],
-      });
-    }
-
-    command_helper.datacenterUtils.applyDatacenter(name, datacenter, pipeline, logger)
+    command_helper.datacenterUtils.applyDatacenter(name, datacenter, infraGraph, logger)
       .then(async () => {
         if (interval) {
           clearInterval(interval);
-          await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
-          command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-          command_helper.pipelineRenderer.doneRenderingPipeline();
+          command_helper.infraRenderer.renderGraph(infraGraph, { clear: !logger, disableSpinner: true });
+          command_helper.infraRenderer.doneRenderingGraph();
         }
+
+        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, infraGraph);
         console.log(`Datacenter ${existingDatacenter ? 'updated' : 'created'} successfully`);
+
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {
             console.log(`Updating environment ${environmentRecord.name}`);
@@ -99,11 +120,11 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
             });
           }
           console.log('Environments updated successfully');
-          command_helper.pipelineRenderer.doneRenderingPipeline();
+          command_helper.infraRenderer.doneRenderingGraph();
         }
       }).catch(async (err) => {
         console.error(err);
-        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, pipeline);
+        await command_helper.datacenterUtils.saveDatacenter(name, datacenter, infraGraph);
         Deno.exit(1);
       });
   } catch (err: any) {
@@ -111,6 +132,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       for (const e of err) {
         console.log(e);
       }
+      Deno.exit(1);
     } else {
       console.error(err);
       Deno.exit(1);

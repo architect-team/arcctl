@@ -1,5 +1,5 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import yaml from 'js-yaml';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const GetComponentManifestCommand = BaseCommand()
   .description('Retrieve the component matching the specified tag')

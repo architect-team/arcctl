@@ -57,7 +57,7 @@ environment:
         type: secret
       account: local
     - when:
-        type: ingressRule
+        type: ingress
       resources:
         dnsRecord:
           type: dnsRecord

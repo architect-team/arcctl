@@ -1,9 +1,8 @@
 import cliSpinners from 'cli-spinners';
 import { Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
-import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
-import { Pipeline, PlanContext } from '../../pipeline/index.ts';
+import { AppGraph, InfraGraph, PlanContext } from '../../graphs/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { Inputs } from '../common/inputs.ts';
 
@@ -38,24 +37,24 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     }
   }
 
-  const lastPipeline = environmentRecord.lastPipeline;
-  const targetGraph = await datacenterRecord.config.enrichGraph(new CloudGraph(), {
+  const lastPipeline = environmentRecord.priorState;
+  const targetGraph = datacenterRecord.config.getGraph(new AppGraph(), {
     datacenterName: datacenterRecord.name,
   });
-  const pipeline = await Pipeline.plan({
+  const graph = await InfraGraph.plan({
     before: lastPipeline,
     after: targetGraph,
     context: PlanContext.Environment,
-  }, command_helper.providerStore);
+  });
 
-  pipeline.validate();
+  graph.validate();
 
-  await command_helper.pipelineRenderer.confirmPipeline(pipeline, options.autoApprove);
+  await command_helper.infraRenderer.confirmGraph(graph, options.autoApprove);
 
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: true });
+      command_helper.infraRenderer.renderGraph(graph, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
@@ -68,9 +67,8 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     });
   }
 
-  return pipeline
+  return graph
     .apply({
-      providerStore: command_helper.providerStore,
       logger: logger,
     })
     .toPromise()
@@ -81,8 +79,8 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
         datacenterRecord.name,
         datacenterRecord.config,
       );
-      command_helper.pipelineRenderer.renderPipeline(pipeline, { clear: !options.verbose, disableSpinner: true });
-      command_helper.pipelineRenderer.doneRenderingPipeline();
+      command_helper.infraRenderer.renderGraph(graph, { clear: !options.verbose, disableSpinner: true });
+      command_helper.infraRenderer.doneRenderingGraph();
       console.log(`Environment ${name} destroyed successfully`);
     })
     .catch(async (err) => {
@@ -91,9 +89,9 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
         datacenterRecord.name,
         environmentRecord.name,
         environmentRecord.config!,
-        pipeline,
+        graph,
       );
-      command_helper.pipelineRenderer.doneRenderingPipeline();
+      command_helper.infraRenderer.doneRenderingGraph();
       console.error(err);
       Deno.exit(1);
     });

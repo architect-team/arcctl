@@ -1,0 +1,11 @@
+{
+  "target": {
+    "target": "src",
+    "suffix": "html"
+  },
+  "schemas": {
+    "path": "@resources/",
+    "suffix": "json",
+    "indent": 2
+  }
+}

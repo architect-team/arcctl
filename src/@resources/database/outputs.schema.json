@@ -1,0 +1,56 @@
+{
+  "$ref": "#/definitions/DatabaseOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DatabaseOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate": {
+          "description": "SSL certificate used to authenticate with the database",
+          "type": "string"
+        },
+        "database": {
+          "description": "Name of the new database schema",
+          "type": "string"
+        },
+        "host": {
+          "description": "Host address of the underlying database",
+          "type": "string"
+        },
+        "password": {
+          "description": "Passowrd used to authenticate with the schema",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port the underlying database listens on",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "protocol": {
+          "description": "Protocol of the underlying database",
+          "type": "string"
+        },
+        "url": {
+          "description": "Full connection string for the database",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username used to authenticate with the schema",
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol",
+        "host",
+        "port",
+        "database",
+        "url",
+        "username",
+        "password"
+      ],
+      "type": "object"
+    }
+  }
+}

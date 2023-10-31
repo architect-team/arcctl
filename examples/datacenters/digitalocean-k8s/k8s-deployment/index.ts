@@ -9,23 +9,34 @@ const provider = new kubernetes.Provider("provider", {
 
 const name = config.require('name').replace(/\//g, '-');
 
-export const labels = (config.getObject('labels') || {}) as Record<string, string>;
-labels['app'] = name;
+const matchLabels = {
+  'architect.io/app': name,
+};
+
+let _labels = (config.getObject('labels') || {}) as Record<string, string>;
+_labels = {
+  ..._labels,
+  ...matchLabels,
+}
+
+const cpu = config.getNumber('cpu');
+const memory = config.get('memory');
 
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
     name,
     namespace: config.require('namespace'),
-    labels,
+    labels: _labels,
   },
   spec: {
-    replicas: config.getNumber('replicas') || 1,
+    replicas: config.getNumber('replicas') ?? 1,
     selector: {
-      matchLabels: labels,
+      matchLabels: matchLabels,
     },
     template: {
       metadata: {
-        labels,
+        namespace: config.require('namespace'),
+        labels: matchLabels
       },
       spec: {
         containers: [{
@@ -35,6 +46,16 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
           env: Object
             .entries(config.getObject('environment') || {})
             .map(([name, value]) => ({ name, value }) as { name: string; value: string; }),
+          resources: {
+            requests: {
+              ...(cpu ? { cpu: String(cpu) } : {}),
+              ...(memory ? { memory } : {}),
+            },
+            limits: {
+              ...(cpu ? { cpu: String(cpu) } : {}),
+              ...(memory ? { memory } : {}),
+            },
+          },
         }],
       },
     },
@@ -43,5 +64,4 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   provider
 });
 
-export const id = deployment.id;
-export const url = name;
+export const id = deployment.id.apply(id => id.toString());

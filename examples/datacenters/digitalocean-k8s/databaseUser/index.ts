@@ -1,14 +1,13 @@
+import * as digitalocean from "@pulumi/digitalocean";
 import * as pulumi from "@pulumi/pulumi";
 
 let config = new pulumi.Config();
 
-export const id = "test";
-export const host = "test";
-export const port = "test";
-export const name = "test";
-export const protocol = "test";
-export const account = "test";
-export const username = "test";
-export const password = "test";
-export const url = "test";
-export const database = "test";
+const user = new digitalocean.DatabaseUser("user", {
+  clusterId: config.require("cluster_id"),
+  name: config.require("name"),
+});
+
+export const id = user.id.apply(id => id.toString());
+export const username = user.name.apply(username => username.toString());
+export const password = user.password.apply(password => password.toString());

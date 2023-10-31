@@ -2,10 +2,10 @@ import * as digitalocean from "@pulumi/digitalocean";
 import * as pulumi from "@pulumi/pulumi";
 
 let config = new pulumi.Config();
-const name = config.get('name')!.replace(/\//g, '-');
 
+const name = config.require('name').replace(/\//g, '-');
 const vpc = new digitalocean.Vpc("my-vpc", {
-  region: config.get('region')!,
+  region: config.require('region'),
   name,
 });
 

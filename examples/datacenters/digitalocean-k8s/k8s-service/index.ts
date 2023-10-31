@@ -6,54 +6,35 @@ const config = new pulumi.Config();
 const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
-const convertedName = config.require('name').replace(/\//g, '-');
+const name = config.require('name').replace(/\//g, '-');
 
-const flatten = (obj: any, prefix: string = ''): any => {
-  const result: any = {};
-  for (const key of Object.keys(obj)) {
-    const value = obj[key];
-    if (typeof value === 'object') {
-      Object.assign(result, flatten(value, `${prefix}${key}.`));
-    } else {
-      result[`${prefix}${key}`.replace(/\//g, '-')] = value.replace(/\//g, '-');
-    }
-  }
-  return result;
-}
-
-export const labels = flatten(config.getObject('labels') || {} as any);
-labels['app'] = convertedName.replace(/\//g, '-');
-
-pulumi.log.info(JSON.stringify(labels));
-
+const external_name = config.get('external_name');
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
-    name: convertedName,
+    name,
     namespace: config.require('namespace'),
-    labels: labels as any,
+    labels: config.getObject<Record<string, string>>('labels'),
     annotations: {
       "pulumi.com/skipAwait": "true"
     },
   },
-  spec: {
+  spec: external_name ? {
+    type: 'ExternalName',
+    externalName: external_name,
+  } : {
+    type: 'ClusterIP',
     selector: {
-      app: config.require('deployment').replace(/\//g, '-'),
+      'architect.io/app': config.require('deployment').replace(/\//g, '--'),
     },
-    ports: [{
-      port: config.requireNumber('port'),
-    }]
+    ports: [
+      {
+        port: 80,
+        targetPort: config.requireNumber('port'),
+      }
+    ]
   }
-}, {
-  provider,
-});
+}, { provider });
 
-export const id = service.id;
-export const url = convertedName;
-export const host = convertedName;
-export const name = convertedName;
-export const username = "test";
-export const password = "test";
-export const port = config.requireNumber('port');
-export const target_port = config.requireNumber('port');
-export const account = 'test';
-export const protocol = config.require('protocol');
+export const id = service.id.apply(id => id.toString());
+export const host = name;
+export const port = 80;

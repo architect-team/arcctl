@@ -9,14 +9,17 @@ variable "region" {
   default = "nyc1"
 }
 
+variable "dns_zone" {
+  description = "DNS zone to use for ingress rules"
+  type = "string"
+}
+
 module "vpc" {
   build = "./vpc"
   inputs = {
     region = variable.region
     name = "${datacenter.name}-datacenter"
-    digitalocean = {
-      token = variable.do_token
-    }
+    "digitalocean:token" = variable.do_token
   }
 }
 
@@ -26,23 +29,7 @@ module "k8s" {
     name = "${datacenter.name}-cluster"
     region = variable.region
     vpcId = module.vpc.id
-    digitalocean = {
-      token = variable.do_token
-    }
-  }
-}
-
-module "databaseCluster" {
-  build = "./databaseCluster"
-  inputs = {
-    name = "${datacenter.name}-database"
-    databaseType = "pg"
-    databaseVersion = 14
-    region = variable.region
-    vpcId = module.vpc.id
-    digitalocean = {
-      token = variable.do_token
-    }
+    "digitalocean:token" = variable.do_token
   }
 }
 
@@ -51,6 +38,28 @@ environment {
     build = "./k8s-namespace"
     inputs = {
       name = environment.name
+      kubeconfig = module.k8s.kubeconfig
+    }
+  }
+
+  module "postgresCluster" {
+    when = contains(environment.nodes.*.type, "database") && contains(environment.nodes.*.inputs.databaseType, "postgres")
+    build = "./databaseCluster"
+    inputs = {
+      name = "${datacenter.name}-database"
+      databaseType = "pg"
+      databaseVersion = 15
+      region = variable.region
+      vpcId = module.vpc.id
+      "digitalocean:token" = variable.do_token
+    }
+  }
+
+  module "nginxController" {
+    when = contains(environment.nodes.*.type, "ingress")
+    build = "./nginx-controller"
+    inputs = {
+      name = "${datacenter.name}-nginx-controller"
       kubeconfig = module.k8s.kubeconfig
     }
   }
@@ -71,66 +80,85 @@ environment {
   }
 
   database {
+    when = node.inputs.databaseType == "postgres"
+
     module "database" {
       build = "./database"
-      inputs = merge(node.inputs, {
-        region = variable.region
-        digitalocean = {
-          token = variable.do_token
-        }
-      })
+      inputs = {
+        cluster_id = module.postgresCluster.id
+        name = node.inputs.name
+        "digitalocean:token" = variable.do_token
+      }
     }
 
     outputs = {
-      host = module.database.host
-      port = module.database.port
-      protocol = module.database.protocol
-      username = module.database.username
-      password = module.database.password
-      url = module.database.url
-      // NOTE: This is currently just set to "test", need to do something real here
-      database = module.database.database
-    }
-  }
-
-  ingress {
-    module "ingressRule" {
-      build = "./ingressRule"
-      inputs = merge(node.inputs, {})
-    }
-
-    outputs = {
-      protocol = "http"
-      host = module.ingressRule.host
-      port = module.ingressRule.port
-      username = module.ingressRule.username
-      password = module.ingressRule.password
-      url = module.ingressRule.url
-      path = module.ingressRule.path
-      subdomain = "test"
-      dns_zone = ""
+      host = module.postgresCluster.private_host
+      port = module.postgresCluster.port
+      protocol = "postgresql"
+      username = module.postgresCluster.username
+      password = module.postgresCluster.password
+      url = "postgresql://${module.postgresCluster.username}:${module.postgresCluster.password}@${module.postgresCluster.private_host}:${module.postgresCluster.port}}"
+      database = module.postgresCluster.database
     }
   }
 
   databaseUser {
     module "databaseUser" {
       build = "./databaseUser"
-      inputs = merge(node.inputs, {
-        region = variable.region
-        digitalocean = {
-          token = variable.do_token
-        }
-      })
+      inputs = {
+        cluster_id = module.postgresCluster.id
+        name = node.inputs.name
+        "digitalocean:token" = variable.do_token
+      }
     }
 
     outputs = {
-      host = module.databaseUser.host
-      port = module.databaseUser.port
-      protocol = module.databaseUser.protocol
+      host = node.inputs.host
+      port = node.inputs.port
+      protocol = node.inputs.protocol
       username = module.databaseUser.username
       password = module.databaseUser.password
-      url = module.databaseUser.url
-      database = "test"
+      url = "${node.inputs.protocol}://${module.databaseUser.username}:${module.databaseUser.password}@${node.inputs.host}:${node.inputs.port}/${node.inputs.database}"
+      database = node.inputs.database
+    }
+  }
+
+  ingress {
+    module "ingressRule" {
+      build = "./ingressRule"
+      inputs = merge(node.inputs, {
+        name = "${node.component}--${node.name}"
+        namespace = module.namespace.id
+        kubeconfig = module.k8s.kubeconfig
+        dns_zone = variable.dns_zone
+        ingress_class_name = module.nginxController.ingress_class_name
+      })
+    }
+
+    module "dnsRecord" {
+      build = "./dns-record"
+      plugin = "opentofu"
+      environment = {
+        DIGITALOCEAN_TOKEN = variable.do_token
+      }
+      inputs = {
+        domain = variable.dns_zone
+        type = "A"
+        value = module.ingressRule.load_balancer_ip
+        subdomain = node.inputs.subdomain
+      }
+    }
+
+    outputs = {
+      protocol = module.ingressRule.protocol
+      host = module.ingressRule.host
+      port = module.ingressRule.port
+      username = module.ingressRule.username
+      password = module.ingressRule.password
+      url = module.ingressRule.url
+      path = module.ingressRule.path
+      subdomain = node.inputs.subdomain
+      dns_zone = node.inputs.dns_zone
     }
   }
 
@@ -151,20 +179,14 @@ environment {
         name = "${node.component}--${node.name}"
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
-        labels = {
-          // TODO: Currently doesn't work with the way we flatten objects in the Plugin
-          // "io.architect.datacenter" = datacenter.name
-          // "io.architect.environment" = environment.name
-          // "io.architect.component" = node.component
-        }
       })
     }
 
     outputs = {
-      protocol = module.service.protocol
+      protocol = node.inputs.protocol || "http"
       host = module.service.host
       port = module.service.port
-      url = module.service.url
+      url = "http://${module.service.host}:${module.service.port}"
     }
   }
 }

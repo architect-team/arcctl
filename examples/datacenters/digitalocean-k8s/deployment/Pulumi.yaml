@@ -1,3 +1,0 @@
-name: k8s-deployment
-runtime: nodejs
-description: A minimal Kubernetes TypeScript Pulumi program

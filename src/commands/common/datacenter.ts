@@ -155,13 +155,18 @@ export class DatacenterUtils {
       console.log(`Building module: ${module_path}`);
 
       const server = new ModuleServer(build_options.plugin);
+      let client;
       try {
-        const client = await server.start(module_path);
+        client = await server.start(module_path);
         const res = await client.build({
           directory: module_path,
         }, { logger });
+        client.close();
         return res.image;
       } finally {
+        if (client) {
+          client.close();
+        }
         await server.stop();
       }
     });

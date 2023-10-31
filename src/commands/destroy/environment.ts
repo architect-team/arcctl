@@ -41,20 +41,20 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   const targetGraph = datacenterRecord.config.getGraph(new AppGraph(), {
     datacenterName: datacenterRecord.name,
   });
-  const pipeline = await InfraGraph.plan({
+  const graph = await InfraGraph.plan({
     before: lastPipeline,
     after: targetGraph,
     context: PlanContext.Environment,
   });
 
-  pipeline.validate();
+  graph.validate();
 
-  await command_helper.infraRenderer.confirmGraph(pipeline, options.autoApprove);
+  await command_helper.infraRenderer.confirmGraph(graph, options.autoApprove);
 
   let interval: number;
   if (!options.verbose) {
     interval = setInterval(() => {
-      command_helper.infraRenderer.renderGraph(pipeline, { clear: true });
+      command_helper.infraRenderer.renderGraph(graph, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
@@ -67,7 +67,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
     });
   }
 
-  return pipeline
+  return graph
     .apply({
       logger: logger,
     })
@@ -79,7 +79,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
         datacenterRecord.name,
         datacenterRecord.config,
       );
-      command_helper.infraRenderer.renderGraph(pipeline, { clear: !options.verbose, disableSpinner: true });
+      command_helper.infraRenderer.renderGraph(graph, { clear: !options.verbose, disableSpinner: true });
       command_helper.infraRenderer.doneRenderingGraph();
       console.log(`Environment ${name} destroyed successfully`);
     })
@@ -89,7 +89,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
         datacenterRecord.name,
         environmentRecord.name,
         environmentRecord.config!,
-        pipeline,
+        graph,
       );
       command_helper.infraRenderer.doneRenderingGraph();
       console.error(err);

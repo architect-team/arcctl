@@ -15,4 +15,7 @@
   "prettier.enable": false,
   "deno.documentPreloadLimit": 0,
   "editor.defaultFormatter": null,
+  "deno.disablePaths": [
+    "./examples"
+  ]
 }

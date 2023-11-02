@@ -1,4 +1,4 @@
-variable "gcp_credentials_file" {  # "file:/home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json"
+variable "gcp_credentials_file" {
   description = "GCP credentials file"
   type = "string"
 }
@@ -63,6 +63,33 @@ environment {
       image = "ryancahill444/hello-world"
       port = 3000
       replicas = 1
+
+      kubeconfig = module.kubernetesCluster.kubeconfig
+    }
+  }
+
+  module "service" {
+    build = "./kubernetesService"
+    source = "./kubernetesService"
+    plugin = "pulumi"
+    inputs = {
+      name = environment.name
+      namespace = module.namespace.name
+      port = 3000
+      protocol = "TCP"
+
+      kubeconfig = module.kubernetesCluster.kubeconfig
+    }
+  }
+
+  module "ingress" {
+    build = "./kubernetesIngress"
+    source = "./kubernetesIngress"
+    plugin = "pulumi"
+    inputs = {
+      name = environment.name
+      namespace = module.namespace.name
+      port = 3000
 
       kubeconfig = module.kubernetesCluster.kubeconfig
     }

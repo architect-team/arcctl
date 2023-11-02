@@ -1,4 +1,5 @@
 import * as ESTree from 'estree';
+import { objectToAst } from './utils.ts';
 
 type ESTreeNode = {
   type: string;
@@ -21,7 +22,7 @@ const trim = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.Simpl
   };
 };
 
-const merge = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+const merge = (node: ESTree.CallExpression): ESTree.Node => {
   if (node.arguments.length !== 2) {
     throw new Error(`Expected exactly two arguments for the merge() method. Got ${node.arguments.length}.`);
   } else if (node.arguments[0].type === 'MemberExpression' || node.arguments[1].type === 'MemberExpression') {
@@ -29,13 +30,10 @@ const merge = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.Simp
     return node;
   }
 
-  return {
-    type: 'Literal',
-    value: {
-      ...convertEstreeNodeToObject(node.arguments[0]),
-      ...convertEstreeNodeToObject(node.arguments[1]),
-    },
-  };
+  return objectToAst({
+    ...convertEstreeNodeToObject(node.arguments[0]),
+    ...convertEstreeNodeToObject(node.arguments[1]),
+  });
 };
 
 /**
@@ -53,21 +51,21 @@ const contains = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.S
     throw new Error(`Expected second argument of contains() to be a literal.`);
   }
 
-  const arr: string[] = [];
+  const arr: any[] = [];
   for (const element of node.arguments[0].elements) {
     if (element?.type !== 'Literal') {
       throw new Error(`Only literals are supported in contains() arrays.`);
     }
 
     if (element.value) {
-      arr.push(element.value.toString());
+      arr.push(element.value);
     }
   }
 
-  const res = Boolean(node.arguments[1].value && arr.includes(node.arguments[1].value.toString()));
+  const res = Boolean(node.arguments[1].value && arr.includes(node.arguments[1].value));
   return {
     type: 'Literal',
-    value: res.toString(),
+    value: res,
   };
 };
 
@@ -121,7 +119,7 @@ const startsWith = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree
   const res = node.arguments[0].value?.toString().startsWith(node.arguments[1].value?.toString() || '');
   return {
     type: 'Literal',
-    value: res === true ? 'true' : 'false',
+    value: res === true,
   };
 };
 
@@ -148,7 +146,9 @@ const replace = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.Si
   } as ESTree.SimpleLiteral;
 };
 
-type functionType = (node: ESTree.CallExpression) => ESTree.CallExpression | ESTree.SimpleLiteral;
+type functionType = (
+  node: ESTree.CallExpression,
+) => ESTree.Node;
 
 const functions: Record<string, functionType> = {
   contains,
@@ -205,7 +205,7 @@ const convertEstreeNodeToObject = (node: ESTreeNode): any => {
 const handleFunctions = (
   func_name: string,
   node: ESTree.CallExpression,
-): ESTree.CallExpression | ESTree.SimpleLiteral => {
+): ESTree.Node => {
   const func = functions[func_name];
   if (!func) {
     throw new Error(`Unsupported function: ${func_name}`);

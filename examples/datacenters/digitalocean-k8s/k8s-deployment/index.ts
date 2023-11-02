@@ -22,6 +22,8 @@ _labels = {
 const cpu = config.getNumber('cpu');
 const memory = config.get('memory');
 
+console.log(config.getObject('command') || []);
+
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
     name,

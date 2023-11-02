@@ -8,7 +8,9 @@
     "mustache": "https://esm.sh/mustache@4.2.0",
     "@aws-sdk/client-s3": "https://esm.sh/v124/@aws-sdk/client-s3@3.427.0",
     "estree": "https://esm.sh/v124/@types/estree@1.0.1/index.d.ts",
-    "acorn-loose": "https://esm.sh/v124/*acorn-loose@8.3.0",
+    "acorn-loose": "https://esm.sh/v124/*acorn-loose@8.4.0",
+    "escodegen": "https://esm.sh/v124/escodegen@2.1.0",
+    "astring": "https://esm.sh/v124/astring@1.8.6",
     "ajv": "https://esm.sh/v124/ajv@8.11.0",
     "cli-spinners": "https://esm.sh/v124/cli-spinners@2.7.0",
     "constructs": "https://esm.sh/v124/constructs@10.2.27",
@@ -30,7 +32,7 @@
   "scopes": {
     "https://esm.sh/v124/": {
       "@samverschueren/stream-to-observable": "https://esm.sh/v124/@samverschueren/stream-to-observable@0.3.1",
-      "acorn": "https://esm.sh/v124/acorn@8.10.0",
+      "acorn": "https://esm.sh/v124/acorn@8.11.0",
       "archiver": "https://esm.sh/v124/archiver@5.3.1",
       "argparse": "https://esm.sh/v124/argparse@2.0.1",
       "buffer": "https://esm.sh/v124/buffer@4.9.2",

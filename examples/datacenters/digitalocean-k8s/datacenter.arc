@@ -137,7 +137,6 @@ environment {
 
     module "dnsRecord" {
       build = "./dns-record"
-      plugin = "opentofu"
       environment = {
         DIGITALOCEAN_TOKEN = variable.do_token
       }

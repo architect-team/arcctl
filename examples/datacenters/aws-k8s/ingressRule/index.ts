@@ -24,9 +24,12 @@ const ingress = new kubernetes.networking.v1.Ingress("ingress", {
   metadata: {
     name: config.require('name').replace(/\//g, '-'),
     namespace: config.require('namespace'),
+    annotations: {
+      'kubernetes.io/ingress.class': 'alb'
+    }
   },
   spec: {
-    ingressClassName: config.get('ingress_class_name'),
+    ingressClassName: 'alb',
     rules: [
       {
         host: hostParts.join('.'),

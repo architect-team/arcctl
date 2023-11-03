@@ -52,6 +52,10 @@ module "eks" {
     create_security_group                 = false
   }
 
+  node_security_group_tags = {
+    "kubernetes.io/cluster/${var.name}" = null
+  }
+
   eks_managed_node_groups = {
     one = {
       name = "pool-1"

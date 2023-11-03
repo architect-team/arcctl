@@ -46,7 +46,6 @@ environment {
     }
   }
 
-
   module "postgresCluster" {
     when = contains(environment.nodes.*.type, "database") && contains(environment.nodes.*.inputs.databaseType, "postgres")
     build = "./databaseCluster"
@@ -155,11 +154,13 @@ environment {
     }
   }
 
-  module "nginxController" {
+  module "loadBalancer" {
     when = contains(environment.nodes.*.type, "ingress")
-    build = "./nginx-controller"
+    build = "./aws-lb-controller"
     inputs = {
-      name = "${datacenter.name}-nginx-controller"
+      name = "${datacenter.name}-lb-controller"
+      clusterName = "${datacenter.name}-cluster"
+      namespace = module.namespace.id
       kubeconfig = module.eksCluster.kubeconfig
     }
   }
@@ -169,10 +170,8 @@ environment {
       build = "./ingressRule"
       inputs = merge(node.inputs, {
         name = "${node.component}--${node.name}"
-        namespace = module.namespace.id
         kubeconfig = module.eksCluster.kubeconfig
         dns_zone = variable.dns_zone
-        ingress_class_name = module.nginxController.ingress_class_name
       })
     }
 

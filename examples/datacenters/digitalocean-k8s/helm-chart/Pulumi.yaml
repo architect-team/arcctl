@@ -1,3 +1,3 @@
-name: k8s-service
+name: helmChart
 runtime: nodejs
 description: A minimal DigitalOcean TypeScript Pulumi program

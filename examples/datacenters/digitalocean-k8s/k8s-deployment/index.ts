@@ -44,6 +44,7 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
         containers: [{
           name: 'main',
           image: config.require('image'),
+          imagePullPolicy: 'Always',
           command: config.getObject('command') || [],
           env: Object
             .entries(config.getObject('environment') || {})

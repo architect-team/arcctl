@@ -14,7 +14,7 @@ const cluster = new digitalocean.KubernetesCluster("cluster", {
   nodePool: {
     name: `${name}-pool-1`,
     size: "s-1vcpu-2gb",
-    nodeCount: 3,
+    nodeCount: config.getNumber('node_count') || 3,
   },
 });
 

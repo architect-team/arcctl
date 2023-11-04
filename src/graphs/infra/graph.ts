@@ -4,7 +4,7 @@ import { applyContext } from '../../hcl-parser/index.ts';
 import { GraphEdge } from '../edge.ts';
 import { AppGraphOptions, Graph } from '../graph.ts';
 import { InfraGraphNode } from './node.ts';
-import { ApplyOptions, PlanOptions } from './types.ts';
+import { ApplyOptions, PlanContext, PlanOptions } from './types.ts';
 
 export class InfraGraph extends Graph<InfraGraphNode> {
   constructor(options?: AppGraphOptions<InfraGraphNode>) {
@@ -117,6 +117,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
         status: { state: 'pending' },
         state: previousNode?.state,
       });
+
       if (
         !previousNode || (previousNode.status.state !== 'complete' && previousNode.action === 'create') ||
         previousNode.action === 'delete'
@@ -126,6 +127,14 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       } else {
         newInfraNode.action = 'update';
         newInfraNode.color = previousNode.color;
+      }
+
+      // Make sure not to touch datacenter nodes when we're not applying datacenter changes
+      if (options.context !== PlanContext.Datacenter && !newInfraNode.environment) {
+        newInfraNode.action = 'no-op';
+        newInfraNode.status.state = 'complete';
+        newInfraNode.state = previousNode?.state;
+        newInfraNode.outputs = previousNode?.outputs;
       }
 
       newInfraGraph.insertNodes(newInfraNode);

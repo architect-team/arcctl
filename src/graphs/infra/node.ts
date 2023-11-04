@@ -78,12 +78,13 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   public async getHash(): Promise<string> {
     // Try to find the image locally first
     const dockerImages = new Deno.Command('docker', {
-      args: ['images', '--no-trunc', '--format', '{{.ID}}', this.image],
+      args: ['image', 'inspect', '--format', '{{.ID}}', this.image],
     });
-    let { stdout: dockerImageId } = await dockerImages.output();
+    const { code: firstCode, stdout: firstStdout } = await dockerImages.output();
 
     // This can happen if the image doesn't exist locally. We'll try to pull it.
-    if (!dockerImageId) {
+    let dockerImageId: string | undefined;
+    if (firstCode !== 0) {
       const dockerPull = new Deno.Command('docker', {
         args: ['pull', this.image],
       });
@@ -93,12 +94,14 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
       const dockerImages2 = new Deno.Command('docker', {
         args: ['images', '--no-trunc', '--format', '{{.ID}}', this.image],
       });
-      const { stdout } = await dockerImages2.output();
-      if (!stdout) {
+      const { code, stdout } = await dockerImages2.output();
+      if (code !== 0) {
         throw new Error(`Could not find image ${this.image}`);
       }
 
-      dockerImageId = stdout;
+      dockerImageId = new TextDecoder().decode(stdout);
+    } else {
+      dockerImageId = new TextDecoder().decode(firstStdout);
     }
 
     return crypto

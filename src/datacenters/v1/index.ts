@@ -355,7 +355,10 @@ export default class DatacenterV1 extends Datacenter {
 
       for (const env of dc.environment || []) {
         const envScopedGraph = this.getScopedGraph(infraGraph, env.module || {}, options);
-        infraGraph.insertNodes(...envScopedGraph.nodes);
+        infraGraph.insertNodes(...envScopedGraph.nodes.map((n) => {
+          n.environment = options.environmentName;
+          return n;
+        }));
         infraGraph.insertEdges(...envScopedGraph.edges);
 
         const hooks = Object.entries(env || {}).filter(([key]) => key !== 'module');
@@ -441,7 +444,10 @@ export default class DatacenterV1 extends Datacenter {
       // We don't merge in the individual hook results until we've iterated over all of them so
       // that modules can't find each other across hooks
       resourceScopedGraphs.forEach((g) => {
-        infraGraph.insertNodes(...g.nodes);
+        infraGraph.insertNodes(...g.nodes.map((n) => {
+          n.environment = options.environmentName;
+          return n;
+        }));
         infraGraph.insertEdges(...g.edges);
       });
 

@@ -8,6 +8,7 @@ import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type BuildOptions = {
   tag?: string[];
+  platform?: string;
   verbose: boolean;
 } & GlobalOptions;
 
@@ -42,6 +43,7 @@ const ComponentBuildCommand = BaseCommand()
   .arguments('<context:string>') // 'Path to the component to build'
   .option('-t, --tag <tag:string>', 'Tags to assign to the built image', { collect: true })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
+  .option('-p, --platform <platform:string>', 'Target platform for the build')
   .action(build_action);
 
 async function build_action(options: BuildOptions, context_file: string): Promise<void> {
@@ -69,6 +71,10 @@ async function build_action(options: BuildOptions, context_file: string): Promis
 
     if (!options.verbose) {
       buildArgs.push('--quiet');
+    }
+
+    if (options.platform) {
+      buildArgs.push('--platform', options.platform);
     }
 
     if (build_options.dockerfile) {

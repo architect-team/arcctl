@@ -411,4 +411,10 @@ export default class EnvironmentV1 extends Environment {
       };
     }
   }
+
+  public removeComponent(name: string): void {
+    if (this.components?.[name]) {
+      delete this.components![name];
+    }
+  }
 }

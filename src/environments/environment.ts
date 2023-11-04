@@ -25,4 +25,6 @@ export abstract class Environment {
   ): Promise<AppGraph>;
 
   public abstract addComponent(metadata: ComponentMetadata): void;
+
+  public abstract removeComponent(name: string): void;
 }

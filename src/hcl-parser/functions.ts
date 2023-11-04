@@ -123,6 +123,26 @@ const startsWith = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree
   };
 };
 
+/**
+ * Checks if the first argument ends with the second argument.
+ */
+const endsWith = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
+  if (node.arguments[0].type === 'MemberExpression' || node.arguments[1].type === 'MemberExpression') {
+    // MemberExpression nodes may be resolved later
+    return node;
+  } else if (node.arguments[0].type !== 'Literal' || node.arguments[1].type !== 'Literal') {
+    throw new Error(
+      `Unsupported argument types for endsWith(): ${node.arguments[0].type} and ${node.arguments[1].type}`,
+    );
+  }
+
+  const res = node.arguments[0].value?.toString().endsWith(node.arguments[1].value?.toString() || '');
+  return {
+    type: 'Literal',
+    value: res === true,
+  };
+};
+
 const replace = (node: ESTree.CallExpression): ESTree.CallExpression | ESTree.SimpleLiteral => {
   if (node.arguments.length !== 3) {
     throw new Error(`Expected exactly three arguments for the replace() method. Got ${node.arguments.length}.`);
@@ -157,6 +177,7 @@ const functions: Record<string, functionType> = {
   toUpper,
   toLower,
   startsWith,
+  endsWith,
   replace,
 };
 

@@ -217,7 +217,7 @@ environment {
       url = module.ingressRule.url
       path = module.ingressRule.path
       subdomain = node.inputs.subdomain
-      dns_zone = node.inputs.dns_zone
+      dns_zone = variable.dns_zone
     }
   }
 
@@ -242,10 +242,10 @@ environment {
     }
 
     outputs = {
-      protocol = node.inputs.protocol || "http"
+      protocol = module.service.protocol
       host = module.service.host
       port = module.service.port
-      url = "${node.inputs.protocol || "http"}://${module.service.host}"
+      url = module.service.url
     }
   }
 }

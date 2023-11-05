@@ -404,7 +404,7 @@ export default class EnvironmentV1 extends Environment {
     this.components[metadata.image.repository].source = metadata.path
       ? `file:${metadata.path}`
       : metadata.image.toString().replace(/:latest$/, '');
-    for (const [key, subdomain] of Object.entries(metadata.ingresses || {})) {
+    for (const [subdomain, key] of Object.entries(metadata.ingresses || {})) {
       this.components[metadata.image.repository].ingresses = this.components[metadata.image.repository].ingresses || {};
       this.components[metadata.image.repository].ingresses![key] = {
         subdomain,

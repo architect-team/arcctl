@@ -478,12 +478,18 @@ export default class DatacenterV1 extends Datacenter {
                 );
               }
 
-              return outputValue.replace(/"/g, '\\"');
+              return outputValue.replace(/((?<![\\])['"])((?:.(?!(?<![\\])\1))*.?)\1/g, '\\"$2\\"');
             },
           );
 
         const stringifiedNode = recursivelyReplaceAppRefs(JSON.stringify(node, null, 2));
-        return new InfraGraphNode(JSON.parse(stringifiedNode));
+        try {
+          return new InfraGraphNode(JSON.parse(stringifiedNode)); 
+        } catch (err) {
+          console.log(stringifiedNode);
+          throw err;
+        }
+        
       });
     }
 

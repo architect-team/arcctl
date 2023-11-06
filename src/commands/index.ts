@@ -6,6 +6,7 @@ import DestroyCommands from './destroy/index.ts';
 import GetCommands from './get/index.ts';
 import ListCommands from './list/index.ts';
 import PushCommands from './push/index.ts';
+import RemoveCommand from './remove.ts';
 import SetCommands from './set/index.ts';
 import TagCommand from './tag.ts';
 import TestCommands from './test/index.ts';
@@ -15,6 +16,7 @@ export default async function arcctl() {
     .command(ApplyCommands.getName(), ApplyCommands)
     .command(BuildCommands.getName(), BuildCommands)
     .command(DeployCommand.getName(), DeployCommand)
+    .command(RemoveCommand.getName(), RemoveCommand)
     .command(TagCommand.getName(), TagCommand)
     .command(PushCommands.getName(), PushCommands)
     .command(SetCommands.getName(), SetCommands)

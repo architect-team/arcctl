@@ -1319,5 +1319,86 @@ describe('DatacenterV1', () => {
 
       assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
     });
+
+    it('should support variables inside merge function', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
+        variable "dns_zone" {
+          description = "DNS zone"
+        }
+
+        environment {
+          ingress {
+            module "ingressRule" {
+              source = "architect-io/kubernetes-ingress-rule:latest"
+              inputs = merge(node.inputs, {
+                dns_zone = variable.dns_zone
+              })
+            }
+
+            outputs = {
+              protocol = "http"
+              host = "subdomain.127.0.0.1.nip.io"
+              port = 80
+              url = "http://subdomain.127.0.0.1.nip.io"
+              path = "/"
+              subdomain = "subdomain"
+              dns_zone = "127.0.0.1.nip.io"
+            }
+          }
+        }
+      `);
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+
+      const ingressNode = new AppGraphNode({
+        type: 'ingress',
+        name: 'ingress',
+        component: 'component',
+        inputs: {
+          service: {
+            host: `host`,
+            port: `port`,
+            protocol: `protocol`,
+          },
+          port: 'port',
+          protocol: `protocol`,
+          path: '/',
+          internal: false,
+        },
+      });
+
+      const appGraph = new AppGraph({
+        nodes: [ingressNode],
+      });
+
+      const infraGraph = datacenter.getGraph(appGraph, {
+        datacenterName: 'test',
+        environmentName: 'test',
+        variables: {
+          dns_zone: 'architect.io',
+        },
+      });
+
+      const expectedIngressNode = new InfraGraphNode({
+        image: 'architect-io/kubernetes-ingress-rule:latest',
+        appNodeId: 'component/ingress/ingress',
+        name: 'ingressRule',
+        plugin: 'pulumi',
+        inputs: {
+          dns_zone: 'architect.io',
+          internal: false,
+          path: '/',
+          port: 'port',
+          protocol: 'protocol',
+          service: {
+            host: 'host',
+            port: 'port',
+            protocol: 'protocol',
+          },
+        },
+        component: 'component',
+      });
+
+      assertEquals(infraGraph.nodes, [expectedIngressNode]);
+    });
   });
 });

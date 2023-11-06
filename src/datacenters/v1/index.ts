@@ -1,10 +1,10 @@
 import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
-import { applyContextRecursive } from '../../datacenter-ast/index.ts';
 import { Plugin } from '../../datacenter-modules/index.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
 import { GraphEdge } from '../../graphs/edge.ts';
 import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
 import { InfraGraph } from '../../graphs/infra/graph.ts';
+import { applyContext } from '../../hcl-parser/index.ts';
 import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
 import {
@@ -301,20 +301,17 @@ export default class DatacenterV1 extends Datacenter {
   }
 
   public getGraph(appGraph: AppGraph, options: GetGraphOptions): InfraGraph {
-    // This is so that we don't mutate the object as part of the getGraph() method
-    const dc = new DatacenterV1(this);
-
     const infraGraph = new InfraGraph();
 
     // Use default values where applicable
     let vars: Record<string, string> = {};
-    for (const [key, configs] of Object.entries(dc.variable || {})) {
+    for (const [key, configs] of Object.entries(this.variable || {})) {
       // Variable keys are an array for some reason. It shouldn't ever be empty though.
       if (configs.length < 1) {
         continue;
       }
 
-      applyContextRecursive(configs[0], {
+      applyContext(configs[0], {
         variable: options.variables || {},
         var: options.variables || {},
       });
@@ -329,7 +326,7 @@ export default class DatacenterV1 extends Datacenter {
       ...options.variables,
     };
 
-    applyContextRecursive(dc, {
+    applyContext(this, {
       datacenter: {
         name: options.datacenterName,
       },
@@ -337,12 +334,16 @@ export default class DatacenterV1 extends Datacenter {
       var: vars,
     });
 
+    // This is so that we don't mutate the object as part of the getGraph() method
+    // NOTE: we do this after variables because we WANT to pin the variable values that were provided
+    const dc = new DatacenterV1(this);
+
     const dcScopedGraph = this.getScopedGraph(infraGraph, dc.module || {}, options);
     infraGraph.insertNodes(...dcScopedGraph.nodes);
     infraGraph.insertEdges(...dcScopedGraph.edges);
 
     if (options.environmentName) {
-      applyContextRecursive(dc, {
+      applyContext(dc, {
         environment: {
           name: options.environmentName,
           ...appGraph,
@@ -354,7 +355,10 @@ export default class DatacenterV1 extends Datacenter {
 
       for (const env of dc.environment || []) {
         const envScopedGraph = this.getScopedGraph(infraGraph, env.module || {}, options);
-        infraGraph.insertNodes(...envScopedGraph.nodes);
+        infraGraph.insertNodes(...envScopedGraph.nodes.map((n) => {
+          n.environment = options.environmentName;
+          return n;
+        }));
         infraGraph.insertEdges(...envScopedGraph.edges);
 
         const hooks = Object.entries(env || {}).filter(([key]) => key !== 'module');
@@ -376,7 +380,7 @@ export default class DatacenterV1 extends Datacenter {
               const hook = JSON.parse(JSON.stringify(value)) as ResourceHook;
 
               // Make sure all references to `node.*` are replaced with values
-              applyContextRecursive(hook, {
+              applyContext(hook, {
                 node: appGraphNode,
               });
 
@@ -440,7 +444,10 @@ export default class DatacenterV1 extends Datacenter {
       // We don't merge in the individual hook results until we've iterated over all of them so
       // that modules can't find each other across hooks
       resourceScopedGraphs.forEach((g) => {
-        infraGraph.insertNodes(...g.nodes);
+        infraGraph.insertNodes(...g.nodes.map((n) => {
+          n.environment = options.environmentName;
+          return n;
+        }));
         infraGraph.insertEdges(...g.edges);
       });
 

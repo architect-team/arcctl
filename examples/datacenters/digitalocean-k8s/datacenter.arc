@@ -14,6 +14,11 @@ variable "dns_zone" {
   type = "string"
 }
 
+variable "ssl_issuer_email" {
+  description = "Email address to use when registering SSL certificates"
+  type = "string"
+}
+
 module "vpc" {
   build = "./vpc"
   inputs = {
@@ -29,7 +34,21 @@ module "k8s" {
     name = "${datacenter.name}-cluster"
     region = variable.region
     vpcId = module.vpc.id
+    node_count = 3
     "digitalocean:token" = variable.do_token
+  }
+}
+
+module "certManager" {
+  build = "./helm-chart"
+  inputs = {
+    chart = "cert-manager"
+    repo = "https://charts.jetstack.io"
+    version = "v1.13.2"
+    kubeconfig = module.k8s.kubeconfig
+    values = {
+      installCRDs = true
+    }
   }
 }
 
@@ -48,7 +67,7 @@ environment {
     inputs = {
       name = "${datacenter.name}-database"
       databaseType = "pg"
-      databaseVersion = 15
+      databaseVersion = 14
       region = variable.region
       vpcId = module.vpc.id
       "digitalocean:token" = variable.do_token
@@ -57,10 +76,51 @@ environment {
 
   module "nginxController" {
     when = contains(environment.nodes.*.type, "ingress")
-    build = "./nginx-controller"
+    build = "./helm-chart"
     inputs = {
-      name = "${datacenter.name}-nginx-controller"
       kubeconfig = module.k8s.kubeconfig
+      chart = "ingress-nginx"
+      repo = "https://kubernetes.github.io/ingress-nginx"
+      values = {
+        controller = {
+          ingressClass = "nginx"
+          publishService = {
+            enabled = true
+          }
+        }
+      }
+    }
+  }
+
+  module "issuer" {
+    when = contains(environment.nodes.*.type, "ingress")
+    build = "./k8s-custom-resource"
+    inputs = {
+      kubeconfig = module.k8s.kubeconfig
+      manifest = {
+        apiVersion = "cert-manager.io/v1"
+        kind = "Issuer"
+        metadata = {
+          name = "letsencrypt"
+          namespace = module.namespace.id
+        }
+        spec = {
+          acme = {
+            server = "https://acme-v02.api.letsencrypt.org/directory"
+            email = variable.ssl_issuer_email
+            privateKeySecretRef = {
+              name = "letsencrypt-prod"
+            }
+            solvers = [{
+              http01 = {
+                ingress = {
+                  ingressClassName = "nginx"
+                }
+              }
+            }]
+          }
+        }
+      }
     }
   }
 
@@ -97,8 +157,8 @@ environment {
       protocol = "postgresql"
       username = module.postgresCluster.username
       password = module.postgresCluster.password
-      url = "postgresql://${module.postgresCluster.username}:${module.postgresCluster.password}@${module.postgresCluster.private_host}:${module.postgresCluster.port}}"
-      database = module.postgresCluster.database
+      url = "postgresql://${module.postgresCluster.username}:${module.postgresCluster.password}@${module.postgresCluster.private_host}:${module.postgresCluster.port}/${module.database.name}"
+      database = module.database.name
     }
   }
 
@@ -131,13 +191,12 @@ environment {
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
         dns_zone = variable.dns_zone
-        ingress_class_name = module.nginxController.ingress_class_name
+        ingress_class_name = "nginx"
       })
     }
 
     module "dnsRecord" {
       build = "./dns-record"
-      plugin = "opentofu"
       environment = {
         DIGITALOCEAN_TOKEN = variable.do_token
       }
@@ -150,15 +209,15 @@ environment {
     }
 
     outputs = {
-      protocol = module.ingressRule.protocol
+      protocol = module.ingressRule.protocol == "http" ? "https" : module.ingressRule.protocol
       host = module.ingressRule.host
-      port = module.ingressRule.port
+      port = module.ingressRule.port == 80 ? 443 : module.ingressRule.port
       username = module.ingressRule.username
       password = module.ingressRule.password
       url = module.ingressRule.url
       path = module.ingressRule.path
       subdomain = node.inputs.subdomain
-      dns_zone = node.inputs.dns_zone
+      dns_zone = variable.dns_zone
     }
   }
 
@@ -183,10 +242,10 @@ environment {
     }
 
     outputs = {
-      protocol = node.inputs.protocol || "http"
+      protocol = module.service.protocol
       host = module.service.host
       port = module.service.port
-      url = "http://${module.service.host}:${module.service.port}"
+      url = module.service.url
     }
   }
 }

@@ -7,6 +7,8 @@ const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
 const name = config.require('name').replace(/\//g, '-');
+const targetPort = config.requireNumber('port');
+const exposePort = config.get('protocol') !== 'http' ? targetPort : 80;
 
 const external_name = config.get('external_name');
 const service = new kubernetes.core.v1.Service('service', {
@@ -28,7 +30,7 @@ const service = new kubernetes.core.v1.Service('service', {
     },
     ports: [
       {
-        port: 80,
+        port: exposePort,
         targetPort: config.requireNumber('port'),
       }
     ]
@@ -36,5 +38,7 @@ const service = new kubernetes.core.v1.Service('service', {
 }, { provider });
 
 export const id = service.id.apply(id => id.toString());
+export const protocol = config.get('protocol') ?? 'http';
 export const host = name;
-export const port = 80;
+export const port = exposePort;
+export const url = `${protocol}://${host}${exposePort === 80 ? '' : ':' + exposePort}`;

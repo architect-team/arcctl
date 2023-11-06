@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs';
 import { ResourceOutputs, ResourceType } from '../../@resources/types.ts';
-import { applyContextRecursive } from '../../datacenter-ast/index.ts';
+import { applyContext } from '../../hcl-parser/index.ts';
 import { GraphEdge } from '../edge.ts';
 import { AppGraphOptions, Graph } from '../graph.ts';
 import { InfraGraphNode } from './node.ts';
-import { ApplyOptions, PlanOptions } from './types.ts';
+import { ApplyOptions, PlanContext, PlanOptions } from './types.ts';
 
 export class InfraGraph extends Graph<InfraGraphNode> {
   constructor(options?: AppGraphOptions<InfraGraphNode>) {
@@ -59,12 +59,12 @@ export class InfraGraph extends Graph<InfraGraphNode> {
 
     let notFound: string[] = [];
     if (typeof node.inputs === 'object') {
-      notFound = applyContextRecursive(node.inputs, context);
+      notFound = applyContext(node.inputs, context);
     } else {
       // e.g. in the case where `inputs = merge(node.inputs, {})`
       // TODO: This might not be doing the correct thing yet
       const replacementObject = { key: node.inputs };
-      notFound = applyContextRecursive(replacementObject, context);
+      notFound = applyContext(replacementObject, context);
       node.inputs = replacementObject.key;
     }
 
@@ -117,6 +117,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
         status: { state: 'pending' },
         state: previousNode?.state,
       });
+
       if (
         !previousNode || (previousNode.status.state !== 'complete' && previousNode.action === 'create') ||
         previousNode.action === 'delete'
@@ -126,6 +127,14 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       } else {
         newInfraNode.action = 'update';
         newInfraNode.color = previousNode.color;
+      }
+
+      // Make sure not to touch datacenter nodes when we're not applying datacenter changes
+      if (options.context !== PlanContext.Datacenter && !newInfraNode.environment) {
+        newInfraNode.action = 'no-op';
+        newInfraNode.status.state = 'complete';
+        newInfraNode.state = previousNode?.state;
+        newInfraNode.outputs = previousNode?.outputs;
       }
 
       newInfraGraph.insertNodes(newInfraNode);
@@ -211,7 +220,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
           dependencies.forEach((d) => {
             outputsById[d.getId()] = d.outputs || {};
           });
-          applyContextRecursive(node, outputsById);
+          applyContext(node, outputsById);
 
           // Compare hashes
           const previousHash = await previousCompleteNode.getHash();
@@ -248,9 +257,6 @@ export class InfraGraph extends Graph<InfraGraphNode> {
             if (node.inputs) {
               try {
                 if (node.action !== 'delete') {
-                  if (node.name === 'deployment') {
-                    console.log(JSON.stringify(node, null, 2));
-                  }
                   this.resolveInputFunctionsAndRefs(node);
                 }
               } catch (err: any) {

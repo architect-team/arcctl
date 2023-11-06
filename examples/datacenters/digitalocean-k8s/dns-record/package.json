@@ -1,12 +1,11 @@
 {
-    "name": "service",
+    "name": "dns-record",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^16"
     },
     "dependencies": {
-        "@pulumi/kubernetes": "^4.0.0",
         "@pulumi/pulumi": "^3.0.0",
-        "pulumi": "^0.0.1"
+        "@pulumi/digitalocean": "^4.0.0"
     }
 }

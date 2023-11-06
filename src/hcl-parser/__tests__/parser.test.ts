@@ -250,6 +250,30 @@ describe('AST: applyContext()', () => {
     assertEquals(obj.module.vpc.inputs.name, 'test-vpc');
   });
 
+  it('should support replacements inside functions', () => {
+    const obj = {
+      module: [{
+        vpc: {
+          source: 'architect/vpc:latest',
+          inputs: `\${merge(node.inputs, {
+            dns_zone = variable.dns_zone
+          })}`,
+        },
+      }],
+    };
+
+    applyContext(obj, {
+      variable: {
+        dns_zone: 'architect.io',
+      },
+    });
+
+    assertEquals(
+      obj.module[0].vpc.inputs,
+      `\${merge(node.inputs,{dns_zone:'architect.io'})}`,
+    );
+  });
+
   it('should support == operator', () => {
     const obj = {
       module: {
@@ -471,5 +495,27 @@ describe('AST: applyContext()', () => {
     });
 
     assertEquals(obj.module.when, []);
+  });
+
+  it('should correctly handle arrays inside object replacements', () => {
+    const obj: any = {
+      module: {
+        inputs: {
+          environment: `\${node.inputs.environment}`,
+        },
+      },
+    };
+
+    applyContext(obj, {
+      node: {
+        inputs: {
+          environment: {
+            command: ['sh', '-c', 'ls -l && cat stuff.txt'],
+          },
+        },
+      },
+    });
+
+    assertEquals(obj.module.inputs.environment.command, ['sh', '-c', 'ls -l && cat stuff.txt']);
   });
 });

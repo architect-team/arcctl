@@ -14,6 +14,11 @@ variable "secret_key" {
   description = "AWS Secret Key"
 }
 
+variable "dns_zone" {
+  description = "DNS zone to use for ingress rules"
+  type = "string"
+}
+
 module "vpc" {
   build  = "./vpc"
   plugin = "opentofu"
@@ -158,6 +163,13 @@ environment {
     when = contains(environment.nodes.*.type, "ingress")
     build = "./aws-lb-controller"
     inputs = {
+      aws = {
+        accessKey = variable.access_key
+        secretKey = variable.secret_key
+        region = variable.region
+      }
+      // TODO: Pass account_id as a variable
+      accountId = "914808004132"
       name = "${datacenter.name}-lb-controller"
       clusterName = "${datacenter.name}-cluster"
       namespace = module.namespace.id
@@ -170,6 +182,7 @@ environment {
       build = "./ingressRule"
       inputs = merge(node.inputs, {
         name = "${node.component}--${node.name}"
+        namespace = module.namespace.id
         kubeconfig = module.eksCluster.kubeconfig
         dns_zone = variable.dns_zone
       })
@@ -187,7 +200,7 @@ environment {
         region  = variable.region
         dns_zone = variable.dns_zone
         type = "A"
-        value = module.ingressRule.load_balancer_ip
+        value = module.ingressRule.lb_address
         subdomain = node.inputs.subdomain
       }
     }

@@ -55,7 +55,7 @@ export class ModuleServer {
         'run',
         '--name',
         this.containerName,
-        '--rm',
+        // '--rm',
         '--pull',
         'missing', // TODO: version the plugins with the CLI to ensure that the right version of the plugin will be pulled if
         '--quiet', // ignore the docker error 'unable to find image <image name> locally if the image needs to be downloaded

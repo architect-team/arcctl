@@ -2,6 +2,12 @@ import * as kubernetes from "@pulumi/kubernetes";
 import * as pulumi from "@pulumi/pulumi";
 
 const config = new pulumi.Config();
+const serviceConfig = new pulumi.Config("service");
+const service = {
+  host: serviceConfig.require("host"),
+  port: serviceConfig.require("port"),
+  protocol: serviceConfig.require("protocol"),
+};
 const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
@@ -17,8 +23,6 @@ const dns_zone = config.get('dns_zone');
 if (dns_zone) {
   hostParts.push(dns_zone);
 }
-
-const serviceConfig = config.requireObject<{ host: string; port: string; protocol: string }>('service');
 
 const ingress = new kubernetes.networking.v1.Ingress("ingress", {
   metadata: {
@@ -40,9 +44,9 @@ const ingress = new kubernetes.networking.v1.Ingress("ingress", {
               path: config.get('path') ?? '/',
               backend: {
                 service: {
-                  name: serviceConfig.host,
+                  name: service.host,
                   port: {
-                    number: parseInt(serviceConfig.port),
+                    number: parseInt(service.port),
                   }
                 }
               }
@@ -55,7 +59,7 @@ const ingress = new kubernetes.networking.v1.Ingress("ingress", {
 }, { provider });
 
 export const id = ingress.id.apply(id => id.toString());
-export const protocol = serviceConfig.protocol || 'http';
+export const protocol = service.protocol || 'http';
 export const host = hostParts.join('.');
 export const port = 80;
 export const username = config.get('username');
@@ -70,4 +74,4 @@ if (username || password) {
 _url += `${host}:${port}${path}`;
 
 export const url = _url;
-export const load_balancer_ip = ingress.status.loadBalancer.ingress[0].ip.apply(ip => ip.toString());
+export const lb_address = ingress.status.loadBalancer.ingress[0].hostname.apply(hostname => hostname.toString());

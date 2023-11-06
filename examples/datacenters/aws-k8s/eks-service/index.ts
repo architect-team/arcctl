@@ -22,7 +22,7 @@ const service = new kubernetes.core.v1.Service('service', {
     type: 'ExternalName',
     externalName: external_name,
   } : {
-    type: 'ClusterIP',
+    type: 'NodePort',
     selector: {
       'architect.io/app': config.require('deployment').replace(/\//g, '--'),
     },

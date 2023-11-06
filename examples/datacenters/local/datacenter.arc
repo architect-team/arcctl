@@ -89,7 +89,7 @@ environment {
         port = 5432
         username = "postgres"
         password = "password"
-        database = "postgres"
+        database = module.postgres.name
       }
     }
 
@@ -161,8 +161,8 @@ environment {
       protocol = "${node.inputs.protocol || "http"}"
       host = "${node.inputs.subdomain}.127.0.0.1.nip.io"
       port = 80
-      url = "${node.inputs.protocol || "http"}://${node.inputs.subdomain}.127.0.0.1.nip.io${node.inputs.path || "/"}"
-      path = "${node.inputs.path || "/"}"
+      url = "${node.inputs.protocol || "http"}://${node.inputs.subdomain}.127.0.0.1.nip.io${node.inputs.path == "/" ? "" : node.inputs.path}"
+      path = "${node.inputs.path == "/" ? "" : node.inputs.path}"
       dns_zone = "127.0.0.1.nip.io"
       subdomain = node.inputs.subdomain
     }

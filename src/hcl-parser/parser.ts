@@ -97,7 +97,6 @@ export const applyContext = (
         /\${(?!{)([^}]*\([^)]*\)[^}]*|[^}]+)}(?!})/g,
         (_: string, expression_str: string) => {
           const ast = LooseParser.parse(expression_str, { ecmaVersion: 2022 });
-
           estraverse.replace(ast as Node, {
             // In the enter callback, we check for any nodes that aren't formatted correctly by default
             // and correct them into the right AST nodes

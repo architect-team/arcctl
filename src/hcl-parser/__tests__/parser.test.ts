@@ -163,6 +163,34 @@ describe('AST: applyContext()', () => {
     });
   });
 
+  it('should be able to merge arrays', () => {
+    const obj = {
+      module: {
+        vpc: {
+          inputs: `\${merge([{
+            test = "key"
+          }], [{
+            test2 = "key"
+          }])}`,
+        },
+      },
+    };
+
+    applyContext(obj, {});
+
+    assertEquals(
+      obj.module.vpc.inputs as any,
+      [
+        {
+          test: 'key',
+        },
+        {
+          test2: 'key',
+        },
+      ],
+    );
+  });
+
   it('should support contains() function', () => {
     const obj = {
       module: {

@@ -131,6 +131,7 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
+        environment: 'test',
         plugin: 'pulumi',
       });
 
@@ -195,6 +196,7 @@ describe('DatacenterV1', () => {
           vpc_id: `\${${expectedVpcNode.getId()}.id}`,
         },
         name: 'database',
+        environment: 'test',
         plugin: 'pulumi',
       });
 
@@ -281,6 +283,7 @@ describe('DatacenterV1', () => {
       const expectedDatabaseNode = new InfraGraphNode({
         image: 'architect-io/digitalocean-database:latest',
         component: databaseAppGraphNode.component,
+        environment: 'test',
         appNodeId: databaseAppGraphNode.getId(),
         inputs: {
           type: 'postgres',
@@ -348,6 +351,7 @@ describe('DatacenterV1', () => {
       const expectedDb1Node = new InfraGraphNode({
         image: 'architect-io/digitalocean-database:latest',
         component: db1AppNode.component,
+        environment: 'test',
         appNodeId: db1AppNode.getId(),
         inputs: {
           type: 'postgres',
@@ -359,6 +363,7 @@ describe('DatacenterV1', () => {
       const expectedDb2Node = new InfraGraphNode({
         image: 'architect-io/digitalocean-database:latest',
         component: db2AppNode.component,
+        environment: 'test',
         appNodeId: db2AppNode.getId(),
         inputs: {
           type: 'postgres',
@@ -502,6 +507,7 @@ describe('DatacenterV1', () => {
       const expectedDbNode = new InfraGraphNode({
         image: 'architect-io/digitalocean-database:latest',
         component: dbAppNode.component,
+        environment: 'test',
         appNodeId: dbAppNode.getId(),
         inputs: {
           type: 'postgres',
@@ -513,6 +519,7 @@ describe('DatacenterV1', () => {
       const expectedDeploymentNode = new InfraGraphNode({
         image: 'architect-io/kubernetes-deployment:latest',
         component: deploymentAppNode.component,
+        environment: 'test',
         appNodeId: deploymentAppNode.getId(),
         inputs: {
           image: 'nginx:latest',
@@ -726,6 +733,7 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
+        environment: 'test',
         plugin: 'pulumi',
       });
 
@@ -791,6 +799,7 @@ describe('DatacenterV1', () => {
         },
         name: 'database',
         plugin: 'pulumi',
+        environment: 'test',
         component: databaseAppGraphNode.component,
         appNodeId: databaseAppGraphNode.getId(),
       });
@@ -917,6 +926,7 @@ describe('DatacenterV1', () => {
           type: 'postgres',
         },
         name: 'database',
+        environment: 'test',
         appNodeId: databaseNode.getId(),
         component: databaseNode.component,
         plugin: 'pulumi',
@@ -1024,6 +1034,7 @@ describe('DatacenterV1', () => {
 
       const expectedDatabaseModule = new InfraGraphNode({
         image: 'architect-io/digitalocean-database:latest',
+        environment: 'test',
         inputs: {
           type: 'postgres',
         },
@@ -1107,6 +1118,7 @@ describe('DatacenterV1', () => {
       const expectedDeploymentNode = new InfraGraphNode({
         image: 'architect-io/kubernetes-deployment:latest',
         component: deploymentNode.component,
+        environment: 'test',
         appNodeId: deploymentNode.getId(),
         inputs: {
           name: `${deploymentNode.component}--${deploymentNode.name}`,
@@ -1183,6 +1195,7 @@ describe('DatacenterV1', () => {
       const expectedInfraNode1 = new InfraGraphNode({
         image: 'architect-io/postgres:latest',
         component: database1Node.component,
+        environment: 'test',
         appNodeId: database1Node.getId(),
         inputs: {
           name: 'first',
@@ -1196,6 +1209,7 @@ describe('DatacenterV1', () => {
       const expectedInfraNode2 = new InfraGraphNode({
         image: 'architect-io/postgres:latest',
         component: database2Node.component,
+        environment: 'test',
         appNodeId: database2Node.getId(),
         inputs: {
           name: 'second',
@@ -1305,6 +1319,7 @@ describe('DatacenterV1', () => {
       const expectedDeploymentNode = new InfraGraphNode({
         image: 'architect-io/kubernetes-deployment:latest',
         component: deploymentNode.component,
+        environment: 'test',
         appNodeId: deploymentNode.getId(),
         inputs: {
           name: `${deploymentNode.component}--${deploymentNode.name}`,
@@ -1381,6 +1396,7 @@ describe('DatacenterV1', () => {
       const expectedIngressNode = new InfraGraphNode({
         image: 'architect-io/kubernetes-ingress-rule:latest',
         appNodeId: 'component/ingress/ingress',
+        environment: 'test',
         name: 'ingressRule',
         plugin: 'pulumi',
         inputs: {

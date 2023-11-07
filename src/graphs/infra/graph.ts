@@ -130,7 +130,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
       }
 
       // Make sure not to touch datacenter nodes when we're not applying datacenter changes
-      if (options.context !== PlanContext.Datacenter && !newInfraNode.environment) {
+      if (options.context && options.context !== PlanContext.Datacenter && !newInfraNode.environment) {
         newInfraNode.action = 'no-op';
         newInfraNode.status.state = 'complete';
         newInfraNode.state = previousNode?.state;

@@ -163,6 +163,34 @@ describe('AST: applyContext()', () => {
     });
   });
 
+  it('should be able to merge arrays', () => {
+    const obj = {
+      module: {
+        vpc: {
+          inputs: `\${merge([{
+            test = "key"
+          }], [{
+            test2 = "key"
+          }])}`,
+        },
+      },
+    };
+
+    applyContext(obj, {});
+
+    assertEquals(
+      obj.module.vpc.inputs as any,
+      [
+        {
+          test: 'key',
+        },
+        {
+          test2: 'key',
+        },
+      ],
+    );
+  });
+
   it('should support contains() function', () => {
     const obj = {
       module: {
@@ -456,6 +484,34 @@ describe('AST: applyContext()', () => {
 
     assertEquals(obj.module.vpc.inputs.test, 'true');
     assertEquals(obj.module.vpc.inputs.test2, 'false');
+  });
+
+  it('should support inline conditionals', () => {
+    const obj = {
+      module: [{
+        vpc: {
+          path: `127.0.0.1.nip.io\${node.inputs.path == "/" ? "" : node.inputs.path}`,
+          unchanged: `127.0.0.1.nip.io\${node.inputs.invisible == "/" ? "" : node.inputs.invisible}`,
+        },
+      }],
+    };
+
+    applyContext(obj, {
+      node: {
+        inputs: {
+          path: '/',
+        },
+      },
+    });
+
+    assertEquals(
+      obj.module[0].vpc.path,
+      '127.0.0.1.nip.io',
+    );
+    assertEquals(
+      obj.module[0].vpc.unchanged,
+      `127.0.0.1.nip.io\${node.inputs.invisible=='/'?'':node.inputs.invisible}`,
+    );
   });
 
   it('should support the splat operator', () => {

@@ -30,6 +30,14 @@ const merge = (node: ESTree.CallExpression): ESTree.Node => {
     return node;
   }
 
+  // Fixes handling for array expressions
+  if (node.arguments[0].type === 'ArrayExpression' && node.arguments[1].type === 'ArrayExpression') {
+    return objectToAst([
+      ...convertEstreeNodeToObject(node.arguments[0]),
+      ...convertEstreeNodeToObject(node.arguments[1]),
+    ]);
+  }
+
   return objectToAst({
     ...convertEstreeNodeToObject(node.arguments[0]),
     ...convertEstreeNodeToObject(node.arguments[1]),

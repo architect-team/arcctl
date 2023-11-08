@@ -1,5 +1,10 @@
 export type ServiceOutputs = {
   /**
+   * Name of the service
+   */
+  name: string;
+
+  /**
    * Protocol the service listens on
    */
   protocol: string;

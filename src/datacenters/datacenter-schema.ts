@@ -983,6 +983,10 @@ export default {
                           "description": "Host the service listens on",
                           "type": "string"
                         },
+                        "name": {
+                          "description": "Name of the service",
+                          "type": "string"
+                        },
                         "port": {
                           "description": "Port the service listens on",
                           "type": [
@@ -1000,6 +1004,7 @@ export default {
                         }
                       },
                       "required": [
+                        "name",
                         "protocol",
                         "host",
                         "port",

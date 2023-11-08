@@ -369,6 +369,7 @@ describe('Component Schema: v2', () => {
         password: `\${{ ${svc_node.getId()}.password }}`,
         protocol: `\${{ ${svc_node.getId()}.protocol }}`,
         service: {
+          name: `\${{ ${svc_node.getId()}.name }}`,
           host: `\${{ ${svc_node.getId()}.host }}`,
           port: `\${{ ${svc_node.getId()}.port }}`,
           protocol: `\${{ ${svc_node.getId()}.protocol }}`,
@@ -395,6 +396,7 @@ serve:
         },
         services: [
           {
+            name: `\${{ ${svc_node.getId()}.name }}`,
             host: `\${{ ${svc_node.getId()}.host }}`,
             port: `\${{ ${svc_node.getId()}.port }}`,
             protocol: `\${{ ${svc_node.getId()}.protocol }}`,
@@ -402,10 +404,13 @@ serve:
         ],
         ingresses: [
           {
+            service: `\${{ ${svc_node.getId()}.name }}`,
             host: `\${{ ${ing_node.getId()}.host }}`,
             port: `\${{ ${ing_node.getId()}.port }}`,
             protocol: `\${{ ${ing_node.getId()}.protocol }}`,
             path: `\${{ ${ing_node.getId()}.path }}`,
+            subdomain: `\${{ ${ing_node.getId()}.subdomain }}`,
+            dns_zone: `\${{ ${ing_node.getId()}.dns_zone }}`,
           },
         ],
       },

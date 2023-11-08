@@ -454,6 +454,7 @@ export default class ComponentV2 extends Component {
       (deployment_node as AppGraphNode<'deployment'>).inputs.services =
         (deployment_node as AppGraphNode<'deployment'>).inputs.services || [];
       (deployment_node as AppGraphNode<'deployment'>).inputs.services!.push({
+        name: `\${{ ${service_node.getId()}.name }}`,
         host: `\${{ ${service_node.getId()}.host }}`,
         protocol: `\${{ ${service_node.getId()}.protocol }}`,
         port: `\${{ ${service_node.getId()}.port }}`,
@@ -496,6 +497,7 @@ export default class ComponentV2 extends Component {
         inputs: {
           port: `\${{ ${service_node.getId()}.port }}`,
           service: {
+            name: `\${{ ${service_node.getId()}.name }}`,
             host: `\${{ ${service_node.getId()}.host }}`,
             port: `\${{ ${service_node.getId()}.port }}`,
             protocol: `\${{ ${service_node.getId()}.protocol }}`,
@@ -541,10 +543,13 @@ export default class ComponentV2 extends Component {
         // Update deployment node with service references
         deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
         deployment_node.inputs.ingresses!.push({
+          service: ingress_node.inputs.service.name,
           host: `\${{ ${ingress_node.getId()}.host }}`,
           protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
           port: `\${{ ${ingress_node.getId()}.port }}`,
           path: `\${{ ${ingress_node.getId()}.path }}`,
+          subdomain: `\${{ ${ingress_node.getId()}.subdomain }}`,
+          dns_zone: `\${{ ${ingress_node.getId()}.dns_zone }}`,
         });
         graph.insertNodes(deployment_node);
 

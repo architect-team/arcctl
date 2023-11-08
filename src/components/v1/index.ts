@@ -280,6 +280,7 @@ export default class ComponentV1 extends Component {
 
         deployment_node.inputs.services = deployment_node.inputs.services || [];
         deployment_node.inputs.services?.push({
+          name: `\${{ ${service_node.getId()}.name }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
           host: `\${{ ${service_node.getId()}.host }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
@@ -302,6 +303,7 @@ export default class ComponentV1 extends Component {
                 : {}),
               protocol: `\${{ ${service_node.getId()}.protocol }}`,
               service: {
+                name: `\${{ ${service_node.getId()}.name }}`,
                 host: `\${{ ${service_node.getId()}.host }}`,
                 port: `\${{ ${service_node.getId()}.port }}`,
                 protocol: `\${{ ${service_node.getId()}.protocol }}`,
@@ -324,10 +326,13 @@ export default class ComponentV1 extends Component {
 
           deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
           deployment_node.inputs.ingresses?.push({
+            service: ingress_node.inputs.service.name,
             port: `\${{ ${ingress_node.getId()}.port }}`,
             host: `\${{ ${ingress_node.getId()}.host }}`,
             protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
             path: `\${{ ${ingress_node.getId()}.path }}`,
+            subdomain: `\${{ ${ingress_node.getId()}.subdomain }}`,
+            dns_zone: `\${{ ${ingress_node.getId()}.dns_zone }}`,
           });
 
           graph.insertEdges(
@@ -535,6 +540,7 @@ export default class ComponentV1 extends Component {
           component: context.component.name,
           inputs: {
             service: {
+              name: `\${{ ${interface_node.getId()}.name }}`,
               host: `\${{ ${interface_node.getId()}.host }}`,
               port: `\${{ ${interface_node.getId()}.port }}`,
               protocol: `\${{ ${interface_node.getId()}.protocol }}`,

@@ -167,6 +167,11 @@ export type DeploymentInputs = {
    */
   services?: Array<{
     /**
+     * The name of the service
+     */
+    name: string;
+
+    /**
      * The hostname the service is listening on
      */
     host: string;
@@ -187,6 +192,11 @@ export type DeploymentInputs = {
    */
   ingresses?: Array<{
     /**
+     * The name of the service this ingress points to
+     */
+    service: string;
+
+    /**
      * The hostname the ingress is listening on
      */
     host: string;
@@ -204,7 +214,17 @@ export type DeploymentInputs = {
     /**
      * The path the ingress is listening on
      */
-    path?: string;
+    path: string;
+
+    /**
+     * The subdomain the ingress rule listens on
+     */
+    subdomain: string;
+
+    /**
+     * The DNS zone the ingress rule listens on
+     */
+    dns_zone: string;
   }>;
 } & Container;
 

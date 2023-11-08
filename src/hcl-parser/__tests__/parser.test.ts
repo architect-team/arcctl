@@ -167,16 +167,22 @@ describe('AST: applyContext()', () => {
     const obj = {
       module: {
         vpc: {
-          inputs: `\${merge([{
-            test = "key"
-          }], [{
+          inputs: `\${merge(node.inputs, [{
             test2 = "key"
           }])}`,
         },
       },
     };
 
-    applyContext(obj, {});
+    applyContext(obj, {
+      node: {
+        inputs: [
+          {
+            test: 'key',
+          },
+        ],
+      },
+    });
 
     assertEquals(
       obj.module.vpc.inputs as any,
@@ -188,6 +194,43 @@ describe('AST: applyContext()', () => {
           test2: 'key',
         },
       ],
+    );
+  });
+
+  it('should handle nested merge functions', () => {
+    const obj = {
+      module: {
+        vpc: {
+          inputs: `\${merge(node.inputs, {
+            test = merge(node.inputs.test, [{
+              test2 = "key"
+            }])
+          })}`,
+        },
+      },
+    };
+
+    applyContext(obj, {
+      node: {
+        inputs: {
+          name: 'this',
+          test: [{
+            test: 'value',
+          }],
+        },
+      },
+    });
+
+    assertEquals(
+      obj.module.vpc.inputs as any,
+      {
+        name: 'this',
+        test: [{
+          test: 'value',
+        }, {
+          test2: 'key',
+        }],
+      },
     );
   });
 
@@ -511,6 +554,30 @@ describe('AST: applyContext()', () => {
     assertEquals(
       obj.module[0].vpc.unchanged,
       `127.0.0.1.nip.io\${node.inputs.invisible=='/'?'':node.inputs.invisible}`,
+    );
+  });
+
+  it('should support parsing conditionals after regeneration of expression', () => {
+    const obj = {
+      module: [{
+        vpc: {
+          path: `127.0.0.1.nip.io\${node.inputs.path == "/" ? "" : node.inputs.path}`,
+        },
+      }],
+    };
+
+    applyContext(obj, {});
+    applyContext(obj, {
+      node: {
+        inputs: {
+          path: '/',
+        },
+      },
+    });
+
+    assertEquals(
+      obj.module[0].vpc.path,
+      '127.0.0.1.nip.io',
     );
   });
 

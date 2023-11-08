@@ -1076,6 +1076,7 @@ describe('DatacenterV1', () => {
         component: 'component',
         inputs: {
           service: {
+            name: 'my-service',
             host: 'my-service',
             port: '8080',
             protocol: 'http',
@@ -1236,6 +1237,7 @@ describe('DatacenterV1', () => {
           service {
             outputs = {
               protocol = "http"
+              name = "host"
               host = "host"
               port = 80
               url = "http://host"
@@ -1273,6 +1275,7 @@ describe('DatacenterV1', () => {
         component: 'component',
         inputs: {
           service: {
+            name: `\${{ ${serviceNode.getId()}.name }}`,
             host: `\${{ ${serviceNode.getId()}.host }}`,
             port: `\${{ ${serviceNode.getId()}.port }}`,
             protocol: `\${{ ${serviceNode.getId()}.protocol }}`,
@@ -1370,6 +1373,7 @@ describe('DatacenterV1', () => {
         component: 'component',
         inputs: {
           service: {
+            name: 'host',
             host: `host`,
             port: `port`,
             protocol: `protocol`,
@@ -1406,6 +1410,7 @@ describe('DatacenterV1', () => {
           port: 'port',
           protocol: 'protocol',
           service: {
+            name: 'host',
             host: 'host',
             port: 'port',
             protocol: 'protocol',

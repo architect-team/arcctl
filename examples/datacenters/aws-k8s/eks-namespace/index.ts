@@ -16,4 +16,4 @@ const namespace = new kubernetes.core.v1.Namespace("namespace", {
   provider
 });
 
-export const id = namespace.id;
+export const id = name;

@@ -30,6 +30,11 @@ variable "value" {
   description = "Value of the record"
 }
 
+variable "alb_name" {
+  type        = string
+  description = "Name of the ALB"
+}
+
 terraform {
   required_providers {
     aws = {
@@ -46,10 +51,22 @@ provider "aws" {
   secret_key = var.secret_key
 }
 
+data "aws_route53_zone" "zone" {
+  name = "${var.dns_zone}."
+}
+
+data "aws_lb" "alb" {
+  name = replace(var.alb_name, "/", "-")
+}
+
 resource "aws_route53_record" "www" {
-  zone_id = var.dns_zone
+  zone_id = data.aws_route53_zone.zone.zone_id
   type    = var.type
   name    = var.subdomain
-  ttl     = 24 * 60 * 60
-  records = [var.value]
+
+  alias {
+    name                   = data.aws_lb.alb.dns_name
+    zone_id                = data.aws_lb.alb.zone_id
+    evaluate_target_health = true
+  }
 }

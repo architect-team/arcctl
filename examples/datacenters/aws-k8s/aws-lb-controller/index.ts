@@ -10,10 +10,14 @@ const accountId = config.require("accountId")
 const awsConfig = new pulumi.Config("aws");
 const saName = 'aws-load-balancer-controller';
 
+// TODO: This getting deleted before the ingress causes issues.
+
 // Create IAM Policy + SA for the LB Controller to use
-// TODO: If it already exists and this runs again, this will fail, so I added || true as a hack.
+// TODO: Should either give this a more unique name or not delete it
+// because it could be reused by other envs.
 const iam_policy = new local.Command("iam_policy", {
   create: "aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json || true",
+  // delete: `aws iam delete-policy --policy-arn arn:aws:iam::${accountId}:policy/AWSLoadBalancerControllerIAMPolicy`,
   environment: {
     "AWS_ACCESS_KEY_ID": awsConfig.require("accessKey"),
     "AWS_SECRET_ACCESS_KEY": awsConfig.require("secretKey"),
@@ -24,9 +28,9 @@ const iam_policy = new local.Command("iam_policy", {
 const iam_service_account = new local.Command("iam_service_acct", {
   create: `eksctl create iamserviceaccount --cluster=${clusterName} \
     --namespace=kube-system --name=${saName} \
-    --role-name AmazonEKSLoadBalancerControllerRole \
     --attach-policy-arn=arn:aws:iam::${accountId}:policy/AWSLoadBalancerControllerIAMPolicy \
     --approve || true`,
+  delete: `eksctl delete iamserviceaccount --cluster=${clusterName} --namespace=kube-system --name=${saName}`,
   environment: {
     "AWS_ACCESS_KEY_ID": awsConfig.require("accessKey"),
     "AWS_SECRET_ACCESS_KEY": awsConfig.require("secretKey"),

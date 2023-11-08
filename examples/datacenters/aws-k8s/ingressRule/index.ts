@@ -24,12 +24,16 @@ if (dns_zone) {
   hostParts.push(dns_zone);
 }
 
+const name = config.require('name').replace(/\//g, '-');
 const ingress = new kubernetes.networking.v1.Ingress("ingress", {
   metadata: {
-    name: config.require('name').replace(/\//g, '-'),
+    name: name,
     namespace: config.require('namespace'),
     annotations: {
-      'kubernetes.io/ingress.class': 'alb'
+      'kubernetes.io/ingress.class': 'alb',
+      'alb.ingress.kubernetes.io/load-balancer-name': name,
+      'alb.ingress.kubernetes.io/target-type': 'instance',
+      'alb.ingress.kubernetes.io/scheme': 'internet-facing' // TODO: Dont do this if its private
     }
   },
   spec: {

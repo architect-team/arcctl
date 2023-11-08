@@ -15,7 +15,7 @@ variable "secret_key" {
 }
 
 variable "dns_zone" {
-  description = "DNS zone to use for ingress rules"
+  description = "DNS zone ID to use for ingress rules"
   type = "string"
 }
 
@@ -39,6 +39,23 @@ module "eksCluster" {
     region  = variable.region
     vpc_id   = module.vpc.id
     name    = "${datacenter.name}-cluster"
+  }
+}
+
+
+module "loadBalancer" {
+  build = "./aws-lb-controller"
+  inputs = {
+    aws = {
+      accessKey = variable.access_key
+      secretKey = variable.secret_key
+      region = variable.region
+    }
+    // TODO: Pass account_id as a variable
+    accountId = "914808004132"
+    name = "${datacenter.name}-lb-controller"
+    clusterName = "${datacenter.name}-cluster"
+    kubeconfig = module.eksCluster.kubeconfig
   }
 }
 
@@ -159,24 +176,6 @@ environment {
     }
   }
 
-  module "loadBalancer" {
-    when = contains(environment.nodes.*.type, "ingress")
-    build = "./aws-lb-controller"
-    inputs = {
-      aws = {
-        accessKey = variable.access_key
-        secretKey = variable.secret_key
-        region = variable.region
-      }
-      // TODO: Pass account_id as a variable
-      accountId = "914808004132"
-      name = "${datacenter.name}-lb-controller"
-      clusterName = "${datacenter.name}-cluster"
-      namespace = module.namespace.id
-      kubeconfig = module.eksCluster.kubeconfig
-    }
-  }
-
   ingress {
     module "ingressRule" {
       build = "./ingressRule"
@@ -200,6 +199,7 @@ environment {
         region  = variable.region
         dns_zone = variable.dns_zone
         type = "A"
+        alb_name = "${node.component}--${node.name}"
         value = module.ingressRule.lb_address
         subdomain = node.inputs.subdomain
       }

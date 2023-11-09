@@ -45,6 +45,10 @@
               "description": "The hostname the service is listening on",
               "type": "string"
             },
+            "name": {
+              "description": "Name of the service the ingress points to",
+              "type": "string"
+            },
             "port": {
               "description": "The port the service deployment is listening on",
               "type": "string"
@@ -55,6 +59,7 @@
             }
           },
           "required": [
+            "name",
             "host",
             "port",
             "protocol"

@@ -484,12 +484,11 @@ export default class DatacenterV1 extends Datacenter {
 
         const stringifiedNode = recursivelyReplaceAppRefs(JSON.stringify(node, null, 2));
         try {
-          return new InfraGraphNode(JSON.parse(stringifiedNode)); 
+          return new InfraGraphNode(JSON.parse(stringifiedNode));
         } catch (err) {
           console.log(stringifiedNode);
           throw err;
         }
-        
       });
     }
 

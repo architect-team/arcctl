@@ -234,9 +234,11 @@ export const testServiceGeneration = (
       replicas: 1,
       services: [
         {
+          name: `\${{ ${service_node.getId()}.name }}`,
           host: `\${{ ${service_node.getId()}.host }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
+          target_port: `\${{ ${service_node.getId()}.target_port }}`,
         },
       ],
       volume_mounts: [],
@@ -275,6 +277,7 @@ export const testIngressGeneration = (
       port: `\${{ component/service/${options.service_name}.port }}`,
       protocol: `\${{ component/service/${options.service_name}.protocol }}`,
       service: {
+        name: `\${{ component/service/${options.service_name}.name }}`,
         host: `\${{ component/service/${options.service_name}.host }}`,
         port: `\${{ component/service/${options.service_name}.port }}`,
         protocol: `\${{ component/service/${options.service_name}.protocol }}`,
@@ -306,17 +309,22 @@ export const testIngressGeneration = (
       replicas: 1,
       services: [
         {
+          name: `\${{ ${service_node.getId()}.name }}`,
           host: `\${{ ${service_node.getId()}.host }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
+          target_port: `\${{ ${service_node.getId()}.target_port }}`,
         },
       ],
       ingresses: [
         {
+          service: `\${{ ${service_node.getId()}.name }}`,
           host: `\${{ ${ingress_node.getId()}.host }}`,
           port: `\${{ ${ingress_node.getId()}.port }}`,
           protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
           path: `\${{ ${ingress_node.getId()}.path }}`,
+          subdomain: `\${{ ${ingress_node.getId()}.subdomain }}`,
+          dns_zone: `\${{ ${ingress_node.getId()}.dns_zone }}`,
         },
       ],
       volume_mounts: [],

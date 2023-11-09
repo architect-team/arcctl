@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    postgresql = {
+      source  = "cyrilgdn/postgresql"
+      version = ">= 1.21.0"
+    }
+  }
+}
+
 variable "name" {
   description = "Name of the new database"
 }

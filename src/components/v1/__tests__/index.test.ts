@@ -386,6 +386,7 @@ describe('Component Schema: v1', () => {
         subdomain: 'app',
         protocol: `\${{ ${interface_node.getId()}.protocol }}`,
         service: {
+          name: `\${{ ${interface_node.getId()}.name }}`,
           host: `\${{ ${interface_node.getId()}.host }}`,
           port: `\${{ ${interface_node.getId()}.port }}`,
           protocol: `\${{ ${interface_node.getId()}.protocol }}`,
@@ -450,6 +451,7 @@ describe('Component Schema: v1', () => {
         password: `\${{ ${service_node.getId()}.password }}`,
         protocol: `\${{ ${service_node.getId()}.protocol }}`,
         service: {
+          name: `\${{ ${service_node.getId()}.name }}`,
           host: `\${{ ${service_node.getId()}.host }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,

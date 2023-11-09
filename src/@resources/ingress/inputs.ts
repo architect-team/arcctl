@@ -6,6 +6,11 @@ export type IngressRuleInputs = {
 
   service: {
     /**
+     * Name of the service the ingress points to
+     */
+    name: string;
+
+    /**
      * The hostname the service is listening on
      */
     host: string;

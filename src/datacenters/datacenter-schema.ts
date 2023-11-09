@@ -983,6 +983,10 @@ export default {
                           "description": "Host the service listens on",
                           "type": "string"
                         },
+                        "name": {
+                          "description": "Name of the service",
+                          "type": "string"
+                        },
                         "port": {
                           "description": "Port the service listens on",
                           "type": [
@@ -994,12 +998,21 @@ export default {
                           "description": "Protocol the service listens on",
                           "type": "string"
                         },
+                        "target_port": {
+                          "description": "The port the service forwards traffic to",
+                          "type": [
+                            "number",
+                            "string"
+                          ]
+                        },
                         "url": {
                           "description": "Fully resolvable URL of the service",
                           "type": "string"
                         }
                       },
                       "required": [
+                        "name",
+                        "target_port",
                         "protocol",
                         "host",
                         "port",

@@ -89,6 +89,10 @@
           "items": {
             "additionalProperties": false,
             "properties": {
+              "dns_zone": {
+                "description": "The DNS zone the ingress rule listens on",
+                "type": "string"
+              },
               "host": {
                 "description": "The hostname the ingress is listening on",
                 "type": "string"
@@ -104,12 +108,24 @@
               "protocol": {
                 "description": "The protocol the ingress is listening on",
                 "type": "string"
+              },
+              "service": {
+                "description": "The name of the service this ingress points to",
+                "type": "string"
+              },
+              "subdomain": {
+                "description": "The subdomain the ingress rule listens on",
+                "type": "string"
               }
             },
             "required": [
+              "service",
               "host",
               "port",
-              "protocol"
+              "protocol",
+              "path",
+              "subdomain",
+              "dns_zone"
             ],
             "type": "object"
           },
@@ -157,6 +173,10 @@
                 "description": "The hostname the service is listening on",
                 "type": "string"
               },
+              "name": {
+                "description": "The name of the service",
+                "type": "string"
+              },
               "port": {
                 "description": "The port the service deployment is listening on",
                 "type": "string"
@@ -164,11 +184,17 @@
               "protocol": {
                 "description": "The protocol the service is listening on",
                 "type": "string"
+              },
+              "target_port": {
+                "description": "The port the service forwards traffic to",
+                "type": "string"
               }
             },
             "required": [
+              "name",
               "host",
               "port",
+              "target_port",
               "protocol"
             ],
             "type": "object"

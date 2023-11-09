@@ -30,9 +30,9 @@ module "traefik" {
       internal = 8080
       external = 8080
     }]
-    volumes = [{
-      containerPath = "/var/run/docker.sock",
-      hostPath = "/var/run/docker.sock"
+    volume_mounts = [{
+      mount_path = "/var/run/docker.sock",
+      host_path = "/var/run/docker.sock"
     }]
     environment = {
       DOCKER_HOST = "unix:///var/run/docker.sock"
@@ -63,6 +63,7 @@ environment {
       }]
       environment = {
         POSTGRES_PASSWORD = "password"
+        POSTGRES_DB = "${environment.name}-postgres"
       }
     }
   }
@@ -119,7 +120,6 @@ environment {
   deployment {
     module "deployment" {
       build = "./deployment"
-      inputs = node.inputs
       
       environment = {
         DOCKER_HOST = "unix:///var/run/docker.sock"
@@ -129,15 +129,24 @@ environment {
         host_path = "/var/run/docker.sock"
         mount_path = "/var/run/docker.sock"
       }
+
+      inputs = "${merge(node.inputs, {
+        volume_mounts = merge(node.inputs.volume_mounts, [{
+          host_path = "/var/run/docker.sock",
+          mount_path = "/var/run/docker.sock"
+        }])
+      })}"
     }
   }
 
   service {
     outputs = {
       protocol = "${node.inputs.protocol || "http"}"
-      host = "${replace(node.component + "_" + node.name, "/", "__")}.internal.127.0.0.1.nip.io"
+      name = "${replace(node.component + "-" + node.name, "/", "-")}"
+      host = "${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io"
+      target_port = node.inputs.port
       port = 80
-      url = "${node.inputs.protocol || "http"}://${replace(node.component + "_" + node.name, "/", "__")}.internal.127.0.0.1.nip.io:${node.inputs.port}"
+      url = "${node.inputs.protocol || "http"}://${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io:80"
     }
   }
 
@@ -146,7 +155,7 @@ environment {
       build = "./secret"
       plugin = "opentofu"
       inputs = {
-        filename = "${var.secretsDir}/${environment.name}/${node.component}/${node.name}.json"
+        filename = "${var.secretsDir}--${environment.name}--${node.component}--${node.name}.json"
         content = node.inputs.data
       }
     }

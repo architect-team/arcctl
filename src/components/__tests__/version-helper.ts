@@ -238,6 +238,7 @@ export const testServiceGeneration = (
           host: `\${{ ${service_node.getId()}.host }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
+          target_port: `\${{ ${service_node.getId()}.target_port }}`,
         },
       ],
       volume_mounts: [],
@@ -312,6 +313,7 @@ export const testIngressGeneration = (
           host: `\${{ ${service_node.getId()}.host }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
+          target_port: `\${{ ${service_node.getId()}.target_port }}`,
         },
       ],
       ingresses: [

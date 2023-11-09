@@ -1239,6 +1239,7 @@ describe('DatacenterV1', () => {
               protocol = "http"
               name = "host"
               host = "host"
+              target_port = 8080
               port = 80
               url = "http://host"
             }

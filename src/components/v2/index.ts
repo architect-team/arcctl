@@ -458,6 +458,7 @@ export default class ComponentV2 extends Component {
         host: `\${{ ${service_node.getId()}.host }}`,
         protocol: `\${{ ${service_node.getId()}.protocol }}`,
         port: `\${{ ${service_node.getId()}.port }}`,
+        target_port: `\${{ ${service_node.getId()}.target_port }}`,
       });
       graph.insertNodes(deployment_node);
 

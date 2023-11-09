@@ -5,6 +5,11 @@ export type ServiceOutputs = {
   name: string;
 
   /**
+   * The port the service forwards traffic to
+   */
+  target_port: number | string;
+
+  /**
    * Protocol the service listens on
    */
   protocol: string;

@@ -182,6 +182,11 @@ export type DeploymentInputs = {
     port: string;
 
     /**
+     * The port the service forwards traffic to
+     */
+    target_port: string;
+
+    /**
      * The protocol the service is listening on
      */
     protocol: string;

@@ -400,6 +400,7 @@ serve:
             host: `\${{ ${svc_node.getId()}.host }}`,
             port: `\${{ ${svc_node.getId()}.port }}`,
             protocol: `\${{ ${svc_node.getId()}.protocol }}`,
+            target_port: `\${{ ${svc_node.getId()}.target_port }}`,
           },
         ],
         ingresses: [

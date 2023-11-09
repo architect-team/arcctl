@@ -15,6 +15,7 @@ type Config = {
     name: string;
     host: string;
     port: number;
+    target_port: number;
     protocol: string;
   }[];
   ingresses?: {
@@ -67,7 +68,7 @@ for (const key in inputServices) {
       value: value.name,
     }, {
       label: `traefik.http.services.${value.name}.loadbalancer.server.port`,
-      value: value.port.toString(),
+      value: value.target_port.toString(),
     });
   } else {
     labels.push({
@@ -77,11 +78,11 @@ for (const key in inputServices) {
       label: `traefik.tcp.routers.${value.name}-svc.service`,
       value: value.name,
     }, {
-      label: `traefik.tcp.routers.${value.name}-svc.tls`,
+      label: `traefik.tcp.routers.${value.name}-svc.tls.passthrough`,
       value: 'true',
     }, {
       label: `traefik.tcp.services.${value.name}.loadbalancer.server.port`,
-      value: value.port.toString(),
+      value: value.target_port.toString(),
     })
   }
 }
@@ -94,7 +95,7 @@ for (const key in inputIngresses) {
       label: `traefik.http.routers.${value.subdomain}.rule`,
       value: `Host(\`${value.host}\`) && PathPrefix(\`${value.path || '/'}\`)`,
     }, {
-      label: `traefik.tcp.routers.${value.subdomain}.service`,
+      label: `traefik.http.routers.${value.subdomain}.service`,
       value: value.service,
     });
   } else {
@@ -104,6 +105,9 @@ for (const key in inputIngresses) {
     }, {
       label: `traefik.tcp.routers.${value.subdomain}.service`,
       value: value.service,
+    }, {
+      label: `traefik.tcp.routers.${value.subdomain}.tls.passthrough`,
+      value: 'true',
     });
   }
 }

@@ -142,10 +142,11 @@ environment {
   service {
     outputs = {
       protocol = "${node.inputs.protocol || "http"}"
-      name = "${replace(node.component + "_" + node.name, "/", "__")}"
-      host = "${replace(node.component + "_" + node.name, "/", "__")}.internal.127.0.0.1.nip.io"
+      name = "${replace(node.component + "-" + node.name, "/", "-")}"
+      host = "${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io"
+      target_port = node.inputs.port
       port = 80
-      url = "${node.inputs.protocol || "http"}://${replace(node.component + "_" + node.name, "/", "__")}.internal.127.0.0.1.nip.io:${node.inputs.port}"
+      url = "${node.inputs.protocol || "http"}://${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io:80"
     }
   }
 

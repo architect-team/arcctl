@@ -282,6 +282,7 @@ export default class ComponentV1 extends Component {
         deployment_node.inputs.services?.push({
           name: `\${{ ${service_node.getId()}.name }}`,
           port: `\${{ ${service_node.getId()}.port }}`,
+          target_port: `\${{ ${service_node.getId()}.target_port }}`,
           host: `\${{ ${service_node.getId()}.host }}`,
           protocol: `\${{ ${service_node.getId()}.protocol }}`,
         });

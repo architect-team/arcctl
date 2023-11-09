@@ -184,12 +184,17 @@
               "protocol": {
                 "description": "The protocol the service is listening on",
                 "type": "string"
+              },
+              "target_port": {
+                "description": "The port the service forwards traffic to",
+                "type": "string"
               }
             },
             "required": [
               "name",
               "host",
               "port",
+              "target_port",
               "protocol"
             ],
             "type": "object"

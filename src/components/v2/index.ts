@@ -607,6 +607,7 @@ export default class ComponentV2 extends Component {
   public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       const digest = await buildFn({
+        name: buildName,
         context: buildConfig.context,
         dockerfile: buildConfig.dockerfile,
         args: buildConfig.args,

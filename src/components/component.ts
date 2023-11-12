@@ -16,6 +16,7 @@ export type VolumeBuildFn = (options: {
 }) => Promise<string>;
 
 export type DockerBuildFn = (options: {
+  name: string;
   context: string;
   dockerfile?: string;
   args?: Record<string, string>;

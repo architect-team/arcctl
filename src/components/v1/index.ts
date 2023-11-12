@@ -669,6 +669,7 @@ export default class ComponentV1 extends Component {
     for (const [svcName, svcConfig] of Object.entries(this.services || {})) {
       if ('build' in svcConfig) {
         const digest = await buildFn({
+          name: svcName,
           context: svcConfig.build.context,
           dockerfile: svcConfig.build.dockerfile,
           args: svcConfig.build.args,
@@ -694,6 +695,7 @@ export default class ComponentV1 extends Component {
     for (const [taskName, taskConfig] of Object.entries(this.tasks || {})) {
       if ('build' in taskConfig) {
         const digest = await buildFn({
+          name: taskName,
           context: taskConfig.build.context,
           dockerfile: taskConfig.build.dockerfile,
           args: taskConfig.build.args,

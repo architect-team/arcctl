@@ -147,7 +147,10 @@
     "https://esm.sh/v124/@types/estraverse@^5/index.d.ts": "https://esm.sh/v124/@types/estraverse@5.1.6/index.d.ts",
     "https://esm.sh/v124/@types/events@~1.1/index.d.ts": "https://esm.sh/v124/@types/events@1.1.0/index.d.ts",
     "https://esm.sh/v124/@types/js-yaml@^4/index.d.ts": "https://esm.sh/v124/@types/js-yaml@4.0.9/index.d.ts",
-    "https://esm.sh/v124/@types/tar@^6/index.d.ts": "https://esm.sh/v124/@types/tar@6.1.9/index.d.ts"
+    "https://esm.sh/v124/@types/semver@~7.5/index.d.ts": "https://esm.sh/v124/@types/semver@7.5.5/index.d.ts",
+    "https://esm.sh/v124/@types/slice-ansi@~5.0/index.d.ts": "https://esm.sh/v124/@types/slice-ansi@5.0.2/index.d.ts",
+    "https://esm.sh/v124/@types/tar@^6/index.d.ts": "https://esm.sh/v124/@types/tar@6.1.9/index.d.ts",
+    "https://esm.sh/v124/@types/which@~3.0/index.d.ts": "https://esm.sh/v124/@types/which@3.0.2/index.d.ts"
   },
   "remote": {
     "https://deno.land/std@0.153.0/_deno_unstable.ts": "4ddb8672d49d58b5bbc4a5a7a2f1b3bce4fd06aa4c8b8476728334391667de7b",

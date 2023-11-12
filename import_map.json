@@ -7,7 +7,7 @@
     "ansi-escapes": "https://esm.sh/ansi-escapes@6.2.0",
     "mustache": "https://esm.sh/mustache@4.2.0",
     "@aws-sdk/client-s3": "https://esm.sh/v124/@aws-sdk/client-s3@3.427.0",
-    "estree": "https://esm.sh/v124/@types/estree@1.0.4/index.d.ts",
+    "estree": "https://esm.sh/v124/@types/estree@1.0.1/index.d.ts",
     "acorn-loose": "https://esm.sh/v124/*acorn-loose@8.4.0",
     "escodegen": "https://esm.sh/v124/escodegen@2.1.0",
     "astring": "https://esm.sh/v124/astring@1.8.6",

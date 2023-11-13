@@ -48,7 +48,7 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
           command: config.getObject('command') || [],
           env: Object
             .entries(config.getObject('environment') || {})
-            .map(([name, value]) => ({ name, value }) as { name: string; value: string; }),
+            .map(([name, value]) => ({ name, value: String(value) }) as { name: string; value: string; }),
           resources: {
             requests: {
               ...(cpu ? { cpu: String(cpu) } : {}),

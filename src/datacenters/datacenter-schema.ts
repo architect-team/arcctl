@@ -1,1254 +1,1285 @@
 export default {
-  "$ref": "#/definitions/DatacenterSchema",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
-    "DatacenterSchema": {
-      "additionalProperties": false,
-      "properties": {
-        "environment": {
-          "description": "Rules dictating what resources should be created in each environment hosted by the datacenter",
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "cronjob": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+  '$ref': '#/definitions/DatacenterSchema',
+  '$schema': 'http://json-schema.org/draft-07/schema#',
+  'definitions': {
+    'DatacenterSchema': {
+      'additionalProperties': false,
+      'properties': {
+        'environment': {
+          'description':
+            'Rules dictating what resources should be created in each environment hosted by the datacenter',
+          'items': {
+            'additionalProperties': false,
+            'properties': {
+              'cronjob': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": {},
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "type": "object"
+                    'outputs': {
+                      'additionalProperties': {},
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "database": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'database': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": false,
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "properties": {
-                        "certificate": {
-                          "description": "SSL certificate used to authenticate with the database",
-                          "type": "string"
+                    'outputs': {
+                      'additionalProperties': false,
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'properties': {
+                        'certificate': {
+                          'description': 'SSL certificate used to authenticate with the database',
+                          'type': 'string',
                         },
-                        "database": {
-                          "description": "Name of the new database schema",
-                          "type": "string"
+                        'database': {
+                          'description': 'Name of the new database schema',
+                          'type': 'string',
                         },
-                        "host": {
-                          "description": "Host address of the underlying database",
-                          "type": "string"
+                        'host': {
+                          'description': 'Host address of the underlying database',
+                          'type': 'string',
                         },
-                        "password": {
-                          "description": "Passowrd used to authenticate with the schema",
-                          "type": "string"
+                        'password': {
+                          'description': 'Passowrd used to authenticate with the schema',
+                          'type': 'string',
                         },
-                        "port": {
-                          "description": "Port the underlying database listens on",
-                          "type": [
-                            "string",
-                            "number"
-                          ]
+                        'port': {
+                          'description': 'Port the underlying database listens on',
+                          'type': [
+                            'string',
+                            'number',
+                          ],
                         },
-                        "protocol": {
-                          "description": "Protocol of the underlying database",
-                          "type": "string"
+                        'protocol': {
+                          'description': 'Protocol of the underlying database',
+                          'type': 'string',
                         },
-                        "url": {
-                          "description": "Full connection string for the database",
-                          "type": "string"
+                        'url': {
+                          'description': 'Full connection string for the database',
+                          'type': 'string',
                         },
-                        "username": {
-                          "description": "Username used to authenticate with the schema",
-                          "type": "string"
-                        }
+                        'username': {
+                          'description': 'Username used to authenticate with the schema',
+                          'type': 'string',
+                        },
                       },
-                      "required": [
-                        "protocol",
-                        "host",
-                        "port",
-                        "database",
-                        "url",
-                        "username",
-                        "password"
+                      'required': [
+                        'protocol',
+                        'host',
+                        'port',
+                        'database',
+                        'url',
+                        'username',
+                        'password',
                       ],
-                      "type": "object"
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "databaseUser": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'databaseUser': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": false,
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "properties": {
-                        "certificate": {
-                          "type": "string"
+                    'outputs': {
+                      'additionalProperties': false,
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'properties': {
+                        'certificate': {
+                          'type': 'string',
                         },
-                        "database": {
-                          "type": "string"
+                        'database': {
+                          'type': 'string',
                         },
-                        "host": {
-                          "type": "string"
+                        'host': {
+                          'type': 'string',
                         },
-                        "password": {
-                          "type": "string"
+                        'password': {
+                          'type': 'string',
                         },
-                        "port": {
-                          "type": [
-                            "number",
-                            "string"
-                          ]
+                        'port': {
+                          'type': [
+                            'number',
+                            'string',
+                          ],
                         },
-                        "protocol": {
-                          "type": "string"
+                        'protocol': {
+                          'type': 'string',
                         },
-                        "url": {
-                          "type": "string"
+                        'url': {
+                          'type': 'string',
                         },
-                        "username": {
-                          "type": "string"
-                        }
+                        'username': {
+                          'type': 'string',
+                        },
                       },
-                      "required": [
-                        "protocol",
-                        "host",
-                        "port",
-                        "database",
-                        "username",
-                        "password",
-                        "url"
+                      'required': [
+                        'protocol',
+                        'host',
+                        'port',
+                        'database',
+                        'username',
+                        'password',
+                        'url',
                       ],
-                      "type": "object"
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "deployment": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'deployment': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": false,
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "properties": {
-                        "labels": {
-                          "additionalProperties": {
-                            "type": "string"
+                    'outputs': {
+                      'additionalProperties': false,
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'properties': {
+                        'labels': {
+                          'additionalProperties': {
+                            'type': 'string',
                           },
-                          "description": "A set of labels that were used to annotate the cloud resource",
-                          "type": "object"
-                        }
+                          'description': 'A set of labels that were used to annotate the cloud resource',
+                          'type': 'object',
+                        },
                       },
-                      "type": "object"
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "dockerBuild": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'dockerBuild': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": {},
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "type": "object"
+                    'outputs': {
+                      'additionalProperties': {},
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "ingress": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'ingress': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": false,
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "properties": {
-                        "dns_zone": {
-                          "type": "string"
+                    'outputs': {
+                      'additionalProperties': false,
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'properties': {
+                        'dns_zone': {
+                          'type': 'string',
                         },
-                        "host": {
-                          "type": "string"
+                        'host': {
+                          'type': 'string',
                         },
-                        "password": {
-                          "type": "string"
+                        'password': {
+                          'type': 'string',
                         },
-                        "path": {
-                          "type": "string"
+                        'path': {
+                          'type': 'string',
                         },
-                        "port": {
-                          "type": [
-                            "string",
-                            "number"
-                          ]
+                        'port': {
+                          'type': [
+                            'string',
+                            'number',
+                          ],
                         },
-                        "protocol": {
-                          "type": "string"
+                        'protocol': {
+                          'type': 'string',
                         },
-                        "subdomain": {
-                          "type": "string"
+                        'subdomain': {
+                          'type': 'string',
                         },
-                        "url": {
-                          "type": "string"
+                        'url': {
+                          'type': 'string',
                         },
-                        "username": {
-                          "type": "string"
-                        }
+                        'username': {
+                          'type': 'string',
+                        },
                       },
-                      "required": [
-                        "protocol",
-                        "host",
-                        "port",
-                        "url",
-                        "path",
-                        "subdomain",
-                        "dns_zone"
+                      'required': [
+                        'protocol',
+                        'host',
+                        'port',
+                        'url',
+                        'path',
+                        'subdomain',
+                        'dns_zone',
                       ],
-                      "type": "object"
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "module": {
-                "additionalProperties": {
-                  "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "build": {
-                        "description": "The path to a module that will be built during the build step.",
-                        "type": "string"
+              'module': {
+                'additionalProperties': {
+                  'items': {
+                    'additionalProperties': false,
+                    'properties': {
+                      'build': {
+                        'description': 'The path to a module that will be built during the build step.',
+                        'type': 'string',
                       },
-                      "environment": {
-                        "additionalProperties": {
-                          "type": "string"
+                      'environment': {
+                        'additionalProperties': {
+                          'type': 'string',
                         },
-                        "description": "Environment variables that should be provided to the container executing the module",
-                        "type": "object"
+                        'description':
+                          'Environment variables that should be provided to the container executing the module',
+                        'type': 'object',
                       },
-                      "inputs": {
-                        "anyOf": [
+                      'inputs': {
+                        'anyOf': [
                           {
-                            "additionalProperties": {},
-                            "type": "object"
+                            'additionalProperties': {},
+                            'type': 'object',
                           },
                           {
-                            "type": "string"
-                          }
+                            'type': 'string',
+                          },
                         ],
-                        "description": "Input values for the module."
+                        'description': 'Input values for the module.',
                       },
-                      "plugin": {
-                        "description": "The plugin used to build the module. Defaults to pulumi.",
-                        "enum": [
-                          "pulumi",
-                          "opentofu"
+                      'plugin': {
+                        'description': 'The plugin used to build the module. Defaults to pulumi.',
+                        'enum': [
+                          'pulumi',
+                          'opentofu',
                         ],
-                        "type": "string"
+                        'type': 'string',
                       },
-                      "source": {
-                        "description": "The image source of the module.",
-                        "type": "string"
+                      'source': {
+                        'description': 'The image source of the module.',
+                        'type': 'string',
                       },
-                      "volume": {
-                        "description": "Volumes that should be mounted to the container executing the module",
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "host_path": {
-                              "description": "The path on the host machine to mount to the container",
-                              "type": "string"
+                      'volume': {
+                        'description': 'Volumes that should be mounted to the container executing the module',
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'host_path': {
+                              'description': 'The path on the host machine to mount to the container',
+                              'type': 'string',
                             },
-                            "mount_path": {
-                              "description": "The path in the container to mount the volume to",
-                              "type": "string"
-                            }
+                            'mount_path': {
+                              'description': 'The path in the container to mount the volume to',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "host_path",
-                            "mount_path"
+                          'required': [
+                            'host_path',
+                            'mount_path',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "when": {
-                        "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                        "type": "string"
-                      }
+                      'when': {
+                        'description':
+                          'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                        'type': 'string',
+                      },
                     },
-                    "required": [
-                      "inputs"
+                    'required': [
+                      'inputs',
                     ],
-                    "type": "object"
+                    'type': 'object',
                   },
-                  "type": "array"
+                  'type': 'array',
                 },
-                "description": "Modules that will be created once per environment",
-                "type": "object"
+                'description': 'Modules that will be created once per environment',
+                'type': 'object',
               },
-              "secret": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'secret': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": false,
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "properties": {
-                        "data": {
-                          "type": "string"
-                        }
+                    'outputs': {
+                      'additionalProperties': false,
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'properties': {
+                        'data': {
+                          'type': 'string',
+                        },
                       },
-                      "required": [
-                        "data"
+                      'required': [
+                        'data',
                       ],
-                      "type": "object"
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "service": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'service': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": false,
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "properties": {
-                        "host": {
-                          "description": "Host the service listens on",
-                          "type": "string"
+                    'outputs': {
+                      'additionalProperties': false,
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'properties': {
+                        'host': {
+                          'description': 'Host the service listens on',
+                          'type': 'string',
                         },
-                        "name": {
-                          "description": "Name of the service",
-                          "type": "string"
+                        'name': {
+                          'description': 'Name of the service',
+                          'type': 'string',
                         },
-                        "port": {
-                          "description": "Port the service listens on",
-                          "type": [
-                            "number",
-                            "string"
-                          ]
+                        'port': {
+                          'description': 'Port the service listens on',
+                          'type': [
+                            'number',
+                            'string',
+                          ],
                         },
-                        "protocol": {
-                          "description": "Protocol the service listens on",
-                          "type": "string"
+                        'protocol': {
+                          'description': 'Protocol the service listens on',
+                          'type': 'string',
                         },
-                        "target_port": {
-                          "description": "The port the service forwards traffic to",
-                          "type": [
-                            "number",
-                            "string"
-                          ]
+                        'target_port': {
+                          'description': 'The port the service forwards traffic to',
+                          'type': [
+                            'number',
+                            'string',
+                          ],
                         },
-                        "url": {
-                          "description": "Fully resolvable URL of the service",
-                          "type": "string"
-                        }
+                        'url': {
+                          'description': 'Fully resolvable URL of the service',
+                          'type': 'string',
+                        },
                       },
-                      "required": [
-                        "name",
-                        "target_port",
-                        "protocol",
-                        "host",
-                        "port",
-                        "url"
+                      'required': [
+                        'name',
+                        'target_port',
+                        'protocol',
+                        'host',
+                        'port',
+                        'url',
                       ],
-                      "type": "object"
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
+                'type': 'array',
               },
-              "volume": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "module": {
-                      "additionalProperties": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "build": {
-                              "description": "The path to a module that will be built during the build step.",
-                              "type": "string"
+              'volume': {
+                'items': {
+                  'additionalProperties': false,
+                  'properties': {
+                    'module': {
+                      'additionalProperties': {
+                        'items': {
+                          'additionalProperties': false,
+                          'properties': {
+                            'build': {
+                              'description': 'The path to a module that will be built during the build step.',
+                              'type': 'string',
                             },
-                            "environment": {
-                              "additionalProperties": {
-                                "type": "string"
+                            'environment': {
+                              'additionalProperties': {
+                                'type': 'string',
                               },
-                              "description": "Environment variables that should be provided to the container executing the module",
-                              "type": "object"
+                              'description':
+                                'Environment variables that should be provided to the container executing the module',
+                              'type': 'object',
                             },
-                            "inputs": {
-                              "anyOf": [
+                            'inputs': {
+                              'anyOf': [
                                 {
-                                  "additionalProperties": {},
-                                  "type": "object"
+                                  'additionalProperties': {},
+                                  'type': 'object',
                                 },
                                 {
-                                  "type": "string"
-                                }
+                                  'type': 'string',
+                                },
                               ],
-                              "description": "Input values for the module."
+                              'description': 'Input values for the module.',
                             },
-                            "plugin": {
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
+                            'plugin': {
+                              'description': 'The plugin used to build the module. Defaults to pulumi.',
+                              'enum': [
+                                'pulumi',
+                                'opentofu',
                               ],
-                              "type": "string"
+                              'type': 'string',
                             },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "type": "string"
+                            'source': {
+                              'description': 'The image source of the module.',
+                              'type': 'string',
                             },
-                            "volume": {
-                              "description": "Volumes that should be mounted to the container executing the module",
-                              "items": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "host_path": {
-                                    "description": "The path on the host machine to mount to the container",
-                                    "type": "string"
+                            'volume': {
+                              'description': 'Volumes that should be mounted to the container executing the module',
+                              'items': {
+                                'additionalProperties': false,
+                                'properties': {
+                                  'host_path': {
+                                    'description': 'The path on the host machine to mount to the container',
+                                    'type': 'string',
                                   },
-                                  "mount_path": {
-                                    "description": "The path in the container to mount the volume to",
-                                    "type": "string"
-                                  }
+                                  'mount_path': {
+                                    'description': 'The path in the container to mount the volume to',
+                                    'type': 'string',
+                                  },
                                 },
-                                "required": [
-                                  "host_path",
-                                  "mount_path"
+                                'required': [
+                                  'host_path',
+                                  'mount_path',
                                 ],
-                                "type": "object"
+                                'type': 'object',
                               },
-                              "type": "array"
+                              'type': 'array',
                             },
-                            "when": {
-                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                              "type": "string"
-                            }
+                            'when': {
+                              'description':
+                                'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                              'type': 'string',
+                            },
                           },
-                          "required": [
-                            "inputs"
+                          'required': [
+                            'inputs',
                           ],
-                          "type": "object"
+                          'type': 'object',
                         },
-                        "type": "array"
+                        'type': 'array',
                       },
-                      "description": "Modules that will be created once per matching application resource",
-                      "type": "object"
+                      'description': 'Modules that will be created once per matching application resource',
+                      'type': 'object',
                     },
-                    "outputs": {
-                      "additionalProperties": {},
-                      "description": "A map of output values to be passed to upstream application resources",
-                      "type": "object"
+                    'outputs': {
+                      'additionalProperties': {},
+                      'description': 'A map of output values to be passed to upstream application resources',
+                      'type': 'object',
                     },
-                    "when": {
-                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
-                      "type": "string"
-                    }
+                    'when': {
+                      'description':
+                        'A condition that restricts when the hook should be active. Must resolve to a boolean.',
+                      'type': 'string',
+                    },
                   },
-                  "type": "object"
+                  'type': 'object',
                 },
-                "type": "array"
-              }
+                'type': 'array',
+              },
             },
-            "type": "object"
+            'type': 'object',
           },
-          "type": "array"
+          'type': 'array',
         },
-        "module": {
-          "additionalProperties": {
-            "items": {
-              "additionalProperties": false,
-              "properties": {
-                "build": {
-                  "description": "The path to a module that will be built during the build step.",
-                  "type": "string"
+        'module': {
+          'additionalProperties': {
+            'items': {
+              'additionalProperties': false,
+              'properties': {
+                'build': {
+                  'description': 'The path to a module that will be built during the build step.',
+                  'type': 'string',
                 },
-                "environment": {
-                  "additionalProperties": {
-                    "type": "string"
+                'environment': {
+                  'additionalProperties': {
+                    'type': 'string',
                   },
-                  "description": "Environment variables that should be provided to the container executing the module",
-                  "type": "object"
+                  'description': 'Environment variables that should be provided to the container executing the module',
+                  'type': 'object',
                 },
-                "inputs": {
-                  "anyOf": [
+                'inputs': {
+                  'anyOf': [
                     {
-                      "additionalProperties": {},
-                      "type": "object"
+                      'additionalProperties': {},
+                      'type': 'object',
                     },
                     {
-                      "type": "string"
-                    }
+                      'type': 'string',
+                    },
                   ],
-                  "description": "Input values for the module."
+                  'description': 'Input values for the module.',
                 },
-                "plugin": {
-                  "description": "The plugin used to build the module. Defaults to pulumi.",
-                  "enum": [
-                    "pulumi",
-                    "opentofu"
+                'plugin': {
+                  'description': 'The plugin used to build the module. Defaults to pulumi.',
+                  'enum': [
+                    'pulumi',
+                    'opentofu',
                   ],
-                  "type": "string"
+                  'type': 'string',
                 },
-                "source": {
-                  "description": "The image source of the module.",
-                  "type": "string"
+                'source': {
+                  'description': 'The image source of the module.',
+                  'type': 'string',
                 },
-                "volume": {
-                  "description": "Volumes that should be mounted to the container executing the module",
-                  "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "host_path": {
-                        "description": "The path on the host machine to mount to the container",
-                        "type": "string"
+                'volume': {
+                  'description': 'Volumes that should be mounted to the container executing the module',
+                  'items': {
+                    'additionalProperties': false,
+                    'properties': {
+                      'host_path': {
+                        'description': 'The path on the host machine to mount to the container',
+                        'type': 'string',
                       },
-                      "mount_path": {
-                        "description": "The path in the container to mount the volume to",
-                        "type": "string"
-                      }
+                      'mount_path': {
+                        'description': 'The path in the container to mount the volume to',
+                        'type': 'string',
+                      },
                     },
-                    "required": [
-                      "host_path",
-                      "mount_path"
+                    'required': [
+                      'host_path',
+                      'mount_path',
                     ],
-                    "type": "object"
+                    'type': 'object',
                   },
-                  "type": "array"
+                  'type': 'array',
                 },
-                "when": {
-                  "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
-                  "type": "string"
-                }
+                'when': {
+                  'description':
+                    'A condition that restricts when the module should be created. Must resolve to a boolean.',
+                  'type': 'string',
+                },
               },
-              "required": [
-                "inputs"
+              'required': [
+                'inputs',
               ],
-              "type": "object"
+              'type': 'object',
             },
-            "type": "array"
+            'type': 'array',
           },
-          "description": "Modules that will be created once per datacenter",
-          "type": "object"
+          'description': 'Modules that will be created once per datacenter',
+          'type': 'object',
         },
-        "variable": {
-          "additionalProperties": {
-            "items": {
-              "additionalProperties": false,
-              "properties": {
-                "default": {
-                  "description": "The default value of the variable",
-                  "type": "string"
+        'variable': {
+          'additionalProperties': {
+            'items': {
+              'additionalProperties': false,
+              'properties': {
+                'default': {
+                  'description': 'The default value of the variable',
+                  'type': 'string',
                 },
-                "description": {
-                  "description": "A human-readable description of the variable",
-                  "type": "string"
+                'description': {
+                  'description': 'A human-readable description of the variable',
+                  'type': 'string',
                 },
-                "type": {
-                  "description": "The type of the variable",
-                  "enum": [
-                    "string",
-                    "number",
-                    "boolean"
+                'type': {
+                  'description': 'The type of the variable',
+                  'enum': [
+                    'string',
+                    'number',
+                    'boolean',
                   ],
-                  "type": "string"
-                }
+                  'type': 'string',
+                },
               },
-              "required": [
-                "type"
+              'required': [
+                'type',
               ],
-              "type": "object"
+              'type': 'object',
             },
-            "type": "array"
+            'type': 'array',
           },
-          "description": "Variables necessary for the datacenter to run",
-          "type": "object"
+          'description': 'Variables necessary for the datacenter to run',
+          'type': 'object',
         },
-        "version": {
-          "const": "v1",
-          "type": "string"
-        }
+        'version': {
+          'const': 'v1',
+          'type': 'string',
+        },
       },
-      "required": [
-        "version"
+      'required': [
+        'version',
       ],
-      "type": "object"
-    }
+      'type': 'object',
+    },
   },
-  "$id": "https://architect.io/.schemas/datacenter.json"
-}
+  '$id': 'https://architect.io/.schemas/datacenter.json',
+};

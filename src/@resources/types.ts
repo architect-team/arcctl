@@ -26,8 +26,7 @@ export type ResourceType =
   | 'ingress'
   | 'secret'
   | 'service'
-  | 'volume'
-;
+  | 'volume';
 
 export const ResourceTypeList: ResourceType[] = [
   'cronjob',

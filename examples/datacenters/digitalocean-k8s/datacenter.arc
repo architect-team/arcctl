@@ -190,7 +190,7 @@ environment {
         name = "${node.component}--${node.name}"
         namespace = module.namespace.id
         kubeconfig = module.k8s.kubeconfig
-        dns_zone = variable.dns_zone
+        dns_zone = environment.name + "." + variable.dns_zone
         ingress_class_name = "nginx"
       })
     }
@@ -204,7 +204,7 @@ environment {
         domain = variable.dns_zone
         type = "A"
         value = module.ingressRule.load_balancer_ip
-        subdomain = node.inputs.subdomain
+        subdomain = node.inputs.subdomain + "." + environment.name
       }
     }
 
@@ -217,7 +217,7 @@ environment {
       url = module.ingressRule.url
       path = module.ingressRule.path
       subdomain = node.inputs.subdomain
-      dns_zone = variable.dns_zone
+      dns_zone = environment.name + "." + variable.dns_zone
     }
   }
 
@@ -242,10 +242,12 @@ environment {
     }
 
     outputs = {
+      name = module.service.name
       protocol = module.service.protocol
       host = module.service.host
       port = module.service.port
       url = module.service.url
+      target_port = module.service.target_port
     }
   }
 }

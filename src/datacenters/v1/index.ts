@@ -150,14 +150,14 @@ export default class DatacenterV1 extends Datacenter {
   }
 
   public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
-    for (const module of Object.values(this.getModules())) {
+    for (const mod of Object.values(this.getModules())) {
       // Modules with only a source are skipped, they point to images that already exist.
-      if (module.build) {
+      if (mod.build) {
         const digest = await buildFn({
-          context: module.build,
-          plugin: module.plugin || DEFAULT_PLUGIN,
+          context: mod.build,
+          plugin: mod.plugin || DEFAULT_PLUGIN,
         });
-        module.source = digest;
+        mod.source = digest;
       }
     }
 
@@ -165,9 +165,9 @@ export default class DatacenterV1 extends Datacenter {
   }
 
   public async tag(tagFn: DockerTagFn): Promise<Datacenter> {
-    for (const [moduleName, module] of Object.entries(this.getModules())) {
-      if (module.build && module.source) {
-        module.source = await tagFn(module.source, moduleName);
+    for (const [moduleName, mod] of Object.entries(this.getModules())) {
+      if (mod.build && mod.source) {
+        mod.source = await tagFn(mod.source, moduleName);
       }
     }
 

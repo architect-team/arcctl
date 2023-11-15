@@ -6,9 +6,9 @@ const config = new pulumi.Config();
 const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
-const name = config.require('name').replace(/\//g, '-');
-const targetPort = config.requireNumber('port');
-const exposePort = config.get('protocol') !== 'http' ? targetPort : 80;
+export const name = config.require('name').replace(/\//g, '-');
+export const target_port = config.requireNumber('port');
+export const exposePort = config.get('protocol') !== 'http' ? target_port : 80;
 
 const external_name = config.get('external_name');
 const service = new kubernetes.core.v1.Service('service', {

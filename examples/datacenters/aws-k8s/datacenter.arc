@@ -176,9 +176,11 @@ environment {
     }
 
     outputs = {
+      name = module.service.host
       protocol = node.inputs.protocol || "http"
       host = module.service.host
       port = module.service.port
+      target_port = module.service.target_port
       url = "${node.inputs.protocol || "http"}://${module.service.host}:${module.service.port}"
     }
   }

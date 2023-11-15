@@ -9,6 +9,7 @@ const provider = new kubernetes.Provider("provider", {
 const name = config.require('name').replace(/\//g, '-');
 
 const external_name = config.get('external_name');
+const targetPort = config.requireNumber('port');
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
     name,
@@ -29,7 +30,7 @@ const service = new kubernetes.core.v1.Service('service', {
     ports: [
       {
         port: 80,
-        targetPort: config.requireNumber('port'),
+        targetPort: targetPort,
       }
     ]
   }
@@ -38,3 +39,4 @@ const service = new kubernetes.core.v1.Service('service', {
 export const id = service.id.apply(id => id.toString());
 export const host = name;
 export const port = 80;
+export const target_port = targetPort;

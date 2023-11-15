@@ -22,6 +22,8 @@ _labels = {
 const cpu = config.getNumber('cpu');
 const memory = config.get('memory');
 
+// const environmentConfig = new pulumi.Config("environment");
+
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
     name,

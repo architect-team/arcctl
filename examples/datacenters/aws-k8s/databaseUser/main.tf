@@ -2,6 +2,14 @@ variable "database" {
   type = string
 }
 
+variable "name" {
+  type = string
+}
+
+variable "protocol" {
+  type = string
+}
+
 variable "host" {
   type = string
 }
@@ -26,7 +34,7 @@ terraform {
     }
     postgresql = {
       source  = "cyrilgdn/postgresql"
-      version = "1.21.1-beta.1"
+      version = "1.21.0"
     }
   }
 }
@@ -47,14 +55,22 @@ provider "postgresql" {
   password  = var.password
   database  = var.database
   superuser = false
-  sslmode   = "disable"
 }
 
 
 resource "postgresql_role" "user" {
-  name     = var.username
+  name     = var.name
   password = random_password.password.result
   login    = true
+}
+
+# Allow users to modify the public schema
+resource "postgresql_grant" "public_schema_access" {
+  database    = var.database
+  role        = "public"
+  schema      = "public"
+  object_type = "schema"
+  privileges  = ["USAGE", "CREATE"]
 }
 
 output "username" {
@@ -62,5 +78,11 @@ output "username" {
 }
 
 output "password" {
-  value = postgresql_role.user.password
+  value     = postgresql_role.user.password
+  sensitive = true
+}
+
+output "url_encoded_password" {
+  value     = urlencode(postgresql_role.user.password)
+  sensitive = true
 }

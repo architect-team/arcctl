@@ -45,6 +45,10 @@ data "aws_subnets" "vpc_subnets" {
     name   = "vpc-id"
     values = [var.vpc_id]
   }
+  filter {
+    name   = "tag:architect-database-subnet"
+    values = ["1"]
+  }
 }
 
 resource "aws_security_group" "db_security_group" {
@@ -66,20 +70,23 @@ resource "aws_db_subnet_group" "db_subnet_group" {
 }
 
 module "db" {
-  source = "terraform-aws-modules/rds/aws"
+  source  = "terraform-aws-modules/rds/aws"
+  version = "6.2.0"
 
   identifier             = local.databaseName
   publicly_accessible    = true
-  engine                 = var.databaseType
-  engine_version         = var.databaseVersion
   vpc_security_group_ids = [aws_security_group.db_security_group.id]
-  instance_class         = var.databaseSize
+  db_subnet_group_name   = aws_db_subnet_group.db_subnet_group.name
 
-  allocated_storage    = 50
-  storage_encrypted    = false
-  username             = "arcctl"
-  db_subnet_group_name = aws_db_subnet_group.db_subnet_group.name
+  engine               = var.databaseType
+  engine_version       = var.databaseVersion
   family               = "${var.databaseType}${var.databaseVersion}"
+  major_engine_version = var.databaseVersion
+  instance_class       = var.databaseSize
+  username             = "arcctl"
+
+  allocated_storage = 50
+  storage_encrypted = false
 }
 
 data "aws_secretsmanager_secret" "db_secrets" {
@@ -95,12 +102,12 @@ output "id" {
 }
 
 output "username" {
-  value = module.db.db_instance_username
+  value     = module.db.db_instance_username
+  sensitive = true
 }
 
 output "password" {
-  # TODO: The key is probably wrong here
-  value     = jsondecode(data.aws_secretsmanager_secret_version.db_secret_version.secret_string)["DATABASE_PASSWORD"]
+  value     = jsondecode(data.aws_secretsmanager_secret_version.db_secret_version.secret_string)["password"]
   sensitive = true
 }
 
@@ -113,9 +120,5 @@ output "port" {
 }
 
 output "database" {
-  # TODO:
-  value = "database-name"
+  value = local.databaseName
 }
-
-# output "certificate" {
-# }

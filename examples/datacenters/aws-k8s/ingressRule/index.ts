@@ -2,12 +2,14 @@ import * as kubernetes from "@pulumi/kubernetes";
 import * as pulumi from "@pulumi/pulumi";
 
 const config = new pulumi.Config();
-const serviceConfig = new pulumi.Config("service");
-const service = {
-  host: serviceConfig.require("host"),
-  port: serviceConfig.require("port"),
-  protocol: serviceConfig.require("protocol"),
+const service = config.requireObject('service') as {
+  host: string,
+  port: string,
+  protocol: string
 };
+
+const namespace = config.require("namespace");
+
 const provider = new kubernetes.Provider("provider", {
   kubeconfig: config.require("kubeconfig"),
 });
@@ -25,15 +27,23 @@ if (dns_zone) {
 }
 
 const name = config.require('name').replace(/\//g, '-');
+const componentName = config.require('component_name').replace(/\//g, '-');
+const is_internal = config.requireBoolean('internal');
+let loadbalancerName = namespace;
+if (is_internal) {
+  loadbalancerName += '-internal';
+}
+
 const ingress = new kubernetes.networking.v1.Ingress("ingress", {
   metadata: {
-    name: name,
-    namespace: config.require('namespace'),
+    name: `${componentName}--${name}`,
+    namespace,
     annotations: {
       'kubernetes.io/ingress.class': 'alb',
-      'alb.ingress.kubernetes.io/load-balancer-name': name,
+      'alb.ingress.kubernetes.io/load-balancer-name': loadbalancerName,
+      'alb.ingress.kubernetes.io/group.name': loadbalancerName,
       'alb.ingress.kubernetes.io/target-type': 'instance',
-      'alb.ingress.kubernetes.io/scheme': 'internet-facing' // TODO: Dont do this if its private
+      'alb.ingress.kubernetes.io/scheme': is_internal ? 'internal' : 'internet-facing'
     }
   },
   spec: {
@@ -75,7 +85,13 @@ if (username || password) {
   _url += `${username}:${password}@`;
 }
 
-_url += `${host}:${port}${path}`;
+_url += `${host}:${port}`
+
+// Only add path if the path is more than just '/'
+if (path !== '/') {
+  _url += `${path}`;
+}
 
 export const url = _url;
 export const lb_address = ingress.status.loadBalancer.ingress[0].hostname.apply(hostname => hostname.toString());
+export const alb_name = namespace;

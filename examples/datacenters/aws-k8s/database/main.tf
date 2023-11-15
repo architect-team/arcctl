@@ -23,7 +23,7 @@ terraform {
   required_providers {
     postgresql = {
       source  = "cyrilgdn/postgresql"
-      version = "1.21.1-beta.1"
+      version = "1.21.0"
     }
   }
 }
@@ -36,9 +36,9 @@ provider "postgresql" {
 }
 
 resource "postgresql_database" "db" {
-  name = var.name
+  name = replace(var.name, "/", "-")
 }
 
 output "name" {
-  value = var.name
+  value = replace(var.name, "/", "-")
 }

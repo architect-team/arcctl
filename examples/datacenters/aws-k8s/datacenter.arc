@@ -14,6 +14,11 @@ variable "secret_key" {
   description = "AWS Secret Key"
 }
 
+variable "account_id" {
+  type        = "string"
+  description = "AWS Account ID"
+}
+
 variable "dns_zone" {
   description = "DNS zone ID to use for ingress rules"
   type = "string"
@@ -51,8 +56,7 @@ module "loadBalancer" {
       secretKey = variable.secret_key
       region = variable.region
     }
-    // TODO: Pass account_id as a variable
-    accountId = "914808004132"
+    accountId = variable.account_id
     name = "${datacenter.name}-lb-controller"
     clusterName = "${datacenter.name}-cluster"
     kubeconfig = module.eksCluster.kubeconfig
@@ -71,6 +75,7 @@ environment {
   module "postgresCluster" {
     when = contains(environment.nodes.*.type, "database") && contains(environment.nodes.*.inputs.databaseType, "postgres")
     build = "./databaseCluster"
+    plugin = "opentofu"
     inputs = {
       access_key = variable.access_key
       secret_key = variable.secret_key
@@ -78,7 +83,7 @@ environment {
       vpc_id = module.vpc.id
 
       name = "${datacenter.name}-database"
-      databaseType = "pg"
+      databaseType = "postgres"
       databaseVersion = 15
       databaseSize = "db.t3.medium"
     }
@@ -105,6 +110,7 @@ environment {
 
     module "database" {
       build = "./database"
+      plugin = "opentofu"
       inputs = {
         host = module.postgresCluster.host
         port = module.postgresCluster.port
@@ -115,12 +121,12 @@ environment {
     }
 
     outputs = {
-      host = module.postgresCluster.private_host
+      host = module.postgresCluster.host
       port = module.postgresCluster.port
       protocol = "postgresql"
       username = module.postgresCluster.username
       password = module.postgresCluster.password
-      url = "postgresql://${module.postgresCluster.username}:${module.postgresCluster.password}@${module.postgresCluster.private_host}:${module.postgresCluster.port}}"
+      url = "postgresql://${module.postgresCluster.username}:${module.postgresCluster.password}@${module.postgresCluster.host}:${module.postgresCluster.port}}"
       database = module.database.name
     }
   }
@@ -128,13 +134,13 @@ environment {
   databaseUser {
     module "databaseUser" {
       build = "./databaseUser"
-      inputs = {
+      plugin = "opentofu"
+      inputs = merge(node.inputs, {
         host = module.postgresCluster.host
         port = module.postgresCluster.port
         username = module.postgresCluster.username
         password = module.postgresCluster.password
-        database = module.database.database
-      }
+      })
     }
 
     outputs = {
@@ -143,7 +149,8 @@ environment {
       protocol = node.inputs.protocol
       username = module.databaseUser.username
       password = module.databaseUser.password
-      url = "${node.inputs.protocol}://${module.databaseUser.username}:${module.databaseUser.password}@${node.inputs.host}:${node.inputs.port}/${node.inputs.database}"
+      # Kratos will fail to connect properly if the password isnt url encoded
+      url = "${node.inputs.protocol}://${module.databaseUser.username}:${module.databaseUser.url_encoded_password}@${node.inputs.host}:${node.inputs.port}/${node.inputs.database}"
       database = node.inputs.database
     }
   }
@@ -172,7 +179,7 @@ environment {
       protocol = node.inputs.protocol || "http"
       host = module.service.host
       port = module.service.port
-      url = "http://${module.service.host}:${module.service.port}"
+      url = "${node.inputs.protocol || "http"}://${module.service.host}:${module.service.port}"
     }
   }
 
@@ -180,7 +187,8 @@ environment {
     module "ingressRule" {
       build = "./ingressRule"
       inputs = merge(node.inputs, {
-        name = "${node.component}--${node.name}"
+        component_name = node.component
+        name = node.name
         namespace = module.namespace.id
         kubeconfig = module.eksCluster.kubeconfig
         dns_zone = variable.dns_zone
@@ -199,7 +207,7 @@ environment {
         region  = variable.region
         dns_zone = variable.dns_zone
         type = "A"
-        alb_name = "${node.component}--${node.name}"
+        alb_name = module.ingressRule.alb_name
         value = module.ingressRule.lb_address
         subdomain = node.inputs.subdomain
       }
@@ -214,7 +222,7 @@ environment {
       url = module.ingressRule.url
       path = module.ingressRule.path
       subdomain = node.inputs.subdomain
-      dns_zone = node.inputs.dns_zone
+      dns_zone = variable.dns_zone
     }
   }
 }

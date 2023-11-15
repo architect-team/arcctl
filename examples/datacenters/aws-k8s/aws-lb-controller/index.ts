@@ -7,21 +7,20 @@ const name = config.require("name");
 const clusterName = config.require("clusterName");
 const accountId = config.require("accountId")
 
-const awsConfig = new pulumi.Config("aws");
+const awsConfig = config.requireObject("aws") as {
+  accessKey: string,
+  secretKey: string,
+  region: string
+};
 const saName = 'aws-load-balancer-controller';
 
-// TODO: This getting deleted before the ingress causes issues.
-
-// Create IAM Policy + SA for the LB Controller to use
-// TODO: Should either give this a more unique name or not delete it
-// because it could be reused by other envs.
+// Create this policy for the AWS Load Balancer if it doesn't already exist
 const iam_policy = new local.Command("iam_policy", {
   create: "aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json || true",
-  // delete: `aws iam delete-policy --policy-arn arn:aws:iam::${accountId}:policy/AWSLoadBalancerControllerIAMPolicy`,
   environment: {
-    "AWS_ACCESS_KEY_ID": awsConfig.require("accessKey"),
-    "AWS_SECRET_ACCESS_KEY": awsConfig.require("secretKey"),
-    "AWS_DEFAULT_REGION": awsConfig.require("region")
+    "AWS_ACCESS_KEY_ID": awsConfig.accessKey,
+    "AWS_SECRET_ACCESS_KEY": awsConfig.secretKey,
+    "AWS_DEFAULT_REGION": awsConfig.region,
   }
 });
 
@@ -32,9 +31,9 @@ const iam_service_account = new local.Command("iam_service_acct", {
     --approve || true`,
   delete: `eksctl delete iamserviceaccount --cluster=${clusterName} --namespace=kube-system --name=${saName}`,
   environment: {
-    "AWS_ACCESS_KEY_ID": awsConfig.require("accessKey"),
-    "AWS_SECRET_ACCESS_KEY": awsConfig.require("secretKey"),
-    "AWS_DEFAULT_REGION": awsConfig.require("region")
+    "AWS_ACCESS_KEY_ID": awsConfig.accessKey,
+    "AWS_SECRET_ACCESS_KEY": awsConfig.secretKey,
+    "AWS_DEFAULT_REGION": awsConfig.region,
   }
 }, { dependsOn: iam_policy})
 

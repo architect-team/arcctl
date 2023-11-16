@@ -462,6 +462,9 @@
                             "host_path": {
                               "type": "string"
                             },
+                            "image": {
+                              "type": "string"
+                            },
                             "mount_path": {
                               "type": "string"
                             },
@@ -703,6 +706,9 @@
                           "type": "string"
                         },
                         "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
                           "type": "string"
                         },
                         "mount_path": {
@@ -1016,6 +1022,9 @@
                             "host_path": {
                               "type": "string"
                             },
+                            "image": {
+                              "type": "string"
+                            },
                             "mount_path": {
                               "type": "string"
                             },
@@ -1254,6 +1263,9 @@
                           "type": "string"
                         },
                         "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
                           "type": "string"
                         },
                         "mount_path": {
@@ -1567,6 +1579,9 @@
                             "host_path": {
                               "type": "string"
                             },
+                            "image": {
+                              "type": "string"
+                            },
                             "mount_path": {
                               "type": "string"
                             },
@@ -1808,6 +1823,9 @@
                           "type": "string"
                         },
                         "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
                           "type": "string"
                         },
                         "mount_path": {
@@ -2073,6 +2091,9 @@
                             "host_path": {
                               "type": "string"
                             },
+                            "image": {
+                              "type": "string"
+                            },
                             "mount_path": {
                               "type": "string"
                             },
@@ -2142,6 +2163,9 @@
                           "type": "string"
                         },
                         "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
                           "type": "string"
                         },
                         "mount_path": {
@@ -2309,6 +2333,9 @@
                             "host_path": {
                               "type": "string"
                             },
+                            "image": {
+                              "type": "string"
+                            },
                             "mount_path": {
                               "type": "string"
                             },
@@ -2375,6 +2402,9 @@
                           "type": "string"
                         },
                         "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
                           "type": "string"
                         },
                         "mount_path": {
@@ -2542,6 +2572,9 @@
                             "host_path": {
                               "type": "string"
                             },
+                            "image": {
+                              "type": "string"
+                            },
                             "mount_path": {
                               "type": "string"
                             },
@@ -2611,6 +2644,9 @@
                           "type": "string"
                         },
                         "host_path": {
+                          "type": "string"
+                        },
+                        "image": {
                           "type": "string"
                         },
                         "mount_path": {

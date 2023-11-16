@@ -47,7 +47,30 @@ await build({
 });
 
 // const cmd = new Deno.Command(binaryPath, { args, ...opts?.commandOptions, stdout: 'piped', stderr: 'piped' });
-console.log('Finishing building temp package, generating JSON schema...');
+console.log('Finishing building temp package, generating JSON schemas...');
+
+for (const version of all_versions) {
+  const { stdout: type_schema_string } = await exec('deno', {
+    args: [
+      'run',
+      '--allow-read',
+      'npm:ts-json-schema-generator',
+      '--path',
+      path.join(build_dir, 'src/components', version, 'index.ts'),
+      '--expose',
+      'none',
+      '--type',
+      'Component' + version.toUpperCase(),
+      '--tsconfig',
+      path.join(__dirname, '../tsconfig.json'),
+      '--no-type-check',
+    ],
+    stdout: 'piped',
+  });
+  const type_schema = JSON.parse(type_schema_string);
+  await Deno.writeTextFile(path.join(components_dir, version, './schema.json'), JSON.stringify(type_schema, null, 2));
+}
+
 const { stdout: type_schema_string } = await exec('deno', {
   args: [
     'run',

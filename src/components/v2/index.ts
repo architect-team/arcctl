@@ -18,6 +18,9 @@ import { DependencySchemaV2 } from './dependency.ts';
 import { DebuggableDeploymentSchemaV2 } from './deployment.ts';
 import { parseExpressionRefs } from './expressions.ts';
 
+/**
+ * @title V2
+ */
 export default class ComponentV2 extends Component {
   /**
    * A set of other components that this component depends on

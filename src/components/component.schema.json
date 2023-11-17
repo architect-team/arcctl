@@ -3080,12 +3080,17 @@
           },
           "description": "A set of other components that this component depends on",
           "examples": [
-            "architect/auth-component",
             {
-              "allowed_return_urls": [
-                "https://architect.io",
-                "${{ ingresses.frontend.url }}"
-              ]
+              "auth": {
+                "component": "architect/auth-component",
+                "variables": {
+                  "allowed_return_urls": [
+                    "https://architect.io",
+                    "${{ ingresses.frontend.url }}"
+                  ]
+                }
+              },
+              "payments": "architect/payments-component"
             }
           ],
           "type": "object"

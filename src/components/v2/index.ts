@@ -22,13 +22,18 @@ export default class ComponentV2 extends Component {
   /**
    * A set of other components that this component depends on
    *
-   * @example "architect/auth-component"
    * @example
    * {
-   *   "allowed_return_urls": [
-   *     "https://architect.io",
-   *     "${{ ingresses.frontend.url }}"
-   *   ]
+   *   "payments": "architect/payments-component",
+   *   "auth": {
+   *     "component": "architect/auth-component",
+   *     "variables": {
+   *       "allowed_return_urls": [
+   *         "https://architect.io",
+   *         "${{ ingresses.frontend.url }}"
+   *       ]
+   *     }
+   *   }
    * }
    */
   dependencies?: Record<string, string | DependencySchemaV2>;

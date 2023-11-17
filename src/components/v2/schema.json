@@ -196,6 +196,9 @@
                   },
                   "image": {
                     "description": "The docker image containing the migration tooling and files",
+                    "examples": [
+                      "${{ builds.api.image }}"
+                    ],
                     "type": "string"
                   }
                 },
@@ -276,6 +279,9 @@
                   },
                   "image": {
                     "description": "The docker image containing the seeding tooling and files",
+                    "examples": [
+                      "${{ builds.api.image }}"
+                    ],
                     "type": "string"
                   }
                 },

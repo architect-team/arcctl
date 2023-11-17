@@ -95,7 +95,7 @@ export default class ComponentV2 extends Component {
         /**
          * The docker image containing the migration tooling and files
          *
-         * @example ${{ builds.api.image }}
+         * @example "${{ builds.api.image }}"
          */
         image: string;
 
@@ -131,7 +131,7 @@ export default class ComponentV2 extends Component {
         /**
          * The docker image containing the seeding tooling and files
          *
-         * @example ${{ builds.api.image }}
+         * @example "${{ builds.api.image }}"
          */
         image: string;
 

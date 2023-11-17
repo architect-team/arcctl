@@ -1,8 +1,6 @@
 export type DependencySchemaV2 = {
   /**
    * The repo the component is in
-   *
-   * @example architect/auth-component
    */
   component: string;
 

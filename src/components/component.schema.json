@@ -3079,6 +3079,15 @@
             ]
           },
           "description": "A set of other components that this component depends on",
+          "examples": [
+            "architect/auth-component",
+            {
+              "allowed_return_urls": [
+                "https://architect.io",
+                "${{ ingresses.frontend.url }}"
+              ]
+            }
+          ],
           "type": "object"
         },
         "deployments": {

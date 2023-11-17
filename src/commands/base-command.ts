@@ -34,9 +34,9 @@ export class CommandHelper {
   private environment_utils: EnvironmentUtils;
 
   constructor(
-    options: GlobalOptions,
+    options?: GlobalOptions,
   ) {
-    ArcCtlConfig.load(options.configHome);
+    ArcCtlConfig.load(options?.configHome);
     this.infra_renderer = new InfraRenderer();
     this.datacenter_utils = new DatacenterUtils(
       this.datacenterStore,

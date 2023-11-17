@@ -30,11 +30,15 @@ export default class ComponentV2 extends Component {
   variables?: Record<string, {
     /**
      * A human-readable description
+     *
+     * @example API key used to authenticate with Stripe
      */
     description?: string;
 
     /**
      * A default value to use if one isn't provided
+     *
+     * @example https://architect.io
      */
     default?: string | string[];
 
@@ -67,18 +71,92 @@ export default class ComponentV2 extends Component {
   databases?: Record<
     string,
     {
+      /**
+       * The type of database and version to use
+       *
+       * @example postgres:15
+       * @example mysql:8
+       * @example redis:5
+       */
       type: string;
+
+      /**
+       * A human-readable description of the use-case for the database
+       *
+       * @default ""
+       * @example Stores credit card information
+       */
       description?: string;
+
+      /**
+       * Configuration details for how to run database migrations
+       */
       migrate?: {
+        /**
+         * The docker image containing the migration tooling and files
+         *
+         * @example ${{ builds.api.image }}
+         */
         image: string;
+
+        /**
+         * An entrypoint to use for the docker container
+         *
+         * @default [""]
+         */
         entrypoint?: string | string[];
+
+        /**
+         * A command to run in the container to execute the migration
+         *
+         * @example ["npm", "run", "migrate"]
+         */
         command?: string | string[];
+
+        /**
+         * Environment variables to set in the container
+         *
+         * @example
+         * {
+         *   "DATABASE_URL": "${{ databases.auth.url }}"
+         * }
+         */
         environment?: Record<string, string | number | boolean | null | undefined>;
       };
+
+      /**
+       * Configuration details for how to seed the database
+       */
       seed?: {
+        /**
+         * The docker image containing the seeding tooling and files
+         *
+         * @example ${{ builds.api.image }}
+         */
         image: string;
+
+        /**
+         * An entrypoint to use for the docker container
+         *
+         * @default [""]
+         */
         entrypoint?: string | string[];
+
+        /**
+         * A command to run in the container to execute the seeding
+         *
+         * @example ["npm", "run", "seed"]
+         */
         command?: string | string[];
+
+        /**
+         * Environment variables to set in the container
+         *
+         * @example
+         * {
+         *   "DATABASE_URL": "${{ databases.auth.url }}"
+         * }
+         */
         environment?: Record<string, string | number | boolean | null | undefined>;
       };
     }
@@ -105,16 +183,22 @@ export default class ComponentV2 extends Component {
     {
       /**
        * Description of the service
+       *
+       * @example "Exposes the backend to other applications"
        */
       description?: string;
 
       /**
        * Deployment the service sends requests to
+       *
+       * @example "backend"
        */
       deployment: string;
 
       /**
        * Port the service listens on
+       *
+       * @example 8080
        */
       port: number;
 
@@ -126,11 +210,15 @@ export default class ComponentV2 extends Component {
 
       /**
        * Basic auth username
+       *
+       * @example ${{ variables.backend-username }}
        */
       username?: string;
 
       /**
        * Basic auth password
+       *
+       * @example ${{ variables.backend-password }}
        */
       password?: string;
     }
@@ -144,16 +232,26 @@ export default class ComponentV2 extends Component {
     {
       /**
        * Service the ingress rule forwards traffic to
+       *
+       * @example "backend"
        */
       service: string;
 
       /**
        * Whether or not the ingress rule should be attached to an internal gateway
+       *
+       * @default false
        */
       internal?: boolean;
 
       /**
        * Additional headers to include in responses
+       *
+       * @example
+       * {
+       *   "Access-Control-Allow-Origin": "${{ variables.allowed_return_urls }}",
+       *   "Access-Control-Allow-Credentials": "true"
+       * }
        */
       headers?: Record<string, string>;
     }

@@ -1,0 +1,3 @@
+name: eks-namespace
+runtime: nodejs
+description: Creates a kubernetes NS in an EKS cluster

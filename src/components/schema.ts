@@ -7,8 +7,7 @@ export type ComponentSchema =
   } & component_v1)
   | ({
     version: 'v2';
-  } & component_v2)
-;
+  } & component_v2);
 
 export const buildComponent = (data: ComponentSchema) => {
   switch (data.version) {

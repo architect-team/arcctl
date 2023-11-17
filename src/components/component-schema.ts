@@ -3104,7 +3104,11 @@ export default {
                 "description": "Configuration settings for how to automatically scale the application up and down",
                 "properties": {
                   "cpu": {
-                    "description": "Maximum CPU usage per replica before scaling up",
+                    "description": "Maximum number of CPUs to allocate to each replica",
+                    "examples": [
+                      "0.5",
+                      "1"
+                    ],
                     "type": [
                       "number",
                       "string"
@@ -3112,6 +3116,10 @@ export default {
                   },
                   "memory": {
                     "description": "Maximum memory usage per replica before scaling up",
+                    "examples": [
+                      "200Mi",
+                      "2Gi"
+                    ],
                     "type": "string"
                   }
                 },
@@ -3153,7 +3161,11 @@ export default {
                     "description": "Configuration settings for how to automatically scale the application up and down",
                     "properties": {
                       "cpu": {
-                        "description": "Maximum CPU usage per replica before scaling up",
+                        "description": "Maximum number of CPUs to allocate to each replica",
+                        "examples": [
+                          "0.5",
+                          "1"
+                        ],
                         "type": [
                           "number",
                           "string"
@@ -3161,6 +3173,10 @@ export default {
                       },
                       "memory": {
                         "description": "Maximum memory usage per replica before scaling up",
+                        "examples": [
+                          "200Mi",
+                          "2Gi"
+                        ],
                         "type": "string"
                       }
                     },
@@ -3404,10 +3420,20 @@ export default {
                       "properties": {
                         "host_path": {
                           "description": "Path on the host machine to sync with the volume",
+                          "examples": [
+                            "/Users/batman/app/src"
+                          ],
+                          "type": "string"
+                        },
+                        "image": {
+                          "description": "OCI image containing the contents to seed the volume with",
                           "type": "string"
                         },
                         "mount_path": {
                           "description": "Path inside the container to mount the volume to",
+                          "examples": [
+                            "/app/src"
+                          ],
                           "type": "string"
                         }
                       },
@@ -3633,10 +3659,20 @@ export default {
                   "properties": {
                     "host_path": {
                       "description": "Path on the host machine to sync with the volume",
+                      "examples": [
+                        "/Users/batman/app/src"
+                      ],
+                      "type": "string"
+                    },
+                    "image": {
+                      "description": "OCI image containing the contents to seed the volume with",
                       "type": "string"
                     },
                     "mount_path": {
                       "description": "Path inside the container to mount the volume to",
+                      "examples": [
+                        "/app/src"
+                      ],
                       "type": "string"
                     }
                   },

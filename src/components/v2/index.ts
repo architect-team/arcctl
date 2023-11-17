@@ -74,9 +74,9 @@ export default class ComponentV2 extends Component {
       /**
        * The type of database and version to use
        *
-       * @example postgres:15
-       * @example mysql:8
-       * @example redis:5
+       * @example "postgres:15"
+       * @example "mysql:8"
+       * @example "redis:5"
        */
       type: string;
 

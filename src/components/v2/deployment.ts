@@ -1,4 +1,3 @@
-import { DeepPartial } from '../../utils/types.ts';
 import { ProbeSchema } from './probe.ts';
 
 export type DeploymentSchemaV2 = {
@@ -116,5 +115,5 @@ export type DebuggableDeploymentSchemaV2 = DeploymentSchemaV2 & {
   /**
    * Debugging options for the deployment
    */
-  debug?: DeepPartial<DeploymentSchemaV2>;
+  debug?: Partial<DeploymentSchemaV2>;
 };

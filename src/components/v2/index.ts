@@ -31,14 +31,14 @@ export default class ComponentV2 extends Component {
     /**
      * A human-readable description
      *
-     * @example API key used to authenticate with Stripe
+     * @example "API key used to authenticate with Stripe"
      */
     description?: string;
 
     /**
      * A default value to use if one isn't provided
      *
-     * @example https://architect.io
+     * @example "https://architect.io"
      */
     default?: string | string[];
 

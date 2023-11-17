@@ -3745,10 +3745,16 @@
                     "type": "array"
                   }
                 ],
-                "description": "A default value to use if one isn't provided"
+                "description": "A default value to use if one isn't provided",
+                "examples": [
+                  "https://architect.io"
+                ]
               },
               "description": {
                 "description": "A human-readable description",
+                "examples": [
+                  "API key used to authenticate with Stripe"
+                ],
                 "type": "string"
               },
               "merge": {

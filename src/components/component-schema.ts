@@ -2747,6 +2747,9 @@ export default {
               },
               "context": {
                 "description": "Path to the folder containing the code to build",
+                "examples": [
+                  "./"
+                ],
                 "type": "string"
               },
               "debug": {
@@ -2767,6 +2770,9 @@ export default {
                   },
                   "context": {
                     "description": "Path to the folder containing the code to build",
+                    "examples": [
+                      "./"
+                    ],
                     "type": "string"
                   },
                   "description": {

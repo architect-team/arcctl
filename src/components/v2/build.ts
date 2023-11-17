@@ -9,7 +9,7 @@ export type BuildSchemaV2 = {
   /**
    * Path to the folder containing the code to build
    *
-   * @example ./
+   * @example "./"
    */
   context: string;
 

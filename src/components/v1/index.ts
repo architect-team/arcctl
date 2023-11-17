@@ -21,6 +21,9 @@ import { DebuggableServiceSchemaV1 } from './service-schema-v1.ts';
 import { DebuggableStaticBucketSchemaV1 } from './static-schema-v1.ts';
 import { DebuggableTaskSchemaV1 } from './task-schema-v1.ts';
 
+/**
+ * @title V1
+ */
 export default class ComponentV1 extends Component {
   /**
    * Unique name of the component. Must be of the format, <account-name>/<component-name>

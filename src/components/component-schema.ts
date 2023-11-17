@@ -472,6 +472,9 @@ export default {
                             'host_path': {
                               'type': 'string',
                             },
+                            'image': {
+                              'type': 'string',
+                            },
                             'mount_path': {
                               'type': 'string',
                             },
@@ -718,6 +721,9 @@ export default {
                           'type': 'string',
                         },
                         'host_path': {
+                          'type': 'string',
+                        },
+                        'image': {
                           'type': 'string',
                         },
                         'mount_path': {
@@ -1031,6 +1037,9 @@ export default {
                             'host_path': {
                               'type': 'string',
                             },
+                            'image': {
+                              'type': 'string',
+                            },
                             'mount_path': {
                               'type': 'string',
                             },
@@ -1274,6 +1283,9 @@ export default {
                           'type': 'string',
                         },
                         'host_path': {
+                          'type': 'string',
+                        },
+                        'image': {
                           'type': 'string',
                         },
                         'mount_path': {
@@ -1587,6 +1599,9 @@ export default {
                             'host_path': {
                               'type': 'string',
                             },
+                            'image': {
+                              'type': 'string',
+                            },
                             'mount_path': {
                               'type': 'string',
                             },
@@ -1833,6 +1848,9 @@ export default {
                           'type': 'string',
                         },
                         'host_path': {
+                          'type': 'string',
+                        },
+                        'image': {
                           'type': 'string',
                         },
                         'mount_path': {
@@ -2099,6 +2117,9 @@ export default {
                             'host_path': {
                               'type': 'string',
                             },
+                            'image': {
+                              'type': 'string',
+                            },
                             'mount_path': {
                               'type': 'string',
                             },
@@ -2168,6 +2189,9 @@ export default {
                           'type': 'string',
                         },
                         'host_path': {
+                          'type': 'string',
+                        },
+                        'image': {
                           'type': 'string',
                         },
                         'mount_path': {
@@ -2335,6 +2359,9 @@ export default {
                             'host_path': {
                               'type': 'string',
                             },
+                            'image': {
+                              'type': 'string',
+                            },
                             'mount_path': {
                               'type': 'string',
                             },
@@ -2401,6 +2428,9 @@ export default {
                           'type': 'string',
                         },
                         'host_path': {
+                          'type': 'string',
+                        },
+                        'image': {
                           'type': 'string',
                         },
                         'mount_path': {
@@ -2568,6 +2598,9 @@ export default {
                             'host_path': {
                               'type': 'string',
                             },
+                            'image': {
+                              'type': 'string',
+                            },
                             'mount_path': {
                               'type': 'string',
                             },
@@ -2637,6 +2670,9 @@ export default {
                           'type': 'string',
                         },
                         'host_path': {
+                          'type': 'string',
+                        },
+                        'image': {
                           'type': 'string',
                         },
                         'mount_path': {
@@ -2732,6 +2768,11 @@ export default {
                   'type': 'string',
                 },
                 'description': 'A set of arguments to pass to the build job',
+                'examples': [
+                  {
+                    'BUILDKIT_INLINE_CACHE': '1',
+                  },
+                ],
                 'type': 'object',
               },
               'context': {
@@ -2740,12 +2781,18 @@ export default {
               },
               'debug': {
                 'additionalProperties': false,
+                'description': 'Debugging options for the build step',
                 'properties': {
                   'args': {
                     'additionalProperties': {
                       'type': 'string',
                     },
                     'description': 'A set of arguments to pass to the build job',
+                    'examples': [
+                      {
+                        'BUILDKIT_INLINE_CACHE': '1',
+                      },
+                    ],
                     'type': 'object',
                   },
                   'context': {
@@ -2754,6 +2801,9 @@ export default {
                   },
                   'description': {
                     'description': 'Description of the build artifact',
+                    'examples': [
+                      'Builds the source code for the application',
+                    ],
                     'type': 'string',
                   },
                   'dockerfile': {
@@ -2764,10 +2814,16 @@ export default {
                   'image': {
                     'description':
                       'The resulting image that was created once the build is complete. This will change whenever the component is tagged as well.',
+                    'examples': [
+                      'my-registry.com/my-app:latest',
+                    ],
                     'type': 'string',
                   },
                   'target': {
                     'description': 'The docker target to use during the build process',
+                    'examples': [
+                      'builder',
+                    ],
                     'type': 'string',
                   },
                 },
@@ -2775,6 +2831,9 @@ export default {
               },
               'description': {
                 'description': 'Description of the build artifact',
+                'examples': [
+                  'Builds the source code for the application',
+                ],
                 'type': 'string',
               },
               'dockerfile': {
@@ -2785,10 +2844,16 @@ export default {
               'image': {
                 'description':
                   'The resulting image that was created once the build is complete. This will change whenever the component is tagged as well.',
+                'examples': [
+                  'my-registry.com/my-app:latest',
+                ],
                 'type': 'string',
               },
               'target': {
                 'description': 'The docker target to use during the build process',
+                'examples': [
+                  'builder',
+                ],
                 'type': 'string',
               },
             },
@@ -2805,10 +2870,13 @@ export default {
             'additionalProperties': false,
             'properties': {
               'description': {
+                'default': '',
+                'description': 'A human-readable description of the use-case for the database',
                 'type': 'string',
               },
               'migrate': {
                 'additionalProperties': false,
+                'description': 'Configuration details for how to run database migrations',
                 'properties': {
                   'command': {
                     'anyOf': [
@@ -2821,6 +2889,14 @@ export default {
                         },
                         'type': 'array',
                       },
+                    ],
+                    'description': 'A command to run in the container to execute the migration',
+                    'examples': [
+                      [
+                        'npm',
+                        'run',
+                        'migrate',
+                      ],
                     ],
                   },
                   'entrypoint': {
@@ -2835,6 +2911,10 @@ export default {
                         'type': 'array',
                       },
                     ],
+                    'default': [
+                      '',
+                    ],
+                    'description': 'An entrypoint to use for the docker container',
                   },
                   'environment': {
                     'additionalProperties': {
@@ -2856,9 +2936,16 @@ export default {
                         },
                       ],
                     },
+                    'description': 'Environment variables to set in the container',
+                    'examples': [
+                      {
+                        'DATABASE_URL': '${{ databases.auth.url }}',
+                      },
+                    ],
                     'type': 'object',
                   },
                   'image': {
+                    'description': 'The docker image containing the migration tooling and files',
                     'type': 'string',
                   },
                 },
@@ -2869,6 +2956,7 @@ export default {
               },
               'seed': {
                 'additionalProperties': false,
+                'description': 'Configuration details for how to seed the database',
                 'properties': {
                   'command': {
                     'anyOf': [
@@ -2881,6 +2969,14 @@ export default {
                         },
                         'type': 'array',
                       },
+                    ],
+                    'description': 'A command to run in the container to execute the seeding',
+                    'examples': [
+                      [
+                        'npm',
+                        'run',
+                        'seed',
+                      ],
                     ],
                   },
                   'entrypoint': {
@@ -2895,6 +2991,10 @@ export default {
                         'type': 'array',
                       },
                     ],
+                    'default': [
+                      '',
+                    ],
+                    'description': 'An entrypoint to use for the docker container',
                   },
                   'environment': {
                     'additionalProperties': {
@@ -2916,9 +3016,16 @@ export default {
                         },
                       ],
                     },
+                    'description': 'Environment variables to set in the container',
+                    'examples': [
+                      {
+                        'DATABASE_URL': '${{ databases.auth.url }}',
+                      },
+                    ],
                     'type': 'object',
                   },
                   'image': {
+                    'description': 'The docker image containing the seeding tooling and files',
                     'type': 'string',
                   },
                 },
@@ -2928,6 +3035,7 @@ export default {
                 'type': 'object',
               },
               'type': {
+                'description': 'The type of database and version to use',
                 'type': 'string',
               },
             },
@@ -2967,6 +3075,14 @@ export default {
                       ],
                     },
                     'description': 'Input values to provide to the component if `merge` is turned on',
+                    'examples': [
+                      {
+                        'allowed_return_urls': [
+                          'https://architect.io',
+                          '${{ ingresses.frontend.url }}',
+                        ],
+                      },
+                    ],
                     'type': 'object',
                   },
                 },
@@ -2986,14 +3102,17 @@ export default {
             'properties': {
               'autoscaling': {
                 'additionalProperties': false,
+                'description': 'Configuration settings for how to automatically scale the application up and down',
                 'properties': {
                   'cpu': {
+                    'description': 'Maximum CPU usage per replica before scaling up',
                     'type': [
                       'number',
                       'string',
                     ],
                   },
                   'memory': {
+                    'description': 'Maximum memory usage per replica before scaling up',
                     'type': 'string',
                   },
                 },
@@ -3012,8 +3131,15 @@ export default {
                   },
                 ],
                 'description': 'Command to use when the container is booted up',
+                'examples': [
+                  [
+                    'npm',
+                    'start',
+                  ],
+                ],
               },
               'cpu': {
+                'description': 'The amount of CPU to allocate to each instance of the deployment',
                 'type': [
                   'number',
                   'string',
@@ -3021,6 +3147,7 @@ export default {
               },
               'debug': {
                 'additionalProperties': false,
+                'description': 'Debugging options for the deployment',
                 'properties': {
                   'autoscaling': {
                     'additionalProperties': false,
@@ -3164,9 +3291,6 @@ export default {
                         'host_path': {
                           'type': 'string',
                         },
-                        'image': {
-                          'type': 'string',
-                        },
                         'mount_path': {
                           'type': 'string',
                         },
@@ -3180,6 +3304,9 @@ export default {
               },
               'description': {
                 'description': 'Human readable description of the deployment',
+                'examples': [
+                  'Runs the frontend web application',
+                ],
                 'type': 'string',
               },
               'entrypoint': {
@@ -3194,6 +3321,9 @@ export default {
                     'type': 'array',
                   },
                 ],
+                'default': [
+                  '',
+                ],
                 'description': 'The executable to run every time the container is booted up',
               },
               'environment': {
@@ -3201,27 +3331,45 @@ export default {
                   'type': 'string',
                 },
                 'description': 'Environment variables to pass to the service',
+                'examples': [
+                  {
+                    'NODE_ENV': 'production',
+                  },
+                  {
+                    'BACKEND_URL': '${{ ingresses.backend.url }}',
+                  },
+                ],
                 'type': 'object',
               },
               'image': {
                 'description': 'Docker image to use for the deployment',
+                'examples': [
+                  '${{ builds.frontend.image }}',
+                  'my-registry.com/my-app:latest',
+                ],
                 'type': 'string',
               },
               'labels': {
                 'additionalProperties': {
                   'type': 'string',
                 },
+                'description': 'The labels to apply to the deployment',
                 'type': 'object',
               },
               'memory': {
+                'description': 'The amount of memory to allocate to each instance of the deployment',
                 'type': 'string',
               },
               'platform': {
                 'description': 'Set platform if server is multi-platform capable',
+                'examples': [
+                  'linux/amd64',
+                ],
                 'type': 'string',
               },
               'probes': {
                 'additionalProperties': false,
+                'description': 'Configuration details for probes that check each replicas status',
                 'properties': {
                   'liveness': {
                     'anyOf': [
@@ -3360,6 +3508,7 @@ export default {
                         'type': 'object',
                       },
                     ],
+                    'description': 'Configuration settings to determine if the deployment is ready to receive traffic',
                   },
                 },
                 'type': 'object',
@@ -3369,12 +3518,11 @@ export default {
                   'additionalProperties': false,
                   'properties': {
                     'host_path': {
-                      'type': 'string',
-                    },
-                    'image': {
+                      'description': 'Path on the host machine to sync with the volume',
                       'type': 'string',
                     },
                     'mount_path': {
+                      'description': 'Path inside the container to mount the volume to',
                       'type': 'string',
                     },
                   },
@@ -3383,6 +3531,7 @@ export default {
                   ],
                   'type': 'object',
                 },
+                'description': 'Volumes that should be created and attached to each replica',
                 'type': 'object',
               },
             },
@@ -3403,14 +3552,24 @@ export default {
                   'type': 'string',
                 },
                 'description': 'Additional headers to include in responses',
+                'examples': [
+                  {
+                    'Access-Control-Allow-Credentials': 'true',
+                    'Access-Control-Allow-Origin': '${{ variables.allowed_return_urls }}',
+                  },
+                ],
                 'type': 'object',
               },
               'internal': {
+                'default': false,
                 'description': 'Whether or not the ingress rule should be attached to an internal gateway',
                 'type': 'boolean',
               },
               'service': {
                 'description': 'Service the ingress rule forwards traffic to',
+                'examples': [
+                  'backend',
+                ],
                 'type': 'string',
               },
             },
@@ -3428,10 +3587,16 @@ export default {
             'properties': {
               'deployment': {
                 'description': 'Deployment the service sends requests to',
+                'examples': [
+                  'backend',
+                ],
                 'type': 'string',
               },
               'description': {
                 'description': 'Description of the service',
+                'examples': [
+                  'Exposes the backend to other applications',
+                ],
                 'type': 'string',
               },
               'password': {
@@ -3440,6 +3605,9 @@ export default {
               },
               'port': {
                 'description': 'Port the service listens on',
+                'examples': [
+                  8080,
+                ],
                 'type': 'number',
               },
               'protocol': {

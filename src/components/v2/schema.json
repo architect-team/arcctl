@@ -23,6 +23,9 @@
               },
               "context": {
                 "description": "Path to the folder containing the code to build",
+                "examples": [
+                  "./"
+                ],
                 "type": "string"
               },
               "debug": {
@@ -43,6 +46,9 @@
                   },
                   "context": {
                     "description": "Path to the folder containing the code to build",
+                    "examples": [
+                      "./"
+                    ],
                     "type": "string"
                   },
                   "description": {
@@ -190,6 +196,9 @@
                   },
                   "image": {
                     "description": "The docker image containing the migration tooling and files",
+                    "examples": [
+                      "${{ builds.api.image }}"
+                    ],
                     "type": "string"
                   }
                 },
@@ -270,6 +279,9 @@
                   },
                   "image": {
                     "description": "The docker image containing the seeding tooling and files",
+                    "examples": [
+                      "${{ builds.api.image }}"
+                    ],
                     "type": "string"
                   }
                 },
@@ -280,6 +292,11 @@
               },
               "type": {
                 "description": "The type of database and version to use",
+                "examples": [
+                  "postgres:15",
+                  "mysql:8",
+                  "redis:5"
+                ],
                 "type": "string"
               }
             },
@@ -395,14 +412,17 @@
                 "properties": {
                   "autoscaling": {
                     "additionalProperties": false,
+                    "description": "Configuration settings for how to automatically scale the application up and down",
                     "properties": {
                       "cpu": {
+                        "description": "Maximum CPU usage per replica before scaling up",
                         "type": [
                           "number",
                           "string"
                         ]
                       },
                       "memory": {
+                        "description": "Maximum memory usage per replica before scaling up",
                         "type": "string"
                       }
                     },
@@ -411,119 +431,231 @@
                   "command": {
                     "anyOf": [
                       {
+                        "type": "string"
+                      },
+                      {
                         "items": {
                           "type": "string"
                         },
                         "type": "array"
-                      },
-                      {
-                        "type": "string"
                       }
+                    ],
+                    "description": "Command to use when the container is booted up",
+                    "examples": [
+                      [
+                        "npm",
+                        "start"
+                      ]
                     ]
                   },
                   "cpu": {
+                    "description": "The amount of CPU to allocate to each instance of the deployment",
                     "type": [
                       "number",
                       "string"
                     ]
                   },
                   "description": {
+                    "description": "Human readable description of the deployment",
+                    "examples": [
+                      "Runs the frontend web application"
+                    ],
                     "type": "string"
                   },
                   "entrypoint": {
                     "anyOf": [
                       {
+                        "type": "string"
+                      },
+                      {
                         "items": {
                           "type": "string"
                         },
                         "type": "array"
-                      },
-                      {
-                        "type": "string"
                       }
-                    ]
+                    ],
+                    "default": [
+                      ""
+                    ],
+                    "description": "The executable to run every time the container is booted up"
                   },
                   "environment": {
                     "additionalProperties": {
                       "type": "string"
                     },
+                    "description": "Environment variables to pass to the service",
+                    "examples": [
+                      {
+                        "NODE_ENV": "production"
+                      },
+                      {
+                        "BACKEND_URL": "${{ ingresses.backend.url }}"
+                      }
+                    ],
                     "type": "object"
                   },
                   "image": {
+                    "description": "Docker image to use for the deployment",
+                    "examples": [
+                      "${{ builds.frontend.image }}",
+                      "my-registry.com/my-app:latest"
+                    ],
                     "type": "string"
                   },
                   "labels": {
                     "additionalProperties": {
                       "type": "string"
                     },
+                    "description": "The labels to apply to the deployment",
                     "type": "object"
                   },
                   "memory": {
+                    "description": "The amount of memory to allocate to each instance of the deployment",
                     "type": "string"
                   },
                   "platform": {
+                    "description": "Set platform if server is multi-platform capable",
+                    "examples": [
+                      "linux/amd64"
+                    ],
                     "type": "string"
                   },
                   "probes": {
                     "additionalProperties": false,
+                    "description": "Configuration details for probes that check each replicas status",
                     "properties": {
                       "liveness": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "command": {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          },
-                          "failure_threshold": {
-                            "type": "number"
-                          },
-                          "headers": {
-                            "items": {
-                              "additionalProperties": false,
-                              "properties": {
-                                "name": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "command": {
+                                "description": "Command to run inside the container to determine if its healthy",
+                                "items": {
                                   "type": "string"
                                 },
-                                "value": {
-                                  "type": "string"
-                                }
+                                "type": "array"
                               },
-                              "type": "object"
+                              "failure_threshold": {
+                                "default": 3,
+                                "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "initial_delay": {
+                                "default": 0,
+                                "description": "Number of seconds after the container starts before the probe is initiated.",
+                                "minimum": 0,
+                                "type": "number"
+                              },
+                              "interval": {
+                                "default": 10,
+                                "description": "How often (in seconds) to perform the probe.",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "success_threshold": {
+                                "default": 1,
+                                "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "timeout": {
+                                "default": 1,
+                                "description": "Number of seconds after which the probe times out",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "type": {
+                                "const": "exec",
+                                "type": "string"
+                              }
                             },
-                            "type": "array"
-                          },
-                          "initial_delay": {
-                            "type": "number"
-                          },
-                          "interval": {
-                            "type": "number"
-                          },
-                          "path": {
-                            "type": "string"
-                          },
-                          "port": {
-                            "type": "number"
-                          },
-                          "scheme": {
-                            "type": "string"
-                          },
-                          "success_threshold": {
-                            "type": "number"
-                          },
-                          "timeout": {
-                            "type": "number"
-                          },
-                          "type": {
-                            "enum": [
-                              "exec",
-                              "http"
+                            "required": [
+                              "command",
+                              "type"
                             ],
-                            "type": "string"
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "failure_threshold": {
+                                "default": 3,
+                                "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "headers": {
+                                "description": "Custom headers to set in the request.",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "value"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "initial_delay": {
+                                "default": 0,
+                                "description": "Number of seconds after the container starts before the probe is initiated.",
+                                "minimum": 0,
+                                "type": "number"
+                              },
+                              "interval": {
+                                "default": 10,
+                                "description": "How often (in seconds) to perform the probe.",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "path": {
+                                "default": "/",
+                                "description": "Path to access on the http server",
+                                "type": "string"
+                              },
+                              "port": {
+                                "description": "Port to access on the container",
+                                "type": "number"
+                              },
+                              "scheme": {
+                                "default": "http",
+                                "description": "Scheme to use for connecting to the host (http or https).",
+                                "type": "string"
+                              },
+                              "success_threshold": {
+                                "default": 1,
+                                "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "timeout": {
+                                "default": 1,
+                                "description": "Number of seconds after which the probe times out",
+                                "minimum": 1,
+                                "type": "number"
+                              },
+                              "type": {
+                                "const": "http",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ],
+                            "type": "object"
                           }
-                        },
-                        "type": "object"
+                        ],
+                        "description": "Configuration settings to determine if the deployment is ready to receive traffic"
                       }
                     },
                     "type": "object"
@@ -533,14 +665,20 @@
                       "additionalProperties": false,
                       "properties": {
                         "host_path": {
+                          "description": "Path on the host machine to sync with the volume",
                           "type": "string"
                         },
                         "mount_path": {
+                          "description": "Path inside the container to mount the volume to",
                           "type": "string"
                         }
                       },
+                      "required": [
+                        "mount_path"
+                      ],
                       "type": "object"
                     },
+                    "description": "Volumes that should be created and attached to each replica",
                     "type": "object"
                   }
                 },
@@ -883,10 +1021,16 @@
                     "type": "array"
                   }
                 ],
-                "description": "A default value to use if one isn't provided"
+                "description": "A default value to use if one isn't provided",
+                "examples": [
+                  "https://architect.io"
+                ]
               },
               "description": {
                 "description": "A human-readable description",
+                "examples": [
+                  "API key used to authenticate with Stripe"
+                ],
                 "type": "string"
               },
               "merge": {

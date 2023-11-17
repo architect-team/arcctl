@@ -31,14 +31,14 @@ export default class ComponentV2 extends Component {
     /**
      * A human-readable description
      *
-     * @example API key used to authenticate with Stripe
+     * @example "API key used to authenticate with Stripe"
      */
     description?: string;
 
     /**
      * A default value to use if one isn't provided
      *
-     * @example https://architect.io
+     * @example "https://architect.io"
      */
     default?: string | string[];
 
@@ -74,9 +74,9 @@ export default class ComponentV2 extends Component {
       /**
        * The type of database and version to use
        *
-       * @example postgres:15
-       * @example mysql:8
-       * @example redis:5
+       * @example "postgres:15"
+       * @example "mysql:8"
+       * @example "redis:5"
        */
       type: string;
 
@@ -95,7 +95,7 @@ export default class ComponentV2 extends Component {
         /**
          * The docker image containing the migration tooling and files
          *
-         * @example ${{ builds.api.image }}
+         * @example "${{ builds.api.image }}"
          */
         image: string;
 
@@ -131,7 +131,7 @@ export default class ComponentV2 extends Component {
         /**
          * The docker image containing the seeding tooling and files
          *
-         * @example ${{ builds.api.image }}
+         * @example "${{ builds.api.image }}"
          */
         image: string;
 

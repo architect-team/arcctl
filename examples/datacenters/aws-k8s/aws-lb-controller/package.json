@@ -1,0 +1,12 @@
+{
+    "name": "kcluster",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/command": "^0.9.2",
+        "@pulumi/kubernetes": "^4.2.0",
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}

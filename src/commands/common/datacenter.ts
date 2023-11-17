@@ -49,12 +49,12 @@ export class DatacenterUtils {
     while (sorted_vars.length > 0) {
       const variable = sorted_vars.shift()!;
 
-      // If the variable input was passed in by the user, this will validate that their
-      // input matches a given resource/account if necessary.
+      // If the variable input was passed in by the user or contains a default,
+      // this will validate that their input matches a given resource/account if necessary.
       const variable_value = await this.promptForVariableFromMetadata(
         variable.name,
         variable.metadata,
-        user_inputs[variable.name],
+        user_inputs[variable.name] || variable.metadata.value?.toString(),
       );
 
       variable_inputs[variable.name] = variable_value;

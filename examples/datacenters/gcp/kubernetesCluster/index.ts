@@ -78,16 +78,16 @@ users:
   )
 );
 
-const kubernetesProvider = new kubernetes.Provider('provider', {
-  kubeconfig: intermediateKubeconfig,
-});
+const kubernetesProvider = new kubernetes.Provider('provider' + Date.now(), {
+  kubeconfig: config.get('kubeconfig') || intermediateKubeconfig,
+}); // , { replaceOnChanges: ['*']} TODO: remove?
 
 const serviceAccount = new kubernetes.core.v1.ServiceAccount(clusterName, {
   metadata: {
-    name: clusterName
+    name: cluster.name
   }
 }, {
-  provider: kubernetesProvider
+  provider: kubernetesProvider,
 });
 
 const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding(clusterName, {
@@ -102,19 +102,19 @@ const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding(clusterName
     kind: 'ServiceAccount'
   }]
 }, {
-  provider: kubernetesProvider
+  provider: kubernetesProvider,
 });
 
 const serviceAccountSecret = new kubernetes.core.v1.Secret(clusterName, {
   metadata: {
-    name: clusterName,
+    name: cluster.name,
     annotations: {
-      'kubernetes.io/service-account.name': clusterName
+      'kubernetes.io/service-account.name': cluster.name
     }
   },
   type: 'kubernetes.io/service-account-token'
 }, {
-  provider: kubernetesProvider
+  provider: kubernetesProvider,
 });
 
 export const id = cluster.id;
@@ -122,7 +122,6 @@ export const name = cluster.name;
 export const vpc = cluster.network;
 export const kubernetesVersion = cluster.masterVersion;
 export const description = cluster.description;
-
 export const kubeconfig = cluster.name.apply(clusterName => 
   cluster.endpoint.apply(clusterEndpoint => 
     cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate => 
@@ -151,20 +150,3 @@ users:
     )
   )
 );
-
-// TODO: remove
-// kubectl create -n default serviceaccount test-service-account --kubeconfig test-kubeconfig.yml
-// kubectl create -n default clusterrolebinding test-service-account-binding --clusterrole=cluster-admin --serviceaccount=default:test-service-account --kubeconfig test-kubeconfig.yml
-/*
-kubectl apply --kubeconfig test-kubeconfig.yml -f - <<EOF
-apiVersion: v1
-kind: Secret
-metadata:
-  name: test-service-account-secret
-  annotations:
-    kubernetes.io/service-account.name: test-service-account
-type: kubernetes.io/service-account-token
-EOF
-*/
-// kubectl get secret/test-service-account-secret --template={{.data.token}} -n default --kubeconfig test-kubeconfig.yml | base64 -d
-// USE THE USER TOKEN ABOVE IN THE KUBE CONFIG

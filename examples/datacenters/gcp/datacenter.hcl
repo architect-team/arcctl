@@ -13,9 +13,13 @@ description = "GCP region in which to create resources"
   type = "string"
 }
 
+variable "dns_zone" {
+  description = "DNS zone to use for ingress rules"
+  type = "string"
+}
+
 module "network" {
   build = "./vpc"
-  source = "./vpc"
   plugin = "pulumi"
   inputs = {
     name = datacenter.name
@@ -28,7 +32,6 @@ module "network" {
 
 module "kubernetesCluster" {
   build = "./kubernetesCluster"
-  source = "./kubernetesCluster"
   plugin = "pulumi"
   inputs = {
     name = datacenter.name
@@ -45,7 +48,6 @@ module "kubernetesCluster" {
 environment {
   module "namespace" {
     build = "./kubernetesNamespace"
-    source = "./kubernetesNamespace"
     plugin = "pulumi"
     inputs = {
       name = environment.name
@@ -53,45 +55,172 @@ environment {
     }
   }
 
-  module "deployment" {
-    build = "./kubernetesDeployment"
-    source = "./kubernetesDeployment"
-    plugin = "pulumi"
+  module "databaseCluster" {
+    when = contains(environment.nodes.*.type, "database") && contains(environment.nodes.*.inputs.databaseType, "postgres")
+    build = "./databaseCluster"
     inputs = {
-      name = environment.name
-      namespace = module.namespace.name
-      image = "ryancahill444/hello-world"
-      port = 3000
-      replicas = 1
+      name = "${datacenter.name}-database"
+      databaseType = "pg"
+      databaseVersion = "POSTGRES_14"
+      region = variable.gcp_region
+      vpcId = module.network.id
 
-      kubeconfig = module.kubernetesCluster.kubeconfig
+      "gcp:region" = var.gcp_region
+      "gcp:project" = var.gcp_project
+      "gcp:credentials" = "file:${var.gcp_credentials_file}"
     }
   }
 
-  module "service" {
-    build = "./kubernetesService"
-    source = "./kubernetesService"
-    plugin = "pulumi"
+  module "nginxController" {
+    when = contains(environment.nodes.*.type, "ingress")
+    build = "./helm-chart"
     inputs = {
-      name = environment.name
-      namespace = module.namespace.name
-      port = 3000
-      protocol = "TCP"
-
       kubeconfig = module.kubernetesCluster.kubeconfig
+      chart = "ingress-nginx"
+      repo = "https://kubernetes.github.io/ingress-nginx"
+      values = {
+        controller = {
+          ingressClass = "nginx"
+          publishService = {
+            enabled = true
+          }
+        }
+      }
     }
   }
 
-  module "ingress" {
-    build = "./kubernetesIngress"
-    source = "./kubernetesIngress"
-    plugin = "pulumi"
-    inputs = {
-      name = environment.name
-      namespace = module.namespace.name
-      port = 3000
+  secret {
+    module "secret" {
+      build = "./secret"
+      inputs = merge(node.inputs, {
+        name = "${node.component}--${node.name}"
+        namespace = module.namespace.id
+        kubeconfig = module.kubernetesCluster.kubeconfig
+      })
+    }
 
-      kubeconfig = module.kubernetesCluster.kubeconfig
+    outputs = {
+      data = module.secret.data
+    }
+  }
+
+  database {
+    when = node.inputs.databaseType == "postgres"
+
+    module "database" {
+      build = "./database"
+      inputs = {
+        cluster_id = module.databaseCluster.id
+        name = node.inputs.name
+
+        "gcp:region" = var.gcp_region
+        "gcp:project" = var.gcp_project
+        "gcp:credentials" = "file:${var.gcp_credentials_file}"
+      }
+    }
+
+    outputs = {
+      host = module.databaseCluster.private_host
+      port = module.databaseCluster.port
+      protocol = "postgresql"
+      username = module.databaseCluster.username
+      password = module.databaseCluster.password
+      url = "postgresql://${module.databaseCluster.username}:${module.databaseCluster.password}@${module.databaseCluster.private_host}:${module.databaseCluster.port}/${module.database.name}"
+      database = module.database.name
+    }
+  }
+
+  databaseUser {
+    module "databaseUser" {
+      build = "./databaseUser"
+      inputs = {
+        cluster_id = module.databaseCluster.id
+        name = node.inputs.name
+
+        "gcp:region" = var.gcp_region
+        "gcp:project" = var.gcp_project
+        "gcp:credentials" = "file:${var.gcp_credentials_file}"
+      }
+    }
+
+    outputs = {
+      host = node.inputs.host
+      port = node.inputs.port
+      protocol = node.inputs.protocol
+      username = module.databaseUser.username
+      password = module.databaseUser.password
+      url = "${node.inputs.protocol}://${module.databaseUser.username}:${module.databaseUser.password}@${node.inputs.host}:${node.inputs.port}/${node.inputs.database}"
+      database = node.inputs.database
+    }
+  }
+
+  ingress {
+    module "ingress" {
+      build = "./kubernetesIngress"
+      plugin = "pulumi"
+      inputs = merge(node.inputs, {
+        name = "${node.component}--${node.name}"
+        namespace = module.namespace.id
+        kubeconfig = module.kubernetesCluster.kubeconfig
+        dns_zone = variable.dns_zone
+        ingress_class_name = module.nginxController.ingress_class_name
+      })
+    }
+
+    module "dnsRecord" {
+      build = "./dns-record"
+      inputs = {
+        domain = variable.dns_zone
+        type = "A"
+        value = module.ingress.load_balancer_ip
+        subdomain = node.inputs.subdomain
+
+        "gcp:region" = var.gcp_region
+        "gcp:project" = var.gcp_project
+        "gcp:credentials" = "file:${var.gcp_credentials_file}"
+      }
+    }
+
+    outputs = {
+      protocol = module.ingressRule.protocol
+      host = module.ingressRule.host
+      port = module.ingressRule.port
+      username = module.ingressRule.username
+      password = module.ingressRule.password
+      url = module.ingressRule.url
+      path = module.ingressRule.path
+      subdomain = node.inputs.subdomain
+      dns_zone = node.inputs.dns_zone
+    }
+  }
+
+  deployment {
+    module "deployment" {
+      build = "./kubernetesDeployment"
+      plugin = "pulumi"
+      inputs = merge(node.inputs, {
+        namespace = module.namespace.id
+        kubeconfig = module.kubernetesCluster.kubeconfig
+      })
+    }
+  }
+
+  service {
+    module "service" {
+      build = "./kubernetesService"
+      plugin = "pulumi"
+      inputs = merge(node.inputs, {
+        name = "${node.component}--${node.name}"
+        namespace = module.namespace.id
+        kubeconfig = module.kubernetesCluster.kubeconfig
+      })
+    }
+
+    outputs = {
+      protocol = node.inputs.protocol || "http"
+      host = module.service.host
+      port = module.service.port
+      url = "${nodes.inputs.protocol}://${module.service.host}:${module.service.port}"
     }
   }
 }

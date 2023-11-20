@@ -1,3 +1,3 @@
 name: database
-runtime: java
-description: A minimal Java Pulumi program with Maven builds
+runtime: nodejs
+description: A minimal Google Cloud TypeScript Pulumi program

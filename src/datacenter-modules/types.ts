@@ -1,9 +1,14 @@
 import { Logger } from 'winston';
 
-export type Plugin = 'pulumi' | 'opentofu';
+export const PluginArray = ['pulumi', 'opentofu'] as const;
+export type Plugin = typeof PluginArray[number];
+export function isPlugin(x: unknown): x is Plugin {
+  return PluginArray.includes(x as any);
+}
 
 export type BuildRequest = {
   directory: string;
+  platform?: string;
 };
 
 export type BuildOptions = {

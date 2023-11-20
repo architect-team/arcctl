@@ -8,6 +8,7 @@
         "components": {
           "additionalProperties": {
             "additionalProperties": false,
+            "description": "The name of the component that will be used to fulfill dependencies from",
             "properties": {
               "deployments": {
                 "additionalProperties": {
@@ -58,13 +59,14 @@
                       "type": "object"
                     },
                     "replicas": {
+                      "default": 1,
                       "description": "Number of replicas of the deployment to maintain",
                       "type": "number"
                     }
                   },
                   "type": "object"
                 },
-                "description": "Configuration for each service in the component",
+                "description": "Configuration for each deployment in the component",
                 "type": "object"
               },
               "ingresses": {
@@ -88,12 +90,15 @@
                       "description": "Custom TLS configuration for the ingress rule",
                       "properties": {
                         "ca": {
+                          "description": "The certificate authority",
                           "type": "string"
                         },
                         "crt": {
+                          "description": "The certificate file contents",
                           "type": "string"
                         },
                         "key": {
+                          "description": "The key file contents",
                           "type": "string"
                         }
                       },
@@ -106,6 +111,7 @@
                   },
                   "type": "object"
                 },
+                "description": "Configuration for each ingress in the component",
                 "type": "object"
               },
               "services": {
@@ -119,10 +125,15 @@
                     "port": {
                       "description": "Existing port that should act as the interface port instead of registering a new one",
                       "type": "number"
+                    },
+                    "url": {
+                      "description": "Existing URL to point the service to instead of",
+                      "type": "string"
                     }
                   },
                   "type": "object"
                 },
+                "description": "Configuration for each service in the component",
                 "type": "object"
               },
               "source": {

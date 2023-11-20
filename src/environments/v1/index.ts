@@ -16,6 +16,9 @@ export default class EnvironmentV1 extends Environment {
    * Configuration settings for the components that may be deployed inside this environment
    */
   components?: {
+    /**
+     * The name of the component that will be used to fulfill dependencies from
+     */
     [key: string]: {
       /**
        * The source of the component to deploy. Can either be a docker registry repository or a reference to the local filesystem prefixed with `file:`
@@ -30,7 +33,7 @@ export default class EnvironmentV1 extends Environment {
       };
 
       /**
-       * Configuration for each service in the component
+       * Configuration for each deployment in the component
        */
       deployments?: {
         [key: string]: {
@@ -48,6 +51,7 @@ export default class EnvironmentV1 extends Environment {
 
           /**
            * Number of replicas of the deployment to maintain
+           * @default 1
            */
           replicas?: number;
 
@@ -70,8 +74,16 @@ export default class EnvironmentV1 extends Environment {
         };
       };
 
+      /**
+       * Configuration for each service in the component
+       */
       services?: {
         [key: string]: {
+          /**
+           * Existing URL to point the service to instead of
+           */
+          url?: string;
+
           /**
            * Existing hostname that should act as the interface host instead of creating a new one
            */
@@ -84,6 +96,9 @@ export default class EnvironmentV1 extends Environment {
         };
       };
 
+      /**
+       * Configuration for each ingress in the component
+       */
       ingresses?: {
         [key: string]: {
           /**
@@ -105,8 +120,19 @@ export default class EnvironmentV1 extends Environment {
            * Custom TLS configuration for the ingress rule
            */
           tls?: {
+            /**
+             * The certificate file contents
+             */
             crt: string;
+
+            /**
+             * The key file contents
+             */
             key: string;
+
+            /**
+             * The certificate authority
+             */
             ca?: string;
           };
         };

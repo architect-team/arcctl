@@ -4,4 +4,4 @@ FROM pulumi/pulumi-nodejs
 ENV PULUMI_K8S_DELETE_UNREACHABLE=true
 
 COPY . .
-RUN npm ci
+RUN npm install

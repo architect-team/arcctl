@@ -18,7 +18,7 @@ variable "dns_zone" {
   type = "string"
 }
 
-module "network" {
+module "vpc" {
   build = "./vpc"
   plugin = "pulumi"
   inputs = {
@@ -41,7 +41,7 @@ module "kubernetesCluster" {
     "gcp:credentials" = "file:${var.gcp_credentials_file}"
 
     "kubernetes:nodePools": "[{\"count\":2,\"name\":\"test-pool\",\"nodeSize\":\"e2-medium\"}]"
-    "kubernetes:vpc" = module.network.name
+    "kubernetes:vpc" = module.vpc.name
   }
 }
 
@@ -63,7 +63,7 @@ environment {
       databaseType = "pg"
       databaseVersion = "POSTGRES_14"
       region = variable.gcp_region
-      vpcId = module.network.id
+      vpcId = module.vpc.id
 
       "gcp:region" = var.gcp_region
       "gcp:project" = var.gcp_project
@@ -217,10 +217,12 @@ environment {
     }
 
     outputs = {
+      name = module.service.host
       protocol = node.inputs.protocol || "http"
       host = module.service.host
       port = module.service.port
-      url = "${nodes.inputs.protocol}://${module.service.host}:${module.service.port}"
+      target_port = module.service.target_port
+      url = "${node.inputs.protocol || "http"}://${module.service.host}:${module.service.port}"
     }
   }
 }

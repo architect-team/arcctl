@@ -11,7 +11,7 @@ const servicePort = parseInt(config.require('port'));
 const service = new kubernetes.core.v1.Service(appName, {
   metadata: {
     name: `service-${appName}`.replace(/\//g, '-'),
-    namespace: config.get('namespace'), 
+    namespace: config.get('namespace'),
     annotations: {
       'pulumi.com/skipAwait': 'true'
     }
@@ -22,7 +22,6 @@ const service = new kubernetes.core.v1.Service(appName, {
     },
     ports: [{
       port: servicePort,
-      protocol: 'TCP', // TODO: un-hardcode
       targetPort: servicePort
     }]
   }
@@ -34,4 +33,4 @@ export const id = service.id;
 export const protocol = config.get('protocol') ?? 'http';
 export const host = appName;
 export const port = servicePort;
-export const url = `${protocol}://${host}${port}`; // TODO: update for exposed service
+export const target_port = servicePort;

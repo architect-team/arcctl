@@ -10,10 +10,17 @@
           "properties": {
             "max_replicas": {
               "description": "Maximum number of replicas of the deployment to run",
+              "examples": [
+                1
+              ],
+              "minimum": 1,
               "type": "number"
             },
             "min_replicas": {
               "description": "Minimum number of replicas of the deployment to run",
+              "examples": [
+                1
+              ],
               "minimum": 0,
               "type": "number"
             }
@@ -91,30 +98,51 @@
             "properties": {
               "dns_zone": {
                 "description": "The DNS zone the ingress rule listens on",
+                "examples": [
+                  "example.com"
+                ],
                 "type": "string"
               },
               "host": {
                 "description": "The hostname the ingress is listening on",
+                "examples": [
+                  "my-service.example.com"
+                ],
                 "type": "string"
               },
               "path": {
                 "description": "The path the ingress is listening on",
+                "examples": [
+                  "/api"
+                ],
                 "type": "string"
               },
               "port": {
                 "description": "The port the ingress is listening on",
+                "examples": [
+                  80
+                ],
                 "type": "string"
               },
               "protocol": {
                 "description": "The protocol the ingress is listening on",
+                "examples": [
+                  "http"
+                ],
                 "type": "string"
               },
               "service": {
                 "description": "The name of the service this ingress points to",
+                "examples": [
+                  "my-service"
+                ],
                 "type": "string"
               },
               "subdomain": {
                 "description": "The subdomain the ingress rule listens on",
+                "examples": [
+                  "my-service"
+                ],
                 "type": "string"
               }
             },
@@ -148,6 +176,9 @@
         },
         "platform": {
           "description": "Target platform the deployment will run on",
+          "examples": [
+            "linux/amd64"
+          ],
           "type": "string"
         },
         "probes": {
@@ -171,22 +202,37 @@
             "properties": {
               "host": {
                 "description": "The hostname the service is listening on",
+                "examples": [
+                  "my-service"
+                ],
                 "type": "string"
               },
               "name": {
                 "description": "The name of the service",
+                "examples": [
+                  "my-service"
+                ],
                 "type": "string"
               },
               "port": {
                 "description": "The port the service deployment is listening on",
+                "examples": [
+                  8080
+                ],
                 "type": "string"
               },
               "protocol": {
                 "description": "The protocol the service is listening on",
+                "examples": [
+                  "http"
+                ],
                 "type": "string"
               },
               "target_port": {
                 "description": "The port the service forwards traffic to",
+                "examples": [
+                  8080
+                ],
                 "type": "string"
               }
             },

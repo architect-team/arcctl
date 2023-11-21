@@ -1,6 +1,8 @@
 export type DatabaseUserApplyInputs = {
   /**
    * Name of the new user to create
+   *
+   * @example "my-db"
    */
   name: string;
 

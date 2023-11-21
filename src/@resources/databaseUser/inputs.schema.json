@@ -15,6 +15,9 @@
         },
         "name": {
           "description": "Name of the new user to create",
+          "examples": [
+            "my-db"
+          ],
           "type": "string"
         },
         "password": {

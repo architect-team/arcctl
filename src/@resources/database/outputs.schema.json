@@ -11,18 +11,30 @@
         },
         "database": {
           "description": "Name of the new database schema",
+          "examples": [
+            "my-schema"
+          ],
           "type": "string"
         },
         "host": {
           "description": "Host address of the underlying database",
+          "examples": [
+            "my-database.example.com"
+          ],
           "type": "string"
         },
         "password": {
           "description": "Passowrd used to authenticate with the schema",
+          "examples": [
+            "pass"
+          ],
           "type": "string"
         },
         "port": {
           "description": "Port the underlying database listens on",
+          "examples": [
+            5432
+          ],
           "type": [
             "string",
             "number"
@@ -30,14 +42,23 @@
         },
         "protocol": {
           "description": "Protocol of the underlying database",
+          "examples": [
+            "postgresql"
+          ],
           "type": "string"
         },
         "url": {
           "description": "Full connection string for the database",
+          "examples": [
+            "postgresql://user:pass@my-database.example.com:5432/my-schema"
+          ],
           "type": "string"
         },
         "username": {
           "description": "Username used to authenticate with the schema",
+          "examples": [
+            "user"
+          ],
           "type": "string"
         }
       },

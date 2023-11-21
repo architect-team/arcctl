@@ -143,6 +143,8 @@ export type DeploymentInputs = {
 
   /**
    * Target platform the deployment will run on
+   *
+   * @example "linux/amd64"
    */
   platform?: string;
 
@@ -153,11 +155,14 @@ export type DeploymentInputs = {
     /**
      * Minimum number of replicas of the deployment to run
      * @minimum 0
+     * @example 1
      */
     min_replicas: number;
 
     /**
      * Maximum number of replicas of the deployment to run
+     * @minimum 1
+     * @example 1
      */
     max_replicas: number;
   };
@@ -168,26 +173,31 @@ export type DeploymentInputs = {
   services?: Array<{
     /**
      * The name of the service
+     * @example "my-service"
      */
     name: string;
 
     /**
      * The hostname the service is listening on
+     * @example "my-service"
      */
     host: string;
 
     /**
      * The port the service deployment is listening on
+     * @example 8080
      */
     port: string;
 
     /**
      * The port the service forwards traffic to
+     * @example 8080
      */
     target_port: string;
 
     /**
      * The protocol the service is listening on
+     * @example "http"
      */
     protocol: string;
   }>;
@@ -198,36 +208,43 @@ export type DeploymentInputs = {
   ingresses?: Array<{
     /**
      * The name of the service this ingress points to
+     * @example "my-service"
      */
     service: string;
 
     /**
      * The hostname the ingress is listening on
+     * @example "my-service.example.com"
      */
     host: string;
 
     /**
      * The port the ingress is listening on
+     * @example 80
      */
     port: string;
 
     /**
      * The protocol the ingress is listening on
+     * @example "http"
      */
     protocol: string;
 
     /**
      * The path the ingress is listening on
+     * @example "/api"
      */
     path: string;
 
     /**
      * The subdomain the ingress rule listens on
+     * @example "my-service"
      */
     subdomain: string;
 
     /**
      * The DNS zone the ingress rule listens on
+     * @example "example.com"
      */
     dns_zone: string;
   }>;

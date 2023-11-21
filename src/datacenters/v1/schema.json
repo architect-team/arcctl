@@ -1,8 +1,8 @@
 {
-  "$ref": "#/definitions/DatacenterSchema",
+  "$ref": "#/definitions/DatacenterV1",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "DatacenterSchema": {
+    "DatacenterV1": {
       "additionalProperties": false,
       "properties": {
         "environment": {
@@ -1247,17 +1247,9 @@
           },
           "description": "Variables necessary for the datacenter to run",
           "type": "object"
-        },
-        "version": {
-          "const": "v1",
-          "type": "string"
         }
       },
-      "required": [
-        "version"
-      ],
       "type": "object"
     }
-  },
-  "$id": "https://architect.io/.schemas/datacenter.json"
+  }
 }

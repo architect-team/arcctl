@@ -10,6 +10,7 @@ import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 type DeployOptions = {
   environment?: string[];
   ingress?: string[];
+  variables?: string[];
   verbose: boolean;
   debug: boolean;
   autoApprove: boolean;
@@ -28,6 +29,7 @@ const DeployCommand = BaseCommand()
   })
   .option('-d, --debug [debug:boolean]', 'Use the components debug configuration', { default: false })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
+  .option('--var, --variable <variables:string>', 'Variables to pass to the component', { collect: true })
   .option('-r, --refresh [refresh:boolean]', 'Force update all resources', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .action(deploy_action);
@@ -73,10 +75,17 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         ingressRules[key] = value;
       }
 
+      const variables: Record<string, string> = {};
+      for (const v of options.variables || []) {
+        const [key, value] = v.split(':');
+        variables[key] = value;
+      }
+
       environment.addComponent({
         image: imageRepository,
         ingresses: ingressRules,
         path: componentPath,
+        variables,
       });
 
       const targetGraph = datacenterRecord.config.getGraph(

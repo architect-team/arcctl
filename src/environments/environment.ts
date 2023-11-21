@@ -6,6 +6,7 @@ export type ComponentMetadata = {
   image: ImageRepository;
   path?: string;
   ingresses?: Record<string, string>;
+  variables?: Record<string, string>;
 };
 
 export abstract class Environment {

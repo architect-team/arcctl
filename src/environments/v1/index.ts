@@ -436,6 +436,11 @@ export default class EnvironmentV1 extends Environment {
         subdomain,
       };
     }
+
+    for (const [key, value] of Object.entries(metadata.variables || {})) {
+      this.components[metadata.image.repository].variables = this.components[metadata.image.repository].variables || {};
+      this.components[metadata.image.repository].variables![key] = value;
+    }
   }
 
   public removeComponent(name: string): void {

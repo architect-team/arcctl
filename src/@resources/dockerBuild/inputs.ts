@@ -10,23 +10,6 @@ export type DockerBuildInputs = {
   context: string;
 
   /**
-   * Registry the artifact will be pushed to
-   * @default registry.architect.io
-   */
-  registry?: string;
-
-  /**
-   * The repository to push the artifact to
-   */
-  repository: string;
-
-  /**
-   * Tag to assign to the image
-   * @default latest
-   */
-  tag?: string;
-
-  /**
    * Path to the dockerfile relative to the context
    * @default Dockerfile
    */

@@ -21,6 +21,20 @@ import { parseExpressionRefs } from './expressions.ts';
 export default class ComponentV2 extends Component {
   /**
    * A set of other components that this component depends on
+   *
+   * @example
+   * {
+   *   "payments": "architect/payments-component",
+   *   "auth": {
+   *     "component": "architect/auth-component",
+   *     "variables": {
+   *       "allowed_return_urls": [
+   *         "https://architect.io",
+   *         "${{ ingresses.frontend.url }}"
+   *       ]
+   *     }
+   *   }
+   * }
    */
   dependencies?: Record<string, string | DependencySchemaV2>;
 
@@ -286,7 +300,6 @@ export default class ComponentV2 extends Component {
           type: 'dockerBuild',
           component: context.component.name,
           inputs: {
-            repository: context.component.name,
             component_source: context.component.source,
             context: context.component.debug &&
                 build_config.debug &&

@@ -1,3 +1,4 @@
+import * as path from 'std/path/mod.ts';
 import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
 import { Plugin } from '../../datacenter-modules/index.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
@@ -5,6 +6,7 @@ import { GraphEdge } from '../../graphs/edge.ts';
 import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
 import { InfraGraph } from '../../graphs/infra/graph.ts';
 import { applyContext } from '../../hcl-parser/index.ts';
+import { exec } from '../../utils/command.ts';
 import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
 import {
@@ -85,6 +87,15 @@ type ResourceHook<T extends ResourceType = ResourceType> = {
   outputs?: ResourceOutputs[T];
 };
 
+/**
+ * Clones the repository at the given repo URL and returns the tmp dir it was cloned to.
+ */
+async function cloneRepo(repo: string): Promise<string> {
+  const tmpDir = await Deno.makeTempDir({ prefix: 'module' });
+  await exec('git', { args: ['clone', repo, tmpDir] });
+  return tmpDir;
+}
+
 export default class DatacenterV1 extends Datacenter {
   /**
    * Variables necessary for the datacenter to run
@@ -153,8 +164,19 @@ export default class DatacenterV1 extends Datacenter {
     for (const mod of Object.values(this.getModules())) {
       // Modules with only a source are skipped, they point to images that already exist.
       if (mod.build) {
+        let context = mod.build;
+        // If the build field points to a URL, clone the repo and attempt to build from the cloned repo.
+        if (URL.canParse(context)) {
+          const repo_url = new URL(context);
+          // The URL can contain '//' which separates the repo from a specific folder within that should be built.
+          const [repo_path, folder_path] = repo_url.pathname.split('//');
+          repo_url.pathname = repo_path;
+          context = await cloneRepo(repo_url.toString());
+          context = path.join(context, folder_path);
+        }
+
         const digest = await buildFn({
-          context: mod.build,
+          context,
           plugin: mod.plugin || DEFAULT_PLUGIN,
         });
         mod.source = digest;

@@ -78,12 +78,18 @@ export type DeploymentSchemaV2 = {
    */
   autoscaling?: {
     /**
-     * Maximum CPU usage per replica before scaling up
+     * Maximum number of CPUs to allocate to each replica
+     *
+     * @example "0.5"
+     * @example "1"
      */
     cpu?: number | string;
 
     /**
      * Maximum memory usage per replica before scaling up
+     *
+     * @example "200Mi"
+     * @example "2Gi"
      */
     memory?: string;
   };
@@ -94,18 +100,20 @@ export type DeploymentSchemaV2 = {
   volumes?: Record<string, {
     /**
      * Path on the host machine to sync with the volume
+     *
+     * @example "/Users/batman/app/src"
      */
     host_path?: string;
 
     /**
      * Path inside the container to mount the volume to
+     *
+     * @example "/app/src"
      */
     mount_path: string;
 
     /**
      * OCI image containing the contents to seed the volume with
-     *
-     * @hidden
      */
     image?: string;
   }>;

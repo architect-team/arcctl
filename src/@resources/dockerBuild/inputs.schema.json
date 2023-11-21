@@ -26,20 +26,6 @@
           "description": "Path to the dockerfile relative to the context",
           "type": "string"
         },
-        "registry": {
-          "default": "registry.architect.io",
-          "description": "Registry the artifact will be pushed to",
-          "type": "string"
-        },
-        "repository": {
-          "description": "The repository to push the artifact to",
-          "type": "string"
-        },
-        "tag": {
-          "default": "latest",
-          "description": "Tag to assign to the image",
-          "type": "string"
-        },
         "target": {
           "description": "Name of a intermediate build stage to target",
           "type": "string"
@@ -47,8 +33,7 @@
       },
       "required": [
         "component_source",
-        "context",
-        "repository"
+        "context"
       ],
       "type": "object"
     }

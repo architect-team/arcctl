@@ -47,6 +47,29 @@ await build({
 });
 
 console.log('Finishing building temp package, generating JSON schema...');
+
+for (const version of all_versions) {
+  const { stdout: type_schema_string } = await exec('deno', {
+    args: [
+      'run',
+      '--allow-read',
+      'npm:ts-json-schema-generator',
+      '--path',
+      path.join(build_dir, 'src/datacenters', version, 'index.ts'),
+      '--expose',
+      'none',
+      '--type',
+      'Datacenter' + version.toUpperCase(),
+      '--tsconfig',
+      path.join(__dirname, '../tsconfig.json'),
+      '--no-type-check',
+    ],
+    stdout: 'piped',
+  });
+  const type_schema = JSON.parse(type_schema_string);
+  await Deno.writeTextFile(path.join(datacenters_dir, version, './schema.json'), JSON.stringify(type_schema, null, 2));
+}
+
 const { stdout: type_schema_string, stderr: err } = await exec('deno', {
   args: [
     'run',

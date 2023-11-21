@@ -94,9 +94,9 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
       const dockerImages2 = new Deno.Command('docker', {
         args: ['images', '--no-trunc', '--format', '{{.ID}}', this.image],
       });
-      const { code, stdout } = await dockerImages2.output();
+      const { code, stdout, stderr } = await dockerImages2.output();
       if (code !== 0) {
-        throw new Error(`Could not find image ${this.image}`);
+        throw new Error(new TextDecoder().decode(stderr));
       }
 
       dockerImageId = new TextDecoder().decode(stdout);

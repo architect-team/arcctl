@@ -56,7 +56,6 @@ describe('Component Schema: v1', () => {
       inputs: {
         context: './',
         component_source: 'fake/source',
-        repository: 'account/component',
       },
     });
 
@@ -191,7 +190,6 @@ describe('Component Schema: v1', () => {
       inputs: {
         context: './',
         component_source: 'fake/source',
-        repository: 'account/component',
       },
     });
 

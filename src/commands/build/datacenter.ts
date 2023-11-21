@@ -41,7 +41,10 @@ async function build_action(options: BuildOptions, context_file: string): Promis
   }
 
   datacenter = await datacenter.build(async (build_options) => {
-    const build_dir = path.join(context, build_options.context);
+    // An absolute path is set as build_options.context when building from a git repo.
+    const build_dir = path.isAbsolute(build_options.context)
+      ? build_options.context
+      : path.join(context, build_options.context);
     console.log(`Building module: ${build_dir}`);
     const server = new ModuleServer(build_options.plugin);
     const client = await server.start(build_dir);

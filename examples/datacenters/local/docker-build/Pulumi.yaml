@@ -1,0 +1,3 @@
+name: dockerBuild
+runtime: nodejs
+description: A pulumi program that builds docker containers

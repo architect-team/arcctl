@@ -3,7 +3,16 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "DockerBuildOutputs": {
-      "additionalProperties": {},
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "description": "The resulting image address of the built artifact",
+          "type": "string"
+        }
+      },
+      "required": [
+        "image"
+      ],
       "type": "object"
     }
   }

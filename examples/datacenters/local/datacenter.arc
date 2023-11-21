@@ -176,4 +176,31 @@ environment {
       subdomain = node.inputs.subdomain
     }
   }
+
+  dockerBuild {
+    module "build" {
+      build = "./docker-build"
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      inputs = {
+        image = "${node.component}-${node.name}"
+        context = node.inputs.context
+        dockerfile = node.inputs.dockerfile
+        args = node.inputs.args
+        target = node.inputs.target
+      }
+    }
+
+    outputs = {
+      image = module.build.image
+    }
+  }
 }

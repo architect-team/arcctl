@@ -11,12 +11,14 @@ import SetCommands from './set/index.ts';
 import ShowCommands from './show/index.ts';
 import TagCommand from './tag.ts';
 import TestCommands from './test/index.ts';
+import { UpCommand } from './up.ts';
 
 export default async function arcctl() {
   return BaseCommand()
     .command(ApplyCommands.getName(), ApplyCommands)
     .command(BuildCommands.getName(), BuildCommands)
     .command(DeployCommand.getName(), DeployCommand)
+    .command(UpCommand.getName(), UpCommand)
     .command(RemoveCommand.getName(), RemoveCommand)
     .command(TagCommand.getName(), TagCommand)
     .command(PushCommands.getName(), PushCommands)

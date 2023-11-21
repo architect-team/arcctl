@@ -1,4 +1,4 @@
-import Ajv2019 from 'https://esm.sh/v124/ajv@8.11.0/dist/2019.js';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 import * as ComponentSchemaContents from './component-schema.ts';

@@ -114,7 +114,6 @@ describe('Component Schema: v2', () => {
       type: 'dockerBuild',
       component: 'component',
       inputs: {
-        repository: 'component',
         context: './',
         args: {},
         component_source: 'fake/source',

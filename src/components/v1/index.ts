@@ -133,7 +133,6 @@ export default class ComponentV1 extends Component {
           component: context.component.name,
           inputs: {
             component_source: context.component.source,
-            repository: context.component.name,
             context: context.component.debug &&
                 service_config.debug &&
                 'build' in service_config.debug &&
@@ -385,7 +384,6 @@ export default class ComponentV1 extends Component {
           component: context.component.name,
           inputs: {
             component_source: context.component.source,
-            repository: context.component.name,
             context: context.component.debug &&
                 task_config.debug &&
                 'build' in task_config.debug &&

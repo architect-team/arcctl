@@ -300,7 +300,6 @@ export default class ComponentV2 extends Component {
           type: 'dockerBuild',
           component: context.component.name,
           inputs: {
-            repository: context.component.name,
             component_source: context.component.source,
             context: context.component.debug &&
                 build_config.debug &&

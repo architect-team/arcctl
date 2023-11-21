@@ -148,7 +148,11 @@ export class DatacenterUtils {
 
   public async buildDatacenter(datacenter: Datacenter, context: string, logger?: Logger): Promise<Datacenter> {
     return datacenter.build(async (build_options) => {
-      let module_path = path.join(path.dirname(context), build_options.context);
+      // An absolute path is set as build_options.context when building from a git repo.
+      let module_path = path.isAbsolute(build_options.context)
+        ? build_options.context
+        : path.join(path.dirname(context), build_options.context);
+
       if (!path.isAbsolute(path.dirname(context))) {
         module_path = path.resolve(module_path);
       }

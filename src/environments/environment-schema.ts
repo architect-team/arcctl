@@ -90,10 +90,16 @@ export default {
                     },
                     "path": {
                       "description": "A path that the ingress listens on",
+                      "examples": [
+                        "/api"
+                      ],
                       "type": "string"
                     },
                     "subdomain": {
                       "description": "A subdomain that the ingress listens on",
+                      "examples": [
+                        "api"
+                      ],
                       "type": "string"
                     },
                     "tls": {
@@ -132,6 +138,9 @@ export default {
                   "properties": {
                     "host": {
                       "description": "Existing hostname that should act as the interface host instead of creating a new one",
+                      "examples": [
+                        "example.com"
+                      ],
                       "type": "string"
                     },
                     "port": {
@@ -143,6 +152,9 @@ export default {
                     },
                     "url": {
                       "description": "Existing URL to point the service to instead of",
+                      "examples": [
+                        "https://example.com"
+                      ],
                       "type": "string"
                     }
                   },
@@ -153,6 +165,10 @@ export default {
               },
               "source": {
                 "description": "The source of the component to deploy. Can either be a docker registry repository or a reference to the local filesystem prefixed with `file:`",
+                "examples": [
+                  "architectio/kratos:v1",
+                  "file:/path/to/component"
+                ],
                 "type": "string"
               },
               "variables": {

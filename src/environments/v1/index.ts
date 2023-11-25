@@ -28,8 +28,8 @@ export default class EnvironmentV1 extends Environment {
       /**
        * The source of the component to deploy. Can either be a docker registry repository or a reference to the local filesystem prefixed with `file:`
        *
-       * @example architectio/kratos:v1
-       * @example file:/path/to/component
+       * @example "architectio/kratos:v1"
+       * @example "file:/path/to/component"
        */
       source?: string;
 
@@ -108,14 +108,14 @@ export default class EnvironmentV1 extends Environment {
           /**
            * Existing URL to point the service to instead of
            *
-           * @example https://example.com
+           * @example "https://example.com"
            */
           url?: string;
 
           /**
            * Existing hostname that should act as the interface host instead of creating a new one
            *
-           * @example example.com
+           * @example "example.com"
            */
           host?: string;
 
@@ -139,14 +139,14 @@ export default class EnvironmentV1 extends Environment {
           /**
            * A subdomain that the ingress listens on
            *
-           * @example api
+           * @example "api"
            */
           subdomain?: string;
 
           /**
            * A path that the ingress listens on
            *
-           * @example /api
+           * @example "/api"
            */
           path?: string;
 

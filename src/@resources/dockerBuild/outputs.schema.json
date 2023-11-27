@@ -7,6 +7,9 @@
       "properties": {
         "image": {
           "description": "The resulting image address of the built artifact",
+          "examples": [
+            "registry.architect.io/my-component:latest"
+          ],
           "type": "string"
         }
       },

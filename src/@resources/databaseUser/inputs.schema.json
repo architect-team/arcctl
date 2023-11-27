@@ -7,10 +7,16 @@
       "properties": {
         "database": {
           "description": "Name of the database to give access to",
+          "examples": [
+            "database"
+          ],
           "type": "string"
         },
         "host": {
           "description": "Hostname of the target database",
+          "examples": [
+            "rds.amazonwebservices.com/abc123"
+          ],
           "type": "string"
         },
         "name": {
@@ -22,10 +28,16 @@
         },
         "password": {
           "description": "Password used to access the target database",
+          "examples": [
+            "password"
+          ],
           "type": "string"
         },
         "port": {
           "description": "Port the target database is listening on",
+          "examples": [
+            5432
+          ],
           "type": [
             "string",
             "number"
@@ -33,10 +45,17 @@
         },
         "protocol": {
           "description": "Protocol of the target database",
+          "examples": [
+            "postgresql",
+            "mysql"
+          ],
           "type": "string"
         },
         "username": {
           "description": "Username used to access the target database",
+          "examples": [
+            "admin"
+          ],
           "type": "string"
         }
       },

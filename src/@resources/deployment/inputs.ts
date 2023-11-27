@@ -36,6 +36,9 @@ type CommonProbeSettings = {
 };
 
 type HttpProbe = {
+  /**
+   * Type of probe to perform
+   */
   type: 'http';
 
   /**
@@ -75,63 +78,23 @@ type ExecProbe = {
   command: string[];
 };
 
-export type ProbeSchema = CommonProbeSettings & (ExecProbe | HttpProbe);
-
-type Container = {
-  /**
-   * Image the container runs from
-   */
-  image: string;
-
-  /**
-   * Command to execute in the container
-   */
-  command?: string | string[];
-
-  /**
-   * Entrypoint of the container
-   */
-  entrypoint?: string | string[];
-
-  /**
-   * Environment variables to pass to the container
-   */
-  environment?: Record<string, string | number | boolean | null | undefined>;
-
-  /**
-   * Number of CPUs to allocate to the container
-   * @minimum 0.1
-   */
-  cpu?: number;
-
-  /**
-   * Amount of memory to allocate to the container
-   */
-  memory?: string;
-
-  /**
-   * A set of volumes to mount to the container
-   */
-  volume_mounts?: Array<{
-    volume: string;
-    mount_path: string;
-    image?: string;
-    readonly: boolean;
-  }>;
-
-  probes?: {
-    liveness?: ProbeSchema;
-  };
-};
+type ProbeSchema = CommonProbeSettings & (ExecProbe | HttpProbe);
 
 export type DeploymentInputs = {
   /**
-   * Name to to give to the deployment
+   * Unique name of the deployment used by services to address each replica
+   *
+   * @example "component--auth-api"
    */
   name: string;
 
   /**
    * Labels for the deployment
+   *
+   * @example
+   * {
+   *   "app.kubernetes.io/name": "auth-api",
+   * }
    */
   labels?: Record<string, string>;
 
@@ -248,6 +211,71 @@ export type DeploymentInputs = {
      */
     dns_zone: string;
   }>;
-} & Container;
+
+  /**
+   * Image the container runs from
+   *
+   * @example "registry.architect.io/my-image:latest"
+   */
+  image: string;
+
+  /**
+   * Command to execute in the container
+   *
+   * @example ["node", "index.js"]
+   */
+  command?: string | string[];
+
+  /**
+   * Entrypoint of the container
+   *
+   * @default [""]
+   */
+  entrypoint?: string | string[];
+
+  /**
+   * Environment variables to pass to the container
+   *
+   * @example
+   * {
+   *   "NODE_ENV": "production"
+   * }
+   */
+  environment?: Record<string, string | number | boolean | null | undefined>;
+
+  /**
+   * Number of CPUs to allocate to the container
+   * @minimum 0.1
+   */
+  cpu?: number;
+
+  /**
+   * Amount of memory to allocate to the container
+   *
+   * @example "512Mi"
+   * @example "1Gi"
+   */
+  memory?: string;
+
+  /**
+   * A set of volumes to mount to the container
+   */
+  volume_mounts?: Array<{
+    volume: string;
+    mount_path: string;
+    image?: string;
+    readonly: boolean;
+  }>;
+
+  /**
+   * Probes used to determine if each replica is healthy and/or ready for traffic
+   */
+  probes?: {
+    /**
+     * Probe used to determine if the container is ready to receive traffic
+     */
+    liveness?: ProbeSchema;
+  };
+};
 
 export default DeploymentInputs;

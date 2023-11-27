@@ -1,6 +1,7 @@
 export type SecretInputs = {
   /**
    * Data to populate the secret with
+   * @example "..."
    */
   data: string;
 

@@ -6,30 +6,59 @@
       "additionalProperties": false,
       "properties": {
         "certificate": {
+          "description": "The certificate used to connect to the database",
           "type": "string"
         },
         "database": {
+          "description": "The name of the database to connect to",
+          "examples": [
+            "database"
+          ],
           "type": "string"
         },
         "host": {
+          "description": "The host the database listens on",
+          "examples": [
+            "rds.amazonwebservices.com/abc123"
+          ],
           "type": "string"
         },
         "password": {
+          "description": "Password used to authenticate with the database",
+          "examples": [
+            "password"
+          ],
           "type": "string"
         },
         "port": {
+          "description": "The port the database listens on",
+          "examples": [
+            5432
+          ],
           "type": [
             "number",
             "string"
           ]
         },
         "protocol": {
+          "description": "The protocol the database responds to",
+          "examples": [
+            "postgresql"
+          ],
           "type": "string"
         },
         "url": {
+          "description": "Fully resolvable URL used to connect to the database",
+          "examples": [
+            "postgresql://admin:password@rds.amazonwebservices.com:5432/database"
+          ],
           "type": "string"
         },
         "username": {
+          "description": "Username used to authenticate with the database",
+          "examples": [
+            "admin"
+          ],
           "type": "string"
         }
       },

@@ -7,14 +7,23 @@
       "properties": {
         "host": {
           "description": "Host the service listens on",
+          "examples": [
+            "my-service"
+          ],
           "type": "string"
         },
         "name": {
           "description": "Name of the service",
+          "examples": [
+            "my-service"
+          ],
           "type": "string"
         },
         "port": {
           "description": "Port the service listens on",
+          "examples": [
+            80
+          ],
           "type": [
             "number",
             "string"
@@ -22,10 +31,16 @@
         },
         "protocol": {
           "description": "Protocol the service listens on",
+          "examples": [
+            "http"
+          ],
           "type": "string"
         },
         "target_port": {
           "description": "The port the service forwards traffic to",
+          "examples": [
+            8080
+          ],
           "type": [
             "number",
             "string"
@@ -33,6 +48,9 @@
         },
         "url": {
           "description": "Fully resolvable URL of the service",
+          "examples": [
+            "http://my-service:80"
+          ],
           "type": "string"
         }
       },

@@ -1,17 +1,19 @@
 export type DockerBuildInputs = {
   /**
    * Source of the component that contains the build context
+   * @example "/Users/batman/Projects/awesome-component"
    */
   component_source: string;
 
   /**
    * Docker build context relative to the component root
+   * @example "./frontend"
    */
   context: string;
 
   /**
    * Path to the dockerfile relative to the context
-   * @default Dockerfile
+   * @default "Dockerfile"
    */
   dockerfile?: string;
 
@@ -23,6 +25,7 @@ export type DockerBuildInputs = {
 
   /**
    * Name of a intermediate build stage to target
+   * @example "builder"
    */
   target?: string;
 };

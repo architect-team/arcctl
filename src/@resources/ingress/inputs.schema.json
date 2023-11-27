@@ -10,6 +10,11 @@
             "type": "string"
           },
           "description": "Headers to include in responses",
+          "examples": [
+            {
+              "X-Frame-Options": "DENY"
+            }
+          ],
           "type": "object"
         },
         "internal": {
@@ -19,6 +24,9 @@
         },
         "password": {
           "description": "Basic auth password",
+          "examples": [
+            "password"
+          ],
           "type": "string"
         },
         "path": {
@@ -28,6 +36,9 @@
         },
         "port": {
           "description": "Port that the ingress rule listens for traffic on",
+          "examples": [
+            80
+          ],
           "type": [
             "string",
             "number"
@@ -40,21 +51,34 @@
         },
         "service": {
           "additionalProperties": false,
+          "description": "The configuration details of the target service",
           "properties": {
             "host": {
               "description": "The hostname the service is listening on",
+              "examples": [
+                "my-service"
+              ],
               "type": "string"
             },
             "name": {
               "description": "Name of the service the ingress points to",
+              "examples": [
+                "my-service"
+              ],
               "type": "string"
             },
             "port": {
               "description": "The port the service deployment is listening on",
+              "examples": [
+                80
+              ],
               "type": "string"
             },
             "protocol": {
               "description": "The protocol the service is listening on",
+              "examples": [
+                "http"
+              ],
               "type": "string"
             }
           },
@@ -68,10 +92,16 @@
         },
         "subdomain": {
           "description": "The subdomain the ingress rule listens on",
+          "examples": [
+            "api"
+          ],
           "type": "string"
         },
         "username": {
           "description": "Basic auth username",
+          "examples": [
+            "admin"
+          ],
           "type": "string"
         }
       },

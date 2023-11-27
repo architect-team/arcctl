@@ -22,21 +22,33 @@ const DEFAULT_PLUGIN: Plugin = 'pulumi';
 type Module = {
   /**
    * A condition that restricts when the module should be created. Must resolve to a boolean.
+   *
+   * @example "node.type == 'database' && node.inputs.databaseType == 'postgres'"
+   * @example "contains(environment.nodes.*.inputs.databaseType, 'postgres')"
    */
   when?: string;
 
   /**
    * The image source of the module.
+   *
+   * @example "my-registry.com/my-image:latest"
    */
   source?: string;
 
   /**
    * The path to a module that will be built during the build step.
+   *
+   * @example "./my-module"
    */
   build?: string;
 
   /**
    * The plugin used to build the module. Defaults to pulumi.
+   *
+   * @default "pulumi"
+   * @example "opentofu"
+   *
+   * @enum "pulumi" "opentofu"
    */
   plugin?: Plugin;
 
@@ -46,22 +58,37 @@ type Module = {
   volume?: {
     /**
      * The path on the host machine to mount to the container
+     *
+     * @example "/Users/batman/my-volume"
      */
     host_path: string;
 
     /**
      * The path in the container to mount the volume to
+     *
+     * @example "/app/my-volume"
      */
     mount_path: string;
   }[];
 
   /**
    * Environment variables that should be provided to the container executing the module
+   *
+   * @example
+   * {
+   *   "MY_ENV_VAR": "my-value"
+   * }
    */
   environment?: Record<string, string>;
 
   /**
    * Input values for the module.
+   *
+   * @example
+   * {
+   *   "image": "nginx:latest",
+   *   "port": 8080
+   * }
    */
   inputs: Record<string, unknown> | string;
 };
@@ -73,6 +100,9 @@ type ModuleDictionary = {
 type ResourceHook<T extends ResourceType = ResourceType> = {
   /**
    * A condition that restricts when the hook should be active. Must resolve to a boolean.
+   *
+   * @example "node.type == 'database' && node.inputs.databaseType == 'postgres'"
+   * @example "contains(environment.nodes.*.inputs.databaseType, 'postgres')"
    */
   when?: string;
 
@@ -83,6 +113,15 @@ type ResourceHook<T extends ResourceType = ResourceType> = {
 
   /**
    * A map of output values to be passed to upstream application resources
+   *
+   * @example
+   * {
+   *   "id": "${module.database.id}",
+   *   "host": "${module.database.host}",
+   *   "port": "${module.database.port}",
+   *   "username": "${module.database.username}",
+   *   "password": "${module.database.password}"
+   * }
    */
   outputs?: ResourceOutputs[T];
 };
@@ -104,16 +143,22 @@ export default class DatacenterV1 extends Datacenter {
     [key: string]: {
       /**
        * The type of the variable
+       * @example "string"
+       * @enum "string" "number" "boolean"
        */
       type: 'string' | 'number' | 'boolean';
 
       /**
        * The default value of the variable
+       *
+       * @example "my-value"
        */
       default?: string;
 
       /**
        * A human-readable description of the variable
+       *
+       * @example "An example description"
        */
       description?: string;
     }[];

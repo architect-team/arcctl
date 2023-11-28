@@ -40,7 +40,7 @@ module "kubernetesCluster" {
     "gcp:project" = var.gcp_project
     "gcp:credentials" = "file:${var.gcp_credentials_file}"
 
-    "kubernetes:nodePools": "[{\"count\":2,\"name\":\"test-pool\",\"nodeSize\":\"e2-medium\"}]"
+    "kubernetes:nodePools": "[{\"count\":1,\"name\":\"test-pool\",\"nodeSize\":\"e2-small\"}]"
     "kubernetes:vpc" = module.vpc.name
   }
 }
@@ -78,6 +78,7 @@ environment {
       kubeconfig = module.kubernetesCluster.kubeconfig
       chart = "ingress-nginx"
       repo = "https://kubernetes.github.io/ingress-nginx"
+      namespace = "kube-system"
       values = {
         controller = {
           ingressClass = "nginx"
@@ -155,7 +156,7 @@ environment {
   }
 
   ingress {
-    module "ingress" {
+    module "ingressRule" {
       build = "./kubernetesIngress"
       plugin = "pulumi"
       inputs = merge(node.inputs, {
@@ -163,16 +164,16 @@ environment {
         namespace = module.namespace.id
         kubeconfig = module.kubernetesCluster.kubeconfig
         dns_zone = variable.dns_zone
-        ingress_class_name = module.nginxController.ingress_class_name
+        ingress_class_name = "nginx"
       })
     }
 
     module "dnsRecord" {
-      build = "./dns-record"
+      build = "./dnsRecord"
       inputs = {
         domain = variable.dns_zone
         type = "A"
-        value = module.ingress.load_balancer_ip
+        value = module.ingressRule.load_balancer_ip
         subdomain = node.inputs.subdomain
 
         "gcp:region" = var.gcp_region

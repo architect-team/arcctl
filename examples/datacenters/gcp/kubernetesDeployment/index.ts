@@ -6,35 +6,55 @@ const config = new pulumi.Config('kubernetesDeployment');
 const kubernetesProvider = new kubernetes.Provider('provider', {
   kubeconfig: config.require('kubeconfig'),
 });
-const appName = config.require('name');
+
+const name = config.require('name').replace(/\//g, '-');
+const cpu = config.getNumber('cpu');
+const memory = config.get('memory');
+
+const matchLabels = {
+  'architect.io/app': name,
+};
+let _labels = (config.getObject('labels') || {}) as Record<string, string>;
+_labels = {
+  ..._labels,
+  ...matchLabels,
+}
+
+
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
-    labels: {
-      app: appName.replace(/\//g, '-'),
-    },
-    name: `${appName}-deployment`,
+    name,
     namespace: config.get('namespace'),
+    labels: _labels
   },
   spec: {
     replicas: config.get('replicas') ? parseInt(config.require('replicas')) : 1,
     selector: {
-      matchLabels: {
-        app: appName.replace(/\//g, '-'),
-      },
+      matchLabels: matchLabels,
     },
     template: {
       metadata: {
-        labels: {
-          app: appName.replace(/\//g, '-'),
-        },
+        namespace: config.require('namespace'),
+        labels: matchLabels
       },
       spec: {
         containers: [{
+          name: 'main',
           image: config.require('image'),
-          name: appName.replace(/\//g, '-'),
-          ports: [{
-            containerPort: parseInt(config.require('port')),
-          }],
+          command: config.getObject('command') || [],
+          env: Object
+            .entries(config.getObject('environment') || {})
+            .map(([name, value]) => ({ name, value }) as { name: string; value: string; }),
+          resources: {
+            requests: {
+              ...(cpu ? { cpu: String(cpu) } : {}),
+              ...(memory ? { memory } : {}),
+            },
+            limits: {
+              ...(cpu ? { cpu: String(cpu) } : {}),
+              ...(memory ? { memory } : {}),
+            },
+          },
         }],
       },
     },
@@ -43,4 +63,4 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   provider: kubernetesProvider
 });
 
-export const id = deployment.id;
+export const id = deployment.id.apply(id => id.toString());

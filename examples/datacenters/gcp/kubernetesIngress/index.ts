@@ -31,12 +31,6 @@ const ingress = new kubernetes.networking.v1.Ingress('ingress', {
   },
   spec: {
     ingressClassName: config.get('ingress_class_name'),
-    tls: [
-      {
-        hosts: [_host],
-        secretName: config.require('name').replace(/\//g, '-') + '--ingress',
-      }
-    ],
     rules: [
       {
         host: _host,

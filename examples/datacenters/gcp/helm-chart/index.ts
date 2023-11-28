@@ -15,6 +15,7 @@ if (repo) {
 
 new kubernetes.helm.v3.Chart('chart', {
   chart: config.require('chart'),
+  namespace: config.get('namespace') || 'default',
   version: config.get('version'),
   fetchOpts,
   values: config.getObject('values'),

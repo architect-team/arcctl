@@ -1,5 +1,5 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
+import * as pulumi from "@pulumi/pulumi";
 
 const config = new pulumi.Config();
 const gcpConfig = new pulumi.Config('gcp');
@@ -41,6 +41,7 @@ const _networkingConnection = new gcp.servicenetworking.Connection('vpc-networki
 
 const gcp_region = gcpConfig.require('region');
 
+// I believe this is needed for Database connections
 const vpcConnectorSubnet = new gcp.compute.Subnetwork('vpc-subnet', {
   name: `${vpcName}-subnet`,
   ipCidrRange: '10.8.0.0/28',
@@ -48,23 +49,24 @@ const vpcConnectorSubnet = new gcp.compute.Subnetwork('vpc-subnet', {
   network: vpcNetwork.id,
 });
 
-const _vpcAccessProjectService = new gcp.projects.Service('vpc-access-service', {
-  service: 'vpcaccess.googleapis.com',
-  disableOnDestroy: false,
-});
+// NOTE: These are for serverless
+// const _vpcAccessProjectService = new gcp.projects.Service('vpc-access-service', {
+//   service: 'vpcaccess.googleapis.com',
+//   disableOnDestroy: false,
+// });
 
-const _vpcAccessConnector = new gcp.vpcaccess.Connector(`vpc-access-connector`, { 
-  name: `${vpcName.substring(0, 15)}-connector`, // 25 char max
-  machineType: 'e2-micro',
-  region: gcp_region,
-  minInstances: 2,
-  maxInstances: 3,
-  subnet: {
-    name: vpcConnectorSubnet.name,
-  },
-}, {
-  dependsOn: [_vpcAccessProjectService],
-});
+// const _vpcAccessConnector = new gcp.vpcaccess.Connector(`vpc-access-connector`, {
+//   name: `${vpcName.substring(0, 15)}-connector`, // 25 char max
+//   machineType: 'e2-micro',
+//   region: gcp_region,
+//   minInstances: 2,
+//   maxInstances: 3,
+//   subnet: {
+//     name: vpcConnectorSubnet.name,
+//   },
+// }, {
+//   dependsOn: [_vpcAccessProjectService],
+// });
 
 export const id = vpcNetwork.id;
 export const name = vpcNetwork.name;

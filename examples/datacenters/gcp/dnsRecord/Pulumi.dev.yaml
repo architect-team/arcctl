@@ -1,10 +1,1 @@
-encryptionsalt: v1:IQcoSzsZvn8=:v1:Ls85shQsGUWA40Sh:osuW8gZlg2Uz6fvMcsvfJqGOIHjwcQ==
-config:
-  dnsRecord:content: 8.8.8.8
-  dnsRecord:dnsZone: test-dns-zone
-  dnsRecord:name: test
-  dnsRecord:recordType: A
-  dnsRecord:subdomain: test
-  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
-  gcp:project: permanent-environment-testing
-  gcp:region: us-central1
+encryptionsalt: v1:JTusBYbYcKY=:v1:jCsjg7E61jUOF1Ji:Wo/ViDr7IDqMb9V6GDqEgxB87plb4g==

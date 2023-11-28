@@ -30,6 +30,7 @@ const cluster = new gcp.container.Cluster(clusterName, {
   ipAllocationPolicy: {
     stackType: 'IPV4'
   },
+  minMasterVersion: 'latest',
   network: config.require('vpc'),
   removeDefaultNodePool: true
 }, {
@@ -40,7 +41,7 @@ const nodePools = [];
 for (const nodePool of JSON.parse(config.require('nodePools'))) {
   nodePools.push(new gcp.container.NodePool(nodePool.name, {
     cluster: cluster.name,
-    name: nodePool.name, 
+    name: nodePool.name,
     location: gcpConfig.require('region'),
     initialNodeCount: nodePool.count,
     nodeConfig: {
@@ -51,9 +52,9 @@ for (const nodePool of JSON.parse(config.require('nodePools'))) {
 }
 
 const clientConfig = await gcp.organizations.getClientConfig({});
-const intermediateKubeconfig = cluster.name.apply(clusterName => 
-  cluster.endpoint.apply(clusterEndpoint => 
-    cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate => 
+const intermediateKubeconfig = cluster.name.apply(clusterName =>
+  cluster.endpoint.apply(clusterEndpoint =>
+    cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate =>
       `
 apiVersion: v1
 clusters:
@@ -95,7 +96,7 @@ const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding(clusterName
     apiGroup: 'rbac.authorization.k8s.io',
     kind: 'ClusterRole',
     name: 'cluster-admin'
-  }, 
+  },
   subjects: [{
     name: serviceAccount.metadata.name,
     namespace: 'default',
@@ -122,9 +123,9 @@ export const name = cluster.name;
 export const vpc = cluster.network;
 export const kubernetesVersion = cluster.masterVersion;
 export const description = cluster.description;
-export const kubeconfig = cluster.name.apply(clusterName => 
-  cluster.endpoint.apply(clusterEndpoint => 
-    cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate => 
+export const kubeconfig = cluster.name.apply(clusterName =>
+  cluster.endpoint.apply(clusterEndpoint =>
+    cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate =>
       serviceAccountSecret.data.apply(serviceAccountToken =>
       `
 apiVersion: v1

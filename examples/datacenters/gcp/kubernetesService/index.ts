@@ -6,11 +6,11 @@ const config = new pulumi.Config('kubernetesService');
 const kubernetesProvider = new kubernetes.Provider('provider', {
   kubeconfig: config.require('kubeconfig'),
 });
-const appName = config.require('name');
+const name = config.require('name').replace(/\//g, '-');
 const servicePort = parseInt(config.require('port'));
-const service = new kubernetes.core.v1.Service(appName, {
+const service = new kubernetes.core.v1.Service(name, {
   metadata: {
-    name: `service-${appName}`.replace(/\//g, '-'),
+    name,
     namespace: config.get('namespace'),
     annotations: {
       'pulumi.com/skipAwait': 'true'
@@ -18,7 +18,7 @@ const service = new kubernetes.core.v1.Service(appName, {
   },
   spec: {
     selector: {
-      app: appName.replace(/\//g, '-')
+      'architect.io/app': config.require('deployment').replace(/\//g, '--'),
     },
     ports: [{
       port: servicePort,
@@ -31,6 +31,6 @@ const service = new kubernetes.core.v1.Service(appName, {
 
 export const id = service.id;
 export const protocol = config.get('protocol') ?? 'http';
-export const host = appName;
+export const host = name;
 export const port = servicePort;
 export const target_port = servicePort;

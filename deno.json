@@ -32,6 +32,7 @@
   },
   "tasks": {
     "compile": "DENO_V8_FLAGS=--max-heap-size=8192 deno compile --output bin/arcctl -A main.ts",
+    "compile:linux": "DENO_V8_FLAGS=--max-heap-size=8192 deno compile --target x86_64-unknown-linux-gnu --output bin/arcctl -A main.ts",
     "generate:npm": "DENO_V8_FLAGS=--max-heap-size=8192 deno run -A ./bin/npm-package.ts",
     "generate:component-schema": "deno run -A ./bin/component-generator.ts",
     "generate:datacenter-schema": "deno run -A ./bin/datacenter-generator.ts",

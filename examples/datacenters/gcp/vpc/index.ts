@@ -42,31 +42,33 @@ const _networkingConnection = new gcp.servicenetworking.Connection('vpc-networki
 
 const gcp_region = gcpConfig.require('region');
 
-// TODO: This is used for servierless
-// const vpcConnectorSubnet = new gcp.compute.Subnetwork('vpc-subnet', {
-//   name: `${vpcName}-subnet`,
-//   ipCidrRange: '10.8.0.0/28',
-//   region: gcp_region,
-//   network: vpcNetwork.id,
-// });
+// Note: This is only necessary for serverless.
+/*
+const vpcConnectorSubnet = new gcp.compute.Subnetwork('vpc-subnet', {
+  name: `${vpcName}-subnet`,
+  ipCidrRange: '10.8.0.0/28',
+  region: gcp_region,
+  network: vpcNetwork.id,
+});
 
-// const _vpcAccessProjectService = new gcp.projects.Service('vpc-access-service', {
-//   service: 'vpcaccess.googleapis.com',
-//   disableOnDestroy: false,
-// });
+const _vpcAccessProjectService = new gcp.projects.Service('vpc-access-service', {
+  service: 'vpcaccess.googleapis.com',
+  disableOnDestroy: false,
+});
 
-// const _vpcAccessConnector = new gcp.vpcaccess.Connector(`vpc-access-connector`, {
-//   name: `${vpcName.substring(0, 15)}-connector`, // 25 char max
-//   machineType: 'e2-micro',
-//   region: gcp_region,
-//   minInstances: 2,
-//   maxInstances: 3,
-//   subnet: {
-//     name: vpcConnectorSubnet.name,
-//   },
-// }, {
-//   dependsOn: [_vpcAccessProjectService],
-// });
+const _vpcAccessConnector = new gcp.vpcaccess.Connector(`vpc-access-connector`, {
+  name: `${vpcName.substring(0, 15)}-connector`, // 25 char max
+  machineType: 'e2-micro',
+  region: gcp_region,
+  minInstances: 2,
+  maxInstances: 3,
+  subnet: {
+    name: vpcConnectorSubnet.name,
+  },
+}, {
+  dependsOn: [_vpcAccessProjectService],
+});
+*/
 
 export const id = vpcNetwork.id;
 export const name = vpcNetwork.name;

@@ -81,7 +81,7 @@ users:
 
 const kubernetesProvider = new kubernetes.Provider('provider' + Date.now(), {
   kubeconfig: config.get('kubeconfig') || intermediateKubeconfig,
-}); // , { replaceOnChanges: ['*']} TODO: remove?
+});
 
 const serviceAccount = new kubernetes.core.v1.ServiceAccount(clusterName, {
   metadata: {

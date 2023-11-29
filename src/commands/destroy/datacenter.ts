@@ -43,6 +43,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       console.log(`Not destroying datacenter: ${name}`);
       Deno.exit(0);
     } else {
+      console.log(`Unset default datacenter: ${name}`);
       ArcctlConfig.setDefaultDatacenter(undefined);
     }
   }

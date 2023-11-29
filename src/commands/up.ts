@@ -47,6 +47,7 @@ export const UpCommand = BaseCommand()
         Deno.exit(1);
       }
     }
+    const datacenter = datacenterRecord;
 
     const environment = await parseEnvironment({});
 
@@ -78,11 +79,11 @@ export const UpCommand = BaseCommand()
       style: 'lowerCase',
     });
 
-    const targetGraph = datacenterRecord.config.getGraph(
+    const targetGraph = datacenter.config.getGraph(
       await environment.getGraph(environmentName, command_helper.componentStore, options.debug),
       {
         environmentName: environmentName,
-        datacenterName: datacenterRecord.name,
+        datacenterName: datacenter.name,
       },
     );
 
@@ -119,7 +120,7 @@ export const UpCommand = BaseCommand()
       .toPromise()
       .then(async () => {
         await command_helper.environmentUtils.saveEnvironment(
-          datacenterRecord.name,
+          datacenter.name,
           environmentName,
           environment,
           pipeline,
@@ -155,8 +156,8 @@ export const UpCommand = BaseCommand()
             .then(async () => {
               await command_helper.environmentUtils.removeEnvironment(
                 environmentName,
-                datacenterRecord.name,
-                datacenterRecord.config,
+                datacenter.name,
+                datacenter.config,
               );
               command_helper.infraRenderer.renderGraph(revertPipeline, {
                 clear: !options.verbose,
@@ -168,7 +169,7 @@ export const UpCommand = BaseCommand()
             })
             .catch(async (err) => {
               await command_helper.environmentUtils.saveEnvironment(
-                datacenterRecord.name,
+                datacenter.name,
                 environmentName,
                 environment,
                 revertPipeline,
@@ -186,7 +187,7 @@ export const UpCommand = BaseCommand()
       })
       .catch(async (err) => {
         await command_helper.environmentUtils.saveEnvironment(
-          datacenterRecord.name,
+          datacenter.name,
           environmentName,
           environment,
           pipeline,

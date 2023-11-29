@@ -1,3 +1,5 @@
-FROM pulumi/pulumi-dotnet
+FROM pulumi/pulumi-nodejs
 
 COPY . .
+
+RUN npm install

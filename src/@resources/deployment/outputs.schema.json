@@ -10,6 +10,11 @@
             "type": "string"
           },
           "description": "A set of labels that were used to annotate the cloud resource",
+          "examples": [
+            {
+              "app.kubernetes.io/name": "my-app"
+            }
+          ],
           "type": "object"
         }
       },

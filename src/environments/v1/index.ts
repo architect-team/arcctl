@@ -9,6 +9,11 @@ import { VariableMergingDisabledError } from '../errors.ts';
 export default class EnvironmentV1 extends Environment {
   /**
    * Local variables that can be used to parameterize the environment
+   *
+   * @example
+   * {
+   *   "log_level": "debug"
+   * }
    */
   locals?: Record<string, string>;
 
@@ -17,16 +22,24 @@ export default class EnvironmentV1 extends Environment {
    */
   components?: {
     /**
-     * The name of the component that will be used to fulfill dependencies from
+     * The name of the component that will be used to fulfill dependencies
      */
     [key: string]: {
       /**
        * The source of the component to deploy. Can either be a docker registry repository or a reference to the local filesystem prefixed with `file:`
+       *
+       * @example "architectio/kratos:v1"
+       * @example "file:/path/to/component"
        */
       source?: string;
 
       /**
        * Values for variables the component expects
+       *
+       * @example
+       * {
+       *   "log_level": "debug"
+       * }
        */
       variables?: {
         [key: string]: string | string[];
@@ -36,14 +49,24 @@ export default class EnvironmentV1 extends Environment {
        * Configuration for each deployment in the component
        */
       deployments?: {
+        /**
+         * The name of the deployment to configure
+         */
         [key: string]: {
           /**
            * Set to false to make sure the deployment doesn't run in this environment
+           *
+           * @default true
            */
           enabled?: boolean;
 
           /**
            * Values for environment variables in the deployment
+           *
+           * @example
+           * {
+           *   "STRIPE_API_KEY": "sk_test_1234"
+           * }
            */
           environment?: {
             [key: string]: string | number | boolean | null | undefined;
@@ -78,19 +101,28 @@ export default class EnvironmentV1 extends Environment {
        * Configuration for each service in the component
        */
       services?: {
+        /**
+         * The name of the service to configure
+         */
         [key: string]: {
           /**
            * Existing URL to point the service to instead of
+           *
+           * @example "https://example.com"
            */
           url?: string;
 
           /**
            * Existing hostname that should act as the interface host instead of creating a new one
+           *
+           * @example "example.com"
            */
           host?: string;
 
           /**
            * Existing port that should act as the interface port instead of registering a new one
+           *
+           * @example 443
            */
           port?: number;
         };
@@ -100,19 +132,28 @@ export default class EnvironmentV1 extends Environment {
        * Configuration for each ingress in the component
        */
       ingresses?: {
+        /**
+         * The name of the ingress to configure
+         */
         [key: string]: {
           /**
            * A subdomain that the ingress listens on
+           *
+           * @example "api"
            */
           subdomain?: string;
 
           /**
            * A path that the ingress listens on
+           *
+           * @example "/api"
            */
           path?: string;
 
           /**
            * Set to true to make the ingress only available from a private gateway (no public IP)
+           *
+           * @example true
            */
           internal?: boolean;
 
@@ -435,6 +476,11 @@ export default class EnvironmentV1 extends Environment {
       this.components[metadata.image.repository].ingresses![key] = {
         subdomain,
       };
+    }
+
+    for (const [key, value] of Object.entries(metadata.variables || {})) {
+      this.components[metadata.image.repository].variables = this.components[metadata.image.repository].variables || {};
+      this.components[metadata.image.repository].variables![key] = value;
     }
   }
 

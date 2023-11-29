@@ -6,33 +6,69 @@
       "additionalProperties": false,
       "properties": {
         "dns_zone": {
+          "description": "DNS zone the ingress rule responds to",
+          "examples": [
+            "example.com"
+          ],
           "type": "string"
         },
         "host": {
+          "description": "Host the ingress rule responds to",
+          "examples": [
+            "api.example.com"
+          ],
           "type": "string"
         },
         "password": {
+          "description": "Password for basic auth",
+          "examples": [
+            "password"
+          ],
           "type": "string"
         },
         "path": {
+          "description": "Path the ingress rule responds to",
+          "examples": [
+            "/path"
+          ],
           "type": "string"
         },
         "port": {
+          "description": "Port the ingress rule responds to",
+          "examples": [
+            80
+          ],
           "type": [
             "string",
             "number"
           ]
         },
         "protocol": {
+          "description": "Protocol the ingress rule responds to",
+          "examples": [
+            "http"
+          ],
           "type": "string"
         },
         "subdomain": {
+          "description": "Subdomain the ingress rule responds to",
+          "examples": [
+            "api"
+          ],
           "type": "string"
         },
         "url": {
+          "description": "URL the ingress rule responds to",
+          "examples": [
+            "http://admin:password@api.example.com/path"
+          ],
           "type": "string"
         },
         "username": {
+          "description": "Username for basic auth",
+          "examples": [
+            "admin"
+          ],
           "type": "string"
         }
       },

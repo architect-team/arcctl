@@ -9,14 +9,23 @@
           "properties": {
             "deployment": {
               "description": "A deployment the service should point to",
+              "examples": [
+                "component--my-deployment"
+              ],
               "type": "string"
             },
             "password": {
               "description": "Basic auth password",
+              "examples": [
+                "password"
+              ],
               "type": "string"
             },
             "port": {
               "description": "Target port",
+              "examples": [
+                8080
+              ],
               "type": "number"
             },
             "protocol": {
@@ -26,6 +35,9 @@
             },
             "username": {
               "description": "Basic auth username",
+              "examples": [
+                "admin"
+              ],
               "type": "string"
             }
           },
@@ -40,6 +52,9 @@
           "properties": {
             "external_hostname": {
               "description": "External address to point to",
+              "examples": [
+                "https://example.com"
+              ],
               "type": "string"
             }
           },

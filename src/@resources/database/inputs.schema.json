@@ -7,14 +7,23 @@
       "properties": {
         "databaseType": {
           "description": "Type of database required by the schema",
+          "examples": [
+            "postgres"
+          ],
           "type": "string"
         },
         "databaseVersion": {
           "description": "Version of the database type the schema creation process expects",
+          "examples": [
+            15
+          ],
           "type": "string"
         },
         "name": {
           "description": "Name to give to the new schema",
+          "examples": [
+            "my-schema"
+          ],
           "type": "string"
         }
       },

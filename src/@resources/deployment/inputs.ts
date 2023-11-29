@@ -36,6 +36,9 @@ type CommonProbeSettings = {
 };
 
 type HttpProbe = {
+  /**
+   * Type of probe to perform
+   */
   type: 'http';
 
   /**
@@ -75,26 +78,168 @@ type ExecProbe = {
   command: string[];
 };
 
-export type ProbeSchema = CommonProbeSettings & (ExecProbe | HttpProbe);
+type ProbeSchema = CommonProbeSettings & (ExecProbe | HttpProbe);
 
-type Container = {
+export type DeploymentInputs = {
+  /**
+   * Unique name of the deployment used by services to address each replica
+   *
+   * @example "component--auth-api"
+   */
+  name: string;
+
+  /**
+   * Labels for the deployment
+   *
+   * @example
+   * {
+   *   "app.kubernetes.io/name": "auth-api",
+   * }
+   */
+  labels?: Record<string, string>;
+
+  /**
+   * Number of replicas of the deployment to run
+   * @default 1
+   */
+  replicas?: number;
+
+  /**
+   * Target platform the deployment will run on
+   *
+   * @example "linux/amd64"
+   */
+  platform?: string;
+
+  /**
+   * Autoscaling rules for the deployment
+   */
+  autoscaling?: {
+    /**
+     * Minimum number of replicas of the deployment to run
+     * @minimum 0
+     * @example 1
+     */
+    min_replicas: number;
+
+    /**
+     * Maximum number of replicas of the deployment to run
+     * @minimum 1
+     * @example 1
+     */
+    max_replicas: number;
+  };
+
+  /**
+   * Services this deployment should register itself with
+   */
+  services?: Array<{
+    /**
+     * The name of the service
+     * @example "my-service"
+     */
+    name: string;
+
+    /**
+     * The hostname the service is listening on
+     * @example "my-service"
+     */
+    host: string;
+
+    /**
+     * The port the service deployment is listening on
+     * @example 8080
+     */
+    port: string;
+
+    /**
+     * The port the service forwards traffic to
+     * @example 8080
+     */
+    target_port: string;
+
+    /**
+     * The protocol the service is listening on
+     * @example "http"
+     */
+    protocol: string;
+  }>;
+
+  /**
+   * Ingresses this deployment should register itself with
+   */
+  ingresses?: Array<{
+    /**
+     * The name of the service this ingress points to
+     * @example "my-service"
+     */
+    service: string;
+
+    /**
+     * The hostname the ingress is listening on
+     * @example "my-service.example.com"
+     */
+    host: string;
+
+    /**
+     * The port the ingress is listening on
+     * @example 80
+     */
+    port: string;
+
+    /**
+     * The protocol the ingress is listening on
+     * @example "http"
+     */
+    protocol: string;
+
+    /**
+     * The path the ingress is listening on
+     * @example "/api"
+     */
+    path: string;
+
+    /**
+     * The subdomain the ingress rule listens on
+     * @example "my-service"
+     */
+    subdomain: string;
+
+    /**
+     * The DNS zone the ingress rule listens on
+     * @example "example.com"
+     */
+    dns_zone: string;
+  }>;
+
   /**
    * Image the container runs from
+   *
+   * @example "registry.architect.io/my-image:latest"
    */
   image: string;
 
   /**
    * Command to execute in the container
+   *
+   * @example ["node", "index.js"]
    */
   command?: string | string[];
 
   /**
    * Entrypoint of the container
+   *
+   * @default [""]
    */
   entrypoint?: string | string[];
 
   /**
    * Environment variables to pass to the container
+   *
+   * @example
+   * {
+   *   "NODE_ENV": "production"
+   * }
    */
   environment?: Record<string, string | number | boolean | null | undefined>;
 
@@ -106,6 +251,9 @@ type Container = {
 
   /**
    * Amount of memory to allocate to the container
+   *
+   * @example "512Mi"
+   * @example "1Gi"
    */
   memory?: string;
 
@@ -119,118 +267,15 @@ type Container = {
     readonly: boolean;
   }>;
 
+  /**
+   * Probes used to determine if each replica is healthy and/or ready for traffic
+   */
   probes?: {
+    /**
+     * Probe used to determine if the container is ready to receive traffic
+     */
     liveness?: ProbeSchema;
   };
 };
-
-export type DeploymentInputs = {
-  /**
-   * Name to to give to the deployment
-   */
-  name: string;
-
-  /**
-   * Labels for the deployment
-   */
-  labels?: Record<string, string>;
-
-  /**
-   * Number of replicas of the deployment to run
-   * @default 1
-   */
-  replicas?: number;
-
-  /**
-   * Target platform the deployment will run on
-   */
-  platform?: string;
-
-  /**
-   * Autoscaling rules for the deployment
-   */
-  autoscaling?: {
-    /**
-     * Minimum number of replicas of the deployment to run
-     * @minimum 0
-     */
-    min_replicas: number;
-
-    /**
-     * Maximum number of replicas of the deployment to run
-     */
-    max_replicas: number;
-  };
-
-  /**
-   * Services this deployment should register itself with
-   */
-  services?: Array<{
-    /**
-     * The name of the service
-     */
-    name: string;
-
-    /**
-     * The hostname the service is listening on
-     */
-    host: string;
-
-    /**
-     * The port the service deployment is listening on
-     */
-    port: string;
-
-    /**
-     * The port the service forwards traffic to
-     */
-    target_port: string;
-
-    /**
-     * The protocol the service is listening on
-     */
-    protocol: string;
-  }>;
-
-  /**
-   * Ingresses this deployment should register itself with
-   */
-  ingresses?: Array<{
-    /**
-     * The name of the service this ingress points to
-     */
-    service: string;
-
-    /**
-     * The hostname the ingress is listening on
-     */
-    host: string;
-
-    /**
-     * The port the ingress is listening on
-     */
-    port: string;
-
-    /**
-     * The protocol the ingress is listening on
-     */
-    protocol: string;
-
-    /**
-     * The path the ingress is listening on
-     */
-    path: string;
-
-    /**
-     * The subdomain the ingress rule listens on
-     */
-    subdomain: string;
-
-    /**
-     * The DNS zone the ingress rule listens on
-     */
-    dns_zone: string;
-  }>;
-} & Container;
 
 export default DeploymentInputs;

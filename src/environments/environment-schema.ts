@@ -8,11 +8,12 @@ export default {
         "components": {
           "additionalProperties": {
             "additionalProperties": false,
-            "description": "The name of the component that will be used to fulfill dependencies from",
+            "description": "The name of the component that will be used to fulfill dependencies",
             "properties": {
               "deployments": {
                 "additionalProperties": {
                   "additionalProperties": false,
+                  "description": "The name of the deployment to configure",
                   "properties": {
                     "autoscaling": {
                       "additionalProperties": false,
@@ -32,6 +33,7 @@ export default {
                       "type": "object"
                     },
                     "enabled": {
+                      "default": true,
                       "description": "Set to false to make sure the deployment doesn't run in this environment",
                       "type": "boolean"
                     },
@@ -56,6 +58,11 @@ export default {
                         ]
                       },
                       "description": "Values for environment variables in the deployment",
+                      "examples": [
+                        {
+                          "STRIPE_API_KEY": "sk_test_1234"
+                        }
+                      ],
                       "type": "object"
                     },
                     "replicas": {
@@ -72,17 +79,27 @@ export default {
               "ingresses": {
                 "additionalProperties": {
                   "additionalProperties": false,
+                  "description": "The name of the ingress to configure",
                   "properties": {
                     "internal": {
                       "description": "Set to true to make the ingress only available from a private gateway (no public IP)",
+                      "examples": [
+                        true
+                      ],
                       "type": "boolean"
                     },
                     "path": {
                       "description": "A path that the ingress listens on",
+                      "examples": [
+                        "/api"
+                      ],
                       "type": "string"
                     },
                     "subdomain": {
                       "description": "A subdomain that the ingress listens on",
+                      "examples": [
+                        "api"
+                      ],
                       "type": "string"
                     },
                     "tls": {
@@ -117,17 +134,27 @@ export default {
               "services": {
                 "additionalProperties": {
                   "additionalProperties": false,
+                  "description": "The name of the service to configure",
                   "properties": {
                     "host": {
                       "description": "Existing hostname that should act as the interface host instead of creating a new one",
+                      "examples": [
+                        "example.com"
+                      ],
                       "type": "string"
                     },
                     "port": {
                       "description": "Existing port that should act as the interface port instead of registering a new one",
+                      "examples": [
+                        443
+                      ],
                       "type": "number"
                     },
                     "url": {
                       "description": "Existing URL to point the service to instead of",
+                      "examples": [
+                        "https://example.com"
+                      ],
                       "type": "string"
                     }
                   },
@@ -138,6 +165,10 @@ export default {
               },
               "source": {
                 "description": "The source of the component to deploy. Can either be a docker registry repository or a reference to the local filesystem prefixed with `file:`",
+                "examples": [
+                  "architectio/kratos:v1",
+                  "file:/path/to/component"
+                ],
                 "type": "string"
               },
               "variables": {
@@ -155,6 +186,11 @@ export default {
                   ]
                 },
                 "description": "Values for variables the component expects",
+                "examples": [
+                  {
+                    "log_level": "debug"
+                  }
+                ],
                 "type": "object"
               }
             },
@@ -168,6 +204,11 @@ export default {
             "type": "string"
           },
           "description": "Local variables that can be used to parameterize the environment",
+          "examples": [
+            {
+              "log_level": "debug"
+            }
+          ],
           "type": "object"
         },
         "version": {

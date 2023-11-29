@@ -7,10 +7,16 @@
       "properties": {
         "hostPath": {
           "description": "Path on the host machine to mount the volume to",
+          "examples": [
+            "/Users/batman/my-volume"
+          ],
           "type": "string"
         },
         "name": {
           "description": "Name to give to the volume resource",
+          "examples": [
+            "my-volume"
+          ],
           "type": "string"
         }
       },

@@ -15,10 +15,16 @@
         },
         "component_source": {
           "description": "Source of the component that contains the build context",
+          "examples": [
+            "/Users/batman/Projects/awesome-component"
+          ],
           "type": "string"
         },
         "context": {
           "description": "Docker build context relative to the component root",
+          "examples": [
+            "./frontend"
+          ],
           "type": "string"
         },
         "dockerfile": {
@@ -28,6 +34,9 @@
         },
         "target": {
           "description": "Name of a intermediate build stage to target",
+          "examples": [
+            "builder"
+          ],
           "type": "string"
         }
       },

@@ -1,14 +1,5 @@
-encryptionsalt: v1:HQmcozuuwZU=:v1:M3zb8n2VDHwVxdR7:5zUL8ivYB/xbW8SsKEQ85ITkW7EKXQ==
+encryptionsalt: v1:teM0vbIqgL8=:v1:uAooJhuRaPD66HRJ:CoNodVtqdppXrAEz0hQG73djaWc/CA==
 config:
-  database:databaseSize: db-f1-micro
-  database:databaseType: postgres
-  database:databaseVersion: POSTGRES_15
-  database:description: gcp-test
-  database:name: gcp-test
-  database:password: architect
-  database:region: us-central1
-  database:vpc: default
-  gcp:credentials: |-
-    /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
-  gcp:project: permanent-environment-testing
-  gcp:region: us-central1
+  databaseCluster:databaseVersion: "14"
+  databaseCluster:name: ryan-test
+  databaseCluster:region: us-central1

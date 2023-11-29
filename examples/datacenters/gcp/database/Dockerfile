@@ -1,3 +1,5 @@
-FROM pulumi/pulumi-java
+FROM pulumi/pulumi-nodejs
 
 COPY . .
+
+RUN npm install

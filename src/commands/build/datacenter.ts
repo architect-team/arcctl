@@ -1,5 +1,6 @@
 import { isAbsolute } from 'https://deno.land/std@0.50.0/path/posix.ts';
 import * as path from 'std/path/mod.ts';
+import winston from 'winston';
 import { ModuleServer } from '../../datacenter-modules/server.ts';
 import { Datacenter } from '../../datacenters/datacenter.ts';
 import { parseDatacenter } from '../../datacenters/parser.ts';
@@ -23,6 +24,15 @@ const DatacenterBuildCommand = BaseCommand()
 async function build_action(options: BuildOptions, context_file: string): Promise<void> {
   verifyDocker();
   const command_helper = new CommandHelper(options);
+
+  const logger = options.verbose
+    ? winston.createLogger({
+      level: 'info',
+      format: winston.format.printf(({ message }) => message),
+      transports: [new winston.transports.Console()],
+    })
+    : undefined;
+
   const context_relative = !Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
   const context = isAbsolute(context_relative) ? context_relative : path.join(Deno.cwd(), context_relative);
   let datacenter: Datacenter;
@@ -49,7 +59,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     const server = new ModuleServer(build_options.plugin);
     const client = await server.start(build_dir);
     try {
-      const build = await client.build({ directory: build_dir });
+      const build = await client.build({ directory: build_dir }, { logger });
       client.close();
       await server.stop();
       return build.image;

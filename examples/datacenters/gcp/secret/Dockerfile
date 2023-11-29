@@ -1,8 +1,7 @@
-FROM pulumi/pulumi-python
+FROM pulumi/pulumi-nodejs
 
-RUN python -m venv ./venv
-RUN python -m pip install --upgrade pip setuptools wheel
+# allow service account and related resources to be deleted without needing a valid kubeconfig
+ENV PULUMI_K8S_DELETE_UNREACHABLE=true
 
-COPY Pulumi.dev.yaml Pulumi.yaml requirements.txt __main__.py ./
-
-RUN venv/bin/pip install -r requirements.txt
+COPY . .
+RUN npm install

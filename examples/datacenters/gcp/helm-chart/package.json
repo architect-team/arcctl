@@ -1,0 +1,11 @@
+{
+    "name": "helm-chart",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/kubernetes": "^4.5.3",
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}

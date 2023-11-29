@@ -62,6 +62,7 @@ environment {
       name = "${datacenter.name}-database"
       databaseType = "pg"
       databaseVersion = "POSTGRES_14"
+      databasePort = 5432
       region = variable.gcp_region
       vpcId = module.vpc.id
 
@@ -126,7 +127,7 @@ environment {
       protocol = "postgresql"
       username = module.databaseCluster.username
       password = module.databaseCluster.password
-      url = "postgresql://${module.databaseCluster.username}:${module.databaseCluster.password}@${module.databaseCluster.private_host}:${module.databaseCluster.port}/${module.database.name}"
+      url = "postgresql://${module.databaseCluster.username}:${module.databaseCluster.password}@${module.databaseCluster.host}:${module.databaseCluster.port}/${module.database.name}"
       database = module.database.name
     }
   }
@@ -191,7 +192,7 @@ environment {
       url = module.ingressRule.url
       path = module.ingressRule.path
       subdomain = node.inputs.subdomain
-      dns_zone = node.inputs.dns_zone
+      dns_zone = variable.dns_zone
     }
   }
 

@@ -56,7 +56,7 @@ const ingress = new kubernetes.networking.v1.Ingress('ingress', {
 }, { provider });
 
 export const id = ingress.id;
-export const protocol = serviceConfig.protocol === 'http' ? 'https' : serviceConfig.protocol || 'https';
+export const protocol = serviceConfig.protocol || 'http';
 export const host = _host;
 export const port = 443;
 export const username = config.get('username');

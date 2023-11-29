@@ -31,6 +31,7 @@ const computeGlobalAddress = new gcp.compute.GlobalAddress('vpc-address', {
   prefixLength: 16,
 });
 
+// This is used for connecting to the database via private subnet
 const _networkingConnection = new gcp.servicenetworking.Connection('vpc-networking-conn', {
   network: vpcNetwork.id,
   service: 'servicenetworking.googleapis.com',
@@ -41,15 +42,14 @@ const _networkingConnection = new gcp.servicenetworking.Connection('vpc-networki
 
 const gcp_region = gcpConfig.require('region');
 
-// I believe this is needed for Database connections
-const vpcConnectorSubnet = new gcp.compute.Subnetwork('vpc-subnet', {
-  name: `${vpcName}-subnet`,
-  ipCidrRange: '10.8.0.0/28',
-  region: gcp_region,
-  network: vpcNetwork.id,
-});
+// TODO: This is used for servierless
+// const vpcConnectorSubnet = new gcp.compute.Subnetwork('vpc-subnet', {
+//   name: `${vpcName}-subnet`,
+//   ipCidrRange: '10.8.0.0/28',
+//   region: gcp_region,
+//   network: vpcNetwork.id,
+// });
 
-// NOTE: These are for serverless
 // const _vpcAccessProjectService = new gcp.projects.Service('vpc-access-service', {
 //   service: 'vpcaccess.googleapis.com',
 //   disableOnDestroy: false,

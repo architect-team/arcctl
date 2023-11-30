@@ -2,10 +2,7 @@ component_management:
   individual_components:
     - component_id: graph
       paths:
-        - src/cloud-graph
-    - component_id: pipeline
-      paths:
-        - src/pipeline
+        - src/graphs
     - component_id: components
       paths:
         - src/components
@@ -19,12 +16,18 @@ component_management:
       paths:
         - src/component-store
         - src/oci
-    - component_id: state
+    - component_id: state-backend
       paths:
-        - src/secrets
+        - src/state-backend
+    - component_id: hcl-parser
+      paths:
+        - src/hcl-parser
 
 ignore:
-  - src/@providers
+  - examples
+  - bin
+  # Ignore commands within folders, include things with tests like base-command.ts
+  - src/commands/**/*.ts
 
 comment:
   layout: "header, diff, components, files" # show component info in the PR comment

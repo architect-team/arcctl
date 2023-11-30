@@ -24,7 +24,8 @@ component_management:
         - src/secrets
 
 ignore:
-  - src/@providers
+  - examples
+  - bin
 
 comment:
   layout: "header, diff, components, files" # show component info in the PR comment

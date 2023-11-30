@@ -26,6 +26,8 @@ component_management:
 ignore:
   - examples
   - bin
+  # Ignore commands within folders, include things with tests like base-command.ts
+  - src/commands/**/*.ts
 
 comment:
   layout: "header, diff, components, files" # show component info in the PR comment

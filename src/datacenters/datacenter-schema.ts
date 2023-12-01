@@ -77,6 +77,11 @@ export default {
                               ],
                               'type': 'string',
                             },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'type': 'string',
+                            },
                             'volume': {
                               'description': 'Volumes that should be mounted to the container executing the module',
                               'items': {
@@ -217,6 +222,11 @@ export default {
                               'examples': [
                                 'my-registry.com/my-image:latest',
                               ],
+                              'type': 'string',
+                            },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
                               'type': 'string',
                             },
                             'volume': {
@@ -428,6 +438,11 @@ export default {
                               ],
                               'type': 'string',
                             },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'type': 'string',
+                            },
                             'volume': {
                               'description': 'Volumes that should be mounted to the container executing the module',
                               'items': {
@@ -637,6 +652,11 @@ export default {
                               ],
                               'type': 'string',
                             },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'type': 'string',
+                            },
                             'volume': {
                               'description': 'Volumes that should be mounted to the container executing the module',
                               'items': {
@@ -793,6 +813,11 @@ export default {
                               ],
                               'type': 'string',
                             },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'type': 'string',
+                            },
                             'volume': {
                               'description': 'Volumes that should be mounted to the container executing the module',
                               'items': {
@@ -945,6 +970,11 @@ export default {
                               'examples': [
                                 'my-registry.com/my-image:latest',
                               ],
+                              'type': 'string',
+                            },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
                               'type': 'string',
                             },
                             'volume': {
@@ -1162,6 +1192,11 @@ export default {
                         ],
                         'type': 'string',
                       },
+                      'ttl': {
+                        'description':
+                          'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                        'type': 'string',
+                      },
                       'volume': {
                         'description': 'Volumes that should be mounted to the container executing the module',
                         'items': {
@@ -1274,6 +1309,11 @@ export default {
                               'examples': [
                                 'my-registry.com/my-image:latest',
                               ],
+                              'type': 'string',
+                            },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
                               'type': 'string',
                             },
                             'volume': {
@@ -1428,6 +1468,11 @@ export default {
                               'examples': [
                                 'my-registry.com/my-image:latest',
                               ],
+                              'type': 'string',
+                            },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
                               'type': 'string',
                             },
                             'volume': {
@@ -1630,6 +1675,11 @@ export default {
                               ],
                               'type': 'string',
                             },
+                            'ttl': {
+                              'description':
+                                'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'type': 'string',
+                            },
                             'volume': {
                               'description': 'Volumes that should be mounted to the container executing the module',
                               'items': {
@@ -1770,6 +1820,11 @@ export default {
                   'examples': [
                     'my-registry.com/my-image:latest',
                   ],
+                  'type': 'string',
+                },
+                'ttl': {
+                  'description':
+                    'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
                   'type': 'string',
                 },
                 'volume': {

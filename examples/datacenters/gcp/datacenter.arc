@@ -143,6 +143,9 @@ environment {
         "gcp:project" = var.gcp_project
         "gcp:credentials" = "file:${var.gcp_credentials_file}"
       }
+
+      # TTL of 1 day
+      ttl = 24 * 60 * 60
     }
 
     outputs = {

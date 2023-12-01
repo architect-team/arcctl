@@ -13,6 +13,7 @@ export type NodeStatus = {
   message?: string;
   startTime?: number;
   endTime?: number;
+  lastUpdated?: number;
 };
 
 export type NodeStatusState = 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
@@ -33,6 +34,7 @@ export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<st
     host_path: string;
   }[];
   environment_vars?: Record<string, string>;
+  ttl?: number;
 };
 
 function replaceSeparators(value: string): string {
@@ -58,6 +60,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     host_path: string;
   }[];
   environment_vars?: Record<string, string>;
+  ttl?: number;
 
   constructor(options: InfraGraphNodeOptions<P>) {
     super(options);
@@ -73,6 +76,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     this.status = options.status || { state: 'pending' };
     this.volumes = options.volumes;
     this.environment_vars = options.environment_vars;
+    this.ttl = options.ttl;
   }
 
   public async getHash(): Promise<string> {
@@ -135,9 +139,21 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
       JSON.stringify(this.inputs) === JSON.stringify(node.inputs);
   }
 
+  public isTTLExpired(previousCompleteNode: InfraGraphNode): boolean {
+    // If TTL is not set, it is never expired.
+    if (!this.ttl) {
+      return false;
+    }
+
+    const expirationThreshold = Date.now() - (this.ttl * 1000);
+    return Boolean(
+      previousCompleteNode.status.lastUpdated && previousCompleteNode.status.lastUpdated < expirationThreshold,
+    );
+  }
+
   public apply(options?: { cwd?: string; logger?: Logger }): Observable<InfraGraphNode<P>> {
     if (this.status.state !== 'pending') {
-      throw new Error(`Cannot apply node in state, ${this.status.state}`);
+      throw new Error(`Cannot apply node ${this.getId()} in state: ${this.status.state}`);
     }
 
     return new Observable((subscriber) => {
@@ -173,6 +189,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
           this.outputs = res.outputs || {};
           this.status.state = 'complete';
           this.status.endTime = Date.now();
+          this.status.lastUpdated = Date.now();
           client.close();
           subscriber.next(this);
           await server.stop();
@@ -181,6 +198,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
           this.status.state = 'error';
           this.status.message = err.message;
           this.status.endTime = Date.now();
+          this.status.lastUpdated = Date.now();
           client.close();
           subscriber.next(this);
           await server.stop();

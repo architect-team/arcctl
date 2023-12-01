@@ -9,6 +9,7 @@ import { Inputs } from '../common/inputs.ts';
 type DestroyResourceOptons = {
   verbose: boolean;
   autoApprove: boolean;
+  concurrency: number;
 } & GlobalOptions;
 
 export const destroyEnvironment = async (options: DestroyResourceOptons, name: string) => {
@@ -70,6 +71,7 @@ export const destroyEnvironment = async (options: DestroyResourceOptons, name: s
   return graph
     .apply({
       logger: logger,
+      concurrency: options.concurrency,
     })
     .toPromise()
     .then(async () => {
@@ -126,5 +128,6 @@ export default BaseCommand()
   .description('Destroy all the resources in the specified environment')
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
+  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 1 })
   .arguments('<name:string>')
   .action(destroyEnvironment);

@@ -1,5 +1,5 @@
 import hclParser from 'hcl2-json-parser';
-import { assertEquals, fail } from 'std/testing/asserts.ts';
+import { assert, assertArrayIncludes, assertEquals, assertFalse, fail } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
 import { GraphEdge } from '../../../graphs/edge.ts';
 import { AppGraph, AppGraphNode, InfraGraphNode } from '../../../graphs/index.ts';
@@ -1417,6 +1417,71 @@ describe('DatacenterV1', () => {
       });
 
       assertEquals(infraGraph.nodes, [expectedIngressNode]);
+    });
+
+    it('should extract ttl and return whether its expired', async () => {
+      const rawDatacenterObj = await hclParser.parseToObject(`
+        module "vpc" {
+          source = "architect-io/digitalocean-vpc:latest"
+          inputs = {}
+          ttl = 10 * 60
+        }
+
+        module "cluster" {
+          source = "architect-io/digitalocean-kubernetes:latest"
+          inputs = {}
+        }
+      `);
+      const datacenter = new DatacenterV1(rawDatacenterObj);
+      const graph = datacenter.getGraph(new AppGraph(), { datacenterName: 'test' });
+
+      const nodeWithTTL = new InfraGraphNode({
+        name: 'vpc',
+        plugin: 'pulumi',
+        image: 'architect-io/digitalocean-vpc:latest',
+        inputs: {},
+        ttl: 600,
+      });
+
+      const nodeWithoutTTL = new InfraGraphNode({
+        name: 'cluster',
+        plugin: 'pulumi',
+        image: 'architect-io/digitalocean-kubernetes:latest',
+        inputs: {},
+      });
+
+      const finishedElevenMinsAgo = new InfraGraphNode({
+        // These dont matter
+        name: 'cluster',
+        plugin: 'pulumi',
+        image: 'architect-io/digitalocean-kubernetes:latest',
+        inputs: {},
+        status: {
+          state: 'complete',
+          lastUpdated: Date.now() - (11 * 60 * 1000),
+        },
+      });
+      const finishedOneMinuteAgo = new InfraGraphNode({
+        // These dont matter
+        name: 'cluster',
+        plugin: 'pulumi',
+        image: 'architect-io/digitalocean-kubernetes:latest',
+        inputs: {},
+        status: {
+          state: 'complete',
+          lastUpdated: Date.now() - (60 * 1000),
+        },
+      });
+
+      assertArrayIncludes(graph.nodes, [nodeWithTTL, nodeWithoutTTL]);
+
+      // No TTL is defined, always should be false
+      assertFalse(nodeWithoutTTL.isTTLExpired(finishedOneMinuteAgo));
+      assertFalse(nodeWithoutTTL.isTTLExpired(finishedElevenMinsAgo));
+
+      // TTL is 10 minutes, expired when previous node comparing to finished 11 mins ago.
+      assert(nodeWithTTL.isTTLExpired(finishedElevenMinsAgo));
+      assertFalse(nodeWithTTL.isTTLExpired(finishedOneMinuteAgo));
     });
   });
 });

@@ -252,7 +252,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
 
     return new Observable((subscriber) => {
       (async () => {
-        const concurrencyMax = options.concurrency || 1;
+        const concurrencyMax = options.concurrency || 10;
         let nodeQueue: InfraGraphNode[];
         const applyJobs: Record<string, Promise<string>> = {};
 

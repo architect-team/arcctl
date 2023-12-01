@@ -197,7 +197,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     }
 
     // Set no-op steps for nodes that exist in the new graph + previous graph
-    // and have an unchanged hash (module and inputs match)
+    // and have an unchanged hash (module and inputs match) and no TTL or an unexpired TTL
     while (true) {
       let continueLooping = false;
 
@@ -222,13 +222,14 @@ export class InfraGraph extends Graph<InfraGraphNode> {
           });
           applyContext(node, outputsById);
 
-          // Compare hashes
+          // Compare hashes and check TTL expiration
           const previousHash = await previousCompleteNode.getHash();
           const newHash = await node.getHash();
-          if (previousHash === newHash) {
+          if (previousHash === newHash && !node.isTTLExpired(previousCompleteNode)) {
             continueLooping = true;
             node.action = 'no-op';
             node.status.state = 'complete';
+            node.status.lastUpdated = previousCompleteNode.status.lastUpdated || Date.now();
             node.state = previousCompleteNode?.state;
             node.outputs = previousCompleteNode?.outputs;
           }

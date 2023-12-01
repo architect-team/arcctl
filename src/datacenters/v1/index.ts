@@ -91,6 +91,14 @@ type Module = {
    * }
    */
   inputs: Record<string, unknown> | string;
+
+  /**
+   * The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy
+   * will force an update of the module.
+   *
+   * @example 24*60*60
+   */
+  ttl?: string;
 };
 
 type ModuleDictionary = {
@@ -339,6 +347,8 @@ export default class DatacenterV1 extends Datacenter {
           environment_vars: module.environment,
           name: name,
           action: 'create',
+          // TODO: Why is module.ttl parsed as a string?
+          ttl: module.ttl ? parseInt(module.ttl) : undefined,
         }),
       );
     });

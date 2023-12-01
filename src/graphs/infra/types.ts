@@ -17,4 +17,5 @@ export type PlanOptions = {
 export type ApplyOptions = {
   cwd?: string;
   logger?: Logger;
+  concurrency?: number;
 };

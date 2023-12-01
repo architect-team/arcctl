@@ -11,6 +11,7 @@ type DestroyDatacenterOptions = {
   verbose: boolean;
   autoApprove: boolean;
   force: boolean;
+  concurrency: number;
 } & GlobalOptions;
 
 const DestroyDatacenterCommand = BaseCommand()
@@ -22,6 +23,7 @@ const DestroyDatacenterCommand = BaseCommand()
     'Destroy the datacenter store record, even if destruction of the datacenter fails',
     { default: false },
   )
+  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 1 })
   .arguments('[name:string]')
   .action(destroy_datacenter_action);
 
@@ -84,6 +86,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   return graph
     .apply({
       logger: logger,
+      concurrency: options.concurrency,
     })
     .toPromise()
     .then(async () => {

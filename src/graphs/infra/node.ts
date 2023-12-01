@@ -137,7 +137,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
 
   public apply(options?: { cwd?: string; logger?: Logger }): Observable<InfraGraphNode<P>> {
     if (this.status.state !== 'pending') {
-      throw new Error(`Cannot apply node in state, ${this.status.state}`);
+      throw new Error(`Cannot apply node ${this.getId()} in state: ${this.status.state}`);
     }
 
     return new Observable((subscriber) => {

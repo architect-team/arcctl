@@ -38,10 +38,11 @@ export class EnvironmentUtils {
     graph: InfraGraph,
     options?: {
       logger?: winston.Logger;
+      concurrency?: number;
     },
   ): Promise<boolean> {
     return graph
-      .apply({ logger: options?.logger })
+      .apply({ logger: options?.logger, concurrency: options?.concurrency })
       .toPromise()
       .then(async () => {
         await this.saveEnvironment(

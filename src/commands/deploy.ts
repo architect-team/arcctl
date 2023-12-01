@@ -15,6 +15,7 @@ type DeployOptions = {
   debug: boolean;
   autoApprove: boolean;
   refresh: boolean;
+  concurrency: number;
 } & GlobalOptions;
 
 const DeployCommand = BaseCommand()
@@ -32,6 +33,7 @@ const DeployCommand = BaseCommand()
   .option('--var, --variable <variables:string>', 'Variables to pass to the component', { collect: true })
   .option('-r, --refresh [refresh:boolean]', 'Force update all resources', { default: false })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
+  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 1 })
   .action(deploy_action);
 
 async function deploy_action(options: DeployOptions, tag_or_path: string): Promise<void> {
@@ -126,7 +128,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
       }
 
       await pipeline
-        .apply({ logger })
+        .apply({ logger, concurrency: options.concurrency })
         .toPromise()
         .then(async () => {
           await command_helper.environmentUtils.saveEnvironment(

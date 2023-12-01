@@ -127,11 +127,12 @@ export class DatacenterUtils {
     name: string,
     datacenter: Datacenter,
     graph: InfraGraph,
-    logger: winston.Logger | undefined,
+    logger?: winston.Logger,
+    concurrency?: number,
   ): Promise<void> {
     return new Promise((resolve) => {
       return graph
-        .apply({ logger: logger })
+        .apply({ logger, concurrency })
         .subscribe({
           complete: async () => {
             await this.saveDatacenter(name, datacenter, graph);

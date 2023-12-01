@@ -1,0 +1,46 @@
+{
+  "$ref": "#/definitions/BucketOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "BucketOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "access_key_id": {
+          "description": "Access key ID used to authenticate with the bucket",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Endpoint that hosts the bucket",
+          "examples": [
+            "https://nyc3.digitaloceanspaces.com",
+            "https://bucket.s3.region.amazonaws.com"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique ID of the bucket that was created",
+          "examples": [
+            "abc123"
+          ],
+          "type": "string"
+        },
+        "region": {
+          "description": "Region the bucket was created in",
+          "type": "string"
+        },
+        "secret_access_key": {
+          "description": "Secret access key used to authenticate with the bucket",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "endpoint",
+        "region",
+        "access_key_id",
+        "secret_access_key"
+      ],
+      "type": "object"
+    }
+  }
+}

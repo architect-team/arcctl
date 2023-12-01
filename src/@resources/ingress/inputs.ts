@@ -1,10 +1,4 @@
-export type IngressRuleInputs = {
-  /**
-   * Port that the ingress rule listens for traffic on
-   * @example 80
-   */
-  port: string | number;
-
+type ServiceIngressInputs = {
   /**
    * The configuration details of the target service
    */
@@ -33,7 +27,21 @@ export type IngressRuleInputs = {
      */
     protocol: string;
   };
+};
 
+type BucketIngressInputs = {
+  /**
+   * Configuration details for a target bucket to route requests to
+   */
+  bucket: {
+    /**
+     * Unique ID of the bucket the ingress rule should route to
+     */
+    id: string;
+  };
+};
+
+export type IngressRuleInputs = (ServiceIngressInputs | BucketIngressInputs) & {
   /**
    * The protocol the ingress rule listens for traffic on
    * @default http

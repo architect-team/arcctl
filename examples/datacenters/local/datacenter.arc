@@ -68,6 +68,30 @@ environment {
     }
   }
 
+  module "staticWebServer" {
+    when = contains(environment.nodes.*.type, "bucket")
+    build = "./deployment"
+
+    volume {
+      host_path = "/var/run/docker.sock"
+      mount_path = "/var/run/docker.sock"
+    }
+
+    volume {
+      host_path = "${var.secretsDir}/${environment.name}/buckets/"
+      mount_path = "/usr/share/nginx/html"
+    }
+
+    environment = {
+      DOCKER_HOST = "unix:///var/run/docker.sock"
+    }
+
+    inputs = {
+      name = "${environment.name}-static-web-server"
+      image = "nginx"
+    }
+  }
+
   database {
     when = node.inputs.databaseType == "postgres"
 
@@ -201,6 +225,68 @@ environment {
 
     outputs = {
       image = module.build.image
+    }
+  }
+
+  bucket {
+    module "dynamicBucket" {
+      when = node.inputs.deploy
+      build = "./deployment"
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      # This volume is shared with the nginx webserver
+      volume {
+        host_path = "${var.secretsDir}/${environment.name}/buckets/"
+        mount_path = "/data"
+      }
+
+      inputs = merge(node.inputs.deploy, {
+        volume_mounts = [{
+          host_path = "/data"
+          mount_path = node.inputs.deploy.publish
+        }]
+      })
+    }
+
+    module "staticBucket" {
+      when = node.inputs.directory
+      build = "./deployment"
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      # This volume is shared with the nginx webserver
+      volume {
+        host_path = "${var.secretsDir}/${environment.name}/buckets/"
+        mount_path = "/data"
+      }
+
+      inputs = {
+        image = "alpine"
+        command = [
+          "sh",
+          "-c",
+          "cp -r ${node.inputs.directory} /data"
+        ]
+        volume_mounts = [{
+          host_path = "/data"
+          mount_path = "/data"
+        }]
+      }
     }
   }
 }

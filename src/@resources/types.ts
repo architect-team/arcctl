@@ -1,3 +1,5 @@
+import type bucketInputs from './bucket/inputs.ts';
+import type bucketOutputs from './bucket/outputs.ts';
 import type cronjobInputs from './cronjob/inputs.ts';
 import type cronjobOutputs from './cronjob/outputs.ts';
 import type databaseInputs from './database/inputs.ts';
@@ -14,10 +16,13 @@ import type secretInputs from './secret/inputs.ts';
 import type secretOutputs from './secret/outputs.ts';
 import type serviceInputs from './service/inputs.ts';
 import type serviceOutputs from './service/outputs.ts';
+import type taskInputs from './task/inputs.ts';
+import type taskOutputs from './task/outputs.ts';
 import type volumeInputs from './volume/inputs.ts';
 import type volumeOutputs from './volume/outputs.ts';
 
 export type ResourceType =
+  | 'bucket'
   | 'cronjob'
   | 'database'
   | 'databaseUser'
@@ -26,9 +31,12 @@ export type ResourceType =
   | 'ingress'
   | 'secret'
   | 'service'
-  | 'volume';
+  | 'task'
+  | 'volume'
+;
 
 export const ResourceTypeList: ResourceType[] = [
+  'bucket',
   'cronjob',
   'database',
   'databaseUser',
@@ -37,10 +45,12 @@ export const ResourceTypeList: ResourceType[] = [
   'ingress',
   'secret',
   'service',
+  'task',
   'volume',
 ];
 
 export type ResourceInputs = {
+  'bucket': bucketInputs;
   'cronjob': cronjobInputs;
   'database': databaseInputs;
   'databaseUser': databaseUserInputs;
@@ -49,10 +59,12 @@ export type ResourceInputs = {
   'ingress': ingressInputs;
   'secret': secretInputs;
   'service': serviceInputs;
+  'task': taskInputs;
   'volume': volumeInputs;
 };
 
 export type ResourceOutputs = {
+  'bucket': bucketOutputs;
   'cronjob': cronjobOutputs;
   'database': databaseOutputs;
   'databaseUser': databaseUserOutputs;
@@ -61,6 +73,7 @@ export type ResourceOutputs = {
   'ingress': ingressOutputs;
   'secret': secretOutputs;
   'service': serviceOutputs;
+  'task': taskOutputs;
   'volume': volumeOutputs;
 };
 

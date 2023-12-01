@@ -18,7 +18,7 @@ async function tag_action(options: GlobalOptions, source: string, target: string
 
     component.tag(async (sourceRef: string, targetName: string) => {
       const imageRepository = new ImageRepository(target);
-      const targetRef = imageRepository.toString() + '-deployments-' + targetName;
+      const targetRef = imageRepository.toString() + '-' + targetName;
       await exec('docker', { args: ['tag', sourceRef, targetRef] });
       console.log(`Deployment Tagged: ${targetRef}`);
       return targetRef;

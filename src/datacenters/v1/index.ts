@@ -96,7 +96,7 @@ type Module = {
    * The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy
    * will force an update of the module.
    *
-   * @example 24*60*60
+   * @example "24*60*60"
    */
   ttl?: string;
 };

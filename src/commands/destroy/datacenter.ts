@@ -61,6 +61,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       await destroyEnvironment({
         verbose: options.verbose,
         autoApprove: true,
+        concurrency: options.concurrency,
       }, env.name);
     }
   } else {

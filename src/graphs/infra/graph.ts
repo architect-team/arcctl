@@ -252,42 +252,55 @@ export class InfraGraph extends Graph<InfraGraphNode> {
 
     return new Observable((subscriber) => {
       (async () => {
+        const concurrencyMax = options.concurrency || 10;
         let nodeQueue: InfraGraphNode[];
+        const applyJobs: Record<string, Promise<string>> = {};
+
         while ((nodeQueue = this.getQueue()).length > 0) {
+          const maxJobs = nodeQueue.length < concurrencyMax ? nodeQueue.length : concurrencyMax;
+
           for (const node of nodeQueue) {
-            if (node.inputs) {
-              try {
-                if (node.action !== 'delete') {
-                  this.resolveInputFunctionsAndRefs(node);
+            // Nodes still applying shouldn't be added to the queue again.
+            // This can only happen when concurrency > 1.
+            const queuedJobs = Object.keys(applyJobs).length;
+            if (!(node.getId() in applyJobs) && queuedJobs < maxJobs) {
+              if (node.inputs) {
+                try {
+                  if (node.action !== 'delete') {
+                    this.resolveInputFunctionsAndRefs(node);
+                  }
+                } catch (err: any) {
+                  node.status.state = 'error';
+                  node.status.message = err.message;
+                  subscriber.error(err.message);
+                  throw err;
                 }
-              } catch (err: any) {
-                node.status.state = 'error';
-                node.status.message = err.message;
-                subscriber.error(err.message);
-                throw err;
               }
+
+              applyJobs[node.getId()] = new Promise<string>((resolve, reject) => {
+                node
+                  .apply({
+                    ...options,
+                    cwd,
+                  })
+                  .subscribe({
+                    error: (err: any) => {
+                      reject(err);
+                    },
+                    complete: () => {
+                      resolve(node.getId());
+                    },
+                  });
+              });
             }
 
-            await new Promise<void>((resolve, reject) => {
-              node
-                .apply({
-                  ...options,
-                  cwd,
-                })
-                .subscribe({
-                  // TODO: Is this needed? No longer modifying plan while it's running
-                  // next: (res) => {
-                  //   this.insertSteps(res);
-                  // },
-                  error: (err: any) => {
-                    reject(err);
-                  },
-                  complete: () => {
-                    resolve();
-                  },
-                });
-            });
-            subscriber.next(this);
+            // Once the queue is full, wait for any promise to finish before continuing to loop
+            if (queuedJobs >= maxJobs) {
+              const finishedNodeId = await Promise.any(Object.values(applyJobs));
+              delete applyJobs[finishedNodeId];
+              subscriber.next(this);
+              break;
+            }
           }
         }
       })().then(() => {

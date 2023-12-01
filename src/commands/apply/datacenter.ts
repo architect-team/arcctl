@@ -11,6 +11,7 @@ type ApplyDatacenterOptions = {
   verbose: boolean;
   autoApprove: boolean;
   var?: string[];
+  concurrency: number;
 } & GlobalOptions;
 
 const ApplyDatacenterCommand = BaseCommand()
@@ -22,6 +23,7 @@ const ApplyDatacenterCommand = BaseCommand()
     'Provide value for a datacenter variable - e.g. --var account=my-account-123 sets the `account` variable',
     { collect: true },
   )
+  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 1 })
   .arguments('<name:string> <config_path:string>')
   .action(apply_datacenter_action);
 
@@ -97,7 +99,7 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
       command_helper.infraRenderer.renderGraph(infraGraph);
     }
 
-    command_helper.datacenterUtils.applyDatacenter(name, datacenter, infraGraph, logger)
+    command_helper.datacenterUtils.applyDatacenter(name, datacenter, infraGraph, logger, options.concurrency)
       .then(async () => {
         if (interval) {
           clearInterval(interval);

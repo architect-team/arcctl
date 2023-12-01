@@ -1,8 +1,9 @@
 import cliSpinners from 'cli-spinners';
-import { Select } from 'cliffy/prompt/mod.ts';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
 import winston, { Logger } from 'winston';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { InfraGraph, PlanContext } from '../../graphs/index.ts';
+import ArcctlConfig from '../../utils/config.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { Inputs } from '../common/inputs.ts';
 import { destroyEnvironment } from './environment.ts';
@@ -32,6 +33,21 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   if (!name) {
     name = datacenterRecord.name;
   }
+
+  const defaultDatacenter = await ArcctlConfig.getDefaultDatacenter(command_helper);
+  if (defaultDatacenter && defaultDatacenter.name === name) {
+    const answer = options.autoApprove || await Confirm.prompt(
+      `${name} is set as the default datacenter. Are you sure you want to destroy it?`,
+    );
+    if (!answer) {
+      console.log(`Not destroying datacenter: ${name}`);
+      Deno.exit(0);
+    } else {
+      console.log(`Unset default datacenter: ${name}`);
+      ArcctlConfig.setDefaultDatacenter(undefined);
+    }
+  }
+
   const lastGraph = datacenterRecord.priorState;
   const graph = await InfraGraph.plan({
     before: lastGraph,

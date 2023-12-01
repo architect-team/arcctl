@@ -3,6 +3,7 @@ import { Logger } from 'winston';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
 import { InfraGraph, PlanContext } from '../../graphs/index.ts';
+import ArcctlConfig from '../../utils/config.ts';
 import { CommandHelper } from '../base-command.ts';
 import { Inputs } from '../common/inputs.ts';
 
@@ -47,9 +48,15 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
   const environmentRecord = await options.command_helper.environmentStore.get(options.name);
   const notHasDatacenter = !options.datacenter && !environmentRecord;
 
-  const targetDatacenterName = notHasDatacenter
+  let datacenterRecord: DatacenterRecord | undefined;
+  if (notHasDatacenter) {
+    datacenterRecord = await ArcctlConfig.getDefaultDatacenter(options.command_helper);
+  }
+
+  const targetDatacenterName = !datacenterRecord
     ? (await promptForDatacenter(options.command_helper, options.datacenter)).name
-    : options.datacenter || environmentRecord?.datacenter;
+    : datacenterRecord.name || environmentRecord?.datacenter;
+
   const targetDatacenter = targetDatacenterName
     ? await options.command_helper.datacenterStore.get(targetDatacenterName)
     : undefined;

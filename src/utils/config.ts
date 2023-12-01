@@ -1,5 +1,7 @@
 import { home_dir } from 'deps';
 import * as path from 'std/path/mod.ts';
+import { CommandHelper } from '../commands/base-command.ts';
+import { DatacenterRecord } from '../datacenters/index.ts';
 import { StateBackendType } from '../state-backend/builder.ts';
 import { pathExistsSync } from './filesystem.ts';
 
@@ -11,6 +13,7 @@ export type ArcctlConfigOptions = {
     type: StateBackendType;
     credentials: Record<string, unknown>;
   };
+  defaultDatacenter?: string;
 };
 
 export default class ArcCtlConfig {
@@ -55,6 +58,17 @@ export default class ArcCtlConfig {
 
   public static setStateBackendConfig(stateBackendConfig: ArcctlConfigOptions['stateBackendConfig']): void {
     this.configOptions.stateBackendConfig = stateBackendConfig;
+  }
+
+  public static async getDefaultDatacenter(ch: CommandHelper): Promise<DatacenterRecord | undefined> {
+    if (this.configOptions.defaultDatacenter) {
+      return ch.datacenterStore.get(this.configOptions.defaultDatacenter);
+    }
+    return undefined;
+  }
+
+  public static setDefaultDatacenter(defaultDatacenter: ArcctlConfigOptions['defaultDatacenter']): void {
+    this.configOptions.defaultDatacenter = defaultDatacenter;
   }
 
   public static save(): void {

@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/TaskOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "TaskOutputs": {
+      "additionalProperties": {},
+      "type": "object"
+    }
+  }
+}

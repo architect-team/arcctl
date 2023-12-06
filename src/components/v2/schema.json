@@ -5,6 +5,184 @@
     "ComponentV2": {
       "additionalProperties": false,
       "properties": {
+        "buckets": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "description": "A human-readable description of the bucket",
+                    "examples": [
+                      "CSV reporting dumps"
+                    ],
+                    "type": "string"
+                  },
+                  "directory": {
+                    "description": "The directory containing the contents to upload to the bucket",
+                    "examples": [
+                      "./reports"
+                    ],
+                    "type": "string"
+                  },
+                  "image": {
+                    "description": "The built image containing the contents to upload inside the workdir",
+                    "examples": [
+                      "registry.architect.io/my-org/my-image:latest"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "deploy": {
+                    "additionalProperties": false,
+                    "description": "Settings outlining a step that should be run when the component gets deployed",
+                    "properties": {
+                      "command": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        ],
+                        "description": "Command to use when the container is booted up",
+                        "examples": [
+                          [
+                            "npm",
+                            "start"
+                          ]
+                        ]
+                      },
+                      "cpu": {
+                        "description": "The amount of CPU to allocate to each instance of the deployment",
+                        "type": [
+                          "number",
+                          "string"
+                        ]
+                      },
+                      "entrypoint": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        ],
+                        "default": [
+                          ""
+                        ],
+                        "description": "The executable to run every time the container is booted up"
+                      },
+                      "environment": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "Environment variables to pass to the service",
+                        "examples": [
+                          {
+                            "NODE_ENV": "production"
+                          },
+                          {
+                            "BACKEND_URL": "${{ ingresses.backend.url }}"
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "image": {
+                        "description": "Docker image to use for the deployment",
+                        "examples": [
+                          "${{ builds.frontend.image }}",
+                          "my-registry.com/my-app:latest"
+                        ],
+                        "type": "string"
+                      },
+                      "memory": {
+                        "description": "The amount of memory to allocate to each instance of the deployment",
+                        "type": "string"
+                      },
+                      "platform": {
+                        "description": "Set platform if server is multi-platform capable",
+                        "examples": [
+                          "linux/amd64"
+                        ],
+                        "type": "string"
+                      },
+                      "publish": {
+                        "description": "The path to the directory containing the contents to upload to the bucket",
+                        "examples": [
+                          "./dist"
+                        ],
+                        "type": "string"
+                      },
+                      "volumes": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "host_path": {
+                              "description": "Path on the host machine to sync with the volume",
+                              "examples": [
+                                "/Users/batman/app/src"
+                              ],
+                              "type": "string"
+                            },
+                            "image": {
+                              "description": "OCI image containing the contents to seed the volume with",
+                              "type": "string"
+                            },
+                            "mount_path": {
+                              "description": "Path inside the container to mount the volume to",
+                              "examples": [
+                                "/app/src"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "mount_path"
+                          ],
+                          "type": "object"
+                        },
+                        "description": "Volumes that should be created and attached to each replica",
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "image",
+                      "publish"
+                    ],
+                    "type": "object"
+                  },
+                  "description": {
+                    "description": "A human-readable description of the bucket",
+                    "examples": [
+                      "A static website"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "deploy"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "description": "Buckets that can be used to store and serve files",
+          "type": "object"
+        },
         "builds": {
           "additionalProperties": {
             "additionalProperties": false,
@@ -971,38 +1149,63 @@
         },
         "ingresses": {
           "additionalProperties": {
-            "additionalProperties": false,
-            "properties": {
-              "headers": {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "description": "Additional headers to include in responses",
-                "examples": [
-                  {
-                    "Access-Control-Allow-Credentials": "true",
-                    "Access-Control-Allow-Origin": "${{ variables.allowed_return_urls }}"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "headers": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Additional headers to include in responses",
+                    "examples": [
+                      {
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Origin": "${{ variables.allowed_return_urls }}"
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "internal": {
+                    "default": false,
+                    "description": "Whether or not the ingress rule should be attached to an internal gateway",
+                    "type": "boolean"
+                  },
+                  "service": {
+                    "description": "Service the ingress rule forwards traffic to",
+                    "examples": [
+                      "backend"
+                    ],
+                    "type": "string"
                   }
+                },
+                "required": [
+                  "service"
                 ],
                 "type": "object"
               },
-              "internal": {
-                "default": false,
-                "description": "Whether or not the ingress rule should be attached to an internal gateway",
-                "type": "boolean"
-              },
-              "service": {
-                "description": "Service the ingress rule forwards traffic to",
-                "examples": [
-                  "backend"
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "bucket": {
+                    "description": "The static bucket to serve content from",
+                    "examples": [
+                      "my-bucket"
+                    ],
+                    "type": "string"
+                  },
+                  "internal": {
+                    "default": false,
+                    "description": "Whether or not the ingress rule should be attached to an internal gateway",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "bucket"
                 ],
-                "type": "string"
+                "type": "object"
               }
-            },
-            "required": [
-              "service"
-            ],
-            "type": "object"
+            ]
           },
           "description": "Claims for external (e.g. client) access to a service",
           "type": "object"

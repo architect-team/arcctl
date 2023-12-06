@@ -274,7 +274,6 @@ export const testIngressGeneration = (
     component: 'component',
     inputs: {
       password: `\${{ component/service/${options.service_name}.password }}`,
-      port: `\${{ component/service/${options.service_name}.port }}`,
       protocol: `\${{ component/service/${options.service_name}.protocol }}`,
       service: {
         name: `\${{ component/service/${options.service_name}.name }}`,

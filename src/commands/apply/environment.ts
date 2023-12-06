@@ -31,7 +31,7 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     });
   }
 
-  return applyEnvironment({
+  const { success, update } = await applyEnvironment({
     command_helper,
     logger,
     name,
@@ -39,6 +39,12 @@ export async function applyEnvironmentAction(options: ApplyEnvironmentOptions, n
     datacenter: options.datacenter,
     targetEnvironment: await parseEnvironment(config_path || {}),
   });
+
+  if (!success) {
+    console.log(`Environment ${update ? 'update' : 'creation'} failed`);
+  } else {
+    console.log(`Environment ${name} ${update ? 'updated' : 'created'} successfully`);
+  }
 }
 
 export default ApplyEnvironmentCommand;

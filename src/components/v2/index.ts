@@ -9,10 +9,9 @@ import {
   DockerPushFn,
   DockerTagFn,
   GraphContext,
-  VolumeBuildFn,
-  VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
+import { BucketSchemaV2 } from './bucket.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { DependencySchemaV2 } from './dependency.ts';
 import { DebuggableDeploymentSchemaV2 } from './deployment.ts';
@@ -190,6 +189,11 @@ export default class ComponentV2 extends Component {
   >;
 
   /**
+   * Buckets that can be used to store and serve files
+   */
+  buckets?: Record<string, BucketSchemaV2>;
+
+  /**
    * Services that can receive network traffic
    */
   services?: Record<
@@ -268,6 +272,20 @@ export default class ComponentV2 extends Component {
        * }
        */
       headers?: Record<string, string>;
+    } | {
+      /**
+       * The static bucket to serve content from
+       *
+       * @example "my-bucket"
+       */
+      bucket: string;
+
+      /**
+       * Whether or not the ingress rule should be attached to an internal gateway
+       *
+       * @default false
+       */
+      internal?: boolean;
     }
   >;
 
@@ -444,7 +462,6 @@ export default class ComponentV2 extends Component {
           type: 'volume',
           component: context.component.name,
           inputs: {
-            name: `${context.component.name}/${deployment_key}-${volumeKey}`,
             hostPath: host_path,
           },
         });
@@ -584,6 +601,176 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
+  private addBucketsToGraph(
+    graph: AppGraph,
+    context: GraphContext,
+  ): AppGraph {
+    for (const [bucket_key, bucket_config] of Object.entries(this.buckets || {})) {
+      const bucket_node = new AppGraphNode({
+        name: bucket_key,
+        type: 'bucket',
+        component: context.component.name,
+        inputs: {},
+      });
+      graph.insertNodes(bucket_node);
+
+      // Check if we intend to seed the bucket
+      if ('deploy' in bucket_config || bucket_config.image || bucket_config.directory) {
+        const volume_node = new AppGraphNode({
+          name: `${bucket_key}-bucket-contents`,
+          type: 'volume',
+          component: context.component.name,
+          inputs: {},
+        });
+        graph.insertNodes(volume_node);
+
+        // TODO: Task that moves contents from volume to bucket
+        const data_migration_node = new AppGraphNode({
+          name: `${bucket_key}-bucket-data-migration`,
+          type: 'task',
+          component: context.component.name,
+          inputs: {
+            image: 'architectio/s3cmd',
+            command: [
+              'sync',
+              '/data',
+              's3://$BUCKET_ID',
+            ],
+            volume_mounts: [{
+              volume: `\${{ ${volume_node.getId()}.id }}`,
+              mount_path: '/data',
+              readonly: true,
+            }],
+            environment: {
+              BUCKET_ID: `\${{ ${bucket_node.getId()}.id }}`,
+              ACCESS_KEY_ID: `\${{ ${bucket_node.getId()}.access_key_id }}`,
+              SECRET_ACCESS_KEY: `\${{ ${bucket_node.getId()}.secret_access_key }}`,
+            },
+          },
+        });
+        graph.insertNodes(data_migration_node);
+
+        // Handle bucket seeding
+        if ('deploy' in bucket_config) {
+          const deploy_hook_node = new AppGraphNode({
+            name: `${bucket_key}-bucket-before-hook`,
+            type: 'task',
+            component: context.component.name,
+            inputs: {
+              image: bucket_config.deploy.image,
+              ...(bucket_config.deploy.platform ? { platform: bucket_config.deploy.platform } : {}),
+              ...(bucket_config.deploy.environment ? { environment: bucket_config.deploy.environment } : {}),
+              ...(bucket_config.deploy.command ? { command: bucket_config.deploy.command } : {}),
+              ...(bucket_config.deploy.entrypoint ? { entrypoint: bucket_config.deploy.entrypoint } : {}),
+              ...(bucket_config.deploy.cpu ? { cpu: Number(bucket_config.deploy.cpu) } : {}),
+              ...(bucket_config.deploy.memory ? { memory: bucket_config.deploy.memory } : {}),
+              volume_mounts: [{
+                volume: `\${{ ${volume_node.getId()}.id }}`,
+                mount_path: bucket_config.deploy.publish,
+                readonly: false,
+              }],
+            },
+          });
+          graph.insertNodes(deploy_hook_node);
+          graph.insertEdges(
+            new GraphEdge({
+              from: deploy_hook_node.getId(),
+              to: volume_node.getId(),
+            }),
+            // Ensures the data migration doesn't get run until the deploy hook is finished
+            new GraphEdge({
+              from: data_migration_node.getId(),
+              to: deploy_hook_node.getId(),
+            }),
+          );
+        } else if (bucket_config.image || bucket_config.directory) {
+          let build_contents_node: AppGraphNode<'dockerBuild'> | undefined;
+
+          // Build the directory into an image containing its contents
+          if (bucket_config.directory && !bucket_config.image) {
+            const tmpDir = Deno.makeTempDirSync();
+            const dockerfile = path.join(tmpDir, 'Dockerfile');
+            Deno.writeTextFileSync(
+              dockerfile,
+              `
+            FROM alpine:latest
+            COPY . .
+            CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+            `,
+            );
+
+            build_contents_node = new AppGraphNode({
+              name: `${bucket_key}-bucket-before-hook`,
+              type: 'dockerBuild',
+              component: context.component.name,
+              inputs: {
+                context: bucket_config.directory,
+                dockerfile: dockerfile,
+                component_source: context.component.source,
+              },
+            });
+            graph.insertNodes(build_contents_node);
+            graph.insertEdges(
+              new GraphEdge({
+                from: build_contents_node.getId(),
+                to: volume_node.getId(),
+              }),
+              // Ensures the data migration doesn't get run until the deploy hook is finished
+              new GraphEdge({
+                from: data_migration_node.getId(),
+                to: build_contents_node.getId(),
+              }),
+            );
+          }
+
+          // If there are contents for the bucket, queue up a task to move said contents to a volume
+          if (bucket_config.image || build_contents_node) {
+            const move_data_to_volume_node = new AppGraphNode({
+              name: `${bucket_key}-bucket-before-hook`,
+              type: 'task',
+              component: context.component.name,
+              inputs: {
+                image: (build_contents_node ? `\${{ ${build_contents_node.getId()}.image }}` : bucket_config.image)!,
+                command: ['sh', '-c', 'cp -r ./* $TARGET_DIR'],
+                volume_mounts: [{
+                  volume: `\${{ ${volume_node.getId()}.id }}`,
+                  mount_path: '/data',
+                  readonly: false,
+                }],
+                environment: {
+                  TARGET_DIR: '/data',
+                },
+              },
+            });
+            graph.insertNodes(move_data_to_volume_node);
+            graph.insertEdges(
+              new GraphEdge({
+                from: move_data_to_volume_node.getId(),
+                to: volume_node.getId(),
+              }),
+              // Ensures the data migration doesn't get run until the deploy hook is finished
+              new GraphEdge({
+                from: data_migration_node.getId(),
+                to: move_data_to_volume_node.getId(),
+              }),
+            );
+
+            if (build_contents_node) {
+              graph.insertEdges(
+                new GraphEdge({
+                  from: move_data_to_volume_node.getId(),
+                  to: build_contents_node.getId(),
+                }),
+              );
+            }
+          }
+        }
+      }
+    }
+
+    return graph;
+  }
+
   private addIngressesToGraph(
     graph: AppGraph,
     context: GraphContext,
@@ -593,84 +780,127 @@ export default class ComponentV2 extends Component {
         this.ingresses || {},
       )
     ) {
-      const service_node = graph.nodes.find(
-        (n) => n.name === ingress_config.service && n.type === 'service',
-      ) as AppGraphNode<'service'> | undefined;
-      if (!service_node) {
-        throw new Error(`The service, ${ingress_config.service}, does not exist`);
-      }
-
-      graph.insertNodes(service_node);
-
-      const ingress_node = new AppGraphNode({
-        name: ingress_key,
-        type: 'ingress',
-        component: context.component.name,
-        inputs: {
-          port: `\${{ ${service_node.getId()}.port }}`,
-          service: {
-            name: `\${{ ${service_node.getId()}.name }}`,
-            host: `\${{ ${service_node.getId()}.host }}`,
-            port: `\${{ ${service_node.getId()}.port }}`,
-            protocol: `\${{ ${service_node.getId()}.protocol }}`,
-          },
-          protocol: `\${{ ${service_node.getId()}.protocol }}`,
-          username: `\${{ ${service_node.getId()}.username }}`,
-          password: `\${{ ${service_node.getId()}.password }}`,
-          internal: false,
-          path: '/',
-          ...(ingress_config.internal !== undefined ? { internal: ingress_config.internal } : {}),
-          ...(ingress_config.headers ? { headers: ingress_config.headers } : {}),
-        },
-      });
-
-      ingress_node.inputs = parseExpressionRefs(
-        graph,
-        this.normalizedDependencies,
-        context,
-        ingress_node.getId(),
-        ingress_node.inputs,
-      );
-      graph.insertNodes(ingress_node);
-      graph.insertEdges(
-        new GraphEdge({
-          from: ingress_node.getId(),
-          to: service_node.getId(),
-        }),
-      );
-
-      if ('deployment' in service_node.inputs) {
-        const deployment_name = service_node.inputs.deployment;
-        const deployment_node = graph.nodes.find((n) =>
-          n.type === 'deployment' && (n.inputs as AppGraphNode<'deployment'>).name === deployment_name
-        ) as
-          | AppGraphNode<'deployment'>
-          | undefined;
-        if (!deployment_node) {
-          throw new Error(
-            `No deployment named ${service_node.inputs.deployment}. Referenced by the service, ${service_node.name}`,
-          );
+      if ('service' in ingress_config) {
+        const service_node = graph.nodes.find(
+          (n) => n.name === ingress_config.service && n.type === 'service',
+        ) as AppGraphNode<'service'> | undefined;
+        if (!service_node) {
+          throw new Error(`The service, ${ingress_config.service}, does not exist`);
         }
 
-        // Update deployment node with service references
-        deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
-        deployment_node.inputs.ingresses!.push({
-          service: ingress_node.inputs.service.name,
-          host: `\${{ ${ingress_node.getId()}.host }}`,
-          protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
-          port: `\${{ ${ingress_node.getId()}.port }}`,
-          path: `\${{ ${ingress_node.getId()}.path }}`,
-          subdomain: `\${{ ${ingress_node.getId()}.subdomain }}`,
-          dns_zone: `\${{ ${ingress_node.getId()}.dns_zone }}`,
+        const ingress_node = new AppGraphNode({
+          name: ingress_key,
+          type: 'ingress',
+          component: context.component.name,
+          inputs: {
+            service: {
+              name: `\${{ ${service_node.getId()}.name }}`,
+              host: `\${{ ${service_node.getId()}.host }}`,
+              port: `\${{ ${service_node.getId()}.port }}`,
+              protocol: `\${{ ${service_node.getId()}.protocol }}`,
+            },
+            protocol: `\${{ ${service_node.getId()}.protocol }}`,
+            username: `\${{ ${service_node.getId()}.username }}`,
+            password: `\${{ ${service_node.getId()}.password }}`,
+            internal: ingress_config.internal ?? false,
+            path: '/',
+            ...(ingress_config.headers ? { headers: ingress_config.headers } : {}),
+          },
         });
-        graph.insertNodes(deployment_node);
 
+        ingress_node.inputs = parseExpressionRefs(
+          graph,
+          this.normalizedDependencies,
+          context,
+          ingress_node.getId(),
+          ingress_node.inputs,
+        );
+        graph.insertNodes(ingress_node);
         graph.insertEdges(
           new GraphEdge({
-            from: deployment_node.getId(),
-            to: ingress_node.getId(),
+            from: ingress_node.getId(),
+            to: service_node.getId(),
           }),
         );
+
+        if ('deployment' in service_node.inputs) {
+          const deployment_name = service_node.inputs.deployment;
+          const deployment_node = graph.nodes.find((n) =>
+            n.type === 'deployment' && (n.inputs as AppGraphNode<'deployment'>).name === deployment_name
+          ) as
+            | AppGraphNode<'deployment'>
+            | undefined;
+          if (!deployment_node) {
+            throw new Error(
+              `No deployment named ${service_node.inputs.deployment}. Referenced by the service, ${service_node.name}`,
+            );
+          }
+
+          if (!('service' in ingress_node.inputs)) {
+            // This should never be hit. Typescript can't seem to infer the conditional type from the above inputs
+            throw new Error(
+              `Ingress expects to target a service, but does not (${ingress_node.getId()})`,
+            );
+          }
+
+          // Update deployment node with service references
+          deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
+          deployment_node.inputs.ingresses.push({
+            service: ingress_node.inputs.service.name,
+            host: `\${{ ${ingress_node.getId()}.host }}`,
+            protocol: `\${{ ${ingress_node.getId()}.protocol }}`,
+            port: `\${{ ${ingress_node.getId()}.port }}`,
+            path: `\${{ ${ingress_node.getId()}.path }}`,
+            subdomain: `\${{ ${ingress_node.getId()}.subdomain }}`,
+            dns_zone: `\${{ ${ingress_node.getId()}.dns_zone }}`,
+          });
+          graph.insertNodes(deployment_node);
+
+          graph.insertEdges(
+            new GraphEdge({
+              from: deployment_node.getId(),
+              to: ingress_node.getId(),
+            }),
+          );
+        }
+      } else {
+        const bucket_node = graph.nodes.find(
+          (n) => n.name === ingress_config.bucket && n.type === 'bucket',
+        ) as AppGraphNode<'bucket'> | undefined;
+        if (!bucket_node) {
+          throw new Error(`The bucket, ${ingress_config.bucket}, does not exist`);
+        }
+
+        const ingress_node = new AppGraphNode({
+          name: ingress_key,
+          type: 'ingress',
+          component: context.component.name,
+          inputs: {
+            bucket: {
+              id: `\${{ ${bucket_node.getId()}.id }}`,
+            },
+            protocol: 'http',
+            internal: ingress_config.internal ?? false,
+            path: '/',
+          },
+        });
+
+        ingress_node.inputs = parseExpressionRefs(
+          graph,
+          this.normalizedDependencies,
+          context,
+          ingress_node.getId(),
+          ingress_node.inputs,
+        );
+        graph.insertNodes(ingress_node);
+        graph.insertEdges(
+          new GraphEdge({
+            from: ingress_node.getId(),
+            to: bucket_node.getId(),
+          }),
+        );
+
+        bucket_node.inputs;
       }
     }
 
@@ -708,6 +938,7 @@ export default class ComponentV2 extends Component {
     let graph = new AppGraph();
     graph = this.addVariablestoGraph(graph, context);
     graph = this.addBuildsToGraph(graph, context);
+    graph = this.addBucketsToGraph(graph, context);
     graph = this.addDatabasesToGraph(graph, context);
     graph = this.addDeploymentsToGraph(graph, context);
     graph = this.addServicesToGraph(graph, context);
@@ -715,7 +946,7 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       const digest = await buildFn({
         name: buildName,
@@ -731,10 +962,21 @@ export default class ComponentV2 extends Component {
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
         if (volumeConfig.host_path) {
-          volumeConfig.image = await volumeBuildFn({
-            host_path: volumeConfig.host_path,
-            volume_name: volumeName,
-            deployment_name: deploymentName,
+          const tmpDir = Deno.makeTempDirSync();
+          const dockerfile = path.join(tmpDir, 'Dockerfile');
+          Deno.writeTextFileSync(
+            dockerfile,
+            `
+            FROM alpine:latest
+            COPY . .
+            CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+            `,
+          );
+
+          this.deployments![deploymentName].volumes![volumeName].image = await buildFn({
+            context: volumeConfig.host_path,
+            dockerfile,
+            name: 'deployments-' + deploymentName + '-volumes-' + volumeName,
           });
         }
       }
@@ -742,10 +984,31 @@ export default class ComponentV2 extends Component {
       delete this.deployments?.[deploymentName].debug;
     }
 
+    for (const [bucket_key, bucket_config] of Object.entries(this.buckets || {})) {
+      if ('directory' in bucket_config && bucket_config.directory) {
+        const tmpDir = Deno.makeTempDirSync();
+        const dockerfile = path.join(tmpDir, 'Dockerfile');
+        Deno.writeTextFileSync(
+          dockerfile,
+          `
+            FROM alpine:latest
+            COPY . .
+            CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+            `,
+        );
+
+        bucket_config.image = await buildFn({
+          context: bucket_config.directory,
+          dockerfile,
+          name: 'buckets-' + bucket_key,
+        });
+      }
+    }
+
     return this;
   }
 
-  public async tag(tagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component> {
+  public async tag(tagFn: DockerTagFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       if (buildConfig.image) {
         const newTag = await tagFn(buildConfig.image, buildName);
@@ -756,12 +1019,17 @@ export default class ComponentV2 extends Component {
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
         if (volumeConfig.image) {
-          deploymentConfig.volumes![volumeName].image = await volumeTagFn(
+          deploymentConfig.volumes![volumeName].image = await tagFn(
             volumeConfig.image,
-            deploymentName,
-            volumeName,
+            `deployments-${deploymentName}-volumes-${volumeName}`,
           );
         }
+      }
+    }
+
+    for (const [bucket_key, bucket_config] of Object.entries(this.buckets || {})) {
+      if ('image' in bucket_config && bucket_config.image) {
+        bucket_config.image = await tagFn(bucket_config.image, `buckets-${bucket_key}`);
       }
     }
 
@@ -780,6 +1048,12 @@ export default class ComponentV2 extends Component {
         if (volumeConfig.image && volumeConfig.host_path) {
           await pushFn(volumeConfig.image);
         }
+      }
+    }
+
+    for (const bucketConfig of Object.values(this.buckets || {})) {
+      if ('image' in bucketConfig && bucketConfig.image) {
+        await pushFn(bucketConfig.image);
       }
     }
 

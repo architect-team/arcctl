@@ -1,3 +1,4 @@
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { GraphEdge } from '../../graphs/edge.ts';
 import { AppGraph, AppGraphNode } from '../../graphs/index.ts';
@@ -8,8 +9,6 @@ import {
   DockerPushFn,
   DockerTagFn,
   GraphContext,
-  VolumeBuildFn,
-  VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DatabaseSchemaV1 } from './database-schema-v1.ts';
@@ -210,7 +209,6 @@ export default class ComponentV1 extends Component {
                 type: 'volume',
                 component: context.component.name,
                 inputs: {
-                  name: `${context.component.name}/${service_name}-${volume_name}`,
                   ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
@@ -298,7 +296,6 @@ export default class ComponentV1 extends Component {
             type: 'ingress',
             component: context.component.name,
             inputs: {
-              port: `\${{ ${service_node.getId()}.port }}`,
               ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
               ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
               ...(interface_config.ingress.internal !== undefined
@@ -326,6 +323,13 @@ export default class ComponentV1 extends Component {
               to: service_node.getId(),
             }),
           );
+
+          if (!('service' in ingress_node.inputs)) {
+            // This should never be hit. Typescript can't seem to infer the conditional type from the above inputs
+            throw new Error(
+              `Ingress expects to target a service, but does not (${ingress_node.getId()})`,
+            );
+          }
 
           deployment_node.inputs.ingresses = deployment_node.inputs.ingresses || [];
           deployment_node.inputs.ingresses?.push({
@@ -448,7 +452,6 @@ export default class ComponentV1 extends Component {
                 type: 'volume',
                 component: context.component.name,
                 inputs: {
-                  name: `${context.component.name}/${task_name}-${volume_name}`,
                   ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
@@ -547,7 +550,6 @@ export default class ComponentV1 extends Component {
               port: `\${{ ${interface_node.getId()}.port }}`,
               protocol: `\${{ ${interface_node.getId()}.protocol }}`,
             },
-            port: `\${{ ${interface_node.getId()}.port }}`,
             ...(interface_config.ingress.subdomain ? { subdomain: interface_config.ingress.subdomain } : {}),
             ...(interface_config.ingress.path ? { path: interface_config.ingress.path } : {}),
             ...(interface_config.ingress.internal !== undefined ? { internal: interface_config.ingress.internal } : {}),
@@ -666,11 +668,11 @@ export default class ComponentV1 extends Component {
     return res;
   }
 
-  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn): Promise<Component> {
     for (const [svcName, svcConfig] of Object.entries(this.services || {})) {
       if ('build' in svcConfig) {
         const digest = await buildFn({
-          name: svcName,
+          name: `services-${svcName}`,
           context: svcConfig.build.context,
           dockerfile: svcConfig.build.dockerfile,
           args: svcConfig.build.args,
@@ -684,10 +686,21 @@ export default class ComponentV1 extends Component {
 
       for (const [volumeName, volumeConfig] of Object.entries(svcConfig.volumes || {})) {
         if (volumeConfig.host_path) {
-          volumeConfig.image = await volumeBuildFn({
-            host_path: volumeConfig.host_path,
-            volume_name: volumeName,
-            deployment_name: svcName,
+          const tmpDir = Deno.makeTempDirSync();
+          const dockerfile = path.join(tmpDir, 'Dockerfile');
+          Deno.writeTextFileSync(
+            dockerfile,
+            `
+            FROM alpine:latest
+            COPY . .
+            CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+            `,
+          );
+
+          volumeConfig.image = await buildFn({
+            context: volumeConfig.host_path,
+            dockerfile,
+            name: 'services-' + svcName + '-volumes-' + volumeName,
           });
         }
       }
@@ -696,7 +709,7 @@ export default class ComponentV1 extends Component {
     for (const [taskName, taskConfig] of Object.entries(this.tasks || {})) {
       if ('build' in taskConfig) {
         const digest = await buildFn({
-          name: taskName,
+          name: `tasks-${taskName}`,
           context: taskConfig.build.context,
           dockerfile: taskConfig.build.dockerfile,
           args: taskConfig.build.args,
@@ -710,10 +723,21 @@ export default class ComponentV1 extends Component {
 
       for (const [volumeName, volumeConfig] of Object.entries(taskConfig.volumes || {})) {
         if (volumeConfig.host_path) {
-          volumeConfig.image = await volumeBuildFn({
-            host_path: volumeConfig.host_path,
-            volume_name: volumeName,
-            deployment_name: taskName,
+          const tmpDir = Deno.makeTempDirSync();
+          const dockerfile = path.join(tmpDir, 'Dockerfile');
+          Deno.writeTextFileSync(
+            dockerfile,
+            `
+            FROM alpine:latest
+            COPY . .
+            CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+            `,
+          );
+
+          volumeConfig.image = await buildFn({
+            context: volumeConfig.host_path,
+            dockerfile,
+            name: `tasks-${taskName}-volumes-${volumeName}`,
           });
         }
       }
@@ -722,29 +746,35 @@ export default class ComponentV1 extends Component {
     return this;
   }
 
-  public async tag(dockerTagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component> {
+  public async tag(dockerTagFn: DockerTagFn): Promise<Component> {
     for (const [svcName, svcConfig] of Object.entries(this.services || {})) {
       if ('image' in svcConfig) {
-        svcConfig.image = await dockerTagFn(svcConfig.image, svcName);
+        svcConfig.image = await dockerTagFn(svcConfig.image, `services-${svcName}`);
         this.services![svcName] = svcConfig;
       }
 
       for (const [volumeName, volumeConfig] of Object.entries(svcConfig.volumes || {})) {
         if (volumeConfig.image) {
-          svcConfig.volumes![volumeName].image = await volumeTagFn(volumeConfig.image, svcName, volumeName);
+          svcConfig.volumes![volumeName].image = await dockerTagFn(
+            volumeConfig.image,
+            `services-${svcName}-volumes-${volumeName}`,
+          );
         }
       }
     }
 
     for (const [taskName, taskConfig] of Object.entries(this.tasks || {})) {
       if ('image' in taskConfig) {
-        taskConfig.image = await dockerTagFn(taskConfig.image, taskName);
+        taskConfig.image = await dockerTagFn(taskConfig.image, `tasks-${taskName}`);
         this.tasks![taskName] = taskConfig;
       }
 
       for (const [volumeName, volumeConfig] of Object.entries(taskConfig.volumes || {})) {
         if (volumeConfig.image) {
-          taskConfig.volumes![volumeName].image = await volumeTagFn(volumeConfig.image, taskName, volumeName);
+          taskConfig.volumes![volumeName].image = await dockerTagFn(
+            volumeConfig.image,
+            `tasks-${taskName}-volumes-${volumeName}`,
+          );
         }
       }
     }

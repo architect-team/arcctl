@@ -217,7 +217,6 @@ describe('Component Schema: v2', () => {
       type: 'volume',
       component: 'component',
       inputs: {
-        name: 'component/main-src',
         hostPath: '/fake/source/src',
       },
     });
@@ -363,7 +362,6 @@ describe('Component Schema: v2', () => {
       type: 'ingress',
       component: 'component',
       inputs: {
-        port: `\${{ ${svc_node.getId()}.port }}`,
         username: `\${{ ${svc_node.getId()}.username }}`,
         password: `\${{ ${svc_node.getId()}.password }}`,
         protocol: `\${{ ${svc_node.getId()}.protocol }}`,

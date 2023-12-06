@@ -1,0 +1,141 @@
+{
+  "$ref": "#/definitions/TaskInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "TaskInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "command": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Command to execute in the container",
+          "examples": [
+            [
+              "node",
+              "index.js"
+            ]
+          ]
+        },
+        "cpu": {
+          "description": "Number of CPUs to allocate to the container",
+          "minimum": 0.1,
+          "type": "number"
+        },
+        "entrypoint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "default": [
+            ""
+          ],
+          "description": "Entrypoint of the container"
+        },
+        "environment": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Environment variables to pass to the container",
+          "examples": [
+            {
+              "NODE_ENV": "production"
+            }
+          ],
+          "type": "object"
+        },
+        "image": {
+          "description": "Image the container runs from",
+          "examples": [
+            "registry.architect.io/my-image:latest"
+          ],
+          "type": "string"
+        },
+        "memory": {
+          "description": "Amount of memory to allocate to the container",
+          "examples": [
+            "512Mi",
+            "1Gi"
+          ],
+          "type": "string"
+        },
+        "platform": {
+          "description": "Target platform the deployment will run on",
+          "examples": [
+            "linux/amd64"
+          ],
+          "type": "string"
+        },
+        "volume_mounts": {
+          "description": "A set of volumes to mount to the container",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "mount_path": {
+                "description": "Path in the container to mount the volume to",
+                "examples": [
+                  "/var/lib/my-volume"
+                ],
+                "type": "string"
+              },
+              "readonly": {
+                "default": false,
+                "description": "Whether or not the volume should be mounted as read-only",
+                "type": "boolean"
+              },
+              "volume": {
+                "description": "Name of the volume to mount",
+                "examples": [
+                  "my-volume"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "volume",
+              "mount_path",
+              "readonly"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "type": "object"
+    }
+  }
+}

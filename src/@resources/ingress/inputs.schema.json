@@ -3,116 +3,183 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "IngressRuleInputs": {
-      "additionalProperties": false,
-      "properties": {
-        "headers": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Headers to include in responses",
-          "examples": [
-            {
-              "X-Frame-Options": "DENY"
-            }
-          ],
-          "type": "object"
-        },
-        "internal": {
-          "default": false,
-          "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
-          "type": "boolean"
-        },
-        "password": {
-          "description": "Basic auth password",
-          "examples": [
-            "password"
-          ],
-          "type": "string"
-        },
-        "path": {
-          "default": "/",
-          "description": "The path the ingress rule listens on",
-          "type": "string"
-        },
-        "port": {
-          "description": "Port that the ingress rule listens for traffic on",
-          "examples": [
-            80
-          ],
-          "type": [
-            "string",
-            "number"
-          ]
-        },
-        "protocol": {
-          "default": "http",
-          "description": "The protocol the ingress rule listens for traffic on",
-          "type": "string"
-        },
-        "service": {
+      "anyOf": [
+        {
           "additionalProperties": false,
-          "description": "The configuration details of the target service",
           "properties": {
-            "host": {
-              "description": "The hostname the service is listening on",
+            "headers": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Headers to include in responses",
               "examples": [
-                "my-service"
+                {
+                  "X-Frame-Options": "DENY"
+                }
+              ],
+              "type": "object"
+            },
+            "internal": {
+              "default": false,
+              "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+              "type": "boolean"
+            },
+            "password": {
+              "description": "Basic auth password",
+              "examples": [
+                "password"
               ],
               "type": "string"
             },
-            "name": {
-              "description": "Name of the service the ingress points to",
-              "examples": [
-                "my-service"
-              ],
-              "type": "string"
-            },
-            "port": {
-              "description": "The port the service deployment is listening on",
-              "examples": [
-                80
-              ],
+            "path": {
+              "default": "/",
+              "description": "The path the ingress rule listens on",
               "type": "string"
             },
             "protocol": {
-              "description": "The protocol the service is listening on",
+              "default": "http",
+              "description": "The protocol the ingress rule listens for traffic on",
+              "type": "string"
+            },
+            "service": {
+              "additionalProperties": false,
+              "description": "The configuration details of the target service",
+              "properties": {
+                "host": {
+                  "description": "The hostname the service is listening on",
+                  "examples": [
+                    "my-service"
+                  ],
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name of the service the ingress points to",
+                  "examples": [
+                    "my-service"
+                  ],
+                  "type": "string"
+                },
+                "port": {
+                  "description": "The port the service deployment is listening on",
+                  "examples": [
+                    80
+                  ],
+                  "type": "string"
+                },
+                "protocol": {
+                  "description": "The protocol the service is listening on",
+                  "examples": [
+                    "http"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "host",
+                "port",
+                "protocol"
+              ],
+              "type": "object"
+            },
+            "subdomain": {
+              "description": "The subdomain the ingress rule listens on",
               "examples": [
-                "http"
+                "api"
+              ],
+              "type": "string"
+            },
+            "username": {
+              "description": "Basic auth username",
+              "examples": [
+                "admin"
               ],
               "type": "string"
             }
           },
           "required": [
-            "name",
-            "host",
-            "port",
-            "protocol"
+            "internal",
+            "path",
+            "protocol",
+            "service"
           ],
           "type": "object"
         },
-        "subdomain": {
-          "description": "The subdomain the ingress rule listens on",
-          "examples": [
-            "api"
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bucket": {
+              "additionalProperties": false,
+              "description": "Configuration details for a target bucket to route requests to",
+              "properties": {
+                "id": {
+                  "description": "Unique ID of the bucket the ingress rule should route to",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            },
+            "headers": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Headers to include in responses",
+              "examples": [
+                {
+                  "X-Frame-Options": "DENY"
+                }
+              ],
+              "type": "object"
+            },
+            "internal": {
+              "default": false,
+              "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+              "type": "boolean"
+            },
+            "password": {
+              "description": "Basic auth password",
+              "examples": [
+                "password"
+              ],
+              "type": "string"
+            },
+            "path": {
+              "default": "/",
+              "description": "The path the ingress rule listens on",
+              "type": "string"
+            },
+            "protocol": {
+              "default": "http",
+              "description": "The protocol the ingress rule listens for traffic on",
+              "type": "string"
+            },
+            "subdomain": {
+              "description": "The subdomain the ingress rule listens on",
+              "examples": [
+                "api"
+              ],
+              "type": "string"
+            },
+            "username": {
+              "description": "Basic auth username",
+              "examples": [
+                "admin"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "bucket",
+            "internal",
+            "path",
+            "protocol"
           ],
-          "type": "string"
-        },
-        "username": {
-          "description": "Basic auth username",
-          "examples": [
-            "admin"
-          ],
-          "type": "string"
+          "type": "object"
         }
-      },
-      "required": [
-        "port",
-        "service",
-        "protocol",
-        "path",
-        "internal"
-      ],
-      "type": "object"
+      ]
     }
   }
 }

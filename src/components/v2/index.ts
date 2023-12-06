@@ -9,8 +9,6 @@ import {
   DockerPushFn,
   DockerTagFn,
   GraphContext,
-  VolumeBuildFn,
-  VolumeTagFn,
 } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
@@ -715,7 +713,7 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       const digest = await buildFn({
         name: buildName,
@@ -731,10 +729,21 @@ export default class ComponentV2 extends Component {
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
         if (volumeConfig.host_path) {
-          volumeConfig.image = await volumeBuildFn({
-            host_path: volumeConfig.host_path,
-            volume_name: volumeName,
-            deployment_name: deploymentName,
+          const tmpDir = Deno.makeTempDirSync();
+          const dockerfile = path.join(tmpDir, 'Dockerfile');
+          Deno.writeTextFileSync(
+            dockerfile,
+            `
+            FROM alpine:latest
+            COPY . .
+            CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
+            `,
+          );
+
+          this.deployments![deploymentName].volumes![volumeName].image = await buildFn({
+            context: volumeConfig.host_path,
+            dockerfile,
+            name: 'deployments-' + deploymentName + '-volumes-' + volumeName,
           });
         }
       }
@@ -745,7 +754,7 @@ export default class ComponentV2 extends Component {
     return this;
   }
 
-  public async tag(tagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component> {
+  public async tag(tagFn: DockerTagFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       if (buildConfig.image) {
         const newTag = await tagFn(buildConfig.image, buildName);
@@ -756,10 +765,9 @@ export default class ComponentV2 extends Component {
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
       for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
         if (volumeConfig.image) {
-          deploymentConfig.volumes![volumeName].image = await volumeTagFn(
+          deploymentConfig.volumes![volumeName].image = await tagFn(
             volumeConfig.image,
-            deploymentName,
-            volumeName,
+            `deployments-${deploymentName}-volumes-${volumeName}`,
           );
         }
       }

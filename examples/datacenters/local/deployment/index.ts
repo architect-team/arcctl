@@ -6,7 +6,7 @@ const config = new pulumi.Config();
 export const name = config.require('name');
 
 type Config = {
-  name?: string;
+  name: string;
   image: string;
   command?: string[];
   entrypoint?: string[];
@@ -90,23 +90,26 @@ for (const key in inputServices) {
 const inputIngresses = config.getObject<Config['ingresses']>('ingresses') || [];
 for (const key in inputIngresses) {
   const value = inputIngresses[key];
+  const routerKey = value.subdomain.replace(/\./g, '-').replace(/\*/g, 'star');
   if (value.protocol === 'http') {
     labels.push({
-      label: `traefik.http.routers.${value.subdomain}.rule`,
-      value: `Host(\`${value.host}\`) && PathPrefix(\`${value.path || '/'}\`)`,
+      label: `traefik.http.routers.${routerKey}.rule`,
+      value: value.host.includes('*')
+        ? `HostRegexp(\`${value.host.replace('*', '{subdomain:[a-z_-]+}')}\`) && PathPrefix(\`${value.path || '/'}\`)`
+        : `Host(\`${value.host}\`) && PathPrefix(\`${value.path || '/'}\`)`,
     }, {
-      label: `traefik.http.routers.${value.subdomain}.service`,
+      label: `traefik.http.routers.${routerKey}.service`,
       value: value.service,
     });
   } else {
     labels.push({
-      label: `traefik.tcp.routers.${value.subdomain}.rule`,
+      label: `traefik.tcp.routers.${routerKey}.rule`,
       value: `HostSNI(\`${value.host}\`)`
     }, {
-      label: `traefik.tcp.routers.${value.subdomain}.service`,
+      label: `traefik.tcp.routers.${routerKey}.service`,
       value: value.service,
     }, {
-      label: `traefik.tcp.routers.${value.subdomain}.tls.passthrough`,
+      label: `traefik.tcp.routers.${routerKey}.tls.passthrough`,
       value: 'true',
     });
   }

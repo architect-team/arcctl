@@ -203,4 +203,27 @@ environment {
       image = module.build.image
     }
   }
+
+  volume {
+    module "volume" {
+      build = "./volume"
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      inputs = {
+        name = "${node.component}-${node.name}"
+      }
+    }
+
+    outputs = {
+      id = module.volume.id
+    }
+  }
 }

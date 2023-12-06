@@ -9,12 +9,6 @@ export type GraphContext = {
   };
 };
 
-export type VolumeBuildFn = (options: {
-  deployment_name: string;
-  volume_name: string;
-  host_path: string;
-}) => Promise<string>;
-
 export type DockerBuildFn = (options: {
   name: string;
   context: string;
@@ -26,12 +20,6 @@ export type DockerBuildFn = (options: {
 export type DockerTagFn = (
   sourceRef: string,
   targetName: string,
-) => Promise<string>;
-
-export type VolumeTagFn = (
-  digest: string,
-  deploymentName: string,
-  volumeName: string,
 ) => Promise<string>;
 
 export type DockerPushFn = (image: string) => Promise<void>;
@@ -46,9 +34,9 @@ export abstract class Component {
 
   public abstract getGraph(context: GraphContext): AppGraph;
 
-  public abstract build(buildFn: DockerBuildFn, volumeFn: VolumeBuildFn): Promise<Component>;
+  public abstract build(buildFn: DockerBuildFn): Promise<Component>;
 
-  public abstract tag(tagFn: DockerTagFn, volumeTagFn: VolumeTagFn): Promise<Component>;
+  public abstract tag(tagFn: DockerTagFn): Promise<Component>;
 
   public abstract push(pushFn: DockerPushFn): Promise<Component>;
 }

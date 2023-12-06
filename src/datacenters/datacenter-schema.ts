@@ -80,6 +80,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -227,6 +230,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -441,6 +447,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -655,6 +664,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -816,6 +828,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -975,6 +990,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -1195,6 +1213,9 @@ export default {
                       'ttl': {
                         'description':
                           'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                        'examples': [
+                          '24*60*60',
+                        ],
                         'type': 'string',
                       },
                       'volume': {
@@ -1314,6 +1335,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -1473,6 +1497,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -1678,6 +1705,9 @@ export default {
                             'ttl': {
                               'description':
                                 'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                              'examples': [
+                                '24*60*60',
+                              ],
                               'type': 'string',
                             },
                             'volume': {
@@ -1729,7 +1759,7 @@ export default {
                       'type': 'object',
                     },
                     'outputs': {
-                      'additionalProperties': {},
+                      'additionalProperties': false,
                       'description': 'A map of output values to be passed to upstream application resources',
                       'examples': [
                         {
@@ -1739,6 +1769,18 @@ export default {
                           'port': '${module.database.port}',
                           'username': '${module.database.username}',
                         },
+                      ],
+                      'properties': {
+                        'id': {
+                          'description': 'The unique ID of the volume',
+                          'examples': [
+                            'my-volume',
+                          ],
+                          'type': 'string',
+                        },
+                      },
+                      'required': [
+                        'id',
                       ],
                       'type': 'object',
                     },
@@ -1825,6 +1867,9 @@ export default {
                 'ttl': {
                   'description':
                     'The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.',
+                  'examples': [
+                    '24*60*60',
+                  ],
                   'type': 'string',
                 },
                 'volume': {

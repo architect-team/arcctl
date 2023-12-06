@@ -1,2 +1,1 @@
 # The `bucket` resource
-

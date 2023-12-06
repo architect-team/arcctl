@@ -32,8 +32,7 @@ export type ResourceType =
   | 'secret'
   | 'service'
   | 'task'
-  | 'volume'
-;
+  | 'volume';
 
 export const ResourceTypeList: ResourceType[] = [
   'bucket',

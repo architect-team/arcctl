@@ -113,15 +113,20 @@ async function apply_datacenter_action(options: ApplyDatacenterOptions, name: st
         if (datacenterEnvironments.length > 0) {
           for (const environmentRecord of datacenterEnvironments) {
             console.log(`Updating environment ${environmentRecord.name}`);
-            await applyEnvironment({
+            const { success } = await applyEnvironment({
               command_helper,
               name: environmentRecord.name,
               logger,
               autoApprove: true,
               targetEnvironment: environmentRecord.config,
             });
+
+            if (success) {
+              console.log(`Environment ${environmentRecord.name} updated successfully`);
+            } else {
+              console.error(`%cEnvironment ${environmentRecord.name} update failed`, 'color: red');
+            }
           }
-          console.log('Environments updated successfully');
           command_helper.infraRenderer.doneRenderingGraph();
         }
       }).catch(async (err) => {

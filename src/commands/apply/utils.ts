@@ -44,70 +44,58 @@ export const promptForDatacenter = async (command_helper: CommandHelper, name?: 
   return selected;
 };
 
-export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
-  const environmentRecord = await options.command_helper.environmentStore.get(options.name);
-  const notHasDatacenter = !options.datacenter && !environmentRecord;
+export const applyEnvironment = async (
+  options: ApplyEnvironmentOptions,
+): Promise<{ success: boolean; update: boolean }> => {
+  const existingEnvironmentRecord = await options.command_helper.environmentStore.get(options.name);
+  let datacenterRecord = options.datacenter
+    ? await options.command_helper.datacenterStore.get(options.datacenter)
+    : existingEnvironmentRecord
+    ? await options.command_helper.datacenterStore.get(existingEnvironmentRecord.datacenter)
+    : await ArcctlConfig.getDefaultDatacenter(options.command_helper);
 
-  let datacenterRecord: DatacenterRecord | undefined;
-  if (notHasDatacenter) {
-    datacenterRecord = await ArcctlConfig.getDefaultDatacenter(options.command_helper);
+  if (!datacenterRecord) {
+    datacenterRecord = await promptForDatacenter(options.command_helper);
   }
 
-  const targetDatacenterName = !datacenterRecord
-    ? (await promptForDatacenter(options.command_helper, options.datacenter)).name
-    : datacenterRecord.name || environmentRecord?.datacenter;
-
-  const targetDatacenter = targetDatacenterName
-    ? await options.command_helper.datacenterStore.get(targetDatacenterName)
-    : undefined;
-  if (!targetDatacenter) {
-    console.error(`Couldn't find a datacenter named ${targetDatacenterName}`);
-    Deno.exit(1);
+  if (!datacenterRecord) {
+    throw new Error(`No valid datacenter provided`);
   }
 
   const targetEnvironment = options.targetEnvironment || await parseEnvironment({});
-
-  const environmentGraph = await targetEnvironment.getGraph(
+  const targetAppGraph = await targetEnvironment.getGraph(
     options.name,
     options.command_helper.componentStore,
     options.debug,
   );
 
-  const targetGraph = targetDatacenter.config.getGraph(environmentGraph, {
+  const targetInfraGraph = datacenterRecord.config.getGraph(targetAppGraph, {
     environmentName: options.name,
-    datacenterName: targetDatacenter.name,
+    datacenterName: datacenterRecord.name,
   });
-  targetGraph.validate();
+  targetInfraGraph.validate();
 
-  const startingDatacenter = (await options.command_helper.datacenterStore.get(targetDatacenterName!))!;
-  startingDatacenter.config.getGraph(environmentGraph, {
-    environmentName: options.name,
-    datacenterName: targetDatacenter.name,
-  });
-
-  const startingGraph = environmentRecord ? environmentRecord.priorState : targetDatacenter.priorState;
-
-  const infraGraph = await InfraGraph.plan({
-    before: startingGraph,
-    after: targetGraph,
+  const plannedChanges = await InfraGraph.plan({
+    before: existingEnvironmentRecord ? existingEnvironmentRecord.priorState : datacenterRecord.priorState,
+    after: targetInfraGraph,
     context: PlanContext.Environment,
   });
 
-  infraGraph.validate();
-  await options.command_helper.infraRenderer.confirmGraph(infraGraph, options.autoApprove);
+  plannedChanges.validate();
+  await options.command_helper.infraRenderer.confirmGraph(plannedChanges, options.autoApprove);
 
   let interval: number | undefined = undefined;
   if (!options.logger) {
     interval = setInterval(() => {
-      options.command_helper.infraRenderer.renderGraph(infraGraph, { clear: true });
+      options.command_helper.infraRenderer.renderGraph(plannedChanges, { clear: true });
     }, 1000 / cliSpinners.dots.frames.length);
   }
 
   const success = await options.command_helper.environmentUtils.applyEnvironment(
     options.name,
-    startingDatacenter,
-    targetEnvironment!,
-    infraGraph,
+    datacenterRecord,
+    targetEnvironment,
+    plannedChanges,
     {
       logger: options.logger,
     },
@@ -116,12 +104,11 @@ export const applyEnvironment = async (options: ApplyEnvironmentOptions) => {
   if (interval) {
     clearInterval(interval);
   }
-  options.command_helper.infraRenderer.renderGraph(infraGraph, { clear: !options.logger, disableSpinner: true });
+  options.command_helper.infraRenderer.renderGraph(plannedChanges, { clear: !options.logger, disableSpinner: true });
   options.command_helper.infraRenderer.doneRenderingGraph();
 
-  if (!success) {
-    console.log(`Environment ${environmentRecord ? 'update' : 'creation'} failed`);
-  } else {
-    console.log(`Environment ${options.name} ${environmentRecord ? 'updated' : 'created'} successfully`);
-  }
+  return {
+    success,
+    update: !!existingEnvironmentRecord,
+  };
 };

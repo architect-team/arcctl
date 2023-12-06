@@ -630,7 +630,7 @@ export default class ComponentV2 extends Component {
           type: 'task',
           component: context.component.name,
           inputs: {
-            image: 'architectio/s3cmd:main',
+            image: 'architectio/s3cmd',
             command: [
               'sync',
               '/data',

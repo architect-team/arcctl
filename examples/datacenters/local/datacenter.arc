@@ -19,6 +19,7 @@ module "traefik" {
     name = "${datacenter.name}-gateway"
     image = "traefik:v2.10"
     command = [
+      "--accesslog=true",
       "--providers.docker=true",
       "--api.insecure=true",
       "--api.dashboard=true"
@@ -89,6 +90,33 @@ environment {
     inputs = {
       name = "${environment.name}-static-web-server"
       image = "nginx"
+    }
+  }
+
+  module "localstack" {
+    // when = contains(environment.nodes.*.type, "bucket")
+    build = "./deployment"
+
+    volume {
+      host_path = "/var/run/docker.sock"
+      mount_path = "/var/run/docker.sock"
+    }
+
+    environment = {
+      DOCKER_HOST = "unix:///var/run/docker.sock"
+    }
+
+    inputs = {
+      name = "localstack"
+      image = "localstack/localstack"
+      ports = [{
+        internal = 4566
+        external = 4566
+      }]
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+        GATEWAY_LISTEN = "0.0.0.0:4566"
+      }
     }
   }
 
@@ -228,10 +256,9 @@ environment {
     }
   }
 
-  bucket {
-    module "dynamicBucket" {
-      when = node.inputs.deploy
-      build = "./deployment"
+  volume {
+    module "volume" {
+      build = "./volume"
 
       environment = {
         DOCKER_HOST = "unix:///var/run/docker.sock"
@@ -240,53 +267,99 @@ environment {
       volume {
         host_path = "/var/run/docker.sock"
         mount_path = "/var/run/docker.sock"
-      }
-
-      # This volume is shared with the nginx webserver
-      volume {
-        host_path = "${var.secretsDir}/${environment.name}/buckets/"
-        mount_path = "/data"
-      }
-
-      inputs = merge(node.inputs.deploy, {
-        volume_mounts = [{
-          host_path = "/data"
-          mount_path = node.inputs.deploy.publish
-        }]
-      })
-    }
-
-    module "staticBucket" {
-      when = node.inputs.directory
-      build = "./deployment"
-
-      environment = {
-        DOCKER_HOST = "unix:///var/run/docker.sock"
-      }
-
-      volume {
-        host_path = "/var/run/docker.sock"
-        mount_path = "/var/run/docker.sock"
-      }
-
-      # This volume is shared with the nginx webserver
-      volume {
-        host_path = "${var.secretsDir}/${environment.name}/buckets/"
-        mount_path = "/data"
       }
 
       inputs = {
-        image = "alpine"
-        command = [
-          "sh",
-          "-c",
-          "cp -r ${node.inputs.directory} /data"
-        ]
-        volume_mounts = [{
-          host_path = "/data"
-          mount_path = "/data"
-        }]
+        name = "${node.component}-${node.name}"
       }
     }
+
+    outputs = {
+      id = module.volume.id
+    }
   }
+
+  task {
+    module "task" {
+      build = "./deployment"
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      inputs = "${merge(node.inputs, {
+        volume_mounts = merge(node.inputs.volume_mounts, [{
+          host_path = "/var/run/docker.sock",
+          mount_path = "/var/run/docker.sock"
+        }])
+      })}"
+    }
+  }
+
+  // bucket {
+  //   module "dynamicBucket" {
+  //     when = node.inputs.deploy
+  //     build = "./deployment"
+
+  //     environment = {
+  //       DOCKER_HOST = "unix:///var/run/docker.sock"
+  //     }
+
+  //     volume {
+  //       host_path = "/var/run/docker.sock"
+  //       mount_path = "/var/run/docker.sock"
+  //     }
+
+  //     # This volume is shared with the nginx webserver
+  //     volume {
+  //       host_path = "${var.secretsDir}/${environment.name}/buckets/"
+  //       mount_path = "/data"
+  //     }
+
+  //     inputs = merge(node.inputs.deploy, {
+  //       volume_mounts = [{
+  //         host_path = "/data"
+  //         mount_path = node.inputs.deploy.publish
+  //       }]
+  //     })
+  //   }
+
+  //   module "staticBucket" {
+  //     when = node.inputs.directory
+  //     build = "./deployment"
+
+  //     environment = {
+  //       DOCKER_HOST = "unix:///var/run/docker.sock"
+  //     }
+
+  //     volume {
+  //       host_path = "/var/run/docker.sock"
+  //       mount_path = "/var/run/docker.sock"
+  //     }
+
+  //     # This volume is shared with the nginx webserver
+  //     volume {
+  //       host_path = "${var.secretsDir}/${environment.name}/buckets/"
+  //       mount_path = "/data"
+  //     }
+
+  //     inputs = {
+  //       image = "alpine"
+  //       command = [
+  //         "sh",
+  //         "-c",
+  //         "cp -r ${node.inputs.directory} /data"
+  //       ]
+  //       volume_mounts = [{
+  //         host_path = "/data"
+  //         mount_path = "/data"
+  //       }]
+  //     }
+  //   }
+  // }
 }

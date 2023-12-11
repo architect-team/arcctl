@@ -1902,7 +1902,10 @@ export default {
                           "examples": [
                             443
                           ],
-                          "type": "number"
+                          "type": [
+                            "string",
+                            "number"
+                          ]
                         },
                         "protocol": {
                           "description": "Protocol to access the webapp",

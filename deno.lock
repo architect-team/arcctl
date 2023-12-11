@@ -960,6 +960,8 @@
     "https://esm.sh/v124/ms@2.1.3/denonext/ms.mjs": "0f06597e493998793b8f52232868976128fca326eec3bcd56f10e66e6efd1839",
     "https://esm.sh/v124/one-time@1.0.0/denonext/one-time.mjs": "b3a4b3d5de194c6f2bf7a9556607a622f9ac27b08a35ac6e87d9f9e7580afcc4",
     "https://esm.sh/v124/onetime@5.1.2/denonext/onetime.mjs": "dcdb53bfa68b0d43d301c1fd4bb131150a6e58ba843db9b61e6dcd282c9434da",
+    "https://esm.sh/v124/p-limit@5.0.0": "661105c09d6884726917004259169aab86935eccbed55f98a50eb4cf4ff1dcf6",
+    "https://esm.sh/v124/p-limit@5.0.0/denonext/p-limit.mjs": "ced092cf0d8df1f2b6c333a957f7a01949382528a7ade9dbd011dd9ebe47ec70",
     "https://esm.sh/v124/querystring@0.2.0": "c426159c0d0a6c8732e9e3e976230edb77cb7b225ae7f5b4fc1c131563bf9537",
     "https://esm.sh/v124/querystring@0.2.0/denonext/querystring.mjs": "0cc5ad58cddf88b56ccd9bbb47ecdb8707f037c9a25ad47cf38a7fdc4189ae1b",
     "https://esm.sh/v124/readable-stream@3.6.2/denonext/lib/_stream_writable.js": "fcd380d7da84d0708692263c1e46b1a673d7ab64da9f654b73abfad0219a7560",
@@ -1001,6 +1003,7 @@
     "https://esm.sh/v124/wrap-ansi@8.1.0": "da576a84619b45bf324bfb582b74f3c38b23deb5abb204d3b3aca329f6cd970d",
     "https://esm.sh/v124/wrap-ansi@8.1.0/denonext/wrap-ansi.mjs": "1804d60795c6034323e4b8dc92425aa9ab28385b87bb700772e16cb92bb0d8f8",
     "https://esm.sh/v124/yallist@4.0.0/denonext/yallist.mjs": "61f180d807dda50bac17028eda05d5722a3fecef6e98a9064e2353ea6864fd82",
+    "https://esm.sh/v124/yocto-queue@1.0.0/denonext/yocto-queue.mjs": "a9a6bb495a57157285c80b5c8844e5158c8923549777caabcedd022d4a91766a",
     "https://esm.sh/v128/mustache@4.2.0/denonext/mustache.mjs": "8c046aa4755b9beb2f203e01fdab7d36e4c75dd1bc22021be44ac31723ead9f0",
     "https://esm.sh/v129/ansi-escapes@6.2.0/denonext/ansi-escapes.mjs": "e82f350a4e3ef3113cd99b6d99513de1821bb9ae50bb4ed1dbbd6b9789af560d"
   }

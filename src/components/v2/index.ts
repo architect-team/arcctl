@@ -714,8 +714,11 @@ export default class ComponentV2 extends Component {
             component_source: context.component.source,
             context: webapp_config.context,
             dockerfile: dockerfile,
+            args: {},
+            target: '',
           },
         });
+        graph.insertNodes(build_node);
       }
 
       let webapp_node: AppGraphNode<'webapp'>;
@@ -744,11 +747,21 @@ export default class ComponentV2 extends Component {
         });
       }
 
+      webapp_node.inputs = parseExpressionRefs(
+        graph,
+        this.normalizedDependencies,
+        context,
+        webapp_node.getId(),
+        webapp_node.inputs,
+      );
+
+      graph.insertNodes(webapp_node);
+
       if (build_node) {
         graph.insertEdges(
           new GraphEdge({
-            from: build_node.getId(),
-            to: webapp_node.getId(),
+            from: webapp_node.getId(),
+            to: build_node.getId(),
           }),
         );
       }

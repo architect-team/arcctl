@@ -190,6 +190,11 @@ environment {
         mount_path = "/var/run/docker.sock"
       }
 
+      volume {
+        host_path = node.inputs.dockerfile
+        mount_path = node.inputs.dockerfile
+      }
+
       inputs = {
         image = "${node.component}-${node.name}"
         context = node.inputs.context
@@ -241,7 +246,7 @@ environment {
       }
 
       inputs = merge(node.inputs, {
-        service_name = "${replace(node.component + "-" + node.name, "/", "-")}"
+        service_name = replace(node.component + "-" + node.name, "/", "-")
         hostname = "${node.inputs.subdomain}.127.0.0.1.nip.io"
       })
     }

@@ -69,6 +69,7 @@ export class InfraGraph extends Graph<InfraGraphNode> {
     }
 
     if (notFound.length > 0) {
+      console.log(node);
       throw Error(`Missing outputs for key${notFound.length > 1 ? 's' : ''}: ${notFound.join(', ')}`);
     }
   }

@@ -1,23 +1,35 @@
-import * as path from 'std/path/mod.ts';
-import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
-import { Plugin } from '../../datacenter-modules/index.ts';
-import { AppGraph } from '../../graphs/app/graph.ts';
-import { GraphEdge } from '../../graphs/edge.ts';
-import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
-import { InfraGraph } from '../../graphs/infra/graph.ts';
-import { applyContext } from '../../hcl-parser/index.ts';
-import { exec } from '../../utils/command.ts';
-import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
-import { DatacenterVariablesSchema } from '../variables.ts';
+import pLimit from "p-limit";
+import * as path from "std/path/mod.ts";
+import {
+  parseResourceOutputs,
+  ResourceOutputs,
+  ResourceType,
+} from "../../@resources/index.ts";
+import { Plugin } from "../../datacenter-modules/index.ts";
+import { AppGraph } from "../../graphs/app/graph.ts";
+import { GraphEdge } from "../../graphs/edge.ts";
+import { InfraGraphNode, MODULES_REGEX } from "../../graphs/index.ts";
+import { InfraGraph } from "../../graphs/infra/graph.ts";
+import { applyContext } from "../../hcl-parser/index.ts";
+import { exec } from "../../utils/command.ts";
+import {
+  Datacenter,
+  DatacenterBuildOptions,
+  DockerBuildFn,
+  DockerPushFn,
+  DockerTagFn,
+  GetGraphOptions,
+} from "../datacenter.ts";
+import { DatacenterVariablesSchema } from "../variables.ts";
 import {
   DuplicateModuleNameError,
   InvalidModuleReference,
   InvalidOutputProperties,
   MissingResourceHook,
   ModuleReferencesNotAllowedInWhenClause,
-} from './errors.ts';
+} from "./errors.ts";
 
-const DEFAULT_PLUGIN: Plugin = 'pulumi';
+const DEFAULT_PLUGIN: Plugin = "pulumi";
 
 type Module = {
   /**
@@ -138,8 +150,8 @@ type ResourceHook<T extends ResourceType = ResourceType> = {
  * Clones the repository at the given repo URL and returns the tmp dir it was cloned to.
  */
 async function cloneRepo(repo: string): Promise<string> {
-  const tmpDir = await Deno.makeTempDir({ prefix: 'module' });
-  await exec('git', { args: ['clone', repo, tmpDir] });
+  const tmpDir = await Deno.makeTempDir({ prefix: "module" });
+  await exec("git", { args: ["clone", repo, tmpDir] });
   return tmpDir;
 }
 
@@ -154,7 +166,7 @@ export default class DatacenterV1 extends Datacenter {
        * @example "string"
        * @enum "string" "number" "boolean"
        */
-      type: 'string' | 'number' | 'boolean';
+      type: "string" | "number" | "boolean";
 
       /**
        * The default value of the variable
@@ -180,17 +192,14 @@ export default class DatacenterV1 extends Datacenter {
   /**
    * Rules dictating what resources should be created in each environment hosted by the datacenter
    */
-  environment?: (
-    & {
-      /**
-       * Modules that will be created once per environment
-       */
-      module?: ModuleDictionary;
-    }
-    & {
-      [resource in ResourceType]?: ResourceHook<resource>[];
-    }
-  )[];
+  environment?: ({
+    /**
+     * Modules that will be created once per environment
+     */
+    module?: ModuleDictionary;
+  } & {
+    [resource in ResourceType]?: ResourceHook<resource>[];
+  })[];
 
   public constructor(data: any) {
     super();
@@ -213,7 +222,13 @@ export default class DatacenterV1 extends Datacenter {
     return res;
   }
 
-  public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
+  public async build(
+    buildFn: DockerBuildFn,
+    options?: DatacenterBuildOptions
+  ): Promise<Datacenter> {
+    const limit = pLimit(options?.concurrency ?? 1);
+    const promises: Promise<void>[] = [];
+
     for (const mod of Object.values(this.getModules())) {
       // Modules with only a source are skipped, they point to images that already exist.
       if (mod.build) {
@@ -222,18 +237,24 @@ export default class DatacenterV1 extends Datacenter {
         if (URL.canParse(context)) {
           const repo_url = new URL(context);
           // The URL can contain '//' which separates the repo from a specific folder within that should be built.
-          const [repo_path, folder_path] = repo_url.pathname.split('//');
+          const [repo_path, folder_path] = repo_url.pathname.split("//");
           repo_url.pathname = repo_path;
           context = await cloneRepo(repo_url.toString());
           context = path.join(context, folder_path);
         }
 
-        mod.source = await buildFn({
-          context,
-          plugin: mod.plugin || DEFAULT_PLUGIN,
-        });
+        promises.push(
+          limit(async () => {
+            mod.source = await buildFn({
+              context,
+              plugin: mod.plugin || DEFAULT_PLUGIN,
+            });
+          })
+        );
       }
     }
+
+    await Promise.all(promises);
 
     return this;
   }
@@ -285,7 +306,7 @@ export default class DatacenterV1 extends Datacenter {
       // Hooks can have the same "name" (the resource type) so ensure uniqueness
       let hookModuleNumber = 0;
       // Extract all environment hook modules
-      const hooks = Object.entries(env).filter(([key]) => key !== 'module');
+      const hooks = Object.entries(env).filter(([key]) => key !== "module");
       for (const hook of hooks) {
         const key = hook[0] as ResourceType;
         const values = hook[1] as ResourceHook[];
@@ -307,7 +328,7 @@ export default class DatacenterV1 extends Datacenter {
   private getScopedGraph(
     infraGraph: InfraGraph,
     modules: ModuleDictionary,
-    options: GetGraphOptions & { component?: string; appNodeId?: string },
+    options: GetGraphOptions & { component?: string; appNodeId?: string }
   ): InfraGraph {
     const scopedGraph = new InfraGraph();
 
@@ -321,14 +342,21 @@ export default class DatacenterV1 extends Datacenter {
       const module = value[0];
 
       // The module name cannot be used in the current or parent scoped graph
-      if (infraGraph.nodes.find((n) => n.name === name) || scopedGraph.nodes.find((n) => n.name === name)) {
+      if (
+        infraGraph.nodes.find((n) => n.name === name) ||
+        scopedGraph.nodes.find((n) => n.name === name)
+      ) {
         throw new DuplicateModuleNameError(name);
       }
 
-      if (value[0].when && value[0].when !== 'true' && value[0].when !== 'false') {
+      if (
+        value[0].when &&
+        value[0].when !== "true" &&
+        value[0].when !== "false"
+      ) {
         // If a when clause is set but can't be evaluated, it means it has an unresolvable value
         throw new ModuleReferencesNotAllowedInWhenClause();
-      } else if (value[0].when && value[0].when === 'false') {
+      } else if (value[0].when && value[0].when === "false") {
         // If it evaluates to false it should be skipped.
         return;
       } else if (!module.source) {
@@ -345,32 +373,44 @@ export default class DatacenterV1 extends Datacenter {
           volumes: module.volume,
           environment_vars: module.environment,
           name: name,
-          action: 'create',
+          action: "create",
           // TODO: Why is module.ttl parsed as a string?
           ttl: module.ttl ? parseInt(module.ttl) : undefined,
-        }),
+        })
       );
     });
 
     // Extract module edges and replace references with GraphNode references
-    scopedGraph.nodes = scopedGraph.nodes.map((node) =>
-      new InfraGraphNode(JSON.parse(
-        JSON.stringify(node).replace(MODULES_REGEX, (full_match, match_path, module_name, module_key) => {
-          const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) => n.name === module_name);
-          if (!target_node) {
-            throw new InvalidModuleReference(node.name, module_name);
-          }
+    scopedGraph.nodes = scopedGraph.nodes.map(
+      (node) =>
+        new InfraGraphNode(
+          JSON.parse(
+            JSON.stringify(node).replace(
+              MODULES_REGEX,
+              (full_match, match_path, module_name, module_key) => {
+                const target_node = [
+                  ...scopedGraph.nodes,
+                  ...infraGraph.nodes,
+                ].find((n) => n.name === module_name);
+                if (!target_node) {
+                  throw new InvalidModuleReference(node.name, module_name);
+                }
 
-          scopedGraph.insertEdges(
-            new GraphEdge({
-              from: node.getId(),
-              to: target_node.getId(),
-            }),
-          );
+                scopedGraph.insertEdges(
+                  new GraphEdge({
+                    from: node.getId(),
+                    to: target_node.getId(),
+                  })
+                );
 
-          return full_match.replace(match_path, `${target_node.getId()}.${module_key}`);
-        }),
-      ))
+                return full_match.replace(
+                  match_path,
+                  `${target_node.getId()}.${module_key}`
+                );
+              }
+            )
+          )
+        )
     );
 
     return scopedGraph;
@@ -414,7 +454,11 @@ export default class DatacenterV1 extends Datacenter {
     // NOTE: we do this after variables because we WANT to pin the variable values that were provided
     const dc = new DatacenterV1(this);
 
-    const dcScopedGraph = this.getScopedGraph(infraGraph, dc.module || {}, options);
+    const dcScopedGraph = this.getScopedGraph(
+      infraGraph,
+      dc.module || {},
+      options
+    );
     infraGraph.insertNodes(...dcScopedGraph.nodes);
     infraGraph.insertEdges(...dcScopedGraph.edges);
 
@@ -430,14 +474,22 @@ export default class DatacenterV1 extends Datacenter {
       const resourceScopedGraphs: InfraGraph[] = [];
 
       for (const env of dc.environment || []) {
-        const envScopedGraph = this.getScopedGraph(infraGraph, env.module || {}, options);
-        infraGraph.insertNodes(...envScopedGraph.nodes.map((n) => {
-          n.environment = options.environmentName;
-          return n;
-        }));
+        const envScopedGraph = this.getScopedGraph(
+          infraGraph,
+          env.module || {},
+          options
+        );
+        infraGraph.insertNodes(
+          ...envScopedGraph.nodes.map((n) => {
+            n.environment = options.environmentName;
+            return n;
+          })
+        );
         infraGraph.insertEdges(...envScopedGraph.edges);
 
-        const hooks = Object.entries(env || {}).filter(([key]) => key !== 'module');
+        const hooks = Object.entries(env || {}).filter(
+          ([key]) => key !== "module"
+        );
 
         appGraph.nodes.forEach((appGraphNode) => {
           hooks.forEach(([key, values]) => {
@@ -460,43 +512,58 @@ export default class DatacenterV1 extends Datacenter {
                 node: appGraphNode,
               });
 
-              if (hook.when && hook.when !== 'true' && hook.when !== 'false') {
+              if (hook.when && hook.when !== "true" && hook.when !== "false") {
                 // If a when clause is set but can't be evaluated, it means it has an unresolvable value
                 throw new ModuleReferencesNotAllowedInWhenClause();
-              } else if (hook.when && hook.when === 'false') {
+              } else if (hook.when && hook.when === "false") {
                 // If it evaluates to false, its just not a match. Try the next hook.
                 continue;
               }
 
-              const scopedGraph = this.getScopedGraph(infraGraph, hook.module || {}, {
-                ...options,
-                component: appGraphNode.component,
-                appNodeId: appGraphNode.getId(),
-              });
+              const scopedGraph = this.getScopedGraph(
+                infraGraph,
+                hook.module || {},
+                {
+                  ...options,
+                  component: appGraphNode.component,
+                  appNodeId: appGraphNode.getId(),
+                }
+              );
               resourceScopedGraphs.push(scopedGraph);
 
               try {
                 // Make sure the output schema is valid for the resource type
-                const validatedResourceOutputs = parseResourceOutputs(type, hook.outputs || {});
+                const validatedResourceOutputs = parseResourceOutputs(
+                  type,
+                  hook.outputs || {}
+                );
 
                 // Replace any module references with node references
                 outputsMap[appGraphNode.getId()] = JSON.parse(
                   JSON.stringify(validatedResourceOutputs).replace(
                     MODULES_REGEX,
                     (full_match, match_path, module_name, module_key) => {
-                      const target_node = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) =>
-                        n.name === module_name
-                      );
+                      const target_node = [
+                        ...scopedGraph.nodes,
+                        ...infraGraph.nodes,
+                      ].find((n) => n.name === module_name);
                       if (!target_node) {
-                        throw new InvalidModuleReference(`${type}.outputs`, module_name);
+                        throw new InvalidModuleReference(
+                          `${type}.outputs`,
+                          module_name
+                        );
                       }
 
-                      return full_match.replace(match_path, `${target_node.getId()}.${module_key}`);
-                    },
-                  ),
+                      return full_match.replace(
+                        match_path,
+                        `${target_node.getId()}.${module_key}`
+                      );
+                    }
+                  )
                 );
               } catch (errs) {
                 if (Array.isArray(errs)) {
+                  console.log(errs);
                   throw new InvalidOutputProperties(type, errs);
                 }
 
@@ -513,6 +580,8 @@ export default class DatacenterV1 extends Datacenter {
       appGraph.edges.forEach((appGraphEdge) => {
         const targetOutputs = outputsMap[appGraphEdge.to];
         if (!targetOutputs) {
+          console.log(appGraph);
+          console.log(outputsMap);
           throw new MissingResourceHook(appGraphEdge.from, appGraphEdge.to);
         }
       });
@@ -520,10 +589,12 @@ export default class DatacenterV1 extends Datacenter {
       // We don't merge in the individual hook results until we've iterated over all of them so
       // that modules can't find each other across hooks
       resourceScopedGraphs.forEach((g) => {
-        infraGraph.insertNodes(...g.nodes.map((n) => {
-          n.environment = options.environmentName;
-          return n;
-        }));
+        infraGraph.insertNodes(
+          ...g.nodes.map((n) => {
+            n.environment = options.environmentName;
+            return n;
+          })
+        );
         infraGraph.insertEdges(...g.edges);
       });
 
@@ -539,26 +610,31 @@ export default class DatacenterV1 extends Datacenter {
               }
 
               // We need to check output values for app node references too (e.g. ingress url loaded from service url, etc.)
-              const outputValue = recursivelyReplaceAppRefs(outputs[key] || '');
+              const outputValue = recursivelyReplaceAppRefs(outputs[key] || "");
 
               // Check if the output value is actually a pointer to another module
               const moduleRefs = outputValue.matchAll(
-                /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g,
+                /\$\{\s*([a-zA-Z0-9_\-\/]+)\.([a-zA-Z0-9_-]+)\}/g
               );
               for (const match of moduleRefs) {
                 infraGraph.insertEdges(
                   new GraphEdge({
                     from: node.getId(),
                     to: match[1],
-                  }),
+                  })
                 );
               }
 
-              return outputValue.replace(/((?<![\\])['"])((?:.(?!(?<![\\])\1))*.?)\1/g, '\\"$2\\"');
-            },
+              return outputValue.replace(
+                /((?<![\\])['"])((?:.(?!(?<![\\])\1))*.?)\1/g,
+                '\\"$2\\"'
+              );
+            }
           );
 
-        const stringifiedNode = recursivelyReplaceAppRefs(JSON.stringify(node, null, 2));
+        const stringifiedNode = recursivelyReplaceAppRefs(
+          JSON.stringify(node, null, 2)
+        );
         try {
           return new InfraGraphNode(JSON.parse(stringifiedNode));
         } catch (err) {

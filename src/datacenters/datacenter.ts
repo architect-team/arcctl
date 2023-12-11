@@ -7,6 +7,11 @@ export type DockerBuildFn = (options: {
   context: string;
   plugin: Plugin;
 }) => Promise<string>;
+
+export type DatacenterBuildOptions = {
+  concurrency?: number;
+};
+
 export type DockerTagFn = (
   sourceRef: string,
   targetName: string,
@@ -34,7 +39,7 @@ export abstract class Datacenter {
   public abstract getGraph(appGraph: AppGraph, options: GetGraphOptions): InfraGraph;
   public abstract getVariablesSchema(): DatacenterVariablesSchema;
 
-  public abstract build(buildFn: DockerBuildFn): Promise<Datacenter>;
+  public abstract build(buildFn: DockerBuildFn, options?: DatacenterBuildOptions): Promise<Datacenter>;
   public abstract tag(tagFn: DockerTagFn): Promise<Datacenter>;
   public abstract push(pushFn: DockerPushFn): Promise<Datacenter>;
 }

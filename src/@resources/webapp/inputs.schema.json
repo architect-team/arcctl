@@ -13,6 +13,13 @@
                 "registry.architect.io/architect/webapp:latest"
               ],
               "type": "string"
+            },
+            "subdomain": {
+              "description": "Subdomain the webapp will be served from",
+              "examples": [
+                "www"
+              ],
+              "type": "string"
             }
           },
           "required": [
@@ -89,6 +96,13 @@
                 "type": "string"
               },
               "type": "array"
+            },
+            "subdomain": {
+              "description": "Subdomain the webapp will be served from",
+              "examples": [
+                "www"
+              ],
+              "type": "string"
             }
           },
           "required": [

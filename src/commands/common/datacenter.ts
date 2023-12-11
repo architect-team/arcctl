@@ -193,6 +193,6 @@ export class DatacenterUtils {
       });
 
       return promises[module_path];
-    });
+    }, { concurrency: 3 });
   }
 }

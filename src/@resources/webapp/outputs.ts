@@ -25,7 +25,7 @@ export type WebappOutputs = {
    *
    * @example 443
    */
-  port: number;
+  port: string | number;
 };
 
 export default WebappOutputs;

@@ -1,0 +1,104 @@
+{
+  "$ref": "#/definitions/WebappInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "WebappInputs": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "image": {
+              "description": "Docker artifact containing the source code and build environment",
+              "examples": [
+                "registry.architect.io/architect/webapp:latest"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "image"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "build": {
+              "description": "Command used to compile the webapp",
+              "examples": [
+                [
+                  "npm",
+                  "run",
+                  "build"
+                ]
+              ],
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "dev": {
+              "description": "Command used to boot the webapp in dev mode",
+              "examples": [
+                [
+                  "npm",
+                  "run",
+                  "dev"
+                ]
+              ],
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "environment": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Environment variables to set when building the webapp",
+              "examples": [
+                {
+                  "BACKEND_ADDR": "${{ ingresses.backend.url }}"
+                }
+              ],
+              "type": "object"
+            },
+            "image": {
+              "description": "Docker artifact containing the source code and build environment",
+              "examples": [
+                "registry.architect.io/architect/webapp:latest"
+              ],
+              "type": "string"
+            },
+            "outdir": {
+              "description": "Directory containing the compiled webapp after running the `build` command",
+              "examples": [
+                "./build"
+              ],
+              "type": "string"
+            },
+            "start": {
+              "description": "Command to run inside the `outdir` to start the webapp",
+              "examples": [
+                [
+                  "node",
+                  "server.js"
+                ]
+              ],
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "build",
+            "image",
+            "outdir"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  }
+}

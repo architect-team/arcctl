@@ -192,6 +192,21 @@
                   }
                 ],
                 "type": "object"
+              },
+              "webapps": {
+                "additionalProperties": {
+                  "additionalProperties": false,
+                  "description": "The name of the webapp to configure",
+                  "properties": {
+                    "subdomain": {
+                      "description": "The subdomain the webapp should be available at",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "description": "Configuration for each webapp in the component",
+                "type": "object"
               }
             },
             "type": "object"

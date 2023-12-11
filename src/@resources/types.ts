@@ -16,6 +16,8 @@ import type serviceInputs from './service/inputs.ts';
 import type serviceOutputs from './service/outputs.ts';
 import type volumeInputs from './volume/inputs.ts';
 import type volumeOutputs from './volume/outputs.ts';
+import type webappInputs from './webapp/inputs.ts';
+import type webappOutputs from './webapp/outputs.ts';
 
 export type ResourceType =
   | 'cronjob'
@@ -26,7 +28,9 @@ export type ResourceType =
   | 'ingress'
   | 'secret'
   | 'service'
-  | 'volume';
+  | 'volume'
+  | 'webapp'
+;
 
 export const ResourceTypeList: ResourceType[] = [
   'cronjob',
@@ -38,6 +42,7 @@ export const ResourceTypeList: ResourceType[] = [
   'secret',
   'service',
   'volume',
+  'webapp',
 ];
 
 export type ResourceInputs = {
@@ -50,6 +55,7 @@ export type ResourceInputs = {
   'secret': secretInputs;
   'service': serviceInputs;
   'volume': volumeInputs;
+  'webapp': webappInputs;
 };
 
 export type ResourceOutputs = {
@@ -62,6 +68,7 @@ export type ResourceOutputs = {
   'secret': secretOutputs;
   'service': serviceOutputs;
   'volume': volumeOutputs;
+  'webapp': webappOutputs;
 };
 
 /**

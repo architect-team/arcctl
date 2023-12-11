@@ -178,6 +178,21 @@ export default class EnvironmentV1 extends Environment {
           };
         };
       };
+
+      /**
+       * Configuration for each webapp in the component
+       */
+      webapps?: {
+        /**
+         * The name of the webapp to configure
+         */
+        [key: string]: {
+          /**
+           * The subdomain the webapp should be available at
+           */
+          subdomain?: string;
+        };
+      };
     };
   };
 
@@ -297,6 +312,30 @@ export default class EnvironmentV1 extends Environment {
         ),
       ),
     );
+  }
+
+  private enrichWebapp(node: AppGraphNode<'webapp'>): AppGraphNode<'webapp'> {
+    if (!node.component || !this.components) {
+      return node;
+    }
+
+    const component_config = this.components[node.component];
+    const webapp_config = component_config?.webapps?.[node.name];
+
+    const randomName = uniqueNamesGenerator({
+      dictionaries: [adjectives, animals],
+      length: 2,
+      separator: '-',
+      style: 'lowerCase',
+      seed: node.getId(),
+    });
+
+    node.inputs = {
+      ...node.inputs,
+      subdomain: webapp_config?.subdomain || node.inputs.subdomain || randomName,
+    };
+
+    return node;
   }
 
   public async getGraph(environment_name: string, componentStore: ComponentStore, debug = false): Promise<AppGraph> {
@@ -450,6 +489,9 @@ export default class EnvironmentV1 extends Environment {
               }
               case 'secret': {
                 return this.enrichSecret(node as AppGraphNode<'secret'>, config.inputs[node.name]);
+              }
+              case 'webapp': {
+                return this.enrichWebapp(node as AppGraphNode<'webapp'>);
               }
               default: {
                 return node;

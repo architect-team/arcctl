@@ -228,11 +228,10 @@ export default class DatacenterV1 extends Datacenter {
           context = path.join(context, folder_path);
         }
 
-        const digest = await buildFn({
+        mod.source = await buildFn({
           context,
           plugin: mod.plugin || DEFAULT_PLUGIN,
         });
-        mod.source = digest;
       }
     }
 

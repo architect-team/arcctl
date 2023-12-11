@@ -226,4 +226,31 @@ environment {
       id = module.volume.id
     }
   }
+
+  webapp {
+    module "webapp" {
+      build = "./webapp"
+
+      environment = {
+        DOCKER_HOST = "unix:///var/run/docker.sock"
+      }
+
+      volume {
+        host_path = "/var/run/docker.sock"
+        mount_path = "/var/run/docker.sock"
+      }
+
+      inputs = merge(node.inputs, {
+        service_name = "${replace(node.component + "-" + node.name, "/", "-")}"
+        hostname = "${node.inputs.subdomain}.127.0.0.1.nip.io"
+      })
+    }
+
+    outputs = {
+      host = "${node.inputs.subdomain}.127.0.0.1.nip.io"
+      port = 80
+      protocol = "http"
+      url = "http://${node.inputs.subdomain}.127.0.0.1.nip.io"
+    }
+  }
 }

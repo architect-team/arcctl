@@ -1,4 +1,5 @@
 import { deepMerge } from 'std/collections/deep_merge.ts';
+import * as fs from 'std/fs/mod.ts';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { AppGraph, AppGraphNode, GraphEdge } from '../../graphs/index.ts';
@@ -15,6 +16,7 @@ import { DebuggableBuildSchemaV2 } from './build.ts';
 import { DependencySchemaV2 } from './dependency.ts';
 import { DebuggableDeploymentSchemaV2 } from './deployment.ts';
 import { parseExpressionRefs } from './expressions.ts';
+import { WebappConfig } from './webapp.ts';
 
 export default class ComponentV2 extends Component {
   /**
@@ -268,6 +270,11 @@ export default class ComponentV2 extends Component {
       headers?: Record<string, string>;
     }
   >;
+
+  /**
+   * Configuration for the webapps served by this component
+   */
+  webapps?: Record<string, WebappConfig>;
 
   private get normalizedDependencies(): Record<string, DependencySchemaV2> {
     const dependencies = this.dependencies || {};
@@ -675,6 +682,81 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
+  private addWebappsToGraph(
+    graph: AppGraph,
+    context: GraphContext,
+  ): AppGraph {
+    for (const [webapp_key, webapp_config] of Object.entries(this.webapps || {})) {
+      let build_node: AppGraphNode<'dockerBuild'> | undefined;
+      if (webapp_config.context) {
+        const tmpDir = Deno.makeTempDirSync();
+        const dockerfile = path.join(tmpDir, 'Dockerfile');
+        Deno.writeTextFileSync(
+          dockerfile,
+          `
+          FROM node:18-alpine
+          COPY package*.json ./
+          RUN npm ci
+          COPY . .
+          `,
+        );
+
+        const build_context = path.join(context.component.source, webapp_config.context);
+        if (!fs.existsSync(path.join(build_context, '.dockerignore'))) {
+          Deno.writeTextFileSync(path.join(build_context, '.dockerignore'), 'node_modules');
+        }
+
+        build_node = new AppGraphNode({
+          type: 'dockerBuild',
+          name: `webapp-${webapp_key}`,
+          component: context.component.name,
+          inputs: {
+            component_source: context.component.source,
+            context: webapp_config.context,
+            dockerfile: dockerfile,
+          },
+        });
+      }
+
+      let webapp_node: AppGraphNode<'webapp'>;
+      if ('build' in webapp_config) {
+        webapp_node = new AppGraphNode({
+          name: webapp_key,
+          type: 'webapp',
+          component: context.component.name,
+          inputs: {
+            build: typeof webapp_config.build === 'string' ? webapp_config.build.split(' ') : webapp_config.build,
+            image: webapp_config.image || `\${{ ${build_node!.getId()}.image }}`,
+            outdir: webapp_config.outdir,
+            dev: typeof webapp_config.dev === 'string' ? webapp_config.dev.split(' ') : webapp_config.dev,
+            environment: webapp_config.environment,
+            start: typeof webapp_config.start === 'string' ? webapp_config.start.split(' ') : webapp_config.start,
+          },
+        });
+      } else {
+        webapp_node = new AppGraphNode({
+          name: webapp_key,
+          type: 'webapp',
+          component: context.component.name,
+          inputs: {
+            image: webapp_config.image || `\${{ ${build_node!.getId()}.image }}`,
+          },
+        });
+      }
+
+      if (build_node) {
+        graph.insertEdges(
+          new GraphEdge({
+            from: build_node.getId(),
+            to: webapp_node.getId(),
+          }),
+        );
+      }
+    }
+
+    return graph;
+  }
+
   constructor(data: ComponentSchema) {
     super();
     Object.assign(this, data);
@@ -710,6 +792,7 @@ export default class ComponentV2 extends Component {
     graph = this.addDeploymentsToGraph(graph, context);
     graph = this.addServicesToGraph(graph, context);
     graph = this.addIngressesToGraph(graph, context);
+    graph = this.addWebappsToGraph(graph, context);
     return graph;
   }
 
@@ -751,6 +834,28 @@ export default class ComponentV2 extends Component {
       delete this.deployments?.[deploymentName].debug;
     }
 
+    for (const [webapp_key, webapp_config] of Object.entries(this.webapps || {})) {
+      if (webapp_config.context) {
+        const tmpDir = Deno.makeTempDirSync();
+        const dockerfile = path.join(tmpDir, 'Dockerfile');
+        Deno.writeTextFileSync(
+          dockerfile,
+          `
+          FROM node:18-alpine
+          COPY package*.json ./
+          RUN npm ci
+          COPY . .
+          `,
+        );
+
+        this.webapps![webapp_key].image = await buildFn({
+          context: webapp_config.context,
+          dockerfile,
+          name: 'webapps-' + webapp_key,
+        });
+      }
+    }
+
     return this;
   }
 
@@ -773,6 +878,15 @@ export default class ComponentV2 extends Component {
       }
     }
 
+    for (const [webapp_key, webapp_config] of Object.entries(this.webapps || {})) {
+      if (webapp_config.image) {
+        this.webapps![webapp_key].image = await tagFn(
+          webapp_config.image,
+          `webapps-${webapp_key}`,
+        );
+      }
+    }
+
     return this;
   }
 
@@ -788,6 +902,12 @@ export default class ComponentV2 extends Component {
         if (volumeConfig.image && volumeConfig.host_path) {
           await pushFn(volumeConfig.image);
         }
+      }
+    }
+
+    for (const webapp_config of Object.values(this.webapps || {})) {
+      if (webapp_config.image) {
+        await pushFn(webapp_config.image);
       }
     }
 

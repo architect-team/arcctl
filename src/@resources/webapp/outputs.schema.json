@@ -1,0 +1,46 @@
+{
+  "$ref": "#/definitions/WebappOutputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "WebappOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "host": {
+          "description": "Hostname to access the webapp",
+          "examples": [
+            "example.com"
+          ],
+          "type": "string"
+        },
+        "port": {
+          "description": "Port to access the webapp",
+          "examples": [
+            443
+          ],
+          "type": "number"
+        },
+        "protocol": {
+          "description": "Protocol to access the webapp",
+          "examples": [
+            "https"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "URL to access the webapp",
+          "examples": [
+            "https://example.com"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "protocol",
+        "host",
+        "port"
+      ],
+      "type": "object"
+    }
+  }
+}

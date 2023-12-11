@@ -3831,6 +3831,139 @@
         "version": {
           "const": "v2",
           "type": "string"
+        },
+        "webapps": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "context": {
+                    "description": "Path to the source code containing everything needed to build or serve the webapp",
+                    "examples": [
+                      "./"
+                    ],
+                    "type": "string"
+                  },
+                  "image": {
+                    "description": "Docker artifact containing the source code and build environment",
+                    "examples": [
+                      "registry.architect.io/architect/webapp:latest"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "build": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ],
+                    "description": "Command used to compile the webapp",
+                    "examples": [
+                      [
+                        "npm",
+                        "run",
+                        "build"
+                      ]
+                    ]
+                  },
+                  "context": {
+                    "description": "Path to the source code containing everything needed to build or serve the webapp",
+                    "examples": [
+                      "./"
+                    ],
+                    "type": "string"
+                  },
+                  "dev": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ],
+                    "description": "Command used to boot the webapp in dev mode",
+                    "examples": [
+                      [
+                        "npm",
+                        "run",
+                        "dev"
+                      ]
+                    ]
+                  },
+                  "environment": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Environment variables to set when building the webapp",
+                    "examples": [
+                      {
+                        "BACKEND_ADDR": "${{ ingresses.backend.url }}"
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "image": {
+                    "description": "Docker artifact containing the source code and build environment",
+                    "examples": [
+                      "registry.architect.io/architect/webapp:latest"
+                    ],
+                    "type": "string"
+                  },
+                  "outdir": {
+                    "description": "Directory containing the compiled webapp after running the `build` command",
+                    "examples": [
+                      "./build"
+                    ],
+                    "type": "string"
+                  },
+                  "start": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ],
+                    "description": "Command to run inside the `outdir` to start the webapp",
+                    "examples": [
+                      [
+                        "node",
+                        "server.js"
+                      ]
+                    ]
+                  }
+                },
+                "required": [
+                  "build",
+                  "outdir"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "description": "Configuration for the webapps served by this component",
+          "type": "object"
         }
       },
       "required": [

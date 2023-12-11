@@ -1,6 +1,6 @@
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { ModuleServer } from '../../datacenter-modules/index.ts';
+import { BuildResponse, ModuleServer } from '../../datacenter-modules/index.ts';
 import {
   Datacenter,
   DatacenterRecord,
@@ -148,6 +148,8 @@ export class DatacenterUtils {
   }
 
   public async buildDatacenter(datacenter: Datacenter, context: string, logger?: Logger): Promise<Datacenter> {
+    const promises: Record<string, Promise<string>> = {};
+
     return datacenter.build(async (build_options) => {
       // An absolute path is set as build_options.context when building from a git repo.
       let module_path = path.isAbsolute(build_options.context)
@@ -157,23 +159,40 @@ export class DatacenterUtils {
       if (!path.isAbsolute(path.dirname(context))) {
         module_path = path.resolve(module_path);
       }
-      console.log(`Building module: ${module_path}`);
 
-      const server = new ModuleServer(build_options.plugin);
-      let client;
-      try {
-        client = await server.start(module_path);
-        const res = await client.build({
-          directory: module_path,
-        }, { logger });
-        client.close();
-        return res.image;
-      } finally {
-        if (client) {
-          client.close();
-        }
-        await server.stop();
+      if (module_path in promises) {
+        // Build has already started. Return results.
+        return promises[module_path];
       }
+
+      console.log(`Building module: ${module_path}`);
+      promises[module_path] = new Promise((resolve, reject) => {
+        const server = new ModuleServer(build_options.plugin);
+        server.start(module_path).then(async (client) => {
+          let build_res: BuildResponse | undefined;
+          let _err: any;
+          try {
+            build_res = await client.build({
+              directory: module_path,
+            }, { logger });
+          } catch (err) {
+            _err = err;
+          } finally {
+            client.close();
+            await server.stop();
+          }
+
+          if (_err) {
+            reject(_err);
+          } else if (build_res) {
+            resolve(build_res.image);
+          } else {
+            reject(new Error('Something went wrong'));
+          }
+        });
+      });
+
+      return promises[module_path];
     });
   }
 }

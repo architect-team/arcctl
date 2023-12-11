@@ -1757,6 +1757,188 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              "webapp": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "module": {
+                      "additionalProperties": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "build": {
+                              "description": "The path to a module that will be built during the build step.",
+                              "examples": [
+                                "./my-module"
+                              ],
+                              "type": "string"
+                            },
+                            "environment": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Environment variables that should be provided to the container executing the module",
+                              "examples": [
+                                {
+                                  "MY_ENV_VAR": "my-value"
+                                }
+                              ],
+                              "type": "object"
+                            },
+                            "inputs": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": {},
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Input values for the module.",
+                              "examples": [
+                                {
+                                  "image": "nginx:latest",
+                                  "port": 8080
+                                }
+                              ]
+                            },
+                            "plugin": {
+                              "default": "pulumi",
+                              "description": "The plugin used to build the module. Defaults to pulumi.",
+                              "enum": [
+                                "pulumi",
+                                "opentofu"
+                              ],
+                              "examples": [
+                                "opentofu"
+                              ],
+                              "type": "string"
+                            },
+                            "source": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
+                            },
+                            "ttl": {
+                              "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
+                              "examples": [
+                                "24*60*60"
+                              ],
+                              "type": "string"
+                            },
+                            "volume": {
+                              "description": "Volumes that should be mounted to the container executing the module",
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "host_path": {
+                                    "description": "The path on the host machine to mount to the container",
+                                    "examples": [
+                                      "/Users/batman/my-volume"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "mount_path": {
+                                    "description": "The path in the container to mount the volume to",
+                                    "examples": [
+                                      "/app/my-volume"
+                                    ],
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "host_path",
+                                  "mount_path"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "when": {
+                              "description": "A condition that restricts when the module should be created. Must resolve to a boolean.",
+                              "examples": [
+                                "node.type == 'database' && node.inputs.databaseType == 'postgres'",
+                                "contains(environment.nodes.*.inputs.databaseType, 'postgres')"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "inputs"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "description": "Modules that will be created once per matching application resource",
+                      "type": "object"
+                    },
+                    "outputs": {
+                      "additionalProperties": false,
+                      "description": "A map of output values to be passed to upstream application resources",
+                      "examples": [
+                        {
+                          "host": "${module.database.host}",
+                          "id": "${module.database.id}",
+                          "password": "${module.database.password}",
+                          "port": "${module.database.port}",
+                          "username": "${module.database.username}"
+                        }
+                      ],
+                      "properties": {
+                        "host": {
+                          "description": "Hostname to access the webapp",
+                          "examples": [
+                            "example.com"
+                          ],
+                          "type": "string"
+                        },
+                        "port": {
+                          "description": "Port to access the webapp",
+                          "examples": [
+                            443
+                          ],
+                          "type": "number"
+                        },
+                        "protocol": {
+                          "description": "Protocol to access the webapp",
+                          "examples": [
+                            "https"
+                          ],
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "URL to access the webapp",
+                          "examples": [
+                            "https://example.com"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "protocol",
+                        "host",
+                        "port"
+                      ],
+                      "type": "object"
+                    },
+                    "when": {
+                      "description": "A condition that restricts when the hook should be active. Must resolve to a boolean.",
+                      "examples": [
+                        "node.type == 'database' && node.inputs.databaseType == 'postgres'",
+                        "contains(environment.nodes.*.inputs.databaseType, 'postgres')"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
               }
             },
             "type": "object"

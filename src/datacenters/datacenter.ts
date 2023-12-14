@@ -1,17 +1,16 @@
-import { Plugin } from '../datacenter-modules/index.ts';
 import { AppGraph, InfraGraph } from '../graphs/index.ts';
 import { DatacenterVariablesSchema } from './variables.ts';
 
-// Docker types
-export type DockerBuildFn = (options: {
+export type ModuleBuildFn = (options: {
   context: string;
-  plugin: Plugin;
 }) => Promise<string>;
-export type DockerTagFn = (
+
+export type ModuleTagFn = (
   sourceRef: string,
   targetName: string,
 ) => Promise<string>;
-export type DockerPushFn = (image: string) => Promise<void>;
+
+export type ModulePushFn = (image: string) => Promise<void>;
 
 export type GetGraphOptions = {
   /**
@@ -34,7 +33,7 @@ export abstract class Datacenter {
   public abstract getGraph(appGraph: AppGraph, options: GetGraphOptions): InfraGraph;
   public abstract getVariablesSchema(): DatacenterVariablesSchema;
 
-  public abstract build(buildFn: DockerBuildFn): Promise<Datacenter>;
-  public abstract tag(tagFn: DockerTagFn): Promise<Datacenter>;
-  public abstract push(pushFn: DockerPushFn): Promise<Datacenter>;
+  public abstract build(buildFn: ModuleBuildFn): Promise<Datacenter>;
+  public abstract tag(tagFn: ModuleTagFn): Promise<Datacenter>;
+  public abstract push(pushFn: ModulePushFn): Promise<Datacenter>;
 }

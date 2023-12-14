@@ -1,4 +1,4 @@
-import { ErrorObject } from 'https://esm.sh/v124/ajv@8.12.0';
+import { ErrorObject } from 'ajv';
 import { ResourceType } from '../../@resources/index.ts';
 
 export class DuplicateModuleNameError extends Error {

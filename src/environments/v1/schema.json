@@ -1,6 +1,6 @@
 {
   "$ref": "#/definitions/EnvironmentV1",
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "definitions": {
     "EnvironmentV1": {
       "additionalProperties": false,

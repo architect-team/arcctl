@@ -168,16 +168,17 @@ export class ImageRepository<C extends any = any> {
     }
   }
 
-  async getManifest(media_type: string): Promise<ImageManifest> {
+  async getManifest(media_type?: string): Promise<ImageManifest> {
     if (!this.manifest) {
       const manifest_id = this.tag || this.digest;
       const res = await this.fetch(`${this.getRegistryUrl()}/v2/${this.repository}/manifests/${manifest_id}`, {
         headers: {
-          Accept: media_type,
+          Accept: media_type ?? 'application/vnd.oci.image.index.v1+json',
         },
       });
 
       if (res.status >= 400) {
+        console.log(this);
         throw new Error(`Failed to fetch manifest: ${await res.text()}`);
       }
 

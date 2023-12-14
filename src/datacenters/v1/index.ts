@@ -1,13 +1,12 @@
 import * as path from 'std/path/mod.ts';
 import { parseResourceOutputs, ResourceOutputs, ResourceType } from '../../@resources/index.ts';
-import { Plugin } from '../../datacenter-modules/index.ts';
 import { AppGraph } from '../../graphs/app/graph.ts';
 import { GraphEdge } from '../../graphs/edge.ts';
 import { InfraGraphNode, MODULES_REGEX } from '../../graphs/index.ts';
 import { InfraGraph } from '../../graphs/infra/graph.ts';
 import { applyContext } from '../../hcl-parser/index.ts';
 import { exec } from '../../utils/command.ts';
-import { Datacenter, DockerBuildFn, DockerPushFn, DockerTagFn, GetGraphOptions } from '../datacenter.ts';
+import { Datacenter, GetGraphOptions, ModuleBuildFn, ModulePushFn, ModuleTagFn } from '../datacenter.ts';
 import { DatacenterVariablesSchema } from '../variables.ts';
 import {
   DuplicateModuleNameError,
@@ -16,8 +15,6 @@ import {
   MissingResourceHook,
   ModuleReferencesNotAllowedInWhenClause,
 } from './errors.ts';
-
-const DEFAULT_PLUGIN: Plugin = 'pulumi';
 
 type Module = {
   /**
@@ -33,24 +30,15 @@ type Module = {
    *
    * @example "my-registry.com/my-image:latest"
    */
-  source?: string;
+  image?: string;
 
   /**
-   * The path to a module that will be built during the build step.
+   * The path to a directory containing the code for the module, or a module.yml file describing the module.
    *
    * @example "./my-module"
+   * @example "./my-module/module.yml"
    */
   build?: string;
-
-  /**
-   * The plugin used to build the module. Defaults to pulumi.
-   *
-   * @default "pulumi"
-   * @example "opentofu"
-   *
-   * @enum "pulumi" "opentofu"
-   */
-  plugin?: Plugin;
 
   /**
    * Volumes that should be mounted to the container executing the module
@@ -213,7 +201,7 @@ export default class DatacenterV1 extends Datacenter {
     return res;
   }
 
-  public async build(buildFn: DockerBuildFn): Promise<Datacenter> {
+  public async build(buildFn: ModuleBuildFn): Promise<Datacenter> {
     for (const mod of Object.values(this.getModules())) {
       // Modules with only a source are skipped, they point to images that already exist.
       if (mod.build) {
@@ -230,30 +218,29 @@ export default class DatacenterV1 extends Datacenter {
 
         const digest = await buildFn({
           context,
-          plugin: mod.plugin || DEFAULT_PLUGIN,
         });
-        mod.source = digest;
+        mod.image = digest;
       }
     }
 
     return this;
   }
 
-  public async tag(tagFn: DockerTagFn): Promise<Datacenter> {
+  public async tag(tagFn: ModuleTagFn): Promise<Datacenter> {
     for (const [moduleName, mod] of Object.entries(this.getModules())) {
-      if (mod.build && mod.source) {
-        mod.source = await tagFn(mod.source, moduleName);
+      if (mod.build && mod.image) {
+        mod.image = await tagFn(mod.image, moduleName);
       }
     }
 
     return this;
   }
 
-  public async push(pushFn: DockerPushFn): Promise<Datacenter> {
+  public async push(pushFn: ModulePushFn): Promise<Datacenter> {
     for (const module of Object.values(this.getModules())) {
       // Only push modules that have a build field, otherwise the image already exists.
-      if (module.build && module.source) {
-        await pushFn(module.source);
+      if (module.build && module.image) {
+        await pushFn(module.image);
       }
     }
 
@@ -332,17 +319,17 @@ export default class DatacenterV1 extends Datacenter {
       } else if (value[0].when && value[0].when === 'false') {
         // If it evaluates to false it should be skipped.
         return;
-      } else if (!module.source) {
+      } else if (!module.image) {
+        console.log(module);
         throw new Error(`Module ${name} must contain a build or source field.`);
       }
 
       scopedGraph.insertNodes(
         new InfraGraphNode({
-          image: module.source,
+          image: module.image,
           inputs: module.inputs,
           component: options.component,
           appNodeId: options.appNodeId,
-          plugin: module.plugin || DEFAULT_PLUGIN,
           volumes: module.volume,
           environment_vars: module.environment,
           name: name,

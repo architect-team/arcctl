@@ -1,6 +1,6 @@
 {
   "$ref": "#/definitions/DatacenterV1",
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "definitions": {
     "DatacenterV1": {
       "additionalProperties": false,
@@ -20,9 +20,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -37,6 +38,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -55,25 +63,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -166,9 +155,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -183,6 +173,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -201,25 +198,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -379,9 +357,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -396,6 +375,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -414,25 +400,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -592,9 +559,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -609,6 +577,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -627,25 +602,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -752,9 +708,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -769,6 +726,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -787,25 +751,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -910,9 +855,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -927,6 +873,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -945,25 +898,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -1129,9 +1063,10 @@
                     "additionalProperties": false,
                     "properties": {
                       "build": {
-                        "description": "The path to a module that will be built during the build step.",
+                        "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                         "examples": [
-                          "./my-module"
+                          "./my-module",
+                          "./my-module/module.yml"
                         ],
                         "type": "string"
                       },
@@ -1146,6 +1081,13 @@
                           }
                         ],
                         "type": "object"
+                      },
+                      "image": {
+                        "description": "The image source of the module.",
+                        "examples": [
+                          "my-registry.com/my-image:latest"
+                        ],
+                        "type": "string"
                       },
                       "inputs": {
                         "anyOf": [
@@ -1164,25 +1106,6 @@
                             "port": 8080
                           }
                         ]
-                      },
-                      "plugin": {
-                        "default": "pulumi",
-                        "description": "The plugin used to build the module. Defaults to pulumi.",
-                        "enum": [
-                          "pulumi",
-                          "opentofu"
-                        ],
-                        "examples": [
-                          "opentofu"
-                        ],
-                        "type": "string"
-                      },
-                      "source": {
-                        "description": "The image source of the module.",
-                        "examples": [
-                          "my-registry.com/my-image:latest"
-                        ],
-                        "type": "string"
                       },
                       "ttl": {
                         "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -1248,9 +1171,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -1265,6 +1189,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -1283,25 +1214,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -1406,9 +1318,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -1423,6 +1336,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -1441,25 +1361,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -1610,9 +1511,10 @@
                           "additionalProperties": false,
                           "properties": {
                             "build": {
-                              "description": "The path to a module that will be built during the build step.",
+                              "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                               "examples": [
-                                "./my-module"
+                                "./my-module",
+                                "./my-module/module.yml"
                               ],
                               "type": "string"
                             },
@@ -1627,6 +1529,13 @@
                                 }
                               ],
                               "type": "object"
+                            },
+                            "image": {
+                              "description": "The image source of the module.",
+                              "examples": [
+                                "my-registry.com/my-image:latest"
+                              ],
+                              "type": "string"
                             },
                             "inputs": {
                               "anyOf": [
@@ -1645,25 +1554,6 @@
                                   "port": 8080
                                 }
                               ]
-                            },
-                            "plugin": {
-                              "default": "pulumi",
-                              "description": "The plugin used to build the module. Defaults to pulumi.",
-                              "enum": [
-                                "pulumi",
-                                "opentofu"
-                              ],
-                              "examples": [
-                                "opentofu"
-                              ],
-                              "type": "string"
-                            },
-                            "source": {
-                              "description": "The image source of the module.",
-                              "examples": [
-                                "my-registry.com/my-image:latest"
-                              ],
-                              "type": "string"
                             },
                             "ttl": {
                               "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",
@@ -1769,9 +1659,10 @@
               "additionalProperties": false,
               "properties": {
                 "build": {
-                  "description": "The path to a module that will be built during the build step.",
+                  "description": "The path to a directory containing the code for the module, or a module.yml file describing the module.",
                   "examples": [
-                    "./my-module"
+                    "./my-module",
+                    "./my-module/module.yml"
                   ],
                   "type": "string"
                 },
@@ -1786,6 +1677,13 @@
                     }
                   ],
                   "type": "object"
+                },
+                "image": {
+                  "description": "The image source of the module.",
+                  "examples": [
+                    "my-registry.com/my-image:latest"
+                  ],
+                  "type": "string"
                 },
                 "inputs": {
                   "anyOf": [
@@ -1804,25 +1702,6 @@
                       "port": 8080
                     }
                   ]
-                },
-                "plugin": {
-                  "default": "pulumi",
-                  "description": "The plugin used to build the module. Defaults to pulumi.",
-                  "enum": [
-                    "pulumi",
-                    "opentofu"
-                  ],
-                  "examples": [
-                    "opentofu"
-                  ],
-                  "type": "string"
-                },
-                "source": {
-                  "description": "The image source of the module.",
-                  "examples": [
-                    "my-registry.com/my-image:latest"
-                  ],
-                  "type": "string"
                 },
                 "ttl": {
                   "description": "The Time to Live (in seconds) for a module. When the TTL for a module is expired, the next deploy will force an update of the module.",

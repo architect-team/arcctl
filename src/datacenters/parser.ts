@@ -1,5 +1,5 @@
 import hclParser from 'hcl2-json-parser';
-import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0/dist/2019.js';
 import yaml from 'js-yaml';
 import { replaceExpressions } from '../hcl-parser/parser.ts';
 import * as DatacenterSchemaContents from './datacenter-schema.ts';

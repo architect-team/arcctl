@@ -1,7 +1,10 @@
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { Observable } from 'rxjs';
+import * as path from 'std/path/mod.ts';
 import { Logger } from 'winston';
-import { ModuleServer, Plugin } from '../../datacenter-modules/index.ts';
+import { DatacenterModule } from '../../modules/index.ts';
+import { exec } from '../../utils/command.ts';
+import { getImageLabels } from '../../utils/docker.ts';
 import { GraphNode, GraphNodeOptions } from '../node.ts';
 
 export type NodeAction = 'no-op' | 'create' | 'update' | 'delete';
@@ -18,8 +21,7 @@ export type NodeStatus = {
 
 export type NodeStatusState = 'pending' | 'starting' | 'applying' | 'destroying' | 'complete' | 'unknown' | 'error';
 
-export type InfraGraphNodeOptions<P extends Plugin> = GraphNodeOptions<Record<string, unknown> | string> & {
-  plugin: P;
+export type InfraGraphNodeOptions = GraphNodeOptions<Record<string, unknown> | string> & {
   action?: NodeAction;
   image: string;
   appNodeId?: string;
@@ -44,8 +46,7 @@ function replaceSeparators(value: string): string {
   return value.replaceAll('/', '__').replaceAll('-', '__');
 }
 
-export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<string, unknown> | string> {
-  plugin: P;
+export class InfraGraphNode extends GraphNode<Record<string, unknown> | string> {
   action: NodeAction;
   color: NodeColor;
   status: NodeStatus;
@@ -62,9 +63,8 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   environment_vars?: Record<string, string>;
   ttl?: number;
 
-  constructor(options: InfraGraphNodeOptions<P>) {
+  constructor(options: InfraGraphNodeOptions) {
     super(options);
-    this.plugin = options.plugin;
     this.action = options.action || 'create';
     this.color = options.color || 'blue';
     this.component = options.component;
@@ -80,9 +80,11 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
   }
 
   public async getHash(): Promise<string> {
+    // NOTE: This uses .RootFS as the string to compare because the ID field is not a reliable hash
+
     // Try to find the image locally first
     const dockerImages = new Deno.Command('docker', {
-      args: ['image', 'inspect', '--format', '{{.ID}}', this.image],
+      args: ['image', 'inspect', '--format', '{{.RootFS}}', this.image],
     });
     const { code: firstCode, stdout: firstStdout } = await dockerImages.output();
 
@@ -96,7 +98,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
 
       // Check if the pull was successful and get the ID
       const dockerImages2 = new Deno.Command('docker', {
-        args: ['images', '--no-trunc', '--format', '{{.ID}}', this.image],
+        args: ['images', '--no-trunc', '--format', '{{.RootFS}}', this.image],
       });
       const { code, stdout, stderr } = await dockerImages2.output();
       if (code !== 0) {
@@ -111,7 +113,6 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     return crypto
       .createHash('sha256')
       .update(JSON.stringify({
-        plugin: this.plugin,
         image: dockerImageId,
         inputs: this.inputs,
         volumes: this.volumes,
@@ -129,9 +130,8 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     return parts.join('__');
   }
 
-  public equals(node: InfraGraphNode<P>): boolean {
+  public equals(node: InfraGraphNode): boolean {
     return this.name === node.name &&
-      this.plugin === node.plugin &&
       this.color === node.color &&
       this.appNodeId === node.appNodeId &&
       this.component === node.component &&
@@ -151,7 +151,7 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
     );
   }
 
-  public apply(options?: { cwd?: string; logger?: Logger }): Observable<InfraGraphNode<P>> {
+  public apply(options?: { cwd?: string; logger?: Logger }): Observable<InfraGraphNode> {
     if (this.status.state !== 'pending') {
       throw new Error(`Cannot apply node ${this.getId()} in state: ${this.status.state}`);
     }
@@ -168,43 +168,99 @@ export class InfraGraphNode<P extends Plugin = Plugin> extends GraphNode<Record<
         return;
       }
 
-      const server = new ModuleServer(this.plugin);
-      server.start().then(async (client) => {
-        try {
-          if (typeof this.inputs !== 'object') {
-            throw new Error(`Cannot apply node with inputs of type ${typeof this.inputs}`);
+      getImageLabels(this.image).then(async (labels) => {
+        const commands = DatacenterModule.fromLabels(labels);
+
+        // Values will be joined with && to be run inside the docker image
+        const command_array: string[] = [];
+
+        // Initialize the state file
+        const tmpDir = await Deno.makeTempDir({ prefix: this.getId() + '_' });
+        const stateFile = path.join(tmpDir, 'state.json');
+        const outputFile = path.join(tmpDir, 'output.json');
+        await Deno.writeTextFile(stateFile, this.state);
+        await Deno.writeTextFile(outputFile, '{}');
+
+        // Run init
+        if (commands.init) {
+          command_array.push(commands.init.join(' '));
+        }
+
+        // Run import if necessary
+        if (commands.import && this.state) {
+          command_array.push(commands.import.join(' '));
+        }
+
+        if (this.action === 'delete') {
+          command_array.push(commands.destroy.join(' '));
+        } else if (this.action === 'create' || this.action === 'update') {
+          command_array.push(
+            commands.apply.join(' '),
+            commands.outputs.join(' '),
+          );
+
+          if (commands.export) {
+            command_array.push(commands.export.join(' '));
           }
+        }
 
-          const res = await client.apply({
-            datacenterid: 'datacenter',
-            inputs: this.inputs,
-            environment: this.environment_vars,
-            volumes: this.volumes,
-            image: this.image,
-            state: this.state,
-            destroy: this.action === 'delete',
-          }, { logger: options?.logger });
+        const environment_vars = { ...(this.environment_vars ?? {}) };
+        environment_vars.STATE_FILE = '/module/state.json';
+        environment_vars.OUTPUT_FILE = '/module/output.json';
+        environment_vars.INPUTS = JSON.stringify(this.inputs);
 
-          this.state = this.action === 'delete' ? undefined : res.state;
-          this.outputs = res.outputs || {};
-          this.status.state = 'complete';
-          this.status.endTime = Date.now();
-          this.status.lastUpdated = Date.now();
-          client.close();
-          subscriber.next(this);
-          await server.stop();
-          subscriber.complete();
-        } catch (err) {
+        const volume_mounts = [...(this.volumes ?? [])];
+        volume_mounts.push({
+          host_path: tmpDir,
+          mount_path: '/module',
+        });
+
+        const flags = ['run'];
+        Object.values(volume_mounts).forEach((value) => {
+          flags.push('-v', `${value.host_path}:${value.mount_path}`);
+        });
+        Object.entries(environment_vars).forEach(([key, value]) => {
+          flags.push('-e', `${key}=${value}`);
+        });
+
+        const args = [
+          ...flags,
+          this.image,
+          'sh',
+          '-c',
+          command_array.join(' && '),
+        ];
+
+        const { code, stdout, stderr } = await exec('docker', {
+          args,
+          logger: options?.logger,
+        });
+
+        if (code !== 0) {
+          console.log(stdout);
+          throw new Error(stderr);
+        }
+
+        const stateContents = await Deno.readTextFile(stateFile);
+        const outputContents = await Deno.readTextFile(outputFile);
+
+        this.state = stateContents;
+        this.outputs = JSON.parse(outputContents);
+        this.status.state = 'complete';
+        this.status.endTime = Date.now();
+        this.status.lastUpdated = Date.now();
+        subscriber.next(this);
+        subscriber.complete();
+      })
+        .catch((err) => {
+          console.error(err);
           this.status.state = 'error';
           this.status.message = err.message;
           this.status.endTime = Date.now();
           this.status.lastUpdated = Date.now();
-          client.close();
           subscriber.next(this);
-          await server.stop();
           subscriber.error(err);
-        }
-      });
+        });
     });
   }
 }

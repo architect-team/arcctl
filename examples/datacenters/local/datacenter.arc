@@ -73,7 +73,6 @@ environment {
 
     module "database" {
       build = "./postgres-db"
-      plugin = "opentofu"
 
       volume {
         host_path = "/var/run/docker.sock"
@@ -153,7 +152,6 @@ environment {
   secret {
     module "secret" {
       build = "./secret"
-      plugin = "opentofu"
       inputs = {
         filename = "${var.secretsDir}--${environment.name}--${node.component}--${node.name}.json"
         content = node.inputs.data

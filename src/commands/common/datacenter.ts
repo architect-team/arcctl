@@ -1,6 +1,5 @@
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { ModuleServer } from '../../datacenter-modules/index.ts';
 import {
   Datacenter,
   DatacenterRecord,
@@ -9,6 +8,7 @@ import {
   ParsedVariablesMetadata,
 } from '../../datacenters/index.ts';
 import { InfraGraph } from '../../graphs/index.ts';
+import { buildModuleFromDirectory } from '../../utils/build.ts';
 import { topologicalSort } from '../../utils/sorting.ts';
 import { Inputs } from './inputs.ts';
 
@@ -157,23 +157,9 @@ export class DatacenterUtils {
       if (!path.isAbsolute(path.dirname(context))) {
         module_path = path.resolve(module_path);
       }
-      console.log(`Building module: ${module_path}`);
 
-      const server = new ModuleServer(build_options.plugin);
-      let client;
-      try {
-        client = await server.start(module_path);
-        const res = await client.build({
-          directory: module_path,
-        }, { logger });
-        client.close();
-        return res.image;
-      } finally {
-        if (client) {
-          client.close();
-        }
-        await server.stop();
-      }
+      console.log(`Building module: ${module_path}`);
+      return buildModuleFromDirectory(module_path, { logger });
     });
   }
 }

@@ -58,7 +58,7 @@ for (const type of all_types) {
       args: [
         'run',
         '--allow-read',
-        'npm:ts-json-schema-generator',
+        'npm:ts-json-schema-generator@1.5.0',
         '--path',
         path.join(build_dir, 'src', type.name, 'inputs.ts'),
         '--type',
@@ -70,6 +70,9 @@ for (const type of all_types) {
     });
 
     const typeSchema = JSON.parse(typeSchemaString);
+    typeSchema.$schema = 'https://json-schema.org/draft/2019-09/schema';
+    typeSchema.$id = 'https://architect.io/.schemas/resources/' + type.name + '/inputs.json';
+
     await Deno.writeTextFile(
       path.join(resources_dir, type.name, './inputs.schema.json'),
       JSON.stringify(typeSchema, null, 2),
@@ -84,7 +87,7 @@ for (const type of all_types) {
       args: [
         'run',
         '--allow-read',
-        'npm:ts-json-schema-generator',
+        'npm:ts-json-schema-generator@1.5.0',
         '--path',
         path.join(build_dir, 'src', type.name, 'outputs.ts'),
         '--type',
@@ -96,6 +99,9 @@ for (const type of all_types) {
     });
 
     const typeSchema = JSON.parse(typeSchemaString);
+    typeSchema.$schema = 'https://json-schema.org/draft/2019-09/schema';
+    typeSchema.$id = 'https://architect.io/.schemas/resources/' + type.name + '/outputs.json';
+
     await Deno.writeTextFile(
       path.join(resources_dir, type.name, './outputs.schema.json'),
       JSON.stringify(typeSchema, null, 2),

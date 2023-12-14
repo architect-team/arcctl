@@ -16,7 +16,7 @@ describe('DatacenterV1', () => {
     it('should extract root modules', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = "my-vpc"
             region = "nyc1"
@@ -33,7 +33,6 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
@@ -42,7 +41,7 @@ describe('DatacenterV1', () => {
     it('should extract edges for related modules', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = "my-vpc"
             region = "nyc1"
@@ -50,7 +49,7 @@ describe('DatacenterV1', () => {
         }
 
         module "cluster" {
-          source = "architect-io/digitalocean-kubernetes:latest"
+          image = "architect-io/digitalocean-kubernetes:latest"
           inputs = {
             name = "\${module.vpc.name}-cluster"
             vpc_id = module.vpc.id
@@ -62,7 +61,6 @@ describe('DatacenterV1', () => {
 
       const expectedVpcNode = new InfraGraphNode({
         name: 'vpc',
-        plugin: 'pulumi',
         image: 'architect-io/digitalocean-vpc:latest',
         inputs: {
           name: 'my-vpc',
@@ -72,7 +70,6 @@ describe('DatacenterV1', () => {
 
       const expectedClusterNode = new InfraGraphNode({
         name: 'cluster',
-        plugin: 'pulumi',
         image: 'architect-io/digitalocean-kubernetes:latest',
         inputs: {
           name: `\${${expectedVpcNode.getId()}.name}-cluster`,
@@ -92,7 +89,7 @@ describe('DatacenterV1', () => {
     it('should fail when referencing invalid modules', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = module.region.name
             region = "nyc1"
@@ -113,7 +110,7 @@ describe('DatacenterV1', () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "vpc" {
-            source = "architect-io/digitalocean-vpc:latest"
+            image = "architect-io/digitalocean-vpc:latest"
             inputs = {
               name = "my-vpc"
               region = "nyc1"
@@ -132,7 +129,6 @@ describe('DatacenterV1', () => {
         },
         name: 'vpc',
         environment: 'test',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
@@ -142,7 +138,7 @@ describe('DatacenterV1', () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "vpc" {
-            source = "architect-io/digitalocean-vpc:latest"
+            image = "architect-io/digitalocean-vpc:latest"
             inputs = {
               name = "my-vpc"
               region = "nyc1"
@@ -159,7 +155,7 @@ describe('DatacenterV1', () => {
     it('should extract edges from environment modules to datacenter modules', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = "my-vpc"
             region = "nyc1"
@@ -168,7 +164,7 @@ describe('DatacenterV1', () => {
 
         environment {
           module "database" {
-            source = "architect-io/digitalocean-database:latest"
+            image = "architect-io/digitalocean-database:latest"
             inputs = {
               type = "postgres"
               vpc_id = module.vpc.id
@@ -186,7 +182,6 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
-        plugin: 'pulumi',
       });
 
       const expectedDatabaseNode = new InfraGraphNode({
@@ -197,7 +192,6 @@ describe('DatacenterV1', () => {
         },
         name: 'database',
         environment: 'test',
-        plugin: 'pulumi',
       });
 
       const expectedEdge = new GraphEdge({
@@ -212,7 +206,7 @@ describe('DatacenterV1', () => {
     it('should fail when datacenter modules reference environment modules', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = module.database.name
             region = "nyc1"
@@ -221,7 +215,7 @@ describe('DatacenterV1', () => {
 
         environment {
           module "database" {
-            source = "architect-io/digitalocean-database:latest"
+            image = "architect-io/digitalocean-database:latest"
             inputs = {
               type = "postgres"
               vpc_id = module.vpc.id
@@ -244,7 +238,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/digitalocean-database:latest"
+              image = "architect-io/digitalocean-database:latest"
               inputs = {
                 type = "postgres"
               }
@@ -289,7 +283,6 @@ describe('DatacenterV1', () => {
           type: 'postgres',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       assertEquals(infraGraph.nodes, [expectedDatabaseNode]);
@@ -300,7 +293,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/digitalocean-database:latest"
+              image = "architect-io/digitalocean-database:latest"
               inputs = {
                 type = "postgres"
               }
@@ -357,7 +350,6 @@ describe('DatacenterV1', () => {
           type: 'postgres',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       const expectedDb2Node = new InfraGraphNode({
@@ -369,7 +361,6 @@ describe('DatacenterV1', () => {
           type: 'postgres',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       assertEquals(infraGraph.nodes, [expectedDb1Node, expectedDb2Node]);
@@ -380,7 +371,7 @@ describe('DatacenterV1', () => {
         environment {
           deployment {
             module "deployment" {
-              source = "architect-io/kubernetes-deployment:latest"
+              image = "architect-io/kubernetes-deployment:latest"
               inputs = {
                 image = node.inputs.image
                 environment = node.inputs.environment
@@ -438,7 +429,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/digitalocean-database:latest"
+              image = "architect-io/digitalocean-database:latest"
               inputs = {
                 type = "postgres"
               }
@@ -457,7 +448,7 @@ describe('DatacenterV1', () => {
 
           deployment {
             module "deployment" {
-              source = "architect-io/kubernetes-deployment:latest"
+              image = "architect-io/kubernetes-deployment:latest"
               inputs = {
                 image = node.inputs.image
                 environment = node.inputs.environment
@@ -513,7 +504,6 @@ describe('DatacenterV1', () => {
           type: 'postgres',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       const expectedDeploymentNode = new InfraGraphNode({
@@ -528,7 +518,6 @@ describe('DatacenterV1', () => {
           },
         },
         name: 'deployment',
-        plugin: 'pulumi',
       });
 
       assertEquals(infraGraph.nodes, [expectedDbNode, expectedDeploymentNode]);
@@ -545,7 +534,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/digitalocean-database:latest"
+              image = "architect-io/digitalocean-database:latest"
               inputs = {
                 type = "postgres"
               }
@@ -604,7 +593,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/digitalocean-database:latest"
+              image = "architect-io/digitalocean-database:latest"
               inputs = {
                 type = "postgres"
               }
@@ -623,7 +612,7 @@ describe('DatacenterV1', () => {
 
           deployment {
             module "deployment" {
-              source = "architect-io/kubernetes-deployment:latest"
+              image = "architect-io/kubernetes-deployment:latest"
               inputs = {
                 image = "nginx:latest"
                 environment = {
@@ -679,7 +668,7 @@ describe('DatacenterV1', () => {
         }
 
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = "my-vpc"
             region = variable.region
@@ -696,7 +685,6 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
@@ -710,7 +698,7 @@ describe('DatacenterV1', () => {
 
         environment {
           module "vpc" {
-            source = "architect-io/digitalocean-vpc:latest"
+            image = "architect-io/digitalocean-vpc:latest"
             inputs = {
               name = "my-vpc"
               region = variable.region
@@ -734,7 +722,6 @@ describe('DatacenterV1', () => {
         },
         name: 'vpc',
         environment: 'test',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
@@ -749,7 +736,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/digitalocean-database:latest"
+              image = "architect-io/digitalocean-database:latest"
               inputs = {
                 type = "postgres"
                 region = variable.region
@@ -798,7 +785,6 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'database',
-        plugin: 'pulumi',
         environment: 'test',
         component: databaseAppGraphNode.component,
         appNodeId: databaseAppGraphNode.getId(),
@@ -814,7 +800,7 @@ describe('DatacenterV1', () => {
         }
 
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = "my-vpc"
             region = var.region
@@ -831,7 +817,6 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
@@ -849,7 +834,7 @@ describe('DatacenterV1', () => {
         }
 
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {
             name = "\${var.namePrefix}-vpc"
             region = "\${var.region}"
@@ -866,7 +851,6 @@ describe('DatacenterV1', () => {
           region: 'nyc1',
         },
         name: 'vpc',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedVpcNode]);
@@ -879,7 +863,7 @@ describe('DatacenterV1', () => {
             when = node.inputs.databaseType == "postgres"
 
             module "database" {
-              source = "test:latest"
+              image = "test:latest"
               inputs = {
                 type = "postgres"
               }
@@ -929,7 +913,6 @@ describe('DatacenterV1', () => {
         environment: 'test',
         appNodeId: databaseNode.getId(),
         component: databaseNode.component,
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedDatabaseModule]);
@@ -939,7 +922,7 @@ describe('DatacenterV1', () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         environment {
           module "database" {
-            source = "test:latest"
+            image = "test:latest"
             inputs = {
               type = "postgres"
             }
@@ -994,7 +977,7 @@ describe('DatacenterV1', () => {
         environment {
           module "database" {
             when = contains(environment.nodes.*.inputs.databaseType, "postgres")
-            source = "architect-io/digitalocean-database:latest"
+            image = "architect-io/digitalocean-database:latest"
             inputs = {
               type = "postgres"
             }
@@ -1002,7 +985,7 @@ describe('DatacenterV1', () => {
 
           module "redis" {
             when = contains(environment.nodes.*.inputs.databaseType, "redis")
-            source = "architect-io/digitalocean-cache:latest"
+            image = "architect-io/digitalocean-cache:latest"
             inputs = {
               type = "redis"
             }
@@ -1039,7 +1022,6 @@ describe('DatacenterV1', () => {
           type: 'postgres',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       assertEquals(graph.nodes, [expectedDatabaseModule]);
@@ -1050,7 +1032,7 @@ describe('DatacenterV1', () => {
         environment {
           deployment {
             module "deployment" {
-              source = "architect-io/kubernetes-deployment:latest"
+              image = "architect-io/kubernetes-deployment:latest"
               inputs = node.inputs
             }
           }
@@ -1129,7 +1111,6 @@ describe('DatacenterV1', () => {
           },
         },
         name: 'deployment',
-        plugin: 'pulumi',
       });
 
       assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
@@ -1140,7 +1121,7 @@ describe('DatacenterV1', () => {
         environment {
           database {
             module "database" {
-              source = "architect-io/postgres:latest"
+              image = "architect-io/postgres:latest"
               inputs = {
                 name = node.inputs.name
                 component = node.component
@@ -1204,7 +1185,6 @@ describe('DatacenterV1', () => {
           environment: 'test',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       const expectedInfraNode2 = new InfraGraphNode({
@@ -1218,7 +1198,6 @@ describe('DatacenterV1', () => {
           environment: 'test',
         },
         name: 'database',
-        plugin: 'pulumi',
       });
 
       assertEquals(infraGraph.nodes, [expectedInfraNode1, expectedInfraNode2]);
@@ -1229,7 +1208,7 @@ describe('DatacenterV1', () => {
         environment {
           deployment {
             module "deployment" {
-              source = "architect-io/kubernetes-deployment:latest"
+              image = "architect-io/kubernetes-deployment:latest"
               inputs = node.inputs
             }
           }
@@ -1333,7 +1312,6 @@ describe('DatacenterV1', () => {
           },
         },
         name: 'deployment',
-        plugin: 'pulumi',
       });
 
       assertEquals(infraGraph.nodes, [expectedDeploymentNode]);
@@ -1348,7 +1326,7 @@ describe('DatacenterV1', () => {
         environment {
           ingress {
             module "ingressRule" {
-              source = "architect-io/kubernetes-ingress-rule:latest"
+              image = "architect-io/kubernetes-ingress-rule:latest"
               inputs = merge(node.inputs, {
                 dns_zone = variable.dns_zone
               })
@@ -1403,7 +1381,6 @@ describe('DatacenterV1', () => {
         appNodeId: 'component/ingress/ingress',
         environment: 'test',
         name: 'ingressRule',
-        plugin: 'pulumi',
         inputs: {
           dns_zone: 'architect.io',
           internal: false,
@@ -1426,13 +1403,13 @@ describe('DatacenterV1', () => {
     it('should extract ttl and return whether its expired', async () => {
       const rawDatacenterObj = await hclParser.parseToObject(`
         module "vpc" {
-          source = "architect-io/digitalocean-vpc:latest"
+          image = "architect-io/digitalocean-vpc:latest"
           inputs = {}
           ttl = 10 * 60
         }
 
         module "cluster" {
-          source = "architect-io/digitalocean-kubernetes:latest"
+          image = "architect-io/digitalocean-kubernetes:latest"
           inputs = {}
         }
       `);
@@ -1441,7 +1418,6 @@ describe('DatacenterV1', () => {
 
       const nodeWithTTL = new InfraGraphNode({
         name: 'vpc',
-        plugin: 'pulumi',
         image: 'architect-io/digitalocean-vpc:latest',
         inputs: {},
         ttl: 600,
@@ -1449,7 +1425,6 @@ describe('DatacenterV1', () => {
 
       const nodeWithoutTTL = new InfraGraphNode({
         name: 'cluster',
-        plugin: 'pulumi',
         image: 'architect-io/digitalocean-kubernetes:latest',
         inputs: {},
       });
@@ -1457,7 +1432,6 @@ describe('DatacenterV1', () => {
       const finishedElevenMinsAgo = new InfraGraphNode({
         // These dont matter
         name: 'cluster',
-        plugin: 'pulumi',
         image: 'architect-io/digitalocean-kubernetes:latest',
         inputs: {},
         status: {
@@ -1468,7 +1442,6 @@ describe('DatacenterV1', () => {
       const finishedOneMinuteAgo = new InfraGraphNode({
         // These dont matter
         name: 'cluster',
-        plugin: 'pulumi',
         image: 'architect-io/digitalocean-kubernetes:latest',
         inputs: {},
         status: {

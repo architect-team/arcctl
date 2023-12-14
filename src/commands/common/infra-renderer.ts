@@ -22,7 +22,7 @@ export class InfraRenderer {
   }
 
   private graphToTableOutput(graph: InfraGraph): string {
-    const headers = ['Name', 'Plugin'];
+    const headers = ['Name'];
     const showEnvironment = graph.nodes.some((s) => s.environment);
     const showComponent = graph.nodes.some((s) => s.component);
 
@@ -48,7 +48,7 @@ export class InfraRenderer {
             0,
         )
         .map((node: InfraGraphNode) => {
-          const row = [node.name, node.plugin];
+          const row = [node.name];
 
           if (showComponent) {
             row.push(node.component || '');

@@ -1,11 +1,11 @@
 import { isAbsolute } from 'https://deno.land/std@0.50.0/path/posix.ts';
 import * as path from 'std/path/mod.ts';
 import winston from 'winston';
-import { ModuleServer } from '../../datacenter-modules/server.ts';
 import { Datacenter } from '../../datacenters/datacenter.ts';
 import { parseDatacenter } from '../../datacenters/parser.ts';
 import { verifyDocker } from '../../docker/helper.ts';
 import { ImageRepository } from '../../oci/index.ts';
+import { buildModuleFromDirectory } from '../../utils/build.ts';
 import { exec } from '../../utils/command.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
@@ -56,18 +56,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
       ? build_options.context
       : path.join(context, build_options.context);
     console.log(`Building module: ${build_dir}`);
-    const server = new ModuleServer(build_options.plugin);
-    const client = await server.start(build_dir);
-    try {
-      const build = await client.build({ directory: build_dir }, { logger });
-      client.close();
-      await server.stop();
-      return build.image;
-    } catch (e) {
-      client.close();
-      await server.stop();
-      throw new Error(e);
-    }
+    return buildModuleFromDirectory(build_dir);
   });
 
   const digest = await command_helper.datacenterStore.add(datacenter);

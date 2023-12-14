@@ -390,7 +390,6 @@ function createGraphNode(
 ): InfraGraphNode {
   return new InfraGraphNode({
     image: 'test-module:test-tag',
-    plugin: 'pulumi',
     color: 'blue',
     name,
     action: options.action,

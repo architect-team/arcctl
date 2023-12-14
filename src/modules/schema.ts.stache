@@ -1,0 +1,32 @@
+import { DatacenterModule } from './module.ts';
+{{#versions}}
+import module_{{.}} from './{{.}}/index.ts';
+{{/versions}}
+
+/**
+ * @discriminatorOpenApi version
+ */
+export type DatacenterModuleSchema =
+{{#versions}}
+  | ({
+    version: '{{.}}';
+  } & module_{{.}})
+{{/versions}}
+;
+
+export const buildModule = (data: DatacenterModuleSchema): DatacenterModule => {
+  switch (data.version) {
+    {{#versions}}
+    case '{{.}}': {
+      return new module_{{.}}(data);
+    }
+    {{/versions}}
+    default: {
+      throw new Error(
+        `Invalid schema version: ${
+          'version' in data ? data.version : 'none'
+        }`
+      );
+    }
+  }
+};

@@ -1,6 +1,6 @@
 {
   "$ref": "#/definitions/DatabaseOutputs",
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "definitions": {
     "DatabaseOutputs": {
       "additionalProperties": false,
@@ -73,5 +73,6 @@
       ],
       "type": "object"
     }
-  }
+  },
+  "$id": "https://architect.io/.schemas/resources/database/outputs.json"
 }

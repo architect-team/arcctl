@@ -1,6 +1,7 @@
 export type ImageManifest = {
   schemaVersion: number;
   mediaType: string;
+  artifactType?: string;
   config: {
     digest: string;
     mediaType: string;
@@ -11,4 +12,5 @@ export type ImageManifest = {
     mediaType: string;
     size: number;
   }>;
+  annotations?: Record<string, string>;
 };

@@ -1,9 +1,7 @@
-import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0';
+import Ajv2019 from 'https://esm.sh/v124/ajv@8.12.0/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType, ResourceTypeList } from './types.ts';
-
-const ajv = new Ajv2019({ strict: false, discriminator: true });
 
 export const parseSpecificResourceInputs = async <T extends ResourceType>(
   type: T,
@@ -34,6 +32,7 @@ export const parseSpecificResourceInputs = async <T extends ResourceType>(
   const __dirname = new URL('.', import.meta.url).pathname;
   const input_schema_file_contents = Deno.readTextFileSync(path.join(__dirname, type, 'inputs.schema.json'));
   const inputSchema = JSON.parse(input_schema_file_contents);
+  const ajv = new Ajv2019({ strict: false, discriminator: true });
   const resource_validator = ajv.compile<ResourceInputs[T]>(inputSchema);
 
   if (!resource_validator(raw_obj)) {
@@ -72,6 +71,7 @@ export const parseResourceOutputs = <T extends ResourceType>(
   const __dirname = new URL('.', import.meta.url).pathname;
   const output_schema_file_contents = Deno.readTextFileSync(path.join(__dirname, type, 'outputs.schema.json'));
   const outputSchema = JSON.parse(output_schema_file_contents);
+  const ajv = new Ajv2019({ strict: false, discriminator: true });
   const outputValidator = ajv.compile<ResourceOutputs[T]>(outputSchema);
 
   if (!outputValidator(raw_obj)) {

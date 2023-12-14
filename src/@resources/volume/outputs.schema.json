@@ -1,6 +1,6 @@
 {
   "$ref": "#/definitions/VolumeOutputs",
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "definitions": {
     "VolumeOutputs": {
       "additionalProperties": false,
@@ -18,5 +18,6 @@
       ],
       "type": "object"
     }
-  }
+  },
+  "$id": "https://architect.io/.schemas/resources/volume/outputs.json"
 }

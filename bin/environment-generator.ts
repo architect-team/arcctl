@@ -54,7 +54,7 @@ for (const version of all_versions) {
     args: [
       'run',
       '--allow-read',
-      'npm:ts-json-schema-generator',
+      'npm:ts-json-schema-generator@1.5.0',
       '--path',
       path.join(build_dir, 'src/environments', version, 'index.ts'),
       '--expose',
@@ -68,6 +68,7 @@ for (const version of all_versions) {
     stdout: 'piped',
   });
   const type_schema = JSON.parse(type_schema_string);
+  type_schema.$schema = 'https://json-schema.org/draft/2019-09/schema';
   await Deno.writeTextFile(path.join(environments_dir, version, './schema.json'), JSON.stringify(type_schema, null, 2));
 }
 
@@ -75,7 +76,7 @@ const { stdout: type_schema_string, stderr: err } = await exec('deno', {
   args: [
     'run',
     '--allow-read',
-    'npm:ts-json-schema-generator',
+    'npm:ts-json-schema-generator@1.5.0',
     '--path',
     path.join(build_dir, 'src/environments/schema.ts'),
     '--expose',

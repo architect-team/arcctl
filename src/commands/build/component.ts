@@ -1,4 +1,3 @@
-import * as mod from 'https://deno.land/std@0.195.0/fs/copy.ts';
 import * as path from 'std/path/mod.ts';
 import { Component, parseComponent } from '../../components/index.ts';
 import { verifyDocker } from '../../docker/helper.ts';
@@ -107,36 +106,6 @@ const ComponentBuildCommand = BaseCommand()
           build_args.push(build_context);
           await getDigest(build_args, options.verbose);
           return imageRepository.toString();
-        }, async (build_options) => {
-          imageRepository.tag = imageRepository.tag + '-' + build_options.deployment_name + '-volumes-' +
-            build_options.volume_name;
-          console.log(
-            'Building image for volume',
-            build_options.deployment_name + '.volumes.' + build_options.volume_name,
-          );
-
-          // Create the directory for the new volume container
-          const tmpDir = await Deno.makeTempDir();
-          await mod.copy(build_options.host_path, path.join(tmpDir, 'contents'));
-          Deno.writeTextFileSync(
-            path.join(tmpDir, 'Dockerfile'),
-            `
-          FROM alpine:latest
-          WORKDIR /app
-          COPY ./contents .
-          CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
-        `,
-          );
-
-          // Publish the volume container
-          const buildArgs = ['build', '--push', '--tag', imageRepository.toString()];
-          if (options.verbose) {
-            buildArgs.push('--quiet');
-          }
-          buildArgs.push(tmpDir);
-
-          await getDigest(buildArgs, options.verbose);
-          return imageRepository.toString();
         });
 
         // Tag and push the component itself
@@ -176,33 +145,6 @@ const ComponentBuildCommand = BaseCommand()
         }
 
         return getDigest(buildArgs, options.verbose);
-      }, async (build_options) => {
-        console.log(
-          'Building image for volume',
-          build_options.deployment_name + '.volumes.' + build_options.volume_name,
-        );
-
-        // Create the directory for the new volume container
-        const tmpDir = await Deno.makeTempDir();
-        await mod.copy(build_options.host_path, path.join(tmpDir, 'contents'));
-        Deno.writeTextFileSync(
-          path.join(tmpDir, 'Dockerfile'),
-          `
-          FROM alpine:latest
-          WORKDIR /app
-          COPY ./contents .
-          CMD ["sh", "-c", "cp -r ./* $TARGET_DIR"]
-        `,
-        );
-
-        // Publish the volume container
-        const buildArgs = ['build'];
-        if (options.verbose) {
-          buildArgs.push('--quiet');
-        }
-        buildArgs.push(tmpDir);
-
-        return getDigest(buildArgs, options.verbose);
       });
 
       const digest = await command_helper.componentStore.add(component);
@@ -211,16 +153,9 @@ const ComponentBuildCommand = BaseCommand()
         for (const tag of options.tag) {
           component = await component.tag(async (sourceRef: string, targetName: string) => {
             const imageRepository = new ImageRepository(tag);
-            const targetRef = imageRepository.toString() + '-deployments-' + targetName;
+            const targetRef = imageRepository.toString() + '-' + targetName;
             await exec('docker', { args: ['tag', sourceRef, targetRef] });
             console.log(`Deployment Tagged: ${targetRef}`);
-            return targetRef;
-          }, async (digest: string, deploymentName: string, volumeName: string) => {
-            const imageRepository = new ImageRepository(tag);
-            const targetRef = imageRepository.toString() + '-deployments-' + deploymentName + '-volumes-' + volumeName;
-
-            await exec('docker', { args: ['tag', digest, targetRef] });
-            console.log(`Volume Tagged: ${targetRef}`);
             return targetRef;
           });
 

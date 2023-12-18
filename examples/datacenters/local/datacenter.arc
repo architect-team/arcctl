@@ -99,8 +99,8 @@ environment {
       port = 5432
       username = "postgres"
       password = "password"
-      database = module.database.name
-      url = "postgresql://postgres:password@host.docker.internal:5432/${module.database.name}"
+      database = module.postgres.name
+      url = "postgresql://postgres:password@host.docker.internal:5432/${module.postgres.name}"
     }
   }
 

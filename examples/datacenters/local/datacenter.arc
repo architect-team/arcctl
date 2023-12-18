@@ -193,7 +193,6 @@ environment {
         context = node.inputs.context
         dockerfile = node.inputs.dockerfile
         args = node.inputs.args
-        target = node.inputs.target
       }
     }
 

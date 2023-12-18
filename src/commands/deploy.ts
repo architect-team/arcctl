@@ -105,6 +105,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         refresh: options.refresh,
       });
       pipeline.validate();
+
       await command_helper.infraRenderer.confirmGraph(pipeline, options.autoApprove);
 
       let interval: number;

@@ -3,5 +3,5 @@ plan: pulumi preview --stack module --non-interactive
 import: pulumi stack import --stack module --file $STATE_FILE --non-interactive
 export: pulumi stack export --stack module --file $STATE_FILE --non-interactive
 outputs: pulumi stack output --stack module --json --show-secrets --non-interactive > $OUTPUT_FILE
-apply: pulumi config --stack module --non-interactive set-all $(echo $INPUTS | jq -r "to_entries | map(\"--path --plaintext \" + .key + \"=\" + (.value | tostring)) | join(\" \")") && pulumi up --stack module --non-interactive --yes
+apply: pulumi up --stack module --non-interactive --yes
 destroy: pulumi destroy --stack module --non-interactive --yes

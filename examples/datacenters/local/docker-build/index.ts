@@ -1,18 +1,30 @@
 import * as docker from "@pulumi/docker";
-import { ContainerLabel, ContainerPort } from "@pulumi/docker/types/input";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  image: string;
+  context: string;
+  dockerfile?: string;
+  target?: string;
+  platform?: string;
+  args?: Record<string, string>;
+}
+
+const config: Config = JSON.parse(inputs);
 
 const build = new docker.Image("image", {
-  imageName: config.require("image"),
+  imageName: config.image,
   skipPush: true,
   build: {
-    context: config.require("context"),
-    dockerfile: config.get("dockerfile"),
-    target: config.get("target"),
-    platform: config.get("platform"),
-    args: config.getObject("args"),
+    context: config.context,
+    dockerfile: config.dockerfile,
+    target: config.target,
+    platform: config.platform,
+    args: config.args,
   },
 });
 

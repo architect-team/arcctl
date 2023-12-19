@@ -9,6 +9,7 @@ type RemoveOptions = {
   verbose: boolean;
   autoApprove: boolean;
   refresh: boolean;
+  concurrency: number;
 } & GlobalOptions;
 
 const RemoveCommand = BaseCommand()
@@ -21,6 +22,7 @@ const RemoveCommand = BaseCommand()
   })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('-r, --refresh [refresh:boolean]', 'Force update all resources', { default: false })
+  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 10 })
   .option('--auto-approve [autoApprove:boolean]', 'Skip all prompts and start the requested action', { default: false })
   .action(remove_action);
 
@@ -89,7 +91,7 @@ async function remove_action(options: RemoveOptions, name: string): Promise<void
       }
 
       await pipeline
-        .apply({ logger })
+        .apply({ logger, concurrency: options.concurrency })
         .toPromise()
         .then(async () => {
           await command_helper.environmentUtils.saveEnvironment(

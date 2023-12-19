@@ -10,7 +10,14 @@ export const getImageLabels = async (tag_or_digest: string): Promise<Record<stri
     throw new Error(stderr);
   }
 
-  const results = JSON.parse(stdout);
+  let results = [];
+  try {
+    results = JSON.parse(stdout);
+  } catch (err) {
+    console.log(stdout);
+    throw err;
+  }
+
   if (results.length === 0) {
     throw new Error(`No image found for ${tag_or_digest}`);
   }

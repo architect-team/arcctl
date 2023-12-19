@@ -28,6 +28,10 @@ variable "username" {
 
 variable "password" {}
 
+locals {
+  name = replace(var.name, "/", "_")
+}
+
 provider "postgresql" {
   host     = var.host
   port     = var.port
@@ -38,10 +42,10 @@ provider "postgresql" {
 }
 
 resource "postgresql_database" "my_db" {
-  name = var.name
+  name = local.name
 }
 
 output "name" {
   description = "Name of the database that was created"
-  value       = var.name
+  value       = local.name
 }

@@ -24,7 +24,7 @@ const DestroyDatacenterCommand = BaseCommand()
     'Destroy the datacenter store record, even if destruction of the datacenter fails',
     { default: false },
   )
-  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 1 })
+  .option('-c, --concurrency <concurrency:number>', 'Maximum number of nodes to apply concurrently', { default: 10 })
   .arguments('[name:string]')
   .action(destroy_datacenter_action);
 

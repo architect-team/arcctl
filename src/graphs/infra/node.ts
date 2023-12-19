@@ -215,7 +215,7 @@ export class InfraGraphNode extends GraphNode<Record<string, unknown> | string> 
           mount_path: '/module',
         });
 
-        const flags = ['run', '--rm'];
+        const flags = ['run'];
         Object.values(volume_mounts).forEach((value) => {
           flags.push('-v', `${value.host_path}:${value.mount_path}`);
         });

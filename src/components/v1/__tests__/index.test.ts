@@ -54,8 +54,7 @@ describe('Component Schema: v1', () => {
       type: 'dockerBuild',
       component: 'account/component',
       inputs: {
-        context: './',
-        component_source: 'fake/source',
+        context: 'fake/source',
       },
     });
 
@@ -188,8 +187,7 @@ describe('Component Schema: v1', () => {
       type: 'dockerBuild',
       component: 'account/component',
       inputs: {
-        context: './',
-        component_source: 'fake/source',
+        context: 'fake/source',
       },
     });
 

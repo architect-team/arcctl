@@ -145,7 +145,7 @@ environment {
       host = "${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io"
       target_port = node.inputs.port
       port = 80
-      url = "${node.inputs.protocol || "http"}://${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io:80"
+      url = "${node.inputs.protocol || "http"}://${replace(node.component + "-" + node.name, "/", "-")}.internal.172.17.0.1.nip.io/"
     }
   }
 
@@ -177,7 +177,7 @@ environment {
 
   dockerBuild {
     module "build" {
-      build = "./docker-build"
+      build = "./build"
 
       environment = {
         DOCKER_HOST = "unix:///var/run/docker.sock"
@@ -188,10 +188,16 @@ environment {
         mount_path = "/var/run/docker.sock"
       }
 
+      volume {
+        host_path = node.inputs.context
+        mount_path = "/component"
+      }
+
       inputs = {
         image = "${node.component}-${node.name}"
-        context = node.inputs.context
+        context = "/component"
         dockerfile = node.inputs.dockerfile
+        target = node.inputs.target
         args = node.inputs.args
       }
     }

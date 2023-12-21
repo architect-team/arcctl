@@ -16,6 +16,8 @@ type Config = {
 
 const config: Config = JSON.parse(inputs);
 
+console.log(config);
+
 const build = new docker.Image("image", {
   imageName: config.image,
   skipPush: true,
@@ -24,7 +26,9 @@ const build = new docker.Image("image", {
     dockerfile: config.dockerfile,
     target: config.target,
     platform: config.platform,
-    args: config.args,
+    args: {
+      BUILDKIT_INLINE_CACHE: '1',
+    },
   },
 });
 

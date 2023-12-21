@@ -298,33 +298,26 @@ export default class ComponentV2 extends Component {
           type: 'dockerBuild',
           component: context.component.name,
           inputs: {
-            component_source: context.component.source,
             context: context.component.debug &&
                 build_config.debug &&
                 build_config.debug.context
-              ? build_config.debug.context
-              : build_config.context,
+              ? path.join(context.component.source, build_config.debug.context)
+              : path.join(context.component.source, build_config.context),
             dockerfile: context.component.debug &&
                 build_config.debug &&
                 build_config.debug.dockerfile
-              ? build_config.debug.dockerfile
-              : build_config.dockerfile || 'Dockerfile',
+              ? path.join(context.component.source, build_config.debug.dockerfile)
+              : build_config.dockerfile
+              ? path.join(context.component.source, build_config.dockerfile)
+              : '',
             args: context.component.debug &&
                 build_config.debug &&
                 build_config.debug.args
               ? build_config.debug.args
               : build_config.args || {},
-            ...(context.component.debug &&
-                build_config.debug &&
-                build_config.debug.target
-              ? {
-                target: build_config.debug.target,
-              }
-              : build_config.target
-              ? {
-                target: build_config.target,
-              }
-              : {}),
+            target: context.component.debug
+              ? build_config.debug?.target ?? build_config.target ?? ''
+              : build_config.target ?? '',
           },
         });
 

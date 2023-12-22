@@ -80,12 +80,20 @@ export class InfraRenderer {
       const tableStr = this.graphToTableOutput(graph);
       console.log(tableStr);
     }
+
+    // No need for confirmation when autoApprove is set
     if (autoApprove) {
       return;
     }
+
+    // No need for confirmation if there are no changes to apply
+    if (graph.nodes.every((n) => n.status.state === 'complete')) {
+      return;
+    }
+
     const tableStr = this.graphToTableOutput(graph);
     console.log(tableStr);
-    Inputs.assertInteractiveShell('Use the flag \'--auto-approve\' to skip interactive approval');
+    Inputs.assertInteractiveShell("Use the flag '--auto-approve' to skip interactive approval");
     const shouldContinue = await Inputs.promptForContinuation('Do you want to apply the above changes?');
     if (!shouldContinue) {
       Deno.exit(0);

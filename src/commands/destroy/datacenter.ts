@@ -60,8 +60,6 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
   const allEnvs = await command_helper.environmentStore.find();
   const datacenterEnvs = allEnvs.filter((env) => env.datacenter === datacenterRecord.name);
 
-  command_helper.infraRenderer.renderGraph(graph);
-
   if (datacenterEnvs.length > 0) {
     console.log('This will also destroy all the following environments:');
     for (const env of datacenterEnvs) {

@@ -237,6 +237,7 @@ export class InfraGraphNode extends GraphNode<Record<string, unknown> | string> 
         });
 
         if (code !== 0) {
+          console.log(stdout);
           throw new Error(stderr);
         }
 

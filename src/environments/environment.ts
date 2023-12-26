@@ -5,6 +5,7 @@ import { ImageRepository } from '../oci/index.ts';
 export type ComponentMetadata = {
   image: ImageRepository;
   path?: string;
+  debug?: boolean;
   ingresses?: Record<string, string>;
   variables?: Record<string, string>;
 };
@@ -19,10 +20,6 @@ export abstract class Environment {
      * Store used to pull component artifacts
      */
     componentStore: ComponentStore,
-    /**
-     * Whether or not to build the graph using debug features
-     */
-    debug?: boolean,
   ): Promise<AppGraph>;
 
   public abstract addComponent(metadata: ComponentMetadata): void;

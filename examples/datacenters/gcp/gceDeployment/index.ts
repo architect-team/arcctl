@@ -1,36 +1,28 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 import * as yaml from 'js-yaml';
 
-const config = new pulumi.Config('gceDeployment');
-const gcpConfig = new pulumi.Config('gcp');
-
-let labelsObject;
-try {
-  const labels = config.get('labels');
-  if (labels) {
-    labelsObject = JSON.parse(labels);
-  }
-} catch (err) {
-  throw new Error('Could not parse labels config object');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
 }
 
-const vpcName = labelsObject?.vpc;
-const namespace = (config.get('namespace') || 'ns').substring(0, 20);
-const name = config.require('name').replace(/\//g, '-');
+type Config = {
+  name: string;
+  image: string;
+  labels?: Record<string, string>;
+  namespace: string;
+  entrypoint?: string | string[];
+  command?: string | string[];
+  environment?: Record<string, string>;
+};
 
-const entrypoint = config.get('entrypoint');
-const command = config.get('command');
+const config: Config = JSON.parse(inputs);
 
-let environment;
-try {
-  if (config.get('environment')) {
-    environment = JSON.parse(config.require('environment'));
-  }
-} catch (err) { 
-  throw new Error('Could not parse environment object');
-}
-const env = Object.entries(environment || {}).map(([key, value]) => ({
+const vpcName = config.labels?.vpc;
+const namespace = config.namespace.substring(0, 20);
+const name = config.name.replace(/\//g, '-');
+
+const env = Object.entries(config.environment ?? {}).map(([key, value]) => ({
   name: key,
   value: String(value),
 }));
@@ -40,9 +32,9 @@ const deploymentName = `${namespace}-${name.slice(-40)}`;
 const container = {
   spec: {
     containers: [{
-      image: config.require('image'),
-      args: typeof entrypoint === 'string' ? entrypoint.split(' ') : entrypoint,
-      command: typeof command === 'string' ? command.split(' ') : command,
+      image: config.image,
+      args: typeof config.entrypoint === 'string' ? config.entrypoint.split(' ') : config.entrypoint,
+      command: typeof config.command === 'string' ? config.command.split(' ') : config.command,
       env
     }]
   }
@@ -58,7 +50,7 @@ const _gceDeploymentService = new gcp.projects.Service('gce-deployment', {
   disableOnDestroy: false,
 });
 
-const zone = labelsObject.zone;
+const zone = config.labels?.zone;
 const deployment = new gcp.compute.Instance('gce-deployment', {
   name: deploymentName,
   zone,
@@ -95,4 +87,4 @@ const instanceGroup = new gcp.compute.InstanceGroup('gce-deployment-instance-gro
 });
 
 export const id = instanceGroup.selfLink; 
-export const labels = labelsObject;
+export const labels = config.labels ?? {};

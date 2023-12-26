@@ -1,7 +1,0 @@
-encryptionsalt: v1:xA0M5n7s4Pk=:v1:8MLv/S6WVM1hltns:ykW2VUnsOSBDEDebfImQrIJwlBHakw==
-config:
-  databaseUser:database: postgres/kratos/tyleraldrich--kratos/34.138.160.18/5432
-  databaseUser:username: ryan-test
-  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
-  gcp:project: permanent-environment-testing
-  gcp:region: us-central1

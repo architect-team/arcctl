@@ -1,36 +1,55 @@
 import * as kubernetes from '@pulumi/kubernetes';
-import * as pulumi from '@pulumi/pulumi';
 
-const config = new pulumi.Config();
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  namespace?: string;
+  ingress_class_name?: string;
+  path?: string;
+  kubeconfig: string;
+  subdomain?: string;
+  dns_zone?: string;
+  username?: string;
+  password?: string;
+  service: {
+    host: string;
+    port: string;
+    protocol: string;
+  };
+};
+
+const config: Config = JSON.parse(inputs);
+
 const provider = new kubernetes.Provider('provider', {
-  kubeconfig: config.require('kubeconfig'),
+  kubeconfig: config.kubeconfig,
 });
 
 const hostParts: string[] = [];
 
-const subdomain = config.get('subdomain');
-if (subdomain) {
-  hostParts.push(subdomain);
+if (config.subdomain) {
+  hostParts.push(config.subdomain);
 }
 
-const dns_zone = config.get('dns_zone');
-if (dns_zone) {
-  hostParts.push(dns_zone);
+if (config.dns_zone) {
+  hostParts.push(config.dns_zone);
 }
 
 const _host = hostParts.join('.');
-const serviceConfig = config.requireObject<{ host: string; port: string; protocol: string }>('service');
 
 const ingress = new kubernetes.networking.v1.Ingress('ingress', {
   metadata: {
-    name: config.require('name').replace(/\//g, '-'),
-    namespace: config.require('namespace'),
+    name: config.name.replace(/\//g, '-'),
+    namespace: config.namespace,
     annotations: {
       'cert-manager.io/issuer': 'letsencrypt'
     }
   },
   spec: {
-    ingressClassName: config.get('ingress_class_name'),
+    ingressClassName: config.ingress_class_name,
     rules: [
       {
         host: _host,
@@ -38,12 +57,12 @@ const ingress = new kubernetes.networking.v1.Ingress('ingress', {
           paths: [
             {
               pathType: 'Prefix',
-              path: config.get('path') ?? '/',
+              path: config.path ?? '/',
               backend: {
                 service: {
-                  name: serviceConfig.host,
+                  name: config.service.host,
                   port: {
-                    number: parseInt(serviceConfig.port),
+                    number: parseInt(config.service.port),
                   }
                 }
               }
@@ -56,12 +75,12 @@ const ingress = new kubernetes.networking.v1.Ingress('ingress', {
 }, { provider });
 
 export const id = ingress.id;
-export const protocol = serviceConfig.protocol || 'http';
+export const protocol = config.service.protocol || 'http';
 export const host = _host;
 export const port = 443;
-export const username = config.get('username');
-export const password = config.get('password');
-export const path = config.get('path') ?? '';
+export const username = config.username;
+export const password = config.password;
+export const path = config.path ?? '';
 
 let _url = `${protocol}://`;
 if (username || password) {

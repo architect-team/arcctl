@@ -306,9 +306,9 @@ export default class ComponentV2 extends Component {
             dockerfile: context.component.debug &&
                 build_config.debug &&
                 build_config.debug.dockerfile
-              ? path.join(context.component.source, build_config.debug.dockerfile)
+              ? build_config.debug.dockerfile
               : build_config.dockerfile
-              ? path.join(context.component.source, build_config.dockerfile)
+              ? build_config.dockerfile
               : '',
             args: context.component.debug &&
                 build_config.debug &&

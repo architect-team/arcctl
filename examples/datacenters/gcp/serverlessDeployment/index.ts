@@ -1,14 +1,34 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
+import * as pulumi from "@pulumi/pulumi";
 
-interface Volume {
-  volume: string;
-  mount_path: string;
-  image?: string | undefined;
-  readonly: boolean;
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  labels: Record<string, string>;
+  namespace: string;
+  image: string;
+  name: string;
+  entrypoint?: string | string[];
+  command?: string | string[];
+  environment?: Record<string, string>;
+  cpu?: string;
+  memory?: string;
+  volume_mounts?: {
+    volume: string;
+    mount_path: string;
+    image?: string | undefined;
+    readonly: boolean;
+  }[];
+  services: {
+    port: string;
+  }[];
 };
 
-const config = new pulumi.Config('serverlessDeployment');
+const config: Config = JSON.parse(inputs);
+
 const gcpConfig = new pulumi.Config('gcp');
 
 const _cloudRunService = new gcp.projects.Service('cloud-run-service', {
@@ -21,43 +41,26 @@ const _iamService = new gcp.projects.Service('iam-service', {
   disableOnDestroy: false,
 });
 
-let labelsObject;
-try {
-  const labels = config.get('labels');
-  if (labels) {
-    labelsObject = JSON.parse(labels);
-  }
-} catch (err) {
-  throw new Error('Could not parse labels config object');
-}
-
 // "Zone" is the more specific part of a region
 // e.g. "us-central1-a" is the Zone and "us-central1" is the Region.
 // The Zone is passed in as the "labels.region" input
 let region;
 let zone;
-if (labelsObject?.region) {
-  zone = labelsObject.region;
+if (config.labels.region) {
+  zone = config.labels.region;
   region = zone.split('-').slice(0, -1).join('-');
 }
 
-const vpcName = labelsObject?.vpc;
-const namespace = (config.get('namespace') || 'ns').substring(0, 20);
-const name = config.require('name').replace(/\//g, '-');
+if (!config.labels.vpc) {
+  throw new Error('Missing required label: vpc');
+}
+
+const vpcName = config.labels.vpc;
+const namespace = config.namespace.substring(0, 20);
+const name = config.name.replace(/\//g, '-');
 
 let firstDeployment;
-const entrypoint = config.get('entrypoint');
-const command = config.get('command');
-
-let environment;
-try {
-  if (config.get('environment')) {
-    environment = JSON.parse(config.require('environment'));
-  }
-} catch (err) { 
-  throw new Error('Could not parse environment object');
-}
-const env = Object.entries(environment || {}).map(([key, value]) => ({
+const env = Object.entries(config.environment || {}).map(([key, value]) => ({
   name: key,
   value: String(value),
 }));
@@ -66,26 +69,9 @@ let labelsOutput: Record<string, string | pulumi.Output<string>> = {};
 
 const deploymentName = `${namespace}-${name.slice(-20)}`;
 
-let servicesObject;
-try {
-  servicesObject = JSON.parse(config.require('services'));
-} catch(err) {
-  throw new Error('Error parsing services to JSON. At least one service must be specified');
-}
-
-for (const service of servicesObject) {
+for (const service of config.services) {
   const servicePort = Number(service.port || 80);
   const resourceName = `${deploymentName}-${servicePort}`;
-
-  let volumeMountsObject;
-  try {
-    const volumeMounts = config.get('volume_mounts');
-    if (volumeMounts) {
-      volumeMountsObject = JSON.parse(config.require('volume_mounts'));
-    }
-  } catch (err) {
-    throw new Error('Error parsing volume mounts to object');
-  }
 
   const deploymentNameLabel = `${resourceName}-deployment`;
   const deployment = new gcp.cloudrunv2.Service(deploymentName, {
@@ -100,18 +86,18 @@ for (const service of servicesObject) {
         egress: 'PRIVATE_RANGES_ONLY',
       },
       containers: [{
-        image: config.require('image'),
-        args: typeof entrypoint === 'string' ? entrypoint.split(' ') : entrypoint,
-        commands: typeof command === 'string' ? command.split(' ') : command,
+        image: config.image,
+        args: typeof config.entrypoint === 'string' ? config.entrypoint.split(' ') : config.entrypoint,
+        commands: typeof config.command === 'string' ? config.command.split(' ') : config.command,
         envs: env,
         ports: [{ containerPort: servicePort }],
         resources: {
           limits: {
-            ...(config.get('cpu') ? { cpu: config.require('cpu') } : {}),
-            ...(config.get('memory') ? { memory: config.require('memory') } : {}),
+            ...(config.cpu ? { cpu: config.cpu } : {}),
+            ...(config.memory ? { memory: config.memory } : {}),
           }
         },
-        volumeMounts: (volumeMountsObject || []).map((volume: Volume) => {
+        volumeMounts: (config.volume_mounts || []).map((volume) => {
           return {
             name: volume.volume,
             mountPath: volume.mount_path,
@@ -123,7 +109,7 @@ for (const service of servicesObject) {
     dependsOn: [_cloudRunService, _iamService]
   });
 
-  const cloudRunServiceIamBinding = new gcp.cloudrunv2.ServiceIamBinding(`${resourceName}-service-binding`, {
+  new gcp.cloudrunv2.ServiceIamBinding(`${resourceName}-service-binding`, {
     project: deployment.project,
     location: region,
     name: resourceName,

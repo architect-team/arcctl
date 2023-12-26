@@ -190,12 +190,12 @@ environment {
 
       volume {
         host_path = node.inputs.context
-        mount_path = "/component"
+        mount_path = node.inputs.context
       }
 
       inputs = {
         image = "${node.component}-${node.name}"
-        context = "/component"
+        context = node.inputs.context
         dockerfile = node.inputs.dockerfile
         target = node.inputs.target
         args = node.inputs.args
@@ -222,6 +222,7 @@ environment {
 
       inputs = {
         name = "${node.component}-${node.name}"
+        hostPath = node.inputs.hostPath
       }
     }
 

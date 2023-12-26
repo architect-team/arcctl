@@ -1,19 +1,19 @@
 terraform {
   required_providers {
     docker = {
-      source = "kreuzwerker/docker"
+      source  = "kreuzwerker/docker"
       version = "~> 3.0.2"
     }
   }
 }
 
 variable "image" {
-  type = string
+  type     = string
   nullable = false
 }
 
 variable "context" {
-  type = string
+  type     = string
   nullable = false
 }
 
@@ -26,7 +26,7 @@ variable "target" {
 }
 
 variable "platform" {
-  type = string
+  type    = string
   default = null
 }
 
@@ -37,13 +37,14 @@ variable "args" {
 provider "docker" {}
 
 resource "docker_image" "image" {
-  name = var.image
+  name         = var.image
+  force_remove = true
   build {
-    context = var.context
+    context    = var.context
     dockerfile = var.dockerfile
-    target = var.target
-    platform = var.platform
-    build_arg = var.args
+    target     = var.target
+    platform   = var.platform
+    build_arg  = var.args
   }
 }
 

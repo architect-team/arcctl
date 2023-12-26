@@ -20,7 +20,6 @@ variable "dns_zone" {
 
 module "vpc" {
   build = "./vpc"
-  plugin = "pulumi"
   inputs = {
     name = datacenter.name
 
@@ -32,7 +31,6 @@ module "vpc" {
 
 module "kubernetesCluster" {
   build = "./kubernetesCluster"
-  plugin = "pulumi"
   inputs = {
     name = datacenter.name
 
@@ -48,7 +46,6 @@ module "kubernetesCluster" {
 environment {
   module "namespace" {
     build = "./kubernetesNamespace"
-    plugin = "pulumi"
     inputs = {
       name = environment.name
       kubeconfig = module.kubernetesCluster.kubeconfig
@@ -114,7 +111,6 @@ environment {
       inputs = {
         cluster_id = module.databaseCluster.id
         name = node.inputs.name
-
         "gcp:region" = var.gcp_region
         "gcp:project" = var.gcp_project
         "gcp:credentials" = "file:${var.gcp_credentials_file}"
@@ -162,7 +158,6 @@ environment {
   ingress {
     module "ingressRule" {
       build = "./kubernetesIngress"
-      plugin = "pulumi"
       inputs = merge(node.inputs, {
         name = "${node.component}--${node.name}"
         namespace = module.namespace.id
@@ -202,7 +197,6 @@ environment {
   deployment {
     module "deployment" {
       build = "./kubernetesDeployment"
-      plugin = "pulumi"
       inputs = merge(node.inputs, {
         namespace = module.namespace.id
         kubeconfig = module.kubernetesCluster.kubeconfig
@@ -213,7 +207,6 @@ environment {
   service {
     module "service" {
       build = "./kubernetesService"
-      plugin = "pulumi"
       inputs = merge(node.inputs, {
         name = "${node.component}--${node.name}"
         namespace = module.namespace.id

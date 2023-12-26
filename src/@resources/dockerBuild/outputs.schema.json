@@ -1,0 +1,23 @@
+{
+  "$ref": "#/definitions/DockerBuildOutputs",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "definitions": {
+    "DockerBuildOutputs": {
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "description": "The resulting image address of the built artifact",
+          "examples": [
+            "registry.architect.io/my-component:latest"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://architect.io/.schemas/resources/dockerBuild/outputs.json"
+}

@@ -10,6 +10,11 @@ export default {
             "additionalProperties": false,
             "description": "The name of the component that will be used to fulfill dependencies",
             "properties": {
+              "debug": {
+                "default": false,
+                "description": "If true, run the component in debug mode",
+                "type": "boolean"
+              },
               "deployments": {
                 "additionalProperties": {
                   "additionalProperties": false,

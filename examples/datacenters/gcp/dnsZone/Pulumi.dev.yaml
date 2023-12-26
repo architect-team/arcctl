@@ -1,6 +1,0 @@
-encryptionsalt: v1:0dRnwUSq4UQ=:v1:w/5zLg5oa4dH1ufU:0L9a9T6CDJBAaEfCnPFa3tfR1Rawjw==
-config:
-  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
-  gcp:project: permanent-environment-testing
-  gcp:region: us-central1
-  pulumi-go:name: test.dns.zone.

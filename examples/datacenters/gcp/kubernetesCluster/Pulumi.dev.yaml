@@ -1,9 +1,0 @@
-encryptionsalt: v1:ub9z2c15IOk=:v1:DgZa+ffHM6LAp18q:NWSbb7YFbkVgrCtuOpmFab2PjiYfeg==
-config:
-  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
-  gcp:project: permanent-environment-testing
-  gcp:region: us-central1
-  kubernetes:description: test-cluster
-  kubernetes:name: test-cluster
-  kubernetes:nodePools: '[{"count":2,"name":"test-pool","nodeSize":"e2-medium"}]'
-  kubernetes:vpc: default

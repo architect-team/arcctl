@@ -1,0 +1,51 @@
+{
+  "$ref": "#/definitions/DockerBuildInputs",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "definitions": {
+    "DockerBuildInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "args": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "description": "Arguments to pass to the build command",
+          "type": "object"
+        },
+        "component_source": {
+          "description": "Source of the component that contains the build context",
+          "examples": [
+            "/Users/batman/Projects/awesome-component"
+          ],
+          "type": "string"
+        },
+        "context": {
+          "description": "Docker build context relative to the component root",
+          "examples": [
+            "./frontend"
+          ],
+          "type": "string"
+        },
+        "dockerfile": {
+          "default": "Dockerfile",
+          "description": "Path to the dockerfile relative to the context",
+          "type": "string"
+        },
+        "target": {
+          "description": "Name of a intermediate build stage to target",
+          "examples": [
+            "builder"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "component_source",
+        "context"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://architect.io/.schemas/resources/dockerBuild/inputs.json"
+}

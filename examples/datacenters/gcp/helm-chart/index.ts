@@ -1,22 +1,34 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
-const repo = config.get('repo');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  repo?: string;
+  kubeconfig: string;
+  chart: string;
+  namespace?: string;
+  version?: string;
+  values?: Array<any>;
+};
+
+const config: Config = JSON.parse(inputs);
 
 const provider = new kubernetes.Provider("provider", {
-  kubeconfig: config.require("kubeconfig"),
+  kubeconfig: config.kubeconfig,
 });
 
 const fetchOpts: kubernetes.helm.v3.FetchOpts = {};
-if (repo) {
-  fetchOpts['repo'] = repo;
+if (config.repo) {
+  fetchOpts['repo'] = config.repo;
 }
 
 new kubernetes.helm.v3.Chart('chart', {
-  chart: config.require('chart'),
-  namespace: config.get('namespace') || 'default',
-  version: config.get('version'),
+  chart: config.chart,
+  namespace: config.namespace,
+  version: config.version,
   fetchOpts,
-  values: config.getObject('values'),
+  values: config.values,
 }, { provider });

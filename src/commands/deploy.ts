@@ -87,11 +87,12 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
         image: imageRepository,
         ingresses: ingressRules,
         path: componentPath,
+        debug: options.debug,
         variables,
       });
 
       const targetGraph = datacenterRecord.config.getGraph(
-        await environment.getGraph(environmentRecord.name, command_helper.componentStore, options.debug),
+        await environment.getGraph(environmentRecord.name, command_helper.componentStore),
         {
           environmentName: environmentRecord.name,
           datacenterName: datacenterRecord.name,

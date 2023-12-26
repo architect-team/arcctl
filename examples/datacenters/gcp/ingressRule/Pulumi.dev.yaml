@@ -1,7 +1,0 @@
-encryptionsalt: v1:BHBTvltu0RA=:v1:mwj7AYVh8Ylt3N5p:6hI41SPAcOs+HrBtdFknNQK/todc9g==
-config:
-  gcp:credentials: /home/ryan/Downloads/permanent-environment-testing-6f237ea8779d.json
-  gcp:project: permanent-environment-testing
-  gcp:region: us-central1
-  ingressRule:name: test-ingress-rule
-  ingressRule:serviceId: https://www.googleapis.com/compute/v1/projects/permanent-environment-testing/global/backendServices/ns-test-deployment

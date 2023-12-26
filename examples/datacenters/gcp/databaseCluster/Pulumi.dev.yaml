@@ -1,5 +1,0 @@
-encryptionsalt: v1:teM0vbIqgL8=:v1:uAooJhuRaPD66HRJ:CoNodVtqdppXrAEz0hQG73djaWc/CA==
-config:
-  databaseCluster:databaseVersion: "14"
-  databaseCluster:name: ryan-test
-  databaseCluster:region: us-central1

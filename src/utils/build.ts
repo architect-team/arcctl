@@ -23,6 +23,7 @@ export const buildModuleFromDirectory = async (context: string, options?: Module
 
   const args = [
     'build',
+    '--load',
   ];
 
   if (module_config.getDockerfile()) {
@@ -51,6 +52,7 @@ export const buildModuleFromDirectory = async (context: string, options?: Module
   const { code, stdout } = await exec('docker', { args, logger: options?.logger });
 
   if (code !== 0) {
+    console.log(args);
     throw new Error(`Failed to build the module at path: ${context}`);
   }
 

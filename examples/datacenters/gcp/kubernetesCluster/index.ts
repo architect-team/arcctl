@@ -2,7 +2,25 @@ import * as gcp from "@pulumi/gcp";
 import * as kubernetes from '@pulumi/kubernetes';
 import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config('kubernetes');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  vpc: string;
+  kubeconfig?: string;
+  description?: string;
+  nodePools: {
+    name: string;
+    count: number;
+    nodeSize: string;
+  }[];
+};
+
+const config: Config = JSON.parse(inputs);
+
 const gcpConfig = new pulumi.Config('gcp');
 
 const _computeProjectService = new gcp.projects.Service('cluster-compute-service', {
@@ -15,10 +33,9 @@ const _clusterProjectService = new gcp.projects.Service('cluster-container-servi
   disableOnDestroy: false,
 });
 
-const clusterName = config.require('name');
-const cluster = new gcp.container.Cluster(clusterName, {
-  name: clusterName,
-  description: config.get('description'),
+const cluster = new gcp.container.Cluster('cluster', {
+  name: config.name,
+  description: config.description,
   initialNodeCount: 1,
   location: gcpConfig.require('region'),
   masterAuth: {
@@ -31,14 +48,14 @@ const cluster = new gcp.container.Cluster(clusterName, {
     stackType: 'IPV4'
   },
   minMasterVersion: 'latest',
-  network: config.require('vpc'),
+  network: config.vpc,
   removeDefaultNodePool: true
 }, {
   dependsOn: [_computeProjectService, _clusterProjectService]
 });
 
 const nodePools = [];
-for (const nodePool of JSON.parse(config.require('nodePools'))) {
+for (const nodePool of config.nodePools) {
   nodePools.push(new gcp.container.NodePool(nodePool.name, {
     cluster: cluster.name,
     name: nodePool.name,
@@ -80,10 +97,10 @@ users:
 );
 
 const kubernetesProvider = new kubernetes.Provider('provider' + Date.now(), {
-  kubeconfig: config.get('kubeconfig') || intermediateKubeconfig,
+  kubeconfig: config.kubeconfig || intermediateKubeconfig,
 });
 
-const serviceAccount = new kubernetes.core.v1.ServiceAccount(clusterName, {
+const serviceAccount = new kubernetes.core.v1.ServiceAccount('service_account', {
   metadata: {
     name: cluster.name
   }
@@ -91,7 +108,7 @@ const serviceAccount = new kubernetes.core.v1.ServiceAccount(clusterName, {
   provider: kubernetesProvider,
 });
 
-const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding(clusterName, {
+const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding('cluster_role_binding', {
   roleRef: {
     apiGroup: 'rbac.authorization.k8s.io',
     kind: 'ClusterRole',
@@ -106,7 +123,7 @@ const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding(clusterName
   provider: kubernetesProvider,
 });
 
-const serviceAccountSecret = new kubernetes.core.v1.Secret(clusterName, {
+const serviceAccountSecret = new kubernetes.core.v1.Secret('service_account_secret', {
   metadata: {
     name: cluster.name,
     annotations: {

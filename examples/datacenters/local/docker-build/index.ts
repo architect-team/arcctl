@@ -16,8 +16,6 @@ type Config = {
 
 const config: Config = JSON.parse(inputs);
 
-console.log(config);
-
 const build = new docker.Image("image", {
   imageName: config.image,
   skipPush: true,

@@ -1,12 +1,20 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as gcp from '@pulumi/gcp';
 
-const config = new pulumi.Config('ingressRule');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
 
-const serviceId = config.require('serviceId');
+type Config = {
+  serviceId: string;
+  name: string;
+};
+
+const config: Config = JSON.parse(inputs);
+
 const https_paths = new gcp.compute.URLMap('service-https-url-map', {
-  name: config.require('name'),
-  defaultService: serviceId,
+  name: config.name,
+  defaultService: config.serviceId,
 });
 
 export const id = https_paths.selfLink;

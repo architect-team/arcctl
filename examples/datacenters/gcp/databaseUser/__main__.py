@@ -1,8 +1,14 @@
 import pulumi
 import pulumi_gcp as gcp
+import json
+import os
 import uuid
 
-config = pulumi.Config()
+inputs = os.environ.get("INPUTS")
+if (inputs == None):
+  raise Exception("Missing configuration. Please provide it via the INPUTS environment variable.")
+
+config = json.loads(inputs)
 
 project_service = gcp.projects.Service("database-service",
                                disable_on_destroy=False,
@@ -11,10 +17,9 @@ project_service = gcp.projects.Service("database-service",
 password = uuid.uuid4()
 
 sql_user = gcp.sql.User("user", 
-                        name=config.require("name"), 
-                        instance=config.require('cluster_id'),
+                        name=config["name"], 
+                        instance=config["cluster_id"],
                         password=password.hex, 
-                        # instance=instance_name,
                         deletion_policy="ABANDON", 
                         opts=pulumi.ResourceOptions(depends_on=[project_service]))
 

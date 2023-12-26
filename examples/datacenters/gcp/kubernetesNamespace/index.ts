@@ -1,14 +1,24 @@
 import * as kubernetes from '@pulumi/kubernetes';
-import * as pulumi from '@pulumi/pulumi';
 
-const config = new pulumi.Config('kubernetesNamespace');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  kubeconfig: string;
+};
+
+const config: Config = JSON.parse(inputs);
+
 const kubernetesProvider = new kubernetes.Provider('provider', {
-  kubeconfig: config.require('kubeconfig'),
+  kubeconfig: config.kubeconfig,
 });
 
 const namespace = new kubernetes.core.v1.Namespace(config.name, {
   metadata: {
-    name: config.require('name')
+    name: config.name
   } 
 }, {
   provider: kubernetesProvider

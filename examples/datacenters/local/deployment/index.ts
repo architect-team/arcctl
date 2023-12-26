@@ -33,10 +33,14 @@ type Config = {
     external?: number;
   }[];
   environment?: Record<string, string>;
-  volume_mounts?: {
+  volume_mounts?: Array<{
     host_path: string;
     mount_path: string;
-  }[];
+  } | {
+    volume: string;
+    mount_path: string;
+    readonly?: boolean;
+  }>;
 };
 
 const config: Config = JSON.parse(inputs);
@@ -124,6 +128,8 @@ for (const key in inputIngresses) {
 const envs = Object.entries(config.environment ?? {}).map(([key, value]) => (`${key}=${value}`));
 const volumes = config.volume_mounts ?? [];
 
+console.log(volumes);
+
 const deployment = new docker.Container("deployment", {
   name: config.name,
   image: config.image,
@@ -132,10 +138,20 @@ const deployment = new docker.Container("deployment", {
   envs,
   labels,
   ports,
-  volumes: volumes.map(volume => ({
-    hostPath: volume.host_path.replace(/^"(.*)"$/, '$1'),
-    containerPath: volume.mount_path.replace(/^"(.*)"$/, '$1'),
-  })),
+  volumes: volumes.map(volume => {
+    if ('host_path' in volume) {
+      return {
+        hostPath: volume.host_path,
+        containerPath: volume.mount_path,
+      };
+    } else {
+      return {
+        volumeName: volume.volume,
+        containerPath: volume.mount_path,
+        readOnly: volume.readonly,
+      };
+    }
+  }),
 });
 
 export const id = deployment.id.apply(id => id.toString());

@@ -1,9 +1,20 @@
 import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  description?: string;
+};
+
+const config: Config = JSON.parse(inputs);
+
 const gcpConfig = new pulumi.Config('gcp');
-const vpcName = config.require('name');
+const vpcName = config.name;
 
 const _computeProjectService = new gcp.projects.Service('vpc-compute-service', {
   service: 'compute.googleapis.com',
@@ -17,7 +28,7 @@ const _serviceNetworkingProjectService = new gcp.projects.Service('vpc-networkin
 
 const vpcNetwork = new gcp.compute.Network('vpc', {
   name: vpcName,
-  description: config.get('description'),
+  description: config.description,
   autoCreateSubnetworks: true,
 }, {
   dependsOn: [_computeProjectService, _serviceNetworkingProjectService]
@@ -32,7 +43,7 @@ const computeGlobalAddress = new gcp.compute.GlobalAddress('vpc-address', {
 });
 
 // This is used for connecting to the database via private subnet
-const _networkingConnection = new gcp.servicenetworking.Connection('vpc-networking-conn', {
+new gcp.servicenetworking.Connection('vpc-networking-conn', {
   network: vpcNetwork.id,
   service: 'servicenetworking.googleapis.com',
   reservedPeeringRanges: [computeGlobalAddress.name],

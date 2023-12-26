@@ -34,6 +34,13 @@ export default class EnvironmentV1 extends Environment {
       source?: string;
 
       /**
+       * If true, run the component in debug mode
+       *
+       * @default false
+       */
+      debug?: boolean;
+
+      /**
        * Values for variables the component expects
        *
        * @example
@@ -299,7 +306,7 @@ export default class EnvironmentV1 extends Environment {
     );
   }
 
-  public async getGraph(environment_name: string, componentStore: ComponentStore, debug = false): Promise<AppGraph> {
+  public async getGraph(environment_name: string, componentStore: ComponentStore): Promise<AppGraph> {
     const graph = new AppGraph();
 
     // Replace all local values
@@ -323,7 +330,7 @@ export default class EnvironmentV1 extends Environment {
                   component: {
                     name: component_key,
                     source,
-                    debug: debug,
+                    debug: component_config.debug,
                   },
                 })
               ) {
@@ -347,7 +354,7 @@ export default class EnvironmentV1 extends Environment {
                   component: {
                     name: component_key,
                     source: component_config.source,
-                    debug: debug,
+                    debug: component_config.debug,
                   },
                 })
               ) {
@@ -392,7 +399,6 @@ export default class EnvironmentV1 extends Environment {
           component: {
             name: name,
             source,
-            debug: debug,
           },
         })
       ) {
@@ -419,7 +425,7 @@ export default class EnvironmentV1 extends Environment {
         component: {
           name: key,
           source,
-          debug: debug,
+          debug: component_config?.debug,
         },
         environment: environment_name,
       });
@@ -471,6 +477,11 @@ export default class EnvironmentV1 extends Environment {
     this.components[metadata.image.repository].source = metadata.path
       ? `file:${metadata.path}`
       : metadata.image.toString().replace(/:latest$/, '');
+
+    if (metadata.debug) {
+      this.components[metadata.image.repository].debug = metadata.debug;
+    }
+
     for (const [subdomain, key] of Object.entries(metadata.ingresses || {})) {
       this.components[metadata.image.repository].ingresses = this.components[metadata.image.repository].ingresses || {};
       this.components[metadata.image.repository].ingresses![key] = {

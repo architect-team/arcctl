@@ -1,16 +1,27 @@
 import * as gcp from "@pulumi/gcp";
-import * as pulumi from "@pulumi/pulumi";
 
-let config = new pulumi.Config('dnsRecord');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
 
-const subdomain = config.require('subdomain');
-const zone = config.require('domain');
+type Config = {
+  subdomain: string;
+  domain: string;
+  type: string;
+  value: string;
+};
 
-const dnsRecord = new gcp.dns.RecordSet(config.require('domain'), {
+const config: Config = JSON.parse(inputs);
+
+const subdomain = config.subdomain;
+const zone = config.domain;
+
+const dnsRecord = new gcp.dns.RecordSet('dns_record', {
   name: `${subdomain}.${zone}.`,
   managedZone: zone.replace('.', '-'),
-  type: config.require('type'),
-  rrdatas: config.require('value').split(','),
+  type: config.type,
+  rrdatas: config.value.split(','),
 });
 
 export const id = dnsRecord.id;

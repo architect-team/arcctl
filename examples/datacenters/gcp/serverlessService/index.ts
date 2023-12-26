@@ -1,17 +1,34 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
-const config = new pulumi.Config('serverlessService');
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  namespace: string;
+  kubeconfig: string;
+  data: string;
+  username?: string;
+  password?: string;
+  target_port?: number;
+  target_deployment: string;
+  target_protocol?: string;
+  labels?: Record<string, string>;
+};
+
+const config: Config = JSON.parse(inputs);
 
 // Use the last 30 characters of the service name, as this is the more unique part.
-const configName = config.require('name').replace(/\//g, '-').slice(-30);
-const namespace = config.require('namespace').substring(0, 20);
+const configName = config.name.replace(/\//g, '-').slice(-30);
+const namespace = config.namespace.substring(0, 20);
 // Max length for resource names is ~60 characters
 const serviceName = `${namespace}--${configName}`;
 
-const servicePort = config.get('target_port') || 80;
-const deploymentName = config.require('target_deployment').replace(/\//g, '-');
-let targetProtocol = config.get('target_protocol');
+const servicePort = config.target_port || 80;
+const deploymentName = config.target_deployment.replace(/\//g, '-');
+let targetProtocol = config.target_protocol;
 if (!targetProtocol) {
   if (servicePort === 80) {
     targetProtocol = 'http';
@@ -20,19 +37,10 @@ if (!targetProtocol) {
   }
 }
 
-let labelsObject;
-try {
-  const labels = config.get('labels');
-  if (labels) {
-    labelsObject = JSON.parse(labels);
-  }
-} catch (err) {
-  throw new Error('Could not parse labels config object');
-}
 let region = '';
 let zone = '';
-if (labelsObject) {
-  zone = labelsObject.region;
+if (config.labels?.region) {
+  zone = config.labels.region;
   region = zone.split('-').slice(0, -1).join('-');
 }
 
@@ -61,7 +69,7 @@ export const protocol = backend.protocol;
 export const host = functionName;
 export const port = servicePort;
 export const url = '';
-export const username = config.require('username');
-export const password = config.require('password');
+export const username = config.username;
+export const password = config.password;
 export const name = serviceName;
 export const target_port = servicePort;

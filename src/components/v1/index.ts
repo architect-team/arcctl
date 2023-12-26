@@ -143,7 +143,7 @@ export default class ComponentV1 extends Component {
                 service_config.debug.build?.dockerfile
               ? service_config.debug.build.dockerfile
               : service_config.build.dockerfile
-              ? path.join(context.component.source, service_config.build.dockerfile)
+              ? service_config.build.dockerfile
               : '',
             args: context.component.debug &&
                 service_config.debug &&
@@ -181,7 +181,7 @@ export default class ComponentV1 extends Component {
         type: 'deployment',
         component: context.component.name,
         inputs: {
-          name: `${context.component.name.replaceAll('/', '--')}--${service_name}`,
+          name: `${context.component.name.replace(/\//g, '--')}--${service_name}`,
           replicas: Number(service_config.replicas || 1), // TODO: Ensure this is a number value
           ...(service_config.platform ? { platform: service_config.platform } : {}),
           ...(service_config.scaling
@@ -251,7 +251,7 @@ export default class ComponentV1 extends Component {
           type: 'service',
           component: context.component.name,
           inputs: {
-            deployment: `${deployment_node.component.replaceAll('/', '--')}--${deployment_node.name}`,
+            deployment: `${deployment_node.component.replace(/\//g, '--')}--${deployment_node.name}`,
             protocol: typeof interface_config === 'object' && interface_config.protocol
               ? interface_config.protocol
               : 'http',
@@ -389,9 +389,9 @@ export default class ComponentV1 extends Component {
                 task_config.debug &&
                 'build' in task_config.debug &&
                 task_config.debug.build?.dockerfile
-              ? path.join(context.component.source, task_config.debug.build.dockerfile)
+              ? task_config.debug.build.dockerfile
               : task_config.build.dockerfile
-              ? path.join(context.component.source, task_config.build.dockerfile)
+              ? task_config.build.dockerfile
               : '',
             args: context.component.debug &&
                 task_config.debug &&
@@ -504,7 +504,7 @@ export default class ComponentV1 extends Component {
         throw new Error('Invalid interface url');
       }
 
-      const deployment_node_id = `${context.component.name.replaceAll('/', '--')}--${deployment_name}`;
+      const deployment_node_id = `${context.component.name.replace(/\//g, '--')}--${deployment_name}`;
       const target_interface = this.services![deployment_name].interfaces![service_name];
 
       const interface_node = new AppGraphNode<'service'>({

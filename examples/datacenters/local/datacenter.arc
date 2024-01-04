@@ -181,6 +181,7 @@ environment {
 
       environment = {
         DOCKER_HOST = "unix:///var/run/docker.sock"
+        DOCKER_BUILDKIT = "0"
       }
 
       volume {
@@ -191,6 +192,11 @@ environment {
       volume {
         host_path = node.inputs.context
         mount_path = node.inputs.context
+      }
+
+      volume {
+        host_path = node.inputs.dockerfile
+        mount_path = node.inputs.dockerfile
       }
 
       inputs = {

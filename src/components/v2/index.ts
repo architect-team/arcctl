@@ -306,9 +306,9 @@ export default class ComponentV2 extends Component {
             dockerfile: context.component.debug &&
                 build_config.debug &&
                 build_config.debug.dockerfile
-              ? build_config.debug.dockerfile
+              ? path.join(context.component.source, build_config.debug.dockerfile)
               : build_config.dockerfile
-              ? build_config.dockerfile
+              ? path.join(context.component.source, build_config.dockerfile)
               : '',
             args: context.component.debug &&
                 build_config.debug &&
@@ -716,7 +716,13 @@ export default class ComponentV2 extends Component {
         target: buildConfig.target,
       });
 
-      this.builds![buildName].image = digest;
+      this.databases = JSON.parse(
+        JSON.stringify(this.databases || {}).replace(/\${{\s?builds\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g, digest),
+      );
+      this.deployments = JSON.parse(
+        JSON.stringify(this.deployments || {}).replace(/\${{\s?builds\.([\w-]+)\.([\dA-Za-z_-]+)\s?}}/g, digest),
+      );
+      delete this.builds![buildName];
     }
 
     for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {

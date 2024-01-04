@@ -8,6 +8,7 @@ import { pathExistsSync } from '../utils/filesystem.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type DeployOptions = {
+  as?: string;
   environment?: string[];
   ingress?: string[];
   variables?: string[];
@@ -21,13 +22,14 @@ type DeployOptions = {
 const DeployCommand = BaseCommand()
   .name('deploy')
   .description('Deploy a component into an existing environment')
-  .arguments('<tag:string>') // 'Component tag to deploy to the environment'
+  .arguments('<tag:string>')
   .option('-e, --environment <environment:string>', 'Environments to deploy the component to', {
     collect: true,
   })
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
     collect: true,
   })
+  .option('-a, --as <as:string>', 'Alias to use for the component')
   .option('-d, --debug [debug:boolean]', 'Use the components debug configuration', { default: false })
   .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--var, --variable <variables:string>', 'Variables to pass to the component', { collect: true })
@@ -84,6 +86,7 @@ async function deploy_action(options: DeployOptions, tag_or_path: string): Promi
       }
 
       environment.addComponent({
+        name: options.as,
         image: imageRepository,
         ingresses: ingressRules,
         path: componentPath,

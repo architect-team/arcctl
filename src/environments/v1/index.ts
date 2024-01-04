@@ -472,26 +472,36 @@ export default class EnvironmentV1 extends Environment {
   }
 
   public addComponent(metadata: ComponentMetadata): void {
+    const name = metadata.name ? metadata.name : metadata.path
+      ? uniqueNamesGenerator({
+        dictionaries: [adjectives, animals],
+        length: 2,
+        separator: '-',
+        style: 'lowerCase',
+        seed: metadata.path,
+      })
+      : metadata.image.repository;
+
     this.components = this.components || {};
-    this.components[metadata.image.repository] = this.components[metadata.image.repository] || {};
-    this.components[metadata.image.repository].source = metadata.path
+    this.components[name] = this.components[name] || {};
+    this.components[name].source = metadata.path
       ? `file:${metadata.path}`
       : metadata.image.toString().replace(/:latest$/, '');
 
     if (metadata.debug) {
-      this.components[metadata.image.repository].debug = metadata.debug;
+      this.components[name].debug = metadata.debug;
     }
 
     for (const [subdomain, key] of Object.entries(metadata.ingresses || {})) {
-      this.components[metadata.image.repository].ingresses = this.components[metadata.image.repository].ingresses || {};
-      this.components[metadata.image.repository].ingresses![key] = {
+      this.components[name].ingresses = this.components[name].ingresses || {};
+      this.components[name].ingresses![key] = {
         subdomain,
       };
     }
 
     for (const [key, value] of Object.entries(metadata.variables || {})) {
-      this.components[metadata.image.repository].variables = this.components[metadata.image.repository].variables || {};
-      this.components[metadata.image.repository].variables![key] = value;
+      this.components[name].variables = this.components[name].variables || {};
+      this.components[name].variables![key] = value;
     }
   }
 

@@ -3,6 +3,7 @@ import { AppGraph } from '../graphs/index.ts';
 import { ImageRepository } from '../oci/index.ts';
 
 export type ComponentMetadata = {
+  name?: string;
   image: ImageRepository;
   path?: string;
   debug?: boolean;

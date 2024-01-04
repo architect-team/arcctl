@@ -141,9 +141,9 @@ export default class ComponentV1 extends Component {
                 service_config.debug &&
                 'build' in service_config.debug &&
                 service_config.debug.build?.dockerfile
-              ? service_config.debug.build.dockerfile
+              ? path.join(context.component.source, service_config.debug.build.dockerfile)
               : service_config.build.dockerfile
-              ? service_config.build.dockerfile
+              ? path.join(context.component.source, service_config.build.dockerfile)
               : '',
             args: context.component.debug &&
                 service_config.debug &&
@@ -389,9 +389,9 @@ export default class ComponentV1 extends Component {
                 task_config.debug &&
                 'build' in task_config.debug &&
                 task_config.debug.build?.dockerfile
-              ? task_config.debug.build.dockerfile
+              ? path.join(context.component.source, task_config.debug.build.dockerfile)
               : task_config.build.dockerfile
-              ? task_config.build.dockerfile
+              ? path.join(context.component.source, task_config.build.dockerfile)
               : '',
             args: context.component.debug &&
                 task_config.debug &&

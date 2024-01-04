@@ -128,13 +128,11 @@ for (const key in inputIngresses) {
 const envs = Object.entries(config.environment ?? {}).map(([key, value]) => (`${key}=${value}`));
 const volumes = config.volume_mounts ?? [];
 
-console.log(volumes);
-
 const deployment = new docker.Container("deployment", {
   name: config.name,
   image: config.image,
-  command: config.command,
-  entrypoints: config.entrypoint,
+  ...(config.command ? { command: config.command } : {}),
+  ...(config.entrypoint ? { entrypoint: config.entrypoint } : {}),
   envs,
   labels,
   ports,

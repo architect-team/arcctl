@@ -132,7 +132,7 @@ const deployment = new docker.Container("deployment", {
   name: config.name,
   image: config.image,
   ...(config.command ? { command: config.command } : {}),
-  ...(config.entrypoint ? { entrypoint: config.entrypoint } : {}),
+  ...(config.entrypoint ? { entrypoints: config.entrypoint } : {}),
   envs,
   labels,
   ports,

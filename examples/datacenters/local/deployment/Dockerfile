@@ -8,10 +8,6 @@ RUN wget https://get.pulumi.com/releases/sdk/pulumi-v3.98.0-linux-x64.tar.gz && 
   mkdir -p /app/.pulumi/bin && \
   cp /tmp/pulumi/pulumi/* /app/.pulumi/bin/
 
-RUN wget https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64 && \
-  mv jq-linux-amd64 /usr/local/bin/jq && \
-  chmod +x /usr/local/bin/jq
-
 ENV PATH=$PATH:/app/.pulumi/bin/
 
 WORKDIR /app

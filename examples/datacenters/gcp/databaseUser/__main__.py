@@ -10,9 +10,15 @@ if (inputs == None):
 
 config = json.loads(inputs)
 
+provider = gcp.Provider("provider", 
+                        project=config["project"],
+                        region=config["region"], 
+                        credentials=config["credentials"])
+
 project_service = gcp.projects.Service("database-service",
                                disable_on_destroy=False,
-                               service="sqladmin.googleapis.com")
+                               service="sqladmin.googleapis.com",
+                               opts=pulumi.ResourceOptions(provider=provider))
 
 password = uuid.uuid4()
 
@@ -21,7 +27,7 @@ sql_user = gcp.sql.User("user",
                         instance=config["cluster_id"],
                         password=password.hex, 
                         deletion_policy="ABANDON", 
-                        opts=pulumi.ResourceOptions(depends_on=[project_service]))
+                        opts=pulumi.ResourceOptions(provider=provider,depends_on=[project_service]))
 
 pulumi.export("id", sql_user.name)
 pulumi.export("username", sql_user.name)

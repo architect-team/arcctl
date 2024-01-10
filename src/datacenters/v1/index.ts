@@ -87,6 +87,11 @@ type Module = {
    * @example "24*60*60"
    */
   ttl?: string;
+
+  /**
+   * Other modules this one depends on
+   */
+  depends_on?: string[];
 };
 
 type ModuleDictionary = {
@@ -324,20 +329,34 @@ export default class DatacenterV1 extends Datacenter {
         throw new Error(`Module ${name} must contain a build or source field.`);
       }
 
-      scopedGraph.insertNodes(
-        new InfraGraphNode({
-          image: module.image,
-          inputs: module.inputs,
-          component: options.component,
-          appNodeId: options.appNodeId,
-          volumes: module.volume,
-          environment_vars: module.environment,
-          name: name,
-          action: 'create',
-          // TODO: Why is module.ttl parsed as a string?
-          ttl: module.ttl ? parseInt(module.ttl) : undefined,
-        }),
-      );
+      const node = new InfraGraphNode({
+        image: module.image,
+        inputs: module.inputs,
+        component: options.component,
+        appNodeId: options.appNodeId,
+        volumes: module.volume,
+        environment_vars: module.environment,
+        name: name,
+        action: 'create',
+        // TODO: Why is module.ttl parsed as a string?
+        ttl: module.ttl ? parseInt(module.ttl) : undefined,
+      });
+
+      scopedGraph.insertNodes(node);
+
+      for (const depends_on of module.depends_on || []) {
+        const dep = [...scopedGraph.nodes, ...infraGraph.nodes].find((n) => n.name === depends_on);
+        if (!dep) {
+          throw new Error(`${node.getId()} depends on ${depends_on} but it cannot be found`);
+        }
+
+        scopedGraph.insertEdges(
+          new GraphEdge({
+            from: node.getId(),
+            to: dep.getId(),
+          }),
+        );
+      }
     });
 
     // Extract module edges and replace references with GraphNode references

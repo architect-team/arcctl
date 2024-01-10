@@ -27,6 +27,13 @@
                               ],
                               "type": "string"
                             },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "environment": {
                               "additionalProperties": {
                                 "type": "string"
@@ -161,6 +168,13 @@
                                 "./my-module/module.yml"
                               ],
                               "type": "string"
+                            },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
                             },
                             "environment": {
                               "additionalProperties": {
@@ -364,6 +378,13 @@
                               ],
                               "type": "string"
                             },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "environment": {
                               "additionalProperties": {
                                 "type": "string"
@@ -566,6 +587,13 @@
                               ],
                               "type": "string"
                             },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "environment": {
                               "additionalProperties": {
                                 "type": "string"
@@ -715,6 +743,13 @@
                               ],
                               "type": "string"
                             },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "environment": {
                               "additionalProperties": {
                                 "type": "string"
@@ -861,6 +896,13 @@
                                 "./my-module/module.yml"
                               ],
                               "type": "string"
+                            },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
                             },
                             "environment": {
                               "additionalProperties": {
@@ -1070,6 +1112,13 @@
                         ],
                         "type": "string"
                       },
+                      "depends_on": {
+                        "description": "Other modules this one depends on",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "environment": {
                         "additionalProperties": {
                           "type": "string"
@@ -1177,6 +1226,13 @@
                                 "./my-module/module.yml"
                               ],
                               "type": "string"
+                            },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
                             },
                             "environment": {
                               "additionalProperties": {
@@ -1324,6 +1380,13 @@
                                 "./my-module/module.yml"
                               ],
                               "type": "string"
+                            },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
                             },
                             "environment": {
                               "additionalProperties": {
@@ -1518,6 +1581,13 @@
                               ],
                               "type": "string"
                             },
+                            "depends_on": {
+                              "description": "Other modules this one depends on",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
                             "environment": {
                               "additionalProperties": {
                                 "type": "string"
@@ -1665,6 +1735,13 @@
                     "./my-module/module.yml"
                   ],
                   "type": "string"
+                },
+                "depends_on": {
+                  "description": "Other modules this one depends on",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
                 },
                 "environment": {
                   "additionalProperties": {

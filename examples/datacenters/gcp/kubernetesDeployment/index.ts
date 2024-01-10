@@ -59,7 +59,11 @@ const deployment = new kubernetes.apps.v1.Deployment("deployment", {
         containers: [{
           name: 'main',
           image: config.image,
-          command: config.command && typeof config.command === 'string' ? [config.command] : config.command,
+          command: config.command && typeof config.command === 'string'
+            ? [config.command]
+            : config.command && typeof config.command === 'object'
+              ? config.command
+              : undefined,
           env: Object
             .entries(config.environment || {})
             .map(([name, value]) => ({ name, value }) as { name: string; value: string; }),

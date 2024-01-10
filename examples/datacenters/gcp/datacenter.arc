@@ -9,7 +9,7 @@ variable "gcp_project" {
 }
 
 variable "gcp_region" {
-description = "GCP region in which to create resources"
+  description = "GCP region in which to create resources"
   type = "string"
 }
 
@@ -20,26 +20,39 @@ variable "dns_zone" {
 
 module "vpc" {
   build = "./vpc"
+
+  volume {
+    mount_path = "/credentials.json"
+    host_path = var.gcp_credentials_file
+  }
+
   inputs = {
     name = datacenter.name
-
-    "gcp:region" = var.gcp_region
-    "gcp:project" = var.gcp_project
-    "gcp:credentials" = "file:${var.gcp_credentials_file}"
+    region = var.gcp_region
+    project = var.gcp_project
+    credentials = "/credentials.json"
   }
 }
 
 module "kubernetesCluster" {
   build = "./kubernetesCluster"
+
+  volume {
+    mount_path = "/credentials.json"
+    host_path = var.gcp_credentials_file
+  }
+
   inputs = {
     name = datacenter.name
-
-    "gcp:region" = var.gcp_region
-    "gcp:project" = var.gcp_project
-    "gcp:credentials" = "file:${var.gcp_credentials_file}"
-
-    "kubernetes:nodePools": "[{\"count\":1,\"name\":\"test-pool\",\"nodeSize\":\"e2-small\"}]"
-    "kubernetes:vpc" = module.vpc.name
+    region = var.gcp_region
+    project = var.gcp_project
+    credentials = "/credentials.json"
+    nodePools = [{
+      "count": 1,
+      "name": "test-pool",
+      "nodeSize": "e2-small"
+    }]
+    vpc = module.vpc.name
   }
 }
 
@@ -55,6 +68,12 @@ environment {
   module "databaseCluster" {
     when = contains(environment.nodes.*.type, "database") && contains(environment.nodes.*.inputs.databaseType, "postgres")
     build = "./databaseCluster"
+
+    volume {
+      mount_path = "/credentials.json"
+      host_path = var.gcp_credentials_file
+    }
+
     inputs = {
       name = "${datacenter.name}-database"
       databaseType = "pg"
@@ -62,10 +81,9 @@ environment {
       databasePort = 5432
       region = variable.gcp_region
       vpcId = module.vpc.id
-
-      "gcp:region" = var.gcp_region
-      "gcp:project" = var.gcp_project
-      "gcp:credentials" = "file:${var.gcp_credentials_file}"
+      region = var.gcp_region
+      project = var.gcp_project
+      credentials = "/credentials.json"
     }
   }
 
@@ -76,7 +94,7 @@ environment {
       kubeconfig = module.kubernetesCluster.kubeconfig
       chart = "ingress-nginx"
       repo = "https://kubernetes.github.io/ingress-nginx"
-      namespace = "kube-system"
+      namespace = module.namespace.id
       values = {
         controller = {
           ingressClass = "nginx"
@@ -108,12 +126,18 @@ environment {
 
     module "database" {
       build = "./database"
+
+      volume {
+        mount_path = "/credentials.json"
+        host_path = var.gcp_credentials_file
+      }
+
       inputs = {
         cluster_id = module.databaseCluster.id
         name = node.inputs.name
-        "gcp:region" = var.gcp_region
-        "gcp:project" = var.gcp_project
-        "gcp:credentials" = "file:${var.gcp_credentials_file}"
+        region = var.gcp_region
+        project = var.gcp_project
+        credentials = "/credentials.json"
       }
     }
 
@@ -131,13 +155,18 @@ environment {
   databaseUser {
     module "databaseUser" {
       build = "./databaseUser"
+
+      volume {
+        mount_path = "/credentials.json"
+        host_path = var.gcp_credentials_file
+      }
+
       inputs = {
         cluster_id = module.databaseCluster.id
         name = node.inputs.name
-
-        "gcp:region" = var.gcp_region
-        "gcp:project" = var.gcp_project
-        "gcp:credentials" = "file:${var.gcp_credentials_file}"
+        region = var.gcp_region
+        project = var.gcp_project
+        credentials = "/credentials.json"
       }
 
       # TTL of 1 day
@@ -158,6 +187,7 @@ environment {
   ingress {
     module "ingressRule" {
       build = "./kubernetesIngress"
+      depends_on = ["nginxController"]
       inputs = merge(node.inputs, {
         name = "${node.component}--${node.name}"
         namespace = module.namespace.id
@@ -169,15 +199,20 @@ environment {
 
     module "dnsRecord" {
       build = "./dnsRecord"
+
+      volume {
+        mount_path = "/credentials.json"
+        host_path = var.gcp_credentials_file
+      }
+
       inputs = {
         domain = variable.dns_zone
         type = "A"
         value = module.ingressRule.load_balancer_ip
         subdomain = node.inputs.subdomain
-
-        "gcp:region" = var.gcp_region
-        "gcp:project" = var.gcp_project
-        "gcp:credentials" = "file:${var.gcp_credentials_file}"
+        region = var.gcp_region
+        project = var.gcp_project
+        credentials = "/credentials.json"
       }
     }
 

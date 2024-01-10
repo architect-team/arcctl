@@ -1,5 +1,4 @@
 import * as gcp from "@pulumi/gcp";
-import * as pulumi from "@pulumi/pulumi";
 import { randomUUID } from 'crypto';
 
 const inputs = process.env.INPUTS;
@@ -9,6 +8,9 @@ if (!inputs) {
 
 type Config = {
   name: string;
+  region: string;
+  project: string;
+  credentials: string;
   databasePort: number;
   databaseVersion: string;
   databaseSize?: string;
@@ -17,11 +19,16 @@ type Config = {
 
 const config: Config = JSON.parse(inputs);
 
-const gcpConfig = new pulumi.Config('gcp');
+const provider = new gcp.Provider('gcp-provider', {
+  credentials: config.credentials,
+  project: config.project,
+  region: config.region,
+});
+
 const _port = config.databasePort;
 
 const databaseInstance = new gcp.sql.DatabaseInstance(config.name, {
-  region: gcpConfig.require('region'),
+  region: config.region,
   name: config.name,
   databaseVersion: config.databaseVersion,
   rootPassword: randomUUID(),
@@ -33,7 +40,7 @@ const databaseInstance = new gcp.sql.DatabaseInstance(config.name, {
     },
   },
   deletionProtection: false
-});
+}, { provider });
 
 export const id = databaseInstance.id;
 export const private_host = databaseInstance.privateIpAddress;

@@ -1,6 +1,5 @@
 import * as gcp from "@pulumi/gcp";
 import * as kubernetes from '@pulumi/kubernetes';
-import * as pulumi from "@pulumi/pulumi";
 
 const inputs = process.env.INPUTS;
 if (!inputs) {
@@ -9,6 +8,9 @@ if (!inputs) {
 
 type Config = {
   name: string;
+  region: string;
+  project: string;
+  credentials: string;
   vpc: string;
   kubeconfig?: string;
   description?: string;
@@ -21,23 +23,27 @@ type Config = {
 
 const config: Config = JSON.parse(inputs);
 
-const gcpConfig = new pulumi.Config('gcp');
+const provider = new gcp.Provider('provider', {
+  region: config.region,
+  project: config.project,
+  credentials: config.credentials,
+});
 
 const _computeProjectService = new gcp.projects.Service('cluster-compute-service', {
   service: 'compute.googleapis.com',
   disableOnDestroy: false,
-});
+}, { provider });
 
 const _clusterProjectService = new gcp.projects.Service('cluster-container-service', {
   service: 'container.googleapis.com',
   disableOnDestroy: false,
-});
+}, { provider });
 
 const cluster = new gcp.container.Cluster('cluster', {
   name: config.name,
   description: config.description,
   initialNodeCount: 1,
-  location: gcpConfig.require('region'),
+  location: config.region,
   masterAuth: {
     clientCertificateConfig: {
       issueClientCertificate: true
@@ -51,6 +57,7 @@ const cluster = new gcp.container.Cluster('cluster', {
   network: config.vpc,
   removeDefaultNodePool: true
 }, {
+  provider,
   dependsOn: [_computeProjectService, _clusterProjectService]
 });
 
@@ -59,19 +66,19 @@ for (const nodePool of config.nodePools) {
   nodePools.push(new gcp.container.NodePool(nodePool.name, {
     cluster: cluster.name,
     name: nodePool.name,
-    location: gcpConfig.require('region'),
+    location: config.region,
     initialNodeCount: nodePool.count,
     nodeConfig: {
       machineType: nodePool.nodeSize,
       oauthScopes: ['https://www.googleapis.com/auth/cloud-platform']
     }
-  }));
+  }, { provider }));
 }
 
-const clientConfig = await gcp.organizations.getClientConfig({});
-const intermediateKubeconfig = cluster.name.apply(clusterName =>
-  cluster.endpoint.apply(clusterEndpoint =>
-    cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate =>
+const clientConfig = await gcp.organizations.getClientConfig({ provider });
+const intermediateKubeconfig = cluster.name.apply((clusterName: string) =>
+  cluster.endpoint.apply((clusterEndpoint: string) =>
+    cluster.masterAuth.clusterCaCertificate.apply((clusterCaCertificate: string) =>
       `
 apiVersion: v1
 clusters:
@@ -108,7 +115,7 @@ const serviceAccount = new kubernetes.core.v1.ServiceAccount('service_account', 
   provider: kubernetesProvider,
 });
 
-const clusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding('cluster_role_binding', {
+new kubernetes.rbac.v1.ClusterRoleBinding('cluster_role_binding', {
   roleRef: {
     apiGroup: 'rbac.authorization.k8s.io',
     kind: 'ClusterRole',
@@ -140,9 +147,9 @@ export const name = cluster.name;
 export const vpc = cluster.network;
 export const kubernetesVersion = cluster.masterVersion;
 export const description = cluster.description;
-export const kubeconfig = cluster.name.apply(clusterName =>
-  cluster.endpoint.apply(clusterEndpoint =>
-    cluster.masterAuth.clusterCaCertificate.apply(clusterCaCertificate =>
+export const kubeconfig = cluster.name.apply((clusterName: string) =>
+  cluster.endpoint.apply((clusterEndpoint: string) =>
+    cluster.masterAuth.clusterCaCertificate.apply((clusterCaCertificate: string) =>
       serviceAccountSecret.data.apply(serviceAccountToken =>
       `
 apiVersion: v1

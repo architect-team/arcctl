@@ -6,6 +6,7 @@ if (!inputs) {
 }
 
 type Config = {
+  id?: string;
   repo?: string;
   kubeconfig: string;
   chart: string;
@@ -32,3 +33,5 @@ new kubernetes.helm.v3.Chart('chart', {
   fetchOpts,
   values: config.values,
 }, { provider });
+
+export const id = config.id;

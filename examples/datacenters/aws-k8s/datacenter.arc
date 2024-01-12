@@ -26,7 +26,6 @@ variable "dns_zone" {
 
 module "vpc" {
   build  = "./vpc"
-  plugin = "opentofu"
   inputs = {
     access_key = variable.access_key
     secret_key = variable.secret_key
@@ -37,13 +36,12 @@ module "vpc" {
 
 module "eksCluster" {
   build = "./eks"
-  plugin = "opentofu"
   inputs = {
     access_key = variable.access_key
     secret_key = variable.secret_key
-    region  = variable.region
-    vpc_id   = module.vpc.id
-    name    = "${datacenter.name}-cluster"
+    region     = variable.region
+    vpc_id     = module.vpc.id
+    name       = "${datacenter.name}-cluster"
   }
 }
 
@@ -58,8 +56,7 @@ module "loadBalancer" {
     }
     accountId = variable.account_id
     name = "${datacenter.name}-lb-controller"
-    clusterName = "${datacenter.name}-cluster"
-    kubeconfig = module.eksCluster.kubeconfig
+    clusterName = module.eksCluster.cluster_name
   }
 }
 
@@ -75,7 +72,6 @@ environment {
   module "postgresCluster" {
     when = contains(environment.nodes.*.type, "database") && contains(environment.nodes.*.inputs.databaseType, "postgres")
     build = "./databaseCluster"
-    plugin = "opentofu"
     inputs = {
       access_key = variable.access_key
       secret_key = variable.secret_key
@@ -110,7 +106,6 @@ environment {
 
     module "database" {
       build = "./database"
-      plugin = "opentofu"
       inputs = {
         host = module.postgresCluster.host
         port = module.postgresCluster.port
@@ -134,7 +129,6 @@ environment {
   databaseUser {
     module "databaseUser" {
       build = "./databaseUser"
-      plugin = "opentofu"
       inputs = merge(node.inputs, {
         host = module.postgresCluster.host
         port = module.postgresCluster.port
@@ -199,7 +193,6 @@ environment {
 
     module "dnsRecord" {
       build = "./dns-record"
-      plugin = "opentofu"
       environment = {
         DIGITALOCEAN_TOKEN = variable.do_token
       }

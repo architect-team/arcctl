@@ -1,57 +1,73 @@
 import { local } from "@pulumi/command";
 import * as kubernetes from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
-const name = config.require("name");
-const clusterName = config.require("clusterName");
-const accountId = config.require("accountId")
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
 
-const awsConfig = config.requireObject("aws") as {
-  accessKey: string,
-  secretKey: string,
-  region: string
-};
+type Config = {
+  name: string;
+  namespace?: string;
+  clusterName: string;
+  accountId: string;
+  aws: {
+    accessKey: string;
+    secretKey: string;
+    region: string;
+  };
+}
+
+const config: Config = JSON.parse(inputs);
+
 const saName = 'aws-load-balancer-controller';
 
 // Create this policy for the AWS Load Balancer if it doesn't already exist
 const iam_policy = new local.Command("iam_policy", {
   create: "aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json || true",
   environment: {
-    "AWS_ACCESS_KEY_ID": awsConfig.accessKey,
-    "AWS_SECRET_ACCESS_KEY": awsConfig.secretKey,
-    "AWS_DEFAULT_REGION": awsConfig.region,
+    "AWS_ACCESS_KEY_ID": config.aws.accessKey,
+    "AWS_SECRET_ACCESS_KEY": config.aws.secretKey,
+    "AWS_DEFAULT_REGION": config.aws.region,
   }
 });
 
 const iam_service_account = new local.Command("iam_service_acct", {
-  create: `eksctl create iamserviceaccount --cluster=${clusterName} \
+  create: `eksctl create iamserviceaccount --cluster=${config.clusterName} \
     --namespace=kube-system --name=${saName} \
-    --attach-policy-arn=arn:aws:iam::${accountId}:policy/AWSLoadBalancerControllerIAMPolicy \
+    --attach-policy-arn=arn:aws:iam::${config.accountId}:policy/AWSLoadBalancerControllerIAMPolicy \
     --approve || true`,
-  delete: `eksctl delete iamserviceaccount --cluster=${clusterName} --namespace=kube-system --name=${saName}`,
+  delete: `eksctl delete iamserviceaccount --cluster=${config.clusterName} --namespace=kube-system --name=${saName}`,
   environment: {
-    "AWS_ACCESS_KEY_ID": awsConfig.accessKey,
-    "AWS_SECRET_ACCESS_KEY": awsConfig.secretKey,
-    "AWS_DEFAULT_REGION": awsConfig.region,
+    "AWS_ACCESS_KEY_ID": config.aws.accessKey,
+    "AWS_SECRET_ACCESS_KEY": config.aws.secretKey,
+    "AWS_DEFAULT_REGION": config.aws.region,
   }
-}, { dependsOn: iam_policy})
+}, { dependsOn: iam_policy })
 
+new local.Command('cluster_config', {
+  create: `eksctl utils write-kubeconfig --cluster=${config.clusterName} --region=${config.aws.region} && cat /root/.kube/config`,
+  environment: {
+    "AWS_ACCESS_KEY_ID": config.aws.accessKey,
+    "AWS_SECRET_ACCESS_KEY": config.aws.secretKey,
+    "AWS_DEFAULT_REGION": config.aws.region,
+  },
+})
 
 const provider = new kubernetes.Provider("provider", {
-  kubeconfig: config.require("kubeconfig"),
+  kubeconfig: '/root/.kube/config',
 });
 
 const controller = new kubernetes.helm.v3.Release("aws-lb-controller", {
-  name,
-  namespace: 'kube-system',
+  name: config.name,
+  namespace: config.namespace,
   chart: 'aws-load-balancer-controller',
-  version: '1.6.1',
+  version: '1.6.2',
   repositoryOpts: {
     repo: "https://aws.github.io/eks-charts",
   },
   values: {
-    clusterName,
+    clusterName: config.clusterName,
     serviceAccount: {
       create: false,
       name: saName
@@ -59,4 +75,4 @@ const controller = new kubernetes.helm.v3.Release("aws-lb-controller", {
   },
 }, { provider, dependsOn: iam_service_account });
 
-export const id = controller.id.apply(id => id.toString());
+export const id = controller.id.apply((id: string) => id.toString());

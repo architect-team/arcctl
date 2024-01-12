@@ -4,10 +4,9 @@ COPY . .
 
 # Install the aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-    && apt-get install zip -y \
+    && apt-get install zip unzip -y \
     && unzip -u awscliv2.zip \
-    && ./aws/install \
-    && aws --version
+    && ./aws/install
 
 # Install eksctl to install IAM policy and service account
 RUN curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" \
@@ -16,3 +15,5 @@ RUN curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksc
     && eksctl version
 
 RUN npm install
+
+ENV PULUMI_CONFIG_PASSPHRASE="passphrase"

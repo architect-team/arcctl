@@ -1,0 +1,7 @@
+init: pulumi login --local && pulumi stack init module --non-interactive
+plan: pulumi preview --stack module --non-interactive
+import: pulumi stack import --stack module --file $STATE_FILE --non-interactive
+export: pulumi stack export --stack module --file $STATE_FILE --non-interactive
+outputs: pulumi stack output --stack module --json --show-secrets --non-interactive > $OUTPUT_FILE
+apply: pulumi up --stack module --non-interactive --yes
+destroy: pulumi destroy --stack module --non-interactive --yes

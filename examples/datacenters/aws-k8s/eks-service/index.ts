@@ -1,20 +1,34 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  namespace: string;
+  kubeconfig: string;
+  external_name?: string;
+  port: number;
+  labels?: Record<string, string>;
+  deployment: string;
+}
+
+const config: Config = JSON.parse(inputs);
 
 const provider = new kubernetes.Provider("provider", {
-  kubeconfig: config.require("kubeconfig"),
+  kubeconfig: config.kubeconfig,
 });
-const name = config.require('name').replace(/\//g, '-');
+const name = config.name.replace(/\//g, '-');
 
-const external_name = config.get('external_name');
-const targetPort = config.requireNumber('port');
+const external_name = config.external_name;
+const targetPort = config.port;
 const service = new kubernetes.core.v1.Service('service', {
   metadata: {
     name,
-    namespace: config.require('namespace'),
-    labels: config.getObject<Record<string, string>>('labels'),
+    namespace: config.namespace,
+    labels: config.labels,
     annotations: {
       "pulumi.com/skipAwait": "true"
     },
@@ -25,7 +39,7 @@ const service = new kubernetes.core.v1.Service('service', {
   } : {
     type: 'NodePort',
     selector: {
-      'architect.io/app': config.require('deployment').replace(/\//g, '--'),
+      'architect.io/app': config.deployment.replace(/\//g, '--'),
     },
     ports: [
       {

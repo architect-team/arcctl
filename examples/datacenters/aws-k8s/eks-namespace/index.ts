@@ -1,19 +1,27 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
 
-const name = config.require("name");
+type Config = {
+  name: string;
+  kubeconfig: string;
+}
+
+const config: Config = JSON.parse(inputs);
+
 const provider = new kubernetes.Provider("provider", {
-  kubeconfig: config.require("kubeconfig"),
+  kubeconfig: config.kubeconfig,
 });
 
-const namespace = new kubernetes.core.v1.Namespace("namespace", {
+new kubernetes.core.v1.Namespace("namespace", {
   metadata: {
-    name,
+    name: config.name,
   },
 }, {
   provider
 });
 
-export const id = name;
+export const id = config.name;

@@ -1,61 +1,73 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
+
+type Config = {
+  name: string;
+  namespace: string;
+  image: string;
+  kubeconfig: string;
+  labels?: Record<string, string>;
+  cpu?: number;
+  memory?: string;
+  replicas?: number;
+  command?: string[];
+  environment?: Record<string, string>;
+}
+
+const config: Config = JSON.parse(inputs);
 
 const provider = new kubernetes.Provider("provider", {
-  kubeconfig: config.require("kubeconfig"),
+  kubeconfig: config.kubeconfig,
 });
 
-const name = config.require('name').replace(/\//g, '-');
+const name = config.name.replace(/\//g, '-');
 
 const matchLabels = {
   'architect.io/app': name,
 };
 
-let _labels = (config.getObject('labels') || {}) as Record<string, string>;
+let _labels = (config.labels || {}) as Record<string, string>;
 _labels = {
   ..._labels,
   ...matchLabels,
 }
 
-const cpu = config.getNumber('cpu');
-const memory = config.get('memory');
-
-// const environmentConfig = new pulumi.Config("environment");
-
 const deployment = new kubernetes.apps.v1.Deployment("deployment", {
   metadata: {
     name,
-    namespace: config.require('namespace'),
+    namespace: config.namespace,
     labels: _labels,
   },
   spec: {
-    replicas: config.getNumber('replicas') ?? 1,
+    replicas: config.replicas ?? 1,
     selector: {
       matchLabels: matchLabels,
     },
     template: {
       metadata: {
-        namespace: config.require('namespace'),
+        namespace: config.namespace,
         labels: matchLabels
       },
       spec: {
         containers: [{
           name: 'main',
-          image: config.require('image'),
-          command: config.getObject('command') || [],
+          image: config.image,
+          command: config.command ?? [],
           env: Object
-            .entries(config.getObject('environment') || {})
+            .entries(config.environment || {})
             .map(([name, value]) => ({ name, value }) as { name: string; value: string; }),
           resources: {
             requests: {
-              ...(cpu ? { cpu: String(cpu) } : {}),
-              ...(memory ? { memory } : {}),
+              ...(config.cpu ? { cpu: String(config.cpu) } : {}),
+              ...(config.memory ? { memory: config.memory } : {}),
             },
             limits: {
-              ...(cpu ? { cpu: String(cpu) } : {}),
-              ...(memory ? { memory } : {}),
+              ...(config.cpu ? { cpu: String(config.cpu) } : {}),
+              ...(config.memory ? { memory: config.memory } : {}),
             },
           },
         }],

@@ -1,35 +1,50 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
-const service = config.requireObject('service') as {
-  host: string,
-  port: string,
-  protocol: string
-};
+const inputs = process.env.INPUTS;
+if (!inputs) {
+  throw new Error('Missing configuration. Please provide it via the INPUTS environment variable.');
+}
 
-const namespace = config.require("namespace");
+type Config = {
+  name: string;
+  namespace: string;
+  kubeconfig: string;
+  component_name: string;
+  internal: boolean;
+  path?: string;
+  subdomain?: string;
+  dns_zone?: string;
+  username?: string;
+  password?: string;
+  service: {
+    host: string;
+    port: string;
+    protocol: string;
+  };
+}
+
+const config: Config = JSON.parse(inputs);
 
 const provider = new kubernetes.Provider("provider", {
-  kubeconfig: config.require("kubeconfig"),
+  kubeconfig: config.kubeconfig,
 });
 
 const hostParts: string[] = [];
 
-const subdomain = config.get('subdomain');
+const subdomain = config.subdomain;
 if (subdomain) {
   hostParts.push(subdomain);
 }
 
-const dns_zone = config.get('dns_zone');
+const dns_zone = config.dns_zone;
 if (dns_zone) {
   hostParts.push(dns_zone);
 }
 
-const name = config.require('name').replace(/\//g, '-');
-const componentName = config.require('component_name').replace(/\//g, '-');
-const is_internal = config.requireBoolean('internal');
-let loadbalancerName = namespace;
+const name = config.name.replace(/\//g, '-');
+const componentName = config.component_name.replace(/\//g, '-');
+const is_internal = config.internal;
+let loadbalancerName = config.namespace;
 if (is_internal) {
   loadbalancerName += '-internal';
 }
@@ -37,7 +52,7 @@ if (is_internal) {
 const ingress = new kubernetes.networking.v1.Ingress("ingress", {
   metadata: {
     name: `${componentName}--${name}`,
-    namespace,
+    namespace: config.namespace,
     annotations: {
       'kubernetes.io/ingress.class': 'alb',
       'alb.ingress.kubernetes.io/load-balancer-name': loadbalancerName,
@@ -55,12 +70,12 @@ const ingress = new kubernetes.networking.v1.Ingress("ingress", {
           paths: [
             {
               pathType: 'Prefix',
-              path: config.get('path') ?? '/',
+              path: config.path ?? '/',
               backend: {
                 service: {
-                  name: service.host,
+                  name: config.service.host,
                   port: {
-                    number: parseInt(service.port),
+                    number: parseInt(config.service.port),
                   }
                 }
               }
@@ -72,13 +87,13 @@ const ingress = new kubernetes.networking.v1.Ingress("ingress", {
   }
 }, { provider });
 
-export const id = ingress.id.apply(id => id.toString());
-export const protocol = service.protocol || 'http';
+export const id = ingress.id.apply((id: any) => id.toString());
+export const protocol = config.service.protocol || 'http';
 export const host = hostParts.join('.');
 export const port = 80;
-export const username = config.get('username');
-export const password = config.get('password');
-export const path = config.get('path') ?? '/';
+export const username = config.username;
+export const password = config.password;
+export const path = config.path ?? '/';
 
 let _url = `${protocol}://`;
 if (username || password) {
@@ -93,5 +108,5 @@ if (path !== '/') {
 }
 
 export const url = _url;
-export const lb_address = ingress.status.loadBalancer.ingress[0].hostname.apply(hostname => hostname.toString());
-export const alb_name = namespace;
+export const lb_address = ingress.status.loadBalancer.ingress[0].hostname.apply((hostname: any) => hostname.toString());
+export const alb_name = config.namespace;

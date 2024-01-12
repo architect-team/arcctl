@@ -92,22 +92,6 @@ output "kubernetesVersion" {
   value = module.eks.cluster_version
 }
 
-locals {
-  kubeconfig = templatefile("kubeconfig.tpl", {
-    kubeconfig_name                   = var.name
-    endpoint                          = data.aws_eks_cluster.eks_cluster.endpoint
-    cluster_auth_base64               = data.aws_eks_cluster.eks_cluster.certificate_authority[0].data
-    aws_authenticator_command         = "aws"
-    aws_authenticator_command_args    = ["eks", "get-token", "--cluster-name", var.name]
-    aws_authenticator_additional_args = []
-    aws_authenticator_env_variables = {
-      AWS_ACCESS_KEY_ID     = var.access_key
-      AWS_SECRET_ACCESS_KEY = var.secret_key
-      AWS_DEFAULT_REGION    = var.region
-    }
-  })
-}
-
-output "kubeconfig" {
-  value = local.kubeconfig
+output "cluster_name" {
+  value = module.eks.cluster_name
 }

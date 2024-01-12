@@ -1,0 +1,5 @@
+init: terraform init
+plan: terraform plan -input=false -state=$STATE_FILE -detailed-exitcode
+outputs: terraform output -state=$STATE_FILE -json | jq 'map_values(.value)'  > $OUTPUT_FILE
+apply: VARS=$(echo $INPUTS | jq -r "to_entries | map(\"-var \" + .key + \"=\" + (.value | tostring)) | join(\" \")") && terraform apply -state=$STATE_FILE -auto-approve $VARS
+destroy: VARS=$(echo $INPUTS | jq -r "to_entries | map(\"-var \" + .key + \"=\" + (.value | tostring)) | join(\" \")") && terraform destroy -state=$STATE_FILE -auto-approve $VARS
